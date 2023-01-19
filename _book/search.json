@@ -1,0 +1,240 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Inference For Data Science",
+    "section": "",
+    "text": "Preface\n\nWho I am. I am Saul Diaz Infante Velasco. I just starting as assistant professor at the Data Science graduate program of Universidad de Sonora at Hermosillo Mexico. My Background is related with numerical analysis and stochastic models. I’m are a enthusiastic of this treading topic called Data-Science, but perhaps at the moment I only have just intuition about what really it is. However, I have been programming almost 20 years an moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, C++ to the new well established treading development workflows like R, Python and Julia. This is my firs attempt in R.\nWhat the book is about.\nWhen I writing this book.\nWhy I write this book.\nWhere I wrote this book."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "2 Introduction\nThe focus of this course is int the programming and basic techniques for inference that are usually applied in data science. We start by reviewing and enforcing programming skills. Then we will use the database of entomological data practice and build the required bases for more structured tools like bootstrap or Jackknife cuts.\nFigure 2.1 further explores the impact of temperature on ozone level."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
+  },
+  {
+    "objectID": "index.html#data-visualizations",
+    "href": "index.html#data-visualizations",
+    "title": "atomic R data objects",
+    "section": "Data Visualizations",
+    "text": "Data Visualizations"
+  },
+  {
+    "objectID": "index.html#the-tidyverse",
+    "href": "index.html#the-tidyverse",
+    "title": "atomic R data objects",
+    "section": "The tidyverse",
+    "text": "The tidyverse\nWe need to install a R package. The majority of the packages that we will use are part of the so-called tidyverse package. The packages in the tidyverse share a common philosophy of data and R programming, and are designed to work together naturally.\nYou can install the complete tidyverse with the line of code:\n\n\nCode\n  install.packages(\"tidyverse\")\n\n\nInstalling tidyverse [1.3.2] ...\n    OK [linked cache]\n\n\nthen we can use it by loading in the preamble section with\n\n\nCode\n  library(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.5.0 \n✔ readr   2.1.3      ✔ forcats 0.5.2 \n✔ purrr   1.0.1      \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nsee https://www.tidyverse.org/ documentation."
+  },
+  {
+    "objectID": "index.html#context-of-better-practice",
+    "href": "index.html#context-of-better-practice",
+    "title": "best_coding_practices",
+    "section": "Context of better practice",
+    "text": "Context of better practice\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/"
+  },
+  {
+    "objectID": "index.html#folder-structure",
+    "href": "index.html#folder-structure",
+    "title": "atomic R data objects",
+    "section": "Folder Structure",
+    "text": "Folder Structure"
+  },
+  {
+    "objectID": "index.html#code-structure",
+    "href": "index.html#code-structure",
+    "title": "atomic R data objects",
+    "section": "Code Structure",
+    "text": "Code Structure\n\nSections\n\n\nStructural Composition\n\n\nIdentation\n\n\nStyling\n\n\nFinal Comments"
+  },
+  {
+    "objectID": "index.html#what-we-mean-wiht-a-better-practice",
+    "href": "index.html#what-we-mean-wiht-a-better-practice",
+    "title": "Statistical Inference For Data Science",
+    "section": "What we mean wiht a better practice",
+    "text": "What we mean wiht a better practice\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/"
+  },
+  {
+    "objectID": "index.html#what-we-mean-when-say-better-coding-practice",
+    "href": "index.html#what-we-mean-when-say-better-coding-practice",
+    "title": "atomic R data objects",
+    "section": "What we mean when say “better coding practice”",
+    "text": "What we mean when say “better coding practice”\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html",
+    "href": "r_fundamentals_for_data_science.html",
+    "title": "atomic R data objects",
+    "section": "",
+    "text": "3 Nuts and bolts: Data types"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
+    "href": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
+    "title": "atomic R data objects",
+    "section": "3.1 Entering Input: the assigment operator",
+    "text": "3.1 Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\nCode\n  x <- 0\n  print(x)\n\n\n[1] 0\n\n\nCode\n  x\n\n\n[1] 0\n\n\nCode\n  msg <- \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
+  },
+  {
+    "objectID": "index.html#entering-input-the-assigment-operator",
+    "href": "index.html#entering-input-the-assigment-operator",
+    "title": "atomic R data objects",
+    "section": "Entering Input: the assigment operator",
+    "text": "Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\nCode\n  x <- 0\n  print(x)\n\n\n[1] 0\n\n\nCode\n  x\n\n\n[1] 0\n\n\nCode\n  msg <- \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
+  },
+  {
+    "objectID": "intro.html#the-tidyverse",
+    "href": "intro.html#the-tidyverse",
+    "title": "1  Introduction",
+    "section": "1.1 The tidyverse",
+    "text": "1.1 The tidyverse\nWe need to install a R package. The majority of the packages that we will use are part of the so-called tidyverse package. The packages in the tidyverse share a common philosophy of data and R programming, and are designed to work together naturally.\nYou can install the complete tidyverse with the line of code:\n\n\nCode\n  install.packages(\"tidyverse\")\n\n\nInstalling tidyverse [1.3.2] ...\n    OK [linked cache]\n\n\nthen we can use it by loading in the preamble section with\n\n\nCode\n  library(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.5.0 \n✔ readr   2.1.3      ✔ forcats 0.5.2 \n✔ purrr   1.0.1      \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nsee https://www.tidyverse.org/ documentation."
+  },
+  {
+    "objectID": "index.html#nuts-and-bolts-data-types",
+    "href": "index.html#nuts-and-bolts-data-types",
+    "title": "atomic R data objects",
+    "section": "Nuts and bolts: Data types",
+    "text": "Nuts and bolts: Data types\n\nEntering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\nCode\n  x <- 0\n  print(x)\n\n\n[1] 0\n\n\nCode\n  x\n\n\n[1] 0\n\n\nCode\n  msg <- \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
+  },
+  {
+    "objectID": "index.html#best-coding-practices-for-r",
+    "href": "index.html#best-coding-practices-for-r",
+    "title": "atomic R data objects",
+    "section": "Best Coding Practices for R",
+    "text": "Best Coding Practices for R\n\nWhat we mean when say “better coding practice”\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/\n\n\nFolder Structure\n\n\nCode Structure\n\n\nSections\n\n\nStructural Composition\n\n\nIdentation\n\n\nStyling\n\n\nFinal Comments"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#nuts-and-bolts-data-types",
+    "href": "r_fundamentals_for_data_science.html#nuts-and-bolts-data-types",
+    "title": "atomic R data objects",
+    "section": "2.1 Nuts and bolts: Data types",
+    "text": "2.1 Nuts and bolts: Data types\n\n2.1.1 Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\nCode\n  x <- 0\n  print(x)\n\n\n[1] 0\n\n\nCode\n  x\n\n\n[1] 0\n\n\nCode\n  msg <- \"what's up\"\n  msg\n\n\n[1] \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#best-coding-practices-for-r",
+    "href": "r_fundamentals_for_data_science.html#best-coding-practices-for-r",
+    "title": "atomic R data objects",
+    "section": "2.2 Best Coding Practices for R",
+    "text": "2.2 Best Coding Practices for R\n\n2.2.1 What we mean when say “better coding practice”\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/\n\n\n2.2.2 Folder Structure\n\n\n2.2.3 Code Structure\n\n\n2.2.4 Sections\n\n\n2.2.5 Structural Composition\n\n\n2.2.6 Identation\n\n\n2.2.7 Styling\n\n\n2.2.8 Final Comments"
+  },
+  {
+    "objectID": "data_visualization.html",
+    "href": "data_visualization.html",
+    "title": "3  Data visualization with ggplot2 and friends",
+    "section": "",
+    "text": "4 Data Visualizations"
+  },
+  {
+    "objectID": "statistical_inference.html",
+    "href": "statistical_inference.html",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "",
+    "text": "4 Preleminaries"
+  },
+  {
+    "objectID": "statistical_inference.html#linear-regresion",
+    "href": "statistical_inference.html#linear-regresion",
+    "title": "4  Statistical Inference",
+    "section": "5.1 Linear regresion",
+    "text": "5.1 Linear regresion"
+  },
+  {
+    "objectID": "statistical_inference.html#multiple-linear-regression-and-generalized-linear-regresion",
+    "href": "statistical_inference.html#multiple-linear-regression-and-generalized-linear-regresion",
+    "title": "4  Statistical Inference",
+    "section": "5.2 Multiple linear regression and generalized linear regresion",
+    "text": "5.2 Multiple linear regression and generalized linear regresion"
+  },
+  {
+    "objectID": "statistical_inference.html#permutaion-methods",
+    "href": "statistical_inference.html#permutaion-methods",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "3.3 Permutaion methods",
+    "text": "3.3 Permutaion methods"
+  },
+  {
+    "objectID": "statistical_inference.html#likelihood-inference.",
+    "href": "statistical_inference.html#likelihood-inference.",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "4.1 Likelihood inference.",
+    "text": "4.1 Likelihood inference."
+  },
+  {
+    "objectID": "statistical_inference.html#variance-analisys.",
+    "href": "statistical_inference.html#variance-analisys.",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "4.2 Variance analisys.",
+    "text": "4.2 Variance analisys."
+  },
+  {
+    "objectID": "statistical_inference.html#preleminaries",
+    "href": "statistical_inference.html#preleminaries",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "3.1 Preleminaries",
+    "text": "3.1 Preleminaries\n\n3.1.1 Linear regresion\n\n\n3.1.2 Multiple linear regression and generalized linear regresion"
+  },
+  {
+    "objectID": "statistical_inference.html#bootstrap",
+    "href": "statistical_inference.html#bootstrap",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "3.2 Bootstrap",
+    "text": "3.2 Bootstrap"
+  },
+  {
+    "objectID": "statistical_inference.html#roc-curves",
+    "href": "statistical_inference.html#roc-curves",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "4.3 ROC Curves",
+    "text": "4.3 ROC Curves"
+  },
+  {
+    "objectID": "statistical-inference-whole-game.html",
+    "href": "statistical-inference-whole-game.html",
+    "title": "The whole game of statistical Inference",
+    "section": "",
+    "text": "Whole game\nOur goal in this part of the book is to give you a rapid overview of the main tools of data science: importing, tidying, transforming, and visualizing data, as shown in ?fig-ds-whole-game. We want to show you the “whole game” of data science giving you just enough of all the major pieces so that you can tackle real, if simple, data sets. The later parts of the book, will hit each of these topics in more depth, increasing the range of data science challenges that you can tackle."
+  },
+  {
+    "objectID": "linear_regression.html#linear-regression",
+    "href": "linear_regression.html#linear-regression",
+    "title": "4  Lienar Regression",
+    "section": "4.2 Linear Regression",
+    "text": "4.2 Linear Regression"
+  },
+  {
+    "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
+    "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
+    "title": "4  Lienar Regression",
+    "section": "4.3 Multiple linear_regression and generalized linear regresion",
+    "text": "4.3 Multiple linear_regression and generalized linear regresion"
+  },
+  {
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "Background",
+    "section": "",
+    "text": "We dedicate this part to overview the basics to program in R. The aim of this part is building the basis for Machine learning, namely data visualization, data manipulation and the good coding practices to type script of industrial production quality."
+  },
+  {
+    "objectID": "linear_regression.html#regression-models",
+    "href": "linear_regression.html#regression-models",
+    "title": "4  Lienar Regression",
+    "section": "4.1 Regression models",
+    "text": "4.1 Regression models"
+  }
+]
