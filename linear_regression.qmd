@@ -1,0 +1,9 @@
+---
+title: Lienar Regression
+---
+
+## Regression models
+
+## Linear Regression
+
+## Multiple linear_regression and generalized linear regresion

@@ -1,0 +1,16 @@
+R programmers have a bad reputation writing bad code. Perhaps the main reason is
+that the people whose write much of the package are not programmers but
+scientific from other areas. Sometimes we overestimate crucial aspects from a
+programming standpoint. As R programmers we overcome to write the code for
+production. Mostly we write scripts and when we deploy it the same when we just
+wrap it in a function and perhaps a package. It is common to face poorly written
+code---**columns were referred by numbers, functions were dependent upon global
+environment variables, 50+ lines functions without arguments and with over-sized
+lines code 100 characters or more, not indentation, poor naming, conventions**
+etc,...,.
+
+We strongly encourage to use a style. Yea I know, there is not a unique way to
+do it, but the philosophy is to follow a consistent style. With respect to this
+regard made yourself a favor and read this great book for R
+
+<https://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/>

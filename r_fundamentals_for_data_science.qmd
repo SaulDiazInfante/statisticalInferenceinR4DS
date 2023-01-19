@@ -1,0 +1,34 @@
+---
+title: "R programming fundamentals for Data Science"
+author: "SDIV"
+---
+
+## Nuts and bolts: Data types
+
+### Entering Input: the assigment operator
+
+The thing that we type on the R console prompt are expressions. The firs
+expression we discuses here is the assignment operator, please watch the
+following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
+
+{{< include _atomic_objects.qmd >}}
+
+## Best Coding Practices for R
+
+### What we mean when say "better coding practice"
+
+{{< include _best_coding_practices.qmd >}}
+
+### Folder Structure
+
+### Code Structure
+
+### Sections
+
+### Structural Composition
+
+### Identation
+
+### Styling
+
+### Final Comments
