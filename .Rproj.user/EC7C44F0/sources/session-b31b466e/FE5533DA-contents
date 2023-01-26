@@ -1,0 +1,20 @@
+---
+title: "Atomic data objects in R"
+author: "SDIV"
+---
+
+At the R console, any executable typed text that we put a side of the prompt are
+called expressions. We start by the $\texttt{<-}$ symbol is the assignment
+operator.
+
+```{r}
+  #| eval: false
+  x <- 0
+  print(x)
+  x
+  msg <- "what's up"
+  msg
+```
+
+The \[1\] shown in the output indicates that x is a vector and 0 is the element
+at position with index 1.

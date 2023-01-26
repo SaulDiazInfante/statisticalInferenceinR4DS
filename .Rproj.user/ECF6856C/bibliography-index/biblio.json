@@ -1,0 +1,169 @@
+{
+    "sources": [
+        {
+            "DOI": "10.1201/9781439800225",
+            "ISBN": "978-1-4398-0021-8",
+            "URL": "https://doi.org/10.1201/9781439800225",
+            "author": [
+                {
+                    "family": "Krzanowski",
+                    "given": "Wojtek J."
+                },
+                {
+                    "family": "Hand",
+                    "given": "David J."
+                }
+            ],
+            "collection-title": "Monographs on statistics and applied probability",
+            "id": "Krzanowski2009",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "page": "xiv+241",
+            "publisher": "CRC Press, Boca Raton, FL",
+            "title": "ROC curves for continuous data",
+            "type": "book",
+            "volume": "111"
+        },
+        {
+            "DOI": "10.1007/978-0-387-84858-7",
+            "ISBN": "978-0-387-84857-0",
+            "URL": "https://doi.org/10.1007/978-0-387-84858-7",
+            "author": [
+                {
+                    "family": "Hastie",
+                    "given": "Trevor"
+                },
+                {
+                    "family": "Tibshirani",
+                    "given": "Robert"
+                },
+                {
+                    "family": "Friedman",
+                    "given": "Jerome"
+                }
+            ],
+            "collection-title": "Springer series in statistics",
+            "edition": "Second",
+            "id": "Hastie2009",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "note": "Data mining, inference, and prediction",
+            "page": "xxii+745",
+            "publisher": "Springer, New York",
+            "title": "The elements of statistical learning",
+            "type": "book"
+        },
+        {
+            "ISBN": "9781498797610",
+            "URL": "https://books.google.com.mx/books?id=Ep-RDwAAQBAJ",
+            "author": [
+                {
+                    "family": "Ratner",
+                    "given": "B."
+                }
+            ],
+            "id": "ratner2017statistical",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "publisher": "CRC Press",
+            "title": "Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition",
+            "title-short": "Statistical and machine-learning data mining",
+            "type": "book"
+        },
+        {
+            "ISBN": "0-387-95019-2",
+            "author": [
+                {
+                    "family": "Sprott",
+                    "given": "D. A."
+                }
+            ],
+            "collection-title": "Springer series in statistics",
+            "id": "Sprott2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "page": "xvi+245",
+            "publisher": "Springer-Verlag, New York",
+            "title": "Statistical inference in science",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1007/978-1-4899-3242-6",
+            "ISBN": "0-412-31760-5",
+            "URL": "https://doi.org/10.1007/978-1-4899-3242-6",
+            "author": [
+                {
+                    "family": "McCullagh",
+                    "given": "P."
+                },
+                {
+                    "family": "Nelder",
+                    "given": "J. A."
+                }
+            ],
+            "collection-title": "Monographs on statistics and applied probability",
+            "id": "McCullagh1989",
+            "issued": {
+                "date-parts": [
+                    [
+                        1989
+                    ]
+                ]
+            },
+            "note": "Second edition [of MR0727836]",
+            "page": "xix+511",
+            "publisher": "Chapman & Hall, London",
+            "title": "Generalized linear models",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1080/00031305.2016.1208629",
+            "URL": " https://doi.org/10.1080/00031305.2016.1208629",
+            "abstract": "ABSTRACT Introductory statistical inference texts and courses treat the point estimation, hypothesis testing, and interval estimation problems separately, with primary emphasis on large-sample approximations. Here, I present an alternative approach to teaching this course, built around p-values, emphasizing provably valid inference for all sample sizes. Details about computation and marginalization are also provided, with several illustrative examples, along with a course outline. Supplementary materials for this article are available online.",
+            "author": [
+                {
+                    "family": "Martin",
+                    "given": "Ryan"
+                }
+            ],
+            "container-title": "The American Statistician",
+            "id": "Martin2017",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "128-136",
+            "publisher": "Taylor & Francis",
+            "title": "A statistical inference course based on p-values",
+            "type": "article-journal",
+            "volume": "71"
+        }
+    ],
+    "project_biblios": [
+        "references.bib"
+    ]
+}
