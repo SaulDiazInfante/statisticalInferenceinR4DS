@@ -1,7 +1,6 @@
 project:
   type: book
   output-dir: docs
-
 book:
   title: "Statistical Inference For Data Science"
   author: "Saul Diaz-Infante"
