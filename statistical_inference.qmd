@@ -1,0 +1,12 @@
+---
+title: "Statistical Inference with resampling: Bootstrap and Jacknife."
+author: "SDIV"
+---
+
+# Preleminaries
+
+## Likelihood inference.
+
+## Variance analisys.
+
+## ROC Curves

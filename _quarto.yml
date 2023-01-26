@@ -1,0 +1,45 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Statistical Inference For Data Science"
+  author: "Saul Diaz-Infante"
+  date: "1/16/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: background.qmd
+      chapters:
+        - r_fundamentals_for_data_science.qmd
+        - data_visualization.qmd
+    - part: statistical-inference-whole-game.qmd
+      chapters:
+        - statistical_inference.qmd
+        - linear_regression.qmd
+        # Bootstrap
+        # Permutaion methods
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: elsevier-with-titles-alphabetical.csl
+
+format:
+  html:
+    theme: darkly
+    fig-width: 8
+    fig-height: 4
+    code-fold: true
+    code-tools: true
+    code-link: true
+
+  pdf:
+    documentclass: scrreprt
+  epub:
+    cover-image: cover.png
+
+execute:
+  echo: false
+
+

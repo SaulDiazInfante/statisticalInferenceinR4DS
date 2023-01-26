@@ -1,0 +1,44 @@
+# Introduction {.unnumbered}
+
+The focus of this course is int the programming and basic techniques for
+inference that are usually applied in data science. We start by reviewing and
+enforcing programming skills. Then we will use the database of entomological
+data practice and build the required bases for more structured tools like
+bootstrap or Jackknife cuts.
+
+@fig-airquality further explores the impact of temperature on ozone level.
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess") + 
+  theme_minimal()
+  
+```
+
+## The tidyverse
+
+We need to install a R package. The majority of the packages that we will use
+are part of the so-called tidyverse package. The packages in the tidyverse share
+a common philosophy of data and R programming, and are designed to work together
+naturally.
+
+You can install the complete tidyverse with the line of code:
+
+```{r}
+  install.packages("tidyverse")
+```
+
+then we can use it by loading in the preamble section with
+
+```{r}
+  library(tidyverse)
+```
+
+see <https://www.tidyverse.org/> documentation.
