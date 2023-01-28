@@ -32,7 +32,7 @@ naturally.
 You can install the complete tidyverse with the line of code:
 
 ```{r}
-  install.packages("tidyverse")
+  # install.packages("tidyverse")
 ```
 
 then we can use it by loading in the preamble section with
