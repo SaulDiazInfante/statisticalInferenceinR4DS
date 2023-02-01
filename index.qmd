@@ -7,7 +7,7 @@
     Data-Science, but perhaps at the moment I only have just intuition about
     what really it is. However, I have been programming almost 20 years an 
     moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, 
-    C++ to thenew well established treading development workflows like R, 
+    C++ to the new well established treading development workflows like R, 
     Python and Julia. This is my firs attempt in R.
 
 -   What the book is about.

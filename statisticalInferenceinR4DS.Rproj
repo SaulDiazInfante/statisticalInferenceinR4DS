@@ -12,6 +12,14 @@ Encoding: UTF-8
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
+AutoAppendNewline: Yes
+
+MarkdownWrap: None
+MarkdownReferences: Block
+MarkdownCanonical: No
+
+ZoteroLibraries: "My Library"
+
 PythonType: conda
-PythonVersion: 3.9.13
+PythonVersion: 3.9.7
 PythonPath: ~/anaconda3/bin/python3.9

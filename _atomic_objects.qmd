@@ -1,8 +1,3 @@
----
-title: "Atomic data objects in R"
-author: "SDIV"
----
-
 At the R console, any executable typed text that we put a side of the prompt are
 called expressions. We start by the $\texttt{<-}$ symbol is the assignment
 operator.

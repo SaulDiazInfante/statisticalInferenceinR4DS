@@ -1,7 +1,3 @@
----
-title: Background 
----
-
 We dedicate this part to overview the basics to program in R. The aim of this
 part is building the basis for Machine learning, namely **data visualization**,
 **data manipulation** and the **good coding practices** to type script of

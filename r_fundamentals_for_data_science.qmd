@@ -7,11 +7,18 @@ author: "SDIV"
 
 ### Entering Input: the assigment operator
 
-The thing that we type on the R console prompt are expressions. The firs
-expression we discuses here is the assignment operator, please watch the
+The thing that we type on the R console prompt are expressions. The firs 
+expression we discuses here is the assignment operator, please watch the 
 following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
 
-{{< include _atomic_objects.qmd >}}
+{{< include _atomic_objects.qmd >}} 
+
+## Intro Baisics
+
+{{< include _introduction_to_r_01.qmd >}}
+
+## Vectors
+{{< include _introduction_to_r_02.qmd >}}
 
 ## Best Coding Practices for R
 
