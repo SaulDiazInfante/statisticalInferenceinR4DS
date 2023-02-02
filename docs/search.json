@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Inference For Data Science",
+    "section": "",
+    "text": "Preface\n\nWho I am. I am Saul Diaz Infante Velasco. I just starting as assistant professor at the Data Science graduate program of Universidad de Sonora at Hermosillo Mexico. My Background is related with numerical analysis and stochastic models. I’m are a enthusiastic of this treading topic called Data-Science, but perhaps at the moment I only have just intuition about what really it is. However, I have been programming almost 20 years an moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, C++ to the new well established treading development workflows like R, Python and Julia. This is my firs attempt in R.\nWhat the book is about.\nWhen I writing this book.\nWhy I write this book.\nWhere I wrote this book."
+  },
+  {
+    "objectID": "intro.html#the-tidyverse",
+    "href": "intro.html#the-tidyverse",
+    "title": "Introduction",
+    "section": "The tidyverse",
+    "text": "The tidyverse\nWe need to install a R package. The majority of the packages that we will use are part of the so-called tidyverse package. The packages in the tidyverse share a common philosophy of data and R programming, and are designed to work together naturally.\nYou can install the complete tidyverse with the line of code:\n\n\n\nthen we can use it by loading in the preamble section with\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.0      ✔ stringr 1.5.0 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n✔ purrr   0.3.4      \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nsee https://www.tidyverse.org/ documentation."
+  },
+  {
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "Statistical Inference For Data Science",
+    "section": "",
+    "text": "We dedicate this part to overview the basics to program in R. The aim of this part is building the basis for Machine learning, namely data visualization, data manipulation and the good coding practices to type script of industrial production quality."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#nuts-and-bolts-data-types",
+    "href": "r_fundamentals_for_data_science.html#nuts-and-bolts-data-types",
+    "title": "\n1  R programming fundamentals for Data Science\n",
+    "section": "\n1.1 Nuts and bolts: Data types",
+    "text": "1.1 Nuts and bolts: Data types\n\n1.1.1 Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\n[1] 0\n\n\n[1] 0\n\n\n[1] \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#intro-baisics",
+    "href": "r_fundamentals_for_data_science.html#intro-baisics",
+    "title": "\n1  R programming fundamentals for Data Science\n",
+    "section": "\n1.2 Intro Baisics",
+    "text": "1.2 Intro Baisics\nTake your first steps with R. In this chapter, you will learn how to use the console as a calculator and how to assign variables. You will also get to know the basic data types in R. Let’s get started. The bellow lines has been taken from the course Introduction to R of Data Camp. You can see the first chapter for free. I recommend this course to get started on R see https://campus.datacamp.com/courses/free-introduction-to-r\n\n1.2.1 How it works\nIn the text editor you should type R code to solve the exercises. When you hit ctrl + enter, every line of code is interpreted and executed by R and you get a message whether or not your code was correct.\nR makes use of the # sign to add comments, so that you and others can understand what the R code is about. Comments are not run as R code, so they will not influence your result. For example, Calculate 3 + 4 in the editor on the right is a comment.\nYou can also execute R commands straight in the console. This is a good way to experiment with R code.\n\n1.2.1.1 Instructions 100 XP\n\n- In the text editor on the right there is already some sample code. \n- Can you see which lines are actual R code and which are comments?\n- Add a line of code that calculates the sum of 6 and 12, \n    and hit the enter button\n\n\nex_01.R\n\n    # Calculate 3 + 4\n    3 + 4\n    # Calculate 6 + 12\n    6 + 12\n\n\n1.2.2 Arithmetic with R\nIn its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:\n\nAddition: +\n\nSubtraction: -\n\nMultiplication: *\n\nDivision: /\n\nExponentiation: ^\n\nModulo: %%\n\n\nThe last two might need some explaining:\n\nThe ^ operator raises the number to its left to the power of the number to its right: for example 3^2 is 9.\nThe modulo returns the remainder of the division of the number to the left by the number on its right, for example 5 modulo 3 or 5 %% 3 is 2.\n\n\n1.2.2.1 Instructions 100 XP\n\n- Type 2^5 in the editor to calculate 2 to the power 5.\n- Type 28 %% 6 to calculate 28 modulo 6.\n- Run the answer in the console and have a look at the R output .\n- Note how the # symbol is used to add comments on the R code.\n\n\nex_02.R\n\n    # An addition\n    5 + 5 \n\n    # A subtraction\n    5 - 5 \n\n    # A multiplication\n    3 * 5\n     # A division\n    (5 + 5) / 2 \n    # Exponentiation\n    2 ^ 5\n    # Modulo\n    28 %% 6\n\n\n1.2.3 Variable assignment\nA basic concept in (statistical) programming is called a variable.\nA variable allows you to store a value (e.g. 4) or an object (e.g. a function description) in R. You can then later use this variable’s name to easily access the value or the object that is stored within this variable.\n\n\n\n\n\n\nYou can assign a value 4 to a variable my_var with the command\n\n\n\nmy_var <- 4\n\n\n\n1.2.3.1 Instructions 100 XP\n\nOver to you: complete the code in the editor such that it assigns the value 42 to the variable x in the editor. Submit the answer. Notice that when you ask R to print x, the value 42 appears.\n\n\n[1] 42\n\n\n\n1.2.4 Variable assignment (2)\nSuppose you have a fruit basket with five apples. As a data analyst in training, you want to store the number of apples in a variable with the name my_apples.\n\n1.2.4.1 Instructions 100 XP\n\n\nType the following code in the editor: my_apples <- 5. This will assign the value 5 to my_apples.\nType: my_apples below the second comment. This will print out the value of my_apples.\nRun your answer, and look at the output: you see that the number 5 is printed. So R now links the variable my_apples to the value 5.\n\n\n\nex_04.R\n\n    # Assign the value 5 to the variable my_apples\n    my_apples <- 5\n    # Print out the value of the variable my_apples\n    print(my_apples)\n\n\n1.2.5 Variable assignment (3)\nEvery tasty fruit basket needs oranges, so you decide to add six oranges. As a data analyst, your reflex is to immediately create the variable my_oranges and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values,\n\n\n\n\n\n\nyou can now code this in a clear way:\n\n\n\nmy_apples + my_oranges\n\n\n\n1.2.5.1 Instructions 100 XP\n\n\nAssign to my_oranges the value 6.\nAdd the variables my_apples and my_oranges and have R simply print the result.\nAssign the result of adding my_apples and my_oranges to a new variable my_fruit.\n\n\n\nex_05.R\n\n    # Assign a value to the variables my_apples and my_oranges\n    my_apples <- 5\n    my_oranges <- 6\n    \n    # Add these two variables together\n    my_apples + my_oranges\n    \n    # Create the variable my_fruit\n    my_fruit <- my_apples + my_oranges\n\n\n1.2.6 Apples and oranges\nCommon knowledge tells you not to add apples and oranges. But hey, that is what you just did, no :-)? The my_apples and my_oranges variables both contained a number in the previous exercise. The + operator works with numeric variables in R. If you really tried to add “apples” and “oranges”, and assigned a text value to the variable my_oranges (see the editor), you would be trying to assign the addition of a numeric and a character variable to the variable my_fruit. This is not possible.\n\n1.2.6.1 Instructions 100 XP\n\n\nRun the answer and read the error message. Make sure to understand why this did not work.\nAdjust the code so that R knows you have 6 oranges and thus a fruit basket with 11 pieces of fruit.\n\n\n\nex_06.R\n\n    # Assign a value to the variable my_apples\n    my_apples <- 5 \n    # Fix the assignment of my_oranges\n    my_oranges <- \"six\" \n    # Create the variable my_fruit and print it out\n    my_fruit <- my_apples + my_oranges \n    my_fruit\n\nResponse\n\n\nex_06.R\n\n    # Assign a value to the variable my_apples\n    my_apples <- 5 \n    # Fix the assignment of my_oranges\n    my_oranges <- 6 \n    # Create the variable my_fruit and print it out\n    my_fruit <- my_apples + my_oranges \n    my_fruit\n\n\n1.2.7 Basic data types in R\nR works with numerous data types. Some of the most basic types to get started are:\n\nDecimal values like 4.5 are called numerics.\nWhole numbers like 4 are called integers. Integers are also numerics.\nBoolean values (TRUE or FALSE) are called logical.\nText (or string) values are called characters.\n\nNote how the quotation marks in the editor indicate that “some text” is a string.\n\n1.2.8 Instructions 100 XP\n\nChange the value of the:\n\n\nmy_numeric variable to 42.\n\nmy_character variable to \"universe\". Note that the quotation marks indicate that “universe” is a character.\n\nmy_logical variable to FALSE.\n\n\n\n\n\n\n\nNote that R is case sensitive!\n\n\n\nThus despite the varibales called var, Var, vAr, has the same fonetic characters, R understand each of these as different memory addresses.\n\n\n\n\nex_07.R\n\n    # Change my_numeric to be 42\n    my_numeric <- 42.5\n\n    # Change my_character to be \"universe\"\n    my_character <- \"some text\"\n\n    # Change my_logical to be FALSE\n    my_logical <- TRUE\n\nResponse\n\n\nex_07.R\n\n    # Change my_numeric to be 42\n    my_numeric <- 42\n\n    # Change my_character to be \"universe\"\n    my_character <- \"universe\"\n\n    # Change my_logical to be FALSE\n    my_logical <- FALSE\n\n\n1.2.9 What’s that data type?\nDo you remember that when you added 5 + “six”, you got an error due to a mismatch in data types? You can avoid such embarrassing situations by checking the data type of a variable beforehand. You can do this with the class() function, as the code in the editor shows.\n\n1.2.9.1 Instructions 100 XP\n\nComplete the code in the editor and also print out the classes of my_character and my_logical.\n\n\nex_08.R\n\n    # Declare variables of different types\n    \n    my_numeric <- 42\n    my_character <- \"universe\"\n    my_logical <- FALSE \n    # Check class of my_numeric\n    class(my_numeric)\n    \n    # Check class of my_character\n    class(my_character)\n    \n    # Check class of my_logical\n    class(my_logical)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#vectors",
+    "href": "r_fundamentals_for_data_science.html#vectors",
+    "title": "\n1  R programming fundamentals for Data Science\n",
+    "section": "\n1.3 Vectors",
+    "text": "1.3 Vectors"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#best-coding-practices-for-r",
+    "href": "r_fundamentals_for_data_science.html#best-coding-practices-for-r",
+    "title": "\n1  R programming fundamentals for Data Science\n",
+    "section": "\n1.4 Best Coding Practices for R",
+    "text": "1.4 Best Coding Practices for R\n\n1.4.1 What we mean when say “better coding practice”\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/\n\n1.4.2 Folder Structure\n\n1.4.3 Code Structure\n\n1.4.4 Sections\n\n1.4.5 Structural Composition\n\n1.4.6 Identation\n\n1.4.7 Styling\n\n1.4.8 Final Comments"
+  },
+  {
+    "objectID": "data_visualization.html",
+    "href": "data_visualization.html",
+    "title": "2  Data visualization with ggplot2 and friends",
+    "section": "",
+    "text": "3 Data Visualizations"
+  },
+  {
+    "objectID": "statistical-inference-whole-game.html",
+    "href": "statistical-inference-whole-game.html",
+    "title": "The whole game of statistical Inference",
+    "section": "",
+    "text": "Whole game\nOur goal in this part of the book is to give you a rapid overview of the main tools of data science: importing, tidying, transforming, and visualizing data, as shown in ?fig-ds-whole-game. We want to show you the “whole game” of data science giving you just enough of all the major pieces so that you can tackle real, if simple, data sets. The later parts of the book, will hit each of these topics in more depth, increasing the range of data science challenges that you can tackle."
+  },
+  {
+    "objectID": "statistical_inference.html",
+    "href": "statistical_inference.html",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "",
+    "text": "4 Preleminaries"
+  },
+  {
+    "objectID": "statistical_inference.html#likelihood-inference.",
+    "href": "statistical_inference.html#likelihood-inference.",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "4.1 Likelihood inference.",
+    "text": "4.1 Likelihood inference."
+  },
+  {
+    "objectID": "statistical_inference.html#variance-analisys.",
+    "href": "statistical_inference.html#variance-analisys.",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "4.2 Variance analisys.",
+    "text": "4.2 Variance analisys."
+  },
+  {
+    "objectID": "statistical_inference.html#roc-curves",
+    "href": "statistical_inference.html#roc-curves",
+    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "4.3 ROC Curves",
+    "text": "4.3 ROC Curves"
+  },
+  {
+    "objectID": "linear_regression.html#regression-models",
+    "href": "linear_regression.html#regression-models",
+    "title": "4  Lienar Regression",
+    "section": "4.1 Regression models",
+    "text": "4.1 Regression models"
+  },
+  {
+    "objectID": "linear_regression.html#linear-regression",
+    "href": "linear_regression.html#linear-regression",
+    "title": "4  Lienar Regression",
+    "section": "4.2 Linear Regression",
+    "text": "4.2 Linear Regression"
+  },
+  {
+    "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
+    "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
+    "title": "4  Lienar Regression",
+    "section": "4.3 Multiple linear_regression and generalized linear regresion",
+    "text": "4.3 Multiple linear_regression and generalized linear regresion"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "\n5  Summary\n",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
+  }
+]
