@@ -231,7 +231,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#whats-that-data-type" id="toc-whats-that-data-type" class="nav-link" data-scroll-target="#whats-that-data-type"><span class="toc-section-number">1.2.9</span>  What’s that data type?</a></li>
   </ul>
 </li>
-  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors"><span class="toc-section-number">1.3</span>  Vectors</a></li>
+  <li>
+<a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors"><span class="toc-section-number">1.3</span>  Vectors</a>
+  <ul class="collapse">
+<li><a href="#create-a-vector" id="toc-create-a-vector" class="nav-link" data-scroll-target="#create-a-vector"><span class="toc-section-number">1.3.1</span>  Create a vector</a></li>
+  <li><a href="#create-a-vector-2" id="toc-create-a-vector-2" class="nav-link" data-scroll-target="#create-a-vector-2"><span class="toc-section-number">1.3.2</span>  Create a vector (2)</a></li>
+  <li><a href="#create-a-vector-3" id="toc-create-a-vector-3" class="nav-link" data-scroll-target="#create-a-vector-3"><span class="toc-section-number">1.3.3</span>  Create a vector (3)</a></li>
+  <li><a href="#naming-a-vector" id="toc-naming-a-vector" class="nav-link" data-scroll-target="#naming-a-vector"><span class="toc-section-number">1.3.4</span>  Naming a vector</a></li>
+  <li><a href="#naming-a-vector-2" id="toc-naming-a-vector-2" class="nav-link" data-scroll-target="#naming-a-vector-2"><span class="toc-section-number">1.3.5</span>  Naming a vector (2)</a></li>
+  <li><a href="#calculating-total-winnings" id="toc-calculating-total-winnings" class="nav-link" data-scroll-target="#calculating-total-winnings"><span class="toc-section-number">1.3.6</span>  Calculating total winnings</a></li>
+  <li><a href="#calculating-total-winnings-2" id="toc-calculating-total-winnings-2" class="nav-link" data-scroll-target="#calculating-total-winnings-2"><span class="toc-section-number">1.3.7</span>  Calculating total winnings (2)</a></li>
+  <li><a href="#calculating-total-winnings-3" id="toc-calculating-total-winnings-3" class="nav-link" data-scroll-target="#calculating-total-winnings-3"><span class="toc-section-number">1.3.8</span>  Calculating total winnings (3)</a></li>
+  <li><a href="#comparing-total-winnings" id="toc-comparing-total-winnings" class="nav-link" data-scroll-target="#comparing-total-winnings"><span class="toc-section-number">1.3.9</span>  Comparing total winnings</a></li>
+  </ul>
+</li>
   <li>
 <a href="#best-coding-practices-for-r" id="toc-best-coding-practices-for-r" class="nav-link" data-scroll-target="#best-coding-practices-for-r"><span class="toc-section-number">1.4</span>  Best Coding Practices for R</a>
   <ul class="collapse">
@@ -568,265 +581,308 @@ Note that R is case sensitive!
 </div>
 </section></section></section><section id="vectors" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="vectors">
 <span class="header-section-number">1.3</span> Vectors</h2>
-<!-- ### Create a vector -->
-<!-- Feeling lucky? You better, because this chapter takes you on a trip to the City  -->
-<!-- of Sins, also known as Statisticians Paradise! -->
-<!-- Thanks to R and your new data-analytical skills, you will learn how to uplift  -->
+<section id="create-a-vector" class="level3" data-number="1.3.1"><h3 data-number="1.3.1" class="anchored" data-anchor-id="create-a-vector">
+<span class="header-section-number">1.3.1</span> Create a vector</h3>
+<p>Feeling lucky? You better, because this chapter takes you on a trip to the City of Sins, also known as Statisticians Paradise!</p>
+<p>Thanks to R and your new data-analytical skills, you will learn how to uplift your performance at the tables and fire off your career as a professional gambler. This chapter will show how you can easily keep track of your betting progress and how you can do some simple analyses on past actions. Next stop, Vegas Baby… VEGAS!!</p>
+<section id="instructions-100-xp-8" class="level4" data-number="1.3.1.1"><h4 data-number="1.3.1.1" class="anchored" data-anchor-id="instructions-100-xp-8">
+<span class="header-section-number">1.3.1.1</span> Instructions <code>100 XP</code>
+</h4>
+<ul>
+<li>Do you still remember what you have learned in the first chapter? Assign the value <code>"Go!"</code> to the variable vegas. Remember: R is case sensitive!</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_08.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define the variable vegas</span></span>
+<span><span class="va">vegas</span> <span class="op">&lt;-</span> <span class="st">"Go!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="create-a-vector-2" class="level3" data-number="1.3.2"><h3 data-number="1.3.2" class="anchored" data-anchor-id="create-a-vector-2">
+<span class="header-section-number">1.3.2</span> Create a vector (2)</h3>
+<p>Let us focus first!</p>
+<p>On your way from rags to riches, you will make extensive use of vectors. Vectors are one-dimension arrays that can hold numeric data, character data, or logical data. In other words, a vector is a simple tool to store data. For example, you can store your daily gains and losses in the casinos.</p>
+<p>In R, you create a vector with the combine function <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>. You place the vector elements separated by a comma between the parentheses.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+For example:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numeric_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">character_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Once you have created these vectors in R, you can use them to do calculations.</p>
+<section id="instructions-100-xp-9" class="level4" data-number="1.3.2.1"><h4 data-number="1.3.2.1" class="anchored" data-anchor-id="instructions-100-xp-9">
+<span class="header-section-number">1.3.2.1</span> Instructions <code>100 XP</code>
+</h4>
+<p>Complete the code such that boolean_vector contains the three elements: <code>TRUE,</code>FALSE<code>and</code>TRUE` (in that order).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_09.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numeric_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, <span class="fl">49</span><span class="op">)</span></span>
+<span><span class="va">character_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Complete the code for boolean_vector</span></span>
+<span><span class="va">boolean_vector</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="create-a-vector-3" class="level3" data-number="1.3.3"><h3 data-number="1.3.3" class="anchored" data-anchor-id="create-a-vector-3">
+<span class="header-section-number">1.3.3</span> Create a vector (3)</h3>
+<p>After one week in Las Vegas and still zero Ferraris in your garage, you decide that it is time to start using your data analytical superpowers.</p>
+<p>Before doing a first analysis, you decide to first collect all the winnings and losses for the last week:</p>
+<p>For poker_vector:</p>
+<ul>
+<li>On Monday you won <code>$140</code>
+</li>
+<li>Tuesday you lost <code>$50</code>
+</li>
+<li>Wednesday you won <code>$20</code>
+</li>
+<li>Thursday you lost <code>$120</code>
+</li>
+<li>Friday you won <code>$240</code>
+</li>
+</ul>
+<p>For roulette_vector:</p>
+<ul>
+<li>On Monday you lost <code>$24</code>
+</li>
+<li>Tuesday you lost <code>$50</code>
+</li>
+<li>Wednesday you won <code>$100</code>
+</li>
+<li>Thursday you lost <code>$350</code>
+</li>
+<li>Friday you won <code>$10</code>
+</li>
+</ul>
+<p>You only played poker and roulette, since there was a delegation of mediums that occupied the craps tables. To be able to use this data in R, you decide to create the variables poker_vector and roulette_vector.</p>
+<section id="instructions-100-xp-10" class="level4" data-number="1.3.3.1"><h4 data-number="1.3.3.1" class="anchored" data-anchor-id="instructions-100-xp-10">
+<span class="header-section-number">1.3.3.1</span> Instructions <code>100 XP</code>
+</h4>
+<p>Assign the winnings/losses for roulette to the variable roulette_vector. You lost <code>$24</code>, then lost <code>$50</code> , won <code>$100</code>, lost <code>$350</code>, and won <code>$10</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_10.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker winnings from Monday to Friday</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Roulette winnings from Monday to Friday</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="naming-a-vector" class="level3" data-number="1.3.4"><h3 data-number="1.3.4" class="anchored" data-anchor-id="naming-a-vector">
+<span class="header-section-number">1.3.4</span> Naming a vector</h3>
+<p>As a data analyst, it is important to have a clear view on the data that you are using. Understanding what each element refers to is therefore essential.</p>
+<p>In the previous exercise, we created a vector with your winnings over the week. Each vector element refers to a day of the week but it is hard to tell which element belongs to which day. It would be nice if you could show that in the vector itself.</p>
+<p>You can give a name to the elements of a vector with the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> function. Have a look at this example:</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| code-line-numbers: false</span></span>
+<span><span class="co">#| code-fold: false</span></span>
+<span><span class="co">#| code-summary: "Show the code"</span></span>
+<span></span>
+<span><span class="va">some_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"John Doe"</span>, <span class="st">"poker player"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">some_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"Profession"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This code first creates a vector some_vector and then gives the two elements a name. The first element is assigned the name Name, while the second element is labeled Profession. Printing the contents to the console yields following output:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Output
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>      Name     Profession
+"John Doe" "poker player"</code></pre>
+</div>
+</div>
+</div>
+<section id="instructions-100-xp-11" class="level4" data-number="1.3.4.1"><h4 data-number="1.3.4.1" class="anchored" data-anchor-id="instructions-100-xp-11">
+<span class="header-section-number">1.3.4.1</span> Instructions <code>100 XP</code>
+</h4>
+<p>The code in the editor names the elements in <code>poker_vector</code> with the days of the week. Add code to do the same thing for <code>roulette_vector</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_11.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker winnings from Monday to Friday</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Roulette winnings from Monday to Friday</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Assign days as names of poker_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Assign days as names of roulette_vector</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="naming-a-vector-2" class="level3" data-number="1.3.5"><h3 data-number="1.3.5" class="anchored" data-anchor-id="naming-a-vector-2">
+<span class="header-section-number">1.3.5</span> Naming a vector (2)</h3>
+<p>If you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents.)</p>
+<p>In the previous exercises you probably experienced that it is boring and frustrating to type and retype information such as the days of the week. However, when you look at it from a higher perspective, there is a more efficient way to do this, namely, to assign the days of the week vector to a <strong>variable</strong>!</p>
+<p>Just like you did with your poker and roulette returns, you can also create a variable that contains the days of the week. This way you can use and re-use it.</p>
+<section id="instructions-100-xp-12" class="level4" data-number="1.3.5.1"><h4 data-number="1.3.5.1" class="anchored" data-anchor-id="instructions-100-xp-12">
+<span class="header-section-number">1.3.5.1</span> Instructions <code>100 XP</code>
+</h4>
+<ul>
+<li><p>A variable days_vector that contains the days of the week has already been created for you.</p></li>
+<li><p>Use <code>days_vector</code> to set the names of <code>poker_vector</code> and <code>roulette_vector</code>.</p></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_12.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker winnings from Monday to Friday</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Roulette winnings from Monday to Friday</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The variable days_vector</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Assign the names of the day to roulette_vector and poker_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="calculating-total-winnings" class="level3" data-number="1.3.6"><h3 data-number="1.3.6" class="anchored" data-anchor-id="calculating-total-winnings">
+<span class="header-section-number">1.3.6</span> Calculating total winnings</h3>
+<p>Now that you have the poker and roulette winnings nicely as named vectors, you can start doing some data analytical magic.</p>
+<p>You want to find out the following type of information:</p>
+<ul>
+<li>How much has been your overall profit or loss per day of the week?</li>
+<li>Have you lost money over the week in total?</li>
+<li>Are you winning/losing money on poker or on roulette? To get the answers, you have to do arithmetic calculations on vectors.</li>
+</ul>
+<p>It is important to know that if you sum two vectors in R, it takes the element-wise sum. For example, the following three statements are completely equivalent:</p>
+<div class="cell">
 
-<!-- your performance at the tables and fire off your career as a professional  -->
-<!-- gambler. This chapter will show how you can easily keep track of your betting  -->
-<!-- progress and how you can do some simple analyses on past actions. Next stop,  -->
-<!-- Vegas Baby… VEGAS!! -->
-<!-- #### Instructions `100 XP` -->
-<!-- * Do you still remember what you have learned in the first chapter? Assign the  -->
-<!-- value `"Go!"` to the variable vegas. Remember: R is case sensitive! -->
-<!-- ```{.r filename="ex_08.R"} -->
-<!-- # Define the variable vegas -->
-<!-- vegas <- "Go!" -->
-<!-- ``` -->
-<!-- ### Create a vector (2) -->
-<!-- Let us focus first! -->
-<!-- On your way from rags to riches, you will make extensive use of vectors.  -->
-<!-- Vectors are one-dimension arrays that can hold numeric data, character data,  -->
-<!-- or logical data. In other words, a vector is a simple tool to store data.  -->
-<!-- For example, you can store your daily gains and losses in the casinos. -->
-<!-- In R, you create a vector with the combine function `c()`.  -->
-<!-- You place the vector elements separated by a comma between the parentheses.  -->
-<!-- :::{.callout-note} -->
-<!-- ## For example: -->
-<!-- ```{.r} -->
-<!-- numeric_vector <- c(1, 2, 3) -->
-<!-- character_vector <- c("a", "b", "c") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- Once you have created these vectors in R, you can use them to do calculations. -->
-<!-- #### Instructions `100 XP` -->
-<!-- Complete the code such that boolean_vector contains the three elements:  -->
-<!-- `TRUE, `FALSE` and `TRUE` (in that order). -->
-<!-- ```{.r filename="ex_09.R"} -->
-<!-- numeric_vector <- c(1, 10, 49) -->
-<!-- character_vector <- c("a", "b", "c") -->
-<!-- # Complete the code for boolean_vector -->
-<!-- boolean_vector <-c(TRUE, FALSE, TRUE) -->
-<!-- ``` -->
-<!-- ### Create a vector (3) -->
-<!-- After one week in Las Vegas and still zero Ferraris in your garage, you decide  -->
-<!-- that it is time to start using your data analytical superpowers. -->
-<!-- Before doing a first analysis, you decide to first collect all the winnings and -->
-<!-- losses for the last week: -->
-<!-- For poker_vector: -->
-<!-- * On Monday you won $140 -->
-<!-- * Tuesday you lost $50 -->
-<!-- * Wednesday you won $20 -->
-<!-- * Thursday you lost $120 -->
-<!-- * Friday you won $240 -->
-<!-- For roulette_vector: -->
-<!-- * On Monday you lost $24 -->
-<!-- * Tuesday you lost $50 -->
-<!-- * Wednesday you won $100 -->
-<!-- * Thursday you lost $350 -->
-<!-- * Friday you won $10 -->
-<!-- You only played poker and roulette, since there was a delegation of mediums that  -->
+</div>
+<p>You can also do the calculations with variables that represent vectors:</p>
+<div class="cell">
 
-<!-- occupied the craps tables. To be able to use this data in R, you decide to  -->
-<!-- create the variables poker_vector and roulette_vector. -->
-<!-- #### Instructions `100 XP` -->
-<!-- Assign the winnings/losses for roulette to the variable roulette_vector.  -->
-<!-- You lost $24, then lost $50, won $100, lost $350, and won $10. -->
-<!-- ```{.r filename="ex_10.R"} -->
-<!-- # Poker winnings from Monday to Friday -->
-<!-- poker_vector <- c(140, -50, 20, -120, 240) -->
-<!-- # Roulette winnings from Monday to Friday -->
-<!-- roulette_vector <- c(-24, -50, 100, -350, 10)   -->
-<!-- ``` -->
-<!-- ### Naming a vector -->
-<!-- As a data analyst, it is important to have a clear view on the data that you are  -->
-<!-- using. Understanding what each element refers to is therefore essential. -->
-<!-- In the previous exercise, we created a vector with your winnings over the week.  -->
-<!-- Each vector element refers to a day of the week but it is hard to tell which  -->
-<!-- element belongs to which day. It would be nice if you could show that in the  -->
-<!-- vector itself. -->
-<!-- You can give a name to the elements of a vector with the `names()` function.  -->
-<!-- Have a look at this example: -->
-<!-- ```{.r} -->
-<!-- #| code-line-numbers: false -->
-<!-- #| code-fold: false -->
-<!-- #| code-summary: "Show the code" -->
-<!-- some_vector <- c("John Doe", "poker player") -->
-<!-- names(some_vector) <- c("Name", "Profession") -->
-<!-- ``` -->
-<!-- This code first creates a vector some_vector and then gives the two elements a name. The first element is assigned the name Name, while the second element is labeled Profession. Printing the contents to the console yields following output: -->
-<!-- :::{.callout-note collapse="true"} -->
-<!-- ## Output -->
-<!--           Name     Profession  -->
-<!--     "John Doe" "poker player"  -->
-<!-- ::: -->
-<!-- #### Instructions `100 XP` -->
-<!-- The code in the editor names the elements in `poker_vector` with the days of the  -->
-<!-- week. Add code to do the same thing for `roulette_vector`. -->
-<!-- ```{.r filename="ex_11.R"} -->
-<!-- # Poker winnings from Monday to Friday -->
-<!-- poker_vector <- c(140, -50, 20, -120, 240) -->
-<!-- # Roulette winnings from Monday to Friday -->
-<!-- roulette_vector <- c(-24, -50, 100, -350, 10) -->
-<!-- # Assign days as names of poker_vector -->
-<!-- names(poker_vector) <-  -->
-<!--   c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
-<!-- # Assign days as names of roulette_vector -->
-<!-- names(roulette_vector) <-  -->
-<!--   c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
-<!-- ``` -->
-<!-- ### Naming a vector (2) -->
-<!-- If you want to become a good statistician, you have to become lazy.  -->
-<!-- (If you are already lazy, chances are high you are one of those exceptional,  -->
-<!-- natural-born statistical talents.) -->
-<!-- In the previous exercises you probably experienced that it is boring and  -->
-<!-- frustrating to type and retype information such as the days of the week.  -->
-<!-- However, when you look at it from a higher perspective, there is a more  -->
-<!-- efficient way to do this, namely, to assign the days of the week vector to a -->
-<!--  **variable**! -->
-<!-- Just like you did with your poker and roulette returns, you can also create a  -->
-<!-- variable that contains the days of the week. This way you can use and re-use it. -->
-<!-- #### Instructions `100 XP` -->
-<!-- - A variable days_vector that contains the days of the week has already been  -->
-<!-- created for you. -->
-<!-- - Use `days_vector` to set the names of `poker_vector` and `roulette_vector`. -->
-<!-- ```{.r filename="ex_12.R"} -->
-<!-- # Poker winnings from Monday to Friday -->
-<!-- poker_vector <- c(140, -50, 20, -120, 240) -->
-<!-- # Roulette winnings from Monday to Friday -->
-<!-- roulette_vector <- c(-24, -50, 100, -350, 10) -->
-<!-- # The variable days_vector -->
-<!-- days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
-<!-- # Assign the names of the day to roulette_vector and poker_vector -->
-<!-- names(poker_vector) <- days_vector   -->
-<!-- names(roulette_vector) <- days_vector -->
-<!-- ``` -->
-<!-- ###  Calculating total winnings -->
-<!-- Now that you have the poker and roulette winnings nicely as named vectors, you -->
-<!--  can start doing some data analytical magic. -->
-<!-- You want to find out the following type of information: -->
-<!-- - How much has been your overall profit or loss per day of the week? -->
-<!-- - Have you lost money over the week in total? -->
-<!-- - Are you winning/losing money on poker or on roulette? To get the answers, you  -->
-<!-- have to do arithmetic calculations on vectors. -->
-<!-- It is important to know that if you sum two vectors in R, it takes the  -->
-<!-- element-wise sum. For example, the following three statements are completely  -->
-<!-- equivalent: -->
-<!-- ```{r} -->
-<!-- #| output: false -->
-<!-- #| code-line-numbers: false -->
-<!-- #| code-fold: false -->
-<!-- #| code-summary: "Show the code" -->
-<!-- c(1, 2, 3) + c(4, 5, 6) -->
-<!-- c(1 + 4, 2 + 5, 3 + 6) -->
-<!-- c(5, 7, 9) -->
-<!-- ``` -->
-<!-- You can also do the calculations with variables that represent vectors: -->
-<!-- ```{r} -->
-<!-- #| code-line-numbers: false -->
-<!-- #| code-fold: false -->
-<!-- #| code-summary: "Show the code" -->
-<!-- #| output: false -->
-<!-- a <- c(1, 2, 3)  -->
-<!-- b <- c(4, 5, 6) -->
-<!-- c <- a + b -->
-<!-- ``` -->
-<!-- #### Instructions `100 XP` -->
-<!-- - Take the sum of the variables `A_vector` and `B_vector` and assign it to  -->
-<!-- total_vector. -->
-<!-- - Inspect the result by printing out `total_vector`. -->
-<!-- ```{.r filename="ex_13.R"} -->
-<!-- A_vector <- c(1, 2, 3) -->
-<!-- B_vector <- c(4, 5, 6) -->
-<!-- # Take the sum of A_vector and B_vector -->
-<!-- total_vector <- A_vector + B_vector -->
-<!-- # Print out total_vector -->
-<!-- print(total_vector) -->
-<!-- ``` -->
-<!-- ### Calculating total winnings (2) -->
-<!-- Now you understand how R does arithmetic with vectors, it is time to get those  -->
-<!-- Ferraris in your garage! First, you need to understand what the overall profit  -->
-<!-- or loss per day of the week was. The total daily profit is the sum of the  -->
-<!-- profit/loss you realized on poker per day, and the profit/loss you realized on  -->
-<!-- roulette per day. -->
-<!-- In R, this is just the sum of `roulette_vector` and `poker_vector`. -->
-<!-- #### Instructions `100 XP` -->
-<!-- Assign to the variable total_daily how much you won or lost on each day in  -->
-<!-- total (poker and roulette combined). -->
-<!-- ```{r filename= "ex_14.R"} -->
-<!-- # Poker and roulette winnings from Monday to Friday: -->
-<!-- poker_vector <- c(140, -50, 20, -120, 240) -->
-<!-- roulette_vector <- c(-24, -50, 100, -350, 10) -->
-<!-- days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
-<!-- names(poker_vector) <- days_vector -->
-<!-- names(roulette_vector) <- days_vector -->
-<!-- # Assign to total_daily how much you won/lost on each day -->
-<!-- total_daily <- roulette_vector + poker_vector -->
-<!-- ``` -->
-<!-- ### Calculating total winnings (3) -->
-<!-- Based on the previous analysis, it looks like you had a mix of good and bad  -->
-<!-- days. This is not what your ego expected, and you wonder if there may be a very  -->
-<!-- tiny chance you have lost money over the week in total? -->
-<!-- A function that helps you to answer this question is `sum()`. It calculates the  -->
-<!-- sum of all elements of a vector. For example, to calculate the total amount of  -->
-<!-- money you have lost/won with poker you do: -->
-<!-- ```{r} -->
-<!-- #| code-line-numbers: false -->
-<!-- #| code-fold: false -->
-<!-- #| code-summary: "Show the code" -->
-<!-- #| output: false -->
-<!-- total_poker <- sum(poker_vector) -->
-<!-- ``` -->
-<!-- #### Instructions `100 XP` -->
-<!-- - Calculate the total amount of money that you have won/lost with roulette and  -->
-<!-- assign to the variable `total_roulette`. -->
-<!-- - Now that you have the totals for roulette and poker, you can easily calculate  -->
-<!-- `total_week` (which is the sum of all gains and losses of the week). -->
-<!-- - Print out `total_week`. -->
-<!-- ```{.r filename="ex_15.R"} -->
-<!-- # Poker and roulette winnings from Monday to Friday: -->
-<!-- poker_vector <- c(140, -50, 20, -120, 240) -->
-<!-- roulette_vector <- c(-24, -50, 100, -350, 10) -->
-<!-- days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
-<!-- names(poker_vector) <- days_vector -->
-<!-- names(roulette_vector) <- days_vector -->
-<!-- # Total winnings with poker -->
-<!-- total_poker <- sum(poker_vector) -->
-<!-- # Total winnings with roulette -->
-<!-- total_roulette <-  sum(roulette_vector) -->
-<!-- # Total winnings overall -->
-<!-- total_week <- total_poker + total_roulette -->
-<!-- # Print out total_week -->
-<!-- print(total_week) -->
-<!-- ``` -->
-<!-- ### Comparing total winnings -->
-<!-- Oops, it seems like you are losing money. Time to rethink and adapt your  -->
-<!-- strategy! This will require some deeper analysis… -->
-<!-- After a short brainstorm in your hotel's jacuzzi, you realize that a possible  -->
-<!-- explanation might be that your skills in roulette are not as well developed as  -->
-<!-- your skills in poker. So maybe your total gains in poker are higher (or `>` )  -->
-<!-- than in roulette. -->
-<!-- Instructions `100 XP` -->
-<!-- - Calculate `total_poker` and `total_roulette` as in the previous exercise.  -->
-<!-- Use the `sum()` function twice. -->
-<!-- - Check if your total gains in poker are higher than for roulette by using a  -->
-<!-- comparison. Simply print out the result of this comparison. What do you  -->
-<!-- conclude, should you focus on roulette or on poker? -->
-<!-- ```{.r filename="ex_16.R"} -->
-<!-- # Poker and roulette winnings from Monday to Friday: -->
-<!-- poker_vector <- c(140, -50, 20, -120, 240) -->
-<!-- roulette_vector <- c(-24, -50, 100, -350, 10) -->
-<!-- days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
-<!-- names(poker_vector) <- days_vector -->
-<!-- names(roulette_vector) <- days_vector -->
-<!-- # Calculate total gains for poker and roulette -->
-<!-- total_poker <- sum(poker_vector) -->
-<!-- total_roulette <- sum(roulette_vector) -->
-<!-- # Check if you realized higher total gains in poker than in roulette -->
-<!-- print(total_poker > total_roulette)  -->
-<!-- ``` -->
-</section><section id="best-coding-practices-for-r" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="best-coding-practices-for-r">
+</div>
+<section id="instructions-100-xp-13" class="level4" data-number="1.3.6.1"><h4 data-number="1.3.6.1" class="anchored" data-anchor-id="instructions-100-xp-13">
+<span class="header-section-number">1.3.6.1</span> Instructions <code>100 XP</code>
+</h4>
+<ul>
+<li>Take the sum of the variables <code>A_vector</code> and <code>B_vector</code> and assign it to total_vector.</li>
+<li>Inspect the result by printing out <code>total_vector</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_13.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">B_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Take the sum of A_vector and B_vector</span></span>
+<span><span class="va">total_vector</span> <span class="op">&lt;-</span> <span class="va">A_vector</span> <span class="op">+</span> <span class="va">B_vector</span></span>
+<span></span>
+<span><span class="co"># Print out total_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">total_vector</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="calculating-total-winnings-2" class="level3" data-number="1.3.7"><h3 data-number="1.3.7" class="anchored" data-anchor-id="calculating-total-winnings-2">
+<span class="header-section-number">1.3.7</span> Calculating total winnings (2)</h3>
+<p>Now you understand how R does arithmetic with vectors, it is time to get those Ferraris in your garage! First, you need to understand what the overall profit or loss per day of the week was. The total daily profit is the sum of the <code>profit / loss</code> you realized on poker per day, and the <code>profit / loss</code> you realized on roulette per day.</p>
+<p>In R, this is just the sum of <code>roulette_vector</code> and <code>poker_vector</code>.</p>
+<section id="instructions-100-xp-14" class="level4" data-number="1.3.7.1"><h4 data-number="1.3.7.1" class="anchored" data-anchor-id="instructions-100-xp-14">
+<span class="header-section-number">1.3.7.1</span> Instructions <code>100 XP</code>
+</h4>
+<p>Assign to the variable <code>total_daily</code> how much you won or lost on each day in total (poker and roulette combined).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_14.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Assign to total_daily how much you won/lost on each day</span></span>
+<span><span class="va">total_daily</span> <span class="op">&lt;-</span> <span class="va">roulette_vector</span> <span class="op">+</span> <span class="va">poker_vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="calculating-total-winnings-3" class="level3" data-number="1.3.8"><h3 data-number="1.3.8" class="anchored" data-anchor-id="calculating-total-winnings-3">
+<span class="header-section-number">1.3.8</span> Calculating total winnings (3)</h3>
+<p>Based on the previous analysis, it looks like you had a mix of good and bad days. This is not what your ego expected, and you wonder if there may be a very tiny chance you have lost money over the week in total?</p>
+<p>A function that helps you to answer this question is <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>. It calculates the sum of all elements of a vector. For example, to calculate the total amount of money you have lost/won with poker you do:</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">total_poker</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="instructions-100-xp-15" class="level4" data-number="1.3.8.1"><h4 data-number="1.3.8.1" class="anchored" data-anchor-id="instructions-100-xp-15">
+<span class="header-section-number">1.3.8.1</span> Instructions <code>100 XP</code>
+</h4>
+<ul>
+<li>Calculate the total amount of money that you have won/lost with roulette and assign to the variable <code>total_roulette</code>.</li>
+<li>Now that you have the totals for roulette and poker, you can easily calculate <code>total_week</code> (which is the sum of all gains and losses of the week).</li>
+<li>Print out <code>total_week</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_15.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Total winnings with poker</span></span>
+<span><span class="va">total_poker</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Total winnings with roulette</span></span>
+<span><span class="va">total_roulette</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Total winnings overall</span></span>
+<span><span class="va">total_week</span> <span class="op">&lt;-</span> <span class="va">total_poker</span> <span class="op">+</span> <span class="va">total_roulette</span></span>
+<span></span>
+<span><span class="co"># Print out total_week</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">total_week</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="comparing-total-winnings" class="level3" data-number="1.3.9"><h3 data-number="1.3.9" class="anchored" data-anchor-id="comparing-total-winnings">
+<span class="header-section-number">1.3.9</span> Comparing total winnings</h3>
+<p>Oops, it seems like you are losing money. Time to rethink and adapt your strategy! This will require some deeper analysis…</p>
+<p>After a short brainstorm in your hotel’s jacuzzi, you realize that a possible explanation might be that your skills in roulette are not as well developed as your skills in poker. So maybe your total gains in poker are higher (or <code>&gt;</code> ) than in roulette.</p>
+<p>Instructions <code>100 XP</code></p>
+<ul>
+<li>Calculate <code>total_poker</code> and <code>total_roulette</code> as in the previous exercise. Use the <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> function twice.</li>
+<li>Check if your total gains in poker are higher than for roulette by using a comparison. Simply print out the result of this comparison. What do you conclude, should you focus on roulette or on poker?</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_16.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
+<span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Calculate total gains for poker and roulette</span></span>
+<span><span class="va">total_poker</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span></span>
+<span><span class="va">total_roulette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check if you realized higher total gains in poker than in roulette</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">total_poker</span> <span class="op">&gt;</span> <span class="va">total_roulette</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="best-coding-practices-for-r" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="best-coding-practices-for-r">
 <span class="header-section-number">1.4</span> Best Coding Practices for R</h2>
 <section id="what-we-mean-when-say-better-coding-practice" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="what-we-mean-when-say-better-coding-practice">
 <span class="header-section-number">1.4.1</span> What we mean when say “better coding practice”</h3>
@@ -1045,47 +1101,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb18" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "R programming fundamentals for Data Science"</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "SDIV"</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intro Baisics</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vectors</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Coding Practices for R</span></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### What we mean when say "better coding practice"</span></span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### Folder Structure</span></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Code Structure</span></span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sections</span></span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Structural Composition</span></span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identation</span></span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Styling</span></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Final Comments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "R programming fundamentals for Data Science"</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "SDIV"</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intro Baisics</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vectors</span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Coding Practices for R</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### What we mean when say "better coding practice"</span></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### Folder Structure</span></span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Code Structure</span></span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sections</span></span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Structural Composition</span></span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identation</span></span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Styling</span></span>
+<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Final Comments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
