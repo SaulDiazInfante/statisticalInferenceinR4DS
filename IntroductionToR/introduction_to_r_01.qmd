@@ -37,7 +37,8 @@ experiment with R code.
 ```
 
 ### Arithmetic with R
-In its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:
+In its most basic form, R can be used as a simple calculator. Consider the 
+following arithmetic operators:
 
 - Addition: `+`
 - Subtraction: `-`
@@ -104,12 +105,14 @@ Suppose you have a fruit basket with five apples. As a data analyst in training,
 you want to store the number of apples in a variable with the name my_apples.
 
 #### Instructions `100 XP`
-* Type the following code in the editor: my_apples <- 5. This will assign the value 5 to my_apples.
+* Type the following code in the editor: my_apples <- 5. This will assign the 
+value 5 to my_apples.
 
 * Type: my_apples below the second comment. This will print out the value of 
 my_apples.
 
-* Run your answer, and look at the output: you see that the number 5 is printed. So R now links the variable my_apples to the value 5.
+* Run your answer, and look at the output: you see that the number 5 is printed. 
+So R now links the variable my_apples to the value 5.
 
 ```{.r filename="ex_04.R"}
 # Assign the value 5 to the variable my_apples
