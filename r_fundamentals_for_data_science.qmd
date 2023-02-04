@@ -2,6 +2,7 @@
 title: "R programming fundamentals for Data Science"
 author: "SDIV"
 ---
+# R Programming {.unnumbered}
 
 ## Nuts and bolts: Data types
 
@@ -19,6 +20,9 @@ following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
 
 ## Vectors
 {{< include _introduction_to_r_02.qmd >}}
+
+## Matrices
+{{< include _introduction_to_r_03.qmd >}}
 
 ## Best Coding Practices for R
 
@@ -39,3 +43,29 @@ following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
 ### Styling
 
 ### Final Comments
+
+# Tidyverse Fundamentals with R {.unnumbered}
+
+## Introduction to Tidyverse
+
+## Reshaping Data with tidyr
+
+## Project
+
+## Modeling with Data in the Tidyverse
+
+## Communication with Data in the Tidyverse
+
+## Categorical Data in the Tydiverse
+
+# Data Manipulation {.unnumbered}
+
+## Data Manipulation with dplyr
+
+## Joining Data with dplyr
+
+## Case Study: Exploratory Data Analysis in R
+
+## Data Manipulation with data.table in R
+
+## Joining Data with data.table in R

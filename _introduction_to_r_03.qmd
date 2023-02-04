@@ -1,0 +1,26 @@
+---
+format:
+  html: 
+    theme: darkly
+    fig-width: 8
+    fig-height: 4
+    code-fold: true
+    code-link: true
+    highlight-style: dracula
+    code-line-numbers: true
+    code-block-border-left: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+---
+
+In this chapter, you will learn how to work with matrices in R. By the 
+end of the chapter, you will be able to create matrices and understand 
+how to do basic computations with them. You will analyze the box office 
+numbers of the Star Wars movies and learn how to use matrices in R. May 
+the force be with you!
+
+### What's a matrix?
+
+### 

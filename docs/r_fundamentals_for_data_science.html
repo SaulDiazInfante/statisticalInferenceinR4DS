@@ -212,7 +212,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
 <li>
-<a href="#nuts-and-bolts-data-types" id="toc-nuts-and-bolts-data-types" class="nav-link active" data-scroll-target="#nuts-and-bolts-data-types"><span class="toc-section-number">1.1</span>  Nuts and bolts: Data types</a>
+<a href="#r-programming" id="toc-r-programming" class="nav-link active" data-scroll-target="#r-programming">R Programming</a>
+  <ul class="collapse">
+<li>
+<a href="#nuts-and-bolts-data-types" id="toc-nuts-and-bolts-data-types" class="nav-link" data-scroll-target="#nuts-and-bolts-data-types"><span class="toc-section-number">1.1</span>  Nuts and bolts: Data types</a>
   <ul class="collapse">
 <li><a href="#entering-input-the-assigment-operator" id="toc-entering-input-the-assigment-operator" class="nav-link" data-scroll-target="#entering-input-the-assigment-operator"><span class="toc-section-number">1.1.1</span>  Entering Input: the assigment operator</a></li>
   </ul>
@@ -243,19 +246,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#calculating-total-winnings-2" id="toc-calculating-total-winnings-2" class="nav-link" data-scroll-target="#calculating-total-winnings-2"><span class="toc-section-number">1.3.7</span>  Calculating total winnings (2)</a></li>
   <li><a href="#calculating-total-winnings-3" id="toc-calculating-total-winnings-3" class="nav-link" data-scroll-target="#calculating-total-winnings-3"><span class="toc-section-number">1.3.8</span>  Calculating total winnings (3)</a></li>
   <li><a href="#comparing-total-winnings" id="toc-comparing-total-winnings" class="nav-link" data-scroll-target="#comparing-total-winnings"><span class="toc-section-number">1.3.9</span>  Comparing total winnings</a></li>
+  <li><a href="#vector-selection-the-good-times" id="toc-vector-selection-the-good-times" class="nav-link" data-scroll-target="#vector-selection-the-good-times"><span class="toc-section-number">1.3.10</span>  Vector selection: the good times</a></li>
+  <li><a href="#vector-selection-the-good-times-2" id="toc-vector-selection-the-good-times-2" class="nav-link" data-scroll-target="#vector-selection-the-good-times-2"><span class="toc-section-number">1.3.11</span>  Vector selection: the good times (2)</a></li>
+  <li><a href="#vector-selection-the-good-times-3" id="toc-vector-selection-the-good-times-3" class="nav-link" data-scroll-target="#vector-selection-the-good-times-3"><span class="toc-section-number">1.3.12</span>  Vector selection: the good times (3)</a></li>
+  <li><a href="#vector-selection-the-good-times-4" id="toc-vector-selection-the-good-times-4" class="nav-link" data-scroll-target="#vector-selection-the-good-times-4"><span class="toc-section-number">1.3.13</span>  Vector selection: the good times (4)</a></li>
+  <li><a href="#selection-by-comparison---step-1" id="toc-selection-by-comparison---step-1" class="nav-link" data-scroll-target="#selection-by-comparison---step-1"><span class="toc-section-number">1.3.14</span>  Selection by comparison - Step 1</a></li>
+  <li><a href="#selection-by-comparison---step-2" id="toc-selection-by-comparison---step-2" class="nav-link" data-scroll-target="#selection-by-comparison---step-2"><span class="toc-section-number">1.3.15</span>  Selection by comparison - Step 2</a></li>
+  <li><a href="#advanced-selection" id="toc-advanced-selection" class="nav-link" data-scroll-target="#advanced-selection"><span class="toc-section-number">1.3.16</span>  Advanced selection</a></li>
   </ul>
 </li>
   <li>
-<a href="#best-coding-practices-for-r" id="toc-best-coding-practices-for-r" class="nav-link" data-scroll-target="#best-coding-practices-for-r"><span class="toc-section-number">1.4</span>  Best Coding Practices for R</a>
+<a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="toc-section-number">1.4</span>  Matrices</a>
   <ul class="collapse">
-<li><a href="#what-we-mean-when-say-better-coding-practice" id="toc-what-we-mean-when-say-better-coding-practice" class="nav-link" data-scroll-target="#what-we-mean-when-say-better-coding-practice"><span class="toc-section-number">1.4.1</span>  What we mean when say “better coding practice”</a></li>
-  <li><a href="#folder-structure" id="toc-folder-structure" class="nav-link" data-scroll-target="#folder-structure"><span class="toc-section-number">1.4.2</span>  Folder Structure</a></li>
-  <li><a href="#code-structure" id="toc-code-structure" class="nav-link" data-scroll-target="#code-structure"><span class="toc-section-number">1.4.3</span>  Code Structure</a></li>
-  <li><a href="#sections" id="toc-sections" class="nav-link" data-scroll-target="#sections"><span class="toc-section-number">1.4.4</span>  Sections</a></li>
-  <li><a href="#structural-composition" id="toc-structural-composition" class="nav-link" data-scroll-target="#structural-composition"><span class="toc-section-number">1.4.5</span>  Structural Composition</a></li>
-  <li><a href="#identation" id="toc-identation" class="nav-link" data-scroll-target="#identation"><span class="toc-section-number">1.4.6</span>  Identation</a></li>
-  <li><a href="#styling" id="toc-styling" class="nav-link" data-scroll-target="#styling"><span class="toc-section-number">1.4.7</span>  Styling</a></li>
-  <li><a href="#final-comments" id="toc-final-comments" class="nav-link" data-scroll-target="#final-comments"><span class="toc-section-number">1.4.8</span>  Final Comments</a></li>
+<li><a href="#whats-a-matrix" id="toc-whats-a-matrix" class="nav-link" data-scroll-target="#whats-a-matrix"><span class="toc-section-number">1.4.1</span>  What’s a matrix?</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">1.4.2</span>  </a></li>
+  </ul>
+</li>
+  <li>
+<a href="#best-coding-practices-for-r" id="toc-best-coding-practices-for-r" class="nav-link" data-scroll-target="#best-coding-practices-for-r"><span class="toc-section-number">1.5</span>  Best Coding Practices for R</a>
+  <ul class="collapse">
+<li><a href="#what-we-mean-when-say-better-coding-practice" id="toc-what-we-mean-when-say-better-coding-practice" class="nav-link" data-scroll-target="#what-we-mean-when-say-better-coding-practice"><span class="toc-section-number">1.5.1</span>  What we mean when say “better coding practice”</a></li>
+  <li><a href="#folder-structure" id="toc-folder-structure" class="nav-link" data-scroll-target="#folder-structure"><span class="toc-section-number">1.5.2</span>  Folder Structure</a></li>
+  <li><a href="#code-structure" id="toc-code-structure" class="nav-link" data-scroll-target="#code-structure"><span class="toc-section-number">1.5.3</span>  Code Structure</a></li>
+  <li><a href="#sections" id="toc-sections" class="nav-link" data-scroll-target="#sections"><span class="toc-section-number">1.5.4</span>  Sections</a></li>
+  <li><a href="#structural-composition" id="toc-structural-composition" class="nav-link" data-scroll-target="#structural-composition"><span class="toc-section-number">1.5.5</span>  Structural Composition</a></li>
+  <li><a href="#identation" id="toc-identation" class="nav-link" data-scroll-target="#identation"><span class="toc-section-number">1.5.6</span>  Identation</a></li>
+  <li><a href="#styling" id="toc-styling" class="nav-link" data-scroll-target="#styling"><span class="toc-section-number">1.5.7</span>  Styling</a></li>
+  <li><a href="#final-comments" id="toc-final-comments" class="nav-link" data-scroll-target="#final-comments"><span class="toc-section-number">1.5.8</span>  Final Comments</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#tidyverse-fundamentals-with-r" id="toc-tidyverse-fundamentals-with-r" class="nav-link" data-scroll-target="#tidyverse-fundamentals-with-r">Tidyverse Fundamentals with R</a>
+  <ul class="collapse">
+<li><a href="#introduction-to-tidyverse" id="toc-introduction-to-tidyverse" class="nav-link" data-scroll-target="#introduction-to-tidyverse"><span class="toc-section-number">1.6</span>  Introduction to Tidyverse</a></li>
+  <li><a href="#reshaping-data-with-tidyr" id="toc-reshaping-data-with-tidyr" class="nav-link" data-scroll-target="#reshaping-data-with-tidyr"><span class="toc-section-number">1.7</span>  Reshaping Data with tidyr</a></li>
+  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project"><span class="toc-section-number">1.8</span>  Project</a></li>
+  <li><a href="#modeling-with-data-in-the-tidyverse" id="toc-modeling-with-data-in-the-tidyverse" class="nav-link" data-scroll-target="#modeling-with-data-in-the-tidyverse"><span class="toc-section-number">1.9</span>  Modeling with Data in the Tidyverse</a></li>
+  <li><a href="#communication-with-data-in-the-tidyverse" id="toc-communication-with-data-in-the-tidyverse" class="nav-link" data-scroll-target="#communication-with-data-in-the-tidyverse"><span class="toc-section-number">1.10</span>  Communication with Data in the Tidyverse</a></li>
+  <li><a href="#categorical-data-in-the-tydiverse" id="toc-categorical-data-in-the-tydiverse" class="nav-link" data-scroll-target="#categorical-data-in-the-tydiverse"><span class="toc-section-number">1.11</span>  Categorical Data in the Tydiverse</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data Manipulation</a>
+  <ul class="collapse">
+<li><a href="#data-manipulation-with-dplyr" id="toc-data-manipulation-with-dplyr" class="nav-link" data-scroll-target="#data-manipulation-with-dplyr"><span class="toc-section-number">1.12</span>  Data Manipulation with dplyr</a></li>
+  <li><a href="#joining-data-with-dplyr" id="toc-joining-data-with-dplyr" class="nav-link" data-scroll-target="#joining-data-with-dplyr"><span class="toc-section-number">1.13</span>  Joining Data with dplyr</a></li>
+  <li><a href="#case-study-exploratory-data-analysis-in-r" id="toc-case-study-exploratory-data-analysis-in-r" class="nav-link" data-scroll-target="#case-study-exploratory-data-analysis-in-r"><span class="toc-section-number">1.14</span>  Case Study: Exploratory Data Analysis in R</a></li>
+  <li><a href="#data-manipulation-with-data.table-in-r" id="toc-data-manipulation-with-data.table-in-r" class="nav-link" data-scroll-target="#data-manipulation-with-data.table-in-r"><span class="toc-section-number">1.15</span>  Data Manipulation with data.table in R</a></li>
+  <li><a href="#joining-data-with-data.table-in-r" id="toc-joining-data-with-data.table-in-r" class="nav-link" data-scroll-target="#joining-data-with-data.table-in-r"><span class="toc-section-number">1.16</span>  Joining Data with data.table in R</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -283,7 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><section id="nuts-and-bolts-data-types" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="nuts-and-bolts-data-types">
+</header><section id="r-programming" class="level1 unnumbered"><h1 class="unnumbered">R Programming</h1>
+<section id="nuts-and-bolts-data-types" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="nuts-and-bolts-data-types">
 <span class="header-section-number">1.1</span> Nuts and bolts: Data types</h2>
 <section id="entering-input-the-assigment-operator" class="level3" data-number="1.1.1"><h3 data-number="1.1.1" class="anchored" data-anchor-id="entering-input-the-assigment-operator">
 <span class="header-section-number">1.1.1</span> Entering Input: the assigment operator</h3>
@@ -882,27 +923,261 @@ Output
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">total_poker</span> <span class="op">&gt;</span> <span class="va">total_roulette</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="best-coding-practices-for-r" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="best-coding-practices-for-r">
-<span class="header-section-number">1.4</span> Best Coding Practices for R</h2>
-<section id="what-we-mean-when-say-better-coding-practice" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="what-we-mean-when-say-better-coding-practice">
-<span class="header-section-number">1.4.1</span> What we mean when say “better coding practice”</h3>
+</section><section id="vector-selection-the-good-times" class="level3" data-number="1.3.10"><h3 data-number="1.3.10" class="anchored" data-anchor-id="vector-selection-the-good-times">
+<span class="header-section-number">1.3.10</span> Vector selection: the good times</h3>
+<p>Your hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette.</p>
+<p>Another possible route for investigation is your performance at the beginning of the working week compared to the end of it. You did have a couple of Margarita cocktails at the end of the week…</p>
+<p>To answer that question, you only want to focus on a selection of the <code>total_vector</code>. In other words, our goal is to select specific elements of the vector. To select elements of a vector (and later matrices, data frames, …), you can use square brackets. Between the square brackets, you indicate what elements to select. For example, to select the first element of the vector, you type <code>poker_vector[1]</code>. To select the second element of the vector, you type <code>poker_vector[2]</code>, etc. Notice that the first element in a vector has index 1, not 0 as in many other programming languages.</p>
+<section id="instructions-100-xp-16" class="level4" data-number="1.3.10.1"><h4 data-number="1.3.10.1" class="anchored" data-anchor-id="instructions-100-xp-16">
+<span class="header-section-number">1.3.10.1</span> Instructions 100 XP</h4>
+<p>Assign the poker results of Wednesday to the variable <code>poker_wednesday</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_17.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Define a new variable based on a selection</span></span>
+<span><span class="va">poker_wednesday</span> <span class="op">&lt;-</span> <span class="va">poker_vector</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="vector-selection-the-good-times-2" class="level3" data-number="1.3.11"><h3 data-number="1.3.11" class="anchored" data-anchor-id="vector-selection-the-good-times-2">
+<span class="header-section-number">1.3.11</span> Vector selection: the good times (2)</h3>
+<p>How about analyzing your midweek results?</p>
+<p>To select multiple elements from a vector, you can add square brackets at the end of it. You can indicate between the brackets what elements should be selected. For example: suppose you want to select the first and the fifth day of the week: use the vector <code>c(1, 5)</code> between the square brackets. For example, the code below selects the first and fifth element of poker_vector:</p>
+<div class="sourceCode" id="cb32" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">poker_vector</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="instructions-100-xp-17" class="level4" data-number="1.3.11.1"><h4 data-number="1.3.11.1" class="anchored" data-anchor-id="instructions-100-xp-17">
+<span class="header-section-number">1.3.11.1</span> Instructions <code>100 XP</code>
+</h4>
+<p>Assign the poker results of Tuesday, Wednesday and Thursday to the variable <code>poker_midweek</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_18.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Define a new variable based on a selection</span></span>
+<span><span class="va">poker_midweek</span> <span class="op">&lt;-</span> <span class="va">poker_vector</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="vector-selection-the-good-times-3" class="level3" data-number="1.3.12"><h3 data-number="1.3.12" class="anchored" data-anchor-id="vector-selection-the-good-times-3">
+<span class="header-section-number">1.3.12</span> Vector selection: the good times (3)</h3>
+<p>Selecting multiple elements of poker_vector with <code>c(2, 3, 4)</code> is not very convenient. Many statisticians are lazy people by nature, so they created an easier way to do this: <code>c(2, 3, 4)</code> can be abbreviated to <code>2:4</code>, which generates a vector with all natural numbers from 2 up to 4.</p>
+<p>So, another way to find the mid-week results is <code>poker_vector[2:4]</code>. Notice how the vector <code>2:4</code> is placed between the square brackets to select element 2 up to 4.</p>
+<section id="instructions-100-xp-18" class="level4" data-number="1.3.12.1"><h4 data-number="1.3.12.1" class="anchored" data-anchor-id="instructions-100-xp-18">
+<span class="header-section-number">1.3.12.1</span> Instructions <code>100 XP</code>
+</h4>
+<p>Assign to <code>roulette_selection_vector</code> the roulette results from Tuesday up to Friday; make use of : if it makes things easier for you.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_19.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Define a new variable based on a selection</span></span>
+<span><span class="va">roulette_selection_vector</span> <span class="op">&lt;-</span> <span class="va">roulette_vector</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="vector-selection-the-good-times-4" class="level3" data-number="1.3.13"><h3 data-number="1.3.13" class="anchored" data-anchor-id="vector-selection-the-good-times-4">
+<span class="header-section-number">1.3.13</span> Vector selection: the good times (4)</h3>
+<p>Another way to tackle the previous exercise is by using the names of the vector elements (Monday, Tuesday, …) instead of their numeric positions. For example,</p>
+<div class="sourceCode" id="cb35" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>poker_vector[<span class="fu">c</span>(<span class="st">"Monday"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>will select the first element of poker_vector since “Monday” is the name of that first element.</p>
+<p>Just like you did in the previous exercise with numerics, you can also use the element names to select multiple elements, for example:</p>
+<div class="sourceCode" id="cb36" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">poker_vector</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>,<span class="st">"Tuesday"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="instructions-100-xp-19" class="level4" data-number="1.3.13.1"><h4 data-number="1.3.13.1" class="anchored" data-anchor-id="instructions-100-xp-19">
+<span class="header-section-number">1.3.13.1</span> Instructions <code>100 XP</code>
+</h4>
+<ul>
+<li>Select the first three elements in <code>poker_vector</code> by using their names: <code>"Monday"</code>, <code>"Tuesday"</code> and <code>"Wednesday"</code>. Assign the result of the selection to <code>poker_start</code>.</li>
+<li>Calculate the average of the values in <code>poker_start</code> with the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function. Simply print out the result so you can inspect it.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_20.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Select poker results for Monday, Tuesday and Wednesday</span></span>
+<span><span class="va">poker_start</span> <span class="op">&lt;-</span> <span class="va">poker_vector</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span><span class="op">)</span><span class="op">]</span></span>
+<span>  </span>
+<span><span class="co"># Calculate the average of the elements in poker_start</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">poker_start</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="selection-by-comparison---step-1" class="level3" data-number="1.3.14"><h3 data-number="1.3.14" class="anchored" data-anchor-id="selection-by-comparison---step-1">
+<span class="header-section-number">1.3.14</span> Selection by comparison - Step 1</h3>
+<p>By making use of comparison operators, we can approach the previous question in a more proactive way.</p>
+<p>The (logical) comparison operators known to R are:</p>
+<ul>
+<li>
+<code>&lt;</code> for less than</li>
+<li>
+<code>&gt;</code> for greater than</li>
+<li>
+<code>&lt;=</code> for less than or equal to</li>
+<li>
+<code>&gt;=</code> for greater than or equal to</li>
+<li>
+<code>==</code> for equal to each other</li>
+<li>
+<code>!=</code> not equal to each other</li>
+</ul>
+<p>As seen in the previous chapter, stating 6 &gt; 5 returns TRUE. The nice thing about R is that you can use these comparison operators also on vectors. For example:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE</code></pre>
+</div>
+</div>
+<p>This command tests for every element of the vector if the condition stated by the comparison operator is <code>TRUE</code> or <code>FALSE</code>.</p>
+<section id="instructions-100-xp-20" class="level4" data-number="1.3.14.1"><h4 data-number="1.3.14.1" class="anchored" data-anchor-id="instructions-100-xp-20">
+<span class="header-section-number">1.3.14.1</span> Instructions <code>100 XP</code>
+</h4>
+<ul>
+<li>Check which elements in <code>poker_vector</code> are positive (i.e.&nbsp;<code>&gt; 0</code>) and assign this to selection_vector.</li>
+<li>Print out selection_vector so you can inspect it. The printout tells you whether you won <code>(TRUE)</code> or lost <code>(FALSE)</code> any money for each day.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_21.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Which days did you make money on poker?</span></span>
+<span><span class="va">selection_vector</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="va">poker_vector</span> <span class="op">&gt;</span> <span class="fl">0</span></span>
+<span>  </span>
+<span><span class="co"># Print out selection_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">selection_vector</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="selection-by-comparison---step-2" class="level3" data-number="1.3.15"><h3 data-number="1.3.15" class="anchored" data-anchor-id="selection-by-comparison---step-2">
+<span class="header-section-number">1.3.15</span> Selection by comparison - Step 2</h3>
+<p>Working with comparisons will make your data analytical life easier. Instead of selecting a subset of days to investigate yourself (like before), you can simply ask R to return only those days where you realized a positive return for poker.</p>
+<p>In the previous exercises you used <code>selection_vector &lt;- poker_vector &gt; 0</code> to find the days on which you had a positive poker return. Now, you would like to know not only the days on which you won, but also how much you won on those days.</p>
+<p>You can select the desired elements, by putting <code>selection_vector</code> between the square brackets that follow poker_vector:</p>
+<div class="sourceCode" id="cb40" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">poker_vector</span><span class="op">[</span><span class="va">selection_vector</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R knows what to do when you pass a logical vector in square brackets: it will only select the elements that correspond to <code>TRUE</code> in <code>selection_vector</code>.</p>
+<section id="instructions-100-xp-21" class="level4" data-number="1.3.15.1"><h4 data-number="1.3.15.1" class="anchored" data-anchor-id="instructions-100-xp-21">
+<span class="header-section-number">1.3.15.1</span> Instructions <code>100 XP</code>
+</h4>
+<p>Use <code>selection_vector</code> in square brackets to assign the amounts that you won on the profitable days to the variable <code>poker_winning_days</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_22.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Which days did you make money on poker?</span></span>
+<span><span class="va">selection_vector</span> <span class="op">&lt;-</span> <span class="va">poker_vector</span> <span class="op">&gt;</span> <span class="fl">0</span></span>
+<span></span>
+<span><span class="co"># Select from poker_vector these days</span></span>
+<span><span class="va">poker_winning_days</span> <span class="op">&lt;-</span> <span class="va">poker_vector</span><span class="op">[</span><span class="va">selection_vector</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="advanced-selection" class="level3" data-number="1.3.16"><h3 data-number="1.3.16" class="anchored" data-anchor-id="advanced-selection">
+<span class="header-section-number">1.3.16</span> Advanced selection</h3>
+<p>Just like you did for poker, you also want to know those days where you realized a positive return for roulette.</p>
+<section id="instructions-100-xp-22" class="level4" data-number="1.3.16.1"><h4 data-number="1.3.16.1" class="anchored" data-anchor-id="instructions-100-xp-22">
+<span class="header-section-number">1.3.16.1</span> Instructions <code>100 XP</code>
+</h4>
+<ul>
+<li>Create the variable selection_vector, this time to see if you made profit with roulette for different days.</li>
+<li>Assign the amounts that you made on the days that you ended positively for roulette to the variable roulette_winning_days. This vector thus contains the positive winnings of roulette_vector.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_23.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Poker and roulette winnings from Monday to Friday:</span></span>
+<span><span class="va">poker_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">140</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">20</span>, <span class="op">-</span><span class="fl">120</span>, <span class="fl">240</span><span class="op">)</span></span>
+<span><span class="va">roulette_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">24</span>, <span class="op">-</span><span class="fl">50</span>, <span class="fl">100</span>, <span class="op">-</span><span class="fl">350</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">days_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">poker_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">roulette_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">days_vector</span></span>
+<span></span>
+<span><span class="co"># Which days did you make money on roulette?</span></span>
+<span><span class="va">selection_vector</span> <span class="op">&lt;-</span> <span class="va">roulette_vector</span> <span class="op">&gt;</span> <span class="fl">0</span></span>
+<span></span>
+<span><span class="co"># Select from roulette_vector these days</span></span>
+<span><span class="va">roulette_winning_days</span> <span class="op">&lt;-</span> <span class="va">roulette_vector</span><span class="op">[</span><span class="va">selection_vector</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section></section><section id="matrices" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="matrices">
+<span class="header-section-number">1.4</span> Matrices</h2>
+<p>In this chapter, you will learn how to work with matrices in R. By the end of the chapter, you will be able to create matrices and understand how to do basic computations with them. You will analyze the box office numbers of the Star Wars movies and learn how to use matrices in R. May the force be with you!</p>
+<section id="whats-a-matrix" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="whats-a-matrix">
+<span class="header-section-number">1.4.1</span> What’s a matrix?</h3>
+</section><section id="section" class="level3" data-number="1.4.2"><h3 data-number="1.4.2" class="anchored" data-anchor-id="section">
+<span class="header-section-number">1.4.2</span> </h3>
+</section></section><section id="best-coding-practices-for-r" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="best-coding-practices-for-r">
+<span class="header-section-number">1.5</span> Best Coding Practices for R</h2>
+<section id="what-we-mean-when-say-better-coding-practice" class="level3" data-number="1.5.1"><h3 data-number="1.5.1" class="anchored" data-anchor-id="what-we-mean-when-say-better-coding-practice">
+<span class="header-section-number">1.5.1</span> What we mean when say “better coding practice”</h3>
 <p>R programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—<strong>columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions</strong> etc,…,.</p>
 <p>We strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R</p>
 <p><a href="https://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/" class="uri">https://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/</a></p>
-</section><section id="folder-structure" class="level3" data-number="1.4.2"><h3 data-number="1.4.2" class="anchored" data-anchor-id="folder-structure">
-<span class="header-section-number">1.4.2</span> Folder Structure</h3>
-</section><section id="code-structure" class="level3" data-number="1.4.3"><h3 data-number="1.4.3" class="anchored" data-anchor-id="code-structure">
-<span class="header-section-number">1.4.3</span> Code Structure</h3>
-</section><section id="sections" class="level3" data-number="1.4.4"><h3 data-number="1.4.4" class="anchored" data-anchor-id="sections">
-<span class="header-section-number">1.4.4</span> Sections</h3>
-</section><section id="structural-composition" class="level3" data-number="1.4.5"><h3 data-number="1.4.5" class="anchored" data-anchor-id="structural-composition">
-<span class="header-section-number">1.4.5</span> Structural Composition</h3>
-</section><section id="identation" class="level3" data-number="1.4.6"><h3 data-number="1.4.6" class="anchored" data-anchor-id="identation">
-<span class="header-section-number">1.4.6</span> Identation</h3>
-</section><section id="styling" class="level3" data-number="1.4.7"><h3 data-number="1.4.7" class="anchored" data-anchor-id="styling">
-<span class="header-section-number">1.4.7</span> Styling</h3>
-</section><section id="final-comments" class="level3" data-number="1.4.8"><h3 data-number="1.4.8" class="anchored" data-anchor-id="final-comments">
-<span class="header-section-number">1.4.8</span> Final Comments</h3>
+</section><section id="folder-structure" class="level3" data-number="1.5.2"><h3 data-number="1.5.2" class="anchored" data-anchor-id="folder-structure">
+<span class="header-section-number">1.5.2</span> Folder Structure</h3>
+</section><section id="code-structure" class="level3" data-number="1.5.3"><h3 data-number="1.5.3" class="anchored" data-anchor-id="code-structure">
+<span class="header-section-number">1.5.3</span> Code Structure</h3>
+</section><section id="sections" class="level3" data-number="1.5.4"><h3 data-number="1.5.4" class="anchored" data-anchor-id="sections">
+<span class="header-section-number">1.5.4</span> Sections</h3>
+</section><section id="structural-composition" class="level3" data-number="1.5.5"><h3 data-number="1.5.5" class="anchored" data-anchor-id="structural-composition">
+<span class="header-section-number">1.5.5</span> Structural Composition</h3>
+</section><section id="identation" class="level3" data-number="1.5.6"><h3 data-number="1.5.6" class="anchored" data-anchor-id="identation">
+<span class="header-section-number">1.5.6</span> Identation</h3>
+</section><section id="styling" class="level3" data-number="1.5.7"><h3 data-number="1.5.7" class="anchored" data-anchor-id="styling">
+<span class="header-section-number">1.5.7</span> Styling</h3>
+</section><section id="final-comments" class="level3" data-number="1.5.8"><h3 data-number="1.5.8" class="anchored" data-anchor-id="final-comments">
+<span class="header-section-number">1.5.8</span> Final Comments</h3>
+</section></section></section><section id="tidyverse-fundamentals-with-r" class="level1 unnumbered"><h1 class="unnumbered">Tidyverse Fundamentals with R</h1>
+<section id="introduction-to-tidyverse" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="introduction-to-tidyverse">
+<span class="header-section-number">1.6</span> Introduction to Tidyverse</h2>
+</section><section id="reshaping-data-with-tidyr" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="reshaping-data-with-tidyr">
+<span class="header-section-number">1.7</span> Reshaping Data with tidyr</h2>
+</section><section id="project" class="level2" data-number="1.8"><h2 data-number="1.8" class="anchored" data-anchor-id="project">
+<span class="header-section-number">1.8</span> Project</h2>
+</section><section id="modeling-with-data-in-the-tidyverse" class="level2" data-number="1.9"><h2 data-number="1.9" class="anchored" data-anchor-id="modeling-with-data-in-the-tidyverse">
+<span class="header-section-number">1.9</span> Modeling with Data in the Tidyverse</h2>
+</section><section id="communication-with-data-in-the-tidyverse" class="level2" data-number="1.10"><h2 data-number="1.10" class="anchored" data-anchor-id="communication-with-data-in-the-tidyverse">
+<span class="header-section-number">1.10</span> Communication with Data in the Tidyverse</h2>
+</section><section id="categorical-data-in-the-tydiverse" class="level2" data-number="1.11"><h2 data-number="1.11" class="anchored" data-anchor-id="categorical-data-in-the-tydiverse">
+<span class="header-section-number">1.11</span> Categorical Data in the Tydiverse</h2>
+</section></section><section id="data-manipulation" class="level1 unnumbered"><h1 class="unnumbered">Data Manipulation</h1>
+<section id="data-manipulation-with-dplyr" class="level2" data-number="1.12"><h2 data-number="1.12" class="anchored" data-anchor-id="data-manipulation-with-dplyr">
+<span class="header-section-number">1.12</span> Data Manipulation with dplyr</h2>
+</section><section id="joining-data-with-dplyr" class="level2" data-number="1.13"><h2 data-number="1.13" class="anchored" data-anchor-id="joining-data-with-dplyr">
+<span class="header-section-number">1.13</span> Joining Data with dplyr</h2>
+</section><section id="case-study-exploratory-data-analysis-in-r" class="level2" data-number="1.14"><h2 data-number="1.14" class="anchored" data-anchor-id="case-study-exploratory-data-analysis-in-r">
+<span class="header-section-number">1.14</span> Case Study: Exploratory Data Analysis in R</h2>
+</section><section id="data-manipulation-with-data.table-in-r" class="level2" data-number="1.15"><h2 data-number="1.15" class="anchored" data-anchor-id="data-manipulation-with-data.table-in-r">
+<span class="header-section-number">1.15</span> Data Manipulation with data.table in R</h2>
+</section><section id="joining-data-with-data.table-in-r" class="level2" data-number="1.16"><h2 data-number="1.16" class="anchored" data-anchor-id="joining-data-with-data.table-in-r">
+<span class="header-section-number">1.16</span> Joining Data with data.table in R</h2>
 
 
 <!-- -->
@@ -1101,47 +1376,77 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb31" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "R programming fundamentals for Data Science"</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "SDIV"</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intro Baisics</span></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vectors</span></span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Coding Practices for R</span></span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### What we mean when say "better coding practice"</span></span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### Folder Structure</span></span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Code Structure</span></span>
-<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sections</span></span>
-<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Structural Composition</span></span>
-<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identation</span></span>
-<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Styling</span></span>
-<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Final Comments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "R programming fundamentals for Data Science"</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "SDIV"</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># R Programming {.unnumbered}</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intro Baisics</span></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vectors</span></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrices</span></span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Coding Practices for R</span></span>
+<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-29"><a href="#cb43-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### What we mean when say "better coding practice"</span></span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-31"><a href="#cb43-31" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
+<span id="cb43-32"><a href="#cb43-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-33"><a href="#cb43-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Folder Structure</span></span>
+<span id="cb43-34"><a href="#cb43-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-35"><a href="#cb43-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Code Structure</span></span>
+<span id="cb43-36"><a href="#cb43-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-37"><a href="#cb43-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sections</span></span>
+<span id="cb43-38"><a href="#cb43-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-39"><a href="#cb43-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Structural Composition</span></span>
+<span id="cb43-40"><a href="#cb43-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-41"><a href="#cb43-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Identation</span></span>
+<span id="cb43-42"><a href="#cb43-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-43"><a href="#cb43-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Styling</span></span>
+<span id="cb43-44"><a href="#cb43-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-45"><a href="#cb43-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Final Comments</span></span>
+<span id="cb43-46"><a href="#cb43-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-47"><a href="#cb43-47" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
+<span id="cb43-48"><a href="#cb43-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-49"><a href="#cb43-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
+<span id="cb43-50"><a href="#cb43-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-51"><a href="#cb43-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
+<span id="cb43-52"><a href="#cb43-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-53"><a href="#cb43-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
+<span id="cb43-54"><a href="#cb43-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-55"><a href="#cb43-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
+<span id="cb43-56"><a href="#cb43-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-57"><a href="#cb43-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
+<span id="cb43-58"><a href="#cb43-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-59"><a href="#cb43-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
+<span id="cb43-60"><a href="#cb43-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-61"><a href="#cb43-61" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
+<span id="cb43-62"><a href="#cb43-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-63"><a href="#cb43-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
+<span id="cb43-64"><a href="#cb43-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-65"><a href="#cb43-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
+<span id="cb43-66"><a href="#cb43-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-67"><a href="#cb43-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
+<span id="cb43-68"><a href="#cb43-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-69"><a href="#cb43-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
+<span id="cb43-70"><a href="#cb43-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-71"><a href="#cb43-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
