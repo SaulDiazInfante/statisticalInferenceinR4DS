@@ -1,12 +1,6 @@
----
-title: "R programming fundamentals for Data Science"
-author: "SDIV"
----
-# R Programming {.unnumbered}
+## Nuts and bolts: Data types {.unnumbered}
 
-## Nuts and bolts: Data types
-
-### Entering Input: the assigment operator
+### Entering Input: the assigment operator {.unnumbered}
 
 The thing that we type on the R console prompt are expressions. The firs 
 expression we discuses here is the assignment operator, please watch the 
@@ -14,35 +8,33 @@ following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
 
 {{< include _atomic_objects.qmd >}} 
 
-## Intro Baisics
-
 {{< include _introduction_to_r_01.qmd >}}
 
-## Vectors
 {{< include _introduction_to_r_02.qmd >}}
 
-## Matrices
 {{< include _introduction_to_r_03.qmd >}}
 
-## Best Coding Practices for R
+{{< include _introduction_to_r_04.qmd >}}
 
-### What we mean when say "better coding practice"
+# Best Coding Practices for R
+
+## What we mean when say "better coding practice"
 
 {{< include _best_coding_practices.qmd >}}
 
-### Folder Structure
+## Folder Structure
 
-### Code Structure
+## Code Structure
 
-### Sections
+## Sections
 
-### Structural Composition
+## Structural Composition
 
-### Identation
+## Identation
 
-### Styling
+## Styling
 
-### Final Comments
+## Final Comments
 
 # Tidyverse Fundamentals with R {.unnumbered}
 

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Statistical Inference For Data Science",
     "section": "",
-    "text": "Preface\n\nWho I am. I am Saul Diaz Infante Velasco. I just starting as assistant professor at the Data Science graduate program of Universidad de Sonora at Hermosillo Mexico. My Background is related with numerical analysis and stochastic models. I’m are a enthusiastic of this treading topic called Data-Science, but perhaps at the moment I only have just intuition about what really it is. However, I have been programming almost 20 years an moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, C++ to the new well established treading development workflows like R, Python and Julia. This is my firs attempt in R.\nWhat the book is about.\nWhen I writing this book.\nWhy I write this book.\nWhere I wrote this book."
+    "text": "Preface\nWho I am. I am Saul Diaz Infante Velasco. I just starting as assistant professor at the Data Science graduate program of Universidad de Sonora at Hermosillo Mexico. My Background is related with numerical analysis and stochastic models. I’m are a enthusiastic of this treading topic called Data-Science, but perhaps at the moment I only have just intuition about what really it is. However, I have been programming almost 20 years an moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, C++ to the new well established treading development workflows like R, Python and Julia. This is my firs attempt in R.\nMore of this book is work in progress. We aim to provide material as well we review and improve our basic skills to face the study of the most popular methods in Machine learning. Thus the book try to cover fundamentals in R programming as data types, flow control structures and put particular importance in the well practice of coding functions. Then we moves to the management of data whit dplyr and other packages. To finish this part we discuss some package to visualize data. Then, we face the problem o estimation and explore techniques based on bootstrap–another sampling flavors.\nThis book has been started on January, 2023 as part of a course to the Master on Data Science from Universidad de Sonora.\nI’m writing this book to follow a path of self learning, understanding and and joy for this matter called Data Science. I’m not try to become and expert instead I just pursuit the joy of the interaction of math, computational sciences and the generosity of this virtuous learning-teaching process."
   },
   {
     "objectID": "intro.html#the-tidyverse",
@@ -16,135 +16,436 @@
   {
     "objectID": "background.html",
     "href": "background.html",
-    "title": "Statistical Inference For Data Science",
+    "title": "R fundamentals in programming, data managment and visualization",
     "section": "",
     "text": "We dedicate this part to overview the basics to program in R. The aim of this part is building the basis for Machine learning, namely data visualization, data manipulation and the good coding practices to type script of industrial production quality."
   },
   {
     "objectID": "r_fundamentals_for_data_science.html",
     "href": "r_fundamentals_for_data_science.html",
-    "title": "\n1  R programming fundamentals for Data Science\n",
+    "title": "Nuts and bolts: Data types",
     "section": "",
-    "text": "R Programming"
+    "text": "Intro to basics\nIn this chapter, you will learn how to work with matrices in R. By the end of the chapter, you will be able to create matrices and understand how to do basic computations with them. You will analyze the box office numbers of the Star Wars movies and learn how to use matrices in R. May the force be with you!\nData often falls into a limited number of categories. For example, human hair color can be categorized as black, brown, blond, red, grey, or white—and perhaps a few more options for people who color their hair. In R, categorical data is stored in factors. Factors are very important in data analysis, so start learning how to create, subset, and compare them now."
   },
   {
-    "objectID": "r_fundamentals_for_data_science.html#nuts-and-bolts-data-types",
-    "href": "r_fundamentals_for_data_science.html#nuts-and-bolts-data-types",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.1 Nuts and bolts: Data types",
-    "text": "1.1 Nuts and bolts: Data types\n\n1.1.1 Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\n[1] 0\n\n\n[1] 0\n\n\n[1] \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
+    "objectID": "r_fundamentals_for_data_science.html#how-it-works",
+    "href": "r_fundamentals_for_data_science.html#how-it-works",
+    "title": "Nuts and bolts: Data types",
+    "section": "How it works",
+    "text": "How it works\nIn the text editor you should type R code to solve the exercises. When you hit ctrl + enter, every line of code is interpreted and executed by R and you get a message whether or not your code was correct.\nR makes use of the # sign to add comments, so that you and others can understand what the R code is about. Comments are not run as R code, so they will not influence your result. For example, Calculate 3 + 4 in the editor on the right is a comment.\nYou can also execute R commands straight in the console. This is a good way to experiment with R code.\nInstructions 100 XP\n\n- In the text editor on the right there is already some sample code. \n- Can you see which lines are actual R code and which are comments?\n- Add a line of code that calculates the sum of 6 and 12, \n    and hit the enter button\n\n\nex_01.R\n\n# Calculate 3 + 4\n3 + 4\n# Calculate 6 + 12\n6 + 12"
   },
   {
-    "objectID": "r_fundamentals_for_data_science.html#intro-baisics",
-    "href": "r_fundamentals_for_data_science.html#intro-baisics",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.2 Intro Baisics",
-    "text": "1.2 Intro Baisics\nTake your first steps with R. In this chapter, you will learn how to use the console as a calculator and how to assign variables. You will also get to know the basic data types in R. Let’s get started. The bellow lines has been taken from the course Introduction to R of Data Camp. You can see the first chapter for free. I recommend this course to get started on R see https://campus.datacamp.com/courses/free-introduction-to-r\n\n1.2.1 How it works\nIn the text editor you should type R code to solve the exercises. When you hit ctrl + enter, every line of code is interpreted and executed by R and you get a message whether or not your code was correct.\nR makes use of the # sign to add comments, so that you and others can understand what the R code is about. Comments are not run as R code, so they will not influence your result. For example, Calculate 3 + 4 in the editor on the right is a comment.\nYou can also execute R commands straight in the console. This is a good way to experiment with R code.\n\n1.2.1.1 Instructions 100 XP\n\n- In the text editor on the right there is already some sample code. \n- Can you see which lines are actual R code and which are comments?\n- Add a line of code that calculates the sum of 6 and 12, \n    and hit the enter button\n\n\nex_01.R\n\n    # Calculate 3 + 4\n    3 + 4\n    # Calculate 6 + 12\n    6 + 12\n\n\n1.2.2 Arithmetic with R\nIn its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:\n\nAddition: +\n\nSubtraction: -\n\nMultiplication: *\n\nDivision: /\n\nExponentiation: ^\n\nModulo: %%\n\n\nThe last two might need some explaining:\n\nThe ^ operator raises the number to its left to the power of the number to its right: for example 3^2 is 9.\nThe modulo returns the remainder of the division of the number to the left by the number on its right, for example 5 modulo 3 or 5 %% 3 is 2.\n\n\n1.2.2.1 Instructions 100 XP\n\n- Type 2^5 in the editor to calculate 2 to the power 5.\n- Type 28 %% 6 to calculate 28 modulo 6.\n- Run the answer in the console and have a look at the R output .\n- Note how the # symbol is used to add comments on the R code.\n\n\nex_02.R\n\n    # An addition\n    5 + 5 \n\n    # A subtraction\n    5 - 5 \n\n    # A multiplication\n    3 * 5\n     # A division\n    (5 + 5) / 2 \n    # Exponentiation\n    2 ^ 5\n    # Modulo\n    28 %% 6\n\n\n1.2.3 Variable assignment\nA basic concept in (statistical) programming is called a variable.\nA variable allows you to store a value (e.g. 4) or an object (e.g. a function description) in R. You can then later use this variable’s name to easily access the value or the object that is stored within this variable.\n\n\n\n\n\n\nYou can assign a value 4 to a variable my_var with the command\n\n\n\nmy_var <- 4\n\n\n\n1.2.3.1 Instructions 100 XP\n\nOver to you: complete the code in the editor such that it assigns the value 42 to the variable x in the editor. Submit the answer. Notice that when you ask R to print x, the value 42 appears.\n\n\n[1] 42\n\n\n\n1.2.4 Variable assignment (2)\nSuppose you have a fruit basket with five apples. As a data analyst in training, you want to store the number of apples in a variable with the name my_apples.\n\n1.2.4.1 Instructions 100 XP\n\n\nType the following code in the editor: my_apples <- 5. This will assign the value 5 to my_apples.\nType: my_apples below the second comment. This will print out the value of my_apples.\nRun your answer, and look at the output: you see that the number 5 is printed. So R now links the variable my_apples to the value 5.\n\n\n\nex_04.R\n\n    # Assign the value 5 to the variable my_apples\n    my_apples <- 5\n    # Print out the value of the variable my_apples\n    print(my_apples)\n\n\n1.2.5 Variable assignment (3)\nEvery tasty fruit basket needs oranges, so you decide to add six oranges. As a data analyst, your reflex is to immediately create the variable my_oranges and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values,\n\n\n\n\n\n\nyou can now code this in a clear way:\n\n\n\nmy_apples + my_oranges\n\n\n\n1.2.5.1 Instructions 100 XP\n\n\nAssign to my_oranges the value 6.\nAdd the variables my_apples and my_oranges and have R simply print the result.\nAssign the result of adding my_apples and my_oranges to a new variable my_fruit.\n\n\n\nex_05.R\n\n    # Assign a value to the variables my_apples and my_oranges\n    my_apples <- 5\n    my_oranges <- 6\n    \n    # Add these two variables together\n    my_apples + my_oranges\n    \n    # Create the variable my_fruit\n    my_fruit <- my_apples + my_oranges\n\n\n1.2.6 Apples and oranges\nCommon knowledge tells you not to add apples and oranges. But hey, that is what you just did, no :-)? The my_apples and my_oranges variables both contained a number in the previous exercise. The + operator works with numeric variables in R. If you really tried to add “apples” and “oranges”, and assigned a text value to the variable my_oranges (see the editor), you would be trying to assign the addition of a numeric and a character variable to the variable my_fruit. This is not possible.\n\n1.2.6.1 Instructions 100 XP\n\n\nRun the answer and read the error message. Make sure to understand why this did not work.\nAdjust the code so that R knows you have 6 oranges and thus a fruit basket with 11 pieces of fruit.\n\n\n\nex_06.R\n\n    # Assign a value to the variable my_apples\n    my_apples <- 5 \n    # Fix the assignment of my_oranges\n    my_oranges <- \"six\" \n    # Create the variable my_fruit and print it out\n    my_fruit <- my_apples + my_oranges \n    my_fruit\n\nResponse\n\n\nex_06.R\n\n    # Assign a value to the variable my_apples\n    my_apples <- 5 \n    # Fix the assignment of my_oranges\n    my_oranges <- 6 \n    # Create the variable my_fruit and print it out\n    my_fruit <- my_apples + my_oranges \n    my_fruit\n\n\n1.2.7 Basic data types in R\nR works with numerous data types. Some of the most basic types to get started are:\n\nDecimal values like 4.5 are called numerics.\nWhole numbers like 4 are called integers. Integers are also numerics.\nBoolean values (TRUE or FALSE) are called logical.\nText (or string) values are called characters.\n\nNote how the quotation marks in the editor indicate that “some text” is a string.\n\n1.2.8 Instructions 100 XP\n\nChange the value of the:\n\n\nmy_numeric variable to 42.\n\nmy_character variable to \"universe\". Note that the quotation marks indicate that “universe” is a character.\n\nmy_logical variable to FALSE.\n\n\n\n\n\n\n\nNote that R is case sensitive!\n\n\n\nThus despite the varibales called var, Var, vAr, has the same fonetic characters, R understand each of these as different memory addresses.\n\n\n\n\nex_07.R\n\n    # Change my_numeric to be 42\n    my_numeric <- 42.5\n\n    # Change my_character to be \"universe\"\n    my_character <- \"some text\"\n\n    # Change my_logical to be FALSE\n    my_logical <- TRUE\n\nResponse\n\n\nex_07.R\n\n    # Change my_numeric to be 42\n    my_numeric <- 42\n\n    # Change my_character to be \"universe\"\n    my_character <- \"universe\"\n\n    # Change my_logical to be FALSE\n    my_logical <- FALSE\n\n\n1.2.9 What’s that data type?\nDo you remember that when you added 5 + “six”, you got an error due to a mismatch in data types? You can avoid such embarrassing situations by checking the data type of a variable beforehand. You can do this with the class() function, as the code in the editor shows.\n\n1.2.9.1 Instructions 100 XP\n\nComplete the code in the editor and also print out the classes of my_character and my_logical.\n\n\nex_08.R\n\n    # Declare variables of different types\n    \n    my_numeric <- 42\n    my_character <- \"universe\"\n    my_logical <- FALSE \n    # Check class of my_numeric\n    class(my_numeric)\n    \n    # Check class of my_character\n    class(my_character)\n    \n    # Check class of my_logical\n    class(my_logical)"
+    "objectID": "r_fundamentals_for_data_science.html#arithmetic-with-r",
+    "href": "r_fundamentals_for_data_science.html#arithmetic-with-r",
+    "title": "Nuts and bolts: Data types",
+    "section": "Arithmetic with R",
+    "text": "Arithmetic with R\nIn its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:\n\nAddition: +\n\nSubtraction: -\n\nMultiplication: *\n\nDivision: /\n\nExponentiation: ^\n\nModulo: %%\n\n\nThe last two might need some explaining:\n\nThe ^ operator raises the number to its left to the power of the number to its right: for example 3^2 is 9.\nThe modulo returns the remainder of the division of the number to the left by the number on its right, for example 5 modulo 3 or 5 %% 3 is 2.\n\nInstructions 100 XP\n\n- Type 2^5 in the editor to calculate 2 to the power 5.\n- Type 28 %% 6 to calculate 28 modulo 6.\n- Run the answer in the console and have a look at the R output .\n- Note how the # symbol is used to add comments on the R code.\n\n\nex_02.R\n\n# An addition\n5 + 5 \n\n# A subtraction\n5 - 5 \n\n# A multiplication\n3 * 5\n    # A division\n(5 + 5) / 2 \n# Exponentiation\n2 ^ 5\n# Modulo\n28 %% 6\n\nVariable assignment\nA basic concept in (statistical) programming is called a variable.\nA variable allows you to store a value (e.g. 4) or an object (e.g. a function description) in R. You can then later use this variable’s name to easily access the value or the object that is stored within this variable.\n\n\n\n\n\n\nYou can assign a value 4 to a variable my_var with the command\n\n\n\n\nmy_var <- 4\n\n\n\nInstructions 100 XP\n\nOver to you: complete the code in the editor such that it assigns the value 42 to the variable x in the editor. Submit the answer. Notice that when you ask R to print x, the value 42 appears.\n\n\nex_03.R\n\n# Assign the value 42 to x\nx <- 42\n# Print out the value of the variable x\nprint (x)\n\nVariable assignment (2)\nSuppose you have a fruit basket with five apples. As a data analyst in training, you want to store the number of apples in a variable with the name my_apples.\nInstructions 100 XP\n\n\nType the following code in the editor: my_apples <- 5. This will assign the value 5 to my_apples.\nType: my_apples below the second comment. This will print out the value of my_apples.\nRun your answer, and look at the output: you see that the number 5 is printed. So R now links the variable my_apples to the value 5.\n\n\n\nex_04.R\n\n# Assign the value 5 to the variable my_apples\nmy_apples <- 5\n# Print out the value of the variable my_apples\nprint(my_apples)"
   },
   {
-    "objectID": "r_fundamentals_for_data_science.html#vectors",
-    "href": "r_fundamentals_for_data_science.html#vectors",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.3 Vectors",
-    "text": "1.3 Vectors\n\n1.3.1 Create a vector\nFeeling lucky? You better, because this chapter takes you on a trip to the City of Sins, also known as Statisticians Paradise!\nThanks to R and your new data-analytical skills, you will learn how to uplift your performance at the tables and fire off your career as a professional gambler. This chapter will show how you can easily keep track of your betting progress and how you can do some simple analyses on past actions. Next stop, Vegas Baby… VEGAS!!\n\n1.3.1.1 Instructions 100 XP\n\n\nDo you still remember what you have learned in the first chapter? Assign the value \"Go!\" to the variable vegas. Remember: R is case sensitive!\n\n\n\nex_08.R\n\n# Define the variable vegas\nvegas <- \"Go!\"\n\n\n1.3.2 Create a vector (2)\nLet us focus first!\nOn your way from rags to riches, you will make extensive use of vectors. Vectors are one-dimension arrays that can hold numeric data, character data, or logical data. In other words, a vector is a simple tool to store data. For example, you can store your daily gains and losses in the casinos.\nIn R, you create a vector with the combine function c(). You place the vector elements separated by a comma between the parentheses.\n\n\n\n\n\n\nFor example:\n\n\n\nnumeric_vector <- c(1, 2, 3)\ncharacter_vector <- c(\"a\", \"b\", \"c\")\n\n\nOnce you have created these vectors in R, you can use them to do calculations.\n\n1.3.2.1 Instructions 100 XP\n\nComplete the code such that boolean_vector contains the three elements: TRUE,FALSEandTRUE` (in that order).\n\n\nex_09.R\n\nnumeric_vector <- c(1, 10, 49)\ncharacter_vector <- c(\"a\", \"b\", \"c\")\n\n# Complete the code for boolean_vector\nboolean_vector <-c(TRUE, FALSE, TRUE)\n\n\n1.3.3 Create a vector (3)\nAfter one week in Las Vegas and still zero Ferraris in your garage, you decide that it is time to start using your data analytical superpowers.\nBefore doing a first analysis, you decide to first collect all the winnings and losses for the last week:\nFor poker_vector:\n\nOn Monday you won $140\n\nTuesday you lost $50\n\nWednesday you won $20\n\nThursday you lost $120\n\nFriday you won $240\n\n\nFor roulette_vector:\n\nOn Monday you lost $24\n\nTuesday you lost $50\n\nWednesday you won $100\n\nThursday you lost $350\n\nFriday you won $10\n\n\nYou only played poker and roulette, since there was a delegation of mediums that occupied the craps tables. To be able to use this data in R, you decide to create the variables poker_vector and roulette_vector.\n\n1.3.3.1 Instructions 100 XP\n\nAssign the winnings/losses for roulette to the variable roulette_vector. You lost $24, then lost $50 , won $100, lost $350, and won $10.\n\n\nex_10.R\n\n# Poker winnings from Monday to Friday\npoker_vector <- c(140, -50, 20, -120, 240)\n\n# Roulette winnings from Monday to Friday\nroulette_vector <- c(-24, -50, 100, -350, 10)\n\n\n1.3.4 Naming a vector\nAs a data analyst, it is important to have a clear view on the data that you are using. Understanding what each element refers to is therefore essential.\nIn the previous exercise, we created a vector with your winnings over the week. Each vector element refers to a day of the week but it is hard to tell which element belongs to which day. It would be nice if you could show that in the vector itself.\nYou can give a name to the elements of a vector with the names() function. Have a look at this example:\n#| code-line-numbers: false\n#| code-fold: false\n#| code-summary: \"Show the code\"\n\nsome_vector <- c(\"John Doe\", \"poker player\")\nnames(some_vector) <- c(\"Name\", \"Profession\")\nThis code first creates a vector some_vector and then gives the two elements a name. The first element is assigned the name Name, while the second element is labeled Profession. Printing the contents to the console yields following output:\n\n\n\n\n\n\nOutput\n\n\n\n\n\n      Name     Profession\n\"John Doe\" \"poker player\"\n\n\n\n\n1.3.4.1 Instructions 100 XP\n\nThe code in the editor names the elements in poker_vector with the days of the week. Add code to do the same thing for roulette_vector.\n\n\nex_11.R\n\n# Poker winnings from Monday to Friday\npoker_vector <- c(140, -50, 20, -120, 240)\n\n# Roulette winnings from Monday to Friday\nroulette_vector <- c(-24, -50, 100, -350, 10)\n\n# Assign days as names of poker_vector\nnames(poker_vector) <-\n  c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\n\n# Assign days as names of roulette_vector\n\nnames(roulette_vector) <-\n  c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\n\n\n1.3.5 Naming a vector (2)\nIf you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents.)\nIn the previous exercises you probably experienced that it is boring and frustrating to type and retype information such as the days of the week. However, when you look at it from a higher perspective, there is a more efficient way to do this, namely, to assign the days of the week vector to a variable!\nJust like you did with your poker and roulette returns, you can also create a variable that contains the days of the week. This way you can use and re-use it.\n\n1.3.5.1 Instructions 100 XP\n\n\nA variable days_vector that contains the days of the week has already been created for you.\nUse days_vector to set the names of poker_vector and roulette_vector.\n\n\n\nex_12.R\n\n# Poker winnings from Monday to Friday\npoker_vector <- c(140, -50, 20, -120, 240)\n\n# Roulette winnings from Monday to Friday\nroulette_vector <- c(-24, -50, 100, -350, 10)\n\n# The variable days_vector\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\n\n# Assign the names of the day to roulette_vector and poker_vector\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n\n1.3.6 Calculating total winnings\nNow that you have the poker and roulette winnings nicely as named vectors, you can start doing some data analytical magic.\nYou want to find out the following type of information:\n\nHow much has been your overall profit or loss per day of the week?\nHave you lost money over the week in total?\nAre you winning/losing money on poker or on roulette? To get the answers, you have to do arithmetic calculations on vectors.\n\nIt is important to know that if you sum two vectors in R, it takes the element-wise sum. For example, the following three statements are completely equivalent:\n\n\n\nYou can also do the calculations with variables that represent vectors:\n\n\n\n\n1.3.6.1 Instructions 100 XP\n\n\nTake the sum of the variables A_vector and B_vector and assign it to total_vector.\nInspect the result by printing out total_vector.\n\n\n\nex_13.R\n\nA_vector <- c(1, 2, 3)\nB_vector <- c(4, 5, 6)\n\n# Take the sum of A_vector and B_vector\ntotal_vector <- A_vector + B_vector\n\n# Print out total_vector\nprint(total_vector)\n\n\n1.3.7 Calculating total winnings (2)\nNow you understand how R does arithmetic with vectors, it is time to get those Ferraris in your garage! First, you need to understand what the overall profit or loss per day of the week was. The total daily profit is the sum of the profit / loss you realized on poker per day, and the profit / loss you realized on roulette per day.\nIn R, this is just the sum of roulette_vector and poker_vector.\n\n1.3.7.1 Instructions 100 XP\n\nAssign to the variable total_daily how much you won or lost on each day in total (poker and roulette combined).\n\n\nex_14.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Assign to total_daily how much you won/lost on each day\ntotal_daily <- roulette_vector + poker_vector\n\n\n1.3.8 Calculating total winnings (3)\nBased on the previous analysis, it looks like you had a mix of good and bad days. This is not what your ego expected, and you wonder if there may be a very tiny chance you have lost money over the week in total?\nA function that helps you to answer this question is sum(). It calculates the sum of all elements of a vector. For example, to calculate the total amount of money you have lost/won with poker you do:\ntotal_poker <- sum(poker_vector)\n\n1.3.8.1 Instructions 100 XP\n\n\nCalculate the total amount of money that you have won/lost with roulette and assign to the variable total_roulette.\nNow that you have the totals for roulette and poker, you can easily calculate total_week (which is the sum of all gains and losses of the week).\nPrint out total_week.\n\n\n\nex_15.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Total winnings with poker\ntotal_poker <- sum(poker_vector)\n\n# Total winnings with roulette\ntotal_roulette <-  sum(roulette_vector)\n\n# Total winnings overall\ntotal_week <- total_poker + total_roulette\n\n# Print out total_week\nprint(total_week)\n\n\n1.3.9 Comparing total winnings\nOops, it seems like you are losing money. Time to rethink and adapt your strategy! This will require some deeper analysis…\nAfter a short brainstorm in your hotel’s jacuzzi, you realize that a possible explanation might be that your skills in roulette are not as well developed as your skills in poker. So maybe your total gains in poker are higher (or > ) than in roulette.\nInstructions 100 XP\n\nCalculate total_poker and total_roulette as in the previous exercise. Use the sum() function twice.\nCheck if your total gains in poker are higher than for roulette by using a comparison. Simply print out the result of this comparison. What do you conclude, should you focus on roulette or on poker?\n\n\n\nex_16.R\n\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Calculate total gains for poker and roulette\ntotal_poker <- sum(poker_vector)\ntotal_roulette <- sum(roulette_vector)\n\n# Check if you realized higher total gains in poker than in roulette\n\nprint(total_poker > total_roulette)\n\n\n1.3.10 Vector selection: the good times\nYour hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette.\nAnother possible route for investigation is your performance at the beginning of the working week compared to the end of it. You did have a couple of Margarita cocktails at the end of the week…\nTo answer that question, you only want to focus on a selection of the total_vector. In other words, our goal is to select specific elements of the vector. To select elements of a vector (and later matrices, data frames, …), you can use square brackets. Between the square brackets, you indicate what elements to select. For example, to select the first element of the vector, you type poker_vector[1]. To select the second element of the vector, you type poker_vector[2], etc. Notice that the first element in a vector has index 1, not 0 as in many other programming languages.\n\n1.3.10.1 Instructions 100 XP\nAssign the poker results of Wednesday to the variable poker_wednesday.\n\n\nex_17.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Define a new variable based on a selection\npoker_wednesday <- poker_vector[3]  \n\n\n1.3.11 Vector selection: the good times (2)\nHow about analyzing your midweek results?\nTo select multiple elements from a vector, you can add square brackets at the end of it. You can indicate between the brackets what elements should be selected. For example: suppose you want to select the first and the fifth day of the week: use the vector c(1, 5) between the square brackets. For example, the code below selects the first and fifth element of poker_vector:\npoker_vector[c(1, 5)]\n\n1.3.11.1 Instructions 100 XP\n\nAssign the poker results of Tuesday, Wednesday and Thursday to the variable poker_midweek.\n\n\nex_18.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Define a new variable based on a selection\npoker_midweek <- poker_vector[c(2, 3, 4)]\n\n\n1.3.12 Vector selection: the good times (3)\nSelecting multiple elements of poker_vector with c(2, 3, 4) is not very convenient. Many statisticians are lazy people by nature, so they created an easier way to do this: c(2, 3, 4) can be abbreviated to 2:4, which generates a vector with all natural numbers from 2 up to 4.\nSo, another way to find the mid-week results is poker_vector[2:4]. Notice how the vector 2:4 is placed between the square brackets to select element 2 up to 4.\n\n1.3.12.1 Instructions 100 XP\n\nAssign to roulette_selection_vector the roulette results from Tuesday up to Friday; make use of : if it makes things easier for you.\n\n\nex_19.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Define a new variable based on a selection\nroulette_selection_vector <- roulette_vector[2:5]\n\n\n1.3.13 Vector selection: the good times (4)\nAnother way to tackle the previous exercise is by using the names of the vector elements (Monday, Tuesday, …) instead of their numeric positions. For example,\npoker_vector[c(\"Monday\"]\nwill select the first element of poker_vector since “Monday” is the name of that first element.\nJust like you did in the previous exercise with numerics, you can also use the element names to select multiple elements, for example:\npoker_vector[c(\"Monday\",\"Tuesday\")]\n\n1.3.13.1 Instructions 100 XP\n\n\nSelect the first three elements in poker_vector by using their names: \"Monday\", \"Tuesday\" and \"Wednesday\". Assign the result of the selection to poker_start.\nCalculate the average of the values in poker_start with the mean() function. Simply print out the result so you can inspect it.\n\n\n\nex_20.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Select poker results for Monday, Tuesday and Wednesday\npoker_start <- poker_vector[c(\"Monday\", \"Tuesday\", \"Wednesday\")]\n  \n# Calculate the average of the elements in poker_start\nmean(poker_start)\n\n\n1.3.14 Selection by comparison - Step 1\nBy making use of comparison operators, we can approach the previous question in a more proactive way.\nThe (logical) comparison operators known to R are:\n\n\n< for less than\n\n> for greater than\n\n<= for less than or equal to\n\n>= for greater than or equal to\n\n== for equal to each other\n\n!= not equal to each other\n\nAs seen in the previous chapter, stating 6 > 5 returns TRUE. The nice thing about R is that you can use these comparison operators also on vectors. For example:\n\n\n[1] FALSE FALSE  TRUE\n\n\nThis command tests for every element of the vector if the condition stated by the comparison operator is TRUE or FALSE.\n\n1.3.14.1 Instructions 100 XP\n\n\nCheck which elements in poker_vector are positive (i.e. > 0) and assign this to selection_vector.\nPrint out selection_vector so you can inspect it. The printout tells you whether you won (TRUE) or lost (FALSE) any money for each day.\n\n\n\nex_21.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Which days did you make money on poker?\nselection_vector <- \n    poker_vector > 0\n  \n# Print out selection_vector\nprint(selection_vector)\n\n\n1.3.15 Selection by comparison - Step 2\nWorking with comparisons will make your data analytical life easier. Instead of selecting a subset of days to investigate yourself (like before), you can simply ask R to return only those days where you realized a positive return for poker.\nIn the previous exercises you used selection_vector <- poker_vector > 0 to find the days on which you had a positive poker return. Now, you would like to know not only the days on which you won, but also how much you won on those days.\nYou can select the desired elements, by putting selection_vector between the square brackets that follow poker_vector:\npoker_vector[selection_vector]\nR knows what to do when you pass a logical vector in square brackets: it will only select the elements that correspond to TRUE in selection_vector.\n\n1.3.15.1 Instructions 100 XP\n\nUse selection_vector in square brackets to assign the amounts that you won on the profitable days to the variable poker_winning_days.\n\n\nex_22.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Which days did you make money on poker?\nselection_vector <- poker_vector > 0\n\n# Select from poker_vector these days\npoker_winning_days <- poker_vector[selection_vector]\n\n\n1.3.16 Advanced selection\nJust like you did for poker, you also want to know those days where you realized a positive return for roulette.\n\n1.3.16.1 Instructions 100 XP\n\n\nCreate the variable selection_vector, this time to see if you made profit with roulette for different days.\nAssign the amounts that you made on the days that you ended positively for roulette to the variable roulette_winning_days. This vector thus contains the positive winnings of roulette_vector.\n\n\n\nex_23.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Which days did you make money on roulette?\nselection_vector <- roulette_vector > 0\n\n# Select from roulette_vector these days\nroulette_winning_days <- roulette_vector[selection_vector]"
+    "objectID": "r_fundamentals_for_data_science.html#variable-assignment-3",
+    "href": "r_fundamentals_for_data_science.html#variable-assignment-3",
+    "title": "Nuts and bolts: Data types",
+    "section": "Variable assignment (3)",
+    "text": "Variable assignment (3)\nEvery tasty fruit basket needs oranges, so you decide to add six oranges. As a data analyst, your reflex is to immediately create the variable my_oranges and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values,\n\n\n\n\n\n\nyou can now code this in a clear way:\n\n\n\nmy_apples + my_oranges\n\n\nInstructions 100 XP\n\n\nAssign to my_oranges the value 6.\nAdd the variables my_apples and my_oranges and have R simply print the result.\nAssign the result of adding my_apples and my_oranges to a new variable my_fruit.\n\n\n\nex_05.R\n\n# Assign a value to the variables my_apples and my_oranges\nmy_apples <- 5\nmy_oranges <- 6\n\n# Add these two variables together\nmy_apples + my_oranges\n\n# Create the variable my_fruit\nmy_fruit <- my_apples + my_oranges"
   },
   {
-    "objectID": "r_fundamentals_for_data_science.html#matrices",
-    "href": "r_fundamentals_for_data_science.html#matrices",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.4 Matrices",
-    "text": "1.4 Matrices\nIn this chapter, you will learn how to work with matrices in R. By the end of the chapter, you will be able to create matrices and understand how to do basic computations with them. You will analyze the box office numbers of the Star Wars movies and learn how to use matrices in R. May the force be with you!\n\n1.4.1 What’s a matrix?\n\n1.4.2"
+    "objectID": "r_fundamentals_for_data_science.html#apples-and-oranges",
+    "href": "r_fundamentals_for_data_science.html#apples-and-oranges",
+    "title": "Nuts and bolts: Data types",
+    "section": "Apples and oranges",
+    "text": "Apples and oranges\nCommon knowledge tells you not to add apples and oranges. But hey, that is what you just did, no :-)? The my_apples and my_oranges variables both contained a number in the previous exercise. The + operator works with numeric variables in R. If you really tried to add “apples” and “oranges”, and assigned a text value to the variable my_oranges (see the editor), you would be trying to assign the addition of a numeric and a character variable to the variable my_fruit. This is not possible.\nInstructions 100 XP\n\n\nRun the answer and read the error message. Make sure to understand why this did not work.\nAdjust the code so that R knows you have 6 oranges and thus a fruit basket with 11 pieces of fruit.\n\n\n\nex_06.R\n\n# Assign a value to the variable my_apples\nmy_apples <- 5 \n# Fix the assignment of my_oranges\nmy_oranges <- \"six\" \n# Create the variable my_fruit and print it out\nmy_fruit <- my_apples + my_oranges \nmy_fruit\n\nResponse\n\n\nex_06.R\n\n# Assign a value to the variable my_apples\nmy_apples <- 5 \n# Fix the assignment of my_oranges\nmy_oranges <- 6 \n# Create the variable my_fruit and print it out\nmy_fruit <- my_apples + my_oranges \nmy_fruit"
   },
   {
-    "objectID": "r_fundamentals_for_data_science.html#best-coding-practices-for-r",
-    "href": "r_fundamentals_for_data_science.html#best-coding-practices-for-r",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.5 Best Coding Practices for R",
-    "text": "1.5 Best Coding Practices for R\n\n1.5.1 What we mean when say “better coding practice”\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/\n\n1.5.2 Folder Structure\n\n1.5.3 Code Structure\n\n1.5.4 Sections\n\n1.5.5 Structural Composition\n\n1.5.6 Identation\n\n1.5.7 Styling\n\n1.5.8 Final Comments"
+    "objectID": "r_fundamentals_for_data_science.html#basic-data-types-in-r",
+    "href": "r_fundamentals_for_data_science.html#basic-data-types-in-r",
+    "title": "Nuts and bolts: Data types",
+    "section": "Basic data types in R",
+    "text": "Basic data types in R\nR works with numerous data types. Some of the most basic types to get started are:\n\nDecimal values like 4.5 are called numerics.\nWhole numbers like 4 are called integers. Integers are also numerics.\nBoolean values (TRUE or FALSE) are called logical.\nText (or string) values are called characters.\n\nNote how the quotation marks in the editor indicate that “some text” is a string."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#instructions-100-xp-6",
+    "href": "r_fundamentals_for_data_science.html#instructions-100-xp-6",
+    "title": "Nuts and bolts: Data types",
+    "section": "Instructions 100 XP\n",
+    "text": "Instructions 100 XP\n\nChange the value of the:\n\n\nmy_numeric variable to 42.\n\nmy_character variable to \"universe\". Note that the quotation marks indicate that “universe” is a character.\n\nmy_logical variable to FALSE.\n\n\n\n\n\n\n\nNote that R is case sensitive!\n\n\n\nThus despite the varibales called var, Var, vAr, has the same fonetic characters, R understand each of these as different memory addresses.\n\n\n\n\nex_07.R\n\n# Change my_numeric to be 42\nmy_numeric <- 42.5\n\n# Change my_character to be \"universe\"\nmy_character <- \"some text\"\n\n# Change my_logical to be FALSE\nmy_logical <- TRUE\n\nResponse\n\n\nex_07.R\n\n# Change my_numeric to be 42\nmy_numeric <- 42\n\n# Change my_character to be \"universe\"\nmy_character <- \"universe\"\n\n# Change my_logical to be FALSE\nmy_logical <- FALSE"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#whats-that-data-type",
+    "href": "r_fundamentals_for_data_science.html#whats-that-data-type",
+    "title": "Nuts and bolts: Data types",
+    "section": "What’s that data type?",
+    "text": "What’s that data type?\nDo you remember that when you added 5 + “six”, you got an error due to a mismatch in data types? You can avoid such embarrassing situations by checking the data type of a variable beforehand. You can do this with the class() function, as the code in the editor shows.\nInstructions 100 XP\n\nComplete the code in the editor and also print out the classes of my_character and my_logical.\n\n\nex_08.R\n\n# Declare variables of different types\n\nmy_numeric <- 42\nmy_character <- \"universe\"\nmy_logical <- FALSE \n# Check class of my_numeric\nclass(my_numeric)\n\n# Check class of my_character\nclass(my_character)\n\n# Check class of my_logical\nclass(my_logical)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#create-a-vector",
+    "href": "r_fundamentals_for_data_science.html#create-a-vector",
+    "title": "Nuts and bolts: Data types",
+    "section": "Create a vector",
+    "text": "Create a vector\nFeeling lucky? You better, because this chapter takes you on a trip to the City of Sins, also known as Statisticians Paradise!\nThanks to R and your new data-analytical skills, you will learn how to uplift your performance at the tables and fire off your career as a professional gambler. This chapter will show how you can easily keep track of your betting progress and how you can do some simple analyses on past actions. Next stop, Vegas Baby… VEGAS!!\nInstructions 100 XP\n\n\nDo you still remember what you have learned in the first chapter? Assign the value \"Go!\" to the variable vegas. Remember: R is case sensitive!\n\n\n\nex_08.R\n\n# Define the variable vegas\nvegas <- \"Go!\""
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#create-a-vector-2",
+    "href": "r_fundamentals_for_data_science.html#create-a-vector-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Create a vector (2)",
+    "text": "Create a vector (2)\nLet us focus first!\nOn your way from rags to riches, you will make extensive use of vectors. Vectors are one-dimension arrays that can hold numeric data, character data, or logical data. In other words, a vector is a simple tool to store data. For example, you can store your daily gains and losses in the casinos.\nIn R, you create a vector with the combine function c(). You place the vector elements separated by a comma between the parentheses.\n\n\n\n\n\n\nFor example:\n\n\n\nnumeric_vector <- c(1, 2, 3)\ncharacter_vector <- c(\"a\", \"b\", \"c\")\n\n\nOnce you have created these vectors in R, you can use them to do calculations.\nInstructions 100 XP\n\nComplete the code such that boolean_vector contains the three elements: TRUE,FALSEandTRUE` (in that order).\n\n\nex_09.R\n\nnumeric_vector <- c(1, 10, 49)\ncharacter_vector <- c(\"a\", \"b\", \"c\")\n\n# Complete the code for boolean_vector\nboolean_vector <-c(TRUE, FALSE, TRUE)\n\nCreate a vector (3)\nAfter one week in Las Vegas and still zero Ferraris in your garage, you decide that it is time to start using your data analytical superpowers.\nBefore doing a first analysis, you decide to first collect all the winnings and losses for the last week:\nFor poker_vector:\n\nOn Monday you won $140\n\nTuesday you lost $50\n\nWednesday you won $20\n\nThursday you lost $120\n\nFriday you won $240\n\n\nFor roulette_vector:\n\nOn Monday you lost $24\n\nTuesday you lost $50\n\nWednesday you won $100\n\nThursday you lost $350\n\nFriday you won $10\n\n\nYou only played poker and roulette, since there was a delegation of mediums that occupied the craps tables. To be able to use this data in R, you decide to create the variables poker_vector and roulette_vector.\nInstructions 100 XP\n\nAssign the winnings/losses for roulette to the variable roulette_vector. You lost $24, then lost $50 , won $100, lost $350, and won $10.\n\n\nex_10.R\n\n# Poker winnings from Monday to Friday\npoker_vector <- c(140, -50, 20, -120, 240)\n\n# Roulette winnings from Monday to Friday\nroulette_vector <- c(-24, -50, 100, -350, 10)\n\nNaming a vector\nAs a data analyst, it is important to have a clear view on the data that you are using. Understanding what each element refers to is therefore essential.\nIn the previous exercise, we created a vector with your winnings over the week. Each vector element refers to a day of the week but it is hard to tell which element belongs to which day. It would be nice if you could show that in the vector itself.\nYou can give a name to the elements of a vector with the names() function. Have a look at this example:\n#| code-line-numbers: false\n#| code-fold: false\n#| code-summary: \"Show the code\"\n\nsome_vector <- c(\"John Doe\", \"poker player\")\nnames(some_vector) <- c(\"Name\", \"Profession\")\nThis code first creates a vector some_vector and then gives the two elements a name. The first element is assigned the name Name, while the second element is labeled Profession. Printing the contents to the console yields following output:\n\n\n\n\n\n\nOutput\n\n\n\n\n\n      Name     Profession\n\"John Doe\" \"poker player\"\n\n\n\nInstructions 100 XP\n\nThe code in the editor names the elements in poker_vector with the days of the week. Add code to do the same thing for roulette_vector.\n\n\nex_11.R\n\n# Poker winnings from Monday to Friday\npoker_vector <- c(140, -50, 20, -120, 240)\n\n# Roulette winnings from Monday to Friday\nroulette_vector <- c(-24, -50, 100, -350, 10)\n\n# Assign days as names of poker_vector\nnames(poker_vector) <-\n  c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\n\n# Assign days as names of roulette_vector\n\nnames(roulette_vector) <-\n  c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#naming-a-vector-2",
+    "href": "r_fundamentals_for_data_science.html#naming-a-vector-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Naming a vector (2)",
+    "text": "Naming a vector (2)\nIf you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents.)\nIn the previous exercises you probably experienced that it is boring and frustrating to type and retype information such as the days of the week. However, when you look at it from a higher perspective, there is a more efficient way to do this, namely, to assign the days of the week vector to a variable!\nJust like you did with your poker and roulette returns, you can also create a variable that contains the days of the week. This way you can use and re-use it.\nInstructions 100 XP\n\n\nA variable days_vector that contains the days of the week has already been created for you.\nUse days_vector to set the names of poker_vector and roulette_vector.\n\n\n\nex_12.R\n\n# Poker winnings from Monday to Friday\npoker_vector <- c(140, -50, 20, -120, 240)\n\n# Roulette winnings from Monday to Friday\nroulette_vector <- c(-24, -50, 100, -350, 10)\n\n# The variable days_vector\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\n\n# Assign the names of the day to roulette_vector and poker_vector\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#calculating-total-winnings",
+    "href": "r_fundamentals_for_data_science.html#calculating-total-winnings",
+    "title": "Nuts and bolts: Data types",
+    "section": "Calculating total winnings",
+    "text": "Calculating total winnings\nNow that you have the poker and roulette winnings nicely as named vectors, you can start doing some data analytical magic.\nYou want to find out the following type of information:\n\nHow much has been your overall profit or loss per day of the week?\nHave you lost money over the week in total?\nAre you winning/losing money on poker or on roulette? To get the answers, you have to do arithmetic calculations on vectors.\n\nIt is important to know that if you sum two vectors in R, it takes the element-wise sum. For example, the following three statements are completely equivalent:\n\n\n\nYou can also do the calculations with variables that represent vectors:\n\n\n\nInstructions 100 XP\n\n\nTake the sum of the variables A_vector and B_vector and assign it to total_vector.\nInspect the result by printing out total_vector.\n\n\n\nex_13.R\n\nA_vector <- c(1, 2, 3)\nB_vector <- c(4, 5, 6)\n\n# Take the sum of A_vector and B_vector\ntotal_vector <- A_vector + B_vector\n\n# Print out total_vector\nprint(total_vector)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#calculating-total-winnings-2",
+    "href": "r_fundamentals_for_data_science.html#calculating-total-winnings-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Calculating total winnings (2)",
+    "text": "Calculating total winnings (2)\nNow you understand how R does arithmetic with vectors, it is time to get those Ferraris in your garage! First, you need to understand what the overall profit or loss per day of the week was. The total daily profit is the sum of the profit / loss you realized on poker per day, and the profit / loss you realized on roulette per day.\nIn R, this is just the sum of roulette_vector and poker_vector.\nInstructions 100 XP\n\nAssign to the variable total_daily how much you won or lost on each day in total (poker and roulette combined).\n\n\nex_14.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Assign to total_daily how much you won/lost on each day\ntotal_daily <- roulette_vector + poker_vector"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#calculating-total-winnings-3",
+    "href": "r_fundamentals_for_data_science.html#calculating-total-winnings-3",
+    "title": "Nuts and bolts: Data types",
+    "section": "Calculating total winnings (3)",
+    "text": "Calculating total winnings (3)\nBased on the previous analysis, it looks like you had a mix of good and bad days. This is not what your ego expected, and you wonder if there may be a very tiny chance you have lost money over the week in total?\nA function that helps you to answer this question is sum(). It calculates the sum of all elements of a vector. For example, to calculate the total amount of money you have lost/won with poker you do:\ntotal_poker <- sum(poker_vector)\nInstructions 100 XP\n\n\nCalculate the total amount of money that you have won/lost with roulette and assign to the variable total_roulette.\nNow that you have the totals for roulette and poker, you can easily calculate total_week (which is the sum of all gains and losses of the week).\nPrint out total_week.\n\n\n\nex_15.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Total winnings with poker\ntotal_poker <- sum(poker_vector)\n\n# Total winnings with roulette\ntotal_roulette <-  sum(roulette_vector)\n\n# Total winnings overall\ntotal_week <- total_poker + total_roulette\n\n# Print out total_week\nprint(total_week)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#comparing-total-winnings",
+    "href": "r_fundamentals_for_data_science.html#comparing-total-winnings",
+    "title": "Nuts and bolts: Data types",
+    "section": "Comparing total winnings",
+    "text": "Comparing total winnings\nOops, it seems like you are losing money. Time to rethink and adapt your strategy! This will require some deeper analysis…\nAfter a short brainstorm in your hotel’s jacuzzi, you realize that a possible explanation might be that your skills in roulette are not as well developed as your skills in poker. So maybe your total gains in poker are higher (or > ) than in roulette.\nInstructions 100 XP\n\n\nCalculate total_poker and total_roulette as in the previous exercise. Use the sum() function twice.\nCheck if your total gains in poker are higher than for roulette by using a comparison. Simply print out the result of this comparison. What do you conclude, should you focus on roulette or on poker?\n\n\n\nex_16.R\n\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Calculate total gains for poker and roulette\ntotal_poker <- sum(poker_vector)\ntotal_roulette <- sum(roulette_vector)\n\n# Check if you realized higher total gains in poker than in roulette\n\nprint(total_poker > total_roulette)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#vector-selection-the-good-times",
+    "href": "r_fundamentals_for_data_science.html#vector-selection-the-good-times",
+    "title": "Nuts and bolts: Data types",
+    "section": "Vector selection: the good times",
+    "text": "Vector selection: the good times\nYour hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette.\nAnother possible route for investigation is your performance at the beginning of the working week compared to the end of it. You did have a couple of Margarita cocktails at the end of the week…\nTo answer that question, you only want to focus on a selection of the total_vector. In other words, our goal is to select specific elements of the vector. To select elements of a vector (and later matrices, data frames, …), you can use square brackets. Between the square brackets, you indicate what elements to select. For example, to select the first element of the vector, you type poker_vector[1]. To select the second element of the vector, you type poker_vector[2], etc. Notice that the first element in a vector has index 1, not 0 as in many other programming languages.\nInstructions 100 XP\nAssign the poker results of Wednesday to the variable poker_wednesday.\n\n\nex_17.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Define a new variable based on a selection\npoker_wednesday <- poker_vector[3]"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#vector-selection-the-good-times-2",
+    "href": "r_fundamentals_for_data_science.html#vector-selection-the-good-times-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Vector selection: the good times (2)",
+    "text": "Vector selection: the good times (2)\nHow about analyzing your midweek results?\nTo select multiple elements from a vector, you can add square brackets at the end of it. You can indicate between the brackets what elements should be selected. For example: suppose you want to select the first and the fifth day of the week: use the vector c(1, 5) between the square brackets. For example, the code below selects the first and fifth element of poker_vector:\npoker_vector[c(1, 5)]\nInstructions 100 XP\n\nAssign the poker results of Tuesday, Wednesday and Thursday to the variable poker_midweek.\n\n\nex_18.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Define a new variable based on a selection\npoker_midweek <- poker_vector[c(2, 3, 4)]"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#vector-selection-the-good-times-3",
+    "href": "r_fundamentals_for_data_science.html#vector-selection-the-good-times-3",
+    "title": "Nuts and bolts: Data types",
+    "section": "Vector selection: the good times (3)",
+    "text": "Vector selection: the good times (3)\nSelecting multiple elements of poker_vector with c(2, 3, 4) is not very convenient. Many statisticians are lazy people by nature, so they created an easier way to do this: c(2, 3, 4) can be abbreviated to 2:4, which generates a vector with all natural numbers from 2 up to 4.\nSo, another way to find the mid-week results is poker_vector[2:4]. Notice how the vector 2:4 is placed between the square brackets to select element 2 up to 4.\nInstructions 100 XP\n\nAssign to roulette_selection_vector the roulette results from Tuesday up to Friday; make use of : if it makes things easier for you.\n\n\nex_19.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Define a new variable based on a selection\nroulette_selection_vector <- roulette_vector[2:5]"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#vector-selection-the-good-times-4",
+    "href": "r_fundamentals_for_data_science.html#vector-selection-the-good-times-4",
+    "title": "Nuts and bolts: Data types",
+    "section": "Vector selection: the good times (4)",
+    "text": "Vector selection: the good times (4)\nAnother way to tackle the previous exercise is by using the names of the vector elements (Monday, Tuesday, …) instead of their numeric positions. For example,\npoker_vector[c(\"Monday\"]\nwill select the first element of poker_vector since “Monday” is the name of that first element.\nJust like you did in the previous exercise with numerics, you can also use the element names to select multiple elements, for example:\npoker_vector[c(\"Monday\",\"Tuesday\")]\nInstructions 100 XP\n\n\nSelect the first three elements in poker_vector by using their names: \"Monday\", \"Tuesday\" and \"Wednesday\". Assign the result of the selection to poker_start.\nCalculate the average of the values in poker_start with the mean() function. Simply print out the result so you can inspect it.\n\n\n\nex_20.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Select poker results for Monday, Tuesday and Wednesday\npoker_start <- poker_vector[c(\"Monday\", \"Tuesday\", \"Wednesday\")]\n  \n# Calculate the average of the elements in poker_start\nmean(poker_start)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#selection-by-comparison---step-1",
+    "href": "r_fundamentals_for_data_science.html#selection-by-comparison---step-1",
+    "title": "Nuts and bolts: Data types",
+    "section": "Selection by comparison - Step 1",
+    "text": "Selection by comparison - Step 1\nBy making use of comparison operators, we can approach the previous question in a more proactive way.\nThe (logical) comparison operators known to R are:\n\n\n< for less than\n\n> for greater than\n\n<= for less than or equal to\n\n>= for greater than or equal to\n\n== for equal to each other\n\n!= not equal to each other\n\nAs seen in the previous chapter, stating 6 > 5 returns TRUE. The nice thing about R is that you can use these comparison operators also on vectors. For example:\n\n\n[1] FALSE FALSE  TRUE\n\n\nThis command tests for every element of the vector if the condition stated by the comparison operator is TRUE or FALSE.\nInstructions 100 XP\n\n\nCheck which elements in poker_vector are positive (i.e. > 0) and assign this to selection_vector.\nPrint out selection_vector so you can inspect it. The printout tells you whether you won (TRUE) or lost (FALSE) any money for each day.\n\n\n\nex_21.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Which days did you make money on poker?\nselection_vector <- \n    poker_vector > 0\n  \n# Print out selection_vector\nprint(selection_vector)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#selection-by-comparison---step-2",
+    "href": "r_fundamentals_for_data_science.html#selection-by-comparison---step-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Selection by comparison - Step 2",
+    "text": "Selection by comparison - Step 2\nWorking with comparisons will make your data analytical life easier. Instead of selecting a subset of days to investigate yourself (like before), you can simply ask R to return only those days where you realized a positive return for poker.\nIn the previous exercises you used selection_vector <- poker_vector > 0 to find the days on which you had a positive poker return. Now, you would like to know not only the days on which you won, but also how much you won on those days.\nYou can select the desired elements, by putting selection_vector between the square brackets that follow poker_vector:\npoker_vector[selection_vector]\nR knows what to do when you pass a logical vector in square brackets: it will only select the elements that correspond to TRUE in selection_vector.\nInstructions 100 XP\n\nUse selection_vector in square brackets to assign the amounts that you won on the profitable days to the variable poker_winning_days.\n\n\nex_22.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Which days did you make money on poker?\nselection_vector <- poker_vector > 0\n\n# Select from poker_vector these days\npoker_winning_days <- poker_vector[selection_vector]"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#advanced-selection",
+    "href": "r_fundamentals_for_data_science.html#advanced-selection",
+    "title": "Nuts and bolts: Data types",
+    "section": "Advanced selection",
+    "text": "Advanced selection\nJust like you did for poker, you also want to know those days where you realized a positive return for roulette.\nInstructions 100 XP\n\n\nCreate the variable selection_vector, this time to see if you made profit with roulette for different days.\nAssign the amounts that you made on the days that you ended positively for roulette to the variable roulette_winning_days. This vector thus contains the positive winnings of roulette_vector.\n\n\n\nex_23.R\n\n# Poker and roulette winnings from Monday to Friday:\npoker_vector <- c(140, -50, 20, -120, 240)\nroulette_vector <- c(-24, -50, 100, -350, 10)\ndays_vector <- c(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\")\nnames(poker_vector) <- days_vector\nnames(roulette_vector) <- days_vector\n\n# Which days did you make money on roulette?\nselection_vector <- roulette_vector > 0\n\n# Select from roulette_vector these days\nroulette_winning_days <- roulette_vector[selection_vector]"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#whats-a-matrix",
+    "href": "r_fundamentals_for_data_science.html#whats-a-matrix",
+    "title": "Nuts and bolts: Data types",
+    "section": "What’s a matrix?",
+    "text": "What’s a matrix?\nIn R, a matrix is a collection of elements of the same data type (numeric, character, or logical) arranged into a fixed number of rows and columns. Since you are only working with rows and columns, a matrix is called two-dimensional.\nYou can construct a matrix in R with the matrix() function. Consider the following example:\nmatrix(1:9, byrow = TRUE, nrow = 3)\nIn the matrix() function:\n\nThe first argument is the collection of elements that R will arrange into the rows and columns of the matrix. Here, we use 1:9 which is a shortcut for c(1, 2, 3, 4, 5, 6, 7, 8, 9).\nThe argument byrow indicates that the matrix is filled by the rows. If we want the matrix to be filled by the columns, we just place byrow = FALSE.\nThe third argument nrow indicates that the matrix should have three rows.\n\nInstructions 100 XP\n\nConstruct a matrix with 3 rows containing the numbers 1 up to 9, filled row-wise.\n\n\nex_24.R\n\n# Construct a matrix with 3 rows that contain the numbers 1 up to 9\nmatrix(1:9, byrow = TRUE, nrow = 3)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#analyze-matrices-you-shall",
+    "href": "r_fundamentals_for_data_science.html#analyze-matrices-you-shall",
+    "title": "Nuts and bolts: Data types",
+    "section": "Analyze matrices, you shall",
+    "text": "Analyze matrices, you shall\nIt is now time to get your hands dirty. In the following exercises you will analyze the box office numbers of the Star Wars franchise. May the force be with you!\nIn the editor, three vectors are defined. Each one represents the box office numbers from the first three Star Wars movies. The first element of each vector indicates the US box office revenue, the second element refers to the Non-US box office (source: Wikipedia).\nIn this exercise, you’ll combine all these figures into a single vector. Next, you’ll build a matrix from this vector.\nInstructions 100 XP\n\n\nUse c(new_hope, empire_strikes, return_jedi) to combine the three vectors into one vector. Call this vector box_office.\nConstruct a matrix with 3 rows, where each row represents a movie. Use the matrix() function to do this. The first argument is the vector box_office, containing all box office figures. Next, you’ll have to specify nrow = 3 and byrow = TRUE. Name the resulting matrix star_wars_matrix.\n\n\n\nex_25.R\n\n# Box office Star Wars (in millions!)\nnew_hope <- c(460.998, 314.4)\nempire_strikes <- c(290.475, 247.900)\nreturn_jedi <- c(309.306, 165.8)\n\n# Create box_office\nbox_office <- c(new_hope, empire_strikes, return_jedi)\n\n# Construct star_wars_matrix\nstar_wars_matrix <- matrix (box_office, nrow = 3, byrow = TRUE)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#naming-a-matrix",
+    "href": "r_fundamentals_for_data_science.html#naming-a-matrix",
+    "title": "Nuts and bolts: Data types",
+    "section": "Naming a matrix",
+    "text": "Naming a matrix\nTo help you remember what is stored in star_wars_matrix, you would like to add the names of the movies for the rows. Not only does this help you to read the data, but it is also useful to select certain elements from the matrix.\nSimilar to vectors, you can add names for the rows and the columns of a matrix\nrownames(my_matrix) <- row_names_vector\ncolnames(my_matrix) <- col_names_vector\nWe went ahead and prepared two vectors for you: region, and titles. You will need these vectors to name the columns and rows of star_wars_matrix, respectively.\nInstructions 100 XP\n\n\nUse colnames() to name the columns of star_wars_matrix with the region vector.\nUse rownames() to name the rows of star_wars_matrix with the titles vector.\nPrint out star_wars_matrix to see the result of your work.\n\n\n\nex_26.R\n\n# Box office Star Wars (in millions!)\nnew_hope <- c(460.998, 314.4)\nempire_strikes <- c(290.475, 247.900)\nreturn_jedi <- c(309.306, 165.8)\n\n# Construct matrix\nstar_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)\n\n# Vectors region and titles, used for naming\nregion <- c(\"US\", \"non-US\")\ntitles <- c(\"A New Hope\", \"The Empire Strikes Back\", \"Return of the Jedi\")\n\n# Name the columns with region\ncolnames(star_wars_matrix) <- region\n\n# Name the rows with titles\nrownames(star_wars_matrix) <- titles\n\n# Print out star_wars_matrix\nprint(star_wars_matrix)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#calculating-the-worldwide-box-office",
+    "href": "r_fundamentals_for_data_science.html#calculating-the-worldwide-box-office",
+    "title": "Nuts and bolts: Data types",
+    "section": "Calculating the worldwide box office",
+    "text": "Calculating the worldwide box office\nThe single most important thing for a movie in order to become an instant legend in Tinseltown is its worldwide box office figures.\nTo calculate the total box office revenue for the three Star Wars movies, you have to take the sum of the US revenue column and the non-US revenue column.\nIn R, the function rowSums() conveniently calculates the totals for each row of a matrix. This function creates a new vector:\nrowSums(my_matrix)\nInstructions 100 XP\n\nCalculate the worldwide box office figures for the three movies and put these in the vector named worldwide_vector.\n\n\nex_26.R\n\n# Construct star_wars_matrix\nbox_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)\nregion <- c(\"US\", \"non-US\")\ntitles <- c(\"A New Hope\", \n                \"The Empire Strikes Back\", \n                \"Return of the Jedi\")\n              \nstar_wars_matrix <- matrix(box_office, \n                     nrow = 3, byrow = TRUE,\n                     dimnames = list(titles, region))\n\n# Calculate worldwide box office figures\nworldwide_vector <- rowSums(star_wars_matrix)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#adding-a-column-for-the-worldwide-box-office",
+    "href": "r_fundamentals_for_data_science.html#adding-a-column-for-the-worldwide-box-office",
+    "title": "Nuts and bolts: Data types",
+    "section": "Adding a column for the Worldwide box office",
+    "text": "Adding a column for the Worldwide box office\nIn the previous exercise you calculated the vector that contained the worldwide box office receipt for each of the three Star Wars movies. However, this vector is not yet part of star_wars_matrix.\nYou can add a column or multiple columns to a matrix with the cbind() function, which merges matrices and/or vectors together by column. For example:\n  big_matrix <- cbind(matrix1, matrix2, vector1 ...)\nInstructions 100 XP\n\nAdd worldwide_vector as a new column to the star_wars_matrix and assign the result to all_wars_matrix. Use the cbind() function.\n\n\nex_27.R\n\n# Construct star_wars_matrix\nbox_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)\nregion <- c(\"US\", \"non-US\")\ntitles <- c(\"A New Hope\", \n            \"The Empire Strikes Back\", \n            \"Return of the Jedi\")\n               \nstar_wars_matrix <- matrix(box_office, \n                      nrow = 3, byrow = TRUE,\n                      dimnames = list(titles, region))\n\n# The worldwide box office figures\nworldwide_vector <- rowSums(star_wars_matrix)\n\n# Bind the new variable worldwide_vector as a column to star_wars_matrix\nall_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#adding-a-row",
+    "href": "r_fundamentals_for_data_science.html#adding-a-row",
+    "title": "Nuts and bolts: Data types",
+    "section": "Adding a row",
+    "text": "Adding a row\nJust like every action has a reaction, every cbind() has an rbind(). (We admit, we are pretty bad with metaphors.)\nYour R workspace, where all variables you defined ‘live’ (check out what a workspace is), has already been initialized and contains two matrices:\n\nstar_wars_matrix that we have used all along, with data on the original trilogy,\nstar_wars_matrix2, with similar data for the prequels trilogy.\n\nExplore these matrices in the console if you want to have a closer look. If you want to check out the contents of the workspace, you can type ls() in the console.\nInstructions 100 XP\n\nUse rbind() to paste together star_wars_matrix and star_wars_matrix2, in this order. Assign the resulting matrix to all_wars_matrix.\n\n\nex_28.R\n\n# star_wars_matrix and star_wars_matrix2 are available in your workspace\nstar_wars_matrix  \nstar_wars_matrix2 \n\n# Combine both Star Wars trilogies in one matrix\nall_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#the-total-box-office-revenue-for-the-entire-saga",
+    "href": "r_fundamentals_for_data_science.html#the-total-box-office-revenue-for-the-entire-saga",
+    "title": "Nuts and bolts: Data types",
+    "section": "The total box office revenue for the entire saga",
+    "text": "The total box office revenue for the entire saga\nJust like cbind() has rbind(), colSums() has rowSums(). Your R workspace already contains the all_wars_matrix that you constructed in the previous exercise; type all_wars_matrix to have another look. Let’s now calculate the total box office revenue for the entire saga.\nInstructions 100 XP\n\n\nCalculate the total revenue for the US and the non-US region and assign total_revenue_vector. You can use the colSums() function.\nPrint out total_revenue_vector to have a look at the results.\n\n\n\nex_29.R\n\n# all_wars_matrix is available in your workspace\nall_wars_matrix\n\n# Total revenue for US and non-US\ntotal_revenue_vector <- colSums(all_wars_matrix)\n  \n# Print out total_revenue_vector\nprint(total_revenue_vector)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#selection-of-matrix-elements",
+    "href": "r_fundamentals_for_data_science.html#selection-of-matrix-elements",
+    "title": "Nuts and bolts: Data types",
+    "section": "Selection of matrix elements",
+    "text": "Selection of matrix elements\nSimilar to vectors, you can use the square brackets [ ] to select one or multiple elements from a matrix. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate the rows you want to select from the columns. For example:\n\n\nmy_matrix[1,2] selects the element at the first row and second column.\n\nmy_matrix[1:3,2:4] results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3, 4.\n\nIf you want to select all elements of a row or a column, no number is needed before or after the comma, respectively:\n\n\nmy_matrix[,1] selects all elements of the first column.\n\nmy_matrix[1,] selects all elements of the first row.\n\nBack to Star Wars with this newly acquired knowledge! As in the previous exercise, all_wars_matrix is already available in your workspace.\nInstructions 100 XP\n\n\nSelect the non-US revenue for all movies (the entire second column of all_wars_matrix), store the result as non_us_all.\nUse mean() on non_us_all to calculate the average non-US revenue for all movies. Simply print out the result.\nThis time, select the non-US revenue for the first two movies in all_wars_matrix. Store the result as non_us_some.\nUse mean() again to print out the average of the values in non_us_some.\n\n\n\nex_30.R\n\n# all_wars_matrix is available in your workspace\nall_wars_matrix\n\n# Select the non-US revenue for all movies\nnon_us_all <- all_wars_matrix[,2]\n  \n# Average non-US revenue\nprint(mean(non_us_all))\n  \n# Select the non-US revenue for first two movies\nnon_us_some <- all_wars_matrix[1:2, 2]\n  \n# Average non-US revenue for first two movies\nprint(mean(non_us_some))"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#a-little-arithmetic-with-matrices",
+    "href": "r_fundamentals_for_data_science.html#a-little-arithmetic-with-matrices",
+    "title": "Nuts and bolts: Data types",
+    "section": "A little arithmetic with matrices",
+    "text": "A little arithmetic with matrices\nSimilar to what you have learned with vectors, the standard operators like +, -,/, *, etc. work in an element-wise way on matrices in R.\nFor example, 2 * my_matrix multiplies each element of my_matrix by two.\nAs a newly-hired data analyst for Lucasfilm, it is your job to find out how many visitors went to each movie for each geographical area. You already have the total revenue figures in all_wars_matrix. Assume that the price of a ticket was 5 dollars. Simply dividing the box office numbers by this ticket price gives you the number of visitors.\nInstructions 100 XP\n\n\nDivide all_wars_matrix by 5, giving you the number of visitors in millions.\nAssign the resulting matrix to visitors.\nPrint out visitors so you can have a look.\n\n\n\nex_31.R\n\n# all_wars_matrix is available in your workspace\nall_wars_matrix\n\n# Estimate the visitors\nvisitors <- all_wars_matrix / 5\n  \n# Print the estimate to the console\nprint(visitors)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#a-little-arithmetic-with-matrices-2",
+    "href": "r_fundamentals_for_data_science.html#a-little-arithmetic-with-matrices-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "A little arithmetic with matrices (2)",
+    "text": "A little arithmetic with matrices (2)\nJust like 2 * my_matrix multiplied every element of my_matrix by two, my_matrix1 * my_matrix2 creates a matrix where each element is the product of the corresponding elements in my_matrix1 and my_matrix2.\nAfter looking at the result of the previous exercise, big boss Lucas points out that the ticket prices went up over time. He asks to redo the analysis based on the prices you can find in ticket_prices_matrix (source: imagination).\nThose who are familiar with matrices should note that this is not the standard matrix multiplication for which you should use %*% in R.\nInstructions 100 XP\n\n\nDivide all_wars_matrix by ticket_prices_matrix to get the estimated number of US and non-US visitors for the six movies. Assign the result to visitors.\nFrom the visitors matrix, select the entire first column, representing the number of visitors in the US. Store this selection as us_visitors.\nCalculate the average number of US visitors; print out the result.\n\n\n\nex_32.R\n\n# all_wars_matrix and ticket_prices_matrix are available in your workspace\nall_wars_matrix\nticket_prices_matrix\n\n# Estimated number of visitors\nvisitors <- all_wars_matrix / ticket_prices_matrix\n\n# US visitors\nus_visitors <- visitors[, 1]\n\n# Average number of US visitors\nprint(mean(us_visitors))"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#whats-a-factor-and-why-would-you-use-it",
+    "href": "r_fundamentals_for_data_science.html#whats-a-factor-and-why-would-you-use-it",
+    "title": "Nuts and bolts: Data types",
+    "section": "What’s a factor and why would you use it?",
+    "text": "What’s a factor and why would you use it?\nIn this chapter you dive into the wonderful world of factors.\nThe term factor refers to a statistical data type used to store categorical variables. The difference between a categorical variable and a continuous variable is that a categorical variable can belong to a limited number of categories. A continuous variable, on the other hand, can correspond to an infinite number of values.\nIt is important that R knows whether it is dealing with a continuous or a categorical variable, as the statistical models you will develop in the future treat both types differently. (You will see later why this is the case.)\nA good example of a categorical variable is sex. In many circumstances you can limit the sex categories to “Male” or “Female”. (Sometimes you may need different categories. For example, you may need to consider chromosomal variation, hermaphroditic animals, or different cultural norms, but you will always have a finite number of categories.)\nInstructions 100 XP\n\nAssign to variable theory the value “factors”.\n\n\nex_33.R\n\n# Assign to the variable theory what this chapter is about!\ntheory <- \"factors\""
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#whats-a-factor-and-why-would-you-use-it-2",
+    "href": "r_fundamentals_for_data_science.html#whats-a-factor-and-why-would-you-use-it-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "What’s a factor and why would you use it? (2)",
+    "text": "What’s a factor and why would you use it? (2)\nTo create factors in R, you make use of the function factor(). First thing that you have to do is create a vector that contains all the observations that belong to a limited number of categories. For example, sex_vector contains the sex of 5 different individuals:\nsex_vector <- c(\"Male\",\"Female\",\"Female\",\"Male\",\"Male\")\nIt is clear that there are two categories, or in R-terms ‘factor levels’, at work here: “Male” and “Female”.\nThe function factor() will encode the vector as a factor:\nfactor_sex_vector <- factor(sex_vector)\nInstructions 100 XP\n\n\nConvert the character vector sex_vector to a factor with factor() and assign the result to factor_sex_vector\n\nPrint out factor_sex_vector and assert that R prints out the factor levels below the actual values.\n\n\n\nex_34.R\n\n# Sex vector\nsex_vector <- c(\"Male\", \"Female\", \"Female\", \"Male\", \"Male\")\n\n# Convert sex_vector to a factor\nfactor_sex_vector <- factor(sex_vector)\n\n# Print out factor_sex_vector\nprint(factor_sex_vector)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#whats-a-factor-and-why-would-you-use-it-3",
+    "href": "r_fundamentals_for_data_science.html#whats-a-factor-and-why-would-you-use-it-3",
+    "title": "Nuts and bolts: Data types",
+    "section": "What’s a factor and why would you use it? (3)",
+    "text": "What’s a factor and why would you use it? (3)\nThere are two types of categorical variables: a nominal categorical variable and an ordinal categorical variable.\nA nominal variable is a categorical variable without an implied order. This means that it is impossible to say that ‘one is worth more than the other’. For example, think of the categorical variable animals_vector with the categories “Elephant”, “Giraffe”, “Donkey” and “Horse”. Here, it is impossible to say that one stands above or below the other. (Note that some of you might disagree ;-) ).\nIn contrast, ordinal variables do have a natural ordering. Consider for example the categorical variable temperature_vector with the categories: “Low”, “Medium” and “High”. Here it is obvious that “Medium” stands above “Low”, and “High” stands above “Medium”.\nInstructions 100 XP\n\nSubmit the answer to check how R constructs and prints nominal and ordinal variables. Do not worry if you do not understand all the code just yet, we will get to that.\n\n\nex_35.R\n\n# Animals\nanimals_vector <- c(\"Elephant\", \"Giraffe\", \"Donkey\", \"Horse\")\nfactor_animals_vector <- factor(animals_vector)\nfactor_animals_vector\n\n# Temperature\ntemperature_vector <- c(\"High\", \"Low\", \"High\",\"Low\", \"Medium\")\nfactor_temperature_vector <- \n    factor(\n        temperature_vector,\n        order = TRUE,\n        levels = c(\"Low\", \"Medium\", \"High\")\n    )\nfactor_temperature_vector"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#factor-levels",
+    "href": "r_fundamentals_for_data_science.html#factor-levels",
+    "title": "Nuts and bolts: Data types",
+    "section": "Factor levels",
+    "text": "Factor levels\nWhen you first get a dataset, you will often notice that it contains factors with specific factor levels. However, sometimes you will want to change the names of these levels for clarity or other reasons. R allows you to do this with the function levels():\nlevels(factor_vector) <- c(\"name1\", \"name2\",...)\nA good illustration is the raw data that is provided to you by a survey. A common question for every questionnaire is the sex of the respondent. Here, for simplicity, just two categories were recorded, “M” and “F”. (You usually need more categories for survey data; either way, you use a factor to store the categorical data.)\nsurvey_vector <- c(\"M\", \"F\", \"F\", \"M\", \"M\")\nRecording the sex with the abbreviations \"M\" and \"F\" can be convenient if you are collecting data with pen and paper, but it can introduce confusion when analyzing the data. At that point, you will often want to change the factor levels to \"Male\" and \"Female\" instead of \"M\" and \"F\" for clarity.\nWatch out: the order with which you assign the levels is important. If you type levels(factor_survey_vector), you’ll see that it outputs [1] \"F\" \"M\". If you don’t specify the levels of the factor when creating the vector, R will automatically assign them alphabetically. To correctly map \"F\" to \"Female\" and \"M\" to \"Male\", the levels should be set to c(\"Female\", \"Male\"), in this order.\nInstructions 100 XP\n\n\nCheck out the code that builds a factor vector from survey_vector. You should use factor_survey_vector in the next instruction.\nChange the factor levels of factor_survey_vector to c(\"Female\", \"Male\"). Mind the order of the vector elements here.\n\n\n\nex_36.R\n\n# Code to build factor_survey_vector\nsurvey_vector <- c(\"M\", \"F\", \"F\", \"M\", \"M\")\nfactor_survey_vector <- factor(survey_vector)\n\n# Specify the levels of factor_survey_vector\nlevels(factor_survey_vector) <- c(\"F\", \"M\")\n\nlevels(factor_survey_vector) <-  c(\"Female\", \"Male\")"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#summarizing-a-factor",
+    "href": "r_fundamentals_for_data_science.html#summarizing-a-factor",
+    "title": "Nuts and bolts: Data types",
+    "section": "Summarizing a factor",
+    "text": "Summarizing a factor"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#battle-of-the-sexes",
+    "href": "r_fundamentals_for_data_science.html#battle-of-the-sexes",
+    "title": "Nuts and bolts: Data types",
+    "section": "Battle of the sexes",
+    "text": "Battle of the sexes"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#ordered-factors",
+    "href": "r_fundamentals_for_data_science.html#ordered-factors",
+    "title": "Nuts and bolts: Data types",
+    "section": "Ordered factors",
+    "text": "Ordered factors"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#ordered-factors-2",
+    "href": "r_fundamentals_for_data_science.html#ordered-factors-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Ordered factors (2)",
+    "text": "Ordered factors (2)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#comparing-ordered-factors",
+    "href": "r_fundamentals_for_data_science.html#comparing-ordered-factors",
+    "title": "Nuts and bolts: Data types",
+    "section": "Comparing ordered factors",
+    "text": "Comparing ordered factors"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#what-we-mean-when-say-better-coding-practice",
+    "href": "r_fundamentals_for_data_science.html#what-we-mean-when-say-better-coding-practice",
+    "title": "Nuts and bolts: Data types",
+    "section": "What we mean when say “better coding practice”",
+    "text": "What we mean when say “better coding practice”\nR programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions etc,…,.\nWe strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R\nhttps://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#folder-structure",
+    "href": "r_fundamentals_for_data_science.html#folder-structure",
+    "title": "Nuts and bolts: Data types",
+    "section": "Folder Structure",
+    "text": "Folder Structure"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#code-structure",
+    "href": "r_fundamentals_for_data_science.html#code-structure",
+    "title": "Nuts and bolts: Data types",
+    "section": "Code Structure",
+    "text": "Code Structure"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#sections",
+    "href": "r_fundamentals_for_data_science.html#sections",
+    "title": "Nuts and bolts: Data types",
+    "section": "Sections",
+    "text": "Sections"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#structural-composition",
+    "href": "r_fundamentals_for_data_science.html#structural-composition",
+    "title": "Nuts and bolts: Data types",
+    "section": "Structural Composition",
+    "text": "Structural Composition"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#identation",
+    "href": "r_fundamentals_for_data_science.html#identation",
+    "title": "Nuts and bolts: Data types",
+    "section": "Identation",
+    "text": "Identation"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#styling",
+    "href": "r_fundamentals_for_data_science.html#styling",
+    "title": "Nuts and bolts: Data types",
+    "section": "Styling",
+    "text": "Styling"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#final-comments",
+    "href": "r_fundamentals_for_data_science.html#final-comments",
+    "title": "Nuts and bolts: Data types",
+    "section": "Final Comments",
+    "text": "Final Comments"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#introduction-to-tidyverse",
     "href": "r_fundamentals_for_data_science.html#introduction-to-tidyverse",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.6 Introduction to Tidyverse",
-    "text": "1.6 Introduction to Tidyverse"
+    "title": "Nuts and bolts: Data types",
+    "section": "Introduction to Tidyverse",
+    "text": "Introduction to Tidyverse"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#reshaping-data-with-tidyr",
     "href": "r_fundamentals_for_data_science.html#reshaping-data-with-tidyr",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.7 Reshaping Data with tidyr",
-    "text": "1.7 Reshaping Data with tidyr"
+    "title": "Nuts and bolts: Data types",
+    "section": "Reshaping Data with tidyr",
+    "text": "Reshaping Data with tidyr"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#project",
     "href": "r_fundamentals_for_data_science.html#project",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.8 Project",
-    "text": "1.8 Project"
+    "title": "Nuts and bolts: Data types",
+    "section": "Project",
+    "text": "Project"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#modeling-with-data-in-the-tidyverse",
     "href": "r_fundamentals_for_data_science.html#modeling-with-data-in-the-tidyverse",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.9 Modeling with Data in the Tidyverse",
-    "text": "1.9 Modeling with Data in the Tidyverse"
+    "title": "Nuts and bolts: Data types",
+    "section": "Modeling with Data in the Tidyverse",
+    "text": "Modeling with Data in the Tidyverse"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#communication-with-data-in-the-tidyverse",
     "href": "r_fundamentals_for_data_science.html#communication-with-data-in-the-tidyverse",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.10 Communication with Data in the Tidyverse",
-    "text": "1.10 Communication with Data in the Tidyverse"
+    "title": "Nuts and bolts: Data types",
+    "section": "Communication with Data in the Tidyverse",
+    "text": "Communication with Data in the Tidyverse"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#categorical-data-in-the-tydiverse",
     "href": "r_fundamentals_for_data_science.html#categorical-data-in-the-tydiverse",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.11 Categorical Data in the Tydiverse",
-    "text": "1.11 Categorical Data in the Tydiverse"
+    "title": "Nuts and bolts: Data types",
+    "section": "Categorical Data in the Tydiverse",
+    "text": "Categorical Data in the Tydiverse"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#data-manipulation-with-dplyr",
     "href": "r_fundamentals_for_data_science.html#data-manipulation-with-dplyr",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.12 Data Manipulation with dplyr",
-    "text": "1.12 Data Manipulation with dplyr"
+    "title": "Nuts and bolts: Data types",
+    "section": "Data Manipulation with dplyr",
+    "text": "Data Manipulation with dplyr"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#joining-data-with-dplyr",
     "href": "r_fundamentals_for_data_science.html#joining-data-with-dplyr",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.13 Joining Data with dplyr",
-    "text": "1.13 Joining Data with dplyr"
+    "title": "Nuts and bolts: Data types",
+    "section": "Joining Data with dplyr",
+    "text": "Joining Data with dplyr"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#case-study-exploratory-data-analysis-in-r",
     "href": "r_fundamentals_for_data_science.html#case-study-exploratory-data-analysis-in-r",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.14 Case Study: Exploratory Data Analysis in R",
-    "text": "1.14 Case Study: Exploratory Data Analysis in R"
+    "title": "Nuts and bolts: Data types",
+    "section": "Case Study: Exploratory Data Analysis in R",
+    "text": "Case Study: Exploratory Data Analysis in R"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#data-manipulation-with-data.table-in-r",
     "href": "r_fundamentals_for_data_science.html#data-manipulation-with-data.table-in-r",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.15 Data Manipulation with data.table in R",
-    "text": "1.15 Data Manipulation with data.table in R"
+    "title": "Nuts and bolts: Data types",
+    "section": "Data Manipulation with data.table in R",
+    "text": "Data Manipulation with data.table in R"
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#joining-data-with-data.table-in-r",
     "href": "r_fundamentals_for_data_science.html#joining-data-with-data.table-in-r",
-    "title": "\n1  R programming fundamentals for Data Science\n",
-    "section": "\n1.16 Joining Data with data.table in R",
-    "text": "1.16 Joining Data with data.table in R"
+    "title": "Nuts and bolts: Data types",
+    "section": "Joining Data with data.table in R",
+    "text": "Joining Data with data.table in R"
   },
   {
     "objectID": "data_visualization.html",
     "href": "data_visualization.html",
-    "title": "2  Data visualization with ggplot2 and friends",
+    "title": "1  Data visualization with ggplot2 and friends",
     "section": "",
-    "text": "3 Data Visualizations"
+    "text": "2 Data Visualizations"
   },
   {
     "objectID": "statistical-inference-whole-game.html",
@@ -156,56 +457,56 @@
   {
     "objectID": "statistical_inference.html",
     "href": "statistical_inference.html",
-    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "title": "2  Statistical Inference with resampling: Bootstrap and Jacknife.",
     "section": "",
-    "text": "4 Preleminaries"
+    "text": "3 Preleminaries"
   },
   {
     "objectID": "statistical_inference.html#likelihood-inference.",
     "href": "statistical_inference.html#likelihood-inference.",
-    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "4.1 Likelihood inference.",
-    "text": "4.1 Likelihood inference."
+    "title": "2  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "3.1 Likelihood inference.",
+    "text": "3.1 Likelihood inference."
   },
   {
     "objectID": "statistical_inference.html#variance-analisys.",
     "href": "statistical_inference.html#variance-analisys.",
-    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "4.2 Variance analisys.",
-    "text": "4.2 Variance analisys."
+    "title": "2  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "3.2 Variance analisys.",
+    "text": "3.2 Variance analisys."
   },
   {
     "objectID": "statistical_inference.html#roc-curves",
     "href": "statistical_inference.html#roc-curves",
-    "title": "3  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "4.3 ROC Curves",
-    "text": "4.3 ROC Curves"
+    "title": "2  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "3.3 ROC Curves",
+    "text": "3.3 ROC Curves"
   },
   {
     "objectID": "linear_regression.html#regression-models",
     "href": "linear_regression.html#regression-models",
-    "title": "4  Lienar Regression",
-    "section": "4.1 Regression models",
-    "text": "4.1 Regression models"
+    "title": "3  Lienar Regression",
+    "section": "3.1 Regression models",
+    "text": "3.1 Regression models"
   },
   {
     "objectID": "linear_regression.html#linear-regression",
     "href": "linear_regression.html#linear-regression",
-    "title": "4  Lienar Regression",
-    "section": "4.2 Linear Regression",
-    "text": "4.2 Linear Regression"
+    "title": "3  Lienar Regression",
+    "section": "3.2 Linear Regression",
+    "text": "3.2 Linear Regression"
   },
   {
     "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
     "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
-    "title": "4  Lienar Regression",
-    "section": "4.3 Multiple linear_regression and generalized linear regresion",
-    "text": "4.3 Multiple linear_regression and generalized linear regresion"
+    "title": "3  Lienar Regression",
+    "section": "3.3 Multiple linear_regression and generalized linear regresion",
+    "text": "3.3 Multiple linear_regression and generalized linear regresion"
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "\n5  Summary\n",
+    "title": "\n4  Summary\n",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
   },

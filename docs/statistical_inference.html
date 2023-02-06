@@ -8,7 +8,7 @@
 
 <meta name="author" content="SDIV">
 
-<title>Statistical Inference For Data Science - 3&nbsp; Statistical Inference with resampling: Bootstrap and Jacknife.</title>
+<title>Statistical Inference For Data Science - 2&nbsp; Statistical Inference with resampling: Bootstrap and Jacknife.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -169,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./background.html" class="sidebar-item-text sidebar-link">background.html</a>
+            <a href="./background.html" class="sidebar-item-text sidebar-link">R fundamentals in programming, data managment and visualization</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -177,12 +177,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_fundamentals_for_data_science.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R programming fundamentals for Data Science</span></a>
+  <a href="./r_fundamentals_for_data_science.html" class="sidebar-item-text sidebar-link">Nuts and bolts: Data types</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
+  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
   </div>
 </li>
       </ul>
@@ -197,19 +197,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -226,11 +226,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preleminaries" id="toc-preleminaries" class="nav-link active" data-scroll-target="#preleminaries"><span class="toc-section-number">4</span>  Preleminaries</a>
+  <li><a href="#preleminaries" id="toc-preleminaries" class="nav-link active" data-scroll-target="#preleminaries"><span class="toc-section-number">3</span>  Preleminaries</a>
   <ul class="collapse">
-  <li><a href="#likelihood-inference." id="toc-likelihood-inference." class="nav-link" data-scroll-target="#likelihood-inference."><span class="toc-section-number">4.1</span>  Likelihood inference.</a></li>
-  <li><a href="#variance-analisys." id="toc-variance-analisys." class="nav-link" data-scroll-target="#variance-analisys."><span class="toc-section-number">4.2</span>  Variance analisys.</a></li>
-  <li><a href="#roc-curves" id="toc-roc-curves" class="nav-link" data-scroll-target="#roc-curves"><span class="toc-section-number">4.3</span>  ROC Curves</a></li>
+  <li><a href="#likelihood-inference." id="toc-likelihood-inference." class="nav-link" data-scroll-target="#likelihood-inference."><span class="toc-section-number">3.1</span>  Likelihood inference.</a></li>
+  <li><a href="#variance-analisys." id="toc-variance-analisys." class="nav-link" data-scroll-target="#variance-analisys."><span class="toc-section-number">3.2</span>  Variance analisys.</a></li>
+  <li><a href="#roc-curves" id="toc-roc-curves" class="nav-link" data-scroll-target="#roc-curves"><span class="toc-section-number">3.3</span>  ROC Curves</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -240,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -261,16 +261,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="preleminaries" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Preleminaries</h1>
-<section id="likelihood-inference." class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="likelihood-inference."><span class="header-section-number">4.1</span> Likelihood inference.</h2>
+<section id="preleminaries" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Preleminaries</h1>
+<section id="likelihood-inference." class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="likelihood-inference."><span class="header-section-number">3.1</span> Likelihood inference.</h2>
 </section>
-<section id="variance-analisys." class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="variance-analisys."><span class="header-section-number">4.2</span> Variance analisys.</h2>
+<section id="variance-analisys." class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="variance-analisys."><span class="header-section-number">3.2</span> Variance analisys.</h2>
 </section>
-<section id="roc-curves" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="roc-curves"><span class="header-section-number">4.3</span> ROC Curves</h2>
+<section id="roc-curves" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="roc-curves"><span class="header-section-number">3.3</span> ROC Curves</h2>
 
 
 <!-- -->
@@ -471,7 +471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./linear_regression.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lienar Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lienar Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

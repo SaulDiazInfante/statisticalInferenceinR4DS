@@ -9,7 +9,9 @@ format:
       toggle: false
       caption: none
 ---
-### How it works
+# Intro to basics
+
+## How it works
 
 In the text editor you should type R code to solve the exercises. 
 When you hit **ctrl + enter**, every line of code is interpreted 
@@ -23,7 +25,7 @@ on the right is a comment.
 You can also execute R commands straight in the console. This is a good way to 
 experiment with R code.
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
     - In the text editor on the right there is already some sample code. 
     - Can you see which lines are actual R code and which are comments?
@@ -36,7 +38,7 @@ experiment with R code.
 6 + 12
 ```
 
-### Arithmetic with R
+## Arithmetic with R
 In its most basic form, R can be used as a simple calculator. Consider the 
 following arithmetic operators:
 
@@ -54,7 +56,7 @@ The last two might need some explaining:
 * The modulo returns the remainder of the division of the number to the left by
      the number on its right, for example 5 modulo 3 or `5 %% 3` is 2.
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
     - Type 2^5 in the editor to calculate 2 to the power 5.
     - Type 28 %% 6 to calculate 28 modulo 6.
     - Run the answer in the console and have a look at the R output .
@@ -121,7 +123,7 @@ my_apples <- 5
 print(my_apples)
 ```
 
-### Variable assignment (3)
+## Variable assignment (3)
 Every tasty fruit basket needs oranges, so you decide to add six oranges. As a 
 data analyst, your reflex is to immediately create the variable my_oranges and 
 assign the value 6 to it. Next, you want to calculate how many pieces of fruit 
@@ -132,7 +134,7 @@ you have in total. Since you have given meaningful names to these values,
     my_apples + my_oranges
 ::: 
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 * Assign to my_oranges the value 6.
 * Add the variables my_apples and my_oranges and have R simply print the result.
 * Assign the result of adding my_apples and my_oranges to a new variable 
@@ -151,7 +153,7 @@ my_fruit <- my_apples + my_oranges
 
 ```
 
-### Apples and oranges
+## Apples and oranges
 
 Common knowledge tells you not to add apples and oranges. But hey, that is what 
 you just did, no :-)? The my_apples and my_oranges variables both contained a 
@@ -161,7 +163,7 @@ to the variable my_oranges (see the editor), you would be trying to assign the
 addition of a numeric and a character variable to the variable my_fruit. This is 
 not possible.
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 * Run the answer and read the error message. Make sure to understand why this 
 did not work.
@@ -189,7 +191,7 @@ my_fruit <- my_apples + my_oranges
 my_fruit
 ```
 
-### Basic data types in R
+## Basic data types in R
 R works with numerous data types. Some of the most basic types to get started 
 are:
 
@@ -201,7 +203,7 @@ are:
 Note how the quotation marks in the editor indicate that "some text" 
 is a string.
 
-### Instructions `100 XP`
+## Instructions `100 XP` {.unnumbered}
 
 Change the value of the:
 
@@ -240,14 +242,14 @@ my_character <- "universe"
 my_logical <- FALSE
 ```
 
-### What's that data type?
+## What's that data type?
 
 Do you remember that when you added 5 + "six", you got an error due to a 
 mismatch in data types? You can avoid such embarrassing situations by checking 
 the data type of a variable beforehand. You can do this with the class() 
 function, as the code in the editor shows.
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 Complete the code in the editor and also print out the classes of my_character
 and my_logical.

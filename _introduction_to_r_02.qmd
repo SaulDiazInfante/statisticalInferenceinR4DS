@@ -15,7 +15,9 @@ format:
       caption: none
 ---
 
-### Create a vector
+# Vectors 
+
+## Create a vector
 
 Feeling lucky? You better, because this chapter takes you on a trip to the City
 of Sins, also known as Statisticians Paradise!
@@ -26,7 +28,7 @@ gambler. This chapter will show how you can easily keep track of your betting
 progress and how you can do some simple analyses on past actions. Next stop,
 Vegas Baby… VEGAS!!
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 * Do you still remember what you have learned in the first chapter? Assign the
 value `"Go!"` to the variable vegas. Remember: R is case sensitive!
@@ -36,7 +38,7 @@ value `"Go!"` to the variable vegas. Remember: R is case sensitive!
 vegas <- "Go!"
 ```
 
-### Create a vector (2)
+## Create a vector (2)
 
 Let us focus first!
 
@@ -59,7 +61,7 @@ character_vector <- c("a", "b", "c")
 :::
 Once you have created these vectors in R, you can use them to do calculations.
 
-#### Instructions `100 XP`
+#### Instructions `100 XP` {.unnumbered}
 Complete the code such that boolean_vector contains the three elements:
 `TRUE, `FALSE` and `TRUE` (in that order).
 
@@ -70,7 +72,7 @@ character_vector <- c("a", "b", "c")
 # Complete the code for boolean_vector
 boolean_vector <-c(TRUE, FALSE, TRUE)
 ```
-### Create a vector (3)
+### Create a vector (3) 
 
 After one week in Las Vegas and still zero Ferraris in your garage, you decide
 that it is time to start using your data analytical superpowers.
@@ -98,7 +100,7 @@ You only played poker and roulette, since there was a delegation of mediums that
 occupied the craps tables. To be able to use this data in R, you decide to
 create the variables poker_vector and roulette_vector.
 
-#### Instructions `100 XP`
+#### Instructions `100 XP` {.unnumbered}
 
 Assign the winnings/losses for roulette to the variable roulette_vector.
 You lost `$24`, then lost `$50` , won `$100`, lost `$350`, and won `$10`.
@@ -144,7 +146,7 @@ labeled Profession. Printing the contents to the console yields following output
     "John Doe" "poker player"
 :::
 
-#### Instructions `100 XP`
+#### Instructions `100 XP` {.unnumbered}
 
 The code in the editor names the elements in `poker_vector` with the days of the
 week. Add code to do the same thing for `roulette_vector`.
@@ -166,7 +168,7 @@ names(roulette_vector) <-
   c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 ```
 
-### Naming a vector (2)
+## Naming a vector (2)
 
 If you want to become a good statistician, you have to become lazy.
 (If you are already lazy, chances are high you are one of those exceptional,
@@ -181,7 +183,7 @@ efficient way to do this, namely, to assign the days of the week vector to a
 Just like you did with your poker and roulette returns, you can also create a
 variable that contains the days of the week. This way you can use and re-use it.
 
-#### Instructions `100 XP`
+#### Instructions `100 XP` {.unnumbered}
 
 - A variable days_vector that contains the days of the week has already been
 created for you.
@@ -202,7 +204,7 @@ days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 names(poker_vector) <- days_vector
 names(roulette_vector) <- days_vector
 ```
-###  Calculating total winnings
+##  Calculating total winnings
 
 Now that you have the poker and roulette winnings nicely as named vectors, you
  can start doing some data analytical magic.
@@ -240,7 +242,7 @@ b <- c(4, 5, 6)
 c <- a + b
 ```
 
-#### Instructions `100 XP`
+#### Instructions `100 XP` {.unnumbered}
 
 - Take the sum of the variables `A_vector` and `B_vector` and assign it to
 total_vector.
@@ -257,7 +259,7 @@ total_vector <- A_vector + B_vector
 print(total_vector)
 ```
 
-### Calculating total winnings (2)
+## Calculating total winnings (2)
 
 Now you understand how R does arithmetic with vectors, it is time to get those
 Ferraris in your garage! First, you need to understand what the overall profit
@@ -267,7 +269,7 @@ realized on roulette per day.
 
 In R, this is just the sum of `roulette_vector` and `poker_vector`.
 
-#### Instructions `100 XP`
+#### Instructions `100 XP` {.unnumbered}
 
 Assign to the variable `total_daily` how much you won or lost on each day in
 total (poker and roulette combined).
@@ -284,7 +286,7 @@ names(roulette_vector) <- days_vector
 total_daily <- roulette_vector + poker_vector
 ```
 
-### Calculating total winnings (3)
+## Calculating total winnings (3)
 
 Based on the previous analysis, it looks like you had a mix of good and bad
 days. This is not what your ego expected, and you wonder if there may be a very
@@ -298,7 +300,7 @@ money you have lost/won with poker you do:
 total_poker <- sum(poker_vector)
 ```
 
-#### Instructions `100 XP`
+#### Instructions `100 XP` {.unnumbered}
 
 - Calculate the total amount of money that you have won/lost with roulette and
 assign to the variable `total_roulette`.
@@ -327,7 +329,7 @@ total_week <- total_poker + total_roulette
 print(total_week)
 ```
 
-### Comparing total winnings
+## Comparing total winnings
 
 Oops, it seems like you are losing money. Time to rethink and adapt your
 strategy! This will require some deeper analysis…
@@ -337,7 +339,7 @@ explanation might be that your skills in roulette are not as well developed as
 your skills in poker. So maybe your total gains in poker are higher (or `>` )
 than in roulette.
 
-Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 - Calculate `total_poker` and `total_roulette` as in the previous exercise.
 Use the `sum()` function twice.
@@ -362,7 +364,7 @@ total_roulette <- sum(roulette_vector)
 
 print(total_poker > total_roulette)
 ```
-### Vector selection: the good times
+## Vector selection: the good times
 
 Your hunch seemed to be right. It appears that the poker game is more your cup 
 of tea than roulette.
@@ -380,7 +382,7 @@ type `poker_vector[1]`. To select the second element of the vector, you type
 `poker_vector[2]`, etc. Notice that the first element in a vector has index 1, 
 not 0 as in many other programming languages.
 
-#### Instructions 100 XP
+### Instructions 100 XP {.unnumbered}
 Assign the poker results of Wednesday to the variable `poker_wednesday`.
 
 ```{.r filename=ex_17.R}
@@ -395,7 +397,7 @@ names(roulette_vector) <- days_vector
 poker_wednesday <- poker_vector[3]  
 ```
 
-### Vector selection: the good times (2)
+## Vector selection: the good times (2)
 How about analyzing your midweek results?
 
 To select multiple elements from a vector, you can add square brackets at the 
@@ -409,7 +411,7 @@ the code below selects the first and fifth element of poker_vector:
 poker_vector[c(1, 5)]
 ```
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 Assign the poker results of Tuesday, Wednesday and Thursday to the variable 
 `poker_midweek`.
@@ -426,7 +428,7 @@ names(roulette_vector) <- days_vector
 poker_midweek <- poker_vector[c(2, 3, 4)]
 ```
 
-### Vector selection: the good times (3)
+## Vector selection: the good times (3)
 
 Selecting multiple elements of poker_vector with 
 `c(2, 3, 4)` is not very convenient. Many statisticians are lazy 
@@ -438,7 +440,7 @@ So, another way to find the mid-week results is
 `poker_vector[2:4]`. Notice how the vector `2:4` is placed between the square 
 brackets to select element 2 up to 4.
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 Assign to `roulette_selection_vector` the roulette results from Tuesday up to Friday; make use of : if it makes things easier for you.
 
 ```{.r filename="ex_19.R"}
@@ -453,7 +455,7 @@ names(roulette_vector) <- days_vector
 roulette_selection_vector <- roulette_vector[2:5]
 ```
 
-### Vector selection: the good times (4)
+## Vector selection: the good times (4)
 
 Another way to tackle the previous exercise is by using the names of 
 the vector elements (Monday, Tuesday, …) instead of their numeric 
@@ -472,7 +474,7 @@ also use the element names to select multiple elements, for example:
 poker_vector[c("Monday","Tuesday")]
 ```
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 - Select the first three elements in `poker_vector` by using their 
 names: `"Monday"`, `"Tuesday"` and `"Wednesday"`. Assign the result of the 
@@ -493,7 +495,7 @@ poker_start <- poker_vector[c("Monday", "Tuesday", "Wednesday")]
 # Calculate the average of the elements in poker_start
 mean(poker_start)
 ```
-### Selection by comparison - Step 1
+## Selection by comparison - Step 1
 
 By making use of comparison operators, we can approach the previous question in 
 a more proactive way.
@@ -519,7 +521,7 @@ c(4, 5, 6) > 5
 This command tests for every element of the vector if the condition stated 
 by the comparison operator is `TRUE` or `FALSE`.
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 - Check which elements in `poker_vector` are positive (i.e. `> 0`) and assign 
 this to selection_vector.
@@ -541,7 +543,7 @@ selection_vector <-
 print(selection_vector)
 ```
 
-### Selection by comparison - Step 2
+## Selection by comparison - Step 2
 
 Working with comparisons will make your data analytical life easier. Instead of 
 selecting a subset of days to investigate yourself (like before), you can simply 
@@ -561,7 +563,7 @@ poker_vector[selection_vector]
 R knows what to do when you pass a logical vector in square brackets: it will 
 only select the elements that correspond to `TRUE` in `selection_vector`.
 
-#### Instructions `100 XP`
+### Instructions `100 XP` {.unnumbered}
 
 Use `selection_vector` in square brackets to assign the amounts that you won on 
 the profitable days to the variable `poker_winning_days`.
@@ -580,11 +582,11 @@ selection_vector <- poker_vector > 0
 # Select from poker_vector these days
 poker_winning_days <- poker_vector[selection_vector]
 ```
-### Advanced selection
+## Advanced selection
 Just like you did for poker, you also want to know those days where you realized 
 a positive return for roulette.
 
-#### Instructions `100 XP`
+### Instructions `100 XP`{.unnumbered}
 
 - Create the variable selection_vector, this time to see if you made profit with 
 roulette for different days.

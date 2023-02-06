@@ -1,0 +1,130 @@
+# Grade rubric {.unnumbered}
+```{r}
+library(tidyverse)
+ex_names_chapter_1 <- 
+    list(
+        'How it works',
+        'Arithmetic with R',
+        'Variable assignment',
+        'Variable assignment (2)',
+        'Variable assignment (3)',
+        'Apples and oranges',
+        'Basic data types in R',
+        "'What's that data type?"
+    )
+
+xp_ch_1 <- rep(100, 8)
+names(xp_ch_1) <- ex_names_chapter_1
+df_ch01 <- data.frame(xp_ch_1)
+write.csv2(df_ch01, "ch_01.csv")
+knitr::kable(df_ch01, format="markdown")
+```
+
+```{r}
+ex_names_chapter_2 <-
+    list(
+        "Create a Vector",
+        "Create a Vector (2)",
+        "Create a Vector (3)",
+        "Naming a vector (2)",
+        "Calculating total winnings",
+        "Calculating total winnings (2)",
+        "Calculating total winnings (3)",
+        "Comparing total winnings",
+        "Vector selection: the good times",
+        "Vector selection: the good times (2)",
+        "Vector selection: the good times (3)",
+        "Vector selection: the good times (4)",
+        "Selection by comparison - Step 1",
+        "selection by comparison - Step 2",
+        "Advanced selection"
+    )
+xp_ch_2 <- rep(100, length(ex_names_chapter_2))
+names(xp_ch_2) <- ex_names_chapter_2
+df_ch02 <- data.frame(xp_ch_2)
+write.csv2(df_ch02, "ch_02.csv")
+knitr::kable(df_ch02, format="markdown")
+```
+
+```{r}
+ex_names_chapter_3 <-
+    list(
+        "What's a matrix",
+        "Analyze matrices, you shall",
+        "Naming a matrix",
+        "calculating the world box office",
+        "Adding a column for the Worldwide box office",
+        "Adding a row",
+        "The total box office revenue for the entire saga",
+        "Selection of matrix elements",
+        "A little arithmetic with matrices",
+        "A little arithmetic with matrices (2)"
+    )
+xp_ch_3 <- rep(100, length(ex_names_chapter_3))
+names(xp_ch_3) <- ex_names_chapter_3
+df_ch03 <- data.frame(xp_ch_3)
+write.csv2(df_ch03, "ch_03.csv")
+knitr::kable(df_ch03, format="markdown")
+```
+
+```{r}
+ex_names_chapter_4 <-
+    list(
+        "What's a factor and why would you use it?",
+        "What's a factor and why would you use it? (2)",
+        "What's a factor and why would you use it? (3)",
+        "Factor levels",
+        "Summarizing a factor",
+        "Battle of the sexes",
+        "Ordered factors",
+        "Ordered factors (2)",
+        "Comparing ordered factors"
+    )
+xp_ch_4 <- rep(100, length(ex_names_chapter_4))
+names(xp_ch_4) <- ex_names_chapter_4
+df_ch04 <- data.frame(xp_ch_4)
+write.csv2(df_ch04, "ch_04.csv")
+knitr::kable(df_ch04, format="markdown")
+```
+
+
+```{r}
+ex_names_chapter_5 <-
+    list(
+        "What's a data frame",
+        "Quick, have a look at you dataset",
+        "Have a look at the structure",
+        "Creating a data frame",
+        "Creating a data frame (2)",
+        "Selection of data frame elements",
+        "Selection of data frame elements(2)",
+        "Only planets with rings",
+        "Only planets with rings(2)",
+        "Only planets with rings(2) but shorter",
+        "Sorting",
+        "Sorting your dataframe"
+    )
+xp_ch_5 <- rep(100, length(ex_names_chapter_5))
+names(xp_ch_5) <- ex_names_chapter_5
+df_ch05 <- data.frame(xp_ch_5)
+write.csv2(df_ch05, "ch_05.csv")
+knitr::kable(df_ch05, format="markdown")
+```
+
+```{r}
+ex_names_chapter_6 <-
+    list(
+        "Lists, why would you need them?",
+        "Lists, why would you need them? (2)",
+        "Creating a list",
+        "Creating a named list",
+        "Creating a named list (2)",
+        "Selecting elements from a list",
+        "Creating a new list for another movie"
+    )
+xp_ch_6 <- rep(100, length(ex_names_chapter_6))
+names(xp_ch_6) <- ex_names_chapter_6
+df_ch06 <- data.frame(xp_ch_6)
+write.csv2(df_ch06, "ch_06.csv")
+knitr::kable(df_ch06, format="markdown")
+```    

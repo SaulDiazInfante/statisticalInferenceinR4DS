@@ -1,0 +1,33 @@
+project:
+  type: book
+book:
+  title: "Introduction to R: Answers to excercises"
+  author: "Saul Diaz-Infante"
+  date: "2/1/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - introduction_to_r_01.qmd
+    - introduction_to_r_02.qmd
+    - introduction_to_r_03.qmd
+    - introduction_to_r_04.qmd 
+    - introduction_to_r_05.qmd 
+    - introduction_to_r_06.qmd 
+format:
+  html:
+    theme: darkly
+    fig-width: 8
+    fig-height: 4
+    code-fold: true
+    code-tools: true
+    code-link: true
+
+  pdf:
+    documentclass: scrreprt
+  epub:
+    cover-image: cover.png
+
+execute:
+  echo: false
+
+
