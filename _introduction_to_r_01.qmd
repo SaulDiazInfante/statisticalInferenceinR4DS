@@ -9,7 +9,7 @@ format:
       toggle: false
       caption: none
 ---
-# Intro to basics
+# Intro to basics {.numbered}
 
 ## How it works
 

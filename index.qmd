@@ -18,7 +18,7 @@ put particular importance in the well practice of coding functions.
 Then we moves to the management of data whit dplyr and other packages. 
 To finish this part we discuss some package to visualize data.
 Then, we face the problem o estimation and explore techniques based on 
-bootstrap--another sampling flavors.
+bootstrap--and another sampling flavors.
 
 This book has been started on January, 2023 as part of a course to 
 the Master on Data Science from Universidad de Sonora.
@@ -29,4 +29,5 @@ expert instead I just pursuit the joy of the interaction of math,
 computational sciences and the generosity of this virtuous 
 learning-teaching process.
     
+<https://sauldiazinfante.github.io/statisticalInferenceinR4DS/>
 

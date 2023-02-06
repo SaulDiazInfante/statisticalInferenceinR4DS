@@ -181,10 +181,177 @@ levels(factor_survey_vector) <-  c("Female", "Male")
 
 ## Summarizing a factor
 
+After finishing this course, one of your favorite functions in R will be summary
+(). This will give you a quick overview of the contents of a variable:
+
+```{.r code-line-numbers="false"}
+summary(my_var)
+```
+
+Going back to our survey, you would like to know how many `"Male"` responses you 
+have in your study, and how many `"Female"` responses. 
+The `summary()` function gives you the answer to this question.
+
+### Instructions `100 XP`  {.unnumbered}
+
+Ask a `summary()` of the survey_vector and factor_survey_vector. Interpret the results of both vectors. Are they both equally useful in this case?
+
+```{.r filename=ex_37.R}
+# Build factor_survey_vector with clean levels
+survey_vector <- c("M", "F", "F", "M", "M")
+factor_survey_vector <- factor(survey_vector)
+levels(factor_survey_vector) <- c("Female", "Male")
+factor_survey_vector
+
+# Generate summary for survey_vector
+summary(survey_vector)
+
+# Generate summary for factor_survey_vector
+summary(factor_survey_vector)
+``` 
+
 ## Battle of the sexes
 
+You might wonder what happens when you try to compare elements of a factor. In 
+`factor_survey_vector` you have a factor with two levels: 
+`"Male"` and `"Female"`. But how does R value these relative to each other?
+
+### Instructions `100 XP` {.unnumbered}
+Read the code in the editor and submit the answer to test if `male` is greater 
+than `(>)` `female`.
+
+```{.r filename="ex_38.R"}
+# Build factor_survey_vector with clean levels
+survey_vector <- c("M", "F", "F", "M", "M")
+factor_survey_vector <- factor(survey_vector)
+levels(factor_survey_vector) <- c("Female", "Male")
+
+# Male
+male <- factor_survey_vector[1]
+
+# Female
+female <- factor_survey_vector[2]
+
+# Battle of the sexes: Male 'larger' than female?
+male > female
+```
 ## Ordered factors
 
+Ordered factors
+Since `"Male"` and `"Female"` are unordered (or nominal) factor levels, R 
+returns a warning message, telling you that the greater than operator is not 
+meaningful. As seen before, R attaches an equal value to the levels for such 
+factors.
+
+But this is not always the case! Sometimes you will also deal with factors that 
+do have a natural ordering between its categories. If this is the case, we have 
+to make sure that we pass this information to R…
+
+Let us say that you are leading a research team of five data analysts and that
+you want to evaluate their performance. To do this, you track their speed, 
+evaluate each analyst as `"slow"`, `"medium"` or `"fast"`, and save the results 
+in speed_vector.
+
+### Instructions `100 XP` {.unnumbered}
+As a first step, assign speed_vector a vector with 5 entries, one for each 
+analyst. Each entry should be either `"slow"`, `"medium"`, or `"fast"`. 
+Use the list below:
+
+- Analyst 1 is medium,
+- Analyst 2 is slow,
+- Analyst 3 is slow,
+- Analyst 4 is medium and
+- Analyst 5 is fast.
+
+No need to specify these are factors yet.
+
+```{.r filename="ex_39.R" }
+speed_vector <- c(
+    "medium",
+    "slow",
+    "slow",
+    "medium",
+    "fast"
+)
+```
 ## Ordered factors (2)
 
+`speed_vector` should be converted to an ordinal factor since its categories 
+have a natural ordering. By default, the function `factor()` transforms 
+`speed_vector` into an unordered factor. To create an ordered factor, 
+you have to add two additional arguments: ordered and levels.
+
+```{.r code-line-numbers="false"}
+factor(some_vector,
+       ordered = TRUE,
+       levels = c("lev1", "lev2" ...))
+```
+
+By setting the argument ordered to TRUE in the function factor(), you indicate 
+that the factor is ordered. With the argument levels you give the values of the 
+factor in the correct order.
+
+### Instructions `100 XP` {.unnumbered}
+
+From `speed_vector`, create an ordered factor vector: `factor_speed_vector`. 
+Set `ordered` to `TRUE`, and set levels to
+`c("slow", "medium", "fast")`.
+
+```{.r filename="ex_40.R"}
+# Create speed_vector
+speed_vector <- c("medium", "slow", "slow", "medium", "fast")
+
+# Convert speed_vector to ordered factor vector
+factor_speed_vector <- 
+factor(
+    speed_vector,
+    ordered = TRUE,
+    levels = c("slow", "medium", "fast")
+)
+
+
+# Print factor_speed_vector
+factor_speed_vector
+summary(factor_speed_vector)
+```
+
 ## Comparing ordered factors
+
+Having a bad day at work, 'data analyst number two' enters your office and 
+starts complaining that 'data analyst number five' is slowing down the entire 
+project. Since you know that 'data analyst number two' has the reputation of 
+being a smarty-pants, you first decide to check if his statement is true.
+
+The fact that `factor_speed_vector` is now ordered enables us to compare 
+different elements (the data analysts in this case). You can simply do this by 
+using the well-known operators.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Use `[2]` to select from `factor_speed_vector` the factor value for the second 
+data analyst. Store it as `da2`.
+- Use `[5]` to select the `factor_speed_vector` factor value for the fifth 
+data analyst. Store it as `da5`.
+- Check if `da2` is greater than `da5`; simply print out the result. 
+Remember that you can use the `>` operator to check whether one element is 
+larger than the other.
+
+```{.r filename="ex_41.R"}
+# Create factor_speed_vector
+speed_vector <- c("medium", "slow", "slow", "medium", "fast")
+factor_speed_vector <- 
+  factor(
+    speed_vector,
+    ordered = TRUE,
+    levels = c("slow", "medium", "fast")
+  )
+
+# Factor value for second data analyst
+da2 <- factor_speed_vector[2]
+
+# Factor value for fifth data analyst
+da5 <- factor_speed_vector[5]
+
+# Is data analyst 2 faster than data analyst 5?
+ print(da2 > da5)
+```

@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.313">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Saul Diaz-Infante">
-<meta name="dcterms.date" content="2023-02-01">
-
-<title>Introduction to R: Answers to excercises</title>
+<title>Introduction to R: Answers to excercises - 5&nbsp; Data frames</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,7 +82,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -95,7 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./introduction_to_r_06.html" rel="next">
+<link href="./introduction_to_r_04.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -104,8 +99,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -124,28 +118,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Introduction to R: Answers to excercises</h1>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span>
+</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to R: Answers to excercises</a> 
     </div>
@@ -157,9 +144,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -189,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduction_to_r_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span></a>
+  <a href="./introduction_to_r_05.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -198,67 +185,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+<li>
+<a href="#whats-a-data-frame" id="toc-whats-a-data-frame" class="nav-link active" data-scroll-target="#whats-a-data-frame"><span class="toc-section-number">5.1</span>  What’s a data frame?</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp"><span class="toc-section-number">5.1.1</span>  Instructions <code>100 XP</code></a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Introduction to R: Answers to excercises</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span>
+</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Saul Diaz-Infante </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 1, 2023</p>
-    </div>
-  </div>
   
     
   </div>
   
 
-</header>
-
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
+</header><section id="whats-a-data-frame" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="whats-a-data-frame">
+<span class="header-section-number">5.1</span> What’s a data frame?</h2>
+<p>You may remember from the chapter about matrices that all the elements that you put in a matrix should be of the same type. Back then, your dataset on Star Wars only contained numeric elements.</p>
+<p>When doing a market research survey, however, you often have questions such as:</p>
 <ul>
-<li><p>Who I am. I am Saul Diaz Infante Velasco. I just starting as assistant professor at the Data Science graduate program of Universidad de Sonora at Hermosillo Mexico. My Background is related with numerical analysis and stochastic models. I’m are a enthusiastic of this treading topic called Data-Science, but perhaps at the moment I only have just intuition about what really it is. However, I have been programming almost 20 years an moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, C++ to the new well established treading development workflows like R, Python and Julia. This is my firs attempt in R.</p></li>
-<li><p>What the book is about.</p></li>
-<li><p>When I writing this book.</p></li>
-<li><p>Why I write this book.</p></li>
-<li><p>Where I wrote this book.</p></li>
+<li>‘Are you married?’ or ‘yes/no’ questions (logical)</li>
+<li>‘How old are you?’ (numeric)</li>
+<li>‘What is your opinion on this product?’ or other ‘open-ended’ questions<br>
+(character)</li>
+<li>… The output, namely the respondents’ answers to the questions formulated above, is a dataset of different data types. You will often find yourself working with datasets that contain different data types instead of only one.</li>
 </ul>
+<p>A data frame has the variables of a dataset as columns and the observations as rows. This will be a familiar concept for those coming from different statistical software packages such as SAS or SPSS.</p>
+<section id="instructions-100-xp" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="instructions-100-xp">
+<span class="header-section-number">5.1.1</span> Instructions <code>100 XP</code>
+</h3>
+<p>Submit the answer. The data from the built-in example data frame <code>mtcars</code> will be printed to the console.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+</div>
+</div>
 
 
 <!-- -->
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -441,35 +455,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./introduction_to_r_04.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Factors</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text">Grade rubric</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./introduction_to_r_06.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lists</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preface {.unnumbered}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Who I am. I am Saul Diaz Infante Velasco. I just starting as assistant</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    professor at the Data Science graduate program of Universidad de Sonora at</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    Hermosillo Mexico. My Background is related with numerical analysis and</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    stochastic models. I'm are a enthusiastic of this treading topic called</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    Data-Science, but perhaps at the moment I only have just intuition about</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    what really it is. However, I have been programming almost 20 years an </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    C++ to the new well established treading development workflows like R, </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    Python and Julia. This is my firs attempt in R.</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What the book is about.</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>When I writing this book.</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Why I write this book.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Where I wrote this book.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data frames</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## What's a data frame?</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>You may remember from the chapter about matrices that all the elements that you</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>put in a matrix should be of the same type. Back then, your dataset on Star Wars </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>only contained numeric elements.</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>When doing a market research survey, however, you often have questions such as:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>'Are you married?' or 'yes/no' questions (logical)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>'How old are you?' (numeric)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>'What is your opinion on this product?' or other 'open-ended' questions  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>(character)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>…</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>The output, namely the respondents' answers to the questions formulated above,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>is a dataset of different data types. You will often find yourself working with</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>datasets that contain different data types instead of only one.</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>A data frame has the variables of a dataset as columns and the observations as </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>rows. This will be a familiar concept for those coming from different </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>statistical software packages such as SAS or SPSS.</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Submit the answer. The data from the built-in example data frame </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="in">`mtcars`</span> will be printed to the console.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>mtcars</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -410,11 +410,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#instructions-100-xp-37" id="toc-instructions-100-xp-37" class="nav-link" data-scroll-target="#instructions-100-xp-37">Instructions <code>100 XP</code></a></li>
   </ul>
 </li>
-  <li><a href="#summarizing-a-factor" id="toc-summarizing-a-factor" class="nav-link" data-scroll-target="#summarizing-a-factor">Summarizing a factor</a></li>
-  <li><a href="#battle-of-the-sexes" id="toc-battle-of-the-sexes" class="nav-link" data-scroll-target="#battle-of-the-sexes">Battle of the sexes</a></li>
-  <li><a href="#ordered-factors" id="toc-ordered-factors" class="nav-link" data-scroll-target="#ordered-factors">Ordered factors</a></li>
-  <li><a href="#ordered-factors-2" id="toc-ordered-factors-2" class="nav-link" data-scroll-target="#ordered-factors-2">Ordered factors (2)</a></li>
-  <li><a href="#comparing-ordered-factors" id="toc-comparing-ordered-factors" class="nav-link" data-scroll-target="#comparing-ordered-factors">Comparing ordered factors</a></li>
+  <li>
+<a href="#summarizing-a-factor" id="toc-summarizing-a-factor" class="nav-link" data-scroll-target="#summarizing-a-factor">Summarizing a factor</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-38" id="toc-instructions-100-xp-38" class="nav-link" data-scroll-target="#instructions-100-xp-38">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#battle-of-the-sexes" id="toc-battle-of-the-sexes" class="nav-link" data-scroll-target="#battle-of-the-sexes">Battle of the sexes</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-39" id="toc-instructions-100-xp-39" class="nav-link" data-scroll-target="#instructions-100-xp-39">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#ordered-factors" id="toc-ordered-factors" class="nav-link" data-scroll-target="#ordered-factors">Ordered factors</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-40" id="toc-instructions-100-xp-40" class="nav-link" data-scroll-target="#instructions-100-xp-40">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#ordered-factors-2" id="toc-ordered-factors-2" class="nav-link" data-scroll-target="#ordered-factors-2">Ordered factors (2)</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-41" id="toc-instructions-100-xp-41" class="nav-link" data-scroll-target="#instructions-100-xp-41">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#comparing-ordered-factors" id="toc-comparing-ordered-factors" class="nav-link" data-scroll-target="#comparing-ordered-factors">Comparing ordered factors</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-42" id="toc-instructions-100-xp-42" class="nav-link" data-scroll-target="#instructions-100-xp-42">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
   </ul>
 </li>
   <li>
@@ -483,7 +508,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The <code>[1]</code> shown in the output indicates that <code>x</code> is a <code>vector</code> and 0 is the element at position with <code>index</code> 1.</p>
-</section><section id="intro-to-basics" class="level1"><h1>Intro to basics</h1>
+</section><section id="intro-to-basics" class="level1 numbered"><h1 class="numbered">Intro to basics</h1>
 <section id="how-it-works" class="level2"><h2 class="anchored" data-anchor-id="how-it-works">How it works</h2>
 <p>In the text editor you should type R code to solve the exercises. When you hit <strong>ctrl + enter</strong>, every line of code is interpreted and executed by R and you get a message whether or not your code was correct.</p>
 <p>R makes use of the # sign to add comments, so that you and others can understand what the R code is about. Comments are not run as R code, so they will not influence your result. For example, Calculate 3 + 4 in the editor on the right is a comment.</p>
@@ -1597,11 +1622,140 @@ Output
 <span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">factor_survey_vector</span><span class="op">)</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="summarizing-a-factor" class="level2"><h2 class="anchored" data-anchor-id="summarizing-a-factor">Summarizing a factor</h2>
-</section><section id="battle-of-the-sexes" class="level2"><h2 class="anchored" data-anchor-id="battle-of-the-sexes">Battle of the sexes</h2>
-</section><section id="ordered-factors" class="level2"><h2 class="anchored" data-anchor-id="ordered-factors">Ordered factors</h2>
-</section><section id="ordered-factors-2" class="level2"><h2 class="anchored" data-anchor-id="ordered-factors-2">Ordered factors (2)</h2>
-</section><section id="comparing-ordered-factors" class="level2"><h2 class="anchored" data-anchor-id="comparing-ordered-factors">Comparing ordered factors</h2>
-</section></section><section id="best-coding-practices-for-r" class="level1"><h1>Best Coding Practices for R</h1>
+<p>After finishing this course, one of your favorite functions in R will be summary (). This will give you a quick overview of the contents of a variable:</p>
+<div class="sourceCode" id="cb64" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">my_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Going back to our survey, you would like to know how many <code>"Male"</code> responses you have in your study, and how many <code>"Female"</code> responses. The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function gives you the answer to this question.</p>
+<section id="instructions-100-xp-38" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-38">Instructions <code>100 XP</code>
+</h3>
+<p>Ask a <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> of the survey_vector and factor_survey_vector. Interpret the results of both vectors. Are they both equally useful in this case?</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_37.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Build factor_survey_vector with clean levels</span></span>
+<span><span class="va">survey_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span><span class="op">)</span></span>
+<span><span class="va">factor_survey_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">survey_vector</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">factor_survey_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span></span>
+<span><span class="va">factor_survey_vector</span></span>
+<span></span>
+<span><span class="co"># Generate summary for survey_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">survey_vector</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generate summary for factor_survey_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">factor_survey_vector</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="battle-of-the-sexes" class="level2"><h2 class="anchored" data-anchor-id="battle-of-the-sexes">Battle of the sexes</h2>
+<p>You might wonder what happens when you try to compare elements of a factor. In <code>factor_survey_vector</code> you have a factor with two levels: <code>"Male"</code> and <code>"Female"</code>. But how does R value these relative to each other?</p>
+<section id="instructions-100-xp-39" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-39">Instructions <code>100 XP</code>
+</h3>
+<p>Read the code in the editor and submit the answer to test if <code>male</code> is greater than <code>(&gt;)</code> <code>female</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_38.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Build factor_survey_vector with clean levels</span></span>
+<span><span class="va">survey_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span><span class="op">)</span></span>
+<span><span class="va">factor_survey_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">survey_vector</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">factor_survey_vector</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Male</span></span>
+<span><span class="va">male</span> <span class="op">&lt;-</span> <span class="va">factor_survey_vector</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Female</span></span>
+<span><span class="va">female</span> <span class="op">&lt;-</span> <span class="va">factor_survey_vector</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Battle of the sexes: Male 'larger' than female?</span></span>
+<span><span class="va">male</span> <span class="op">&gt;</span> <span class="va">female</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="ordered-factors" class="level2"><h2 class="anchored" data-anchor-id="ordered-factors">Ordered factors</h2>
+<p>Ordered factors Since <code>"Male"</code> and <code>"Female"</code> are unordered (or nominal) factor levels, R returns a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors.</p>
+<p>But this is not always the case! Sometimes you will also deal with factors that do have a natural ordering between its categories. If this is the case, we have to make sure that we pass this information to R…</p>
+<p>Let us say that you are leading a research team of five data analysts and that you want to evaluate their performance. To do this, you track their speed, evaluate each analyst as <code>"slow"</code>, <code>"medium"</code> or <code>"fast"</code>, and save the results in speed_vector.</p>
+<section id="instructions-100-xp-40" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-40">Instructions <code>100 XP</code>
+</h3>
+<p>As a first step, assign speed_vector a vector with 5 entries, one for each analyst. Each entry should be either <code>"slow"</code>, <code>"medium"</code>, or <code>"fast"</code>. Use the list below:</p>
+<ul>
+<li>Analyst 1 is medium,</li>
+<li>Analyst 2 is slow,</li>
+<li>Analyst 3 is slow,</li>
+<li>Analyst 4 is medium and</li>
+<li>Analyst 5 is fast.</li>
+</ul>
+<p>No need to specify these are factors yet.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_39.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">speed_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"medium"</span>,</span>
+<span>    <span class="st">"slow"</span>,</span>
+<span>    <span class="st">"slow"</span>,</span>
+<span>    <span class="st">"medium"</span>,</span>
+<span>    <span class="st">"fast"</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="ordered-factors-2" class="level2"><h2 class="anchored" data-anchor-id="ordered-factors-2">Ordered factors (2)</h2>
+<p><code>speed_vector</code> should be converted to an ordinal factor since its categories have a natural ordering. By default, the function <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code> transforms <code>speed_vector</code> into an unordered factor. To create an ordered factor, you have to add two additional arguments: ordered and levels.</p>
+<div class="sourceCode" id="cb68" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(some_vector,</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"lev1"</span>, <span class="st">"lev2"</span> ...))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By setting the argument ordered to TRUE in the function factor(), you indicate that the factor is ordered. With the argument levels you give the values of the factor in the correct order.</p>
+<section id="instructions-100-xp-41" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-41">Instructions <code>100 XP</code>
+</h3>
+<p>From <code>speed_vector</code>, create an ordered factor vector: <code>factor_speed_vector</code>. Set <code>ordered</code> to <code>TRUE</code>, and set levels to <code>c("slow", "medium", "fast")</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_40.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create speed_vector</span></span>
+<span><span class="va">speed_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"medium"</span>, <span class="st">"slow"</span>, <span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Convert speed_vector to ordered factor vector</span></span>
+<span><span class="va">factor_speed_vector</span> <span class="op">&lt;-</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
+<span>    <span class="va">speed_vector</span>,</span>
+<span>    ordered <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Print factor_speed_vector</span></span>
+<span><span class="va">factor_speed_vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">factor_speed_vector</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="comparing-ordered-factors" class="level2"><h2 class="anchored" data-anchor-id="comparing-ordered-factors">Comparing ordered factors</h2>
+<p>Having a bad day at work, ‘data analyst number two’ enters your office and starts complaining that ‘data analyst number five’ is slowing down the entire project. Since you know that ‘data analyst number two’ has the reputation of being a smarty-pants, you first decide to check if his statement is true.</p>
+<p>The fact that <code>factor_speed_vector</code> is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using the well-known operators.</p>
+<section id="instructions-100-xp-42" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-42">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li>Use <code>[2]</code> to select from <code>factor_speed_vector</code> the factor value for the second data analyst. Store it as <code>da2</code>.</li>
+<li>Use <code>[5]</code> to select the <code>factor_speed_vector</code> factor value for the fifth data analyst. Store it as <code>da5</code>.</li>
+<li>Check if <code>da2</code> is greater than <code>da5</code>; simply print out the result. Remember that you can use the <code>&gt;</code> operator to check whether one element is larger than the other.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_41.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create factor_speed_vector</span></span>
+<span><span class="va">speed_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"medium"</span>, <span class="st">"slow"</span>, <span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span><span class="op">)</span></span>
+<span><span class="va">factor_speed_vector</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
+<span>    <span class="va">speed_vector</span>,</span>
+<span>    ordered <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Factor value for second data analyst</span></span>
+<span><span class="va">da2</span> <span class="op">&lt;-</span> <span class="va">factor_speed_vector</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Factor value for fifth data analyst</span></span>
+<span><span class="va">da5</span> <span class="op">&lt;-</span> <span class="va">factor_speed_vector</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Is data analyst 2 faster than data analyst 5?</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">da2</span> <span class="op">&gt;</span> <span class="va">da5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section></section><section id="best-coding-practices-for-r" class="level1"><h1>Best Coding Practices for R</h1>
 <section id="what-we-mean-when-say-better-coding-practice" class="level2"><h2 class="anchored" data-anchor-id="what-we-mean-when-say-better-coding-practice">What we mean when say “better coding practice”</h2>
 <p>R programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—<strong>columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions</strong> etc,…,.</p>
 <p>We strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R</p>
@@ -1824,69 +1978,69 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb64" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types {.unnumbered}</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator {.unnumbered}</span></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
-<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
-<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
-<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
-<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
-<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-19"><a href="#cb64-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
-<span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-21"><a href="#cb64-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
-<span id="cb64-22"><a href="#cb64-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
-<span id="cb64-24"><a href="#cb64-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-25"><a href="#cb64-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
-<span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
-<span id="cb64-28"><a href="#cb64-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-29"><a href="#cb64-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
-<span id="cb64-30"><a href="#cb64-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-31"><a href="#cb64-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
-<span id="cb64-32"><a href="#cb64-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-33"><a href="#cb64-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
-<span id="cb64-34"><a href="#cb64-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-35"><a href="#cb64-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
-<span id="cb64-36"><a href="#cb64-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-37"><a href="#cb64-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
-<span id="cb64-38"><a href="#cb64-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-39"><a href="#cb64-39" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
-<span id="cb64-40"><a href="#cb64-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-41"><a href="#cb64-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
-<span id="cb64-42"><a href="#cb64-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-43"><a href="#cb64-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
-<span id="cb64-44"><a href="#cb64-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-45"><a href="#cb64-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
-<span id="cb64-46"><a href="#cb64-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-47"><a href="#cb64-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
-<span id="cb64-48"><a href="#cb64-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-49"><a href="#cb64-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
-<span id="cb64-50"><a href="#cb64-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-51"><a href="#cb64-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
-<span id="cb64-52"><a href="#cb64-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-53"><a href="#cb64-53" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
-<span id="cb64-54"><a href="#cb64-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-55"><a href="#cb64-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
-<span id="cb64-56"><a href="#cb64-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-57"><a href="#cb64-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
-<span id="cb64-58"><a href="#cb64-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-59"><a href="#cb64-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
-<span id="cb64-60"><a href="#cb64-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-61"><a href="#cb64-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
-<span id="cb64-62"><a href="#cb64-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-63"><a href="#cb64-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb71" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types {.unnumbered}</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator {.unnumbered}</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
+<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
+<span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
+<span id="cb71-12"><a href="#cb71-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-13"><a href="#cb71-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
+<span id="cb71-14"><a href="#cb71-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-15"><a href="#cb71-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
+<span id="cb71-16"><a href="#cb71-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-17"><a href="#cb71-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
+<span id="cb71-18"><a href="#cb71-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-19"><a href="#cb71-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
+<span id="cb71-20"><a href="#cb71-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-21"><a href="#cb71-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
+<span id="cb71-22"><a href="#cb71-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-23"><a href="#cb71-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
+<span id="cb71-24"><a href="#cb71-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-25"><a href="#cb71-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
+<span id="cb71-26"><a href="#cb71-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-27"><a href="#cb71-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
+<span id="cb71-28"><a href="#cb71-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-29"><a href="#cb71-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
+<span id="cb71-30"><a href="#cb71-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-31"><a href="#cb71-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
+<span id="cb71-32"><a href="#cb71-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-33"><a href="#cb71-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
+<span id="cb71-34"><a href="#cb71-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-35"><a href="#cb71-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
+<span id="cb71-36"><a href="#cb71-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-37"><a href="#cb71-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
+<span id="cb71-38"><a href="#cb71-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-39"><a href="#cb71-39" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
+<span id="cb71-40"><a href="#cb71-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-41"><a href="#cb71-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
+<span id="cb71-42"><a href="#cb71-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-43"><a href="#cb71-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
+<span id="cb71-44"><a href="#cb71-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-45"><a href="#cb71-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
+<span id="cb71-46"><a href="#cb71-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-47"><a href="#cb71-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
+<span id="cb71-48"><a href="#cb71-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-49"><a href="#cb71-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
+<span id="cb71-50"><a href="#cb71-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-51"><a href="#cb71-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
+<span id="cb71-52"><a href="#cb71-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-53"><a href="#cb71-53" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
+<span id="cb71-54"><a href="#cb71-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-55"><a href="#cb71-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
+<span id="cb71-56"><a href="#cb71-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-57"><a href="#cb71-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
+<span id="cb71-58"><a href="#cb71-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-59"><a href="#cb71-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
+<span id="cb71-60"><a href="#cb71-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-61"><a href="#cb71-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
+<span id="cb71-62"><a href="#cb71-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-63"><a href="#cb71-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
