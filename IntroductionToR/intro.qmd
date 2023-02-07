@@ -1,6 +1,48 @@
-# Grade rubric {.unnumbered}
+# R Programmin 
 ```{r}
 library(tidyverse)
+xp_introduction_to_r <- 6200
+xp_intermedite_r <- 6950
+xp_writing_efficient_r_code <- 3100
+xp_introduction_to_writing_functions_in_r <- 4350
+xp_object_oriented_programming_with_S3_and_R6_in_r <- 4200
+
+courses_r_programming_names <- 
+    c(
+        "Introduction to R",
+        "Intermediate R",
+        "Writing Efficient R Code ",
+        "Introduction to Writing Function in R",
+        "Object-Oriented Programming with S3 R6 in R"
+    )
+courses_r_programming_xp <- 
+    c(
+        xp_introduction_to_r,
+        xp_intermedite_r,
+        xp_writing_efficient_r_code,
+        xp_introduction_to_writing_functions_in_r,
+        xp_object_oriented_programming_with_S3_and_R6_in_r
+    )
+df_courses_r_programming <- 
+    data.frame(
+        courses_r_programming_names,
+        courses_r_programming_xp
+    )
+names(df_courses_r_programming) <- c("names", "xp")
+print(df_courses_r_programming)
+sum(df_courses_r_programming[ ,2])
+```
+
+# Importing & Cleaning Data with R
+# Data Manipulation with R
+# Tidyverse Fundamentals with R
+# Intermediate Tidyverse Toolbox
+# Data Visualization with R
+# Interactive Data Visualization in R
+
+# Grade rubric {.unnumbered}
+```{r}
+
 ex_names_chapter_1 <- 
     list(
         'How it works',

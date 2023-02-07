@@ -520,6 +520,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul>
 </li>
   <li>
+<a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a>
+  <ul class="collapse">
+<li>
+<a href="#lists-why-would-you-need-them" id="toc-lists-why-would-you-need-them" class="nav-link" data-scroll-target="#lists-why-would-you-need-them">Lists, why would you need them?</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-55" id="toc-instructions-100-xp-55" class="nav-link" data-scroll-target="#instructions-100-xp-55">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#lists-why-would-you-need-them-2" id="toc-lists-why-would-you-need-them-2" class="nav-link" data-scroll-target="#lists-why-would-you-need-them-2">Lists, why would you need them? (2)</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-56" id="toc-instructions-100-xp-56" class="nav-link" data-scroll-target="#instructions-100-xp-56">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#creating-a-list" id="toc-creating-a-list" class="nav-link" data-scroll-target="#creating-a-list">Creating a list</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-57" id="toc-instructions-100-xp-57" class="nav-link" data-scroll-target="#instructions-100-xp-57">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#creating-a-named-list" id="toc-creating-a-named-list" class="nav-link" data-scroll-target="#creating-a-named-list">Creating a named list</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-58" id="toc-instructions-100-xp-58" class="nav-link" data-scroll-target="#instructions-100-xp-58">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#creating-a-named-list-2" id="toc-creating-a-named-list-2" class="nav-link" data-scroll-target="#creating-a-named-list-2">Creating a named list (2)</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-59" id="toc-instructions-100-xp-59" class="nav-link" data-scroll-target="#instructions-100-xp-59">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#selecting-elements-from-a-list" id="toc-selecting-elements-from-a-list" class="nav-link" data-scroll-target="#selecting-elements-from-a-list">Selecting elements from a list</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-60" id="toc-instructions-100-xp-60" class="nav-link" data-scroll-target="#instructions-100-xp-60">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#creating-a-new-list-for-another-movie" id="toc-creating-a-new-list-for-another-movie" class="nav-link" data-scroll-target="#creating-a-new-list-for-another-movie">Creating a new list for another movie</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-61" id="toc-instructions-100-xp-61" class="nav-link" data-scroll-target="#instructions-100-xp-61">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
 <a href="#best-coding-practices-for-r" id="toc-best-coding-practices-for-r" class="nav-link" data-scroll-target="#best-coding-practices-for-r">Best Coding Practices for R</a>
   <ul class="collapse">
 <li><a href="#what-we-mean-when-say-better-coding-practice" id="toc-what-we-mean-when-say-better-coding-practice" class="nav-link" data-scroll-target="#what-we-mean-when-say-better-coding-practice">What we mean when say “better coding practice”</a></li>
@@ -2108,6 +2155,220 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <span><span class="co"># Use positions to sort planets_df</span></span>
 <span><span class="va">planets_df</span><span class="op">[</span><span class="va">positions</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section></section></section><section id="lists" class="level1"><h1>Lists</h1>
+<p>As opposed to vectors, lists can hold components of different types, just as your to-do lists can contain different categories of tasks. This chapter will teach you how to create, name, and subset these lists.</p>
+<section id="lists-why-would-you-need-them" class="level2"><h2 class="anchored" data-anchor-id="lists-why-would-you-need-them">Lists, why would you need them?</h2>
+<p>Congratulations! At this point in the course you are already familiar with:</p>
+<ul>
+<li><dl>
+<dt>Vectors (one dimensional array)</dt>
+<dd>
+can hold numeric, character or logical values. The elements in a vector all have the same data type.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Matrices (two dimensional array)</dt>
+<dd>
+can hold numeric, character or logical values. The elements in a matrix all have the same data type.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Data frames (two-dimensional objects)</dt>
+<dd>
+can hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type. Pretty sweet for an R newbie, right? ;-)
+</dd>
+</dl></li>
+</ul>
+<section id="instructions-100-xp-55" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-55">Instructions <code>100 XP</code>
+</h3>
+<p>Submit the answer to start learning everything about lists!</p>
+</section></section><section id="lists-why-would-you-need-them-2" class="level2"><h2 class="anchored" data-anchor-id="lists-why-would-you-need-them-2">Lists, why would you need them? (2)</h2>
+<p>A list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, and type of activity that has to be done.</p>
+<p>A list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other in any way.</p>
+<p>You could say that a list is some kind super data type: you can store practically any piece of information in it!</p>
+<section id="instructions-100-xp-56" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-56">Instructions <code>100 XP</code>
+</h3>
+<p>Just submit the answer to start the first exercise on lists.</p>
+</section></section><section id="creating-a-list" class="level2"><h2 class="anchored" data-anchor-id="creating-a-list">Creating a list</h2>
+<p>Let us create our first list! To construct a list you use the function <code><a href="https://rdrr.io/r/base/list.html">list()</a></code>:</p>
+<div class="sourceCode" id="cb91" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(comp1, comp2 ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The arguments to the list function are the list components. Remember, these components can be matrices, vectors, other lists, …</p>
+<section id="instructions-100-xp-57" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-57">Instructions <code>100 XP</code>
+</h3>
+<p>Construct a list, named <code>my_list</code>, that contains the variables <code>my_vector</code>, <code>my_matrix</code> and <code>my_df</code> as list components.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_53.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Vector with numerics from 1 up to 10</span></span>
+<span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span> </span>
+<span></span>
+<span><span class="co"># Matrix with numerics from 1 up to 9</span></span>
+<span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># First 10 elements of the built-in data frame mtcars</span></span>
+<span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Construct list with these different elements:</span></span>
+<span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">my_vector</span>, <span class="va">my_matrix</span>, <span class="va">my_df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="creating-a-named-list" class="level2"><h2 class="anchored" data-anchor-id="creating-a-named-list">Creating a named list</h2>
+<p>Well done, you’re on a roll!</p>
+<p>Just like on your to-do list, you want to avoid not knowing or remembering what the components of your list stand for. That is why you should give names to them:</p>
+<p>my_list &lt;- list(name1 = your_comp1, name2 = your_comp2)</p>
+<p>This creates a list with components that are named name1, name2, and so on. If you want to name your lists after you’ve created them, you can use the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> function as you did with vectors. The following commands are fully equivalent to the assignment above:</p>
+<p>my_list &lt;- list(your_comp1, your_comp2) names(my_list) &lt;- c(“name1”, “name2”)</p>
+<section id="instructions-100-xp-58" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-58">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li>Change the code of the previous exercise (see editor) by adding names to the components. Use for my_vector the name vec, for my_matrix the name mat and for <code>my_df</code> the name df.</li>
+<li>Print out <code>my_list</code> so you can inspect the output.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_54.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Vector with numerics from 1 up to 10</span></span>
+<span><span class="va">my_vector</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span> </span>
+<span></span>
+<span><span class="co"># Matrix with numerics from 1 up to 9</span></span>
+<span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># First 10 elements of the built-in data frame mtcars</span></span>
+<span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Adapt list() call to give the components names</span></span>
+<span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">my_vector</span>, <span class="va">my_matrix</span>, <span class="va">my_df</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_list</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"vec"</span>, <span class="st">"mat"</span>, <span class="st">"df"</span><span class="op">)</span></span>
+<span><span class="co"># Print out my_list</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="creating-a-named-list-2" class="level2"><h2 class="anchored" data-anchor-id="creating-a-named-list-2">Creating a named list (2)</h2>
+<p>Being a huge movie fan (remember your job at LucasFilms), you decide to start storing information on good movies with the help of lists.</p>
+<p>Start by creating a list for the movie “The Shining”. We have already created the variables <code>mov</code>, <code>act</code> and <code>rev</code> in your R workspace. Feel free to check them out in the console.</p>
+<section id="instructions-100-xp-59" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-59">Instructions <code>100 XP</code>
+</h3>
+<p>Complete the code in the editor to create <code>shining_list</code>; it contains three elements:</p>
+<ul>
+<li>
+<code>moviename</code>: a character string with the movie title (stored in mov)</li>
+<li>
+<code>actors</code>: a vector with the main actors’ names (stored in act)</li>
+<li>
+<code>reviews</code>: a data frame that contains some reviews (stored in rev)</li>
+</ul>
+<p>Do not forget to name the list components accordingly (names are moviename, actors and reviews).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_55.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The variables mov, act and rev are available</span></span>
+<span></span>
+<span><span class="co"># Finish the code to build shining_list</span></span>
+<span><span class="va">shining_list</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>        moviename <span class="op">=</span> <span class="va">mov</span>, </span>
+<span>        actors <span class="op">=</span> <span class="va">act</span>,</span>
+<span>        reviews <span class="op">=</span> <span class="va">rev</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="selecting-elements-from-a-list" class="level2"><h2 class="anchored" data-anchor-id="selecting-elements-from-a-list">Selecting elements from a list</h2>
+<p>Your list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.</p>
+<p>One way to select a component is using the numbered position of that component. For example, to “grab” the first component of <code>shining_list</code> you type</p>
+<div class="sourceCode" id="cb95" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shining_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A quick way to check this out is typing it in the console. Important to remember: to select elements from vectors, you use single square brackets: <code>[ ]</code>. Don’t mix them up!</p>
+<p>You can also refer to the names of the components, with <code>[[ ]]</code> or with the <code>$</code> sign. Both will select the data frame representing the reviews:</p>
+<div class="sourceCode" id="cb96" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shining_list</span><span class="op">[[</span><span class="st">"reviews"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">shining_list</span><span class="op">$</span><span class="va">reviews</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Besides selecting components, you often need to select specific elements out of these components. For example, with <code>shining_list[[2]][1]</code> you select from the second component, actors (<code>shining_list[[2]]</code>), the first element (<code>[1]</code>). When you type this in the console, you will see the answer is Jack Nicholson.</p>
+<section id="instructions-100-xp-60" class="level3"><h3 class="anchored" data-anchor-id="instructions-100-xp-60">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li>Select from shining_list the vector representing the actors. Simply print out this vector.</li>
+<li>Select from shining_list the second element in the vector representing the actors. Do a printout like before.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_56.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># shining_list is already pre-loaded in the workspace</span></span>
+<span></span>
+<span><span class="co"># Print out the vector representing the actors</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shining_list</span><span class="op">[[</span><span class="st">"actors"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Print the second element of the vector representing the actors</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shining_list</span><span class="op">[[</span><span class="st">"actors"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="creating-a-new-list-for-another-movie" class="level2"><h2 class="anchored" data-anchor-id="creating-a-new-list-for-another-movie">Creating a new list for another movie</h2>
+<p>You found reviews of another, more recent, Jack Nicholson movie: The Departed!</p>
+<table class="table">
+<thead><tr class="header">
+<th>Scores</th>
+<th style="text-align: left;">Comments</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>4.6</td>
+<td style="text-align: left;">I would watch it again</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td style="text-align: left;">Amazing!</td>
+</tr>
+<tr class="odd">
+<td>4.8</td>
+<td style="text-align: left;">I liked it</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td style="text-align: left;">One of the best movies</td>
+</tr>
+<tr class="odd">
+<td>4.2</td>
+<td style="text-align: left;">Fascinating plot</td>
+</tr>
+</tbody>
+</table>
+<p>It would be useful to collect together all the pieces of information about the movie, like the title, actors, and reviews into a single variable. Since these pieces of data are different shapes, it is natural to combine them in a list variable.</p>
+<p><code>movie_title</code>, containing the title of the movie, and <code>movie_actors</code>, containing the names of some of the actors in the movie, are available in your workspace.</p>
+<section id="instructions-100-xp-61" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-61">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li>Create two vectors, called <code>scores</code> and <code>comments</code>, that contain the information from the reviews shown in the table.</li>
+<li>Find the average of the <code>scores</code> vector and save it as <code>avg_review</code>.</li>
+<li>Combine the <code>scores</code> and <code>comments</code> vectors into a data frame called <code>reviews_df</code>.</li>
+<li>Create a list, called <code>departed_list</code>, that contains the <code>movie_title</code>, <code>movie_actors</code>, <code>reviews</code> data frame as <code>reviews_df</code>, and the average review score as <code>avg_review</code>, and print it out.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_57.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use the table from the exercise to define the comments and scores vectors</span></span>
+<span><span class="va">scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4.6</span>, <span class="fl">5</span>, <span class="fl">4.8</span>, <span class="fl">5</span>, <span class="fl">4.2</span><span class="op">)</span></span>
+<span><span class="va">comments</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>        <span class="st">"I would watch it again"</span>,</span>
+<span>        <span class="st">"Amazing!"</span>, </span>
+<span>        <span class="st">"I liked it"</span>,</span>
+<span>        <span class="st">"One of the best movies"</span>, </span>
+<span>        <span class="st">"Fascinating plot"</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Save the average of the scores vector as avg_review</span></span>
+<span><span class="va">avg_review</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">scores</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Combine scores and comments into the reviews_df data frame</span></span>
+<span><span class="va">reviews_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">scores</span>, <span class="va">comments</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create and print out a list, called departed_list</span></span>
+<span><span class="va">departed_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    <span class="va">movie_title</span>,</span>
+<span>    <span class="va">movie_actors</span>,</span>
+<span>    <span class="va">reviews_df</span>,</span>
+<span>    <span class="va">avg_review</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">departed_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section></section></section><section id="best-coding-practices-for-r" class="level1"><h1>Best Coding Practices for R</h1>
 <section id="what-we-mean-when-say-better-coding-practice" class="level2"><h2 class="anchored" data-anchor-id="what-we-mean-when-say-better-coding-practice">What we mean when say “better coding practice”</h2>
 <p>R programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—<strong>columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions</strong> etc,…,.</p>
@@ -2331,71 +2592,75 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb91" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types {.unnumbered}</span></span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator {.unnumbered}</span></span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
-<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
-<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
-<span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
-<span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-11"><a href="#cb91-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
-<span id="cb91-12"><a href="#cb91-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-13"><a href="#cb91-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
-<span id="cb91-14"><a href="#cb91-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-15"><a href="#cb91-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
-<span id="cb91-16"><a href="#cb91-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-17"><a href="#cb91-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
-<span id="cb91-18"><a href="#cb91-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-19"><a href="#cb91-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_05.qmd &gt;}}</span>
-<span id="cb91-20"><a href="#cb91-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-21"><a href="#cb91-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
-<span id="cb91-22"><a href="#cb91-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-23"><a href="#cb91-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
-<span id="cb91-24"><a href="#cb91-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-25"><a href="#cb91-25" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
-<span id="cb91-26"><a href="#cb91-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-27"><a href="#cb91-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
-<span id="cb91-28"><a href="#cb91-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-29"><a href="#cb91-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
-<span id="cb91-30"><a href="#cb91-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-31"><a href="#cb91-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
-<span id="cb91-32"><a href="#cb91-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-33"><a href="#cb91-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
-<span id="cb91-34"><a href="#cb91-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-35"><a href="#cb91-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
-<span id="cb91-36"><a href="#cb91-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-37"><a href="#cb91-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
-<span id="cb91-38"><a href="#cb91-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-39"><a href="#cb91-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
-<span id="cb91-40"><a href="#cb91-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-41"><a href="#cb91-41" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
-<span id="cb91-42"><a href="#cb91-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-43"><a href="#cb91-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
-<span id="cb91-44"><a href="#cb91-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-45"><a href="#cb91-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
-<span id="cb91-46"><a href="#cb91-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-47"><a href="#cb91-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
-<span id="cb91-48"><a href="#cb91-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-49"><a href="#cb91-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
-<span id="cb91-50"><a href="#cb91-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-51"><a href="#cb91-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
-<span id="cb91-52"><a href="#cb91-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-53"><a href="#cb91-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
-<span id="cb91-54"><a href="#cb91-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-55"><a href="#cb91-55" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
-<span id="cb91-56"><a href="#cb91-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-57"><a href="#cb91-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
-<span id="cb91-58"><a href="#cb91-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-59"><a href="#cb91-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
-<span id="cb91-60"><a href="#cb91-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-61"><a href="#cb91-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
-<span id="cb91-62"><a href="#cb91-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-63"><a href="#cb91-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
-<span id="cb91-64"><a href="#cb91-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-65"><a href="#cb91-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb99" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types {.unnumbered}</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator {.unnumbered}</span></span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
+<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
+<span id="cb99-8"><a href="#cb99-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-9"><a href="#cb99-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
+<span id="cb99-10"><a href="#cb99-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-11"><a href="#cb99-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
+<span id="cb99-12"><a href="#cb99-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-13"><a href="#cb99-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
+<span id="cb99-14"><a href="#cb99-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-15"><a href="#cb99-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
+<span id="cb99-16"><a href="#cb99-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-17"><a href="#cb99-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
+<span id="cb99-18"><a href="#cb99-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-19"><a href="#cb99-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_05.qmd &gt;}}</span>
+<span id="cb99-20"><a href="#cb99-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-21"><a href="#cb99-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_06.qmd &gt;}}</span>
+<span id="cb99-22"><a href="#cb99-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-23"><a href="#cb99-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-24"><a href="#cb99-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-25"><a href="#cb99-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
+<span id="cb99-26"><a href="#cb99-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-27"><a href="#cb99-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
+<span id="cb99-28"><a href="#cb99-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-29"><a href="#cb99-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
+<span id="cb99-30"><a href="#cb99-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-31"><a href="#cb99-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
+<span id="cb99-32"><a href="#cb99-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-33"><a href="#cb99-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
+<span id="cb99-34"><a href="#cb99-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-35"><a href="#cb99-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
+<span id="cb99-36"><a href="#cb99-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-37"><a href="#cb99-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
+<span id="cb99-38"><a href="#cb99-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-39"><a href="#cb99-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
+<span id="cb99-40"><a href="#cb99-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-41"><a href="#cb99-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
+<span id="cb99-42"><a href="#cb99-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-43"><a href="#cb99-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
+<span id="cb99-44"><a href="#cb99-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-45"><a href="#cb99-45" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
+<span id="cb99-46"><a href="#cb99-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-47"><a href="#cb99-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
+<span id="cb99-48"><a href="#cb99-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-49"><a href="#cb99-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
+<span id="cb99-50"><a href="#cb99-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-51"><a href="#cb99-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
+<span id="cb99-52"><a href="#cb99-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-53"><a href="#cb99-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
+<span id="cb99-54"><a href="#cb99-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-55"><a href="#cb99-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
+<span id="cb99-56"><a href="#cb99-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-57"><a href="#cb99-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
+<span id="cb99-58"><a href="#cb99-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-59"><a href="#cb99-59" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
+<span id="cb99-60"><a href="#cb99-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-61"><a href="#cb99-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
+<span id="cb99-62"><a href="#cb99-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-63"><a href="#cb99-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
+<span id="cb99-64"><a href="#cb99-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-65"><a href="#cb99-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
+<span id="cb99-66"><a href="#cb99-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-67"><a href="#cb99-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
+<span id="cb99-68"><a href="#cb99-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-69"><a href="#cb99-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

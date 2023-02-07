@@ -25,7 +25,7 @@
     "href": "r_fundamentals_for_data_science.html",
     "title": "Nuts and bolts: Data types",
     "section": "",
-    "text": "Intro to basics\nIn this chapter, you will learn how to work with matrices in R. By the end of the chapter, you will be able to create matrices and understand how to do basic computations with them. You will analyze the box office numbers of the Star Wars movies and learn how to use matrices in R. May the force be with you!\nData often falls into a limited number of categories. For example, human hair color can be categorized as black, brown, blond, red, grey, or white—and perhaps a few more options for people who color their hair. In R, categorical data is stored in factors. Factors are very important in data analysis, so start learning how to create, subset, and compare them now."
+    "text": "Intro to basics\nIn this chapter, you will learn how to work with matrices in R. By the end of the chapter, you will be able to create matrices and understand how to do basic computations with them. You will analyze the box office numbers of the Star Wars movies and learn how to use matrices in R. May the force be with you!\nData often falls into a limited number of categories. For example, human hair color can be categorized as black, brown, blond, red, grey, or white—and perhaps a few more options for people who color their hair. In R, categorical data is stored in factors. Factors are very important in data analysis, so start learning how to create, subset, and compare them now.\nAs opposed to vectors, lists can hold components of different types, just as your to-do lists can contain different categories of tasks. This chapter will teach you how to create, name, and subset these lists."
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#how-it-works",
@@ -600,5 +600,54 @@
     "title": "References",
     "section": "",
     "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them",
+    "href": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them",
+    "title": "Nuts and bolts: Data types",
+    "section": "Lists, why would you need them?",
+    "text": "Lists, why would you need them?\nCongratulations! At this point in the course you are already familiar with:\n\n\nVectors (one dimensional array)\n\ncan hold numeric, character or logical values. The elements in a vector all have the same data type.\n\n\n\nMatrices (two dimensional array)\n\ncan hold numeric, character or logical values. The elements in a matrix all have the same data type.\n\n\n\nData frames (two-dimensional objects)\n\ncan hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type. Pretty sweet for an R newbie, right? ;-)\n\n\n\nInstructions 100 XP\n\nSubmit the answer to start learning everything about lists!"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them-2",
+    "href": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Lists, why would you need them? (2)",
+    "text": "Lists, why would you need them? (2)\nA list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, and type of activity that has to be done.\nA list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other in any way.\nYou could say that a list is some kind super data type: you can store practically any piece of information in it!\nInstructions 100 XP\n\nJust submit the answer to start the first exercise on lists."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-list",
+    "href": "r_fundamentals_for_data_science.html#creating-a-list",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a list",
+    "text": "Creating a list\nLet us create our first list! To construct a list you use the function list():\nmy_list <- list(comp1, comp2 ...)\nThe arguments to the list function are the list components. Remember, these components can be matrices, vectors, other lists, …\nInstructions 100 XP\n\nConstruct a list, named my_list, that contains the variables my_vector, my_matrix and my_df as list components.\n\n\nex_53.R\n\n# Vector with numerics from 1 up to 10\nmy_vector <- 1:10 \n\n# Matrix with numerics from 1 up to 9\nmy_matrix <- matrix(1:9, ncol = 3)\n\n# First 10 elements of the built-in data frame mtcars\nmy_df <- mtcars[1:10,]\n\n# Construct list with these different elements:\nmy_list <- list(my_vector, my_matrix, my_df)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-named-list",
+    "href": "r_fundamentals_for_data_science.html#creating-a-named-list",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a named list",
+    "text": "Creating a named list\nWell done, you’re on a roll!\nJust like on your to-do list, you want to avoid not knowing or remembering what the components of your list stand for. That is why you should give names to them:\nmy_list <- list(name1 = your_comp1, name2 = your_comp2)\nThis creates a list with components that are named name1, name2, and so on. If you want to name your lists after you’ve created them, you can use the names() function as you did with vectors. The following commands are fully equivalent to the assignment above:\nmy_list <- list(your_comp1, your_comp2) names(my_list) <- c(“name1”, “name2”)\nInstructions 100 XP\n\n\nChange the code of the previous exercise (see editor) by adding names to the components. Use for my_vector the name vec, for my_matrix the name mat and for my_df the name df.\nPrint out my_list so you can inspect the output.\n\n\n\nex_54.R\n\n# Vector with numerics from 1 up to 10\nmy_vector <- 1:10 \n\n# Matrix with numerics from 1 up to 9\nmy_matrix <- matrix(1:9, ncol = 3)\n\n# First 10 elements of the built-in data frame mtcars\nmy_df <- mtcars[1:10,]\n\n# Adapt list() call to give the components names\nmy_list <- list(my_vector, my_matrix, my_df)\nnames(my_list) <- c(\"vec\", \"mat\", \"df\")\n# Print out my_list\nprint(my_list)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-named-list-2",
+    "href": "r_fundamentals_for_data_science.html#creating-a-named-list-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a named list (2)",
+    "text": "Creating a named list (2)\nBeing a huge movie fan (remember your job at LucasFilms), you decide to start storing information on good movies with the help of lists.\nStart by creating a list for the movie “The Shining”. We have already created the variables mov, act and rev in your R workspace. Feel free to check them out in the console.\nInstructions 100 XP\n\nComplete the code in the editor to create shining_list; it contains three elements:\n\n\nmoviename: a character string with the movie title (stored in mov)\n\nactors: a vector with the main actors’ names (stored in act)\n\nreviews: a data frame that contains some reviews (stored in rev)\n\nDo not forget to name the list components accordingly (names are moviename, actors and reviews).\n\n\nex_55.R\n\n# The variables mov, act and rev are available\n\n# Finish the code to build shining_list\nshining_list <- \n    list(\n        moviename = mov, \n        actors = act,\n        reviews = rev\n    )"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#selecting-elements-from-a-list",
+    "href": "r_fundamentals_for_data_science.html#selecting-elements-from-a-list",
+    "title": "Nuts and bolts: Data types",
+    "section": "Selecting elements from a list",
+    "text": "Selecting elements from a list\nYour list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.\nOne way to select a component is using the numbered position of that component. For example, to “grab” the first component of shining_list you type\nshining_list[[1]]\nA quick way to check this out is typing it in the console. Important to remember: to select elements from vectors, you use single square brackets: [ ]. Don’t mix them up!\nYou can also refer to the names of the components, with [[ ]] or with the $ sign. Both will select the data frame representing the reviews:\nshining_list[[\"reviews\"]]\nshining_list$reviews\nBesides selecting components, you often need to select specific elements out of these components. For example, with shining_list[[2]][1] you select from the second component, actors (shining_list[[2]]), the first element ([1]). When you type this in the console, you will see the answer is Jack Nicholson.\nInstructions 100 XP\n\n\nSelect from shining_list the vector representing the actors. Simply print out this vector.\nSelect from shining_list the second element in the vector representing the actors. Do a printout like before.\n\n\n\nex_56.R\n\n# shining_list is already pre-loaded in the workspace\n\n# Print out the vector representing the actors\nprint(shining_list[[\"actors\"]])\n\n# Print the second element of the vector representing the actors\nprint(shining_list[[\"actors\"]][2])"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-new-list-for-another-movie",
+    "href": "r_fundamentals_for_data_science.html#creating-a-new-list-for-another-movie",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a new list for another movie",
+    "text": "Creating a new list for another movie\nYou found reviews of another, more recent, Jack Nicholson movie: The Departed!\n\n\nScores\nComments\n\n\n\n4.6\nI would watch it again\n\n\n5\nAmazing!\n\n\n4.8\nI liked it\n\n\n5\nOne of the best movies\n\n\n4.2\nFascinating plot\n\n\n\nIt would be useful to collect together all the pieces of information about the movie, like the title, actors, and reviews into a single variable. Since these pieces of data are different shapes, it is natural to combine them in a list variable.\nmovie_title, containing the title of the movie, and movie_actors, containing the names of some of the actors in the movie, are available in your workspace.\nInstructions 100 XP\n\n\nCreate two vectors, called scores and comments, that contain the information from the reviews shown in the table.\nFind the average of the scores vector and save it as avg_review.\nCombine the scores and comments vectors into a data frame called reviews_df.\nCreate a list, called departed_list, that contains the movie_title, movie_actors, reviews data frame as reviews_df, and the average review score as avg_review, and print it out.\n\n\n\nex_57.R\n\n# Use the table from the exercise to define the comments and scores vectors\nscores <- c(4.6, 5, 4.8, 5, 4.2)\ncomments <- \n    c(\n        \"I would watch it again\",\n        \"Amazing!\", \n        \"I liked it\",\n        \"One of the best movies\", \n        \"Fascinating plot\"\n    )\n\n# Save the average of the scores vector as avg_review\navg_review <- mean(scores)\n\n# Combine scores and comments into the reviews_df data frame\nreviews_df <- data.frame(scores, comments)\n\n# Create and print out a list, called departed_list\ndeparted_list <- list(\n    movie_title,\n    movie_actors,\n    reviews_df,\n    avg_review\n)\nprint(departed_list)"
   }
 ]
