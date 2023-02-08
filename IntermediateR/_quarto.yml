@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: "IntermediateR"
+  author: "Saul Díaz Infante Velasco"
+  date: "2/8/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - intermediate_r_ch_01.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: superhero
+  pdf:
+    documentclass: scrreprt
+
+
+

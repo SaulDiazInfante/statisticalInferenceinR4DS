@@ -567,6 +567,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul>
 </li>
   <li>
+<a href="#conditionals-and-control-flow" id="toc-conditionals-and-control-flow" class="nav-link" data-scroll-target="#conditionals-and-control-flow">Conditionals and Control Flow</a>
+  <ul class="collapse">
+<li>
+<a href="#equality" id="toc-equality" class="nav-link" data-scroll-target="#equality">Equality</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-62" id="toc-instructions-100-xp-62" class="nav-link" data-scroll-target="#instructions-100-xp-62">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#greater-and-less-than" id="toc-greater-and-less-than" class="nav-link" data-scroll-target="#greater-and-less-than">Greater and less than</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-63" id="toc-instructions-100-xp-63" class="nav-link" data-scroll-target="#instructions-100-xp-63">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#compare-vectors" id="toc-compare-vectors" class="nav-link" data-scroll-target="#compare-vectors">Compare vectors</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-64" id="toc-instructions-100-xp-64" class="nav-link" data-scroll-target="#instructions-100-xp-64">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#compare-matrices" id="toc-compare-matrices" class="nav-link" data-scroll-target="#compare-matrices">Compare matrices</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-65" id="toc-instructions-100-xp-65" class="nav-link" data-scroll-target="#instructions-100-xp-65">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and">&amp; and |</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-66" id="toc-instructions-100-xp-66" class="nav-link" data-scroll-target="#instructions-100-xp-66">Instructions 100 XP</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#and-2" id="toc-and-2" class="nav-link" data-scroll-target="#and-2">&amp; and | (2)</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-67" id="toc-instructions-100-xp-67" class="nav-link" data-scroll-target="#instructions-100-xp-67">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
 <a href="#best-coding-practices-for-r" id="toc-best-coding-practices-for-r" class="nav-link" data-scroll-target="#best-coding-practices-for-r">Best Coding Practices for R</a>
   <ul class="collapse">
 <li><a href="#what-we-mean-when-say-better-coding-practice" id="toc-what-we-mean-when-say-better-coding-practice" class="nav-link" data-scroll-target="#what-we-mean-when-say-better-coding-practice">What we mean when say “better coding practice”</a></li>
@@ -2369,6 +2410,177 @@ can hold numeric, character or logical values. Within a column all elements have
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">departed_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section></section></section><section id="conditionals-and-control-flow" class="level1"><h1>Conditionals and Control Flow</h1>
+<section id="equality" class="level2"><h2 class="anchored" data-anchor-id="equality">Equality</h2>
+<p>The most basic form of comparison is equality. Let’s briefly recap its syntax. The following statements all evaluate to <code>TRUE</code> (feel free to try them out in the console).</p>
+<div class="sourceCode" id="cb99" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span> <span class="op">==</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="st">"intermediate"</span> <span class="op">!=</span> <span class="st">"r"</span></span>
+<span><span class="cn">TRUE</span> <span class="op">!=</span> <span class="cn">FALSE</span></span>
+<span><span class="st">"Rchitect"</span> <span class="op">!=</span> <span class="st">"rchitect"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice from the last expression that R is case sensitive: “R” is not equal to “r”. Keep this in mind when solving the exercises in this chapter!</p>
+<section id="instructions-100-xp-62" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-62">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li>In the editor on the right, write R code to see if <code>TRUE</code> equals <code>FALSE</code>.</li>
+<li>Likewise, check if <code>-6 * 14</code> is not equal to <code>17 - 101</code>.</li>
+<li>Next up: comparison of character strings. Ask R whether the strings “useR” and “user” are equal.</li>
+<li>Finally, find out what happens if you compare logicals to numerics: are <code>TRUE</code> and 1 equal?</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_001.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Comparison of logicals</span></span>
+<span><span class="cn">TRUE</span> <span class="op">==</span> <span class="cn">FALSE</span></span>
+<span></span>
+<span><span class="co"># Comparison of numerics</span></span>
+<span></span>
+<span><span class="op">-</span><span class="fl">6</span> <span class="op">*</span> <span class="fl">14</span> <span class="op">!=</span> <span class="fl">17</span> <span class="op">-</span><span class="fl">101</span></span>
+<span><span class="co"># Comparison of character strings</span></span>
+<span><span class="st">"useR"</span> <span class="op">==</span> <span class="st">"user"</span></span>
+<span></span>
+<span><span class="co"># Compare a logical with a numeric</span></span>
+<span><span class="cn">TRUE</span> <span class="op">==</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="greater-and-less-than" class="level2"><h2 class="anchored" data-anchor-id="greater-and-less-than">Greater and less than</h2>
+<p>Apart from equality operators, Filip also introduced the less than and greater than operators: &lt; and &gt;. You can also add an equal sign to express less than or equal to or greater than or equal to, respectively. Have a look at the following R expressions, that all evaluate to FALSE:</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">4</span></span>
+<span><span class="st">"dog"</span> <span class="op">&lt;</span> <span class="st">"Cats"</span></span>
+<span><span class="cn">TRUE</span> <span class="op">&lt;=</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Remember that for string comparison, R determines the greater than relationship based on alphabetical order. Also, keep in mind that <code>TRUE</code> is treated as 1 for arithmetic, and <code>FALSE</code> is treated as 0. Therefore, <code>FALSE &lt; TRUE</code> is <code>TRUE</code>.</p>
+<section id="instructions-100-xp-63" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-63">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li><p>Write R expressions to check whether:</p></li>
+<li><p><code>-6 * 5 + 2</code> is greater than or equal to <code>-10 + 1</code>.</p></li>
+<li><p>“raining” is less than or equal to “raining dogs”.</p></li>
+<li><p><code>TRUE</code> is greater than <code>FALSE</code>.</p></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_002.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Comparison of numerics</span></span>
+<span></span>
+<span><span class="op">-</span><span class="fl">6</span> <span class="op">*</span> <span class="fl">5</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">&gt;=</span> <span class="op">-</span><span class="fl">10</span> <span class="op">+</span><span class="fl">1</span></span>
+<span></span>
+<span><span class="co"># Comparison of character strings</span></span>
+<span><span class="st">"raining"</span> <span class="op">&lt;=</span>  <span class="st">"raining dogs"</span></span>
+<span></span>
+<span><span class="co"># Comparison of logicals</span></span>
+<span></span>
+<span><span class="cn">TRUE</span> <span class="op">&gt;</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="compare-vectors" class="level2"><h2 class="anchored" data-anchor-id="compare-vectors">Compare vectors</h2>
+<p>You are already aware that R is very good with vectors. Without having to change anything about the syntax, R’s relational operators also work on vectors.</p>
+<p>Let’s go back to the example that was started in the video. You want to figure out whether your activity on social media platforms have paid off and decide to look at your results for LinkedIn and Facebook. The sample code in the editor initializes the vectors linkedin and facebook. Each of the vectors contains the number of profile views your LinkedIn and Facebook profiles had over the last seven days.</p>
+<section id="instructions-100-xp-64" class="level3"><h3 class="anchored" data-anchor-id="instructions-100-xp-64">Instructions <code>100 XP</code>
+</h3>
+<p>Using relational operators, find a logical answer, i.e.&nbsp;<code>TRUE</code> or <code>FALSE</code>, for the following questions:</p>
+<ul>
+<li>On which days did the number of LinkedIn profile views exceed 15? When was your</li>
+<li>LinkedIn profile viewed only 5 times or fewer? When was your LinkedIn profile</li>
+<li>visited more often than your Facebook profile?</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex003.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The linkedin and facebook vectors have already been created for you</span></span>
+<span><span class="co"># The linkedin and facebook vectors have already been created for you</span></span>
+<span><span class="va">linkedin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">9</span>, <span class="fl">13</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">17</span>, <span class="fl">14</span><span class="op">)</span></span>
+<span><span class="va">facebook</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">17</span>, <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">16</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">14</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Popular days</span></span>
+<span></span>
+<span><span class="va">linkedin</span> <span class="op">&gt;</span> <span class="fl">15</span></span>
+<span><span class="co"># Quiet days</span></span>
+<span><span class="va">linkedin</span> <span class="op">&lt;=</span> <span class="fl">5</span></span>
+<span></span>
+<span><span class="co"># LinkedIn more popular than Facebook</span></span>
+<span><span class="va">linkedin</span> <span class="op">&gt;</span> <span class="va">facebook</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="compare-matrices" class="level2"><h2 class="anchored" data-anchor-id="compare-matrices">Compare matrices</h2>
+<p>R’s ability to deal with different data structures for comparisons does not stop at vectors. Matrices and relational operators also work together seamlessly!</p>
+<p>Instead of in vectors (as in the previous exercise), the LinkedIn and Facebook data is now stored in a matrix called <code>views</code>. The first row contains the LinkedIn information; the second row the Facebook information. The original vectors <code>facebook</code> and <code>linkedin</code> are still available as well.</p>
+<section id="instructions-100-xp-65" class="level3"><h3 class="anchored" data-anchor-id="instructions-100-xp-65">Instructions <code>100 XP</code>
+</h3>
+<p>Using the relational operators you’ve learned so far, try to discover the following:</p>
+<ul>
+<li><p>When were the views exactly equal to 13? Use the views matrix to return a logical matrix.</p></li>
+<li><p>For which days were the number of views less than or equal to 14? Again, have R return a logical matrix.</p></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_004.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The social data has been created for you</span></span>
+<span><span class="va">linkedin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">9</span>, <span class="fl">13</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">17</span>, <span class="fl">14</span><span class="op">)</span></span>
+<span><span class="va">facebook</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">17</span>, <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">16</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">14</span><span class="op">)</span></span>
+<span><span class="va">views</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">linkedin</span>, <span class="va">facebook</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># When does views equal 13?</span></span>
+<span></span>
+<span><span class="va">views</span> <span class="op">==</span> <span class="fl">13</span></span>
+<span><span class="co"># When is views less than or equal to 14?</span></span>
+<span></span>
+<span><span class="va">views</span> <span class="op">&lt;=</span> <span class="fl">14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="and" class="level2"><h2 class="anchored" data-anchor-id="and">&amp; and |</h2>
+<p>Before you work your way through the next exercises, have a look at the following R expressions. All of them will evaluate to TRUE:</p>
+<div class="sourceCode" id="cb105" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="cn">TRUE</span> <span class="op">&amp;</span> <span class="cn">TRUE</span></span>
+<span><span class="cn">FALSE</span> <span class="op">|</span> <span class="cn">TRUE</span></span>
+<span><span class="fl">5</span> <span class="op">&lt;=</span> <span class="fl">5</span> <span class="op">&amp;</span> <span class="fl">2</span> <span class="op">&lt;</span> <span class="fl">3</span></span>
+<span><span class="fl">3</span> <span class="op">&lt;</span> <span class="fl">4</span> <span class="op">|</span> <span class="fl">7</span> <span class="op">&lt;</span> <span class="fl">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Watch out: <code>3 &lt; x &lt; 7</code> to check if <code>x</code> is between 3 and 7 will not work; you’ll need <code>3 &lt; x</code> &amp; <code>x &lt; 7</code> for that.</p>
+<p>In this exercise, you’ll be working with the <code>last</code> variable. This variable equals the value of the <code>linkedin</code> vector that you’ve worked with previously. The <code>linkedin</code> vector represents the number of LinkedIn views your profile had in the last seven days, remember? Both the variables <code>linkedin</code> and last have been pre-defined for you.</p>
+<section id="instructions-100-xp-66" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-66">Instructions 100 XP</h3>
+<p>Write R expressions to solve the following questions concerning the variable last:</p>
+<ul>
+<li>Is <code>last</code> under 5 or above 10?</li>
+<li>Is <code>last</code> between 15 and 20, excluding 15 but including 20?</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_005.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The linkedin and last variable are already defined for you</span></span>
+<span><span class="va">linkedin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">9</span>, <span class="fl">13</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">17</span>, <span class="fl">14</span><span class="op">)</span></span>
+<span><span class="va">last</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">linkedin</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Is last under 5 or above 10?</span></span>
+<span><span class="va">last</span> <span class="op">&lt;</span> <span class="fl">5</span> <span class="op">|</span> <span class="va">last</span> <span class="op">&gt;</span> <span class="fl">10</span></span>
+<span></span>
+<span><span class="co"># Is last between 15 (exclusive) and 20 (inclusive)?</span></span>
+<span><span class="va">last</span> <span class="op">&gt;</span> <span class="fl">15</span> <span class="op">|</span> <span class="va">last</span> <span class="op">&lt;</span> <span class="fl">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="and-2" class="level2"><h2 class="anchored" data-anchor-id="and-2">&amp; and | (2)</h2>
+<p>Like relational operators, logical operators work perfectly fine with vectors and matrices.</p>
+<p>Both the vectors <code>linkedin</code> and <code>facebook</code> are available again. Also a matrix -<code>views</code>- has been defined; its first and second row correspond to the <code>linkedin</code> and <code>facebook</code> vectors, respectively. Ready for some advanced queries to gain more insights into your social outreach?</p>
+<section id="instructions-100-xp-67" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-67">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li>When did LinkedIn views exceed 10 and did Facebook views fail to reach 10 for a particular day? Use the <code>linkedin</code> and <code>facebook</code> vectors.</li>
+<li>When were one or both of your LinkedIn and Facebook profiles visited at least 12 times?</li>
+<li>When is the <code>views</code> matrix equal to a number between 11 and 14, excluding 11 and including 14?</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_006.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The social data (linkedin, facebook, views) has been created for you</span></span>
+<span></span>
+<span><span class="co"># linkedin exceeds 10 but facebook below 10</span></span>
+<span><span class="va">linkedin</span> <span class="op">&gt;</span> <span class="fl">10</span> <span class="op">&amp;</span> <span class="va">facebook</span> <span class="op">&lt;</span> <span class="fl">10</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># When were one or both visited at least 12 times?</span></span>
+<span><span class="va">linkedin</span> <span class="op">&gt;=</span> <span class="fl">12</span> <span class="op">|</span> <span class="va">facebook</span> <span class="op">&gt;=</span> <span class="fl">12</span></span>
+<span></span>
+<span><span class="co"># When is views between 11 (exclusive) and 14 (inclusive)?</span></span>
+<span></span>
+<span><span class="va">views</span> <span class="op">&gt;</span> <span class="fl">11</span> <span class="op">&amp;</span> <span class="va">views</span> <span class="op">&lt;=</span> <span class="fl">14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section></section></section><section id="best-coding-practices-for-r" class="level1"><h1>Best Coding Practices for R</h1>
 <section id="what-we-mean-when-say-better-coding-practice" class="level2"><h2 class="anchored" data-anchor-id="what-we-mean-when-say-better-coding-practice">What we mean when say “better coding practice”</h2>
 <p>R programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—<strong>columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions</strong> etc,…,.</p>
@@ -2592,75 +2804,75 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb99" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types {.unnumbered}</span></span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator {.unnumbered}</span></span>
-<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
-<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
-<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
-<span id="cb99-8"><a href="#cb99-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-9"><a href="#cb99-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
-<span id="cb99-10"><a href="#cb99-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-11"><a href="#cb99-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
-<span id="cb99-12"><a href="#cb99-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-13"><a href="#cb99-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
-<span id="cb99-14"><a href="#cb99-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-15"><a href="#cb99-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
-<span id="cb99-16"><a href="#cb99-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-17"><a href="#cb99-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
-<span id="cb99-18"><a href="#cb99-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-19"><a href="#cb99-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_05.qmd &gt;}}</span>
-<span id="cb99-20"><a href="#cb99-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-21"><a href="#cb99-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_06.qmd &gt;}}</span>
-<span id="cb99-22"><a href="#cb99-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-23"><a href="#cb99-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-24"><a href="#cb99-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-25"><a href="#cb99-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
-<span id="cb99-26"><a href="#cb99-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-27"><a href="#cb99-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
-<span id="cb99-28"><a href="#cb99-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-29"><a href="#cb99-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
-<span id="cb99-30"><a href="#cb99-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-31"><a href="#cb99-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
-<span id="cb99-32"><a href="#cb99-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-33"><a href="#cb99-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
-<span id="cb99-34"><a href="#cb99-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-35"><a href="#cb99-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
-<span id="cb99-36"><a href="#cb99-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-37"><a href="#cb99-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
-<span id="cb99-38"><a href="#cb99-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-39"><a href="#cb99-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
-<span id="cb99-40"><a href="#cb99-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-41"><a href="#cb99-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
-<span id="cb99-42"><a href="#cb99-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-43"><a href="#cb99-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
-<span id="cb99-44"><a href="#cb99-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-45"><a href="#cb99-45" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
-<span id="cb99-46"><a href="#cb99-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-47"><a href="#cb99-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
-<span id="cb99-48"><a href="#cb99-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-49"><a href="#cb99-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
-<span id="cb99-50"><a href="#cb99-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-51"><a href="#cb99-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
-<span id="cb99-52"><a href="#cb99-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-53"><a href="#cb99-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
-<span id="cb99-54"><a href="#cb99-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-55"><a href="#cb99-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
-<span id="cb99-56"><a href="#cb99-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-57"><a href="#cb99-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
-<span id="cb99-58"><a href="#cb99-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-59"><a href="#cb99-59" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
-<span id="cb99-60"><a href="#cb99-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-61"><a href="#cb99-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
-<span id="cb99-62"><a href="#cb99-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-63"><a href="#cb99-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
-<span id="cb99-64"><a href="#cb99-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-65"><a href="#cb99-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
-<span id="cb99-66"><a href="#cb99-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-67"><a href="#cb99-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
-<span id="cb99-68"><a href="#cb99-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-69"><a href="#cb99-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb108" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nuts and bolts: Data types {.unnumbered}</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Entering Input: the assigment operator {.unnumbered}</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
+<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
+<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
+<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-9"><a href="#cb108-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
+<span id="cb108-10"><a href="#cb108-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-11"><a href="#cb108-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
+<span id="cb108-12"><a href="#cb108-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-13"><a href="#cb108-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
+<span id="cb108-14"><a href="#cb108-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-15"><a href="#cb108-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
+<span id="cb108-16"><a href="#cb108-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-17"><a href="#cb108-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
+<span id="cb108-18"><a href="#cb108-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-19"><a href="#cb108-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_05.qmd &gt;}}</span>
+<span id="cb108-20"><a href="#cb108-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-21"><a href="#cb108-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_06.qmd &gt;}}</span>
+<span id="cb108-22"><a href="#cb108-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-23"><a href="#cb108-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include _intermediate_r_01.qmd &gt;}}</span>
+<span id="cb108-24"><a href="#cb108-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-25"><a href="#cb108-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
+<span id="cb108-26"><a href="#cb108-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-27"><a href="#cb108-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
+<span id="cb108-28"><a href="#cb108-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-29"><a href="#cb108-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
+<span id="cb108-30"><a href="#cb108-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-31"><a href="#cb108-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
+<span id="cb108-32"><a href="#cb108-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-33"><a href="#cb108-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
+<span id="cb108-34"><a href="#cb108-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-35"><a href="#cb108-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
+<span id="cb108-36"><a href="#cb108-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-37"><a href="#cb108-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
+<span id="cb108-38"><a href="#cb108-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-39"><a href="#cb108-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
+<span id="cb108-40"><a href="#cb108-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-41"><a href="#cb108-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
+<span id="cb108-42"><a href="#cb108-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-43"><a href="#cb108-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
+<span id="cb108-44"><a href="#cb108-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-45"><a href="#cb108-45" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
+<span id="cb108-46"><a href="#cb108-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-47"><a href="#cb108-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
+<span id="cb108-48"><a href="#cb108-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-49"><a href="#cb108-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
+<span id="cb108-50"><a href="#cb108-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-51"><a href="#cb108-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
+<span id="cb108-52"><a href="#cb108-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-53"><a href="#cb108-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
+<span id="cb108-54"><a href="#cb108-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-55"><a href="#cb108-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
+<span id="cb108-56"><a href="#cb108-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-57"><a href="#cb108-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
+<span id="cb108-58"><a href="#cb108-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-59"><a href="#cb108-59" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
+<span id="cb108-60"><a href="#cb108-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-61"><a href="#cb108-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
+<span id="cb108-62"><a href="#cb108-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-63"><a href="#cb108-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
+<span id="cb108-64"><a href="#cb108-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-65"><a href="#cb108-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
+<span id="cb108-66"><a href="#cb108-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-67"><a href="#cb108-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
+<span id="cb108-68"><a href="#cb108-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-69"><a href="#cb108-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

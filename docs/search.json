@@ -392,6 +392,97 @@
     "text": "Sorting your data frame\nAlright, now that you understand the order() function, let us do something useful with it. You would like to rearrange your data frame such that it starts with the smallest planet and ends with the largest one. A sort on the diameter column.\nInstructions 100 XP\n\n\nCall order() on planets_df$diameter (the diameter column of planets_df). Store the result as positions.\nNow reshuffle planets_df with the positions vector as row indexes inside square brackets. Keep all columns. Simply print out the result.\n\n\n\nex_52.R\n\n# planets_df is pre-loaded in your workspace\n\n# Use order() to create positions\npositions <-  order(planets_df$diameter)\n\n# Use positions to sort planets_df\nplanets_df[positions, ]"
   },
   {
+    "objectID": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them",
+    "href": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them",
+    "title": "Nuts and bolts: Data types",
+    "section": "Lists, why would you need them?",
+    "text": "Lists, why would you need them?\nCongratulations! At this point in the course you are already familiar with:\n\n\nVectors (one dimensional array)\n\ncan hold numeric, character or logical values. The elements in a vector all have the same data type.\n\n\n\nMatrices (two dimensional array)\n\ncan hold numeric, character or logical values. The elements in a matrix all have the same data type.\n\n\n\nData frames (two-dimensional objects)\n\ncan hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type. Pretty sweet for an R newbie, right? ;-)\n\n\n\nInstructions 100 XP\n\nSubmit the answer to start learning everything about lists!"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them-2",
+    "href": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Lists, why would you need them? (2)",
+    "text": "Lists, why would you need them? (2)\nA list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, and type of activity that has to be done.\nA list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other in any way.\nYou could say that a list is some kind super data type: you can store practically any piece of information in it!\nInstructions 100 XP\n\nJust submit the answer to start the first exercise on lists."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-list",
+    "href": "r_fundamentals_for_data_science.html#creating-a-list",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a list",
+    "text": "Creating a list\nLet us create our first list! To construct a list you use the function list():\nmy_list <- list(comp1, comp2 ...)\nThe arguments to the list function are the list components. Remember, these components can be matrices, vectors, other lists, …\nInstructions 100 XP\n\nConstruct a list, named my_list, that contains the variables my_vector, my_matrix and my_df as list components.\n\n\nex_53.R\n\n# Vector with numerics from 1 up to 10\nmy_vector <- 1:10 \n\n# Matrix with numerics from 1 up to 9\nmy_matrix <- matrix(1:9, ncol = 3)\n\n# First 10 elements of the built-in data frame mtcars\nmy_df <- mtcars[1:10,]\n\n# Construct list with these different elements:\nmy_list <- list(my_vector, my_matrix, my_df)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-named-list",
+    "href": "r_fundamentals_for_data_science.html#creating-a-named-list",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a named list",
+    "text": "Creating a named list\nWell done, you’re on a roll!\nJust like on your to-do list, you want to avoid not knowing or remembering what the components of your list stand for. That is why you should give names to them:\nmy_list <- list(name1 = your_comp1, name2 = your_comp2)\nThis creates a list with components that are named name1, name2, and so on. If you want to name your lists after you’ve created them, you can use the names() function as you did with vectors. The following commands are fully equivalent to the assignment above:\nmy_list <- list(your_comp1, your_comp2) names(my_list) <- c(“name1”, “name2”)\nInstructions 100 XP\n\n\nChange the code of the previous exercise (see editor) by adding names to the components. Use for my_vector the name vec, for my_matrix the name mat and for my_df the name df.\nPrint out my_list so you can inspect the output.\n\n\n\nex_54.R\n\n# Vector with numerics from 1 up to 10\nmy_vector <- 1:10 \n\n# Matrix with numerics from 1 up to 9\nmy_matrix <- matrix(1:9, ncol = 3)\n\n# First 10 elements of the built-in data frame mtcars\nmy_df <- mtcars[1:10,]\n\n# Adapt list() call to give the components names\nmy_list <- list(my_vector, my_matrix, my_df)\nnames(my_list) <- c(\"vec\", \"mat\", \"df\")\n# Print out my_list\nprint(my_list)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-named-list-2",
+    "href": "r_fundamentals_for_data_science.html#creating-a-named-list-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a named list (2)",
+    "text": "Creating a named list (2)\nBeing a huge movie fan (remember your job at LucasFilms), you decide to start storing information on good movies with the help of lists.\nStart by creating a list for the movie “The Shining”. We have already created the variables mov, act and rev in your R workspace. Feel free to check them out in the console.\nInstructions 100 XP\n\nComplete the code in the editor to create shining_list; it contains three elements:\n\n\nmoviename: a character string with the movie title (stored in mov)\n\nactors: a vector with the main actors’ names (stored in act)\n\nreviews: a data frame that contains some reviews (stored in rev)\n\nDo not forget to name the list components accordingly (names are moviename, actors and reviews).\n\n\nex_55.R\n\n# The variables mov, act and rev are available\n\n# Finish the code to build shining_list\nshining_list <- \n    list(\n        moviename = mov, \n        actors = act,\n        reviews = rev\n    )"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#selecting-elements-from-a-list",
+    "href": "r_fundamentals_for_data_science.html#selecting-elements-from-a-list",
+    "title": "Nuts and bolts: Data types",
+    "section": "Selecting elements from a list",
+    "text": "Selecting elements from a list\nYour list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.\nOne way to select a component is using the numbered position of that component. For example, to “grab” the first component of shining_list you type\nshining_list[[1]]\nA quick way to check this out is typing it in the console. Important to remember: to select elements from vectors, you use single square brackets: [ ]. Don’t mix them up!\nYou can also refer to the names of the components, with [[ ]] or with the $ sign. Both will select the data frame representing the reviews:\nshining_list[[\"reviews\"]]\nshining_list$reviews\nBesides selecting components, you often need to select specific elements out of these components. For example, with shining_list[[2]][1] you select from the second component, actors (shining_list[[2]]), the first element ([1]). When you type this in the console, you will see the answer is Jack Nicholson.\nInstructions 100 XP\n\n\nSelect from shining_list the vector representing the actors. Simply print out this vector.\nSelect from shining_list the second element in the vector representing the actors. Do a printout like before.\n\n\n\nex_56.R\n\n# shining_list is already pre-loaded in the workspace\n\n# Print out the vector representing the actors\nprint(shining_list[[\"actors\"]])\n\n# Print the second element of the vector representing the actors\nprint(shining_list[[\"actors\"]][2])"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#creating-a-new-list-for-another-movie",
+    "href": "r_fundamentals_for_data_science.html#creating-a-new-list-for-another-movie",
+    "title": "Nuts and bolts: Data types",
+    "section": "Creating a new list for another movie",
+    "text": "Creating a new list for another movie\nYou found reviews of another, more recent, Jack Nicholson movie: The Departed!\n\n\nScores\nComments\n\n\n\n4.6\nI would watch it again\n\n\n5\nAmazing!\n\n\n4.8\nI liked it\n\n\n5\nOne of the best movies\n\n\n4.2\nFascinating plot\n\n\n\nIt would be useful to collect together all the pieces of information about the movie, like the title, actors, and reviews into a single variable. Since these pieces of data are different shapes, it is natural to combine them in a list variable.\nmovie_title, containing the title of the movie, and movie_actors, containing the names of some of the actors in the movie, are available in your workspace.\nInstructions 100 XP\n\n\nCreate two vectors, called scores and comments, that contain the information from the reviews shown in the table.\nFind the average of the scores vector and save it as avg_review.\nCombine the scores and comments vectors into a data frame called reviews_df.\nCreate a list, called departed_list, that contains the movie_title, movie_actors, reviews data frame as reviews_df, and the average review score as avg_review, and print it out.\n\n\n\nex_57.R\n\n# Use the table from the exercise to define the comments and scores vectors\nscores <- c(4.6, 5, 4.8, 5, 4.2)\ncomments <- \n    c(\n        \"I would watch it again\",\n        \"Amazing!\", \n        \"I liked it\",\n        \"One of the best movies\", \n        \"Fascinating plot\"\n    )\n\n# Save the average of the scores vector as avg_review\navg_review <- mean(scores)\n\n# Combine scores and comments into the reviews_df data frame\nreviews_df <- data.frame(scores, comments)\n\n# Create and print out a list, called departed_list\ndeparted_list <- list(\n    movie_title,\n    movie_actors,\n    reviews_df,\n    avg_review\n)\nprint(departed_list)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#equality",
+    "href": "r_fundamentals_for_data_science.html#equality",
+    "title": "Nuts and bolts: Data types",
+    "section": "Equality",
+    "text": "Equality\nThe most basic form of comparison is equality. Let’s briefly recap its syntax. The following statements all evaluate to TRUE (feel free to try them out in the console).\n3 == (2 + 1)\n\"intermediate\" != \"r\"\nTRUE != FALSE\n\"Rchitect\" != \"rchitect\"\nNotice from the last expression that R is case sensitive: “R” is not equal to “r”. Keep this in mind when solving the exercises in this chapter!\nInstructions 100 XP\n\n\nIn the editor on the right, write R code to see if TRUE equals FALSE.\nLikewise, check if -6 * 14 is not equal to 17 - 101.\nNext up: comparison of character strings. Ask R whether the strings “useR” and “user” are equal.\nFinally, find out what happens if you compare logicals to numerics: are TRUE and 1 equal?\n\n\n\nex_001.R\n\n# Comparison of logicals\nTRUE == FALSE\n\n# Comparison of numerics\n\n-6 * 14 != 17 -101\n# Comparison of character strings\n\"useR\" == \"user\"\n\n# Compare a logical with a numeric\nTRUE == 1"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#greater-and-less-than",
+    "href": "r_fundamentals_for_data_science.html#greater-and-less-than",
+    "title": "Nuts and bolts: Data types",
+    "section": "Greater and less than",
+    "text": "Greater and less than\nApart from equality operators, Filip also introduced the less than and greater than operators: < and >. You can also add an equal sign to express less than or equal to or greater than or equal to, respectively. Have a look at the following R expressions, that all evaluate to FALSE:\n(1 + 2) > 4\n\"dog\" < \"Cats\"\nTRUE <= FALSE\nRemember that for string comparison, R determines the greater than relationship based on alphabetical order. Also, keep in mind that TRUE is treated as 1 for arithmetic, and FALSE is treated as 0. Therefore, FALSE < TRUE is TRUE.\nInstructions 100 XP\n\n\nWrite R expressions to check whether:\n-6 * 5 + 2 is greater than or equal to -10 + 1.\n“raining” is less than or equal to “raining dogs”.\nTRUE is greater than FALSE.\n\n\n\nex_002.R\n\n# Comparison of numerics\n\n-6 * 5 + 2 >= -10 +1\n\n# Comparison of character strings\n\"raining\" <=  \"raining dogs\"\n\n# Comparison of logicals\n\nTRUE > FALSE"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#compare-vectors",
+    "href": "r_fundamentals_for_data_science.html#compare-vectors",
+    "title": "Nuts and bolts: Data types",
+    "section": "Compare vectors",
+    "text": "Compare vectors\nYou are already aware that R is very good with vectors. Without having to change anything about the syntax, R’s relational operators also work on vectors.\nLet’s go back to the example that was started in the video. You want to figure out whether your activity on social media platforms have paid off and decide to look at your results for LinkedIn and Facebook. The sample code in the editor initializes the vectors linkedin and facebook. Each of the vectors contains the number of profile views your LinkedIn and Facebook profiles had over the last seven days.\nInstructions 100 XP\n\nUsing relational operators, find a logical answer, i.e. TRUE or FALSE, for the following questions:\n\nOn which days did the number of LinkedIn profile views exceed 15? When was your\nLinkedIn profile viewed only 5 times or fewer? When was your LinkedIn profile\nvisited more often than your Facebook profile?\n\n\n\nex003.R\n\n# The linkedin and facebook vectors have already been created for you\n# The linkedin and facebook vectors have already been created for you\nlinkedin <- c(16, 9, 13, 5, 2, 17, 14)\nfacebook <- c(17, 7, 5, 16, 8, 13, 14)\n\n# Popular days\n\nlinkedin > 15\n# Quiet days\nlinkedin <= 5\n\n# LinkedIn more popular than Facebook\nlinkedin > facebook"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#compare-matrices",
+    "href": "r_fundamentals_for_data_science.html#compare-matrices",
+    "title": "Nuts and bolts: Data types",
+    "section": "Compare matrices",
+    "text": "Compare matrices\nR’s ability to deal with different data structures for comparisons does not stop at vectors. Matrices and relational operators also work together seamlessly!\nInstead of in vectors (as in the previous exercise), the LinkedIn and Facebook data is now stored in a matrix called views. The first row contains the LinkedIn information; the second row the Facebook information. The original vectors facebook and linkedin are still available as well.\nInstructions 100 XP\n\nUsing the relational operators you’ve learned so far, try to discover the following:\n\nWhen were the views exactly equal to 13? Use the views matrix to return a logical matrix.\nFor which days were the number of views less than or equal to 14? Again, have R return a logical matrix.\n\n\n\nex_004.R\n\n# The social data has been created for you\nlinkedin <- c(16, 9, 13, 5, 2, 17, 14)\nfacebook <- c(17, 7, 5, 16, 8, 13, 14)\nviews <- matrix(c(linkedin, facebook), nrow = 2, byrow = TRUE)\n\n# When does views equal 13?\n\nviews == 13\n# When is views less than or equal to 14?\n\nviews <= 14"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#and",
+    "href": "r_fundamentals_for_data_science.html#and",
+    "title": "Nuts and bolts: Data types",
+    "section": "& and |",
+    "text": "& and |\nBefore you work your way through the next exercises, have a look at the following R expressions. All of them will evaluate to TRUE:\nTRUE & TRUE\nFALSE | TRUE\n5 <= 5 & 2 < 3\n3 < 4 | 7 < 6\nWatch out: 3 < x < 7 to check if x is between 3 and 7 will not work; you’ll need 3 < x & x < 7 for that.\nIn this exercise, you’ll be working with the last variable. This variable equals the value of the linkedin vector that you’ve worked with previously. The linkedin vector represents the number of LinkedIn views your profile had in the last seven days, remember? Both the variables linkedin and last have been pre-defined for you.\nInstructions 100 XP\nWrite R expressions to solve the following questions concerning the variable last:\n\nIs last under 5 or above 10?\nIs last between 15 and 20, excluding 15 but including 20?\n\n\n\nex_005.R\n\n# The linkedin and last variable are already defined for you\nlinkedin <- c(16, 9, 13, 5, 2, 17, 14)\nlast <- tail(linkedin, 1)\n\n# Is last under 5 or above 10?\nlast < 5 | last > 10\n\n# Is last between 15 (exclusive) and 20 (inclusive)?\nlast > 15 | last < 20"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#and-2",
+    "href": "r_fundamentals_for_data_science.html#and-2",
+    "title": "Nuts and bolts: Data types",
+    "section": "& and | (2)",
+    "text": "& and | (2)\nLike relational operators, logical operators work perfectly fine with vectors and matrices.\nBoth the vectors linkedin and facebook are available again. Also a matrix -views- has been defined; its first and second row correspond to the linkedin and facebook vectors, respectively. Ready for some advanced queries to gain more insights into your social outreach?\nInstructions 100 XP\n\n\nWhen did LinkedIn views exceed 10 and did Facebook views fail to reach 10 for a particular day? Use the linkedin and facebook vectors.\nWhen were one or both of your LinkedIn and Facebook profiles visited at least 12 times?\nWhen is the views matrix equal to a number between 11 and 14, excluding 11 and including 14?\n\n\n\nex_006.R\n\n# The social data (linkedin, facebook, views) has been created for you\n\n# linkedin exceeds 10 but facebook below 10\nlinkedin > 10 & facebook < 10\n\n\n# When were one or both visited at least 12 times?\nlinkedin >= 12 | facebook >= 12\n\n# When is views between 11 (exclusive) and 14 (inclusive)?\n\nviews > 11 & views <= 14"
+  },
+  {
     "objectID": "r_fundamentals_for_data_science.html#what-we-mean-when-say-better-coding-practice",
     "href": "r_fundamentals_for_data_science.html#what-we-mean-when-say-better-coding-practice",
     "title": "Nuts and bolts: Data types",
@@ -600,54 +691,5 @@
     "title": "References",
     "section": "",
     "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them",
-    "href": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them",
-    "title": "Nuts and bolts: Data types",
-    "section": "Lists, why would you need them?",
-    "text": "Lists, why would you need them?\nCongratulations! At this point in the course you are already familiar with:\n\n\nVectors (one dimensional array)\n\ncan hold numeric, character or logical values. The elements in a vector all have the same data type.\n\n\n\nMatrices (two dimensional array)\n\ncan hold numeric, character or logical values. The elements in a matrix all have the same data type.\n\n\n\nData frames (two-dimensional objects)\n\ncan hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type. Pretty sweet for an R newbie, right? ;-)\n\n\n\nInstructions 100 XP\n\nSubmit the answer to start learning everything about lists!"
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them-2",
-    "href": "r_fundamentals_for_data_science.html#lists-why-would-you-need-them-2",
-    "title": "Nuts and bolts: Data types",
-    "section": "Lists, why would you need them? (2)",
-    "text": "Lists, why would you need them? (2)\nA list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, and type of activity that has to be done.\nA list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other in any way.\nYou could say that a list is some kind super data type: you can store practically any piece of information in it!\nInstructions 100 XP\n\nJust submit the answer to start the first exercise on lists."
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#creating-a-list",
-    "href": "r_fundamentals_for_data_science.html#creating-a-list",
-    "title": "Nuts and bolts: Data types",
-    "section": "Creating a list",
-    "text": "Creating a list\nLet us create our first list! To construct a list you use the function list():\nmy_list <- list(comp1, comp2 ...)\nThe arguments to the list function are the list components. Remember, these components can be matrices, vectors, other lists, …\nInstructions 100 XP\n\nConstruct a list, named my_list, that contains the variables my_vector, my_matrix and my_df as list components.\n\n\nex_53.R\n\n# Vector with numerics from 1 up to 10\nmy_vector <- 1:10 \n\n# Matrix with numerics from 1 up to 9\nmy_matrix <- matrix(1:9, ncol = 3)\n\n# First 10 elements of the built-in data frame mtcars\nmy_df <- mtcars[1:10,]\n\n# Construct list with these different elements:\nmy_list <- list(my_vector, my_matrix, my_df)"
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#creating-a-named-list",
-    "href": "r_fundamentals_for_data_science.html#creating-a-named-list",
-    "title": "Nuts and bolts: Data types",
-    "section": "Creating a named list",
-    "text": "Creating a named list\nWell done, you’re on a roll!\nJust like on your to-do list, you want to avoid not knowing or remembering what the components of your list stand for. That is why you should give names to them:\nmy_list <- list(name1 = your_comp1, name2 = your_comp2)\nThis creates a list with components that are named name1, name2, and so on. If you want to name your lists after you’ve created them, you can use the names() function as you did with vectors. The following commands are fully equivalent to the assignment above:\nmy_list <- list(your_comp1, your_comp2) names(my_list) <- c(“name1”, “name2”)\nInstructions 100 XP\n\n\nChange the code of the previous exercise (see editor) by adding names to the components. Use for my_vector the name vec, for my_matrix the name mat and for my_df the name df.\nPrint out my_list so you can inspect the output.\n\n\n\nex_54.R\n\n# Vector with numerics from 1 up to 10\nmy_vector <- 1:10 \n\n# Matrix with numerics from 1 up to 9\nmy_matrix <- matrix(1:9, ncol = 3)\n\n# First 10 elements of the built-in data frame mtcars\nmy_df <- mtcars[1:10,]\n\n# Adapt list() call to give the components names\nmy_list <- list(my_vector, my_matrix, my_df)\nnames(my_list) <- c(\"vec\", \"mat\", \"df\")\n# Print out my_list\nprint(my_list)"
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#creating-a-named-list-2",
-    "href": "r_fundamentals_for_data_science.html#creating-a-named-list-2",
-    "title": "Nuts and bolts: Data types",
-    "section": "Creating a named list (2)",
-    "text": "Creating a named list (2)\nBeing a huge movie fan (remember your job at LucasFilms), you decide to start storing information on good movies with the help of lists.\nStart by creating a list for the movie “The Shining”. We have already created the variables mov, act and rev in your R workspace. Feel free to check them out in the console.\nInstructions 100 XP\n\nComplete the code in the editor to create shining_list; it contains three elements:\n\n\nmoviename: a character string with the movie title (stored in mov)\n\nactors: a vector with the main actors’ names (stored in act)\n\nreviews: a data frame that contains some reviews (stored in rev)\n\nDo not forget to name the list components accordingly (names are moviename, actors and reviews).\n\n\nex_55.R\n\n# The variables mov, act and rev are available\n\n# Finish the code to build shining_list\nshining_list <- \n    list(\n        moviename = mov, \n        actors = act,\n        reviews = rev\n    )"
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#selecting-elements-from-a-list",
-    "href": "r_fundamentals_for_data_science.html#selecting-elements-from-a-list",
-    "title": "Nuts and bolts: Data types",
-    "section": "Selecting elements from a list",
-    "text": "Selecting elements from a list\nYour list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.\nOne way to select a component is using the numbered position of that component. For example, to “grab” the first component of shining_list you type\nshining_list[[1]]\nA quick way to check this out is typing it in the console. Important to remember: to select elements from vectors, you use single square brackets: [ ]. Don’t mix them up!\nYou can also refer to the names of the components, with [[ ]] or with the $ sign. Both will select the data frame representing the reviews:\nshining_list[[\"reviews\"]]\nshining_list$reviews\nBesides selecting components, you often need to select specific elements out of these components. For example, with shining_list[[2]][1] you select from the second component, actors (shining_list[[2]]), the first element ([1]). When you type this in the console, you will see the answer is Jack Nicholson.\nInstructions 100 XP\n\n\nSelect from shining_list the vector representing the actors. Simply print out this vector.\nSelect from shining_list the second element in the vector representing the actors. Do a printout like before.\n\n\n\nex_56.R\n\n# shining_list is already pre-loaded in the workspace\n\n# Print out the vector representing the actors\nprint(shining_list[[\"actors\"]])\n\n# Print the second element of the vector representing the actors\nprint(shining_list[[\"actors\"]][2])"
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#creating-a-new-list-for-another-movie",
-    "href": "r_fundamentals_for_data_science.html#creating-a-new-list-for-another-movie",
-    "title": "Nuts and bolts: Data types",
-    "section": "Creating a new list for another movie",
-    "text": "Creating a new list for another movie\nYou found reviews of another, more recent, Jack Nicholson movie: The Departed!\n\n\nScores\nComments\n\n\n\n4.6\nI would watch it again\n\n\n5\nAmazing!\n\n\n4.8\nI liked it\n\n\n5\nOne of the best movies\n\n\n4.2\nFascinating plot\n\n\n\nIt would be useful to collect together all the pieces of information about the movie, like the title, actors, and reviews into a single variable. Since these pieces of data are different shapes, it is natural to combine them in a list variable.\nmovie_title, containing the title of the movie, and movie_actors, containing the names of some of the actors in the movie, are available in your workspace.\nInstructions 100 XP\n\n\nCreate two vectors, called scores and comments, that contain the information from the reviews shown in the table.\nFind the average of the scores vector and save it as avg_review.\nCombine the scores and comments vectors into a data frame called reviews_df.\nCreate a list, called departed_list, that contains the movie_title, movie_actors, reviews data frame as reviews_df, and the average review score as avg_review, and print it out.\n\n\n\nex_57.R\n\n# Use the table from the exercise to define the comments and scores vectors\nscores <- c(4.6, 5, 4.8, 5, 4.2)\ncomments <- \n    c(\n        \"I would watch it again\",\n        \"Amazing!\", \n        \"I liked it\",\n        \"One of the best movies\", \n        \"Fascinating plot\"\n    )\n\n# Save the average of the scores vector as avg_review\navg_review <- mean(scores)\n\n# Combine scores and comments into the reviews_df data frame\nreviews_df <- data.frame(scores, comments)\n\n# Create and print out a list, called departed_list\ndeparted_list <- list(\n    movie_title,\n    movie_actors,\n    reviews_df,\n    avg_review\n)\nprint(departed_list)"
   }
 ]

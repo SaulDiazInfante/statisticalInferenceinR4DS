@@ -1,4 +1,32 @@
-# R Programmin 
+# R Programming {.unnumbered}
+
+## Course Description {.unnumbered}
+
+R is the most popular programming language in the data industry thanks to its 
+use of vectors and its variety of pre-processed packages. It’s in high demand 
+for Data Scientists, Analysts, and Statisticians alike and is capable of 
+handling AI, machine learning, financial analysis, and much more.
+
+This introduction to R course covers the basics of this open source language,
+including vectors, factors, lists, and data frames. You’ll gain useful coding 
+skills and be ready to start your own data analysis in R.
+
+You’ll get started with basic operations, like using the console as a calculator
+and understanding basic data types in R. Once you’ve had a chance to practice,
+you’ll move on to creating vectors and try out your new R skills on a data set
+ based on betting in Las Vegas.
+
+Next, you’ll learn how to work with matrices in R, learning how to create them,
+and perform calculations with them. You’ll also examine how R uses factors to
+store categorical data. Finally, you’ll explore how to work with R data frames
+ and lists.
+
+By the time you’ve completed our Introduction to R course, you’ll be able to use
+the R basics for your own data analysis. These sought-after skills can help you 
+progress in your career and set you up for further learning. This course is part
+of several tracks, including Data Analyst with R, Data Scientist with R, and R
+Programming, all of which can help you develop your knowledge.
+
 ```{r}
 library(tidyverse)
 xp_introduction_to_r <- 6200
@@ -40,7 +68,7 @@ sum(df_courses_r_programming[ ,2])
 # Data Visualization with R
 # Interactive Data Visualization in R
 
-# Grade rubric {.unnumbered}
+# Grade rubric Introduction to R {.unnumbered}
 ```{r}
 
 ex_names_chapter_1 <- 
@@ -170,3 +198,17 @@ df_ch06 <- data.frame(xp_ch_6)
 write.csv2(df_ch06, "ch_06.csv")
 knitr::kable(df_ch06, format="markdown")
 ```    
+# Intermediate R {.unnumbered}
+
+Course Description
+
+Intermediate R is the next stop on your journey in mastering the R programming
+language. In this R training, you will learn about conditional statements,
+loops, and functions to power your own R scripts. Next, make your R code more 
+efficient and readable using the apply functions. Finally, the utilities chapter
+gets you up to speed with regular expressions in R, data structure 
+manipulations, and times and dates. This course will allow you to take the next
+step in advancing your overall knowledge and capabilities while programming in 
+R.
+
+# Grade rubric Intermediate R {.unnumbered}
