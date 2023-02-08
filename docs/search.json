@@ -691,5 +691,12 @@
     "title": "References",
     "section": "",
     "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
+    "href": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
+    "title": "Nuts and bolts: Data types",
+    "section": "Entering Input: the assigment operator",
+    "text": "Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\n[1] 0\n\n\n[1] 0\n\n\n[1] \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
   }
 ]

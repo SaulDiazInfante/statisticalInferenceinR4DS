@@ -1,6 +1,6 @@
-## Nuts and bolts: Data types {.unnumbered}
+# Nuts and bolts: Data types {.unnumbered}
 
-### Entering Input: the assigment operator {.unnumbered}
+## Entering Input: the assigment operator {.unnumbered}
 
 The thing that we type on the R console prompt are expressions. The firs 
 expression we discuses here is the assignment operator, please watch the 
@@ -19,6 +19,8 @@ following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
 {{< include _introduction_to_r_05.qmd >}}
 
 {{< include _introduction_to_r_06.qmd >}}
+
+# Relational and logical operators, and conditional statements.{.unnumberd} 
 
 {{< include _intermediate_r_01.qmd >}}
 

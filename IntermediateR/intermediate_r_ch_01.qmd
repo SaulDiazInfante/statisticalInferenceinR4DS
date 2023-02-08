@@ -18,6 +18,9 @@ format:
 ---
 
 # Conditionals and Control Flow
+In this chapter, you'll learn about relational operators for comparing R
+objects, and logical operators like "and" and "or" for combining TRUE and FALSE
+values. Then, you'll use this knowledge to build conditional statements.
 
 ## Equality
 
