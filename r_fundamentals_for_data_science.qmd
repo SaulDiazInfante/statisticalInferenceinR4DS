@@ -23,7 +23,9 @@ following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
 # Relational and logical operators, and conditional statements.{.unnumberd} 
 
 {{< include _intermediate_r_01.qmd >}}
+# Loops
 
+{{< include _intermediate_r_02.qmd >}}
 # Best Coding Practices for R
 
 ## What we mean when say "better coding practice"

@@ -25,7 +25,14 @@
     "href": "r_fundamentals_for_data_science.html",
     "title": "Nuts and bolts: Data types",
     "section": "",
-    "text": "Intro to basics\nIn this chapter, you will learn how to work with matrices in R. By the end of the chapter, you will be able to create matrices and understand how to do basic computations with them. You will analyze the box office numbers of the Star Wars movies and learn how to use matrices in R. May the force be with you!\nData often falls into a limited number of categories. For example, human hair color can be categorized as black, brown, blond, red, grey, or white—and perhaps a few more options for people who color their hair. In R, categorical data is stored in factors. Factors are very important in data analysis, so start learning how to create, subset, and compare them now.\nAs opposed to vectors, lists can hold components of different types, just as your to-do lists can contain different categories of tasks. This chapter will teach you how to create, name, and subset these lists."
+    "text": "Intro to basics\nIn this chapter, you will learn how to work with matrices in R. By the end of the chapter, you will be able to create matrices and understand how to do basic computations with them. You will analyze the box office numbers of the Star Wars movies and learn how to use matrices in R. May the force be with you!\nData often falls into a limited number of categories. For example, human hair color can be categorized as black, brown, blond, red, grey, or white—and perhaps a few more options for people who color their hair. In R, categorical data is stored in factors. Factors are very important in data analysis, so start learning how to create, subset, and compare them now.\nAs opposed to vectors, lists can hold components of different types, just as your to-do lists can contain different categories of tasks. This chapter will teach you how to create, name, and subset these lists.\nIn this chapter, you’ll learn about relational operators for comparing R objects, and logical operators like “and” and “or” for combining TRUE and FALSE values. Then, you’ll use this knowledge to build conditional statements.\nLoops can come in handy on numerous occasions. While loops are like repeated if statements, the for loop is designed to iterate over all elements in a sequence. Learn about them in this chapter."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
+    "href": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
+    "title": "Nuts and bolts: Data types",
+    "section": "Entering Input: the assigment operator",
+    "text": "Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\n[1] 0\n\n\n[1] 0\n\n\n[1] \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
   },
   {
     "objectID": "r_fundamentals_for_data_science.html#how-it-works",
@@ -483,6 +490,125 @@
     "text": "& and | (2)\nLike relational operators, logical operators work perfectly fine with vectors and matrices.\nBoth the vectors linkedin and facebook are available again. Also a matrix -views- has been defined; its first and second row correspond to the linkedin and facebook vectors, respectively. Ready for some advanced queries to gain more insights into your social outreach?\nInstructions 100 XP\n\n\nWhen did LinkedIn views exceed 10 and did Facebook views fail to reach 10 for a particular day? Use the linkedin and facebook vectors.\nWhen were one or both of your LinkedIn and Facebook profiles visited at least 12 times?\nWhen is the views matrix equal to a number between 11 and 14, excluding 11 and including 14?\n\n\n\nex_006.R\n\n# The social data (linkedin, facebook, views) has been created for you\n\n# linkedin exceeds 10 but facebook below 10\nlinkedin > 10 & facebook < 10\n\n\n# When were one or both visited at least 12 times?\nlinkedin >= 12 | facebook >= 12\n\n# When is views between 11 (exclusive) and 14 (inclusive)?\n\nviews > 11 & views <= 14"
   },
   {
+    "objectID": "r_fundamentals_for_data_science.html#blend-it-all-together",
+    "href": "r_fundamentals_for_data_science.html#blend-it-all-together",
+    "title": "Nuts and bolts: Data types",
+    "section": "Blend it all together",
+    "text": "Blend it all together\nWith the things you’ve learned by now, you’re able to solve pretty cool problems.\nInstead of recording the number of views for your own LinkedIn profile, suppose you conducted a survey inside the company you’re working for. You’ve asked every employee with a LinkedIn profile how many visits their profile has had over the past seven days. You stored the results in a data frame called li_df. This data frame is available in the workspace; type li_df in the console to check it out.\nInstructions 100 XP\n\n\nSelect the entire second column, named day2, from the li_df data frame as a vector and assign it to second.\n\nUse second to create a logical vector, thatcontains TRUE if the corresponding number of views is strictly greater than 25 or strictly lower than 5 and FALSE otherwise. Store this logical vector as extremes.\n\nUse sum() on the extremes vector to calculate the number of TRUEs in extremes (i.e. to calculate the number of employees that are either very popular or very low-profile). Simply print this number to the console.\n\n\n\nex_007.R\n\n# li_df is pre-loaded in your workspace\n\n# Select the second column, named day2, from li_df: second\nsecond <- li_df$day2\n\n# Build a logical vector, TRUE if value in second is extreme: extremes\nextremes <- second > 25 | second < 5\n\n# Count the number of TRUEs in extremes\nprint(sum(extremes))"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#the-if-statement",
+    "href": "r_fundamentals_for_data_science.html#the-if-statement",
+    "title": "Nuts and bolts: Data types",
+    "section": "The if statement",
+    "text": "The if statement\nBefore diving into some exercises on the if statement, have another look at its syntax:\nif (condition) {\n  expr\n}\nRemember your vectors with social profile views? Let’s look at it from another angle. The medium variable gives information about the social website; the num_views variable denotes the actual number of views that particular medium had on the last day of your recordings. Both variables have been pre- defined for you.\nInstructions 100 XP\n\n\nExamine the if statement that prints out “Showing LinkedIn information” if the medium variable equals \"LinkedIn\". -Code an if statement that prints “You are popular!” to the console if the num_views variable exceeds 15.\n\n\n\nex_008.R\n\n# Variables related to your last day of recordings\nmedium <- \"LinkedIn\"\nnum_views <- 14\n\n# Examine the if statement for medium\nif (medium == \"LinkedIn\") {\n  print(\"Showing LinkedIn information\")\n}\n\n# Write the if statement for num_views\n\nif (num_views > 15) {\n  print(\"You are popular!\")\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#add-an-else",
+    "href": "r_fundamentals_for_data_science.html#add-an-else",
+    "title": "Nuts and bolts: Data types",
+    "section": "Add an else",
+    "text": "Add an else\nYou can only use an else statement in combination with an if statement. The else statement does not require a condition; its corresponding code is simply run if all of the preceding conditions in the control structure are FALSE. Here’s a recipe for its usage:\nif (condition) {\n  expr1\n} else {\n  expr2\n}\nIt’s important that the else keyword comes on the same line as the closing bracket of the if part!\nBoth if statements that you coded in the previous exercises are already available to use. It’s now up to you to extend them with the appropriate else statements!\nInstructions 100 XP\n\nAdd an else statement to both control structures, such that\n\n“Unknown medium” gets printed out to the console when the if-condition on medium does not hold.\n-R prints out “Try to be more visible!” when the if-condition on num_views is not met.\n\n\n\nex_009.R\n\n# Variables related to your last day of recordings\nmedium <- \"LinkedIn\"\nnum_views <- 14\n# Control structure for medium\nif (medium == \"LinkedIn\") {\n  print(\"Showing LinkedIn information\")\n} else{\n  print(\"Unknown medium\" )\n}\n\n# Control structure for num_views\nif (num_views > 15) {\n  print(\"You're popular!\")\n} else{\n  print( \"Try to be more visible!\" )\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#customize-further-else-if",
+    "href": "r_fundamentals_for_data_science.html#customize-further-else-if",
+    "title": "Nuts and bolts: Data types",
+    "section": "Customize further: else if",
+    "text": "Customize further: else if\nThe else if statement allows you to further customize your control structure. You can add as many else if statements as you like. Keep in mind that R ignores the remainder of the control structure once a condition has been found that is TRUE and the corresponding expressions have been executed. Here’s an overview of the syntax to freshen your memory:\nif (condition1) {\n  expr1\n} else if (condition2) {\n  expr2\n} else if (condition3) {\n  expr3\n} else {\n  expr4\n}\nAgain, It’s important that the else if keywords comes on the same line as the closing bracket of the previous part of the control construct!\nInstructions 100 XP\n\nAdd code to both control structures such that:\n\nR prints out “Showing Facebook information” if medium is equal to “Facebook”. Remember that R is case sensitive!\n“Your number of views is average” is printed if num_views is between 15 (inclusive) and 10 (exclusive). Feel free to change the variables medium and num_views to see how the control structure respond. In both cases, the existing code should be extended in the else if statement. No existing code should be modified.\n\n\n\nex_010.R\n\n# Variables related to your last day of recordings\nmedium <- \"LinkedIn\"\nnum_views <- 14\n\n# Control structure for medium\nif (medium == \"LinkedIn\") {\n  print(\"Showing LinkedIn information\")\n} else if (medium == \"Facebook\") {\n  # Add code to print correct string when condition is TRUE\n  print(\"Showing Facebook information\" )\n} else {\n  print(\"Unknown medium\")\n}\n\n# Control structure for num_views\nif (num_views > 15) {\n  print(\"You're popular!\")\n} else if (num_views <= 15 & num_views > 10) {\n  # Add code to print correct string when condition is TRUE\n  print(\"Your number of views is average\")\n} else {\n  print(\"Try to be more visible!\")\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#else-if-2.0",
+    "href": "r_fundamentals_for_data_science.html#else-if-2.0",
+    "title": "Nuts and bolts: Data types",
+    "section": "Else if 2.0",
+    "text": "Else if 2.0\nYou can do anything you want inside if-else constructs. You can even put in another set of conditional statements. Examine the following code chunk:\nif (number < 10) {\n  if (number < 5) {\n    result <- \"extra small\"\n  } else {\n    result <- \"small\"\n  }\n} else if (number < 100) {\n  result <- \"medium\"\n} else {\n  result <- \"large\"\n}\nprint(result)\nHave a look at the following statements:\n\nIf number is set to 6, “small” gets printed to the console.\nIf number is set to 100, R prints out “medium”.\nIf number is set to 4, “extra small” gets printed out to the console.\nIf number is set to 2500, R will generate an error, as result will not be defined.\n\nSelect the option that lists all the true statements.\n\nRun the code or a handwrite test (1, 3)."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#take-control",
+    "href": "r_fundamentals_for_data_science.html#take-control",
+    "title": "Nuts and bolts: Data types",
+    "section": "Take control!",
+    "text": "Take control!\nIn this exercise, you will combine everything that you’ve learned so far: relational operators, logical operators and control constructs. You’ll need it all!\nWe’ve pre-defined two values for you: li and fb, denoting the number of profile views your LinkedIn and Facebook profile had on the last day of recordings. Go through the instructions to create R code that generates a ‘social media score’, sms, based on the values of li and fb.\nInstructions 100 XP\n\nFinish the control-flow construct with the following behavior:\n\nIf both li and fb are 15 or higher, set sms equal to double the sum of li and fb.\nIf both li and fb are strictly below 10, set sms equal to half the sum of li and fb.\nIn all other cases, set sms equal to li + fb.\nFinally, print the resulting sms variable.\n\n\n\nex_011.R\n\n# Variables related to your last day of recordings\nli <- 15\nfb <- 9\n\n# Code the control-flow construct\nif (li >= 15 & fb >= 15) {\n  sms <- 2 * (li + fb)\n} else if (li < 10 & fb < 10) {\n  sms <- 0.5 * (li + fb)\n} else {\n  sms <- li + fb\n}\n\n# Print the resulting sms to the console\nprint(sms)"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#write-a-while-loop",
+    "href": "r_fundamentals_for_data_science.html#write-a-while-loop",
+    "title": "Nuts and bolts: Data types",
+    "section": "Write a while loop",
+    "text": "Write a while loop\nLet’s get you started with building a while loop from the ground up. Have another look at its recipe:\nwhile (condition) {\n  expr\n}\nRemember that the condition part of this recipe should become FALSE at some point during the execution. Otherwise, the while loop will go on indefinitely.\nIf your session expires when you run your code, check the body of your while loop carefully.\nHave a look at the sample code provided; it initializes the speed variables and already provides a while loop template to get you started.\nInstructions 100 XP\n\nCode a while loop with the following characteristics:\n\nThe condition of the while loop should check if speed is higher than 30.\nInside the body of the while loop, print out “Slow down!”.\nInside the body of the while loop, decrease the speed by 7 units and assign\nthis new value to speed again. This step is crucial; otherwise your while loop will never stop and your session will expire.\n\nIf your session expires when you run your code, check the body of your while loop carefully: it’s likely that you made a mistake.\n\n\nex_012.R\n\n# Initialize the speed variable\nspeed <- 64\n\n# Code the while loop\nwhile (speed >30) {\n  print(\"Slow down!\")\n  speed <- speed - 7\n}\n\n# Print out the speed variable\nspeed"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#throw-in-more-conditionals",
+    "href": "r_fundamentals_for_data_science.html#throw-in-more-conditionals",
+    "title": "Nuts and bolts: Data types",
+    "section": "Throw in more conditionals",
+    "text": "Throw in more conditionals\nIn the previous exercise, you simulated the interaction between a driver and a driver’s assistant: When the speed was too high, “Slow down!” got printed out to the console, resulting in a decrease of your speed by 7 units.\nThere are several ways in which you could make your driver’s assistant more advanced. For example, the assistant could give you different messages based on your speed or provide you with a current speed at a given moment.\nA while loop similar to the one you’ve coded in the previous exercise is already available for you to use. It prints out your current speed, but there’s no code that decreases the speed variable yet, which is pretty dangerous. Can you make the appropriate changes?\nInstructions 100 XP\n\nIf the speed is greater than 48, have R print out “Slow down big time!”, and decrease the speed by 11. Otherwise, have R simply print out “Slow down!”, and decrease the speed by 6. If the session keeps timing out and throwing an error, you are probably stuck in an infinite loop! Check the body of your while loop and make sure you are assigning new values to speed.\n\n\nex_013.R\n\n# Initialize the speed variable\nspeed <- 64\n\n# Extend/adapt the while loop\nwhile (speed > 30) {\n  print(paste(\"Your speed is\",speed))\n  if (speed > 48 ) {\n    print(\"Slow down big time!\")\n    speed <- speed - 11 \n  } else {\n    print(\"Slow down!\")\n    speed <- speed - 6 \n  }\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#stop-the-while-loop-break",
+    "href": "r_fundamentals_for_data_science.html#stop-the-while-loop-break",
+    "title": "Nuts and bolts: Data types",
+    "section": "Stop the while loop: break",
+    "text": "Stop the while loop: break\nThere are some very rare situations in which severe speeding is necessary: what if a hurricane is approaching and you have to get away as quickly as possible? You don’t want the driver’s assistant sending you speeding notifications in that scenario, right?\nThis seems like a great opportunity to include the break statement in the while loop you’ve been working on. Remember that the break statement is a control statement. When R encounters it, the while loop is abandoned completely.\nInstructions 100 XP\n\nAdapt the while loop such that it is abandoned when the speed of the vehicle is greater than 80. This time, the speed variable has been initialized to 88; keep it that way.\n\n\nex_014.R\n\n# Initialize the speed variable\nspeed <- 88\n\nwhile (speed > 30) {\n  print(paste(\"Your speed is\", speed))\n  \n  # Break the while loop when speed exceeds 80\n  if (speed > 80) {\n    break\n  }\n  \n  if (speed > 48) {\n    print(\"Slow down big time!\")\n    speed <- speed - 11\n  } else {\n    print(\"Slow down!\")\n    speed <- speed - 6\n  }\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#build-a-while-loop-from-scratch",
+    "href": "r_fundamentals_for_data_science.html#build-a-while-loop-from-scratch",
+    "title": "Nuts and bolts: Data types",
+    "section": "Build a while loop from scratch",
+    "text": "Build a while loop from scratch\nThe previous exercises guided you through developing a pretty advanced while loop, containing a break statement and different messages and updates as determined by control flow constructs. If you manage to solve this comprehensive exercise using a while loop, you’re totally ready for the next topic: the for loop."
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#instructions-100-xp-76",
+    "href": "r_fundamentals_for_data_science.html#instructions-100-xp-76",
+    "title": "Nuts and bolts: Data types",
+    "section": "Instructions 100 XP\n",
+    "text": "Instructions 100 XP\n\nFinish the while loop so that it:\n\nprints out the triple of i, so 3 * i, at each run.\nis abandoned with a break if the triple of i is divisible by 8, but still prints out this triple before breaking.\n\n\n\nex_015.R\n\n# Initialize i as 1 \ni <- 1\n\n# Code the while loop\nwhile (i <= 10) {\n  print(3 * i)\n  if (i %% 8 ==0 ) {\n    break\n  }\n  i <- i + 1\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#loop-over-a-vector",
+    "href": "r_fundamentals_for_data_science.html#loop-over-a-vector",
+    "title": "Nuts and bolts: Data types",
+    "section": "Loop over a vector",
+    "text": "Loop over a vector\nIn the previous video, Filip told you about two different strategies for using the for loop. To refresh your memory, consider the following loops that are equivalent in R:\nprimes <- c(2, 3, 5, 7, 11, 13)\n\n# loop version 1\nfor (p in primes) {\n  print(p)\n}\n\n# loop version 2\nfor (i in 1:length(primes)) {\n  print(primes[i])\n}\nRemember our linkedin vector? It’s a vector that contains the number of views your LinkedIn profile had in the last seven days. The linkedin vector has been pre-defined so that you can fully focus on the instructions!\nInstructions 100 XP\n\nWrite a for loop that iterates over all the elements of linkedin and prints out every element separately. Do this in two ways: using the loop version 1 and the loop version 2 in the example code above.\n\n\nex_016.R\n\n# The linkedin vector has already been defined for you\nlinkedin <- c(16, 9, 13, 5, 2, 17, 14)\n\n# Loop version 1\nfor (element in linkedin) {\n\n    print(element)\n}\n\n# Loop version 2\nfor (i in 1:length(linkedin)){\n    print(linkedin[i])\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#loop-over-a-list",
+    "href": "r_fundamentals_for_data_science.html#loop-over-a-list",
+    "title": "Nuts and bolts: Data types",
+    "section": "Loop over a list",
+    "text": "Loop over a list\nLooping over a list is just as easy and convenient as looping over a vector. There are again two different approaches here:\nprimes_list <- list(2, 3, 5, 7, 11, 13)\n\n# loop version 1\nfor (p in primes_list) {\n  print(p)\n}\n\n# loop version 2\nfor (i in 1:length(primes_list)) {\n  print(primes_list[[i]])\n}\nNotice that you need double square brackets - [[ ]] - to select the list elements in loop version 2.\nSuppose you have a list of all sorts of information on New York City: its population size, the names of the boroughs, and whether it is the capital of the United States. We’ve already defined a list nyc containing this information (source: Wikipedia).\nInstructions 100 XP\n\nAs in the previous exercise, loop over the nyc list in two different ways to print its elements:\n\nLoop directly over the nyc list (loop version 1).\nDefine a looping index and do subsetting using double brackets (loop version 2).\n\n\n\nex_017.R\n\n# The nyc list is already specified\nnyc <- list(pop = 8405837, \n            boroughs = c(\n              \"Manhattan\",\n              \"Bronx\",\n              \"Brooklyn\",\n              \"Queens\",\n              \"Staten Island\"\n            ), \n            capital = FALSE)\n\n# Loop version 1\nfor(i in nyc){\n    print(i)\n}\n\n# Loop version 2\nfor(i in 1:length(nyc)){\n    print(nyc[[i]])\n}"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#loop-over-a-matrix",
+    "href": "r_fundamentals_for_data_science.html#loop-over-a-matrix",
+    "title": "Nuts and bolts: Data types",
+    "section": "Loop over a matrix",
+    "text": "Loop over a matrix"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#mix-it-up-with-control-flow",
+    "href": "r_fundamentals_for_data_science.html#mix-it-up-with-control-flow",
+    "title": "Nuts and bolts: Data types",
+    "section": "Mix it up with control flow",
+    "text": "Mix it up with control flow"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#next-you-break-it",
+    "href": "r_fundamentals_for_data_science.html#next-you-break-it",
+    "title": "Nuts and bolts: Data types",
+    "section": "Next, you break it",
+    "text": "Next, you break it"
+  },
+  {
+    "objectID": "r_fundamentals_for_data_science.html#build-a-for-loop-from-scratch",
+    "href": "r_fundamentals_for_data_science.html#build-a-for-loop-from-scratch",
+    "title": "Nuts and bolts: Data types",
+    "section": "Build a for loop from scratch",
+    "text": "Build a for loop from scratch"
+  },
+  {
     "objectID": "r_fundamentals_for_data_science.html#what-we-mean-when-say-better-coding-practice",
     "href": "r_fundamentals_for_data_science.html#what-we-mean-when-say-better-coding-practice",
     "title": "Nuts and bolts: Data types",
@@ -691,12 +817,5 @@
     "title": "References",
     "section": "",
     "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
-  },
-  {
-    "objectID": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
-    "href": "r_fundamentals_for_data_science.html#entering-input-the-assigment-operator",
-    "title": "Nuts and bolts: Data types",
-    "section": "Entering Input: the assigment operator",
-    "text": "Entering Input: the assigment operator\nThe thing that we type on the R console prompt are expressions. The firs expression we discuses here is the assignment operator, please watch the following video https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s\nAt the R console, any executable typed text that we put a side of the prompt are called expressions. We start by the \\(\\texttt{<-}\\) symbol is the assignment operator.\n\n\n[1] 0\n\n\n[1] 0\n\n\n[1] \"what's up\"\n\n\nThe [1] shown in the output indicates that x is a vector and 0 is the element at position with index 1."
   }
 ]

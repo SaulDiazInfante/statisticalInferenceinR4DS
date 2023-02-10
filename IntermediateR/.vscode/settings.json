@@ -1,0 +1,7 @@
+{
+    "rewrap.doubleSentenceSpacing": true,
+    "rewrap.reformat": true,
+    "rewrap.wrappingColumn": 80,
+    "rewrap.autoWrap.notification": "icon",
+    "rewrap.autoWrap.enabled": true
+}

@@ -1,0 +1,270 @@
+# Loops
+
+Loops can come in handy on numerous occasions. While loops are like repeated if
+statements, the for loop is designed to iterate over all elements in a sequence.
+Learn about them in this chapter.
+
+## Write a while loop
+
+Let's get you started with building a while loop from the ground up. Have 
+another look at its recipe:
+
+```{.r code-line-numbers="false"}
+while (condition) {
+  expr
+}
+```
+
+Remember that the condition part of this recipe should become FALSE at some 
+point during the execution. Otherwise, the while loop will go on indefinitely.
+
+If your session expires when you run your code, check the body of your 
+`while` loop carefully.
+
+Have a look at the sample code provided; it initializes the `speed` variables 
+and already provides a `while` loop template to get you started.
+
+### Instructions `100 XP` {.unnumbered}
+
+Code a while loop with the following characteristics:
+
+- The condition of the while loop should check if speed is higher than 30.
+- Inside the body of the while loop, print out "Slow down!".
+- Inside the body of the while loop, decrease the speed by 7 units and assign  
+this new value to speed again. This step is crucial; otherwise your while loop 
+will never stop and your session will expire.
+
+**If your session expires when you run your code, check the body of your while 
+loop  carefully: it's likely that you made a mistake.**
+
+```{.r filename="ex_012.R"}
+# Initialize the speed variable
+speed <- 64
+
+# Code the while loop
+while (speed >30) {
+  print("Slow down!")
+  speed <- speed - 7
+}
+
+# Print out the speed variable
+speed
+```
+
+## Throw in more conditionals
+
+In the previous exercise, you simulated the interaction between a driver and a 
+driver's assistant: When the speed was too high, "Slow down!" got printed out to
+the console, resulting in a decrease of your speed by 7 units.
+
+There are several ways in which you could make your driver's assistant more 
+advanced. For example, the assistant could give you different messages based on
+your speed or provide you with a current speed at a given moment.
+
+A while loop similar to the one you've coded in the previous exercise is already
+available for you to use. It prints out your current speed, but there's no code 
+that decreases the speed variable yet, which is pretty dangerous. Can you make 
+the appropriate changes?
+
+### Instructions 1`00 XP` {.unnumbered}
+
+If the speed is greater than 48, have R print out "Slow down big time!", and 
+decrease the speed by 11. Otherwise, have R simply print out "Slow down!", and
+decrease the speed by 6. If the session keeps timing out and throwing an error,
+you are probably stuck in an infinite loop! Check the body of your while loop 
+and make sure you are assigning new values to speed.
+
+```{.r filename="ex_013.R"}
+# Initialize the speed variable
+speed <- 64
+
+# Extend/adapt the while loop
+while (speed > 30) {
+  print(paste("Your speed is",speed))
+  if (speed > 48 ) {
+    print("Slow down big time!")
+    speed <- speed - 11 
+  } else {
+    print("Slow down!")
+    speed <- speed - 6 
+  }
+}
+```
+## Stop the while loop: break
+There are some very rare situations in which severe speeding is necessary: what
+if a hurricane is approaching and you have to get away as quickly as possible?
+You don't want the driver's assistant sending you speeding notifications in that
+scenario, right?
+
+This seems like a great opportunity to include the break statement in the while
+loop you've been working on. Remember that the break statement is a control 
+statement. When R encounters it, the while loop is abandoned completely.
+
+### Instructions `100 XP` {.unnumbered}
+
+Adapt the while loop such that it is abandoned when the speed of the vehicle is 
+greater than 80. This time, the speed variable has been initialized to 88;
+keep it that way.
+
+```{.r  filename=ex_014.R}
+# Initialize the speed variable
+speed <- 88
+
+while (speed > 30) {
+  print(paste("Your speed is", speed))
+  
+  # Break the while loop when speed exceeds 80
+  if (speed > 80) {
+    break
+  }
+  
+  if (speed > 48) {
+    print("Slow down big time!")
+    speed <- speed - 11
+  } else {
+    print("Slow down!")
+    speed <- speed - 6
+  }
+}
+```
+
+## Build a while loop from scratch
+
+The previous exercises guided you through developing a pretty advanced while 
+loop, containing a break statement and different messages and updates as 
+determined by control flow constructs. If you manage to solve this comprehensive
+exercise using a while loop, you're totally ready for the next topic: the for 
+loop.
+
+## Instructions `100 XP` {.unnumbered}
+
+Finish the while loop so that it:
+
+- prints out the triple of i, so 3 * i, at each run.
+- is abandoned with a break if the triple of i is divisible by 8, 
+but still prints out this triple before breaking.
+
+```{.r filename="ex_015.R"}
+# Initialize i as 1 
+i <- 1
+
+# Code the while loop
+while (i <= 10) {
+  print(3 * i)
+  if (i %% 8 ==0 ) {
+    break
+  }
+  i <- i + 1
+}
+```
+## Loop over a vector
+
+In the previous video, Filip told you about two different strategies for using 
+the for loop. To refresh your memory, consider the following loops that are 
+equivalent in R:
+```{.r code-line-numbers="false"}
+primes <- c(2, 3, 5, 7, 11, 13)
+
+# loop version 1
+for (p in primes) {
+  print(p)
+}
+
+# loop version 2
+for (i in 1:length(primes)) {
+  print(primes[i])
+}
+```
+
+Remember our `linkedin` vector? It's a vector that contains the number of views
+your LinkedIn profile had in the last seven days. The linkedin vector has been
+pre-defined so that you can fully focus on the instructions!
+
+### Instructions `100 XP` {.unnumbered}
+
+Write a `for` loop that iterates over all the elements of `linkedin` and prints 
+out every element separately. Do this in two ways: using the *loop version 1* 
+and the *loop version 2* in the example code above.
+
+```{.r filename="ex_016.R"}
+# The linkedin vector has already been defined for you
+linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+
+# Loop version 1
+for (element in linkedin) {
+
+    print(element)
+}
+
+# Loop version 2
+for (i in 1:length(linkedin)){
+    print(linkedin[i])
+}
+```
+
+## Loop over a list
+
+Looping over a list is just as easy and convenient as looping over a vector. 
+There are again two different approaches here:
+
+```{.r}
+primes_list <- list(2, 3, 5, 7, 11, 13)
+
+# loop version 1
+for (p in primes_list) {
+  print(p)
+}
+
+# loop version 2
+for (i in 1:length(primes_list)) {
+  print(primes_list[[i]])
+}
+```
+
+Notice that you need double square brackets `- [[ ]] - ` to select the list 
+elements in loop version 2.
+
+Suppose you have a list of all sorts of information on New York City: its 
+population size, the names of the boroughs, and whether it is the capital of the
+United States. We've already defined a list nyc containing this information 
+(source: Wikipedia).
+
+### Instructions `100 XP` {.unnumbered}
+
+As in the previous exercise, loop over the nyc list in two different ways to
+print its elements:
+
+- Loop directly over the nyc list (loop version 1).
+- Define a looping index and do subsetting using double brackets 
+(loop version 2).
+
+```{.r filename="ex_017.R"}
+# The nyc list is already specified
+nyc <- list(pop = 8405837, 
+            boroughs = c(
+              "Manhattan",
+              "Bronx",
+              "Brooklyn",
+              "Queens",
+              "Staten Island"
+            ), 
+            capital = FALSE)
+
+# Loop version 1
+for(i in nyc){
+    print(i)
+}
+
+# Loop version 2
+for(i in 1:length(nyc)){
+    print(nyc[[i]])
+}
+```
+## Loop over a matrix
+
+## Mix it up with control flow
+
+## Next, you break it
+
+## Build a for loop from scratch
+
