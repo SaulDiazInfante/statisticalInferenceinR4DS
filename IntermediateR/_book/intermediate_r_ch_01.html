@@ -240,10 +240,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-10" id="toc-instructions-100-xp-10" class="nav-link" data-scroll-target="#instructions-100-xp-10">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#throw-in-more-conditionals" id="toc-throw-in-more-conditionals" class="nav-link" data-scroll-target="#throw-in-more-conditionals"><span class="toc-section-number">1.13</span>  Throw in more conditionals</a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-11" id="toc-instructions-100-xp-11" class="nav-link" data-scroll-target="#instructions-100-xp-11">Instructions <code>100 XP</code></a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -670,19 +666,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-14"><a href="#cb18-14"></a><span class="co"># Print the resulting sms to the console</span></span>
 <span id="cb18-15"><a href="#cb18-15"></a><span class="fu">print</span>(sms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-</section>
-<section id="throw-in-more-conditionals" class="level2" data-number="1.13">
-<h2 data-number="1.13" class="anchored" data-anchor-id="throw-in-more-conditionals"><span class="header-section-number">1.13</span> Throw in more conditionals</h2>
-<p>In the previous exercise, you simulated the interaction between a driver and a driver’s assistant: When the speed was too high, “Slow down!” got printed out to the console, resulting in a decrease of your speed by 7 units.</p>
-<p>There are several ways in which you could make your driver’s assistant more advanced. For example, the assistant could give you different messages based on your speed or provide you with a current speed at a given moment.</p>
-<p>A while loop similar to the one you’ve coded in the previous exercise is already available for you to use. It prints out your current speed, but there’s no code that decreases the speed variable yet, which is pretty dangerous. Can you make the appropriate changes?</p>
-<section id="instructions-100-xp-11" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-11">Instructions <code>100 XP</code></h3>
-<ul>
-<li>If the speed is greater than 48, have R print out “Slow down big time!”, and decrease the speed by 11. Otherwise, have R simply print out “Slow down!”, and decrease the speed by 6.</li>
-<li>If the session keeps timing out and throwing an error, you are probably stuck in an infinite loop! Check the body of your while loop and make sure you are assigning new values to speed.</li>
-</ul>
 
 
 <!-- -->
@@ -1383,31 +1366,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-494"><a href="#cb19-494"></a></span>
 <span id="cb19-495"><a href="#cb19-495"></a><span class="co"># Print the resulting sms to the console</span></span>
 <span id="cb19-496"><a href="#cb19-496"></a><span class="fu">print</span>(sms)</span>
-<span id="cb19-497"><a href="#cb19-497"></a><span class="in">```</span> </span>
-<span id="cb19-498"><a href="#cb19-498"></a></span>
-<span id="cb19-499"><a href="#cb19-499"></a><span class="fu">## Throw in more conditionals</span></span>
-<span id="cb19-500"><a href="#cb19-500"></a></span>
-<span id="cb19-501"><a href="#cb19-501"></a>In the previous exercise, you simulated the interaction between a driver and a </span>
-<span id="cb19-502"><a href="#cb19-502"></a>driver's assistant: When the speed was too high, "Slow down!" got printed out to</span>
-<span id="cb19-503"><a href="#cb19-503"></a>the console, resulting in a decrease of your speed by 7 units.</span>
-<span id="cb19-504"><a href="#cb19-504"></a></span>
-<span id="cb19-505"><a href="#cb19-505"></a>There are several ways in which you could make your driver's assistant more </span>
-<span id="cb19-506"><a href="#cb19-506"></a>advanced. For example, the assistant could give you different messages based on </span>
-<span id="cb19-507"><a href="#cb19-507"></a>your speed or provide you with a current speed at a given moment.</span>
-<span id="cb19-508"><a href="#cb19-508"></a></span>
-<span id="cb19-509"><a href="#cb19-509"></a>A while loop similar to the one you've coded in the previous exercise is already</span>
-<span id="cb19-510"><a href="#cb19-510"></a>available for you to use. It prints out your current speed, but there's no code </span>
-<span id="cb19-511"><a href="#cb19-511"></a>that decreases the speed variable yet, which is pretty dangerous. Can you make </span>
-<span id="cb19-512"><a href="#cb19-512"></a>the appropriate changes?</span>
-<span id="cb19-513"><a href="#cb19-513"></a></span>
-<span id="cb19-514"><a href="#cb19-514"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb19-515"><a href="#cb19-515"></a></span>
-<span id="cb19-516"><a href="#cb19-516"></a><span class="ss">- </span>If the speed is greater than 48, have R print out "Slow down big time!", and </span>
-<span id="cb19-517"><a href="#cb19-517"></a>decrease the speed by 11. Otherwise, have R simply print out "Slow down!", and </span>
-<span id="cb19-518"><a href="#cb19-518"></a>decrease the speed by 6.</span>
-<span id="cb19-519"><a href="#cb19-519"></a><span class="ss">- </span>If the session keeps timing out and throwing an error, you are probably stuck </span>
-<span id="cb19-520"><a href="#cb19-520"></a>in an infinite loop! Check the body of your while loop and make sure you are</span>
-<span id="cb19-521"><a href="#cb19-521"></a>assigning new values to speed.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-497"><a href="#cb19-497"></a><span class="in">```</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

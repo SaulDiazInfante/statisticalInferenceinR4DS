@@ -172,27 +172,27 @@
     "href": "intermediate_r_ch_02.html#loop-over-a-matrix",
     "title": "2  Loops",
     "section": "2.7 Loop over a matrix",
-    "text": "2.7 Loop over a matrix"
+    "text": "2.7 Loop over a matrix\nIn your workspace, there’s a matrix ttt, that represents the status of a tic-tac-toe game. It contains the values “X”, “O” and “NA”. Print out ttt to get a closer look. On row 1 and column 1, there’s “O”, while on row 3 and column 2 there’s “NA”.\nTo solve this exercise, you’ll need a for loop inside a for loop, often called a nested loop. Doing this in R is a breeze! Simply use the following recipe:\nfor (var1 in seq1) {\n  for (var2 in seq2) {\n    expr\n  }\n}\n\nInstructions 100 XP\nFinish the nested for loops to go over the elements in ttt:\n\nThe outer loop should loop over the rows, with loop index i (use 1:nrow(ttt)).\nThe inner loop should loop over the columns, with loop index j (use 1:ncol(ttt)).\nInside the inner loop, make use of print() and paste() to print out information in the following format: “On row i and column j the board contains x”, where x is the value on that position.\n\n\n\nex_018.R\n\n# The tic-tac-toe matrix ttt has already been defined for you\n\n# define the double for loop\nfor (i in 1:nrow(ttt)) {\n  for (j in 1:ncol(ttt)) {\n    print(\n      paste(\n        \"On row\",\n        i,\n        \" and column\",\n        j,\n        \"the board contains\",\n        ttt[i, j]\n      )\n    )\n  }\n}"
   },
   {
     "objectID": "intermediate_r_ch_02.html#mix-it-up-with-control-flow",
     "href": "intermediate_r_ch_02.html#mix-it-up-with-control-flow",
     "title": "2  Loops",
     "section": "2.8 Mix it up with control flow",
-    "text": "2.8 Mix it up with control flow"
+    "text": "2.8 Mix it up with control flow\nLet’s return to the LinkedIn profile views data, stored in a vector linkedin. In the first exercise on for loops you already did a simple printout of each element in this vector. A little more in-depth interpretation of this data wouldn’t hurt, right? Time to throw in some conditionals! As with the while loop, you can use the if and else statements inside the for loop.\n\nInstructions 100 XP\nAdd code to the for loop that loops over the elements of the linkedin vector:\n\nIf the vector element’s value exceeds 10, print out “You’re popular!”.\nIf the vector element’s value does not exceed 10, print out “Be more visible!”\n\n\n\nex_019.r\n\n# The linkedin vector has already been defined for you\nlinkedin <- c(16, 9, 13, 5, 2, 17, 14)\n\n# Code the for loop with conditionals\nfor (li in linkedin) {\n  if ( li > 10) {\n    print(\"You're popular!\")\n  } else {\n    print(\"Be more visible!\")\n  }\n  print(li)\n}"
   },
   {
     "objectID": "intermediate_r_ch_02.html#next-you-break-it",
     "href": "intermediate_r_ch_02.html#next-you-break-it",
     "title": "2  Loops",
     "section": "2.9 Next, you break it",
-    "text": "2.9 Next, you break it"
+    "text": "2.9 Next, you break it\nA possible solution to the previous exercise has been provided for you. The code loops over the linkedin vector and prints out different messages depending on the values of li.\nIn this exercise, you will use the break and next statements:\nThe break statement abandons the active loop: the remaining code in the loop is skipped and the loop is not iterated over anymore. The next statement skips the remainder of the code in the loop, but continues the iteration.\nInstructions 100 XP Extend the for loop with two new, separate if tests as follows:\n\nIf the vector element’s value exceeds 16, print out “This is ridiculous, I’m outta here!” and have R abandon the for loop (break).\nIf the value is lower than 5, print out “This is too embarrassing!” and fast-forward to the next iteration (next).\n\n\n\nex_019.R\n\n# The linkedin vector has already been defined for you\nlinkedin <- c(16, 9, 13, 5, 2, 17, 14)\n\n# Adapt/extend the for loop\nfor (li in linkedin) {\n  if (li > 10) {\n    print(\"You're popular!\")\n  } else {\n    print(\"Be more visible!\")\n  }\n  \n  # Add if statement with break\n  if (li > 16 ){\n    print(\"This is ridiculous, I'm outta here!\")\n    break\n  }\n  \n  # Add if statement with next\n  \n  if (li < 5){\n      print(\"This is too embarrassing!\")    \n      next\n  }\n  \n  print(li)\n}"
   },
   {
     "objectID": "intermediate_r_ch_02.html#build-a-for-loop-from-scratch",
     "href": "intermediate_r_ch_02.html#build-a-for-loop-from-scratch",
     "title": "2  Loops",
     "section": "2.10 Build a for loop from scratch",
-    "text": "2.10 Build a for loop from scratch"
+    "text": "2.10 Build a for loop from scratch\nThis exercise will not introduce any new concepts on for loops.\nWe already went ahead and defined a variable rquote. This variable has been split up into a vector that contains separate letters and has been stored in a vector chars with the strsplit() function.\nCan you write code that counts the number of r’s that come before the first u in rquote?\n\nInstructions 100 XP\n\nInitialize the variable rcount, as 0.\nFinish the for loop:\n\nif char equals “r”, increase the value of rcount by 1.\nif char equals “u”, leave the for loop entirely with a break.\n\nFinally, print out the variable rcount to the console to see if your code is correct."
   }
 ]

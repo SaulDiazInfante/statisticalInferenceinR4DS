@@ -217,10 +217,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#loop-over-a-matrix" id="toc-loop-over-a-matrix" class="nav-link" data-scroll-target="#loop-over-a-matrix"><span class="toc-section-number">2.7</span>  Loop over a matrix</a></li>
-  <li><a href="#mix-it-up-with-control-flow" id="toc-mix-it-up-with-control-flow" class="nav-link" data-scroll-target="#mix-it-up-with-control-flow"><span class="toc-section-number">2.8</span>  Mix it up with control flow</a></li>
+  <li><a href="#loop-over-a-matrix" id="toc-loop-over-a-matrix" class="nav-link" data-scroll-target="#loop-over-a-matrix"><span class="toc-section-number">2.7</span>  Loop over a matrix</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#mix-it-up-with-control-flow" id="toc-mix-it-up-with-control-flow" class="nav-link" data-scroll-target="#mix-it-up-with-control-flow"><span class="toc-section-number">2.8</span>  Mix it up with control flow</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
+  </ul></li>
   <li><a href="#next-you-break-it" id="toc-next-you-break-it" class="nav-link" data-scroll-target="#next-you-break-it"><span class="toc-section-number">2.9</span>  Next, you break it</a></li>
-  <li><a href="#build-a-for-loop-from-scratch" id="toc-build-a-for-loop-from-scratch" class="nav-link" data-scroll-target="#build-a-for-loop-from-scratch"><span class="toc-section-number">2.10</span>  Build a for loop from scratch</a></li>
+  <li><a href="#build-a-for-loop-from-scratch" id="toc-build-a-for-loop-from-scratch" class="nav-link" data-scroll-target="#build-a-for-loop-from-scratch"><span class="toc-section-number">2.10</span>  Build a for loop from scratch</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-8" id="toc-instructions-100-xp-8" class="nav-link" data-scroll-target="#instructions-100-xp-8">Instructions <code>100 XP</code></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -462,17 +471,135 @@ this new value to speed again. This step is crucial; otherwise your while loop w
 </section>
 <section id="loop-over-a-matrix" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="loop-over-a-matrix"><span class="header-section-number">2.7</span> Loop over a matrix</h2>
+<p>In your workspace, there’s a matrix ttt, that represents the status of a tic-tac-toe game. It contains the values “X”, “O” and “NA”. Print out ttt to get a closer look. On row 1 and column 1, there’s “O”, while on row 3 and column 2 there’s “NA”.</p>
+<p>To solve this exercise, you’ll need a for loop inside a for loop, often called a nested loop. Doing this in R is a breeze! Simply use the following recipe:</p>
+<div class="sourceCode" id="cb10" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (var1 <span class="cf">in</span> seq1) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (var2 <span class="cf">in</span> seq2) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    expr</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="instructions-100-xp-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
+<p>Finish the nested for loops to go over the elements in <code>ttt</code>:</p>
+<ul>
+<li>The outer loop should loop over the rows, with loop index <code>i</code> (use <code>1:nrow(ttt)</code>).</li>
+<li>The inner loop should loop over the columns, with loop index <code>j</code> (use <code>1:ncol(ttt)</code>).</li>
+<li>Inside the inner loop, make use of print() and paste() to print out information in the following format: “On row i and column j the board contains x”, where x is the value on that position.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_018.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The tic-tac-toe matrix ttt has already been defined for you</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define the double for loop</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(ttt)) {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ttt)) {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"On row"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        i,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">" and column"</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        j,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"the board contains"</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        ttt[i, j]</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 <section id="mix-it-up-with-control-flow" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="mix-it-up-with-control-flow"><span class="header-section-number">2.8</span> Mix it up with control flow</h2>
+<p>Let’s return to the LinkedIn profile views data, stored in a vector <code>linkedin</code>. In the first exercise on <code>for</code> loops you already did a simple printout of each element in this vector. A little more in-depth interpretation of this data wouldn’t hurt, right? Time to throw in some conditionals! As with the <code>while</code> loop, you can use the <code>if</code> and <code>else</code> statements inside the <code>for</code> loop.</p>
+<section id="instructions-100-xp-7" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-7">Instructions <code>100 XP</code></h3>
+<p>Add code to the <code>for</code> loop that loops over the elements of the <code>linkedin</code> vector:</p>
+<ul>
+<li>If the vector element’s value exceeds 10, print out “You’re popular!”.</li>
+<li>If the vector element’s value does not exceed 10, print out “Be more visible!”</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_019.r</strong></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The linkedin vector has already been defined for you</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Code the for loop with conditionals</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (li <span class="cf">in</span> linkedin) {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> ( li <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"You're popular!"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Be more visible!"</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(li)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 <section id="next-you-break-it" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="next-you-break-it"><span class="header-section-number">2.9</span> Next, you break it</h2>
+<p>A possible solution to the previous exercise has been provided for you. The code loops over the linkedin vector and prints out different messages depending on the values of li.</p>
+<p>In this exercise, you will use the break and next statements:</p>
+<p>The break statement abandons the active loop: the remaining code in the loop is skipped and the loop is not iterated over anymore. The next statement skips the remainder of the code in the loop, but continues the iteration.</p>
+<p>Instructions <code>100 XP</code> Extend the for loop with two new, separate if tests as follows:</p>
+<ul>
+<li>If the vector element’s value exceeds 16, print out “This is ridiculous, I’m outta here!” and have R abandon the for loop (break).</li>
+<li>If the value is lower than 5, print out “This is too embarrassing!” and fast-forward to the next iteration (next).</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_019.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The linkedin vector has already been defined for you</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Adapt/extend the for loop</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (li <span class="cf">in</span> linkedin) {</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (li <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"You're popular!"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Be more visible!"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add if statement with break</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (li <span class="sc">&gt;</span> <span class="dv">16</span> ){</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"This is ridiculous, I'm outta here!"</span>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add if statement with next</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (li <span class="sc">&lt;</span> <span class="dv">5</span>){</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="st">"This is too embarrassing!"</span>)    </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">next</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(li)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="build-a-for-loop-from-scratch" class="level2" data-number="2.10">
 <h2 data-number="2.10" class="anchored" data-anchor-id="build-a-for-loop-from-scratch"><span class="header-section-number">2.10</span> Build a for loop from scratch</h2>
+<p>This exercise will not introduce any new concepts on for loops.</p>
+<p>We already went ahead and defined a variable rquote. This variable has been split up into a vector that contains separate letters and has been stored in a vector chars with the strsplit() function.</p>
+<p>Can you write code that counts the number of r’s that come before the first u in rquote?</p>
+<section id="instructions-100-xp-8" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-8">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Initialize the variable rcount, as 0.</li>
+<li>Finish the for loop:
+<ul>
+<li>if char equals “r”, increase the value of rcount by 1.</li>
+<li>if char equals “u”, leave the for loop entirely with a break.</li>
+</ul></li>
+<li>Finally, print out the variable rcount to the console to see if your code is correct.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
