@@ -2,5 +2,32 @@
 .Rhistory
 .RData
 .Ruserdata
-
 /.quarto/
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+### big files
+*.mp4
+.~b!Itb8yuqwb0OOYGiJCaEQ4idDF5rUx3ZJkdVEGS5G60U4qsFxUSVnSZBBkPleOH2x-0175NSYJOQH2VY4USTM5BLZQB2NPVKYYJM-cc5fe9.insyncdl
