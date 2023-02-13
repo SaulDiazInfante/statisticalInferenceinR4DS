@@ -1,0 +1,11 @@
+"";"name";"XP"
+"1";"Write a while loop";100
+"2";"Throw in more conditionals";100
+"3";"Stop the while loop: break";100
+"4";"Build a while loop from scratch";100
+"5";"Loop over a vector";100
+"6";"Loop over a list";100
+"7";"Loop over a matrix";100
+"8";"Mix it up with control flow";100
+"9";"Next, you break it";100
+"10";"Build a for loop from scratch";100

@@ -159,7 +159,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./intermediate_r_ch_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intermediate_r_ch_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -250,7 +260,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell">
-
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead><tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">XP</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Write a while loop</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Throw in more conditionals</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stop the while loop: break</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Build a while loop from scratch</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Loop over a vector</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Loop over a list</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Loop over a matrix</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mix it up with control flow</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Next, you break it</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Build a for loop from scratch</td>
+<td style="text-align: right;">100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead><tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">XP</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Function Documentation</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Use a function</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Use a function (2)</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Use a function (3)</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Functions inside functions</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Write your own function</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Write your own function (2)</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Write your own function (3)</td>
+<td style="text-align: right;">100</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -498,7 +601,52 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-48"><a href="#cb1-48"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_ch01, <span class="at">format=</span><span class="st">"markdown"</span>)</span>
 <span id="cb1-49"><a href="#cb1-49"></a><span class="in">```</span> </span>
 <span id="cb1-52"><a href="#cb1-52"></a><span class="in">```{r}</span></span>
-<span id="cb1-53"><a href="#cb1-53"></a><span class="in">```</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>ch_2_name <span class="ot">&lt;-</span> <span class="st">"Loops"</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a>ex_names_chapter_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-55"><a href="#cb1-55"></a>    <span class="st">"Write a while loop"</span>,</span>
+<span id="cb1-56"><a href="#cb1-56"></a>    <span class="st">"Throw in more conditionals"</span>,</span>
+<span id="cb1-57"><a href="#cb1-57"></a>    <span class="st">"Stop the while loop: break"</span>,</span>
+<span id="cb1-58"><a href="#cb1-58"></a>    <span class="st">"Build a while loop from scratch"</span>,</span>
+<span id="cb1-59"><a href="#cb1-59"></a>    <span class="st">"Loop over a vector"</span>,</span>
+<span id="cb1-60"><a href="#cb1-60"></a>    <span class="st">"Loop over a list"</span>,</span>
+<span id="cb1-61"><a href="#cb1-61"></a>    <span class="st">"Loop over a matrix"</span>,</span>
+<span id="cb1-62"><a href="#cb1-62"></a>    <span class="st">"Mix it up with control flow"</span>,</span>
+<span id="cb1-63"><a href="#cb1-63"></a>    <span class="st">"Next, you break it"</span>,</span>
+<span id="cb1-64"><a href="#cb1-64"></a>    <span class="st">"Build a for loop from scratch"</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a>)</span>
+<span id="cb1-66"><a href="#cb1-66"></a>xp_ch_2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">100</span>, <span class="fu">length</span>(ex_names_chapter_2))</span>
+<span id="cb1-67"><a href="#cb1-67"></a>df_ch02 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ex_names_chapter_2, xp_ch_2)</span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="fu">names</span>(df_ch02) <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-69"><a href="#cb1-69"></a>    <span class="st">"name"</span>, </span>
+<span id="cb1-70"><a href="#cb1-70"></a>    <span class="st">"XP"</span></span>
+<span id="cb1-71"><a href="#cb1-71"></a>)</span>
+<span id="cb1-72"><a href="#cb1-72"></a><span class="co"># print(df_ch01)</span></span>
+<span id="cb1-73"><a href="#cb1-73"></a><span class="fu">write.csv2</span>(df_ch02, <span class="st">"ch_02.csv"</span>)</span>
+<span id="cb1-74"><a href="#cb1-74"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_ch02, <span class="at">format=</span><span class="st">"markdown"</span>)</span>
+<span id="cb1-75"><a href="#cb1-75"></a><span class="in">```</span></span>
+<span id="cb1-76"><a href="#cb1-76"></a></span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="in">```{r}</span></span>
+<span id="cb1-80"><a href="#cb1-80"></a>ch_3_name <span class="ot">&lt;-</span> <span class="st">"Functions"</span></span>
+<span id="cb1-81"><a href="#cb1-81"></a>ex_names_chapter_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-82"><a href="#cb1-82"></a>    <span class="st">"Function Documentation"</span>,</span>
+<span id="cb1-83"><a href="#cb1-83"></a>    <span class="st">"Use a function"</span>,</span>
+<span id="cb1-84"><a href="#cb1-84"></a>    <span class="st">"Use a function (2)"</span>,</span>
+<span id="cb1-85"><a href="#cb1-85"></a>    <span class="st">"Use a function (3)"</span>,</span>
+<span id="cb1-86"><a href="#cb1-86"></a>    <span class="st">"Functions inside functions"</span>,</span>
+<span id="cb1-87"><a href="#cb1-87"></a>    <span class="st">"Write your own function"</span>,</span>
+<span id="cb1-88"><a href="#cb1-88"></a>    <span class="st">"Write your own function (2)"</span>,</span>
+<span id="cb1-89"><a href="#cb1-89"></a>    <span class="st">"Write your own function (3)"</span></span>
+<span id="cb1-90"><a href="#cb1-90"></a>)</span>
+<span id="cb1-91"><a href="#cb1-91"></a>xp_ch_3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">100</span>, <span class="fu">length</span>(ex_names_chapter_3))</span>
+<span id="cb1-92"><a href="#cb1-92"></a>df_ch03 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ex_names_chapter_3, xp_ch_3)</span>
+<span id="cb1-93"><a href="#cb1-93"></a><span class="fu">names</span>(df_ch03) <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-94"><a href="#cb1-94"></a>    <span class="st">"name"</span>, </span>
+<span id="cb1-95"><a href="#cb1-95"></a>    <span class="st">"XP"</span></span>
+<span id="cb1-96"><a href="#cb1-96"></a>)</span>
+<span id="cb1-97"><a href="#cb1-97"></a><span class="co"># print(df_ch01)</span></span>
+<span id="cb1-98"><a href="#cb1-98"></a><span class="fu">write.csv2</span>(df_ch03, <span class="st">"ch_03.csv"</span>)</span>
+<span id="cb1-99"><a href="#cb1-99"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_ch03, <span class="at">format=</span><span class="st">"markdown"</span>)</span>
+<span id="cb1-100"><a href="#cb1-100"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

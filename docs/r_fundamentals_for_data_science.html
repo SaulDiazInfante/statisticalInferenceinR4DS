@@ -639,9 +639,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
   </ul>
 </li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
   <li>
-<a href="#loops-1" id="toc-loops-1" class="nav-link" data-scroll-target="#loops-1">Loops</a>
+<a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a>
   <ul class="collapse">
 <li>
 <a href="#write-a-while-loop" id="toc-write-a-while-loop" class="nav-link" data-scroll-target="#write-a-while-loop">Write a while loop</a>
@@ -675,10 +674,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#instructions-100-xp-78" id="toc-instructions-100-xp-78" class="nav-link" data-scroll-target="#instructions-100-xp-78">Instructions <code>100 XP</code></a></li>
   </ul>
 </li>
-  <li><a href="#loop-over-a-matrix" id="toc-loop-over-a-matrix" class="nav-link" data-scroll-target="#loop-over-a-matrix">Loop over a matrix</a></li>
-  <li><a href="#mix-it-up-with-control-flow" id="toc-mix-it-up-with-control-flow" class="nav-link" data-scroll-target="#mix-it-up-with-control-flow">Mix it up with control flow</a></li>
+  <li>
+<a href="#loop-over-a-matrix" id="toc-loop-over-a-matrix" class="nav-link" data-scroll-target="#loop-over-a-matrix">Loop over a matrix</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-79" id="toc-instructions-100-xp-79" class="nav-link" data-scroll-target="#instructions-100-xp-79">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#mix-it-up-with-control-flow" id="toc-mix-it-up-with-control-flow" class="nav-link" data-scroll-target="#mix-it-up-with-control-flow">Mix it up with control flow</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-80" id="toc-instructions-100-xp-80" class="nav-link" data-scroll-target="#instructions-100-xp-80">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
   <li><a href="#next-you-break-it" id="toc-next-you-break-it" class="nav-link" data-scroll-target="#next-you-break-it">Next, you break it</a></li>
-  <li><a href="#build-a-for-loop-from-scratch" id="toc-build-a-for-loop-from-scratch" class="nav-link" data-scroll-target="#build-a-for-loop-from-scratch">Build a for loop from scratch</a></li>
+  <li>
+<a href="#build-a-for-loop-from-scratch" id="toc-build-a-for-loop-from-scratch" class="nav-link" data-scroll-target="#build-a-for-loop-from-scratch">Build a for loop from scratch</a>
+  <ul class="collapse">
+<li><a href="#instructions-100-xp-81" id="toc-instructions-100-xp-81" class="nav-link" data-scroll-target="#instructions-100-xp-81">Instructions <code>100 XP</code></a></li>
+  </ul>
+</li>
   </ul>
 </li>
   <li>
@@ -2856,7 +2870,6 @@ can hold numeric, character or logical values. Within a column all elements have
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sms</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section></section><section id="loops" class="level1"><h1>Loops</h1>
-</section><section id="loops-1" class="level1"><h1>Loops</h1>
 <p>Loops can come in handy on numerous occasions. While loops are like repeated if statements, the for loop is designed to iterate over all elements in a sequence. Learn about them in this chapter.</p>
 <section id="write-a-while-loop" class="level2"><h2 class="anchored" data-anchor-id="write-a-while-loop">Write a while loop</h2>
 <p>Let’s get you started with building a while loop from the ground up. Have another look at its recipe:</p>
@@ -3056,10 +3069,152 @@ this new value to speed again. This step is crucial; otherwise your while loop w
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="loop-over-a-matrix" class="level2"><h2 class="anchored" data-anchor-id="loop-over-a-matrix">Loop over a matrix</h2>
-</section><section id="mix-it-up-with-control-flow" class="level2"><h2 class="anchored" data-anchor-id="mix-it-up-with-control-flow">Mix it up with control flow</h2>
-</section><section id="next-you-break-it" class="level2"><h2 class="anchored" data-anchor-id="next-you-break-it">Next, you break it</h2>
+<p>In your workspace, there’s a matrix ttt, that represents the status of a tic-tac-toe game. It contains the values “X”, “O” and “NA”. Print out ttt to get a closer look. On row 1 and column 1, there’s “O”, while on row 3 and column 2 there’s “NA”.</p>
+<p>To solve this exercise, you’ll need a for loop inside a for loop, often called a nested loop. Doing this in R is a breeze! Simply use the following recipe:</p>
+<div class="sourceCode" id="cb126" data-code-line-numbers="false"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">var1</span> <span class="kw">in</span> <span class="va">seq1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">var2</span> <span class="kw">in</span> <span class="va">seq2</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">expr</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="instructions-100-xp-79" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-79">Instructions <code>100 XP</code>
+</h3>
+<p>Finish the nested for loops to go over the elements in <code>ttt</code>:</p>
+<ul>
+<li>The outer loop should loop over the rows, with loop index <code>i</code> (use <code>1:nrow(ttt)</code>).</li>
+<li>The inner loop should loop over the columns, with loop index <code>j</code> (use <code>1:ncol(ttt)</code>).</li>
+<li>Inside the inner loop, make use of print() and paste() to print out information in the following format: “On row i and column j the board contains x”, where x is the value on that position.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_018.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The tic-tac-toe matrix ttt has already been defined for you</span></span>
+<span></span>
+<span><span class="co"># define the double for loop</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">ttt</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">ttt</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
+<span>        <span class="st">"On row"</span>,</span>
+<span>        <span class="va">i</span>,</span>
+<span>        <span class="st">" and column"</span>,</span>
+<span>        <span class="va">j</span>,</span>
+<span>        <span class="st">"the board contains"</span>,</span>
+<span>        <span class="va">ttt</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="mix-it-up-with-control-flow" class="level2"><h2 class="anchored" data-anchor-id="mix-it-up-with-control-flow">Mix it up with control flow</h2>
+<p>Let’s return to the LinkedIn profile views data, stored in a vector <code>linkedin</code>. In the first exercise on <code>for</code> loops you already did a simple printout of each element in this vector. A little more in-depth interpretation of this data wouldn’t hurt, right? Time to throw in some conditionals! As with the <code>while</code> loop, you can use the <code>if</code> and <code>else</code> statements inside the <code>for</code> loop.</p>
+<section id="instructions-100-xp-80" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-80">Instructions <code>100 XP</code>
+</h3>
+<p>Add code to the <code>for</code> loop that loops over the elements of the <code>linkedin</code> vector:</p>
+<ul>
+<li>If the vector element’s value exceeds 10, print out “You’re popular!”.</li>
+<li>If the vector element’s value does not exceed 10, print out “Be more visible!”</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_019.r</strong></pre>
+</div>
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The linkedin vector has already been defined for you</span></span>
+<span><span class="va">linkedin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">9</span>, <span class="fl">13</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">17</span>, <span class="fl">14</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Code the for loop with conditionals</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">li</span> <span class="kw">in</span> <span class="va">linkedin</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span> <span class="va">li</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"You're popular!"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Be more visible!"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">li</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="next-you-break-it" class="level2"><h2 class="anchored" data-anchor-id="next-you-break-it">Next, you break it</h2>
+<p>A possible solution to the previous exercise has been provided for you. The code loops over the linkedin vector and prints out different messages depending on the values of li.</p>
+<p>In this exercise, you will use the break and next statements:</p>
+<p>The break statement abandons the active loop: the remaining code in the loop is skipped and the loop is not iterated over anymore. The next statement skips the remainder of the code in the loop, but continues the iteration.</p>
+<p>Instructions <code>100 XP</code> Extend the for loop with two new, separate if tests as follows:</p>
+<ul>
+<li>If the vector element’s value exceeds 16, print out “This is ridiculous, I’m outta here!” and have R abandon the for loop (break).</li>
+<li>If the value is lower than 5, print out “This is too embarrassing!” and fast-forward to the next iteration (next).</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_019.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The linkedin vector has already been defined for you</span></span>
+<span><span class="va">linkedin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">9</span>, <span class="fl">13</span>, <span class="fl">5</span>, <span class="fl">2</span>, <span class="fl">17</span>, <span class="fl">14</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Adapt/extend the for loop</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">li</span> <span class="kw">in</span> <span class="va">linkedin</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">li</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"You're popular!"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Be more visible!"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="co"># Add if statement with break</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">li</span> <span class="op">&gt;</span> <span class="fl">16</span> <span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"This is ridiculous, I'm outta here!"</span><span class="op">)</span></span>
+<span>    <span class="kw">break</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="co"># Add if statement with next</span></span>
+<span>  </span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">li</span> <span class="op">&lt;</span> <span class="fl">5</span><span class="op">)</span><span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"This is too embarrassing!"</span><span class="op">)</span>    </span>
+<span>      <span class="kw">next</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">li</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="build-a-for-loop-from-scratch" class="level2"><h2 class="anchored" data-anchor-id="build-a-for-loop-from-scratch">Build a for loop from scratch</h2>
-</section></section><section id="best-coding-practices-for-r" class="level1"><h1>Best Coding Practices for R</h1>
+<p>This exercise will not introduce any new concepts on for loops.</p>
+<p>We already went ahead and defined a variable rquote. This variable has been split up into a vector that contains separate letters and has been stored in a vector chars with the strsplit() function.</p>
+<p>Can you write code that counts the number of r’s that come before the first u in rquote?</p>
+<section id="instructions-100-xp-81" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-81">Instructions <code>100 XP</code>
+</h3>
+<ul>
+<li>Initialize the variable rcount, as 0.</li>
+<li>Finish the for loop:
+<ul>
+<li>if char equals “r”, increase the value of rcount by 1.</li>
+<li>if char equals “u”, leave the for loop entirely with a break.</li>
+</ul>
+</li>
+<li>Finally, print out the variable rcount to the console to see if your code is correct.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_020.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Pre-defined variables</span></span>
+<span><span class="va">rquote</span> <span class="op">&lt;-</span> <span class="st">"r's internals are irrefutably intriguing"</span></span>
+<span><span class="va">chars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">rquote</span>, split <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Initialize rcount</span></span>
+<span><span class="va">rcount</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span></span>
+<span><span class="co"># Finish the for loop</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">char</span> <span class="kw">in</span> <span class="va">chars</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">char</span> <span class="op">==</span> <span class="st">"r"</span><span class="op">)</span><span class="op">{</span></span>
+<span>      <span class="va">rcount</span> <span class="op">&lt;-</span> <span class="va">rcount</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">char</span> <span class="op">==</span> <span class="st">"u"</span><span class="op">)</span><span class="op">{</span></span>
+<span>      <span class="kw">break</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Print out rcount</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">rcount</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section></section><section id="best-coding-practices-for-r" class="level1"><h1>Best Coding Practices for R</h1>
 <section id="what-we-mean-when-say-better-coding-practice" class="level2"><h2 class="anchored" data-anchor-id="what-we-mean-when-say-better-coding-practice">What we mean when say “better coding practice”</h2>
 <p>R programmers have a bad reputation writing bad code. Perhaps the main reason is that the people whose write much of the package are not programmers but scientific from other areas. Sometimes we overestimate crucial aspects from a programming standpoint. As R programmers we overcome to write the code for production. Mostly we write scripts and when we deploy it the same when we just wrap it in a function and perhaps a package. It is common to face poorly written code—<strong>columns were referred by numbers, functions were dependent upon global environment variables, 50+ lines functions without arguments and with over-sized lines code 100 characters or more, not indentation, poor naming, conventions</strong> etc,…,.</p>
 <p>We strongly encourage to use a style. Yea I know, there is not a unique way to do it, but the philosophy is to follow a consistent style. With respect to this regard made yourself a favor and read this great book for R</p>
@@ -3282,79 +3437,79 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb126" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuts and bolts: Data types {.unnumbered}</span></span>
-<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entering Input: the assigment operator {.unnumbered}</span></span>
-<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-5"><a href="#cb126-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
-<span id="cb126-6"><a href="#cb126-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
-<span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
-<span id="cb126-8"><a href="#cb126-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-9"><a href="#cb126-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
-<span id="cb126-10"><a href="#cb126-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-11"><a href="#cb126-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
-<span id="cb126-12"><a href="#cb126-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-13"><a href="#cb126-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
-<span id="cb126-14"><a href="#cb126-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-15"><a href="#cb126-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
-<span id="cb126-16"><a href="#cb126-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-17"><a href="#cb126-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
-<span id="cb126-18"><a href="#cb126-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-19"><a href="#cb126-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_05.qmd &gt;}}</span>
-<span id="cb126-20"><a href="#cb126-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-21"><a href="#cb126-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_06.qmd &gt;}}</span>
-<span id="cb126-22"><a href="#cb126-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-23"><a href="#cb126-23" aria-hidden="true" tabindex="-1"></a><span class="fu"># Relational and logical operators, and conditional statements.{.unnumberd} </span></span>
-<span id="cb126-24"><a href="#cb126-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-25"><a href="#cb126-25" aria-hidden="true" tabindex="-1"></a>{{&lt; include _intermediate_r_01.qmd &gt;}}</span>
-<span id="cb126-26"><a href="#cb126-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Loops</span></span>
-<span id="cb126-27"><a href="#cb126-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-28"><a href="#cb126-28" aria-hidden="true" tabindex="-1"></a>{{&lt; include _intermediate_r_02.qmd &gt;}}</span>
-<span id="cb126-29"><a href="#cb126-29" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
-<span id="cb126-30"><a href="#cb126-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-31"><a href="#cb126-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
-<span id="cb126-32"><a href="#cb126-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-33"><a href="#cb126-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
-<span id="cb126-34"><a href="#cb126-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-35"><a href="#cb126-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
-<span id="cb126-36"><a href="#cb126-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-37"><a href="#cb126-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
-<span id="cb126-38"><a href="#cb126-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-39"><a href="#cb126-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
-<span id="cb126-40"><a href="#cb126-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-41"><a href="#cb126-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
-<span id="cb126-42"><a href="#cb126-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-43"><a href="#cb126-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
-<span id="cb126-44"><a href="#cb126-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-45"><a href="#cb126-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
-<span id="cb126-46"><a href="#cb126-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-47"><a href="#cb126-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
-<span id="cb126-48"><a href="#cb126-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-49"><a href="#cb126-49" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
-<span id="cb126-50"><a href="#cb126-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-51"><a href="#cb126-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
-<span id="cb126-52"><a href="#cb126-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-53"><a href="#cb126-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
-<span id="cb126-54"><a href="#cb126-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-55"><a href="#cb126-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
-<span id="cb126-56"><a href="#cb126-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-57"><a href="#cb126-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
-<span id="cb126-58"><a href="#cb126-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-59"><a href="#cb126-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
-<span id="cb126-60"><a href="#cb126-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-61"><a href="#cb126-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
-<span id="cb126-62"><a href="#cb126-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-63"><a href="#cb126-63" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
-<span id="cb126-64"><a href="#cb126-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-65"><a href="#cb126-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
-<span id="cb126-66"><a href="#cb126-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-67"><a href="#cb126-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
-<span id="cb126-68"><a href="#cb126-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-69"><a href="#cb126-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
-<span id="cb126-70"><a href="#cb126-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-71"><a href="#cb126-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
-<span id="cb126-72"><a href="#cb126-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-73"><a href="#cb126-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb131" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuts and bolts: Data types {.unnumbered}</span></span>
+<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entering Input: the assigment operator {.unnumbered}</span></span>
+<span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-5"><a href="#cb131-5" aria-hidden="true" tabindex="-1"></a>The thing that we type on the R console prompt are expressions. The firs </span>
+<span id="cb131-6"><a href="#cb131-6" aria-hidden="true" tabindex="-1"></a>expression we discuses here is the assignment operator, please watch the </span>
+<span id="cb131-7"><a href="#cb131-7" aria-hidden="true" tabindex="-1"></a>following video <span class="ot">&lt;https://www.youtube.com/watch?v=vGY5i_J2c-c&amp;t=283s&gt;</span></span>
+<span id="cb131-8"><a href="#cb131-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-9"><a href="#cb131-9" aria-hidden="true" tabindex="-1"></a>{{&lt; include _atomic_objects.qmd &gt;}} </span>
+<span id="cb131-10"><a href="#cb131-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-11"><a href="#cb131-11" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_01.qmd &gt;}}</span>
+<span id="cb131-12"><a href="#cb131-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-13"><a href="#cb131-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_02.qmd &gt;}}</span>
+<span id="cb131-14"><a href="#cb131-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-15"><a href="#cb131-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_03.qmd &gt;}}</span>
+<span id="cb131-16"><a href="#cb131-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-17"><a href="#cb131-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_04.qmd &gt;}}</span>
+<span id="cb131-18"><a href="#cb131-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-19"><a href="#cb131-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_05.qmd &gt;}}</span>
+<span id="cb131-20"><a href="#cb131-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-21"><a href="#cb131-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include _introduction_to_r_06.qmd &gt;}}</span>
+<span id="cb131-22"><a href="#cb131-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-23"><a href="#cb131-23" aria-hidden="true" tabindex="-1"></a><span class="fu"># Relational and logical operators, and conditional statements.{.unnumberd} </span></span>
+<span id="cb131-24"><a href="#cb131-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-25"><a href="#cb131-25" aria-hidden="true" tabindex="-1"></a>{{&lt; include _intermediate_r_01.qmd &gt;}}</span>
+<span id="cb131-26"><a href="#cb131-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Loops</span></span>
+<span id="cb131-27"><a href="#cb131-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-28"><a href="#cb131-28" aria-hidden="true" tabindex="-1"></a>{{&lt; include _intermediate_r_02.qmd &gt;}}</span>
+<span id="cb131-29"><a href="#cb131-29" aria-hidden="true" tabindex="-1"></a><span class="fu"># Best Coding Practices for R</span></span>
+<span id="cb131-30"><a href="#cb131-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-31"><a href="#cb131-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we mean when say "better coding practice"</span></span>
+<span id="cb131-32"><a href="#cb131-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-33"><a href="#cb131-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include _best_coding_practices.qmd &gt;}}</span>
+<span id="cb131-34"><a href="#cb131-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-35"><a href="#cb131-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Folder Structure</span></span>
+<span id="cb131-36"><a href="#cb131-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-37"><a href="#cb131-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Structure</span></span>
+<span id="cb131-38"><a href="#cb131-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-39"><a href="#cb131-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sections</span></span>
+<span id="cb131-40"><a href="#cb131-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-41"><a href="#cb131-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structural Composition</span></span>
+<span id="cb131-42"><a href="#cb131-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-43"><a href="#cb131-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identation</span></span>
+<span id="cb131-44"><a href="#cb131-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-45"><a href="#cb131-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Styling</span></span>
+<span id="cb131-46"><a href="#cb131-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-47"><a href="#cb131-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Comments</span></span>
+<span id="cb131-48"><a href="#cb131-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-49"><a href="#cb131-49" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tidyverse Fundamentals with R {.unnumbered}</span></span>
+<span id="cb131-50"><a href="#cb131-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-51"><a href="#cb131-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Tidyverse</span></span>
+<span id="cb131-52"><a href="#cb131-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-53"><a href="#cb131-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data with tidyr</span></span>
+<span id="cb131-54"><a href="#cb131-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-55"><a href="#cb131-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project</span></span>
+<span id="cb131-56"><a href="#cb131-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-57"><a href="#cb131-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling with Data in the Tidyverse</span></span>
+<span id="cb131-58"><a href="#cb131-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-59"><a href="#cb131-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communication with Data in the Tidyverse</span></span>
+<span id="cb131-60"><a href="#cb131-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-61"><a href="#cb131-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Categorical Data in the Tydiverse</span></span>
+<span id="cb131-62"><a href="#cb131-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-63"><a href="#cb131-63" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Manipulation {.unnumbered}</span></span>
+<span id="cb131-64"><a href="#cb131-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-65"><a href="#cb131-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with dplyr</span></span>
+<span id="cb131-66"><a href="#cb131-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-67"><a href="#cb131-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with dplyr</span></span>
+<span id="cb131-68"><a href="#cb131-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-69"><a href="#cb131-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case Study: Exploratory Data Analysis in R</span></span>
+<span id="cb131-70"><a href="#cb131-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-71"><a href="#cb131-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Manipulation with data.table in R</span></span>
+<span id="cb131-72"><a href="#cb131-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-73"><a href="#cb131-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joining Data with data.table in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
