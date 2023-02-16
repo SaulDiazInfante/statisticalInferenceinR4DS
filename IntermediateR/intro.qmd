@@ -3,7 +3,7 @@ execute:
   echo: false
 format:
   html: 
-    theme: darkly
+    theme: morph
     fig-width: 8
     fig-height: 4
     code-fold: true

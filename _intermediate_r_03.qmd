@@ -44,9 +44,7 @@ A quick hack to see the arguments of the `sample()` function is the
 ``` {.r code-line-numbers="false"}
 args(sample)
 ```
-In the next exercises, you'll be learning how to use the `mean()` function with 
-increasing complexity. The first thing you'll have to do is get acquainted with 
-the `mean()` function.
+In the next exercises, you'll be learning how to use the `mean()` function with increasing complexity. The first thing you'll have to do is get acquainted with the `mean()` function.
 
 ### Instructions `100 XP` {.unnumbered}
 
@@ -70,7 +68,7 @@ function gives us quite some information:
 - The `mean()` function computes the arithmetic mean.
 - The most general method takes multiple arguments: `x` and `...`.
 - The `x` argument should be a vector containing numeric, logical or 
- time-related information.
+time-related information.
 
 Remember that R can match arguments both by position and by name. Can 
 you still remember the difference? You'll find out in this exercise!
@@ -82,10 +80,10 @@ and `facebook` vectors and have already been created for you.
 ### Instructions `100 XP` {.unnumbered}
 
 - Calculate the average number of views for both `linkedin` and 
-`facebook` and assign the result to avg_li and `avg_fb`, respectively.
-Experiment with different types of argument matching!
+`facebook` and assign the result to avg_li and `avg_fb`, respectively. Experiment with 
+different types of argument matching!
 
-- Print out both `avg_li` and `avg_fb`.
+-Print out both `avg_li` and `avg_fb`.
 
 ```{.r filename="ex_022.R"}
 # The linkedin and facebook vectors have already been created for you
@@ -183,7 +181,7 @@ console.
 tell R to strip missing values from the input vector.
 
 ```{.r filename="ex_024.R"}
- # The linkedin and facebook vectors have already been created for you
+# The linkedin and facebook vectors have already been created for you
 linkedin <- c(16, 9, 13, 5, NA, 17, 14)
 facebook <- c(17, NA, 5, 16, 8, 13, 14)
 
@@ -228,7 +226,7 @@ function! Before you have a go at it, have a look at the following
 function template:
 ```{.r code-line-numbers="false"}
 my_fun <- function(arg1, arg2) {
-  body
+body
 }
 ```
 Notice that this recipe uses the assignment operator (`<-`)
@@ -253,7 +251,7 @@ afterwards.
 # Create a function pow_two()
 
 pow_two <- function(x) {
-    x ^ 2 
+  x ^ 2 
 }
 
 # Use the function
@@ -262,7 +260,7 @@ pow_two(12)
 # Create a function sum_abs()
 
 sum_abs <- function(x1, x2){
-    abs(x1 + x2)
+  abs(x1 + x2)
 }
 
 # Use the function
@@ -273,12 +271,12 @@ sum_abs(-2, 3)
 There are situations in which your function does not require an input. Let's say
 you want to write a function that gives us the random outcome of throwing a fair 
 die:
-
 ```{.r code-line-numbers="false"}
 throw_die <- function() {
-  number <- sample(1:6, size = 1)
-  number
+number <- sample(1:6, size = 1)
+number
 }
+
 throw_die()
 ```
 
@@ -293,8 +291,8 @@ has no arguments.
 ```{.r filename="ex_027.R"}
 # Define the function hello()
 hello <- function(){
-    print("Hi there!")
-    return TRUE
+  print("Hi there!")
+  return TRUE
 }
 
 # Call the function hello()
@@ -320,7 +318,7 @@ use the following recipe to do so:
 
 ```{.r code-line-numbers="false"}
 my_fun <- function(arg1, arg2 = val2) {
-  body
+body
 }
 ```
 
@@ -337,15 +335,14 @@ be executed if `print_info` is `TRUE`.
 ```{.r filename=ex_028.R}
 # Finish the pow_two() function
 pow_two <- function(x, print_info = TRUE) {
-  y <- x ^ 2
-  if(print_info){
-    print(paste(x, "to the power two equals", y))
-  }
-  return(y)
+y <- x ^ 2
+if(print_info){
+  print(paste(x, "to the power two equals", y))
+}
+return(y)
 }
 ```
 ## Function scoping
-
 An issue that Filip did not discuss in the video is function scoping. It implies
 that variables that are defined inside a function are not accessible outside 
 that function. Try running the following code and see if you understand the 
@@ -353,8 +350,8 @@ results:
 
 ```{.r code-line-numbers="false"}
 pow_two <- function(x) {
-  y <- x ^ 2
-  return(y)
+y <- x ^ 2
+return(y)
 }
 pow_two(4)
 y
@@ -369,10 +366,10 @@ The function `two_dice()` is already available in the workspace.
 
 ```{.r code-line-numbers="false"}
 two_dice <- function() {
-  possibilities <- 1:6
-  dice1 <- sample(possibilities, size = 1)
-  dice2 <- sample(possibilities, size = 1)
-  dice1 + dice2
+possibilities <- 1:6
+dice1 <- sample(possibilities, size = 1)
+dice2 <- sample(possibilities, size = 1)
+dice1 + dice2
 }
 ``` 
 ### Instructions `50 XP` {.unnumbered}
@@ -388,8 +385,8 @@ input to that function. Let's look at a simple example (try it in the console):
 
 ```{.r code-line-numbers="false"}
 triple <- function(x) {
-  x <- 3*x
-  x
+x <- 3*x
+x
 }
 a <- 5
 triple(a)
@@ -410,8 +407,8 @@ piece of code?
 
 ```{.r code-line-numbers="false"}
 increment <- function(x, inc = 1) {
-  x <- x + inc
-  x
+x <- x + inc
+x
 }
 count <- 5
 a <- increment(count, 2)
@@ -451,13 +448,13 @@ vector and on the second element of the facebook vector.
 
 # Define the interpret function
 interpret <- function(num_views) {
-  if (num_views > 15) {
-    print("You're popular!")
-    return(num_views)
-  } else {
-    print("Try to be more visible!")
-    return(0)
-  }
+if (num_views > 15) {
+  print("You're popular!")
+  return(num_views)
+} else {
+  print("Try to be more visible!")
+  return(0)
+}
 }
 
 # Call the interpret function twice
@@ -495,30 +492,30 @@ facebook <- c(17, 7, 5, 16, 8, 13, 14)
 
 # The interpret() can be used inside interpret_all()
 interpret <- function(num_views) {
-  if (num_views > 15) {
-    print("You're popular!")
-    return(num_views)
-  } else {
-    print("Try to be more visible!")
-    return(0)
-  }
+if (num_views > 15) {
+  print("You're popular!")
+  return(num_views)
+} else {
+  print("Try to be more visible!")
+  return(0)
+}
 }
 
 # Define the interpret_all() function
 # views: vector with data to interpret
 # return_sum: return total number of views on popular days?
 interpret_all <- function(views, return_sum = TRUE) {
-  count <- 0
+count <- 0
 
-  for (v in views) {
-    count <- count + interpret(v)
-  }
+for (v in views) {
+  count <- count + interpret(v)
+}
 
-  if (return_sum) {
-    return (count)
-  } else {
-    return (NULL)
-  }
+if (return_sum) {
+  return (count)
+} else {
+  return (NULL)
+}
 }
 
 # Call the interpret_all() function on both linkedin and facebook
@@ -602,4 +599,4 @@ The console is yours to experiment in.
 ### Instructions `50 XP` {.unnumbered}
 
 *Possible Answers: (1) and (2)*
- 
+

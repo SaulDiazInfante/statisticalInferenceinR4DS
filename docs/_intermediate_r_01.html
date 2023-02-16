@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IntermediateR - 1&nbsp; Conditionals and Control Flow</title>
+<title>Statistical Inference For Data Science - Relational and logical operators, and conditional statements</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intermediate_r_ch_02.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./_intermediate_r_02.html" rel="next">
+<link href="./background_01.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conditionals and Control Flow</span></h1>
+      <h1 class="quarto-secondary-nav-title">Relational and logical operators, and conditional statements</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">IntermediateR</a> 
+      <a href="./">Statistical Inference For Data Science</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -166,24 +166,104 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./background_00.html" class="sidebar-item-text sidebar-link">R fundamentals in programming, data managment and visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intermediate_r_ch_01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conditionals and Control Flow</span></a>
+  <a href="./r_fundamentals_for_data_science.html" class="sidebar-item-text sidebar-link">Nuts and bolts: Data types</a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intermediate_r_ch_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  <a href="./_introduction_to_r_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to basics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intermediate_r_ch_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="./_introduction_to_r_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lists</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./background_01.html" class="sidebar-item-text sidebar-link">R fundamentals in programming, data managment and visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_01.html" class="sidebar-item-text sidebar-link active">Relational and logical operators, and conditional statements</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./statistical-inference-whole-game.html" class="sidebar-item-text sidebar-link">The whole game of statistical Inference</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -200,50 +280,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#equality" id="toc-equality" class="nav-link active" data-scroll-target="#equality"><span class="toc-section-number">1.1</span>  Equality</a>
+  <li><a href="#conditionals-and-control-flow" id="toc-conditionals-and-control-flow" class="nav-link active" data-scroll-target="#conditionals-and-control-flow">Conditionals and Control Flow</a>
+  <ul class="collapse">
+  <li><a href="#equality" id="toc-equality" class="nav-link" data-scroll-target="#equality">Equality</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#greater-and-less-than" id="toc-greater-and-less-than" class="nav-link" data-scroll-target="#greater-and-less-than"><span class="toc-section-number">1.2</span>  Greater and less than</a>
+  <li><a href="#greater-and-less-than" id="toc-greater-and-less-than" class="nav-link" data-scroll-target="#greater-and-less-than">Greater and less than</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#compare-vectors" id="toc-compare-vectors" class="nav-link" data-scroll-target="#compare-vectors"><span class="toc-section-number">1.3</span>  Compare vectors</a>
+  <li><a href="#compare-vectors" id="toc-compare-vectors" class="nav-link" data-scroll-target="#compare-vectors">Compare vectors</a>
   <ul class="collapse">
-  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2"><span class="toc-section-number">1.3.1</span>  Instructions <code>100 XP</code></a></li>
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#compare-matrices" id="toc-compare-matrices" class="nav-link" data-scroll-target="#compare-matrices"><span class="toc-section-number">1.4</span>  Compare matrices</a>
+  <li><a href="#compare-matrices" id="toc-compare-matrices" class="nav-link" data-scroll-target="#compare-matrices">Compare matrices</a>
   <ul class="collapse">
-  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3"><span class="toc-section-number">1.4.1</span>  Instructions <code>100 XP</code></a></li>
+  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and"><span class="toc-section-number">1.5</span>  &amp; and |</a>
+  <li><a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and">&amp; and |</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions 100 XP</a></li>
   </ul></li>
-  <li><a href="#and-2" id="toc-and-2" class="nav-link" data-scroll-target="#and-2"><span class="toc-section-number">1.6</span>  &amp; and | (2)</a>
+  <li><a href="#and-2" id="toc-and-2" class="nav-link" data-scroll-target="#and-2">&amp; and | (2)</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#blend-it-all-together" id="toc-blend-it-all-together" class="nav-link" data-scroll-target="#blend-it-all-together"><span class="toc-section-number">1.7</span>  Blend it all together</a>
+  <li><a href="#blend-it-all-together" id="toc-blend-it-all-together" class="nav-link" data-scroll-target="#blend-it-all-together">Blend it all together</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#the-if-statement" id="toc-the-if-statement" class="nav-link" data-scroll-target="#the-if-statement"><span class="toc-section-number">1.8</span>  The if statement</a>
+  <li><a href="#the-if-statement" id="toc-the-if-statement" class="nav-link" data-scroll-target="#the-if-statement">The if statement</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#add-an-else" id="toc-add-an-else" class="nav-link" data-scroll-target="#add-an-else"><span class="toc-section-number">1.9</span>  Add an else</a>
+  <li><a href="#add-an-else" id="toc-add-an-else" class="nav-link" data-scroll-target="#add-an-else">Add an else</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-8" id="toc-instructions-100-xp-8" class="nav-link" data-scroll-target="#instructions-100-xp-8">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#customize-further-else-if" id="toc-customize-further-else-if" class="nav-link" data-scroll-target="#customize-further-else-if"><span class="toc-section-number">1.10</span>  Customize further: else if</a>
+  <li><a href="#customize-further-else-if" id="toc-customize-further-else-if" class="nav-link" data-scroll-target="#customize-further-else-if">Customize further: else if</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-9" id="toc-instructions-100-xp-9" class="nav-link" data-scroll-target="#instructions-100-xp-9">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#else-if-2.0" id="toc-else-if-2.0" class="nav-link" data-scroll-target="#else-if-2.0"><span class="toc-section-number">1.11</span>  Else if 2.0</a></li>
-  <li><a href="#take-control" id="toc-take-control" class="nav-link" data-scroll-target="#take-control"><span class="toc-section-number">1.12</span>  Take control!</a>
+  <li><a href="#else-if-2.0" id="toc-else-if-2.0" class="nav-link" data-scroll-target="#else-if-2.0">Else if 2.0</a></li>
+  <li><a href="#take-control" id="toc-take-control" class="nav-link" data-scroll-target="#take-control">Take control!</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-10" id="toc-instructions-100-xp-10" class="nav-link" data-scroll-target="#instructions-100-xp-10">Instructions <code>100 XP</code></a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -253,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conditionals and Control Flow</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Relational and logical operators, and conditional statements</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 </div>
 
 
@@ -268,9 +351,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="conditionals-and-control-flow" class="level1">
+<h1>Conditionals and Control Flow</h1>
 <p>In this chapter, you’ll learn about relational operators for comparing R objects, and logical operators like “and” and “or” for combining TRUE and FALSE values. Then, you’ll use this knowledge to build conditional statements.</p>
-<section id="equality" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="equality"><span class="header-section-number">1.1</span> Equality</h2>
+<section id="equality" class="level2">
+<h2 class="anchored" data-anchor-id="equality">Equality</h2>
 <p>The most basic form of comparison is equality. Let’s briefly recap its syntax. The following statements all evaluate to <code>TRUE</code> (feel free to try them out in the console).</p>
 <div class="sourceCode" id="cb1" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">==</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">"intermediate"</span> <span class="sc">!=</span> <span class="st">"r"</span></span>
@@ -303,8 +388,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="greater-and-less-than" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="greater-and-less-than"><span class="header-section-number">1.2</span> Greater and less than</h2>
+<section id="greater-and-less-than" class="level2">
+<h2 class="anchored" data-anchor-id="greater-and-less-than">Greater and less than</h2>
 <p>Apart from equality operators, Filip also introduced the less than and greater than operators: &lt; and &gt;. You can also add an equal sign to express less than or equal to or greater than or equal to, respectively. Have a look at the following R expressions, that all evaluate to FALSE:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">&gt;</span> <span class="dv">4</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="st">"dog"</span> <span class="sc">&lt;</span> <span class="st">"Cats"</span></span>
@@ -335,12 +420,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="compare-vectors" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="compare-vectors"><span class="header-section-number">1.3</span> Compare vectors</h2>
+<section id="compare-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="compare-vectors">Compare vectors</h2>
 <p>You are already aware that R is very good with vectors. Without having to change anything about the syntax, R’s relational operators also work on vectors.</p>
 <p>Let’s go back to the example that was started in the video. You want to figure out whether your activity on social media platforms have paid off and decide to look at your results for LinkedIn and Facebook. The sample code in the editor initializes the vectors linkedin and facebook. Each of the vectors contains the number of profile views your LinkedIn and Facebook profiles had over the last seven days.</p>
-<section id="instructions-100-xp-2" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="instructions-100-xp-2"><span class="header-section-number">1.3.1</span> Instructions <code>100 XP</code></h3>
+<section id="instructions-100-xp-2" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
 <p>Using relational operators, find a logical answer, i.e.&nbsp;<code>TRUE</code> or <code>FALSE</code>, for the following questions:</p>
 <ul>
 <li>On which days did the number of LinkedIn profile views exceed 15? When was your</li>
@@ -367,12 +452,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="compare-matrices" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="compare-matrices"><span class="header-section-number">1.4</span> Compare matrices</h2>
+<section id="compare-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="compare-matrices">Compare matrices</h2>
 <p>R’s ability to deal with different data structures for comparisons does not stop at vectors. Matrices and relational operators also work together seamlessly!</p>
 <p>Instead of in vectors (as in the previous exercise), the LinkedIn and Facebook data is now stored in a matrix called <code>views</code>. The first row contains the LinkedIn information; the second row the Facebook information. The original vectors <code>facebook</code> and <code>linkedin</code> are still available as well.</p>
-<section id="instructions-100-xp-3" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="instructions-100-xp-3"><span class="header-section-number">1.4.1</span> Instructions <code>100 XP</code></h3>
+<section id="instructions-100-xp-3" class="level3">
+<h3 class="anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
 <p>Using the relational operators you’ve learned so far, try to discover the following:</p>
 <ul>
 <li><p>When were the views exactly equal to 13? Use the views matrix to return a logical matrix.</p></li>
@@ -396,8 +481,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="and" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="and"><span class="header-section-number">1.5</span> &amp; and |</h2>
+<section id="and" class="level2">
+<h2 class="anchored" data-anchor-id="and">&amp; and |</h2>
 <p>Before you work your way through the next exercises, have a look at the following R expressions. All of them will evaluate to TRUE:</p>
 <div class="sourceCode" id="cb7" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">TRUE</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">|</span> <span class="cn">TRUE</span></span>
@@ -428,8 +513,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="and-2" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="and-2"><span class="header-section-number">1.6</span> &amp; and | (2)</h2>
+<section id="and-2" class="level2">
+<h2 class="anchored" data-anchor-id="and-2">&amp; and | (2)</h2>
 <p>Like relational operators, logical operators work perfectly fine with vectors and matrices.</p>
 <p>Both the vectors <code>linkedin</code> and <code>facebook</code> are available again. Also a matrix -<code>views</code>- has been defined; its first and second row correspond to the <code>linkedin</code> and <code>facebook</code> vectors, respectively. Ready for some advanced queries to gain more insights into your social outreach?</p>
 <section id="instructions-100-xp-5" class="level3 unnumbered">
@@ -458,8 +543,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="blend-it-all-together" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="blend-it-all-together"><span class="header-section-number">1.7</span> Blend it all together</h2>
+<section id="blend-it-all-together" class="level2">
+<h2 class="anchored" data-anchor-id="blend-it-all-together">Blend it all together</h2>
 <p>With the things you’ve learned by now, you’re able to solve pretty cool problems.</p>
 <p>Instead of recording the number of views for your own LinkedIn profile, suppose you conducted a survey inside the company you’re working for. You’ve asked every employee with a LinkedIn profile how many visits their profile has had over the past seven days. You stored the results in a data frame called <code>li_df</code>. This data frame is available in the workspace; type <code>li_df</code> in the console to check it out.</p>
 <section id="instructions-100-xp-6" class="level3 unnumbered">
@@ -488,8 +573,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="the-if-statement" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="the-if-statement"><span class="header-section-number">1.8</span> The if statement</h2>
+<section id="the-if-statement" class="level2">
+<h2 class="anchored" data-anchor-id="the-if-statement">The if statement</h2>
 <p>Before diving into some exercises on the if statement, have another look at its syntax:</p>
 <div class="sourceCode" id="cb11" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition) {</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  expr</span>
@@ -521,8 +606,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="add-an-else" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="add-an-else"><span class="header-section-number">1.9</span> Add an else</h2>
+<section id="add-an-else" class="level2">
+<h2 class="anchored" data-anchor-id="add-an-else">Add an else</h2>
 <p>You can only use an else statement in combination with an if statement. The else statement does not require a condition; its corresponding code is simply run if all of the preceding conditions in the control structure are FALSE. Here’s a recipe for its usage:</p>
 <div class="sourceCode" id="cb13" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition) {</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  expr1</span>
@@ -561,8 +646,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="customize-further-else-if" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="customize-further-else-if"><span class="header-section-number">1.10</span> Customize further: else if</h2>
+<section id="customize-further-else-if" class="level2">
+<h2 class="anchored" data-anchor-id="customize-further-else-if">Customize further: else if</h2>
 <p>The <code>else if</code> statement allows you to further customize your control structure. You can add as many <code>else if</code> statements as you like. Keep in mind that R ignores the remainder of the control structure once a condition has been found that is TRUE and the corresponding expressions have been executed. Here’s an overview of the syntax to freshen your memory:</p>
 <div class="sourceCode" id="cb15" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition1) {</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  expr1</span>
@@ -611,8 +696,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="else-if-2.0" class="level2" data-number="1.11">
-<h2 data-number="1.11" class="anchored" data-anchor-id="else-if-2.0"><span class="header-section-number">1.11</span> Else if 2.0</h2>
+<section id="else-if-2.0" class="level2">
+<h2 class="anchored" data-anchor-id="else-if-2.0">Else if 2.0</h2>
 <p>You can do anything you want inside if-else constructs. You can even put in another set of conditional statements. Examine the following code chunk:</p>
 <div class="sourceCode" id="cb17" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">5</span>) {</span>
@@ -638,8 +723,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Run the code or a handwrite test (1, 3).</p>
 </blockquote>
 </section>
-<section id="take-control" class="level2" data-number="1.12">
-<h2 data-number="1.12" class="anchored" data-anchor-id="take-control"><span class="header-section-number">1.12</span> Take control!</h2>
+<section id="take-control" class="level2">
+<h2 class="anchored" data-anchor-id="take-control">Take control!</h2>
 <p>In this exercise, you will combine everything that you’ve learned so far: relational operators, logical operators and control constructs. You’ll need it all!</p>
 <p>We’ve pre-defined two values for you: <code>li</code> and <code>fb</code>, denoting the number of profile views your LinkedIn and Facebook profile had on the last day of recordings. Go through the instructions to create R code that generates a ‘social media score’, sms, based on the values of <code>li</code> and <code>fb</code>.</p>
 <section id="instructions-100-xp-10" class="level3 unnumbered">
@@ -675,6 +760,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <!-- -->
 
+</section>
 </section>
 </section>
 
@@ -865,13 +951,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      <a href="./background_01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R fundamentals in programming, data managment and visualization</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intermediate_r_ch_02.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Loops</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./_intermediate_r_02.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -895,483 +981,485 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-18"><a href="#cb19-18"></a><span class="co">      caption: none</span></span>
 <span id="cb19-19"><a href="#cb19-19"></a><span class="co">---</span></span>
 <span id="cb19-20"><a href="#cb19-20"></a></span>
-<span id="cb19-21"><a href="#cb19-21"></a><span class="fu"># Conditionals and Control Flow</span></span>
-<span id="cb19-22"><a href="#cb19-22"></a>In this chapter, you'll learn about relational operators for comparing R</span>
-<span id="cb19-23"><a href="#cb19-23"></a>objects, and logical operators like "and" and "or" for combining TRUE and FALSE</span>
-<span id="cb19-24"><a href="#cb19-24"></a>values. Then, you'll use this knowledge to build conditional statements.</span>
-<span id="cb19-25"><a href="#cb19-25"></a></span>
-<span id="cb19-26"><a href="#cb19-26"></a><span class="fu">## Equality</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a><span class="fu"># Relational and logical operators, and conditional statements {.unnumbered}</span></span>
+<span id="cb19-22"><a href="#cb19-22"></a></span>
+<span id="cb19-23"><a href="#cb19-23"></a><span class="fu"># Conditionals and Control Flow</span></span>
+<span id="cb19-24"><a href="#cb19-24"></a>In this chapter, you'll learn about relational operators for comparing R</span>
+<span id="cb19-25"><a href="#cb19-25"></a>objects, and logical operators like "and" and "or" for combining TRUE and FALSE</span>
+<span id="cb19-26"><a href="#cb19-26"></a>values. Then, you'll use this knowledge to build conditional statements.</span>
 <span id="cb19-27"><a href="#cb19-27"></a></span>
-<span id="cb19-28"><a href="#cb19-28"></a>The most basic form of comparison is equality. Let's briefly recap its syntax. </span>
-<span id="cb19-29"><a href="#cb19-29"></a>The following statements all evaluate to <span class="in">`TRUE`</span> </span>
-<span id="cb19-30"><a href="#cb19-30"></a>(feel free to try them out in the console).</span>
-<span id="cb19-31"><a href="#cb19-31"></a></span>
-<span id="cb19-32"><a href="#cb19-32"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb19-33"><a href="#cb19-33"></a><span class="dv">3</span> <span class="sc">==</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb19-34"><a href="#cb19-34"></a><span class="st">"intermediate"</span> <span class="sc">!=</span> <span class="st">"r"</span></span>
-<span id="cb19-35"><a href="#cb19-35"></a><span class="cn">TRUE</span> <span class="sc">!=</span> <span class="cn">FALSE</span></span>
-<span id="cb19-36"><a href="#cb19-36"></a><span class="st">"Rchitect"</span> <span class="sc">!=</span> <span class="st">"rchitect"</span></span>
-<span id="cb19-37"><a href="#cb19-37"></a><span class="in">```</span></span>
-<span id="cb19-38"><a href="#cb19-38"></a></span>
-<span id="cb19-39"><a href="#cb19-39"></a>Notice from the last expression that R is case sensitive: </span>
-<span id="cb19-40"><a href="#cb19-40"></a>"R" is not equal to "r". Keep this in mind when solving the</span>
-<span id="cb19-41"><a href="#cb19-41"></a> exercises in this chapter!</span>
-<span id="cb19-42"><a href="#cb19-42"></a></span>
-<span id="cb19-43"><a href="#cb19-43"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb19-44"><a href="#cb19-44"></a><span class="ss">- </span>In the editor on the right, write R code to see if <span class="in">`TRUE`</span> equals <span class="in">`FALSE`</span>.</span>
-<span id="cb19-45"><a href="#cb19-45"></a><span class="ss">- </span>Likewise, check if <span class="in">`-6 * 14`</span> is not equal to <span class="in">`17 - 101`</span>.</span>
-<span id="cb19-46"><a href="#cb19-46"></a><span class="ss">- </span>Next up: comparison of character strings. Ask R whether the strings "useR"</span>
-<span id="cb19-47"><a href="#cb19-47"></a> and "user" are equal.</span>
-<span id="cb19-48"><a href="#cb19-48"></a><span class="ss">- </span>Finally, find out what happens if you compare logicals to numerics: </span>
-<span id="cb19-49"><a href="#cb19-49"></a>are <span class="in">`TRUE`</span> and 1 equal?</span>
-<span id="cb19-50"><a href="#cb19-50"></a></span>
-<span id="cb19-51"><a href="#cb19-51"></a><span class="in">```{.r filename="ex_001.R"}</span></span>
-<span id="cb19-52"><a href="#cb19-52"></a><span class="co"># Comparison of logicals</span></span>
-<span id="cb19-53"><a href="#cb19-53"></a><span class="cn">TRUE</span> <span class="sc">==</span> <span class="cn">FALSE</span></span>
-<span id="cb19-54"><a href="#cb19-54"></a></span>
-<span id="cb19-55"><a href="#cb19-55"></a><span class="co"># Comparison of numerics</span></span>
+<span id="cb19-28"><a href="#cb19-28"></a><span class="fu">## Equality</span></span>
+<span id="cb19-29"><a href="#cb19-29"></a></span>
+<span id="cb19-30"><a href="#cb19-30"></a>The most basic form of comparison is equality. Let's briefly recap its syntax. </span>
+<span id="cb19-31"><a href="#cb19-31"></a>The following statements all evaluate to <span class="in">`TRUE`</span> </span>
+<span id="cb19-32"><a href="#cb19-32"></a>(feel free to try them out in the console).</span>
+<span id="cb19-33"><a href="#cb19-33"></a></span>
+<span id="cb19-34"><a href="#cb19-34"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb19-35"><a href="#cb19-35"></a><span class="dv">3</span> <span class="sc">==</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb19-36"><a href="#cb19-36"></a><span class="st">"intermediate"</span> <span class="sc">!=</span> <span class="st">"r"</span></span>
+<span id="cb19-37"><a href="#cb19-37"></a><span class="cn">TRUE</span> <span class="sc">!=</span> <span class="cn">FALSE</span></span>
+<span id="cb19-38"><a href="#cb19-38"></a><span class="st">"Rchitect"</span> <span class="sc">!=</span> <span class="st">"rchitect"</span></span>
+<span id="cb19-39"><a href="#cb19-39"></a><span class="in">```</span></span>
+<span id="cb19-40"><a href="#cb19-40"></a></span>
+<span id="cb19-41"><a href="#cb19-41"></a>Notice from the last expression that R is case sensitive: </span>
+<span id="cb19-42"><a href="#cb19-42"></a>"R" is not equal to "r". Keep this in mind when solving the</span>
+<span id="cb19-43"><a href="#cb19-43"></a> exercises in this chapter!</span>
+<span id="cb19-44"><a href="#cb19-44"></a></span>
+<span id="cb19-45"><a href="#cb19-45"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-46"><a href="#cb19-46"></a><span class="ss">- </span>In the editor on the right, write R code to see if <span class="in">`TRUE`</span> equals <span class="in">`FALSE`</span>.</span>
+<span id="cb19-47"><a href="#cb19-47"></a><span class="ss">- </span>Likewise, check if <span class="in">`-6 * 14`</span> is not equal to <span class="in">`17 - 101`</span>.</span>
+<span id="cb19-48"><a href="#cb19-48"></a><span class="ss">- </span>Next up: comparison of character strings. Ask R whether the strings "useR"</span>
+<span id="cb19-49"><a href="#cb19-49"></a> and "user" are equal.</span>
+<span id="cb19-50"><a href="#cb19-50"></a><span class="ss">- </span>Finally, find out what happens if you compare logicals to numerics: </span>
+<span id="cb19-51"><a href="#cb19-51"></a>are <span class="in">`TRUE`</span> and 1 equal?</span>
+<span id="cb19-52"><a href="#cb19-52"></a></span>
+<span id="cb19-53"><a href="#cb19-53"></a><span class="in">```{.r filename="ex_001.R"}</span></span>
+<span id="cb19-54"><a href="#cb19-54"></a><span class="co"># Comparison of logicals</span></span>
+<span id="cb19-55"><a href="#cb19-55"></a><span class="cn">TRUE</span> <span class="sc">==</span> <span class="cn">FALSE</span></span>
 <span id="cb19-56"><a href="#cb19-56"></a></span>
-<span id="cb19-57"><a href="#cb19-57"></a><span class="sc">-</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">14</span> <span class="sc">!=</span> <span class="dv">17</span> <span class="sc">-</span><span class="dv">101</span></span>
-<span id="cb19-58"><a href="#cb19-58"></a><span class="co"># Comparison of character strings</span></span>
-<span id="cb19-59"><a href="#cb19-59"></a><span class="st">"useR"</span> <span class="sc">==</span> <span class="st">"user"</span></span>
-<span id="cb19-60"><a href="#cb19-60"></a></span>
-<span id="cb19-61"><a href="#cb19-61"></a><span class="co"># Compare a logical with a numeric</span></span>
-<span id="cb19-62"><a href="#cb19-62"></a><span class="cn">TRUE</span> <span class="sc">==</span> <span class="dv">1</span></span>
-<span id="cb19-63"><a href="#cb19-63"></a><span class="in">```</span> </span>
-<span id="cb19-64"><a href="#cb19-64"></a><span class="fu">## Greater and less than</span></span>
-<span id="cb19-65"><a href="#cb19-65"></a></span>
-<span id="cb19-66"><a href="#cb19-66"></a>Apart from equality operators, Filip also introduced the less than and greater</span>
-<span id="cb19-67"><a href="#cb19-67"></a>than operators: &lt; and &gt;. You can also add an equal sign to express less than or</span>
-<span id="cb19-68"><a href="#cb19-68"></a>equal to or greater than or equal to, respectively. Have a look at the </span>
-<span id="cb19-69"><a href="#cb19-69"></a>following R expressions, that all evaluate to FALSE:</span>
-<span id="cb19-70"><a href="#cb19-70"></a></span>
-<span id="cb19-71"><a href="#cb19-71"></a><span class="in">```{.r}</span></span>
-<span id="cb19-72"><a href="#cb19-72"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">&gt;</span> <span class="dv">4</span></span>
-<span id="cb19-73"><a href="#cb19-73"></a><span class="st">"dog"</span> <span class="sc">&lt;</span> <span class="st">"Cats"</span></span>
-<span id="cb19-74"><a href="#cb19-74"></a><span class="cn">TRUE</span> <span class="sc">&lt;=</span> <span class="cn">FALSE</span></span>
-<span id="cb19-75"><a href="#cb19-75"></a><span class="in">```</span></span>
-<span id="cb19-76"><a href="#cb19-76"></a>Remember that for string comparison, R determines the greater than relationship</span>
-<span id="cb19-77"><a href="#cb19-77"></a>based on alphabetical order. Also, keep in mind that </span>
-<span id="cb19-78"><a href="#cb19-78"></a><span class="in">`TRUE`</span> is treated as 1 for arithmetic, and <span class="in">`FALSE`</span> is treated as 0. </span>
-<span id="cb19-79"><a href="#cb19-79"></a>Therefore, <span class="in">`FALSE &lt; TRUE`</span> is <span class="in">`TRUE`</span>.</span>
-<span id="cb19-80"><a href="#cb19-80"></a></span>
-<span id="cb19-81"><a href="#cb19-81"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-57"><a href="#cb19-57"></a><span class="co"># Comparison of numerics</span></span>
+<span id="cb19-58"><a href="#cb19-58"></a></span>
+<span id="cb19-59"><a href="#cb19-59"></a><span class="sc">-</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">14</span> <span class="sc">!=</span> <span class="dv">17</span> <span class="sc">-</span><span class="dv">101</span></span>
+<span id="cb19-60"><a href="#cb19-60"></a><span class="co"># Comparison of character strings</span></span>
+<span id="cb19-61"><a href="#cb19-61"></a><span class="st">"useR"</span> <span class="sc">==</span> <span class="st">"user"</span></span>
+<span id="cb19-62"><a href="#cb19-62"></a></span>
+<span id="cb19-63"><a href="#cb19-63"></a><span class="co"># Compare a logical with a numeric</span></span>
+<span id="cb19-64"><a href="#cb19-64"></a><span class="cn">TRUE</span> <span class="sc">==</span> <span class="dv">1</span></span>
+<span id="cb19-65"><a href="#cb19-65"></a><span class="in">```</span> </span>
+<span id="cb19-66"><a href="#cb19-66"></a><span class="fu">## Greater and less than</span></span>
+<span id="cb19-67"><a href="#cb19-67"></a></span>
+<span id="cb19-68"><a href="#cb19-68"></a>Apart from equality operators, Filip also introduced the less than and greater</span>
+<span id="cb19-69"><a href="#cb19-69"></a>than operators: &lt; and &gt;. You can also add an equal sign to express less than or</span>
+<span id="cb19-70"><a href="#cb19-70"></a>equal to or greater than or equal to, respectively. Have a look at the </span>
+<span id="cb19-71"><a href="#cb19-71"></a>following R expressions, that all evaluate to FALSE:</span>
+<span id="cb19-72"><a href="#cb19-72"></a></span>
+<span id="cb19-73"><a href="#cb19-73"></a><span class="in">```{.r}</span></span>
+<span id="cb19-74"><a href="#cb19-74"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">&gt;</span> <span class="dv">4</span></span>
+<span id="cb19-75"><a href="#cb19-75"></a><span class="st">"dog"</span> <span class="sc">&lt;</span> <span class="st">"Cats"</span></span>
+<span id="cb19-76"><a href="#cb19-76"></a><span class="cn">TRUE</span> <span class="sc">&lt;=</span> <span class="cn">FALSE</span></span>
+<span id="cb19-77"><a href="#cb19-77"></a><span class="in">```</span></span>
+<span id="cb19-78"><a href="#cb19-78"></a>Remember that for string comparison, R determines the greater than relationship</span>
+<span id="cb19-79"><a href="#cb19-79"></a>based on alphabetical order. Also, keep in mind that </span>
+<span id="cb19-80"><a href="#cb19-80"></a><span class="in">`TRUE`</span> is treated as 1 for arithmetic, and <span class="in">`FALSE`</span> is treated as 0. </span>
+<span id="cb19-81"><a href="#cb19-81"></a>Therefore, <span class="in">`FALSE &lt; TRUE`</span> is <span class="in">`TRUE`</span>.</span>
 <span id="cb19-82"><a href="#cb19-82"></a></span>
-<span id="cb19-83"><a href="#cb19-83"></a><span class="ss">- </span>Write R expressions to check whether:</span>
+<span id="cb19-83"><a href="#cb19-83"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
 <span id="cb19-84"><a href="#cb19-84"></a></span>
-<span id="cb19-85"><a href="#cb19-85"></a><span class="ss">- </span><span class="in">`-6 * 5 + 2`</span> is greater than or equal to <span class="in">`-10 + 1`</span>.</span>
-<span id="cb19-86"><a href="#cb19-86"></a><span class="ss">- </span>"raining" is less than or equal to "raining dogs".</span>
-<span id="cb19-87"><a href="#cb19-87"></a><span class="ss">- </span><span class="in">`TRUE`</span> is greater than <span class="in">`FALSE`</span>.</span>
-<span id="cb19-88"><a href="#cb19-88"></a></span>
-<span id="cb19-89"><a href="#cb19-89"></a><span class="in">```{.r filename="ex_002.R"}</span></span>
-<span id="cb19-90"><a href="#cb19-90"></a><span class="co"># Comparison of numerics</span></span>
-<span id="cb19-91"><a href="#cb19-91"></a></span>
-<span id="cb19-92"><a href="#cb19-92"></a><span class="sc">-</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">10</span> <span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb19-85"><a href="#cb19-85"></a><span class="ss">- </span>Write R expressions to check whether:</span>
+<span id="cb19-86"><a href="#cb19-86"></a></span>
+<span id="cb19-87"><a href="#cb19-87"></a><span class="ss">- </span><span class="in">`-6 * 5 + 2`</span> is greater than or equal to <span class="in">`-10 + 1`</span>.</span>
+<span id="cb19-88"><a href="#cb19-88"></a><span class="ss">- </span>"raining" is less than or equal to "raining dogs".</span>
+<span id="cb19-89"><a href="#cb19-89"></a><span class="ss">- </span><span class="in">`TRUE`</span> is greater than <span class="in">`FALSE`</span>.</span>
+<span id="cb19-90"><a href="#cb19-90"></a></span>
+<span id="cb19-91"><a href="#cb19-91"></a><span class="in">```{.r filename="ex_002.R"}</span></span>
+<span id="cb19-92"><a href="#cb19-92"></a><span class="co"># Comparison of numerics</span></span>
 <span id="cb19-93"><a href="#cb19-93"></a></span>
-<span id="cb19-94"><a href="#cb19-94"></a><span class="co"># Comparison of character strings</span></span>
-<span id="cb19-95"><a href="#cb19-95"></a><span class="st">"raining"</span> <span class="sc">&lt;=</span>  <span class="st">"raining dogs"</span></span>
-<span id="cb19-96"><a href="#cb19-96"></a></span>
-<span id="cb19-97"><a href="#cb19-97"></a><span class="co"># Comparison of logicals</span></span>
+<span id="cb19-94"><a href="#cb19-94"></a><span class="sc">-</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">10</span> <span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb19-95"><a href="#cb19-95"></a></span>
+<span id="cb19-96"><a href="#cb19-96"></a><span class="co"># Comparison of character strings</span></span>
+<span id="cb19-97"><a href="#cb19-97"></a><span class="st">"raining"</span> <span class="sc">&lt;=</span>  <span class="st">"raining dogs"</span></span>
 <span id="cb19-98"><a href="#cb19-98"></a></span>
-<span id="cb19-99"><a href="#cb19-99"></a><span class="cn">TRUE</span> <span class="sc">&gt;</span> <span class="cn">FALSE</span></span>
-<span id="cb19-100"><a href="#cb19-100"></a><span class="in">```</span></span>
-<span id="cb19-101"><a href="#cb19-101"></a><span class="fu">## Compare vectors</span></span>
-<span id="cb19-102"><a href="#cb19-102"></a>You are already aware that R is very good with vectors. Without having to change</span>
-<span id="cb19-103"><a href="#cb19-103"></a>anything about the syntax, R's relational operators also work on vectors.</span>
-<span id="cb19-104"><a href="#cb19-104"></a></span>
-<span id="cb19-105"><a href="#cb19-105"></a>Let's go back to the example that was started in the video. You want to figure</span>
-<span id="cb19-106"><a href="#cb19-106"></a>out whether your activity on social media platforms have paid off and decide to</span>
-<span id="cb19-107"><a href="#cb19-107"></a>look at your results for LinkedIn and Facebook. The sample code in the editor</span>
-<span id="cb19-108"><a href="#cb19-108"></a>initializes the vectors linkedin and facebook. Each of the vectors contains the</span>
-<span id="cb19-109"><a href="#cb19-109"></a>number of profile views your LinkedIn and Facebook profiles had over the last</span>
-<span id="cb19-110"><a href="#cb19-110"></a>seven days.</span>
-<span id="cb19-111"><a href="#cb19-111"></a></span>
-<span id="cb19-112"><a href="#cb19-112"></a><span class="fu">### Instructions `100 XP`</span></span>
+<span id="cb19-99"><a href="#cb19-99"></a><span class="co"># Comparison of logicals</span></span>
+<span id="cb19-100"><a href="#cb19-100"></a></span>
+<span id="cb19-101"><a href="#cb19-101"></a><span class="cn">TRUE</span> <span class="sc">&gt;</span> <span class="cn">FALSE</span></span>
+<span id="cb19-102"><a href="#cb19-102"></a><span class="in">```</span></span>
+<span id="cb19-103"><a href="#cb19-103"></a><span class="fu">## Compare vectors</span></span>
+<span id="cb19-104"><a href="#cb19-104"></a>You are already aware that R is very good with vectors. Without having to change</span>
+<span id="cb19-105"><a href="#cb19-105"></a>anything about the syntax, R's relational operators also work on vectors.</span>
+<span id="cb19-106"><a href="#cb19-106"></a></span>
+<span id="cb19-107"><a href="#cb19-107"></a>Let's go back to the example that was started in the video. You want to figure</span>
+<span id="cb19-108"><a href="#cb19-108"></a>out whether your activity on social media platforms have paid off and decide to</span>
+<span id="cb19-109"><a href="#cb19-109"></a>look at your results for LinkedIn and Facebook. The sample code in the editor</span>
+<span id="cb19-110"><a href="#cb19-110"></a>initializes the vectors linkedin and facebook. Each of the vectors contains the</span>
+<span id="cb19-111"><a href="#cb19-111"></a>number of profile views your LinkedIn and Facebook profiles had over the last</span>
+<span id="cb19-112"><a href="#cb19-112"></a>seven days.</span>
 <span id="cb19-113"><a href="#cb19-113"></a></span>
-<span id="cb19-114"><a href="#cb19-114"></a>Using relational operators, find a logical answer, i.e. <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span>, </span>
-<span id="cb19-115"><a href="#cb19-115"></a>for the following questions:</span>
-<span id="cb19-116"><a href="#cb19-116"></a></span>
-<span id="cb19-117"><a href="#cb19-117"></a><span class="ss">- </span>On which days did the number of LinkedIn profile views exceed 15?  When was</span>
-<span id="cb19-118"><a href="#cb19-118"></a>your </span>
-<span id="cb19-119"><a href="#cb19-119"></a><span class="ss">- </span>LinkedIn profile viewed only 5 times or fewer?  When was your LinkedIn</span>
-<span id="cb19-120"><a href="#cb19-120"></a>profile </span>
-<span id="cb19-121"><a href="#cb19-121"></a><span class="ss">- </span>visited more often than your Facebook profile?</span>
-<span id="cb19-122"><a href="#cb19-122"></a> </span>
-<span id="cb19-123"><a href="#cb19-123"></a> <span class="in">```{.r filename="ex003.R"}</span></span>
-<span id="cb19-124"><a href="#cb19-124"></a><span class="co"># The linkedin and facebook vectors have already been created for you</span></span>
-<span id="cb19-125"><a href="#cb19-125"></a><span class="co"># The linkedin and facebook vectors have already been created for you</span></span>
-<span id="cb19-126"><a href="#cb19-126"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
-<span id="cb19-127"><a href="#cb19-127"></a>facebook <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
-<span id="cb19-128"><a href="#cb19-128"></a></span>
-<span id="cb19-129"><a href="#cb19-129"></a><span class="co"># Popular days</span></span>
+<span id="cb19-114"><a href="#cb19-114"></a><span class="fu">### Instructions `100 XP`</span></span>
+<span id="cb19-115"><a href="#cb19-115"></a></span>
+<span id="cb19-116"><a href="#cb19-116"></a>Using relational operators, find a logical answer, i.e. <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span>, </span>
+<span id="cb19-117"><a href="#cb19-117"></a>for the following questions:</span>
+<span id="cb19-118"><a href="#cb19-118"></a></span>
+<span id="cb19-119"><a href="#cb19-119"></a><span class="ss">- </span>On which days did the number of LinkedIn profile views exceed 15?  When was</span>
+<span id="cb19-120"><a href="#cb19-120"></a>your </span>
+<span id="cb19-121"><a href="#cb19-121"></a><span class="ss">- </span>LinkedIn profile viewed only 5 times or fewer?  When was your LinkedIn</span>
+<span id="cb19-122"><a href="#cb19-122"></a>profile </span>
+<span id="cb19-123"><a href="#cb19-123"></a><span class="ss">- </span>visited more often than your Facebook profile?</span>
+<span id="cb19-124"><a href="#cb19-124"></a> </span>
+<span id="cb19-125"><a href="#cb19-125"></a> <span class="in">```{.r filename="ex003.R"}</span></span>
+<span id="cb19-126"><a href="#cb19-126"></a><span class="co"># The linkedin and facebook vectors have already been created for you</span></span>
+<span id="cb19-127"><a href="#cb19-127"></a><span class="co"># The linkedin and facebook vectors have already been created for you</span></span>
+<span id="cb19-128"><a href="#cb19-128"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
+<span id="cb19-129"><a href="#cb19-129"></a>facebook <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
 <span id="cb19-130"><a href="#cb19-130"></a></span>
-<span id="cb19-131"><a href="#cb19-131"></a>linkedin <span class="sc">&gt;</span> <span class="dv">15</span></span>
-<span id="cb19-132"><a href="#cb19-132"></a><span class="co"># Quiet days</span></span>
-<span id="cb19-133"><a href="#cb19-133"></a>linkedin <span class="sc">&lt;=</span> <span class="dv">5</span></span>
-<span id="cb19-134"><a href="#cb19-134"></a></span>
-<span id="cb19-135"><a href="#cb19-135"></a><span class="co"># LinkedIn more popular than Facebook</span></span>
-<span id="cb19-136"><a href="#cb19-136"></a>linkedin <span class="sc">&gt;</span> facebook</span>
-<span id="cb19-137"><a href="#cb19-137"></a> <span class="in">```</span></span>
-<span id="cb19-138"><a href="#cb19-138"></a><span class="fu">## Compare matrices</span></span>
-<span id="cb19-139"><a href="#cb19-139"></a></span>
-<span id="cb19-140"><a href="#cb19-140"></a>R's ability to deal with different data structures for comparisons does not stop</span>
-<span id="cb19-141"><a href="#cb19-141"></a>at vectors. Matrices and relational operators also work together seamlessly!</span>
-<span id="cb19-142"><a href="#cb19-142"></a></span>
-<span id="cb19-143"><a href="#cb19-143"></a>Instead of in vectors (as in the previous exercise), the LinkedIn and Facebook</span>
-<span id="cb19-144"><a href="#cb19-144"></a>data is now stored in a matrix called <span class="in">`views`</span>. The first row contains the</span>
-<span id="cb19-145"><a href="#cb19-145"></a>LinkedIn information; the second row the Facebook information. The original</span>
-<span id="cb19-146"><a href="#cb19-146"></a>vectors <span class="in">`facebook`</span> and <span class="in">`linkedin`</span> are still available as well.</span>
-<span id="cb19-147"><a href="#cb19-147"></a></span>
-<span id="cb19-148"><a href="#cb19-148"></a><span class="fu">### Instructions `100 XP` </span></span>
+<span id="cb19-131"><a href="#cb19-131"></a><span class="co"># Popular days</span></span>
+<span id="cb19-132"><a href="#cb19-132"></a></span>
+<span id="cb19-133"><a href="#cb19-133"></a>linkedin <span class="sc">&gt;</span> <span class="dv">15</span></span>
+<span id="cb19-134"><a href="#cb19-134"></a><span class="co"># Quiet days</span></span>
+<span id="cb19-135"><a href="#cb19-135"></a>linkedin <span class="sc">&lt;=</span> <span class="dv">5</span></span>
+<span id="cb19-136"><a href="#cb19-136"></a></span>
+<span id="cb19-137"><a href="#cb19-137"></a><span class="co"># LinkedIn more popular than Facebook</span></span>
+<span id="cb19-138"><a href="#cb19-138"></a>linkedin <span class="sc">&gt;</span> facebook</span>
+<span id="cb19-139"><a href="#cb19-139"></a> <span class="in">```</span></span>
+<span id="cb19-140"><a href="#cb19-140"></a><span class="fu">## Compare matrices</span></span>
+<span id="cb19-141"><a href="#cb19-141"></a></span>
+<span id="cb19-142"><a href="#cb19-142"></a>R's ability to deal with different data structures for comparisons does not stop</span>
+<span id="cb19-143"><a href="#cb19-143"></a>at vectors. Matrices and relational operators also work together seamlessly!</span>
+<span id="cb19-144"><a href="#cb19-144"></a></span>
+<span id="cb19-145"><a href="#cb19-145"></a>Instead of in vectors (as in the previous exercise), the LinkedIn and Facebook</span>
+<span id="cb19-146"><a href="#cb19-146"></a>data is now stored in a matrix called <span class="in">`views`</span>. The first row contains the</span>
+<span id="cb19-147"><a href="#cb19-147"></a>LinkedIn information; the second row the Facebook information. The original</span>
+<span id="cb19-148"><a href="#cb19-148"></a>vectors <span class="in">`facebook`</span> and <span class="in">`linkedin`</span> are still available as well.</span>
 <span id="cb19-149"><a href="#cb19-149"></a></span>
-<span id="cb19-150"><a href="#cb19-150"></a>Using the relational operators you've learned so far, try to</span>
-<span id="cb19-151"><a href="#cb19-151"></a>discover the following:</span>
-<span id="cb19-152"><a href="#cb19-152"></a></span>
-<span id="cb19-153"><a href="#cb19-153"></a><span class="ss">- </span>When were the views exactly equal to 13? Use the views matrix to return a</span>
-<span id="cb19-154"><a href="#cb19-154"></a>logical matrix.  </span>
-<span id="cb19-155"><a href="#cb19-155"></a></span>
-<span id="cb19-156"><a href="#cb19-156"></a><span class="ss">- </span>For which days were the number of views less than or equal to</span>
-<span id="cb19-157"><a href="#cb19-157"></a>14? Again, have R return a logical matrix.</span>
-<span id="cb19-158"><a href="#cb19-158"></a></span>
-<span id="cb19-159"><a href="#cb19-159"></a><span class="in">```{.r filename="ex_004.R"}</span></span>
-<span id="cb19-160"><a href="#cb19-160"></a><span class="co"># The social data has been created for you</span></span>
-<span id="cb19-161"><a href="#cb19-161"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
-<span id="cb19-162"><a href="#cb19-162"></a>facebook <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
-<span id="cb19-163"><a href="#cb19-163"></a>views <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(linkedin, facebook), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-164"><a href="#cb19-164"></a></span>
-<span id="cb19-165"><a href="#cb19-165"></a><span class="co"># When does views equal 13?</span></span>
+<span id="cb19-150"><a href="#cb19-150"></a><span class="fu">### Instructions `100 XP` </span></span>
+<span id="cb19-151"><a href="#cb19-151"></a></span>
+<span id="cb19-152"><a href="#cb19-152"></a>Using the relational operators you've learned so far, try to</span>
+<span id="cb19-153"><a href="#cb19-153"></a>discover the following:</span>
+<span id="cb19-154"><a href="#cb19-154"></a></span>
+<span id="cb19-155"><a href="#cb19-155"></a><span class="ss">- </span>When were the views exactly equal to 13? Use the views matrix to return a</span>
+<span id="cb19-156"><a href="#cb19-156"></a>logical matrix.  </span>
+<span id="cb19-157"><a href="#cb19-157"></a></span>
+<span id="cb19-158"><a href="#cb19-158"></a><span class="ss">- </span>For which days were the number of views less than or equal to</span>
+<span id="cb19-159"><a href="#cb19-159"></a>14? Again, have R return a logical matrix.</span>
+<span id="cb19-160"><a href="#cb19-160"></a></span>
+<span id="cb19-161"><a href="#cb19-161"></a><span class="in">```{.r filename="ex_004.R"}</span></span>
+<span id="cb19-162"><a href="#cb19-162"></a><span class="co"># The social data has been created for you</span></span>
+<span id="cb19-163"><a href="#cb19-163"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
+<span id="cb19-164"><a href="#cb19-164"></a>facebook <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb19-165"><a href="#cb19-165"></a>views <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(linkedin, facebook), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb19-166"><a href="#cb19-166"></a></span>
-<span id="cb19-167"><a href="#cb19-167"></a>views <span class="sc">==</span> <span class="dv">13</span></span>
-<span id="cb19-168"><a href="#cb19-168"></a><span class="co"># When is views less than or equal to 14?</span></span>
-<span id="cb19-169"><a href="#cb19-169"></a></span>
-<span id="cb19-170"><a href="#cb19-170"></a>views <span class="sc">&lt;=</span> <span class="dv">14</span></span>
-<span id="cb19-171"><a href="#cb19-171"></a><span class="in">```</span></span>
-<span id="cb19-172"><a href="#cb19-172"></a><span class="fu">## &amp; and |</span></span>
-<span id="cb19-173"><a href="#cb19-173"></a></span>
-<span id="cb19-174"><a href="#cb19-174"></a>Before you work your way through the next exercises, have a look at the</span>
-<span id="cb19-175"><a href="#cb19-175"></a>following R expressions. All of them will evaluate to TRUE:</span>
-<span id="cb19-176"><a href="#cb19-176"></a></span>
-<span id="cb19-177"><a href="#cb19-177"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb19-178"><a href="#cb19-178"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">TRUE</span></span>
-<span id="cb19-179"><a href="#cb19-179"></a><span class="cn">FALSE</span> <span class="sc">|</span> <span class="cn">TRUE</span></span>
-<span id="cb19-180"><a href="#cb19-180"></a><span class="dv">5</span> <span class="sc">&lt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span></span>
-<span id="cb19-181"><a href="#cb19-181"></a><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">4</span> <span class="sc">|</span> <span class="dv">7</span> <span class="sc">&lt;</span> <span class="dv">6</span></span>
-<span id="cb19-182"><a href="#cb19-182"></a><span class="in">```</span></span>
-<span id="cb19-183"><a href="#cb19-183"></a></span>
-<span id="cb19-184"><a href="#cb19-184"></a>Watch out: <span class="in">`3 &lt; x &lt; 7`</span> to check if <span class="in">`x`</span> is between 3 and 7 will not work; you'll</span>
-<span id="cb19-185"><a href="#cb19-185"></a>need <span class="in">`3 &lt; x`</span> &amp; <span class="in">`x &lt; 7`</span> for that.</span>
-<span id="cb19-186"><a href="#cb19-186"></a></span>
-<span id="cb19-187"><a href="#cb19-187"></a>In this exercise, you'll be working with the <span class="in">`last`</span> variable. This variable</span>
-<span id="cb19-188"><a href="#cb19-188"></a>equals the value of the <span class="in">`linkedin`</span> vector that you've worked with previously.</span>
-<span id="cb19-189"><a href="#cb19-189"></a>The <span class="in">`linkedin`</span> vector represents the number of LinkedIn views your profile had in</span>
-<span id="cb19-190"><a href="#cb19-190"></a>the last seven days, remember? Both the variables <span class="in">`linkedin`</span> and last have been</span>
-<span id="cb19-191"><a href="#cb19-191"></a>pre-defined for you.</span>
-<span id="cb19-192"><a href="#cb19-192"></a></span>
-<span id="cb19-193"><a href="#cb19-193"></a><span class="fu">### Instructions 100 XP {.unnumbered}</span></span>
+<span id="cb19-167"><a href="#cb19-167"></a><span class="co"># When does views equal 13?</span></span>
+<span id="cb19-168"><a href="#cb19-168"></a></span>
+<span id="cb19-169"><a href="#cb19-169"></a>views <span class="sc">==</span> <span class="dv">13</span></span>
+<span id="cb19-170"><a href="#cb19-170"></a><span class="co"># When is views less than or equal to 14?</span></span>
+<span id="cb19-171"><a href="#cb19-171"></a></span>
+<span id="cb19-172"><a href="#cb19-172"></a>views <span class="sc">&lt;=</span> <span class="dv">14</span></span>
+<span id="cb19-173"><a href="#cb19-173"></a><span class="in">```</span></span>
+<span id="cb19-174"><a href="#cb19-174"></a><span class="fu">## &amp; and |</span></span>
+<span id="cb19-175"><a href="#cb19-175"></a></span>
+<span id="cb19-176"><a href="#cb19-176"></a>Before you work your way through the next exercises, have a look at the</span>
+<span id="cb19-177"><a href="#cb19-177"></a>following R expressions. All of them will evaluate to TRUE:</span>
+<span id="cb19-178"><a href="#cb19-178"></a></span>
+<span id="cb19-179"><a href="#cb19-179"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb19-180"><a href="#cb19-180"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">TRUE</span></span>
+<span id="cb19-181"><a href="#cb19-181"></a><span class="cn">FALSE</span> <span class="sc">|</span> <span class="cn">TRUE</span></span>
+<span id="cb19-182"><a href="#cb19-182"></a><span class="dv">5</span> <span class="sc">&lt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span></span>
+<span id="cb19-183"><a href="#cb19-183"></a><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">4</span> <span class="sc">|</span> <span class="dv">7</span> <span class="sc">&lt;</span> <span class="dv">6</span></span>
+<span id="cb19-184"><a href="#cb19-184"></a><span class="in">```</span></span>
+<span id="cb19-185"><a href="#cb19-185"></a></span>
+<span id="cb19-186"><a href="#cb19-186"></a>Watch out: <span class="in">`3 &lt; x &lt; 7`</span> to check if <span class="in">`x`</span> is between 3 and 7 will not work; you'll</span>
+<span id="cb19-187"><a href="#cb19-187"></a>need <span class="in">`3 &lt; x`</span> &amp; <span class="in">`x &lt; 7`</span> for that.</span>
+<span id="cb19-188"><a href="#cb19-188"></a></span>
+<span id="cb19-189"><a href="#cb19-189"></a>In this exercise, you'll be working with the <span class="in">`last`</span> variable. This variable</span>
+<span id="cb19-190"><a href="#cb19-190"></a>equals the value of the <span class="in">`linkedin`</span> vector that you've worked with previously.</span>
+<span id="cb19-191"><a href="#cb19-191"></a>The <span class="in">`linkedin`</span> vector represents the number of LinkedIn views your profile had in</span>
+<span id="cb19-192"><a href="#cb19-192"></a>the last seven days, remember? Both the variables <span class="in">`linkedin`</span> and last have been</span>
+<span id="cb19-193"><a href="#cb19-193"></a>pre-defined for you.</span>
 <span id="cb19-194"><a href="#cb19-194"></a></span>
-<span id="cb19-195"><a href="#cb19-195"></a>Write R expressions to solve the following questions concerning the variable</span>
-<span id="cb19-196"><a href="#cb19-196"></a>last:</span>
-<span id="cb19-197"><a href="#cb19-197"></a></span>
-<span id="cb19-198"><a href="#cb19-198"></a><span class="ss">- </span>Is <span class="in">`last`</span> under 5 or above 10?</span>
-<span id="cb19-199"><a href="#cb19-199"></a><span class="ss">- </span>Is <span class="in">`last`</span> between 15 and 20, excluding 15 but including 20?</span>
-<span id="cb19-200"><a href="#cb19-200"></a></span>
-<span id="cb19-201"><a href="#cb19-201"></a><span class="in">```{.r filename="ex_005.R"}</span></span>
-<span id="cb19-202"><a href="#cb19-202"></a><span class="co"># The linkedin and last variable are already defined for you</span></span>
-<span id="cb19-203"><a href="#cb19-203"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
-<span id="cb19-204"><a href="#cb19-204"></a>last <span class="ot">&lt;-</span> <span class="fu">tail</span>(linkedin, <span class="dv">1</span>)</span>
-<span id="cb19-205"><a href="#cb19-205"></a></span>
-<span id="cb19-206"><a href="#cb19-206"></a><span class="co"># Is last under 5 or above 10?</span></span>
-<span id="cb19-207"><a href="#cb19-207"></a>last <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">|</span> last <span class="sc">&gt;</span> <span class="dv">10</span></span>
-<span id="cb19-208"><a href="#cb19-208"></a></span>
-<span id="cb19-209"><a href="#cb19-209"></a><span class="co"># Is last between 15 (exclusive) and 20 (inclusive)?</span></span>
-<span id="cb19-210"><a href="#cb19-210"></a>last <span class="sc">&gt;</span> <span class="dv">15</span> <span class="sc">|</span> last <span class="sc">&lt;</span> <span class="dv">20</span></span>
-<span id="cb19-211"><a href="#cb19-211"></a><span class="in">```</span></span>
-<span id="cb19-212"><a href="#cb19-212"></a></span>
-<span id="cb19-213"><a href="#cb19-213"></a><span class="fu">## &amp; and | (2) </span></span>
+<span id="cb19-195"><a href="#cb19-195"></a><span class="fu">### Instructions 100 XP {.unnumbered}</span></span>
+<span id="cb19-196"><a href="#cb19-196"></a></span>
+<span id="cb19-197"><a href="#cb19-197"></a>Write R expressions to solve the following questions concerning the variable</span>
+<span id="cb19-198"><a href="#cb19-198"></a>last:</span>
+<span id="cb19-199"><a href="#cb19-199"></a></span>
+<span id="cb19-200"><a href="#cb19-200"></a><span class="ss">- </span>Is <span class="in">`last`</span> under 5 or above 10?</span>
+<span id="cb19-201"><a href="#cb19-201"></a><span class="ss">- </span>Is <span class="in">`last`</span> between 15 and 20, excluding 15 but including 20?</span>
+<span id="cb19-202"><a href="#cb19-202"></a></span>
+<span id="cb19-203"><a href="#cb19-203"></a><span class="in">```{.r filename="ex_005.R"}</span></span>
+<span id="cb19-204"><a href="#cb19-204"></a><span class="co"># The linkedin and last variable are already defined for you</span></span>
+<span id="cb19-205"><a href="#cb19-205"></a>linkedin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">17</span>, <span class="dv">14</span>)</span>
+<span id="cb19-206"><a href="#cb19-206"></a>last <span class="ot">&lt;-</span> <span class="fu">tail</span>(linkedin, <span class="dv">1</span>)</span>
+<span id="cb19-207"><a href="#cb19-207"></a></span>
+<span id="cb19-208"><a href="#cb19-208"></a><span class="co"># Is last under 5 or above 10?</span></span>
+<span id="cb19-209"><a href="#cb19-209"></a>last <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">|</span> last <span class="sc">&gt;</span> <span class="dv">10</span></span>
+<span id="cb19-210"><a href="#cb19-210"></a></span>
+<span id="cb19-211"><a href="#cb19-211"></a><span class="co"># Is last between 15 (exclusive) and 20 (inclusive)?</span></span>
+<span id="cb19-212"><a href="#cb19-212"></a>last <span class="sc">&gt;</span> <span class="dv">15</span> <span class="sc">|</span> last <span class="sc">&lt;</span> <span class="dv">20</span></span>
+<span id="cb19-213"><a href="#cb19-213"></a><span class="in">```</span></span>
 <span id="cb19-214"><a href="#cb19-214"></a></span>
-<span id="cb19-215"><a href="#cb19-215"></a>Like relational operators, logical operators work perfectly fine</span>
-<span id="cb19-216"><a href="#cb19-216"></a>with vectors and matrices.</span>
-<span id="cb19-217"><a href="#cb19-217"></a></span>
-<span id="cb19-218"><a href="#cb19-218"></a>Both the vectors <span class="in">`linkedin`</span> and <span class="in">`facebook`</span> are available again. Also a matrix</span>
-<span id="cb19-219"><a href="#cb19-219"></a>-<span class="in">`views`</span>- has been defined; its first and second row correspond to the </span>
-<span id="cb19-220"><a href="#cb19-220"></a><span class="in">`linkedin`</span> and <span class="in">`facebook`</span> vectors, respectively. Ready for some advanced queries </span>
-<span id="cb19-221"><a href="#cb19-221"></a>to gain more insights into your social outreach?</span>
-<span id="cb19-222"><a href="#cb19-222"></a></span>
-<span id="cb19-223"><a href="#cb19-223"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-215"><a href="#cb19-215"></a><span class="fu">## &amp; and | (2) </span></span>
+<span id="cb19-216"><a href="#cb19-216"></a></span>
+<span id="cb19-217"><a href="#cb19-217"></a>Like relational operators, logical operators work perfectly fine</span>
+<span id="cb19-218"><a href="#cb19-218"></a>with vectors and matrices.</span>
+<span id="cb19-219"><a href="#cb19-219"></a></span>
+<span id="cb19-220"><a href="#cb19-220"></a>Both the vectors <span class="in">`linkedin`</span> and <span class="in">`facebook`</span> are available again. Also a matrix</span>
+<span id="cb19-221"><a href="#cb19-221"></a>-<span class="in">`views`</span>- has been defined; its first and second row correspond to the </span>
+<span id="cb19-222"><a href="#cb19-222"></a><span class="in">`linkedin`</span> and <span class="in">`facebook`</span> vectors, respectively. Ready for some advanced queries </span>
+<span id="cb19-223"><a href="#cb19-223"></a>to gain more insights into your social outreach?</span>
 <span id="cb19-224"><a href="#cb19-224"></a></span>
-<span id="cb19-225"><a href="#cb19-225"></a><span class="ss">- </span>When did LinkedIn views exceed 10 and did Facebook views fail to reach 10 for</span>
-<span id="cb19-226"><a href="#cb19-226"></a>a particular day? Use the <span class="in">`linkedin`</span> and <span class="in">`facebook`</span> vectors.</span>
-<span id="cb19-227"><a href="#cb19-227"></a><span class="ss">- </span>When were one or both of your LinkedIn and Facebook profiles visited at least</span>
-<span id="cb19-228"><a href="#cb19-228"></a>12 times?</span>
-<span id="cb19-229"><a href="#cb19-229"></a><span class="ss">- </span>When is the <span class="in">`views`</span> matrix equal to a number between 11 and 14, excluding 11</span>
-<span id="cb19-230"><a href="#cb19-230"></a>and including 14?</span>
-<span id="cb19-231"><a href="#cb19-231"></a></span>
-<span id="cb19-232"><a href="#cb19-232"></a><span class="in">```{.r filename='ex_006.R'}</span></span>
-<span id="cb19-233"><a href="#cb19-233"></a><span class="co"># The social data (linkedin, facebook, views) has been created for you</span></span>
-<span id="cb19-234"><a href="#cb19-234"></a></span>
-<span id="cb19-235"><a href="#cb19-235"></a><span class="co"># linkedin exceeds 10 but facebook below 10</span></span>
-<span id="cb19-236"><a href="#cb19-236"></a>linkedin <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> facebook <span class="sc">&lt;</span> <span class="dv">10</span></span>
-<span id="cb19-237"><a href="#cb19-237"></a></span>
-<span id="cb19-238"><a href="#cb19-238"></a></span>
-<span id="cb19-239"><a href="#cb19-239"></a><span class="co"># When were one or both visited at least 12 times?</span></span>
-<span id="cb19-240"><a href="#cb19-240"></a>linkedin <span class="sc">&gt;=</span> <span class="dv">12</span> <span class="sc">|</span> facebook <span class="sc">&gt;=</span> <span class="dv">12</span></span>
-<span id="cb19-241"><a href="#cb19-241"></a></span>
-<span id="cb19-242"><a href="#cb19-242"></a><span class="co"># When is views between 11 (exclusive) and 14 (inclusive)?</span></span>
+<span id="cb19-225"><a href="#cb19-225"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-226"><a href="#cb19-226"></a></span>
+<span id="cb19-227"><a href="#cb19-227"></a><span class="ss">- </span>When did LinkedIn views exceed 10 and did Facebook views fail to reach 10 for</span>
+<span id="cb19-228"><a href="#cb19-228"></a>a particular day? Use the <span class="in">`linkedin`</span> and <span class="in">`facebook`</span> vectors.</span>
+<span id="cb19-229"><a href="#cb19-229"></a><span class="ss">- </span>When were one or both of your LinkedIn and Facebook profiles visited at least</span>
+<span id="cb19-230"><a href="#cb19-230"></a>12 times?</span>
+<span id="cb19-231"><a href="#cb19-231"></a><span class="ss">- </span>When is the <span class="in">`views`</span> matrix equal to a number between 11 and 14, excluding 11</span>
+<span id="cb19-232"><a href="#cb19-232"></a>and including 14?</span>
+<span id="cb19-233"><a href="#cb19-233"></a></span>
+<span id="cb19-234"><a href="#cb19-234"></a><span class="in">```{.r filename='ex_006.R'}</span></span>
+<span id="cb19-235"><a href="#cb19-235"></a><span class="co"># The social data (linkedin, facebook, views) has been created for you</span></span>
+<span id="cb19-236"><a href="#cb19-236"></a></span>
+<span id="cb19-237"><a href="#cb19-237"></a><span class="co"># linkedin exceeds 10 but facebook below 10</span></span>
+<span id="cb19-238"><a href="#cb19-238"></a>linkedin <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> facebook <span class="sc">&lt;</span> <span class="dv">10</span></span>
+<span id="cb19-239"><a href="#cb19-239"></a></span>
+<span id="cb19-240"><a href="#cb19-240"></a></span>
+<span id="cb19-241"><a href="#cb19-241"></a><span class="co"># When were one or both visited at least 12 times?</span></span>
+<span id="cb19-242"><a href="#cb19-242"></a>linkedin <span class="sc">&gt;=</span> <span class="dv">12</span> <span class="sc">|</span> facebook <span class="sc">&gt;=</span> <span class="dv">12</span></span>
 <span id="cb19-243"><a href="#cb19-243"></a></span>
-<span id="cb19-244"><a href="#cb19-244"></a>views <span class="sc">&gt;</span> <span class="dv">11</span> <span class="sc">&amp;</span> views <span class="sc">&lt;=</span> <span class="dv">14</span></span>
-<span id="cb19-245"><a href="#cb19-245"></a><span class="in">```</span></span>
-<span id="cb19-246"><a href="#cb19-246"></a><span class="fu">## Blend it all together</span></span>
-<span id="cb19-247"><a href="#cb19-247"></a></span>
-<span id="cb19-248"><a href="#cb19-248"></a>With the things you've learned by now, you're able to solve pretty cool problems.</span>
+<span id="cb19-244"><a href="#cb19-244"></a><span class="co"># When is views between 11 (exclusive) and 14 (inclusive)?</span></span>
+<span id="cb19-245"><a href="#cb19-245"></a></span>
+<span id="cb19-246"><a href="#cb19-246"></a>views <span class="sc">&gt;</span> <span class="dv">11</span> <span class="sc">&amp;</span> views <span class="sc">&lt;=</span> <span class="dv">14</span></span>
+<span id="cb19-247"><a href="#cb19-247"></a><span class="in">```</span></span>
+<span id="cb19-248"><a href="#cb19-248"></a><span class="fu">## Blend it all together</span></span>
 <span id="cb19-249"><a href="#cb19-249"></a></span>
-<span id="cb19-250"><a href="#cb19-250"></a>Instead of recording the number of views for your own LinkedIn profile, suppose</span>
-<span id="cb19-251"><a href="#cb19-251"></a>you conducted a survey inside the company you're working for. You've asked every</span>
-<span id="cb19-252"><a href="#cb19-252"></a>employee with a LinkedIn profile how many visits their profile has had over the</span>
-<span id="cb19-253"><a href="#cb19-253"></a>past seven days. You stored the results in a data frame called <span class="in">`li_df`</span>. This </span>
-<span id="cb19-254"><a href="#cb19-254"></a>data frame is available in the workspace; type <span class="in">`li_df`</span> in the console to check </span>
-<span id="cb19-255"><a href="#cb19-255"></a>it out.</span>
-<span id="cb19-256"><a href="#cb19-256"></a></span>
-<span id="cb19-257"><a href="#cb19-257"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-250"><a href="#cb19-250"></a>With the things you've learned by now, you're able to solve pretty cool problems.</span>
+<span id="cb19-251"><a href="#cb19-251"></a></span>
+<span id="cb19-252"><a href="#cb19-252"></a>Instead of recording the number of views for your own LinkedIn profile, suppose</span>
+<span id="cb19-253"><a href="#cb19-253"></a>you conducted a survey inside the company you're working for. You've asked every</span>
+<span id="cb19-254"><a href="#cb19-254"></a>employee with a LinkedIn profile how many visits their profile has had over the</span>
+<span id="cb19-255"><a href="#cb19-255"></a>past seven days. You stored the results in a data frame called <span class="in">`li_df`</span>. This </span>
+<span id="cb19-256"><a href="#cb19-256"></a>data frame is available in the workspace; type <span class="in">`li_df`</span> in the console to check </span>
+<span id="cb19-257"><a href="#cb19-257"></a>it out.</span>
 <span id="cb19-258"><a href="#cb19-258"></a></span>
-<span id="cb19-259"><a href="#cb19-259"></a><span class="ss">- </span>Select the entire second column, named <span class="in">`day2`</span>, from the <span class="in">`li_df`</span> data frame as </span>
-<span id="cb19-260"><a href="#cb19-260"></a>a vector and assign it to <span class="in">`second`</span>.  </span>
-<span id="cb19-261"><a href="#cb19-261"></a><span class="ss">- </span>Use <span class="in">`second`</span> to create a logical vector, thatcontains <span class="in">`TRUE`</span> if the </span>
-<span id="cb19-262"><a href="#cb19-262"></a>corresponding number of views is strictly greater than 25 or strictly lower than </span>
-<span id="cb19-263"><a href="#cb19-263"></a>5 and FALSE otherwise. Store this logical vector as <span class="in">`extremes`</span>.  </span>
-<span id="cb19-264"><a href="#cb19-264"></a><span class="ss">- </span>Use <span class="in">`sum()`</span> on the <span class="in">`extremes`</span> vector to calculate the number of <span class="in">`TRUE`</span>s in</span>
-<span id="cb19-265"><a href="#cb19-265"></a><span class="in">`extremes`</span> (i.e. to calculate the number of employees that are either very </span>
-<span id="cb19-266"><a href="#cb19-266"></a>popular or very low-profile). Simply print this number to the console.</span>
-<span id="cb19-267"><a href="#cb19-267"></a></span>
-<span id="cb19-268"><a href="#cb19-268"></a><span class="in">```{.r filename="ex_007.R"}</span></span>
-<span id="cb19-269"><a href="#cb19-269"></a><span class="co"># li_df is pre-loaded in your workspace</span></span>
-<span id="cb19-270"><a href="#cb19-270"></a></span>
-<span id="cb19-271"><a href="#cb19-271"></a><span class="co"># Select the second column, named day2, from li_df: second</span></span>
-<span id="cb19-272"><a href="#cb19-272"></a>second <span class="ot">&lt;-</span> li_df<span class="sc">$</span>day2</span>
-<span id="cb19-273"><a href="#cb19-273"></a></span>
-<span id="cb19-274"><a href="#cb19-274"></a><span class="co"># Build a logical vector, TRUE if value in second is extreme: extremes</span></span>
-<span id="cb19-275"><a href="#cb19-275"></a>extremes <span class="ot">&lt;-</span> second <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">|</span> second <span class="sc">&lt;</span> <span class="dv">5</span></span>
-<span id="cb19-276"><a href="#cb19-276"></a></span>
-<span id="cb19-277"><a href="#cb19-277"></a><span class="co"># Count the number of TRUEs in extremes</span></span>
-<span id="cb19-278"><a href="#cb19-278"></a><span class="fu">print</span>(<span class="fu">sum</span>(extremes))</span>
-<span id="cb19-279"><a href="#cb19-279"></a><span class="in">```</span></span>
-<span id="cb19-280"><a href="#cb19-280"></a><span class="fu">## The if statement</span></span>
-<span id="cb19-281"><a href="#cb19-281"></a></span>
-<span id="cb19-282"><a href="#cb19-282"></a>Before diving into some exercises on the if statement, have another look at its</span>
-<span id="cb19-283"><a href="#cb19-283"></a>syntax:</span>
-<span id="cb19-284"><a href="#cb19-284"></a></span>
-<span id="cb19-285"><a href="#cb19-285"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb19-286"><a href="#cb19-286"></a><span class="cf">if</span> (condition) {</span>
-<span id="cb19-287"><a href="#cb19-287"></a>  expr</span>
-<span id="cb19-288"><a href="#cb19-288"></a>}</span>
-<span id="cb19-289"><a href="#cb19-289"></a><span class="in">```</span></span>
-<span id="cb19-290"><a href="#cb19-290"></a>Remember your vectors with social profile views? Let's look at it from another</span>
-<span id="cb19-291"><a href="#cb19-291"></a>angle. The <span class="in">`medium`</span> variable gives information about the social website; the</span>
-<span id="cb19-292"><a href="#cb19-292"></a><span class="in">`num_views`</span> variable denotes the actual number of views that particular </span>
-<span id="cb19-293"><a href="#cb19-293"></a><span class="in">`medium`</span> had on the last day of your recordings. Both variables have been pre-</span>
-<span id="cb19-294"><a href="#cb19-294"></a>defined for you.</span>
-<span id="cb19-295"><a href="#cb19-295"></a></span>
-<span id="cb19-296"><a href="#cb19-296"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-259"><a href="#cb19-259"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-260"><a href="#cb19-260"></a></span>
+<span id="cb19-261"><a href="#cb19-261"></a><span class="ss">- </span>Select the entire second column, named <span class="in">`day2`</span>, from the <span class="in">`li_df`</span> data frame as </span>
+<span id="cb19-262"><a href="#cb19-262"></a>a vector and assign it to <span class="in">`second`</span>.  </span>
+<span id="cb19-263"><a href="#cb19-263"></a><span class="ss">- </span>Use <span class="in">`second`</span> to create a logical vector, thatcontains <span class="in">`TRUE`</span> if the </span>
+<span id="cb19-264"><a href="#cb19-264"></a>corresponding number of views is strictly greater than 25 or strictly lower than </span>
+<span id="cb19-265"><a href="#cb19-265"></a>5 and FALSE otherwise. Store this logical vector as <span class="in">`extremes`</span>.  </span>
+<span id="cb19-266"><a href="#cb19-266"></a><span class="ss">- </span>Use <span class="in">`sum()`</span> on the <span class="in">`extremes`</span> vector to calculate the number of <span class="in">`TRUE`</span>s in</span>
+<span id="cb19-267"><a href="#cb19-267"></a><span class="in">`extremes`</span> (i.e. to calculate the number of employees that are either very </span>
+<span id="cb19-268"><a href="#cb19-268"></a>popular or very low-profile). Simply print this number to the console.</span>
+<span id="cb19-269"><a href="#cb19-269"></a></span>
+<span id="cb19-270"><a href="#cb19-270"></a><span class="in">```{.r filename="ex_007.R"}</span></span>
+<span id="cb19-271"><a href="#cb19-271"></a><span class="co"># li_df is pre-loaded in your workspace</span></span>
+<span id="cb19-272"><a href="#cb19-272"></a></span>
+<span id="cb19-273"><a href="#cb19-273"></a><span class="co"># Select the second column, named day2, from li_df: second</span></span>
+<span id="cb19-274"><a href="#cb19-274"></a>second <span class="ot">&lt;-</span> li_df<span class="sc">$</span>day2</span>
+<span id="cb19-275"><a href="#cb19-275"></a></span>
+<span id="cb19-276"><a href="#cb19-276"></a><span class="co"># Build a logical vector, TRUE if value in second is extreme: extremes</span></span>
+<span id="cb19-277"><a href="#cb19-277"></a>extremes <span class="ot">&lt;-</span> second <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">|</span> second <span class="sc">&lt;</span> <span class="dv">5</span></span>
+<span id="cb19-278"><a href="#cb19-278"></a></span>
+<span id="cb19-279"><a href="#cb19-279"></a><span class="co"># Count the number of TRUEs in extremes</span></span>
+<span id="cb19-280"><a href="#cb19-280"></a><span class="fu">print</span>(<span class="fu">sum</span>(extremes))</span>
+<span id="cb19-281"><a href="#cb19-281"></a><span class="in">```</span></span>
+<span id="cb19-282"><a href="#cb19-282"></a><span class="fu">## The if statement</span></span>
+<span id="cb19-283"><a href="#cb19-283"></a></span>
+<span id="cb19-284"><a href="#cb19-284"></a>Before diving into some exercises on the if statement, have another look at its</span>
+<span id="cb19-285"><a href="#cb19-285"></a>syntax:</span>
+<span id="cb19-286"><a href="#cb19-286"></a></span>
+<span id="cb19-287"><a href="#cb19-287"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb19-288"><a href="#cb19-288"></a><span class="cf">if</span> (condition) {</span>
+<span id="cb19-289"><a href="#cb19-289"></a>  expr</span>
+<span id="cb19-290"><a href="#cb19-290"></a>}</span>
+<span id="cb19-291"><a href="#cb19-291"></a><span class="in">```</span></span>
+<span id="cb19-292"><a href="#cb19-292"></a>Remember your vectors with social profile views? Let's look at it from another</span>
+<span id="cb19-293"><a href="#cb19-293"></a>angle. The <span class="in">`medium`</span> variable gives information about the social website; the</span>
+<span id="cb19-294"><a href="#cb19-294"></a><span class="in">`num_views`</span> variable denotes the actual number of views that particular </span>
+<span id="cb19-295"><a href="#cb19-295"></a><span class="in">`medium`</span> had on the last day of your recordings. Both variables have been pre-</span>
+<span id="cb19-296"><a href="#cb19-296"></a>defined for you.</span>
 <span id="cb19-297"><a href="#cb19-297"></a></span>
-<span id="cb19-298"><a href="#cb19-298"></a><span class="ss">- </span>Examine the <span class="in">`if`</span> statement that prints out "Showing LinkedIn information" <span class="in">`if`</span> </span>
-<span id="cb19-299"><a href="#cb19-299"></a>the <span class="in">`medium`</span> variable equals <span class="in">`"LinkedIn"`</span>.</span>
-<span id="cb19-300"><a href="#cb19-300"></a>-Code an <span class="in">`if`</span> statement that prints "You are popular!" to the console if the</span>
-<span id="cb19-301"><a href="#cb19-301"></a><span class="in">`num_views`</span> variable exceeds 15.</span>
-<span id="cb19-302"><a href="#cb19-302"></a></span>
-<span id="cb19-303"><a href="#cb19-303"></a><span class="in">```{.r filename="ex_008.R"}</span></span>
-<span id="cb19-304"><a href="#cb19-304"></a><span class="co"># Variables related to your last day of recordings</span></span>
-<span id="cb19-305"><a href="#cb19-305"></a>medium <span class="ot">&lt;-</span> <span class="st">"LinkedIn"</span></span>
-<span id="cb19-306"><a href="#cb19-306"></a>num_views <span class="ot">&lt;-</span> <span class="dv">14</span></span>
-<span id="cb19-307"><a href="#cb19-307"></a></span>
-<span id="cb19-308"><a href="#cb19-308"></a><span class="co"># Examine the if statement for medium</span></span>
-<span id="cb19-309"><a href="#cb19-309"></a><span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"LinkedIn"</span>) {</span>
-<span id="cb19-310"><a href="#cb19-310"></a>  <span class="fu">print</span>(<span class="st">"Showing LinkedIn information"</span>)</span>
-<span id="cb19-311"><a href="#cb19-311"></a>}</span>
-<span id="cb19-312"><a href="#cb19-312"></a></span>
-<span id="cb19-313"><a href="#cb19-313"></a><span class="co"># Write the if statement for num_views</span></span>
+<span id="cb19-298"><a href="#cb19-298"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-299"><a href="#cb19-299"></a></span>
+<span id="cb19-300"><a href="#cb19-300"></a><span class="ss">- </span>Examine the <span class="in">`if`</span> statement that prints out "Showing LinkedIn information" <span class="in">`if`</span> </span>
+<span id="cb19-301"><a href="#cb19-301"></a>the <span class="in">`medium`</span> variable equals <span class="in">`"LinkedIn"`</span>.</span>
+<span id="cb19-302"><a href="#cb19-302"></a>-Code an <span class="in">`if`</span> statement that prints "You are popular!" to the console if the</span>
+<span id="cb19-303"><a href="#cb19-303"></a><span class="in">`num_views`</span> variable exceeds 15.</span>
+<span id="cb19-304"><a href="#cb19-304"></a></span>
+<span id="cb19-305"><a href="#cb19-305"></a><span class="in">```{.r filename="ex_008.R"}</span></span>
+<span id="cb19-306"><a href="#cb19-306"></a><span class="co"># Variables related to your last day of recordings</span></span>
+<span id="cb19-307"><a href="#cb19-307"></a>medium <span class="ot">&lt;-</span> <span class="st">"LinkedIn"</span></span>
+<span id="cb19-308"><a href="#cb19-308"></a>num_views <span class="ot">&lt;-</span> <span class="dv">14</span></span>
+<span id="cb19-309"><a href="#cb19-309"></a></span>
+<span id="cb19-310"><a href="#cb19-310"></a><span class="co"># Examine the if statement for medium</span></span>
+<span id="cb19-311"><a href="#cb19-311"></a><span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"LinkedIn"</span>) {</span>
+<span id="cb19-312"><a href="#cb19-312"></a>  <span class="fu">print</span>(<span class="st">"Showing LinkedIn information"</span>)</span>
+<span id="cb19-313"><a href="#cb19-313"></a>}</span>
 <span id="cb19-314"><a href="#cb19-314"></a></span>
-<span id="cb19-315"><a href="#cb19-315"></a><span class="cf">if</span> (num_views <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
-<span id="cb19-316"><a href="#cb19-316"></a>  <span class="fu">print</span>(<span class="st">"You are popular!"</span>)</span>
-<span id="cb19-317"><a href="#cb19-317"></a>}</span>
-<span id="cb19-318"><a href="#cb19-318"></a><span class="in">```</span></span>
-<span id="cb19-319"><a href="#cb19-319"></a><span class="fu">## Add an else</span></span>
-<span id="cb19-320"><a href="#cb19-320"></a></span>
-<span id="cb19-321"><a href="#cb19-321"></a>You can only use an else statement in combination with an if statement. The else</span>
-<span id="cb19-322"><a href="#cb19-322"></a>statement does not require a condition; its corresponding code is simply run if</span>
-<span id="cb19-323"><a href="#cb19-323"></a>all of the preceding conditions in the control structure are FALSE. Here's a</span>
-<span id="cb19-324"><a href="#cb19-324"></a>recipe for its usage:</span>
-<span id="cb19-325"><a href="#cb19-325"></a></span>
-<span id="cb19-326"><a href="#cb19-326"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb19-327"><a href="#cb19-327"></a><span class="cf">if</span> (condition) {</span>
-<span id="cb19-328"><a href="#cb19-328"></a>  expr1</span>
-<span id="cb19-329"><a href="#cb19-329"></a>} <span class="cf">else</span> {</span>
-<span id="cb19-330"><a href="#cb19-330"></a>  expr2</span>
-<span id="cb19-331"><a href="#cb19-331"></a>}</span>
-<span id="cb19-332"><a href="#cb19-332"></a><span class="in">```</span></span>
-<span id="cb19-333"><a href="#cb19-333"></a>It's important that the else keyword comes on the same line as the closing</span>
-<span id="cb19-334"><a href="#cb19-334"></a>bracket of the if part!</span>
-<span id="cb19-335"><a href="#cb19-335"></a></span>
-<span id="cb19-336"><a href="#cb19-336"></a>Both if statements that you coded in the previous exercises are already</span>
-<span id="cb19-337"><a href="#cb19-337"></a>available to use. It's now up to you to extend them with the appropriate else</span>
-<span id="cb19-338"><a href="#cb19-338"></a>statements!</span>
-<span id="cb19-339"><a href="#cb19-339"></a></span>
-<span id="cb19-340"><a href="#cb19-340"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-315"><a href="#cb19-315"></a><span class="co"># Write the if statement for num_views</span></span>
+<span id="cb19-316"><a href="#cb19-316"></a></span>
+<span id="cb19-317"><a href="#cb19-317"></a><span class="cf">if</span> (num_views <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb19-318"><a href="#cb19-318"></a>  <span class="fu">print</span>(<span class="st">"You are popular!"</span>)</span>
+<span id="cb19-319"><a href="#cb19-319"></a>}</span>
+<span id="cb19-320"><a href="#cb19-320"></a><span class="in">```</span></span>
+<span id="cb19-321"><a href="#cb19-321"></a><span class="fu">## Add an else</span></span>
+<span id="cb19-322"><a href="#cb19-322"></a></span>
+<span id="cb19-323"><a href="#cb19-323"></a>You can only use an else statement in combination with an if statement. The else</span>
+<span id="cb19-324"><a href="#cb19-324"></a>statement does not require a condition; its corresponding code is simply run if</span>
+<span id="cb19-325"><a href="#cb19-325"></a>all of the preceding conditions in the control structure are FALSE. Here's a</span>
+<span id="cb19-326"><a href="#cb19-326"></a>recipe for its usage:</span>
+<span id="cb19-327"><a href="#cb19-327"></a></span>
+<span id="cb19-328"><a href="#cb19-328"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb19-329"><a href="#cb19-329"></a><span class="cf">if</span> (condition) {</span>
+<span id="cb19-330"><a href="#cb19-330"></a>  expr1</span>
+<span id="cb19-331"><a href="#cb19-331"></a>} <span class="cf">else</span> {</span>
+<span id="cb19-332"><a href="#cb19-332"></a>  expr2</span>
+<span id="cb19-333"><a href="#cb19-333"></a>}</span>
+<span id="cb19-334"><a href="#cb19-334"></a><span class="in">```</span></span>
+<span id="cb19-335"><a href="#cb19-335"></a>It's important that the else keyword comes on the same line as the closing</span>
+<span id="cb19-336"><a href="#cb19-336"></a>bracket of the if part!</span>
+<span id="cb19-337"><a href="#cb19-337"></a></span>
+<span id="cb19-338"><a href="#cb19-338"></a>Both if statements that you coded in the previous exercises are already</span>
+<span id="cb19-339"><a href="#cb19-339"></a>available to use. It's now up to you to extend them with the appropriate else</span>
+<span id="cb19-340"><a href="#cb19-340"></a>statements!</span>
 <span id="cb19-341"><a href="#cb19-341"></a></span>
-<span id="cb19-342"><a href="#cb19-342"></a>Add an else statement to both control structures, such that</span>
+<span id="cb19-342"><a href="#cb19-342"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
 <span id="cb19-343"><a href="#cb19-343"></a></span>
-<span id="cb19-344"><a href="#cb19-344"></a><span class="ss">- </span>"Unknown medium" gets printed out to the console when the if-condition on </span>
-<span id="cb19-345"><a href="#cb19-345"></a>medium does not hold.  </span>
-<span id="cb19-346"><a href="#cb19-346"></a>-R prints out "Try to be more visible!" when the if-condition on</span>
-<span id="cb19-347"><a href="#cb19-347"></a>num_views is not met.</span>
-<span id="cb19-348"><a href="#cb19-348"></a></span>
-<span id="cb19-349"><a href="#cb19-349"></a><span class="in">```{.r filename="ex_009.R"}</span></span>
-<span id="cb19-350"><a href="#cb19-350"></a><span class="co"># Variables related to your last day of recordings</span></span>
-<span id="cb19-351"><a href="#cb19-351"></a>medium <span class="ot">&lt;-</span> <span class="st">"LinkedIn"</span></span>
-<span id="cb19-352"><a href="#cb19-352"></a>num_views <span class="ot">&lt;-</span> <span class="dv">14</span></span>
-<span id="cb19-353"><a href="#cb19-353"></a><span class="co"># Control structure for medium</span></span>
-<span id="cb19-354"><a href="#cb19-354"></a><span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"LinkedIn"</span>) {</span>
-<span id="cb19-355"><a href="#cb19-355"></a>  <span class="fu">print</span>(<span class="st">"Showing LinkedIn information"</span>)</span>
-<span id="cb19-356"><a href="#cb19-356"></a>} <span class="cf">else</span>{</span>
-<span id="cb19-357"><a href="#cb19-357"></a>  <span class="fu">print</span>(<span class="st">"Unknown medium"</span> )</span>
-<span id="cb19-358"><a href="#cb19-358"></a>}</span>
-<span id="cb19-359"><a href="#cb19-359"></a></span>
-<span id="cb19-360"><a href="#cb19-360"></a><span class="co"># Control structure for num_views</span></span>
-<span id="cb19-361"><a href="#cb19-361"></a><span class="cf">if</span> (num_views <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
-<span id="cb19-362"><a href="#cb19-362"></a>  <span class="fu">print</span>(<span class="st">"You're popular!"</span>)</span>
-<span id="cb19-363"><a href="#cb19-363"></a>} <span class="cf">else</span>{</span>
-<span id="cb19-364"><a href="#cb19-364"></a>  <span class="fu">print</span>( <span class="st">"Try to be more visible!"</span> )</span>
-<span id="cb19-365"><a href="#cb19-365"></a>}</span>
-<span id="cb19-366"><a href="#cb19-366"></a><span class="in">```</span></span>
-<span id="cb19-367"><a href="#cb19-367"></a></span>
-<span id="cb19-368"><a href="#cb19-368"></a><span class="fu">## Customize further: else if</span></span>
+<span id="cb19-344"><a href="#cb19-344"></a>Add an else statement to both control structures, such that</span>
+<span id="cb19-345"><a href="#cb19-345"></a></span>
+<span id="cb19-346"><a href="#cb19-346"></a><span class="ss">- </span>"Unknown medium" gets printed out to the console when the if-condition on </span>
+<span id="cb19-347"><a href="#cb19-347"></a>medium does not hold.  </span>
+<span id="cb19-348"><a href="#cb19-348"></a>-R prints out "Try to be more visible!" when the if-condition on</span>
+<span id="cb19-349"><a href="#cb19-349"></a>num_views is not met.</span>
+<span id="cb19-350"><a href="#cb19-350"></a></span>
+<span id="cb19-351"><a href="#cb19-351"></a><span class="in">```{.r filename="ex_009.R"}</span></span>
+<span id="cb19-352"><a href="#cb19-352"></a><span class="co"># Variables related to your last day of recordings</span></span>
+<span id="cb19-353"><a href="#cb19-353"></a>medium <span class="ot">&lt;-</span> <span class="st">"LinkedIn"</span></span>
+<span id="cb19-354"><a href="#cb19-354"></a>num_views <span class="ot">&lt;-</span> <span class="dv">14</span></span>
+<span id="cb19-355"><a href="#cb19-355"></a><span class="co"># Control structure for medium</span></span>
+<span id="cb19-356"><a href="#cb19-356"></a><span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"LinkedIn"</span>) {</span>
+<span id="cb19-357"><a href="#cb19-357"></a>  <span class="fu">print</span>(<span class="st">"Showing LinkedIn information"</span>)</span>
+<span id="cb19-358"><a href="#cb19-358"></a>} <span class="cf">else</span>{</span>
+<span id="cb19-359"><a href="#cb19-359"></a>  <span class="fu">print</span>(<span class="st">"Unknown medium"</span> )</span>
+<span id="cb19-360"><a href="#cb19-360"></a>}</span>
+<span id="cb19-361"><a href="#cb19-361"></a></span>
+<span id="cb19-362"><a href="#cb19-362"></a><span class="co"># Control structure for num_views</span></span>
+<span id="cb19-363"><a href="#cb19-363"></a><span class="cf">if</span> (num_views <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb19-364"><a href="#cb19-364"></a>  <span class="fu">print</span>(<span class="st">"You're popular!"</span>)</span>
+<span id="cb19-365"><a href="#cb19-365"></a>} <span class="cf">else</span>{</span>
+<span id="cb19-366"><a href="#cb19-366"></a>  <span class="fu">print</span>( <span class="st">"Try to be more visible!"</span> )</span>
+<span id="cb19-367"><a href="#cb19-367"></a>}</span>
+<span id="cb19-368"><a href="#cb19-368"></a><span class="in">```</span></span>
 <span id="cb19-369"><a href="#cb19-369"></a></span>
-<span id="cb19-370"><a href="#cb19-370"></a>The <span class="in">`else if`</span> statement allows you to further customize your control structure. </span>
-<span id="cb19-371"><a href="#cb19-371"></a>You can add as many <span class="in">`else if`</span> statements as you like. Keep in mind that R ignores </span>
-<span id="cb19-372"><a href="#cb19-372"></a>the remainder of the control structure once a condition has been found that is </span>
-<span id="cb19-373"><a href="#cb19-373"></a>TRUE and the corresponding expressions have been executed. Here's an overview of </span>
-<span id="cb19-374"><a href="#cb19-374"></a>the syntax to freshen your memory:</span>
-<span id="cb19-375"><a href="#cb19-375"></a></span>
-<span id="cb19-376"><a href="#cb19-376"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb19-377"><a href="#cb19-377"></a><span class="cf">if</span> (condition1) {</span>
-<span id="cb19-378"><a href="#cb19-378"></a>  expr1</span>
-<span id="cb19-379"><a href="#cb19-379"></a>} <span class="cf">else</span> <span class="cf">if</span> (condition2) {</span>
-<span id="cb19-380"><a href="#cb19-380"></a>  expr2</span>
-<span id="cb19-381"><a href="#cb19-381"></a>} <span class="cf">else</span> <span class="cf">if</span> (condition3) {</span>
-<span id="cb19-382"><a href="#cb19-382"></a>  expr3</span>
-<span id="cb19-383"><a href="#cb19-383"></a>} <span class="cf">else</span> {</span>
-<span id="cb19-384"><a href="#cb19-384"></a>  expr4</span>
-<span id="cb19-385"><a href="#cb19-385"></a>}</span>
-<span id="cb19-386"><a href="#cb19-386"></a><span class="in">```</span></span>
-<span id="cb19-387"><a href="#cb19-387"></a>Again, It's important that the else if keywords comes on the same line as the</span>
-<span id="cb19-388"><a href="#cb19-388"></a>closing bracket of the previous part of the control construct!</span>
-<span id="cb19-389"><a href="#cb19-389"></a></span>
-<span id="cb19-390"><a href="#cb19-390"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-370"><a href="#cb19-370"></a><span class="fu">## Customize further: else if</span></span>
+<span id="cb19-371"><a href="#cb19-371"></a></span>
+<span id="cb19-372"><a href="#cb19-372"></a>The <span class="in">`else if`</span> statement allows you to further customize your control structure. </span>
+<span id="cb19-373"><a href="#cb19-373"></a>You can add as many <span class="in">`else if`</span> statements as you like. Keep in mind that R ignores </span>
+<span id="cb19-374"><a href="#cb19-374"></a>the remainder of the control structure once a condition has been found that is </span>
+<span id="cb19-375"><a href="#cb19-375"></a>TRUE and the corresponding expressions have been executed. Here's an overview of </span>
+<span id="cb19-376"><a href="#cb19-376"></a>the syntax to freshen your memory:</span>
+<span id="cb19-377"><a href="#cb19-377"></a></span>
+<span id="cb19-378"><a href="#cb19-378"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb19-379"><a href="#cb19-379"></a><span class="cf">if</span> (condition1) {</span>
+<span id="cb19-380"><a href="#cb19-380"></a>  expr1</span>
+<span id="cb19-381"><a href="#cb19-381"></a>} <span class="cf">else</span> <span class="cf">if</span> (condition2) {</span>
+<span id="cb19-382"><a href="#cb19-382"></a>  expr2</span>
+<span id="cb19-383"><a href="#cb19-383"></a>} <span class="cf">else</span> <span class="cf">if</span> (condition3) {</span>
+<span id="cb19-384"><a href="#cb19-384"></a>  expr3</span>
+<span id="cb19-385"><a href="#cb19-385"></a>} <span class="cf">else</span> {</span>
+<span id="cb19-386"><a href="#cb19-386"></a>  expr4</span>
+<span id="cb19-387"><a href="#cb19-387"></a>}</span>
+<span id="cb19-388"><a href="#cb19-388"></a><span class="in">```</span></span>
+<span id="cb19-389"><a href="#cb19-389"></a>Again, It's important that the else if keywords comes on the same line as the</span>
+<span id="cb19-390"><a href="#cb19-390"></a>closing bracket of the previous part of the control construct!</span>
 <span id="cb19-391"><a href="#cb19-391"></a></span>
-<span id="cb19-392"><a href="#cb19-392"></a>Add code to both control structures such that:</span>
+<span id="cb19-392"><a href="#cb19-392"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
 <span id="cb19-393"><a href="#cb19-393"></a></span>
-<span id="cb19-394"><a href="#cb19-394"></a><span class="ss">- </span>R prints out "Showing Facebook information" if <span class="in">`medium`</span> is equal to </span>
-<span id="cb19-395"><a href="#cb19-395"></a>"Facebook". Remember that R is case sensitive!</span>
-<span id="cb19-396"><a href="#cb19-396"></a><span class="ss">- </span>"Your number of views is average" is printed if <span class="in">`num_views`</span> is between 15 </span>
-<span id="cb19-397"><a href="#cb19-397"></a>(inclusive) and 10 (exclusive). Feel free to change the variables <span class="in">`medium`</span> and </span>
-<span id="cb19-398"><a href="#cb19-398"></a><span class="in">`num_views`</span> to see how the control structure respond. In both cases, the </span>
-<span id="cb19-399"><a href="#cb19-399"></a>existing code should be extended in the <span class="in">`else if`</span> statement. No existing code </span>
-<span id="cb19-400"><a href="#cb19-400"></a>should be modified.</span>
-<span id="cb19-401"><a href="#cb19-401"></a></span>
-<span id="cb19-402"><a href="#cb19-402"></a><span class="in">```{.r filename="ex_010.R"}</span></span>
-<span id="cb19-403"><a href="#cb19-403"></a><span class="co"># Variables related to your last day of recordings</span></span>
-<span id="cb19-404"><a href="#cb19-404"></a>medium <span class="ot">&lt;-</span> <span class="st">"LinkedIn"</span></span>
-<span id="cb19-405"><a href="#cb19-405"></a>num_views <span class="ot">&lt;-</span> <span class="dv">14</span></span>
-<span id="cb19-406"><a href="#cb19-406"></a></span>
-<span id="cb19-407"><a href="#cb19-407"></a><span class="co"># Control structure for medium</span></span>
-<span id="cb19-408"><a href="#cb19-408"></a><span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"LinkedIn"</span>) {</span>
-<span id="cb19-409"><a href="#cb19-409"></a>  <span class="fu">print</span>(<span class="st">"Showing LinkedIn information"</span>)</span>
-<span id="cb19-410"><a href="#cb19-410"></a>} <span class="cf">else</span> <span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"Facebook"</span>) {</span>
-<span id="cb19-411"><a href="#cb19-411"></a>  <span class="co"># Add code to print correct string when condition is TRUE</span></span>
-<span id="cb19-412"><a href="#cb19-412"></a>  <span class="fu">print</span>(<span class="st">"Showing Facebook information"</span> )</span>
-<span id="cb19-413"><a href="#cb19-413"></a>} <span class="cf">else</span> {</span>
-<span id="cb19-414"><a href="#cb19-414"></a>  <span class="fu">print</span>(<span class="st">"Unknown medium"</span>)</span>
-<span id="cb19-415"><a href="#cb19-415"></a>}</span>
-<span id="cb19-416"><a href="#cb19-416"></a></span>
-<span id="cb19-417"><a href="#cb19-417"></a><span class="co"># Control structure for num_views</span></span>
-<span id="cb19-418"><a href="#cb19-418"></a><span class="cf">if</span> (num_views <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
-<span id="cb19-419"><a href="#cb19-419"></a>  <span class="fu">print</span>(<span class="st">"You're popular!"</span>)</span>
-<span id="cb19-420"><a href="#cb19-420"></a>} <span class="cf">else</span> <span class="cf">if</span> (num_views <span class="sc">&lt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> num_views <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
-<span id="cb19-421"><a href="#cb19-421"></a>  <span class="co"># Add code to print correct string when condition is TRUE</span></span>
-<span id="cb19-422"><a href="#cb19-422"></a>  <span class="fu">print</span>(<span class="st">"Your number of views is average"</span>)</span>
-<span id="cb19-423"><a href="#cb19-423"></a>} <span class="cf">else</span> {</span>
-<span id="cb19-424"><a href="#cb19-424"></a>  <span class="fu">print</span>(<span class="st">"Try to be more visible!"</span>)</span>
-<span id="cb19-425"><a href="#cb19-425"></a>}</span>
-<span id="cb19-426"><a href="#cb19-426"></a><span class="in">```</span></span>
-<span id="cb19-427"><a href="#cb19-427"></a><span class="fu">## Else if 2.0</span></span>
-<span id="cb19-428"><a href="#cb19-428"></a>You can do anything you want inside if-else constructs. </span>
-<span id="cb19-429"><a href="#cb19-429"></a>You can even put in another set of conditional statements. </span>
-<span id="cb19-430"><a href="#cb19-430"></a>Examine the following code chunk:</span>
-<span id="cb19-431"><a href="#cb19-431"></a></span>
-<span id="cb19-432"><a href="#cb19-432"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb19-433"><a href="#cb19-433"></a><span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
-<span id="cb19-434"><a href="#cb19-434"></a>  <span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">5</span>) {</span>
-<span id="cb19-435"><a href="#cb19-435"></a>    result <span class="ot">&lt;-</span> <span class="st">"extra small"</span></span>
-<span id="cb19-436"><a href="#cb19-436"></a>  } <span class="cf">else</span> {</span>
-<span id="cb19-437"><a href="#cb19-437"></a>    result <span class="ot">&lt;-</span> <span class="st">"small"</span></span>
-<span id="cb19-438"><a href="#cb19-438"></a>  }</span>
-<span id="cb19-439"><a href="#cb19-439"></a>} <span class="cf">else</span> <span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">100</span>) {</span>
-<span id="cb19-440"><a href="#cb19-440"></a>  result <span class="ot">&lt;-</span> <span class="st">"medium"</span></span>
-<span id="cb19-441"><a href="#cb19-441"></a>} <span class="cf">else</span> {</span>
-<span id="cb19-442"><a href="#cb19-442"></a>  result <span class="ot">&lt;-</span> <span class="st">"large"</span></span>
-<span id="cb19-443"><a href="#cb19-443"></a>}</span>
-<span id="cb19-444"><a href="#cb19-444"></a><span class="fu">print</span>(result)</span>
-<span id="cb19-445"><a href="#cb19-445"></a><span class="in">```</span></span>
-<span id="cb19-446"><a href="#cb19-446"></a></span>
-<span id="cb19-447"><a href="#cb19-447"></a>Have a look at the following statements:</span>
+<span id="cb19-394"><a href="#cb19-394"></a>Add code to both control structures such that:</span>
+<span id="cb19-395"><a href="#cb19-395"></a></span>
+<span id="cb19-396"><a href="#cb19-396"></a><span class="ss">- </span>R prints out "Showing Facebook information" if <span class="in">`medium`</span> is equal to </span>
+<span id="cb19-397"><a href="#cb19-397"></a>"Facebook". Remember that R is case sensitive!</span>
+<span id="cb19-398"><a href="#cb19-398"></a><span class="ss">- </span>"Your number of views is average" is printed if <span class="in">`num_views`</span> is between 15 </span>
+<span id="cb19-399"><a href="#cb19-399"></a>(inclusive) and 10 (exclusive). Feel free to change the variables <span class="in">`medium`</span> and </span>
+<span id="cb19-400"><a href="#cb19-400"></a><span class="in">`num_views`</span> to see how the control structure respond. In both cases, the </span>
+<span id="cb19-401"><a href="#cb19-401"></a>existing code should be extended in the <span class="in">`else if`</span> statement. No existing code </span>
+<span id="cb19-402"><a href="#cb19-402"></a>should be modified.</span>
+<span id="cb19-403"><a href="#cb19-403"></a></span>
+<span id="cb19-404"><a href="#cb19-404"></a><span class="in">```{.r filename="ex_010.R"}</span></span>
+<span id="cb19-405"><a href="#cb19-405"></a><span class="co"># Variables related to your last day of recordings</span></span>
+<span id="cb19-406"><a href="#cb19-406"></a>medium <span class="ot">&lt;-</span> <span class="st">"LinkedIn"</span></span>
+<span id="cb19-407"><a href="#cb19-407"></a>num_views <span class="ot">&lt;-</span> <span class="dv">14</span></span>
+<span id="cb19-408"><a href="#cb19-408"></a></span>
+<span id="cb19-409"><a href="#cb19-409"></a><span class="co"># Control structure for medium</span></span>
+<span id="cb19-410"><a href="#cb19-410"></a><span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"LinkedIn"</span>) {</span>
+<span id="cb19-411"><a href="#cb19-411"></a>  <span class="fu">print</span>(<span class="st">"Showing LinkedIn information"</span>)</span>
+<span id="cb19-412"><a href="#cb19-412"></a>} <span class="cf">else</span> <span class="cf">if</span> (medium <span class="sc">==</span> <span class="st">"Facebook"</span>) {</span>
+<span id="cb19-413"><a href="#cb19-413"></a>  <span class="co"># Add code to print correct string when condition is TRUE</span></span>
+<span id="cb19-414"><a href="#cb19-414"></a>  <span class="fu">print</span>(<span class="st">"Showing Facebook information"</span> )</span>
+<span id="cb19-415"><a href="#cb19-415"></a>} <span class="cf">else</span> {</span>
+<span id="cb19-416"><a href="#cb19-416"></a>  <span class="fu">print</span>(<span class="st">"Unknown medium"</span>)</span>
+<span id="cb19-417"><a href="#cb19-417"></a>}</span>
+<span id="cb19-418"><a href="#cb19-418"></a></span>
+<span id="cb19-419"><a href="#cb19-419"></a><span class="co"># Control structure for num_views</span></span>
+<span id="cb19-420"><a href="#cb19-420"></a><span class="cf">if</span> (num_views <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb19-421"><a href="#cb19-421"></a>  <span class="fu">print</span>(<span class="st">"You're popular!"</span>)</span>
+<span id="cb19-422"><a href="#cb19-422"></a>} <span class="cf">else</span> <span class="cf">if</span> (num_views <span class="sc">&lt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> num_views <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
+<span id="cb19-423"><a href="#cb19-423"></a>  <span class="co"># Add code to print correct string when condition is TRUE</span></span>
+<span id="cb19-424"><a href="#cb19-424"></a>  <span class="fu">print</span>(<span class="st">"Your number of views is average"</span>)</span>
+<span id="cb19-425"><a href="#cb19-425"></a>} <span class="cf">else</span> {</span>
+<span id="cb19-426"><a href="#cb19-426"></a>  <span class="fu">print</span>(<span class="st">"Try to be more visible!"</span>)</span>
+<span id="cb19-427"><a href="#cb19-427"></a>}</span>
+<span id="cb19-428"><a href="#cb19-428"></a><span class="in">```</span></span>
+<span id="cb19-429"><a href="#cb19-429"></a><span class="fu">## Else if 2.0</span></span>
+<span id="cb19-430"><a href="#cb19-430"></a>You can do anything you want inside if-else constructs. </span>
+<span id="cb19-431"><a href="#cb19-431"></a>You can even put in another set of conditional statements. </span>
+<span id="cb19-432"><a href="#cb19-432"></a>Examine the following code chunk:</span>
+<span id="cb19-433"><a href="#cb19-433"></a></span>
+<span id="cb19-434"><a href="#cb19-434"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb19-435"><a href="#cb19-435"></a><span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb19-436"><a href="#cb19-436"></a>  <span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb19-437"><a href="#cb19-437"></a>    result <span class="ot">&lt;-</span> <span class="st">"extra small"</span></span>
+<span id="cb19-438"><a href="#cb19-438"></a>  } <span class="cf">else</span> {</span>
+<span id="cb19-439"><a href="#cb19-439"></a>    result <span class="ot">&lt;-</span> <span class="st">"small"</span></span>
+<span id="cb19-440"><a href="#cb19-440"></a>  }</span>
+<span id="cb19-441"><a href="#cb19-441"></a>} <span class="cf">else</span> <span class="cf">if</span> (number <span class="sc">&lt;</span> <span class="dv">100</span>) {</span>
+<span id="cb19-442"><a href="#cb19-442"></a>  result <span class="ot">&lt;-</span> <span class="st">"medium"</span></span>
+<span id="cb19-443"><a href="#cb19-443"></a>} <span class="cf">else</span> {</span>
+<span id="cb19-444"><a href="#cb19-444"></a>  result <span class="ot">&lt;-</span> <span class="st">"large"</span></span>
+<span id="cb19-445"><a href="#cb19-445"></a>}</span>
+<span id="cb19-446"><a href="#cb19-446"></a><span class="fu">print</span>(result)</span>
+<span id="cb19-447"><a href="#cb19-447"></a><span class="in">```</span></span>
 <span id="cb19-448"><a href="#cb19-448"></a></span>
-<span id="cb19-449"><a href="#cb19-449"></a>(@) If number is set to 6, "small" gets printed to the console.</span>
-<span id="cb19-450"><a href="#cb19-450"></a>(@) If number is set to 100, R prints out "medium".</span>
-<span id="cb19-451"><a href="#cb19-451"></a>(@) If number is set to 4, "extra small" gets printed out to the console.</span>
-<span id="cb19-452"><a href="#cb19-452"></a>(@) If number is set to 2500, R will generate an error, as result will </span>
-<span id="cb19-453"><a href="#cb19-453"></a>  not be defined.</span>
-<span id="cb19-454"><a href="#cb19-454"></a></span>
-<span id="cb19-455"><a href="#cb19-455"></a>Select the option that lists all the true statements.</span>
+<span id="cb19-449"><a href="#cb19-449"></a>Have a look at the following statements:</span>
+<span id="cb19-450"><a href="#cb19-450"></a></span>
+<span id="cb19-451"><a href="#cb19-451"></a>(@) If number is set to 6, "small" gets printed to the console.</span>
+<span id="cb19-452"><a href="#cb19-452"></a>(@) If number is set to 100, R prints out "medium".</span>
+<span id="cb19-453"><a href="#cb19-453"></a>(@) If number is set to 4, "extra small" gets printed out to the console.</span>
+<span id="cb19-454"><a href="#cb19-454"></a>(@) If number is set to 2500, R will generate an error, as result will </span>
+<span id="cb19-455"><a href="#cb19-455"></a>  not be defined.</span>
 <span id="cb19-456"><a href="#cb19-456"></a></span>
-<span id="cb19-457"><a href="#cb19-457"></a><span class="at">&gt; Run the code or a handwrite test (1, 3).</span></span>
+<span id="cb19-457"><a href="#cb19-457"></a>Select the option that lists all the true statements.</span>
 <span id="cb19-458"><a href="#cb19-458"></a></span>
-<span id="cb19-459"><a href="#cb19-459"></a><span class="fu">## Take control!</span></span>
+<span id="cb19-459"><a href="#cb19-459"></a><span class="at">&gt; Run the code or a handwrite test (1, 3).</span></span>
 <span id="cb19-460"><a href="#cb19-460"></a></span>
-<span id="cb19-461"><a href="#cb19-461"></a>In this exercise, you will combine everything that you've learned so far: </span>
-<span id="cb19-462"><a href="#cb19-462"></a>relational operators, logical operators and control constructs. You'll need it </span>
-<span id="cb19-463"><a href="#cb19-463"></a>all!</span>
-<span id="cb19-464"><a href="#cb19-464"></a></span>
-<span id="cb19-465"><a href="#cb19-465"></a>We've pre-defined two values for you: <span class="in">`li`</span> and <span class="in">`fb`</span>, denoting the number of </span>
-<span id="cb19-466"><a href="#cb19-466"></a>profile  views your LinkedIn and Facebook profile had on the last day of </span>
-<span id="cb19-467"><a href="#cb19-467"></a>recordings. Go through the instructions to create R code that generates a </span>
-<span id="cb19-468"><a href="#cb19-468"></a>'social media score', sms, based on the values of <span class="in">`li`</span> and <span class="in">`fb`</span>.</span>
-<span id="cb19-469"><a href="#cb19-469"></a></span>
-<span id="cb19-470"><a href="#cb19-470"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb19-461"><a href="#cb19-461"></a><span class="fu">## Take control!</span></span>
+<span id="cb19-462"><a href="#cb19-462"></a></span>
+<span id="cb19-463"><a href="#cb19-463"></a>In this exercise, you will combine everything that you've learned so far: </span>
+<span id="cb19-464"><a href="#cb19-464"></a>relational operators, logical operators and control constructs. You'll need it </span>
+<span id="cb19-465"><a href="#cb19-465"></a>all!</span>
+<span id="cb19-466"><a href="#cb19-466"></a></span>
+<span id="cb19-467"><a href="#cb19-467"></a>We've pre-defined two values for you: <span class="in">`li`</span> and <span class="in">`fb`</span>, denoting the number of </span>
+<span id="cb19-468"><a href="#cb19-468"></a>profile  views your LinkedIn and Facebook profile had on the last day of </span>
+<span id="cb19-469"><a href="#cb19-469"></a>recordings. Go through the instructions to create R code that generates a </span>
+<span id="cb19-470"><a href="#cb19-470"></a>'social media score', sms, based on the values of <span class="in">`li`</span> and <span class="in">`fb`</span>.</span>
 <span id="cb19-471"><a href="#cb19-471"></a></span>
-<span id="cb19-472"><a href="#cb19-472"></a>Finish the control-flow construct with the following behavior:</span>
+<span id="cb19-472"><a href="#cb19-472"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
 <span id="cb19-473"><a href="#cb19-473"></a></span>
-<span id="cb19-474"><a href="#cb19-474"></a><span class="ss">- </span>If both <span class="in">`li`</span> and <span class="in">`fb`</span> are 15 or higher, set <span class="in">`sms`</span> equal to double the sum of </span>
-<span id="cb19-475"><a href="#cb19-475"></a><span class="in">`li`</span> and <span class="in">`fb`</span>.</span>
-<span id="cb19-476"><a href="#cb19-476"></a><span class="ss">- </span>If both <span class="in">`li`</span> and <span class="in">`fb`</span> are strictly below 10, set <span class="in">`sms`</span> equal to half the <span class="in">`sum`</span></span>
-<span id="cb19-477"><a href="#cb19-477"></a>of <span class="in">`li`</span> and  <span class="in">`fb`</span>.</span>
-<span id="cb19-478"><a href="#cb19-478"></a><span class="ss">- </span>In all other cases, set sms equal to <span class="in">`li + fb`</span>.</span>
-<span id="cb19-479"><a href="#cb19-479"></a><span class="ss">- </span>Finally, print the resulting <span class="in">`sms`</span> variable.</span>
-<span id="cb19-480"><a href="#cb19-480"></a></span>
-<span id="cb19-481"><a href="#cb19-481"></a><span class="in">```{.r filename="ex_011.R"}</span></span>
-<span id="cb19-482"><a href="#cb19-482"></a><span class="co"># Variables related to your last day of recordings</span></span>
-<span id="cb19-483"><a href="#cb19-483"></a>li <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb19-484"><a href="#cb19-484"></a>fb <span class="ot">&lt;-</span> <span class="dv">9</span></span>
-<span id="cb19-485"><a href="#cb19-485"></a></span>
-<span id="cb19-486"><a href="#cb19-486"></a><span class="co"># Code the control-flow construct</span></span>
-<span id="cb19-487"><a href="#cb19-487"></a><span class="cf">if</span> (li <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> fb <span class="sc">&gt;=</span> <span class="dv">15</span>) {</span>
-<span id="cb19-488"><a href="#cb19-488"></a>  sms <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (li <span class="sc">+</span> fb)</span>
-<span id="cb19-489"><a href="#cb19-489"></a>} <span class="cf">else</span> <span class="cf">if</span> (li <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> fb <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
-<span id="cb19-490"><a href="#cb19-490"></a>  sms <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> (li <span class="sc">+</span> fb)</span>
-<span id="cb19-491"><a href="#cb19-491"></a>} <span class="cf">else</span> {</span>
-<span id="cb19-492"><a href="#cb19-492"></a>  sms <span class="ot">&lt;-</span> li <span class="sc">+</span> fb</span>
-<span id="cb19-493"><a href="#cb19-493"></a>}</span>
-<span id="cb19-494"><a href="#cb19-494"></a></span>
-<span id="cb19-495"><a href="#cb19-495"></a><span class="co"># Print the resulting sms to the console</span></span>
-<span id="cb19-496"><a href="#cb19-496"></a><span class="fu">print</span>(sms)</span>
-<span id="cb19-497"><a href="#cb19-497"></a><span class="in">```</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-474"><a href="#cb19-474"></a>Finish the control-flow construct with the following behavior:</span>
+<span id="cb19-475"><a href="#cb19-475"></a></span>
+<span id="cb19-476"><a href="#cb19-476"></a><span class="ss">- </span>If both <span class="in">`li`</span> and <span class="in">`fb`</span> are 15 or higher, set <span class="in">`sms`</span> equal to double the sum of </span>
+<span id="cb19-477"><a href="#cb19-477"></a><span class="in">`li`</span> and <span class="in">`fb`</span>.</span>
+<span id="cb19-478"><a href="#cb19-478"></a><span class="ss">- </span>If both <span class="in">`li`</span> and <span class="in">`fb`</span> are strictly below 10, set <span class="in">`sms`</span> equal to half the <span class="in">`sum`</span></span>
+<span id="cb19-479"><a href="#cb19-479"></a>of <span class="in">`li`</span> and  <span class="in">`fb`</span>.</span>
+<span id="cb19-480"><a href="#cb19-480"></a><span class="ss">- </span>In all other cases, set sms equal to <span class="in">`li + fb`</span>.</span>
+<span id="cb19-481"><a href="#cb19-481"></a><span class="ss">- </span>Finally, print the resulting <span class="in">`sms`</span> variable.</span>
+<span id="cb19-482"><a href="#cb19-482"></a></span>
+<span id="cb19-483"><a href="#cb19-483"></a><span class="in">```{.r filename="ex_011.R"}</span></span>
+<span id="cb19-484"><a href="#cb19-484"></a><span class="co"># Variables related to your last day of recordings</span></span>
+<span id="cb19-485"><a href="#cb19-485"></a>li <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb19-486"><a href="#cb19-486"></a>fb <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb19-487"><a href="#cb19-487"></a></span>
+<span id="cb19-488"><a href="#cb19-488"></a><span class="co"># Code the control-flow construct</span></span>
+<span id="cb19-489"><a href="#cb19-489"></a><span class="cf">if</span> (li <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> fb <span class="sc">&gt;=</span> <span class="dv">15</span>) {</span>
+<span id="cb19-490"><a href="#cb19-490"></a>  sms <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (li <span class="sc">+</span> fb)</span>
+<span id="cb19-491"><a href="#cb19-491"></a>} <span class="cf">else</span> <span class="cf">if</span> (li <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> fb <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb19-492"><a href="#cb19-492"></a>  sms <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> (li <span class="sc">+</span> fb)</span>
+<span id="cb19-493"><a href="#cb19-493"></a>} <span class="cf">else</span> {</span>
+<span id="cb19-494"><a href="#cb19-494"></a>  sms <span class="ot">&lt;-</span> li <span class="sc">+</span> fb</span>
+<span id="cb19-495"><a href="#cb19-495"></a>}</span>
+<span id="cb19-496"><a href="#cb19-496"></a></span>
+<span id="cb19-497"><a href="#cb19-497"></a><span class="co"># Print the resulting sms to the console</span></span>
+<span id="cb19-498"><a href="#cb19-498"></a><span class="fu">print</span>(sms)</span>
+<span id="cb19-499"><a href="#cb19-499"></a><span class="in">```</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -18,7 +18,8 @@ bibliography: references.bib
 
 format:
   html:
-    theme: superhero
+    theme: darkly
+    code-link: true
   pdf:
     documentclass: scrreprt
 

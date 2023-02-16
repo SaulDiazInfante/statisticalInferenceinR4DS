@@ -8,24 +8,21 @@ following video <https://www.youtube.com/watch?v=vGY5i_J2c-c&t=283s>
 
 {{< include _atomic_objects.qmd >}} 
 
-{{< include _introduction_to_r_01.qmd >}}
+<!-- #{{< include _introduction_to_r_01.qmd >}} -->
 
-{{< include _introduction_to_r_02.qmd >}}
+<!-- {{< include _introduction_to_r_02.qmd >}} -->
 
-{{< include _introduction_to_r_03.qmd >}}
+<!-- {{< include _introduction_to_r_03.qmd >}} -->
 
-{{< include _introduction_to_r_04.qmd >}}
+<!-- {{< include _introduction_to_r_04.qmd >}} -->
 
-{{< include _introduction_to_r_05.qmd >}}
+<!-- {{< include _introduction_to_r_05.qmd >}} -->
 
-{{< include _introduction_to_r_06.qmd >}}
+<!-- {{< include _introduction_to_r_06.qmd >}} -->
 
-# Relational and logical operators, and conditional statements.{.unnumberd} 
+<!-- {{< include _intermediate_r_01.qmd >}} -->
+<!-- {{< include _intermediate_r_02.qmd >}} -->
 
-{{< include _intermediate_r_01.qmd >}}
-# Loops
-
-{{< include _intermediate_r_02.qmd >}}
 # Best Coding Practices for R
 
 ## What we mean when say "better coding practice"

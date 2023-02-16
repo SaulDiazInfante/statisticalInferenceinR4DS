@@ -1,3 +1,5 @@
+# Loops
+
 Loops can come in handy on numerous occasions. While loops are like repeated if
 statements, the for loop is designed to iterate over all elements in a sequence.
 Learn about them in this chapter.

@@ -1,0 +1,9 @@
+---
+title: "R fundamentals in programming, data managment and visualization"
+---
+
+We dedicate this part to overview the basics to program in R. The aim of this
+part is building the basis for Machine learning, namely **data types as**,
+**vectors, lists, factors and matrices**
+
+

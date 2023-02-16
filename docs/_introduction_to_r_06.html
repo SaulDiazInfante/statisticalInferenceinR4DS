@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistical Inference For Data Science - 6&nbsp; Lists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./background_01.html" rel="next">
+<link href="./_introduction_to_r_05.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lists</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Inference For Data Science</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./background_00.html" class="sidebar-item-text sidebar-link">R fundamentals in programming, data managment and visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_fundamentals_for_data_science.html" class="sidebar-item-text sidebar-link">Nuts and bolts: Data types</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_06.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lists</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./background_01.html" class="sidebar-item-text sidebar-link">R fundamentals in programming, data managment and visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_01.html" class="sidebar-item-text sidebar-link">Relational and logical operators, and conditional statements</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./statistical-inference-whole-game.html" class="sidebar-item-text sidebar-link">The whole game of statistical Inference</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lists-why-would-you-need-them" id="toc-lists-why-would-you-need-them" class="nav-link active" data-scroll-target="#lists-why-would-you-need-them"><span class="toc-section-number">6.1</span>  Lists, why would you need them?</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#lists-why-would-you-need-them-2" id="toc-lists-why-would-you-need-them-2" class="nav-link" data-scroll-target="#lists-why-would-you-need-them-2"><span class="toc-section-number">6.2</span>  Lists, why would you need them? (2)</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#creating-a-list" id="toc-creating-a-list" class="nav-link" data-scroll-target="#creating-a-list"><span class="toc-section-number">6.3</span>  Creating a list</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#creating-a-named-list" id="toc-creating-a-named-list" class="nav-link" data-scroll-target="#creating-a-named-list"><span class="toc-section-number">6.4</span>  Creating a named list</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#creating-a-named-list-2" id="toc-creating-a-named-list-2" class="nav-link" data-scroll-target="#creating-a-named-list-2"><span class="toc-section-number">6.5</span>  Creating a named list (2)</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#selecting-elements-from-a-list" id="toc-selecting-elements-from-a-list" class="nav-link" data-scroll-target="#selecting-elements-from-a-list"><span class="toc-section-number">6.6</span>  Selecting elements from a list</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5"><span class="toc-section-number">6.6.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#creating-a-new-list-for-another-movie" id="toc-creating-a-new-list-for-another-movie" class="nav-link" data-scroll-target="#creating-a-new-list-for-another-movie"><span class="toc-section-number">6.7</span>  Creating a new list for another movie</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lists</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>As opposed to vectors, lists can hold components of different types, just as your to-do lists can contain different categories of tasks. This chapter will teach you how to create, name, and subset these lists.</p>
+<section id="lists-why-would-you-need-them" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="lists-why-would-you-need-them"><span class="header-section-number">6.1</span> Lists, why would you need them?</h2>
+<p>Congratulations! At this point in the course you are already familiar with:</p>
+<ul>
+<li><dl>
+<dt>Vectors (one dimensional array)</dt>
+<dd>
+can hold numeric, character or logical values. The elements in a vector all have the same data type.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Matrices (two dimensional array)</dt>
+<dd>
+can hold numeric, character or logical values. The elements in a matrix all have the same data type.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Data frames (two-dimensional objects)</dt>
+<dd>
+can hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type. Pretty sweet for an R newbie, right? ;-)
+</dd>
+</dl></li>
+</ul>
+<section id="instructions-100-xp" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h3>
+<p>Submit the answer to start learning everything about lists!</p>
+</section>
+</section>
+<section id="lists-why-would-you-need-them-2" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="lists-why-would-you-need-them-2"><span class="header-section-number">6.2</span> Lists, why would you need them? (2)</h2>
+<p>A list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, and type of activity that has to be done.</p>
+<p>A list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other in any way.</p>
+<p>You could say that a list is some kind super data type: you can store practically any piece of information in it!</p>
+<section id="instructions-100-xp-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
+<p>Just submit the answer to start the first exercise on lists.</p>
+</section>
+</section>
+<section id="creating-a-list" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="creating-a-list"><span class="header-section-number">6.3</span> Creating a list</h2>
+<p>Let us create our first list! To construct a list you use the function <code>list()</code>:</p>
+<div class="sourceCode" id="cb1" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(comp1, comp2 ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The arguments to the list function are the list components. Remember, these components can be matrices, vectors, other lists, …</p>
+<section id="instructions-100-xp-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+<p>Construct a list, named <code>my_list</code>, that contains the variables <code>my_vector</code>, <code>my_matrix</code> and <code>my_df</code> as list components.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_53.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Vector with numerics from 1 up to 10</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>my_vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Matrix with numerics from 1 up to 9</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># First 10 elements of the built-in data frame mtcars</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>my_df <span class="ot">&lt;-</span> mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co"># Construct list with these different elements:</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(my_vector, my_matrix, my_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-a-named-list" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="creating-a-named-list"><span class="header-section-number">6.4</span> Creating a named list</h2>
+<p>Well done, you’re on a roll!</p>
+<p>Just like on your to-do list, you want to avoid not knowing or remembering what the components of your list stand for. That is why you should give names to them:</p>
+<p>my_list &lt;- list(name1 = your_comp1, name2 = your_comp2)</p>
+<p>This creates a list with components that are named name1, name2, and so on. If you want to name your lists after you’ve created them, you can use the <code>names()</code> function as you did with vectors. The following commands are fully equivalent to the assignment above:</p>
+<p>my_list &lt;- list(your_comp1, your_comp2) names(my_list) &lt;- c(“name1”, “name2”)</p>
+<section id="instructions-100-xp-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Change the code of the previous exercise (see editor) by adding names to the components. Use for my_vector the name vec, for my_matrix the name mat and for <code>my_df</code> the name df.</li>
+<li>Print out <code>my_list</code> so you can inspect the output.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_54.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Vector with numerics from 1 up to 10</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>my_vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># Matrix with numerics from 1 up to 9</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># First 10 elements of the built-in data frame mtcars</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>my_df <span class="ot">&lt;-</span> mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co"># Adapt list() call to give the components names</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(my_vector, my_matrix, my_df)</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="fu">names</span>(my_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"vec"</span>, <span class="st">"mat"</span>, <span class="st">"df"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># Print out my_list</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="fu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-a-named-list-2" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="creating-a-named-list-2"><span class="header-section-number">6.5</span> Creating a named list (2)</h2>
+<p>Being a huge movie fan (remember your job at LucasFilms), you decide to start storing information on good movies with the help of lists.</p>
+<p>Start by creating a list for the movie “The Shining”. We have already created the variables <code>mov</code>, <code>act</code> and <code>rev</code> in your R workspace. Feel free to check them out in the console.</p>
+<section id="instructions-100-xp-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+<p>Complete the code in the editor to create <code>shining_list</code>; it contains three elements:</p>
+<ul>
+<li><code>moviename</code>: a character string with the movie title (stored in mov)</li>
+<li><code>actors</code>: a vector with the main actors’ names (stored in act)</li>
+<li><code>reviews</code>: a data frame that contains some reviews (stored in rev)</li>
+</ul>
+<p>Do not forget to name the list components accordingly (names are moviename, actors and reviews).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_55.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># The variables mov, act and rev are available</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Finish the code to build shining_list</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>shining_list <span class="ot">&lt;-</span> </span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="fu">list</span>(</span>
+<span id="cb4-6"><a href="#cb4-6"></a>        <span class="at">moviename =</span> mov, </span>
+<span id="cb4-7"><a href="#cb4-7"></a>        <span class="at">actors =</span> act,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>        <span class="at">reviews =</span> rev</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="selecting-elements-from-a-list" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="selecting-elements-from-a-list"><span class="header-section-number">6.6</span> Selecting elements from a list</h2>
+<p>Your list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.</p>
+<p>One way to select a component is using the numbered position of that component. For example, to “grab” the first component of <code>shining_list</code> you type</p>
+<div class="sourceCode" id="cb5" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shining_list[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A quick way to check this out is typing it in the console. Important to remember: to select elements from vectors, you use single square brackets: <code>[ ]</code>. Don’t mix them up!</p>
+<p>You can also refer to the names of the components, with <code>[[ ]]</code> or with the <code>$</code> sign. Both will select the data frame representing the reviews:</p>
+<div class="sourceCode" id="cb6" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>shining_list[[<span class="st">"reviews"</span>]]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>shining_list<span class="sc">$</span>reviews</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Besides selecting components, you often need to select specific elements out of these components. For example, with <code>shining_list[[2]][1]</code> you select from the second component, actors (<code>shining_list[[2]]</code>), the first element (<code>[1]</code>). When you type this in the console, you will see the answer is Jack Nicholson.</p>
+<section id="instructions-100-xp-5" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="instructions-100-xp-5"><span class="header-section-number">6.6.1</span> Instructions <code>100 XP</code></h3>
+<ul>
+<li>Select from shining_list the vector representing the actors. Simply print out this vector.</li>
+<li>Select from shining_list the second element in the vector representing the actors. Do a printout like before.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_56.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># shining_list is already pre-loaded in the workspace</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># Print out the vector representing the actors</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">print</span>(shining_list[[<span class="st">"actors"</span>]])</span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co"># Print the second element of the vector representing the actors</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="fu">print</span>(shining_list[[<span class="st">"actors"</span>]][<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-a-new-list-for-another-movie" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="creating-a-new-list-for-another-movie"><span class="header-section-number">6.7</span> Creating a new list for another movie</h2>
+<p>You found reviews of another, more recent, Jack Nicholson movie: The Departed!</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Scores</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4.6</td>
+<td style="text-align: left;">I would watch it again</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td style="text-align: left;">Amazing!</td>
+</tr>
+<tr class="odd">
+<td>4.8</td>
+<td style="text-align: left;">I liked it</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td style="text-align: left;">One of the best movies</td>
+</tr>
+<tr class="odd">
+<td>4.2</td>
+<td style="text-align: left;">Fascinating plot</td>
+</tr>
+</tbody>
+</table>
+<p>It would be useful to collect together all the pieces of information about the movie, like the title, actors, and reviews into a single variable. Since these pieces of data are different shapes, it is natural to combine them in a list variable.</p>
+<p><code>movie_title</code>, containing the title of the movie, and <code>movie_actors</code>, containing the names of some of the actors in the movie, are available in your workspace.</p>
+<section id="instructions-100-xp-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Create two vectors, called <code>scores</code> and <code>comments</code>, that contain the information from the reviews shown in the table.</li>
+<li>Find the average of the <code>scores</code> vector and save it as <code>avg_review</code>.</li>
+<li>Combine the <code>scores</code> and <code>comments</code> vectors into a data frame called <code>reviews_df</code>.</li>
+<li>Create a list, called <code>departed_list</code>, that contains the <code>movie_title</code>, <code>movie_actors</code>, <code>reviews</code> data frame as <code>reviews_df</code>, and the average review score as <code>avg_review</code>, and print it out.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_57.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Use the table from the exercise to define the comments and scores vectors</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">4.8</span>, <span class="dv">5</span>, <span class="fl">4.2</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>comments <span class="ot">&lt;-</span> </span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="fu">c</span>(</span>
+<span id="cb8-5"><a href="#cb8-5"></a>        <span class="st">"I would watch it again"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>        <span class="st">"Amazing!"</span>, </span>
+<span id="cb8-7"><a href="#cb8-7"></a>        <span class="st">"I liked it"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>        <span class="st">"One of the best movies"</span>, </span>
+<span id="cb8-9"><a href="#cb8-9"></a>        <span class="st">"Fascinating plot"</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>    )</span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co"># Save the average of the scores vector as avg_review</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a>avg_review <span class="ot">&lt;-</span> <span class="fu">mean</span>(scores)</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co"># Combine scores and comments into the reviews_df data frame</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>reviews_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(scores, comments)</span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co"># Create and print out a list, called departed_list</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a>departed_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb8-20"><a href="#cb8-20"></a>    movie_title,</span>
+<span id="cb8-21"><a href="#cb8-21"></a>    movie_actors,</span>
+<span id="cb8-22"><a href="#cb8-22"></a>    reviews_df,</span>
+<span id="cb8-23"><a href="#cb8-23"></a>    avg_review</span>
+<span id="cb8-24"><a href="#cb8-24"></a>)</span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="fu">print</span>(departed_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./_introduction_to_r_05.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./background_01.html" class="pagination-link">
+        <span class="nav-page-text">R fundamentals in programming, data managment and visualization</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="an">format:</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">  html: </span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">    theme: darkly</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">    fig-width: 8</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">    fig-height: 4</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">    code-fold: true</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">    code-link: true</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">    highlight-style: dracula</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">    code-line-numbers: true</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">    code-block-border-left: true</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">    code-tools:</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co">      source: true</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="co">      toggle: false</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="co">      caption: none</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="co">---</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="fu"># Lists</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a></span>
+<span id="cb9-20"><a href="#cb9-20"></a>As opposed to vectors, lists can hold components of different types, just as </span>
+<span id="cb9-21"><a href="#cb9-21"></a>your to-do lists can contain different categories of tasks. This chapter will</span>
+<span id="cb9-22"><a href="#cb9-22"></a>teach you how to create, name, and subset these lists.</span>
+<span id="cb9-23"><a href="#cb9-23"></a></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="fu">## Lists, why would you need them?</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a>Congratulations! At this point in the course you are already familiar with:</span>
+<span id="cb9-26"><a href="#cb9-26"></a></span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="ss">- </span>Vectors (one dimensional array)</span>
+<span id="cb9-28"><a href="#cb9-28"></a>: can hold numeric, character or logical values. The elements in a vector all</span>
+<span id="cb9-29"><a href="#cb9-29"></a>have the same data type.</span>
+<span id="cb9-30"><a href="#cb9-30"></a></span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="ss">- </span>Matrices (two dimensional array)</span>
+<span id="cb9-32"><a href="#cb9-32"></a>: can hold numeric, character or logical</span>
+<span id="cb9-33"><a href="#cb9-33"></a>values. The elements in a matrix all have the same data type.</span>
+<span id="cb9-34"><a href="#cb9-34"></a></span>
+<span id="cb9-35"><a href="#cb9-35"></a><span class="ss">- </span>Data frames (two-dimensional objects)</span>
+<span id="cb9-36"><a href="#cb9-36"></a>: can hold numeric, character or</span>
+<span id="cb9-37"><a href="#cb9-37"></a>logical values. Within a column all elements have the same data type, but</span>
+<span id="cb9-38"><a href="#cb9-38"></a>different columns can be of different data type.</span>
+<span id="cb9-39"><a href="#cb9-39"></a>Pretty sweet for an R newbie, right? ;-)</span>
+<span id="cb9-40"><a href="#cb9-40"></a></span>
+<span id="cb9-41"><a href="#cb9-41"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb9-42"><a href="#cb9-42"></a></span>
+<span id="cb9-43"><a href="#cb9-43"></a>Submit the answer to start learning everything about lists!</span>
+<span id="cb9-44"><a href="#cb9-44"></a></span>
+<span id="cb9-45"><a href="#cb9-45"></a><span class="fu">## Lists, why would you need them? (2)</span></span>
+<span id="cb9-46"><a href="#cb9-46"></a></span>
+<span id="cb9-47"><a href="#cb9-47"></a>A list in R is similar to your to-do list at work or school: the different </span>
+<span id="cb9-48"><a href="#cb9-48"></a>items on that list most likely differ in length, characteristic, and type</span>
+<span id="cb9-49"><a href="#cb9-49"></a>of activity that has to be done.</span>
+<span id="cb9-50"><a href="#cb9-50"></a></span>
+<span id="cb9-51"><a href="#cb9-51"></a>A list in R allows you to gather a variety of objects under one name</span>
+<span id="cb9-52"><a href="#cb9-52"></a>(that is, the name of the list) in an ordered way. These objects can</span>
+<span id="cb9-53"><a href="#cb9-53"></a>be matrices, vectors, data frames, even other lists, etc. It is not even</span>
+<span id="cb9-54"><a href="#cb9-54"></a>required that these objects are related to each other in any way.</span>
+<span id="cb9-55"><a href="#cb9-55"></a></span>
+<span id="cb9-56"><a href="#cb9-56"></a>You could say that a list is some kind super data type: you can store</span>
+<span id="cb9-57"><a href="#cb9-57"></a>practically any piece of information in it!</span>
+<span id="cb9-58"><a href="#cb9-58"></a></span>
+<span id="cb9-59"><a href="#cb9-59"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb9-60"><a href="#cb9-60"></a></span>
+<span id="cb9-61"><a href="#cb9-61"></a>Just submit the answer to start the first exercise on lists.</span>
+<span id="cb9-62"><a href="#cb9-62"></a></span>
+<span id="cb9-63"><a href="#cb9-63"></a><span class="fu">## Creating a list</span></span>
+<span id="cb9-64"><a href="#cb9-64"></a></span>
+<span id="cb9-65"><a href="#cb9-65"></a>Let us create our first list! To construct a list you use the function <span class="in">`list()`</span>:</span>
+<span id="cb9-66"><a href="#cb9-66"></a></span>
+<span id="cb9-67"><a href="#cb9-67"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb9-68"><a href="#cb9-68"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(comp1, comp2 ...)</span>
+<span id="cb9-69"><a href="#cb9-69"></a><span class="in">```</span></span>
+<span id="cb9-70"><a href="#cb9-70"></a></span>
+<span id="cb9-71"><a href="#cb9-71"></a>The arguments to the list function are the list components. </span>
+<span id="cb9-72"><a href="#cb9-72"></a>Remember, these components can be matrices, vectors, other lists, …</span>
+<span id="cb9-73"><a href="#cb9-73"></a></span>
+<span id="cb9-74"><a href="#cb9-74"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb9-75"><a href="#cb9-75"></a></span>
+<span id="cb9-76"><a href="#cb9-76"></a>Construct a list, named <span class="in">`my_list`</span>, that contains the variables </span>
+<span id="cb9-77"><a href="#cb9-77"></a><span class="in">`my_vector`</span>, <span class="in">`my_matrix`</span> and <span class="in">`my_df`</span> as list components.</span>
+<span id="cb9-78"><a href="#cb9-78"></a></span>
+<span id="cb9-79"><a href="#cb9-79"></a><span class="in">```{.r filename="ex_53.R"}</span></span>
+<span id="cb9-80"><a href="#cb9-80"></a><span class="co"># Vector with numerics from 1 up to 10</span></span>
+<span id="cb9-81"><a href="#cb9-81"></a>my_vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
+<span id="cb9-82"><a href="#cb9-82"></a></span>
+<span id="cb9-83"><a href="#cb9-83"></a><span class="co"># Matrix with numerics from 1 up to 9</span></span>
+<span id="cb9-84"><a href="#cb9-84"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb9-85"><a href="#cb9-85"></a></span>
+<span id="cb9-86"><a href="#cb9-86"></a><span class="co"># First 10 elements of the built-in data frame mtcars</span></span>
+<span id="cb9-87"><a href="#cb9-87"></a>my_df <span class="ot">&lt;-</span> mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb9-88"><a href="#cb9-88"></a></span>
+<span id="cb9-89"><a href="#cb9-89"></a><span class="co"># Construct list with these different elements:</span></span>
+<span id="cb9-90"><a href="#cb9-90"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(my_vector, my_matrix, my_df)</span>
+<span id="cb9-91"><a href="#cb9-91"></a><span class="in">```</span></span>
+<span id="cb9-92"><a href="#cb9-92"></a><span class="fu">## Creating a named list</span></span>
+<span id="cb9-93"><a href="#cb9-93"></a></span>
+<span id="cb9-94"><a href="#cb9-94"></a>Well done, you're on a roll!</span>
+<span id="cb9-95"><a href="#cb9-95"></a></span>
+<span id="cb9-96"><a href="#cb9-96"></a>Just like on your to-do list, you want to avoid not knowing or </span>
+<span id="cb9-97"><a href="#cb9-97"></a>remembering what the components of your list stand for. That is why you should </span>
+<span id="cb9-98"><a href="#cb9-98"></a>give names to them:</span>
+<span id="cb9-99"><a href="#cb9-99"></a></span>
+<span id="cb9-100"><a href="#cb9-100"></a>my_list &lt;- list(name1 = your_comp1, </span>
+<span id="cb9-101"><a href="#cb9-101"></a>                name2 = your_comp2)</span>
+<span id="cb9-102"><a href="#cb9-102"></a></span>
+<span id="cb9-103"><a href="#cb9-103"></a>This creates a list with components that are named name1, name2, and so on. </span>
+<span id="cb9-104"><a href="#cb9-104"></a>If you want to name your lists after you've created them, you can use the </span>
+<span id="cb9-105"><a href="#cb9-105"></a><span class="in">`names()`</span> function as you did with vectors. </span>
+<span id="cb9-106"><a href="#cb9-106"></a>The following commands are fully equivalent to the assignment above:</span>
+<span id="cb9-107"><a href="#cb9-107"></a></span>
+<span id="cb9-108"><a href="#cb9-108"></a>my_list &lt;- list(your_comp1, your_comp2)</span>
+<span id="cb9-109"><a href="#cb9-109"></a>names(my_list) &lt;- c("name1", "name2")</span>
+<span id="cb9-110"><a href="#cb9-110"></a></span>
+<span id="cb9-111"><a href="#cb9-111"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb9-112"><a href="#cb9-112"></a></span>
+<span id="cb9-113"><a href="#cb9-113"></a><span class="ss">- </span>Change the code of the previous exercise (see editor) by adding names to the </span>
+<span id="cb9-114"><a href="#cb9-114"></a>components. Use for my_vector the name vec, for my_matrix the name mat and for </span>
+<span id="cb9-115"><a href="#cb9-115"></a><span class="in">`my_df`</span> the name df.</span>
+<span id="cb9-116"><a href="#cb9-116"></a><span class="ss">- </span>Print out <span class="in">`my_list`</span> so you can inspect the output.</span>
+<span id="cb9-117"><a href="#cb9-117"></a></span>
+<span id="cb9-118"><a href="#cb9-118"></a><span class="in">```{.r filename="ex_54.R"}</span></span>
+<span id="cb9-119"><a href="#cb9-119"></a><span class="co"># Vector with numerics from 1 up to 10</span></span>
+<span id="cb9-120"><a href="#cb9-120"></a>my_vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
+<span id="cb9-121"><a href="#cb9-121"></a></span>
+<span id="cb9-122"><a href="#cb9-122"></a><span class="co"># Matrix with numerics from 1 up to 9</span></span>
+<span id="cb9-123"><a href="#cb9-123"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb9-124"><a href="#cb9-124"></a></span>
+<span id="cb9-125"><a href="#cb9-125"></a><span class="co"># First 10 elements of the built-in data frame mtcars</span></span>
+<span id="cb9-126"><a href="#cb9-126"></a>my_df <span class="ot">&lt;-</span> mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb9-127"><a href="#cb9-127"></a></span>
+<span id="cb9-128"><a href="#cb9-128"></a><span class="co"># Adapt list() call to give the components names</span></span>
+<span id="cb9-129"><a href="#cb9-129"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(my_vector, my_matrix, my_df)</span>
+<span id="cb9-130"><a href="#cb9-130"></a><span class="fu">names</span>(my_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"vec"</span>, <span class="st">"mat"</span>, <span class="st">"df"</span>)</span>
+<span id="cb9-131"><a href="#cb9-131"></a><span class="co"># Print out my_list</span></span>
+<span id="cb9-132"><a href="#cb9-132"></a><span class="fu">print</span>(my_list)</span>
+<span id="cb9-133"><a href="#cb9-133"></a><span class="in">```</span></span>
+<span id="cb9-134"><a href="#cb9-134"></a><span class="fu">## Creating a named list (2)</span></span>
+<span id="cb9-135"><a href="#cb9-135"></a>Being a huge movie fan (remember your job at LucasFilms), you decide to start</span>
+<span id="cb9-136"><a href="#cb9-136"></a>storing information on good movies with the help of lists.</span>
+<span id="cb9-137"><a href="#cb9-137"></a></span>
+<span id="cb9-138"><a href="#cb9-138"></a>Start by creating a list for the movie "The Shining". </span>
+<span id="cb9-139"><a href="#cb9-139"></a>We have already created the variables <span class="in">`mov`</span>, <span class="in">`act`</span> and <span class="in">`rev`</span> in your R </span>
+<span id="cb9-140"><a href="#cb9-140"></a>workspace. Feel free to check them out in the console.</span>
+<span id="cb9-141"><a href="#cb9-141"></a></span>
+<span id="cb9-142"><a href="#cb9-142"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb9-143"><a href="#cb9-143"></a>Complete the code in the editor to create <span class="in">`shining_list`</span>;</span>
+<span id="cb9-144"><a href="#cb9-144"></a>it contains three elements:</span>
+<span id="cb9-145"><a href="#cb9-145"></a></span>
+<span id="cb9-146"><a href="#cb9-146"></a><span class="ss">- </span><span class="in">`moviename`</span>: a character string with the movie title (stored in mov)</span>
+<span id="cb9-147"><a href="#cb9-147"></a><span class="ss">- </span><span class="in">`actors`</span>: a vector with the main actors' names (stored in act)</span>
+<span id="cb9-148"><a href="#cb9-148"></a><span class="ss">- </span><span class="in">`reviews`</span>: a data frame that contains some reviews (stored in rev)</span>
+<span id="cb9-149"><a href="#cb9-149"></a></span>
+<span id="cb9-150"><a href="#cb9-150"></a>Do not forget to name the list components accordingly </span>
+<span id="cb9-151"><a href="#cb9-151"></a>(names are moviename, actors and reviews).</span>
+<span id="cb9-152"><a href="#cb9-152"></a></span>
+<span id="cb9-153"><a href="#cb9-153"></a><span class="in">```{.r filename="ex_55.R"} </span></span>
+<span id="cb9-154"><a href="#cb9-154"></a><span class="co"># The variables mov, act and rev are available</span></span>
+<span id="cb9-155"><a href="#cb9-155"></a></span>
+<span id="cb9-156"><a href="#cb9-156"></a><span class="co"># Finish the code to build shining_list</span></span>
+<span id="cb9-157"><a href="#cb9-157"></a>shining_list <span class="ot">&lt;-</span> </span>
+<span id="cb9-158"><a href="#cb9-158"></a>    <span class="fu">list</span>(</span>
+<span id="cb9-159"><a href="#cb9-159"></a>        <span class="at">moviename =</span> mov, </span>
+<span id="cb9-160"><a href="#cb9-160"></a>        <span class="at">actors =</span> act,</span>
+<span id="cb9-161"><a href="#cb9-161"></a>        <span class="at">reviews =</span> rev</span>
+<span id="cb9-162"><a href="#cb9-162"></a>    )</span>
+<span id="cb9-163"><a href="#cb9-163"></a><span class="in">```</span></span>
+<span id="cb9-164"><a href="#cb9-164"></a><span class="fu">## Selecting elements from a list</span></span>
+<span id="cb9-165"><a href="#cb9-165"></a></span>
+<span id="cb9-166"><a href="#cb9-166"></a>Your list will often be built out of numerous elements and components.</span>
+<span id="cb9-167"><a href="#cb9-167"></a>Therefore, getting a single element, multiple elements, or a component out of</span>
+<span id="cb9-168"><a href="#cb9-168"></a>it is not always straightforward.</span>
+<span id="cb9-169"><a href="#cb9-169"></a></span>
+<span id="cb9-170"><a href="#cb9-170"></a>One way to select a component is using the numbered position of that component.</span>
+<span id="cb9-171"><a href="#cb9-171"></a>For example, to "grab" the first component of <span class="in">`shining_list`</span> you type</span>
+<span id="cb9-172"><a href="#cb9-172"></a> </span>
+<span id="cb9-173"><a href="#cb9-173"></a> <span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb9-174"><a href="#cb9-174"></a> shining_list[[<span class="dv">1</span>]]</span>
+<span id="cb9-175"><a href="#cb9-175"></a><span class="in">```</span> </span>
+<span id="cb9-176"><a href="#cb9-176"></a>A quick way to check this out is typing it in the console. </span>
+<span id="cb9-177"><a href="#cb9-177"></a>Important to remember: to select elements from vectors, </span>
+<span id="cb9-178"><a href="#cb9-178"></a>you use single square brackets: <span class="in">`[ ]`</span>. Don't mix them up!</span>
+<span id="cb9-179"><a href="#cb9-179"></a></span>
+<span id="cb9-180"><a href="#cb9-180"></a>You can also refer to the names of the components, </span>
+<span id="cb9-181"><a href="#cb9-181"></a>with <span class="in">`[[ ]]`</span> or with the <span class="in">`$`</span> sign. Both will select the data</span>
+<span id="cb9-182"><a href="#cb9-182"></a>frame representing the reviews:</span>
+<span id="cb9-183"><a href="#cb9-183"></a></span>
+<span id="cb9-184"><a href="#cb9-184"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb9-185"><a href="#cb9-185"></a>shining_list[[<span class="st">"reviews"</span>]]</span>
+<span id="cb9-186"><a href="#cb9-186"></a>shining_list<span class="sc">$</span>reviews</span>
+<span id="cb9-187"><a href="#cb9-187"></a><span class="in">```</span></span>
+<span id="cb9-188"><a href="#cb9-188"></a></span>
+<span id="cb9-189"><a href="#cb9-189"></a>Besides selecting components, you often need to select specific elements out</span>
+<span id="cb9-190"><a href="#cb9-190"></a>of these components. For example, with </span>
+<span id="cb9-191"><a href="#cb9-191"></a><span class="in">`shining_list[[2]][1]`</span> you select from the second component, actors </span>
+<span id="cb9-192"><a href="#cb9-192"></a>(<span class="in">`shining_list[[2]]`</span>), the first element (<span class="in">`[1]`</span>).</span>
+<span id="cb9-193"><a href="#cb9-193"></a>When you type this in the console, you will see the answer is Jack Nicholson.</span>
+<span id="cb9-194"><a href="#cb9-194"></a></span>
+<span id="cb9-195"><a href="#cb9-195"></a><span class="fu">### Instructions `100 XP`</span></span>
+<span id="cb9-196"><a href="#cb9-196"></a></span>
+<span id="cb9-197"><a href="#cb9-197"></a><span class="ss">- </span>Select from shining_list the vector representing the actors. Simply print </span>
+<span id="cb9-198"><a href="#cb9-198"></a>out this vector.</span>
+<span id="cb9-199"><a href="#cb9-199"></a><span class="ss">- </span>Select from shining_list the second element in the vector representing </span>
+<span id="cb9-200"><a href="#cb9-200"></a>the actors. Do a printout like before.</span>
+<span id="cb9-201"><a href="#cb9-201"></a></span>
+<span id="cb9-202"><a href="#cb9-202"></a><span class="in">```{.r filename="ex_56.R"}</span></span>
+<span id="cb9-203"><a href="#cb9-203"></a><span class="co"># shining_list is already pre-loaded in the workspace</span></span>
+<span id="cb9-204"><a href="#cb9-204"></a></span>
+<span id="cb9-205"><a href="#cb9-205"></a><span class="co"># Print out the vector representing the actors</span></span>
+<span id="cb9-206"><a href="#cb9-206"></a><span class="fu">print</span>(shining_list[[<span class="st">"actors"</span>]])</span>
+<span id="cb9-207"><a href="#cb9-207"></a></span>
+<span id="cb9-208"><a href="#cb9-208"></a><span class="co"># Print the second element of the vector representing the actors</span></span>
+<span id="cb9-209"><a href="#cb9-209"></a><span class="fu">print</span>(shining_list[[<span class="st">"actors"</span>]][<span class="dv">2</span>])</span>
+<span id="cb9-210"><a href="#cb9-210"></a><span class="in">```</span></span>
+<span id="cb9-211"><a href="#cb9-211"></a></span>
+<span id="cb9-212"><a href="#cb9-212"></a><span class="fu">## Creating a new list for another movie</span></span>
+<span id="cb9-213"><a href="#cb9-213"></a></span>
+<span id="cb9-214"><a href="#cb9-214"></a>You found reviews of another, more recent, Jack Nicholson movie: The Departed!</span>
+<span id="cb9-215"><a href="#cb9-215"></a></span>
+<span id="cb9-216"><a href="#cb9-216"></a>|Scores | Comments               </span>
+<span id="cb9-217"><a href="#cb9-217"></a>|-      |:---</span>
+<span id="cb9-218"><a href="#cb9-218"></a>| 4.6   | I would watch it again </span>
+<span id="cb9-219"><a href="#cb9-219"></a>| 5     | Amazing!               </span>
+<span id="cb9-220"><a href="#cb9-220"></a>| 4.8   | I liked it             </span>
+<span id="cb9-221"><a href="#cb9-221"></a>| 5     | One of the best movies  </span>
+<span id="cb9-222"><a href="#cb9-222"></a>| 4.2   | Fascinating plot       </span>
+<span id="cb9-223"><a href="#cb9-223"></a></span>
+<span id="cb9-224"><a href="#cb9-224"></a>It would be useful to collect together all the pieces of information about </span>
+<span id="cb9-225"><a href="#cb9-225"></a>the movie, like the title, actors, and reviews into a single variable. Since</span>
+<span id="cb9-226"><a href="#cb9-226"></a>these pieces of data are different shapes, it is natural to combine them in a</span>
+<span id="cb9-227"><a href="#cb9-227"></a>list variable.</span>
+<span id="cb9-228"><a href="#cb9-228"></a></span>
+<span id="cb9-229"><a href="#cb9-229"></a><span class="in">`movie_title`</span>, containing the title of the movie, and <span class="in">`movie_actors`</span>,</span>
+<span id="cb9-230"><a href="#cb9-230"></a>containing the names of some of the actors in the movie, are available in your</span>
+<span id="cb9-231"><a href="#cb9-231"></a>workspace.</span>
+<span id="cb9-232"><a href="#cb9-232"></a></span>
+<span id="cb9-233"><a href="#cb9-233"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb9-234"><a href="#cb9-234"></a></span>
+<span id="cb9-235"><a href="#cb9-235"></a><span class="ss">- </span>Create two vectors, called <span class="in">`scores`</span> and <span class="in">`comments`</span>, that contain the </span>
+<span id="cb9-236"><a href="#cb9-236"></a>information from the reviews shown in the table.</span>
+<span id="cb9-237"><a href="#cb9-237"></a><span class="ss">- </span>Find the average of the <span class="in">`scores`</span> vector and save it as <span class="in">`avg_review`</span>.</span>
+<span id="cb9-238"><a href="#cb9-238"></a><span class="ss">- </span>Combine the <span class="in">`scores`</span> and <span class="in">`comments`</span> vectors into a data frame called </span>
+<span id="cb9-239"><a href="#cb9-239"></a><span class="in">`reviews_df`</span>.</span>
+<span id="cb9-240"><a href="#cb9-240"></a><span class="ss">- </span>Create a list, called <span class="in">`departed_list`</span>, that contains the</span>
+<span id="cb9-241"><a href="#cb9-241"></a><span class="in">` movie_title`</span>, <span class="in">`movie_actors`</span>, <span class="in">`reviews`</span> data frame as <span class="in">`reviews_df`</span>,</span>
+<span id="cb9-242"><a href="#cb9-242"></a>and the average review score as <span class="in">`avg_review`</span>, and print it out.</span>
+<span id="cb9-243"><a href="#cb9-243"></a></span>
+<span id="cb9-244"><a href="#cb9-244"></a><span class="in">```{.r filename="ex_57.R"}</span></span>
+<span id="cb9-245"><a href="#cb9-245"></a><span class="co"># Use the table from the exercise to define the comments and scores vectors</span></span>
+<span id="cb9-246"><a href="#cb9-246"></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">4.8</span>, <span class="dv">5</span>, <span class="fl">4.2</span>)</span>
+<span id="cb9-247"><a href="#cb9-247"></a>comments <span class="ot">&lt;-</span> </span>
+<span id="cb9-248"><a href="#cb9-248"></a>    <span class="fu">c</span>(</span>
+<span id="cb9-249"><a href="#cb9-249"></a>        <span class="st">"I would watch it again"</span>,</span>
+<span id="cb9-250"><a href="#cb9-250"></a>        <span class="st">"Amazing!"</span>, </span>
+<span id="cb9-251"><a href="#cb9-251"></a>        <span class="st">"I liked it"</span>,</span>
+<span id="cb9-252"><a href="#cb9-252"></a>        <span class="st">"One of the best movies"</span>, </span>
+<span id="cb9-253"><a href="#cb9-253"></a>        <span class="st">"Fascinating plot"</span></span>
+<span id="cb9-254"><a href="#cb9-254"></a>    )</span>
+<span id="cb9-255"><a href="#cb9-255"></a></span>
+<span id="cb9-256"><a href="#cb9-256"></a><span class="co"># Save the average of the scores vector as avg_review</span></span>
+<span id="cb9-257"><a href="#cb9-257"></a>avg_review <span class="ot">&lt;-</span> <span class="fu">mean</span>(scores)</span>
+<span id="cb9-258"><a href="#cb9-258"></a></span>
+<span id="cb9-259"><a href="#cb9-259"></a><span class="co"># Combine scores and comments into the reviews_df data frame</span></span>
+<span id="cb9-260"><a href="#cb9-260"></a>reviews_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(scores, comments)</span>
+<span id="cb9-261"><a href="#cb9-261"></a></span>
+<span id="cb9-262"><a href="#cb9-262"></a><span class="co"># Create and print out a list, called departed_list</span></span>
+<span id="cb9-263"><a href="#cb9-263"></a>departed_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb9-264"><a href="#cb9-264"></a>    movie_title,</span>
+<span id="cb9-265"><a href="#cb9-265"></a>    movie_actors,</span>
+<span id="cb9-266"><a href="#cb9-266"></a>    reviews_df,</span>
+<span id="cb9-267"><a href="#cb9-267"></a>    avg_review</span>
+<span id="cb9-268"><a href="#cb9-268"></a>)</span>
+<span id="cb9-269"><a href="#cb9-269"></a><span class="fu">print</span>(departed_list)</span>
+<span id="cb9-270"><a href="#cb9-270"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

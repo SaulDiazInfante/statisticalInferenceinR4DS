@@ -1,0 +1,8 @@
+---
+title: "R fundamentals in programming, data managment and visualization"
+---
+
+We dedicate this part to overview the basics to program in R. The aim of this
+part is building the basis for Machine learning, namely 
+*control flow*, *loops*, *functional programming*.
+

@@ -8,10 +8,23 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - part: background.qmd
+    - part: background_00.qmd
       chapters:
         - r_fundamentals_for_data_science.qmd
+        - _introduction_to_r_01.qmd
+        - _introduction_to_r_02.qmd
+        - _introduction_to_r_03.qmd
+        - _introduction_to_r_04.qmd
+        - _introduction_to_r_05.qmd
+        - _introduction_to_r_06.qmd
+    
+    - part: background_01.qmd
+      chapters:
+        - _intermediate_r_01.qmd
+        - _intermediate_r_02.qmd
+        - _intermediate_r_03.qmd
         - data_visualization.qmd
+    
     - part: statistical-inference-whole-game.qmd
       chapters:
         - statistical_inference.qmd
