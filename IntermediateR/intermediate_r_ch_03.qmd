@@ -876,7 +876,7 @@ and calculates the average of the minimum and maximum temperatures of the vector
 - Use the same function over `temp` with `lapply()` and see how the outputs 
 differ.
 
-```{.r filename="ex_035.R"}
+```{.r filename="ex_036.R"}
 # temp is already defined in the workspace
 
 # Finish function definition of extremes_avg
@@ -907,7 +907,7 @@ of a given vector, with the names `"min"` and `"max"`, respectively.
 - Apply this function over the vector temp using `sapply()`.
 - Finally, apply this function over the vector temp using `lapply()` as well.
 
-```{.r filename="ex_035.r"}
+```{.r filename="ex_037.R"}
 # temp is already available in the workspace
 
 # Create a function that returns min and max of a vector: extremes
@@ -941,7 +941,7 @@ below zero.
 variable `freezing_l`.
 - Compare `freezing_s` to `freezing_l` using the `identical()` function.
 
-```{.r filenme="ex_035.R"}
+```{.r filename="ex_038.R"}
 # temp is already prepared for you in the workspace
 
 # Definition of below_zero()
@@ -958,3 +958,50 @@ freezing_l <- lapply(temp, below_zero)
 # Are freezing_s and freezing_l identical?
 identical(freezing_s, freezing_s)
 ```
+## sapply with functions that return NULL
+
+You already have some apply tricks under your sleeve, but you're surely hungry 
+for some more, aren't you? In this exercise, you'll see how `sapply()` reacts 
+when it is used to apply a function that returns `NULL` over a vector or a list.
+
+A function `print_info()`, that takes a vector and prints the average of this 
+vector, has already been created for you. It uses the `cat()` function.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Apply `print_info()` over the contents of temp with `sapply()`.
+- Repeat this process with `lapply()`. Do you notice the difference?
+
+```{.r filename="ex_039.R"}
+# temp is already available in the workspace
+
+# Definition of print_info()
+print_info <- function(x) {
+  cat("The average temperature is", mean(x), "\n")
+}
+
+# Apply print_info() over temp using sapply()
+sapply(temp, print_info)
+
+# Apply print_info() over temp using lapply()
+lapply(temp, print_info)
+```
+## Reverse engineering sapply
+
+```{.r code-line-numbers="false"}
+sapply(list(runif (10), runif (10)), 
+       function(x) c(min = min(x), mean = mean(x), max = max(x)))
+```
+
+Without going straight to the console to run the code, try to reason through 
+which of the following statements are correct and why.
+
+(1) `sapply()` can't simplify the result that `lapply()` would return, 
+and thus returns a list of vectors.
+(2) This code generates a matrix with 3 rows and 2 columns.
+(3) The function that is used inside sapply() is anonymous.
+(4) The resulting data structure does not contain any names.
+
+Select the option that lists all correct statements.
+
+### answer : (2) and (3) {.unnumbered}
