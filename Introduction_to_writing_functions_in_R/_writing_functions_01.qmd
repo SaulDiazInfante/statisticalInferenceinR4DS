@@ -1,0 +1,15 @@
+# How to Write a Function
+
+## Calling functions
+
+## Converting scripts into functions
+
+## Your first function: tossing a coin
+
+## Inputs to functions
+
+## Multiple inputs to functions
+
+## Data or detail?
+
+## Renaming GLM

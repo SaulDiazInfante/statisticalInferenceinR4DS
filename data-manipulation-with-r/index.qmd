@@ -1,0 +1,30 @@
+# Preface {.unnumbered}
+
+
+Real-world data is messy. That’s why packages like dplyr and data.table 
+are so valuable. Using these packages, you can take the pain out of data
+manipulation by extracting, filtering, and transforming your data, clearing
+a path for quick and reliable data analysis.
+
+You’ll learn how to prepare real-world data for analysis and grow your
+expertise as you work with multiple tables. You’ll also gain hands-on experience
+of how to combine, merge, and create visualizations. You'll apply your new-found
+data manipulation skills using dplyr to analyze voting data from the United
+Nations. Start this track and discover how dplyr and data.table can save you
+time manipulating data.
+
+
+Say you've found a great dataset and would like to learn more about it. 
+How can you start to answer the questions you have about the data? 
+You can use dplyr to answer those questions—it can also help with basic 
+transformations of your data. You'll also learn to aggregate your data and add,
+remove, or change the variables. Along the way, you'll explore a dataset
+containing information about counties in the United States. You'll finish
+the course by applying these tools to the babynames dataset to explore trends
+of baby names in the United States.
+
+This part of the book contemplates four parts namenly:
+1. Data Manipulation with dplyr
+2. Joining Data with dplyr
+3. Data Manipulation with data.table
+4. Joining Data with data.table 

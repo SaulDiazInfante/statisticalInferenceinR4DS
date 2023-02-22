@@ -1,0 +1,27 @@
+project:
+  type: book
+
+book:
+  title: "Data Manipulation with R: dplyr and data.table"
+  author: "Saul Diaz Infante Velasco"
+  date: "2/22/2023"
+  
+  chapters:
+    - index.qmd
+    - part: _data_manipulation_with_dplyr.qmd
+      chapters: 
+        - _data_manipulation_with_dplyr_01.qmd
+        - _data_manipulation_with_dplyr_02.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: darkly
+  pdf:
+    documentclass: scrreprt
+
+
+

@@ -1,0 +1,174 @@
+# Transforming Data with dplyr
+
+Learn verbs you can use to transform your data, including select, filter,
+arrange, and mutate. You'll use these functions to modify the counties dataset 
+to view particular observations and answer questions about the data.
+
+## Selecting columns
+
+Select the following four columns from the counties variable:
+- state
+- county
+- population
+- poverty
+
+You don't need to save the result to a variable.
+
+### Instructions `100 XP` {.unnumbered}
+- Select the columns listed from the counties variable.
+```{.r filename="ex_001.R"}
+filename <- "datasets/counties.rds"
+counties <- readRDS(filename)
+# Select the columns 
+
+counties %>%
+  select(state, county, population, poverty)
+```
+
+## Arranging observations
+Here you see the `counties_selected` dataset with a few interesting variables
+selected. 
+These variables: `private_work`, `public_work`, `self_employed` describe whether
+people work for the government, for private companies, or for themselves.
+
+In these exercises, you'll sort these observations to find the most 
+interesting cases.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Add a verb to sort the observations of the public_work variable in descending 
+order.
+
+
+```{.r filename="ex_002.R"}
+counties_selected <- counties %>%
+  select(state, county, population, private_work, public_work, self_employed)
+
+# Add a verb to sort in descending order of public_work
+counties_selected %>%
+  arrange(desc(public_work))
+
+```
+## Filtering for conditions
+
+You use the `filter()` verb to get only observations that match a particular 
+condition, or match multiple conditions.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Find only the counties that have a population above one million (`1000000`).
+
+- Find only the counties in the state of California that also have a population 
+above one million (`1000000`).
+
+```{.r filename="ex_003.R"}
+counties_selected <- counties %>%
+  select(state, county, population)
+
+# Filter for counties with a population above 1000000
+counties_selected %>%
+  filter(population > 1000000)
+``` 
+## Filtering and arranging
+
+We're often interested in both filtering and sorting a dataset, to focus on 
+observations of particular interest to you. Here, you'll find counties that are
+extreme examples of what fraction of the population works in the private sector.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Filter for counties in the state of Texas that have more than ten thousand 
+people (`10000`), and sort them in descending order of the percentage of people 
+employed in private work.
+
+### Instructions `100 XP` {.unnumbered}
+```{.r filename="ex_004.R"}
+counties_selected <- counties %>%
+  select(state, county, population, private_work, public_work, self_employed)
+# Filter for Texas and more than 10000 people; sort in descending order of 
+# private_work
+counties_selected %>%
+  filter(state=='Texas', population >10000) %>%
+    arrange(desc(private_work))
+```
+## Calculating the number of goverment employees
+
+In the video, you used the unemployment variable, which is a percentage, to 
+calculate the number of unemployed people in each county. In this exercise, 
+you'll do the same with another percentage variable: public_work.
+
+The code provided already selects the state, county, population, and public_work 
+columns.
+
+### Instructions `100 XP` {.unnumbered}
+- Use `mutate()` to add a column called public_workers to the dataset, with the 
+number of people employed in public (government) work.
+
+```{.r filename="ex_005.R"}
+counties_selected <- counties %>%
+  select(state, county, population, public_work)
+
+# Add a new column public_workers with the number of people employed in public work
+counties_selected %>%
+  mutate(public_workers = public_work * population / 100 )
+
+counties_selected <- counties %>%
+  select(state, county, population, public_work)
+
+# Sort in descending order of the public_workers column
+counties_selected %>%
+  mutate(public_workers = public_work * population / 100) %>%
+    arrange(desc(public_workers))
+
+``` 
+## Calculating the percentage of women in a country
+
+The dataset includes columns for the total number (not percentage) of men and
+women in each county. You could use this, along with the `population` variable, 
+to compute the fraction of men (or women) within each county.
+
+In this exercise, you'll select the relevant columns yourself.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Select the columns `state`, `county`, `population`, `men`, and `women`.
+
+-Add a new variable called `proportion_women` with the fraction of the county's 
+population made up of women.
+
+```{.r filename="ex_006.R"}
+# Select the columns state, county, population, men, and women
+counties_selected <- counties %>%
+  select(state, county, population, men, women)
+
+# Calculate proportion_women as the fraction of the population made up of women
+counties_selected %>%
+  mutate(proportion_women = women / population)
+  
+```
+
+## Select, mutate, filter, and arrange
+
+In this exercise, you'll put together everything you've learned in this chapter
+(`select()`, `mutate()`, `filter()` and `arrange()`), to find the counties with 
+the highest proportion of men.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Select only the columns state, county, population, men, and women.
+- Add a variable proportion_men with the fraction of the county's population 
+made up of men.
+- Filter for counties with a population of at least ten thousand (10000).
+- Arrange counties in descending order of their proportion of men.
+
+```{.r filename="ex_007.R"}
+counties %>%
+  # Select the five columns 
+  select(state, county, population, men, women) %>%
+  # Add the proportion_men variable
+    mutate(proportion_men = men / population) %>%
+  # Filter for population of at least 10,000
+      filter(population > 10000) %>%
+  # Arrange proportion of men in descending order 
+        arrange(desc(proportion_men))
+```

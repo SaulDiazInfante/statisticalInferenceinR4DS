@@ -1,0 +1,8 @@
+# Introduction to Writing Functions in R {.unnumbered}
+Being able to write your own functions makes your analyses more readable, with fewer errors, and 
+more reusable from project to project. Function writing will increase your productivity more than 
+any other skill! In this course you'll learn the basics of function writing, focusing on the 
+arguments going into the function and the return values. You'll be writing useful data science 
+functions, and using real-world data on Wyoming tourism, stock price/earnings ratios, and grain 
+yields.
+
