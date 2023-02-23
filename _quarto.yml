@@ -27,8 +27,8 @@ book:
         - data_visualization.qmd
     - part: background_02.qmd
       chapters:
-        - _writing_functions_01.qmd
-
+        - writing_functions_01.qmd
+        - writing_functions_01.qmd
         - data_visualization.qmd        
     - part: statistical-inference-whole-game.qmd
       chapters:
