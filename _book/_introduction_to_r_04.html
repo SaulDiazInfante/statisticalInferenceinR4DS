@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistical Inference For Data Science - 4&nbsp; Factors</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./_introduction_to_r_05.html" rel="next">
+<link href="./_introduction_to_r_03.html" rel="prev">
+<link href="./cover1.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta name="twitter:title" content="Statistical Inference For Data Science - 4&nbsp; Factors">
+<meta name="twitter:description" content="Data often falls into a limited number of categories.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Factors</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Inference For Data Science</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Inference-For-Data-Science.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Statistical-Inference-For-Data-Science.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./background_00.html" class="sidebar-item-text sidebar-link">R fundamentals in programming, data managment and visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_fundamentals_for_data_science.html" class="sidebar-item-text sidebar-link">Nuts and bolts: Data types</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_r_06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lists</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./background_01.html" class="sidebar-item-text sidebar-link">R fundamentals in programming, data managment and visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_01.html" class="sidebar-item-text sidebar-link">Relational and logical operators, and conditional statements</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The apply family</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_intermediate_r_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Utilities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./background_02.html" class="sidebar-item-text sidebar-link">Introduction to Writing Functions in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">_writing_functions_01.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">importing and cleaning data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./statistical-inference-whole-game.html" class="sidebar-item-text sidebar-link">The whole game of statistical Inference</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#whats-a-factor-and-why-would-you-use-it" id="toc-whats-a-factor-and-why-would-you-use-it" class="nav-link active" data-scroll-target="#whats-a-factor-and-why-would-you-use-it"><span class="toc-section-number">4.1</span>  What’s a factor and why would you use it?</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#whats-a-factor-and-why-would-you-use-it-2" id="toc-whats-a-factor-and-why-would-you-use-it-2" class="nav-link" data-scroll-target="#whats-a-factor-and-why-would-you-use-it-2"><span class="toc-section-number">4.2</span>  What’s a factor and why would you use it? (2)</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#whats-a-factor-and-why-would-you-use-it-3" id="toc-whats-a-factor-and-why-would-you-use-it-3" class="nav-link" data-scroll-target="#whats-a-factor-and-why-would-you-use-it-3"><span class="toc-section-number">4.3</span>  What’s a factor and why would you use it? (3)</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#factor-levels" id="toc-factor-levels" class="nav-link" data-scroll-target="#factor-levels"><span class="toc-section-number">4.4</span>  Factor levels</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#summarizing-a-factor" id="toc-summarizing-a-factor" class="nav-link" data-scroll-target="#summarizing-a-factor"><span class="toc-section-number">4.5</span>  Summarizing a factor</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#battle-of-the-sexes" id="toc-battle-of-the-sexes" class="nav-link" data-scroll-target="#battle-of-the-sexes"><span class="toc-section-number">4.6</span>  Battle of the sexes</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#ordered-factors" id="toc-ordered-factors" class="nav-link" data-scroll-target="#ordered-factors"><span class="toc-section-number">4.7</span>  Ordered factors</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#ordered-factors-2" id="toc-ordered-factors-2" class="nav-link" data-scroll-target="#ordered-factors-2"><span class="toc-section-number">4.8</span>  Ordered factors (2)</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#comparing-ordered-factors" id="toc-comparing-ordered-factors" class="nav-link" data-scroll-target="#comparing-ordered-factors"><span class="toc-section-number">4.9</span>  Comparing ordered factors</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-8" id="toc-instructions-100-xp-8" class="nav-link" data-scroll-target="#instructions-100-xp-8">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_introduction_to_r_04.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Factors</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Data often falls into a limited number of categories. For example, human hair color can be categorized as black, brown, blond, red, grey, or white—and perhaps a few more options for people who color their hair. In R, categorical data is stored in factors. Factors are very important in data analysis, so start learning how to create, subset, and compare them now.</p>
+<section id="whats-a-factor-and-why-would-you-use-it" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="whats-a-factor-and-why-would-you-use-it"><span class="header-section-number">4.1</span> What’s a factor and why would you use it?</h2>
+<p>In this chapter you dive into the wonderful world of factors.</p>
+<p>The term factor refers to a statistical data type used to store categorical variables. The difference between a categorical variable and a continuous variable is that a categorical variable can belong to a limited number of categories. A continuous variable, on the other hand, can correspond to an infinite number of values.</p>
+<p>It is important that R knows whether it is dealing with a continuous or a categorical variable, as the statistical models you will develop in the future treat both types differently. (You will see later why this is the case.)</p>
+<p>A good example of a categorical variable is sex. In many circumstances you can limit the sex categories to “Male” or “Female”. (Sometimes you may need different categories. For example, you may need to consider chromosomal variation, hermaphroditic animals, or different cultural norms, but you will always have a finite number of categories.)</p>
+<section id="instructions-100-xp" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h3>
+<p>Assign to variable theory the value “factors”.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_33.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Assign to the variable theory what this chapter is about!</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>theory <span class="ot">&lt;-</span> <span class="st">"factors"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="whats-a-factor-and-why-would-you-use-it-2" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="whats-a-factor-and-why-would-you-use-it-2"><span class="header-section-number">4.2</span> What’s a factor and why would you use it? (2)</h2>
+<p>To create factors in R, you make use of the function <code>factor()</code>. First thing that you have to do is create a vector that contains all the observations that belong to a limited number of categories. For example, <code>sex_vector</code> contains the sex of 5 different individuals:</p>
+<div class="sourceCode" id="cb2" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sex_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>,<span class="st">"Female"</span>,<span class="st">"Female"</span>,<span class="st">"Male"</span>,<span class="st">"Male"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is clear that there are two categories, or in R-terms ‘factor levels’, at work here: “Male” and “Female”.</p>
+<p>The function <code>factor()</code> will encode the vector as a factor:</p>
+<div class="sourceCode" id="cb3" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>factor_sex_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(sex_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="instructions-100-xp-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Convert the character vector <code>sex_vector</code> to a factor with <code>factor()</code> and assign the result to <code>factor_sex_vector</code></li>
+<li>Print out factor_sex_vector and assert that R prints out the factor levels below the actual values.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_34.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Sex vector</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>sex_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Male"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Convert sex_vector to a factor</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>factor_sex_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(sex_vector)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># Print out factor_sex_vector</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">print</span>(factor_sex_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="whats-a-factor-and-why-would-you-use-it-3" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="whats-a-factor-and-why-would-you-use-it-3"><span class="header-section-number">4.3</span> What’s a factor and why would you use it? (3)</h2>
+<p>There are two types of categorical variables: a nominal categorical variable and an ordinal categorical variable.</p>
+<p>A nominal variable is a categorical variable without an implied order. This means that it is impossible to say that ‘one is worth more than the other’. For example, think of the categorical variable animals_vector with the categories “Elephant”, “Giraffe”, “Donkey” and “Horse”. Here, it is impossible to say that one stands above or below the other. (Note that some of you might disagree ;-) ).</p>
+<p>In contrast, ordinal variables do have a natural ordering. Consider for example the categorical variable temperature_vector with the categories: “Low”, “Medium” and “High”. Here it is obvious that “Medium” stands above “Low”, and “High” stands above “Medium”.</p>
+<section id="instructions-100-xp-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+<p>Submit the answer to check how R constructs and prints nominal and ordinal variables. Do not worry if you do not understand all the code just yet, we will get to that.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_35.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Animals</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>animals_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Elephant"</span>, <span class="st">"Giraffe"</span>, <span class="st">"Donkey"</span>, <span class="st">"Horse"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>factor_animals_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(animals_vector)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>factor_animals_vector</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># Temperature</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>temperature_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"High"</span>, <span class="st">"Low"</span>, <span class="st">"High"</span>,<span class="st">"Low"</span>, <span class="st">"Medium"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>factor_temperature_vector <span class="ot">&lt;-</span> </span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="fu">factor</span>(</span>
+<span id="cb5-10"><a href="#cb5-10"></a>        temperature_vector,</span>
+<span id="cb5-11"><a href="#cb5-11"></a>        <span class="at">order =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-12"><a href="#cb5-12"></a>        <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>    )</span>
+<span id="cb5-14"><a href="#cb5-14"></a>factor_temperature_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="factor-levels" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="factor-levels"><span class="header-section-number">4.4</span> Factor levels</h2>
+<p>When you first get a dataset, you will often notice that it contains factors with specific factor levels. However, sometimes you will want to change the names of these levels for clarity or other reasons. R allows you to do this with the function levels():</p>
+<div class="sourceCode" id="cb6" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(factor_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"name1"</span>, <span class="st">"name2"</span>,...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A good illustration is the raw data that is provided to you by a survey. A common question for every questionnaire is the sex of the respondent. Here, for simplicity, just two categories were recorded, “M” and “F”. (You usually need more categories for survey data; either way, you use a factor to store the categorical data.)</p>
+<div class="sourceCode" id="cb7" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Recording the sex with the abbreviations <code>"M"</code> and <code>"F"</code> can be convenient if you are collecting data with pen and paper, but it can introduce confusion when analyzing the data. At that point, you will often want to change the factor levels to <code>"Male"</code> and <code>"Female"</code> instead of <code>"M"</code> and <code>"F"</code> for clarity.</p>
+<p>Watch out: the order with which you assign the levels is important. If you type <code>levels(factor_survey_vector)</code>, you’ll see that it outputs <code>[1] "F" "M"</code>. If you don’t specify the levels of the factor when creating the vector, <code>R</code> will automatically assign them alphabetically. To correctly map <code>"F"</code> to <code>"Female"</code> and <code>"M"</code> to <code>"Male"</code>, the levels should be set to <code>c("Female", "Male")</code>, in this order.</p>
+<section id="instructions-100-xp-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<ul>
+<li><p>Check out the code that builds a factor vector from <code>survey_vector</code>. You should use <code>factor_survey_vector</code> in the next instruction.</p></li>
+<li><p>Change the factor levels of <code>factor_survey_vector</code> to <code>c("Female", "Male")</code>. Mind the order of the vector elements here.</p></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_36.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Code to build factor_survey_vector</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>factor_survey_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(survey_vector)</span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># Specify the levels of factor_survey_vector</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="summarizing-a-factor" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="summarizing-a-factor"><span class="header-section-number">4.5</span> Summarizing a factor</h2>
+<p>After finishing this course, one of your favorite functions in R will be summary (). This will give you a quick overview of the contents of a variable:</p>
+<div class="sourceCode" id="cb9" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Going back to our survey, you would like to know how many <code>"Male"</code> responses you have in your study, and how many <code>"Female"</code> responses. The <code>summary()</code> function gives you the answer to this question.</p>
+<section id="instructions-100-xp-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+<p>Ask a <code>summary()</code> of the survey_vector and factor_survey_vector. Interpret the results of both vectors. Are they both equally useful in this case?</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_37.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Build factor_survey_vector with clean levels</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>factor_survey_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(survey_vector)</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5"></a>factor_survey_vector</span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># Generate summary for survey_vector</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="fu">summary</span>(survey_vector)</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># Generate summary for factor_survey_vector</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="fu">summary</span>(factor_survey_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="battle-of-the-sexes" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="battle-of-the-sexes"><span class="header-section-number">4.6</span> Battle of the sexes</h2>
+<p>You might wonder what happens when you try to compare elements of a factor. In <code>factor_survey_vector</code> you have a factor with two levels: <code>"Male"</code> and <code>"Female"</code>. But how does R value these relative to each other?</p>
+<section id="instructions-100-xp-5" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+<p>Read the code in the editor and submit the answer to test if <code>male</code> is greater than <code>(&gt;)</code> <code>female</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_38.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Build factor_survey_vector with clean levels</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>factor_survey_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(survey_vector)</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co"># Male</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>male <span class="ot">&lt;-</span> factor_survey_vector[<span class="dv">1</span>]</span>
+<span id="cb11-8"><a href="#cb11-8"></a></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co"># Female</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>female <span class="ot">&lt;-</span> factor_survey_vector[<span class="dv">2</span>]</span>
+<span id="cb11-11"><a href="#cb11-11"></a></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="co"># Battle of the sexes: Male 'larger' than female?</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a>male <span class="sc">&gt;</span> female</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="ordered-factors" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="ordered-factors"><span class="header-section-number">4.7</span> Ordered factors</h2>
+<p>Ordered factors Since <code>"Male"</code> and <code>"Female"</code> are unordered (or nominal) factor levels, R returns a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors.</p>
+<p>But this is not always the case! Sometimes you will also deal with factors that do have a natural ordering between its categories. If this is the case, we have to make sure that we pass this information to R…</p>
+<p>Let us say that you are leading a research team of five data analysts and that you want to evaluate their performance. To do this, you track their speed, evaluate each analyst as <code>"slow"</code>, <code>"medium"</code> or <code>"fast"</code>, and save the results in speed_vector.</p>
+<section id="instructions-100-xp-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
+<p>As a first step, assign speed_vector a vector with 5 entries, one for each analyst. Each entry should be either <code>"slow"</code>, <code>"medium"</code>, or <code>"fast"</code>. Use the list below:</p>
+<ul>
+<li>Analyst 1 is medium,</li>
+<li>Analyst 2 is slow,</li>
+<li>Analyst 3 is slow,</li>
+<li>Analyst 4 is medium and</li>
+<li>Analyst 5 is fast.</li>
+</ul>
+<p>No need to specify these are factors yet.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_39.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>speed_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="st">"medium"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    <span class="st">"slow"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4"></a>    <span class="st">"slow"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    <span class="st">"medium"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6"></a>    <span class="st">"fast"</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="ordered-factors-2" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="ordered-factors-2"><span class="header-section-number">4.8</span> Ordered factors (2)</h2>
+<p><code>speed_vector</code> should be converted to an ordinal factor since its categories have a natural ordering. By default, the function <code>factor()</code> transforms <code>speed_vector</code> into an unordered factor. To create an ordered factor, you have to add two additional arguments: ordered and levels.</p>
+<div class="sourceCode" id="cb13" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(some_vector,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"lev1"</span>, <span class="st">"lev2"</span> ...))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By setting the argument ordered to TRUE in the function factor(), you indicate that the factor is ordered. With the argument levels you give the values of the factor in the correct order.</p>
+<section id="instructions-100-xp-7" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-7">Instructions <code>100 XP</code></h3>
+<p>From <code>speed_vector</code>, create an ordered factor vector: <code>factor_speed_vector</code>. Set <code>ordered</code> to <code>TRUE</code>, and set levels to <code>c("slow", "medium", "fast")</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_40.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Create speed_vector</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>speed_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"medium"</span>, <span class="st">"slow"</span>, <span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># Convert speed_vector to ordered factor vector</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>factor_speed_vector <span class="ot">&lt;-</span> </span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="fu">factor</span>(</span>
+<span id="cb14-7"><a href="#cb14-7"></a>    speed_vector,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>    <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a></span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co"># Print factor_speed_vector</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>factor_speed_vector</span>
+<span id="cb14-15"><a href="#cb14-15"></a><span class="fu">summary</span>(factor_speed_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="comparing-ordered-factors" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="comparing-ordered-factors"><span class="header-section-number">4.9</span> Comparing ordered factors</h2>
+<p>Having a bad day at work, ‘data analyst number two’ enters your office and starts complaining that ‘data analyst number five’ is slowing down the entire project. Since you know that ‘data analyst number two’ has the reputation of being a smarty-pants, you first decide to check if his statement is true.</p>
+<p>The fact that <code>factor_speed_vector</code> is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using the well-known operators.</p>
+<section id="instructions-100-xp-8" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-8">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Use <code>[2]</code> to select from <code>factor_speed_vector</code> the factor value for the second data analyst. Store it as <code>da2</code>.</li>
+<li>Use <code>[5]</code> to select the <code>factor_speed_vector</code> factor value for the fifth data analyst. Store it as <code>da5</code>.</li>
+<li>Check if <code>da2</code> is greater than <code>da5</code>; simply print out the result. Remember that you can use the <code>&gt;</code> operator to check whether one element is larger than the other.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_41.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Create factor_speed_vector</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>speed_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"medium"</span>, <span class="st">"slow"</span>, <span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>factor_speed_vector <span class="ot">&lt;-</span> </span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">factor</span>(</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    speed_vector,</span>
+<span id="cb15-6"><a href="#cb15-6"></a>    <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8"></a>  )</span>
+<span id="cb15-9"><a href="#cb15-9"></a></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="co"># Factor value for second data analyst</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>da2 <span class="ot">&lt;-</span> factor_speed_vector[<span class="dv">2</span>]</span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a><span class="co"># Factor value for fifth data analyst</span></span>
+<span id="cb15-14"><a href="#cb15-14"></a>da5 <span class="ot">&lt;-</span> factor_speed_vector[<span class="dv">5</span>]</span>
+<span id="cb15-15"><a href="#cb15-15"></a></span>
+<span id="cb15-16"><a href="#cb15-16"></a><span class="co"># Is data analyst 2 faster than data analyst 5?</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a> <span class="fu">print</span>(da2 <span class="sc">&gt;</span> da5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./_introduction_to_r_03.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrices</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./_introduction_to_r_05.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data frames</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">---</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="an">format:</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co">  html: </span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co">    theme: darkly</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co">    fig-width: 8</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">    fig-height: 4</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co">    code-fold: true</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co">    code-link: true</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co">    highlight-style: dracula</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co">    code-line-numbers: true</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">    code-block-border-left: true</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co">    code-tools:</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="co">      source: true</span></span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="co">      toggle: false</span></span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="co">      caption: none</span></span>
+<span id="cb16-16"><a href="#cb16-16"></a><span class="co">---</span></span>
+<span id="cb16-17"><a href="#cb16-17"></a><span class="fu"># Factors</span></span>
+<span id="cb16-18"><a href="#cb16-18"></a></span>
+<span id="cb16-19"><a href="#cb16-19"></a>Data often falls into a limited number of categories. For example, human hair color can be categorized as black, brown, blond, red, grey, or white—and perhaps a few more options for people who color their hair. In R, categorical data is stored in factors. Factors are very important in data analysis, so start learning how to create, subset, and compare them now.</span>
+<span id="cb16-20"><a href="#cb16-20"></a></span>
+<span id="cb16-21"><a href="#cb16-21"></a><span class="fu">## What's a factor and why would you use it?</span></span>
+<span id="cb16-22"><a href="#cb16-22"></a></span>
+<span id="cb16-23"><a href="#cb16-23"></a>In this chapter you dive into the wonderful world of factors.</span>
+<span id="cb16-24"><a href="#cb16-24"></a></span>
+<span id="cb16-25"><a href="#cb16-25"></a>The term factor refers to a statistical data type used to store </span>
+<span id="cb16-26"><a href="#cb16-26"></a>categorical variables. The difference between a categorical variable </span>
+<span id="cb16-27"><a href="#cb16-27"></a>and a continuous variable is that a categorical variable can belong </span>
+<span id="cb16-28"><a href="#cb16-28"></a>to a limited number of categories. A continuous variable, on the </span>
+<span id="cb16-29"><a href="#cb16-29"></a>other hand, can correspond to an infinite number of values.</span>
+<span id="cb16-30"><a href="#cb16-30"></a></span>
+<span id="cb16-31"><a href="#cb16-31"></a>It is important that R knows whether it is dealing with a continuous </span>
+<span id="cb16-32"><a href="#cb16-32"></a>or a categorical variable, as the statistical models you will develop </span>
+<span id="cb16-33"><a href="#cb16-33"></a>in the future treat both types differently. (You will see later why </span>
+<span id="cb16-34"><a href="#cb16-34"></a>this is the case.)</span>
+<span id="cb16-35"><a href="#cb16-35"></a></span>
+<span id="cb16-36"><a href="#cb16-36"></a>A good example of a categorical variable is sex. In many </span>
+<span id="cb16-37"><a href="#cb16-37"></a>circumstances you can limit the sex categories to "Male" or "Female". </span>
+<span id="cb16-38"><a href="#cb16-38"></a>(Sometimes you may need different categories. For example, you may </span>
+<span id="cb16-39"><a href="#cb16-39"></a>need to consider chromosomal variation, hermaphroditic animals, or </span>
+<span id="cb16-40"><a href="#cb16-40"></a>different cultural norms, but you will always have a finite number of </span>
+<span id="cb16-41"><a href="#cb16-41"></a>categories.)</span>
+<span id="cb16-42"><a href="#cb16-42"></a></span>
+<span id="cb16-43"><a href="#cb16-43"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-44"><a href="#cb16-44"></a>Assign to variable theory the value "factors".</span>
+<span id="cb16-45"><a href="#cb16-45"></a></span>
+<span id="cb16-46"><a href="#cb16-46"></a><span class="in">```{.r filename="ex_33.R"}</span></span>
+<span id="cb16-47"><a href="#cb16-47"></a><span class="co"># Assign to the variable theory what this chapter is about!</span></span>
+<span id="cb16-48"><a href="#cb16-48"></a>theory <span class="ot">&lt;-</span> <span class="st">"factors"</span></span>
+<span id="cb16-49"><a href="#cb16-49"></a><span class="in">```</span></span>
+<span id="cb16-50"><a href="#cb16-50"></a></span>
+<span id="cb16-51"><a href="#cb16-51"></a><span class="fu">## What's a factor and why would you use it? (2)</span></span>
+<span id="cb16-52"><a href="#cb16-52"></a></span>
+<span id="cb16-53"><a href="#cb16-53"></a>To create factors in R, you make use of the function <span class="in">`factor()`</span>. First </span>
+<span id="cb16-54"><a href="#cb16-54"></a>thing that you have to do is create a vector that contains all the </span>
+<span id="cb16-55"><a href="#cb16-55"></a>observations that belong to a limited number of categories. For </span>
+<span id="cb16-56"><a href="#cb16-56"></a>example, <span class="in">`sex_vector`</span> contains the sex of 5 different individuals:</span>
+<span id="cb16-57"><a href="#cb16-57"></a></span>
+<span id="cb16-58"><a href="#cb16-58"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb16-59"><a href="#cb16-59"></a>sex_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>,<span class="st">"Female"</span>,<span class="st">"Female"</span>,<span class="st">"Male"</span>,<span class="st">"Male"</span>)</span>
+<span id="cb16-60"><a href="#cb16-60"></a><span class="in">```</span></span>
+<span id="cb16-61"><a href="#cb16-61"></a></span>
+<span id="cb16-62"><a href="#cb16-62"></a>It is clear that there are two categories, or in R-terms 'factor </span>
+<span id="cb16-63"><a href="#cb16-63"></a>levels', at work here: "Male" and "Female".</span>
+<span id="cb16-64"><a href="#cb16-64"></a></span>
+<span id="cb16-65"><a href="#cb16-65"></a></span>
+<span id="cb16-66"><a href="#cb16-66"></a>The function <span class="in">`factor()`</span> will encode the vector as a factor:</span>
+<span id="cb16-67"><a href="#cb16-67"></a></span>
+<span id="cb16-68"><a href="#cb16-68"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb16-69"><a href="#cb16-69"></a>factor_sex_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(sex_vector)</span>
+<span id="cb16-70"><a href="#cb16-70"></a><span class="in">```</span></span>
+<span id="cb16-71"><a href="#cb16-71"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-72"><a href="#cb16-72"></a></span>
+<span id="cb16-73"><a href="#cb16-73"></a><span class="ss">- </span>Convert the character vector <span class="in">`sex_vector`</span> to a factor with <span class="in">`factor()`</span> and </span>
+<span id="cb16-74"><a href="#cb16-74"></a>assign the result to <span class="in">`factor_sex_vector`</span></span>
+<span id="cb16-75"><a href="#cb16-75"></a><span class="ss">- </span>Print out factor_sex_vector and assert that R prints out the factor levels </span>
+<span id="cb16-76"><a href="#cb16-76"></a>below the actual values.</span>
+<span id="cb16-77"><a href="#cb16-77"></a></span>
+<span id="cb16-78"><a href="#cb16-78"></a><span class="in">```{.r filename="ex_34.R"}</span></span>
+<span id="cb16-79"><a href="#cb16-79"></a><span class="co"># Sex vector</span></span>
+<span id="cb16-80"><a href="#cb16-80"></a>sex_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Male"</span>)</span>
+<span id="cb16-81"><a href="#cb16-81"></a></span>
+<span id="cb16-82"><a href="#cb16-82"></a><span class="co"># Convert sex_vector to a factor</span></span>
+<span id="cb16-83"><a href="#cb16-83"></a>factor_sex_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(sex_vector)</span>
+<span id="cb16-84"><a href="#cb16-84"></a></span>
+<span id="cb16-85"><a href="#cb16-85"></a><span class="co"># Print out factor_sex_vector</span></span>
+<span id="cb16-86"><a href="#cb16-86"></a><span class="fu">print</span>(factor_sex_vector)</span>
+<span id="cb16-87"><a href="#cb16-87"></a><span class="in">```</span></span>
+<span id="cb16-88"><a href="#cb16-88"></a></span>
+<span id="cb16-89"><a href="#cb16-89"></a></span>
+<span id="cb16-90"><a href="#cb16-90"></a><span class="fu">## What's a factor and why would you use it? (3)</span></span>
+<span id="cb16-91"><a href="#cb16-91"></a></span>
+<span id="cb16-92"><a href="#cb16-92"></a>There are two types of categorical variables: a nominal categorical variable and</span>
+<span id="cb16-93"><a href="#cb16-93"></a>an ordinal categorical variable.</span>
+<span id="cb16-94"><a href="#cb16-94"></a></span>
+<span id="cb16-95"><a href="#cb16-95"></a>A nominal variable is a categorical variable without an implied order. This </span>
+<span id="cb16-96"><a href="#cb16-96"></a>means that it is impossible to say that 'one is worth more than the other'. </span>
+<span id="cb16-97"><a href="#cb16-97"></a>For example, think of the categorical variable animals_vector with the </span>
+<span id="cb16-98"><a href="#cb16-98"></a>categories "Elephant", "Giraffe", "Donkey" and "Horse". Here, it is impossible </span>
+<span id="cb16-99"><a href="#cb16-99"></a>to say that one stands above or below the other. (Note that some of you might </span>
+<span id="cb16-100"><a href="#cb16-100"></a>disagree ;-) ).</span>
+<span id="cb16-101"><a href="#cb16-101"></a></span>
+<span id="cb16-102"><a href="#cb16-102"></a>In contrast, ordinal variables do have a natural ordering. Consider for example </span>
+<span id="cb16-103"><a href="#cb16-103"></a>the categorical variable temperature_vector with the categories: "Low", "Medium" </span>
+<span id="cb16-104"><a href="#cb16-104"></a>and "High". Here it is obvious that "Medium" stands above "Low", and "High" </span>
+<span id="cb16-105"><a href="#cb16-105"></a>stands above "Medium".</span>
+<span id="cb16-106"><a href="#cb16-106"></a></span>
+<span id="cb16-107"><a href="#cb16-107"></a><span class="fu">###  Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-108"><a href="#cb16-108"></a></span>
+<span id="cb16-109"><a href="#cb16-109"></a>Submit the answer to check how R constructs and prints nominal and ordinal </span>
+<span id="cb16-110"><a href="#cb16-110"></a>variables. Do not worry if you do not understand all the code just yet, we will </span>
+<span id="cb16-111"><a href="#cb16-111"></a>get to that.</span>
+<span id="cb16-112"><a href="#cb16-112"></a></span>
+<span id="cb16-113"><a href="#cb16-113"></a><span class="in">```{.r filename="ex_35.R"}</span></span>
+<span id="cb16-114"><a href="#cb16-114"></a><span class="co"># Animals</span></span>
+<span id="cb16-115"><a href="#cb16-115"></a>animals_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Elephant"</span>, <span class="st">"Giraffe"</span>, <span class="st">"Donkey"</span>, <span class="st">"Horse"</span>)</span>
+<span id="cb16-116"><a href="#cb16-116"></a>factor_animals_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(animals_vector)</span>
+<span id="cb16-117"><a href="#cb16-117"></a>factor_animals_vector</span>
+<span id="cb16-118"><a href="#cb16-118"></a></span>
+<span id="cb16-119"><a href="#cb16-119"></a><span class="co"># Temperature</span></span>
+<span id="cb16-120"><a href="#cb16-120"></a>temperature_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"High"</span>, <span class="st">"Low"</span>, <span class="st">"High"</span>,<span class="st">"Low"</span>, <span class="st">"Medium"</span>)</span>
+<span id="cb16-121"><a href="#cb16-121"></a>factor_temperature_vector <span class="ot">&lt;-</span> </span>
+<span id="cb16-122"><a href="#cb16-122"></a>    <span class="fu">factor</span>(</span>
+<span id="cb16-123"><a href="#cb16-123"></a>        temperature_vector,</span>
+<span id="cb16-124"><a href="#cb16-124"></a>        <span class="at">order =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-125"><a href="#cb16-125"></a>        <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>)</span>
+<span id="cb16-126"><a href="#cb16-126"></a>    )</span>
+<span id="cb16-127"><a href="#cb16-127"></a>factor_temperature_vector</span>
+<span id="cb16-128"><a href="#cb16-128"></a><span class="in">```</span> </span>
+<span id="cb16-129"><a href="#cb16-129"></a></span>
+<span id="cb16-130"><a href="#cb16-130"></a><span class="fu">## Factor levels</span></span>
+<span id="cb16-131"><a href="#cb16-131"></a></span>
+<span id="cb16-132"><a href="#cb16-132"></a>When you first get a dataset, you will often notice that it contains factors </span>
+<span id="cb16-133"><a href="#cb16-133"></a>with specific factor levels. However, sometimes you will want to change the </span>
+<span id="cb16-134"><a href="#cb16-134"></a>names of these levels for clarity or other reasons. R allows you to do this with</span>
+<span id="cb16-135"><a href="#cb16-135"></a>the function levels():</span>
+<span id="cb16-136"><a href="#cb16-136"></a></span>
+<span id="cb16-137"><a href="#cb16-137"></a><span class="in">```{.r code-line-numbers="false" }</span></span>
+<span id="cb16-138"><a href="#cb16-138"></a><span class="fu">levels</span>(factor_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"name1"</span>, <span class="st">"name2"</span>,...)</span>
+<span id="cb16-139"><a href="#cb16-139"></a><span class="in">```</span></span>
+<span id="cb16-140"><a href="#cb16-140"></a></span>
+<span id="cb16-141"><a href="#cb16-141"></a>A good illustration is the raw data that is provided to you by a survey. A </span>
+<span id="cb16-142"><a href="#cb16-142"></a>common question for every questionnaire is the sex of the respondent. Here, for </span>
+<span id="cb16-143"><a href="#cb16-143"></a>simplicity, just two categories were recorded, "M" and "F". (You usually need </span>
+<span id="cb16-144"><a href="#cb16-144"></a>more categories for survey data; either way, you use a factor to store the </span>
+<span id="cb16-145"><a href="#cb16-145"></a>categorical data.)</span>
+<span id="cb16-146"><a href="#cb16-146"></a></span>
+<span id="cb16-147"><a href="#cb16-147"></a><span class="in">```{.r code-line-numbers="false" }</span></span>
+<span id="cb16-148"><a href="#cb16-148"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span>
+<span id="cb16-149"><a href="#cb16-149"></a><span class="in">```</span> </span>
+<span id="cb16-150"><a href="#cb16-150"></a></span>
+<span id="cb16-151"><a href="#cb16-151"></a>Recording the sex with the abbreviations <span class="in">`"M"`</span> and <span class="in">`"F"`</span> can be convenient if </span>
+<span id="cb16-152"><a href="#cb16-152"></a>you are collecting data with pen and paper, but it can introduce confusion when </span>
+<span id="cb16-153"><a href="#cb16-153"></a>analyzing the data. At that point, you will often want to change the factor </span>
+<span id="cb16-154"><a href="#cb16-154"></a>levels to <span class="in">`"Male"`</span> and <span class="in">`"Female"`</span> instead of <span class="in">`"M"`</span> and <span class="in">`"F"`</span> for clarity.</span>
+<span id="cb16-155"><a href="#cb16-155"></a></span>
+<span id="cb16-156"><a href="#cb16-156"></a>Watch out: the order with which you assign the levels is important. If you type </span>
+<span id="cb16-157"><a href="#cb16-157"></a><span class="in">`levels(factor_survey_vector)`</span>, you'll see that it outputs <span class="in">`[1] "F" "M"`</span>. </span>
+<span id="cb16-158"><a href="#cb16-158"></a>If you don't specify the levels of the factor when creating the vector, <span class="in">`R`</span> will</span>
+<span id="cb16-159"><a href="#cb16-159"></a>automatically assign them alphabetically. To correctly map <span class="in">`"F"`</span> to <span class="in">`"Female"`</span></span>
+<span id="cb16-160"><a href="#cb16-160"></a>and <span class="in">`"M"`</span> to <span class="in">`"Male"`</span>, the levels should be set to </span>
+<span id="cb16-161"><a href="#cb16-161"></a><span class="in">`c("Female", "Male")`</span>, in this order.</span>
+<span id="cb16-162"><a href="#cb16-162"></a></span>
+<span id="cb16-163"><a href="#cb16-163"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-164"><a href="#cb16-164"></a></span>
+<span id="cb16-165"><a href="#cb16-165"></a><span class="ss">- </span>Check out the code that builds a factor vector from <span class="in">`survey_vector`</span>. You </span>
+<span id="cb16-166"><a href="#cb16-166"></a>should use  <span class="in">`factor_survey_vector`</span> in the next instruction.</span>
+<span id="cb16-167"><a href="#cb16-167"></a></span>
+<span id="cb16-168"><a href="#cb16-168"></a><span class="ss">- </span>Change the factor levels of <span class="in">`factor_survey_vector`</span> to </span>
+<span id="cb16-169"><a href="#cb16-169"></a><span class="in">`c("Female", "Male")`</span>.  Mind the order of the vector elements here.</span>
+<span id="cb16-170"><a href="#cb16-170"></a></span>
+<span id="cb16-171"><a href="#cb16-171"></a><span class="in">```{.r filename="ex_36.R"}</span></span>
+<span id="cb16-172"><a href="#cb16-172"></a><span class="co"># Code to build factor_survey_vector</span></span>
+<span id="cb16-173"><a href="#cb16-173"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span>
+<span id="cb16-174"><a href="#cb16-174"></a>factor_survey_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(survey_vector)</span>
+<span id="cb16-175"><a href="#cb16-175"></a></span>
+<span id="cb16-176"><a href="#cb16-176"></a><span class="co"># Specify the levels of factor_survey_vector</span></span>
+<span id="cb16-177"><a href="#cb16-177"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>)</span>
+<span id="cb16-178"><a href="#cb16-178"></a></span>
+<span id="cb16-179"><a href="#cb16-179"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)</span>
+<span id="cb16-180"><a href="#cb16-180"></a><span class="in">```</span></span>
+<span id="cb16-181"><a href="#cb16-181"></a></span>
+<span id="cb16-182"><a href="#cb16-182"></a><span class="fu">## Summarizing a factor</span></span>
+<span id="cb16-183"><a href="#cb16-183"></a></span>
+<span id="cb16-184"><a href="#cb16-184"></a>After finishing this course, one of your favorite functions in R will be summary</span>
+<span id="cb16-185"><a href="#cb16-185"></a>(). This will give you a quick overview of the contents of a variable:</span>
+<span id="cb16-186"><a href="#cb16-186"></a></span>
+<span id="cb16-187"><a href="#cb16-187"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb16-188"><a href="#cb16-188"></a><span class="fu">summary</span>(my_var)</span>
+<span id="cb16-189"><a href="#cb16-189"></a><span class="in">```</span></span>
+<span id="cb16-190"><a href="#cb16-190"></a></span>
+<span id="cb16-191"><a href="#cb16-191"></a>Going back to our survey, you would like to know how many <span class="in">`"Male"`</span> responses you </span>
+<span id="cb16-192"><a href="#cb16-192"></a>have in your study, and how many <span class="in">`"Female"`</span> responses. </span>
+<span id="cb16-193"><a href="#cb16-193"></a>The <span class="in">`summary()`</span> function gives you the answer to this question.</span>
+<span id="cb16-194"><a href="#cb16-194"></a></span>
+<span id="cb16-195"><a href="#cb16-195"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
+<span id="cb16-196"><a href="#cb16-196"></a></span>
+<span id="cb16-197"><a href="#cb16-197"></a>Ask a <span class="in">`summary()`</span> of the survey_vector and factor_survey_vector. Interpret the results of both vectors. Are they both equally useful in this case?</span>
+<span id="cb16-198"><a href="#cb16-198"></a></span>
+<span id="cb16-199"><a href="#cb16-199"></a><span class="in">```{.r filename=ex_37.R}</span></span>
+<span id="cb16-200"><a href="#cb16-200"></a><span class="co"># Build factor_survey_vector with clean levels</span></span>
+<span id="cb16-201"><a href="#cb16-201"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span>
+<span id="cb16-202"><a href="#cb16-202"></a>factor_survey_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(survey_vector)</span>
+<span id="cb16-203"><a href="#cb16-203"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)</span>
+<span id="cb16-204"><a href="#cb16-204"></a>factor_survey_vector</span>
+<span id="cb16-205"><a href="#cb16-205"></a></span>
+<span id="cb16-206"><a href="#cb16-206"></a><span class="co"># Generate summary for survey_vector</span></span>
+<span id="cb16-207"><a href="#cb16-207"></a><span class="fu">summary</span>(survey_vector)</span>
+<span id="cb16-208"><a href="#cb16-208"></a></span>
+<span id="cb16-209"><a href="#cb16-209"></a><span class="co"># Generate summary for factor_survey_vector</span></span>
+<span id="cb16-210"><a href="#cb16-210"></a><span class="fu">summary</span>(factor_survey_vector)</span>
+<span id="cb16-211"><a href="#cb16-211"></a><span class="in">```</span> </span>
+<span id="cb16-212"><a href="#cb16-212"></a></span>
+<span id="cb16-213"><a href="#cb16-213"></a><span class="fu">## Battle of the sexes</span></span>
+<span id="cb16-214"><a href="#cb16-214"></a></span>
+<span id="cb16-215"><a href="#cb16-215"></a>You might wonder what happens when you try to compare elements of a factor. In </span>
+<span id="cb16-216"><a href="#cb16-216"></a><span class="in">`factor_survey_vector`</span> you have a factor with two levels: </span>
+<span id="cb16-217"><a href="#cb16-217"></a><span class="in">`"Male"`</span> and <span class="in">`"Female"`</span>. But how does R value these relative to each other?</span>
+<span id="cb16-218"><a href="#cb16-218"></a></span>
+<span id="cb16-219"><a href="#cb16-219"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-220"><a href="#cb16-220"></a>Read the code in the editor and submit the answer to test if <span class="in">`male`</span> is greater </span>
+<span id="cb16-221"><a href="#cb16-221"></a>than <span class="in">`(&gt;)`</span> <span class="in">`female`</span>.</span>
+<span id="cb16-222"><a href="#cb16-222"></a></span>
+<span id="cb16-223"><a href="#cb16-223"></a><span class="in">```{.r filename="ex_38.R"}</span></span>
+<span id="cb16-224"><a href="#cb16-224"></a><span class="co"># Build factor_survey_vector with clean levels</span></span>
+<span id="cb16-225"><a href="#cb16-225"></a>survey_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>)</span>
+<span id="cb16-226"><a href="#cb16-226"></a>factor_survey_vector <span class="ot">&lt;-</span> <span class="fu">factor</span>(survey_vector)</span>
+<span id="cb16-227"><a href="#cb16-227"></a><span class="fu">levels</span>(factor_survey_vector) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)</span>
+<span id="cb16-228"><a href="#cb16-228"></a></span>
+<span id="cb16-229"><a href="#cb16-229"></a><span class="co"># Male</span></span>
+<span id="cb16-230"><a href="#cb16-230"></a>male <span class="ot">&lt;-</span> factor_survey_vector[<span class="dv">1</span>]</span>
+<span id="cb16-231"><a href="#cb16-231"></a></span>
+<span id="cb16-232"><a href="#cb16-232"></a><span class="co"># Female</span></span>
+<span id="cb16-233"><a href="#cb16-233"></a>female <span class="ot">&lt;-</span> factor_survey_vector[<span class="dv">2</span>]</span>
+<span id="cb16-234"><a href="#cb16-234"></a></span>
+<span id="cb16-235"><a href="#cb16-235"></a><span class="co"># Battle of the sexes: Male 'larger' than female?</span></span>
+<span id="cb16-236"><a href="#cb16-236"></a>male <span class="sc">&gt;</span> female</span>
+<span id="cb16-237"><a href="#cb16-237"></a><span class="in">```</span></span>
+<span id="cb16-238"><a href="#cb16-238"></a><span class="fu">## Ordered factors</span></span>
+<span id="cb16-239"><a href="#cb16-239"></a></span>
+<span id="cb16-240"><a href="#cb16-240"></a>Ordered factors</span>
+<span id="cb16-241"><a href="#cb16-241"></a>Since <span class="in">`"Male"`</span> and <span class="in">`"Female"`</span> are unordered (or nominal) factor levels, R </span>
+<span id="cb16-242"><a href="#cb16-242"></a>returns a warning message, telling you that the greater than operator is not </span>
+<span id="cb16-243"><a href="#cb16-243"></a>meaningful. As seen before, R attaches an equal value to the levels for such </span>
+<span id="cb16-244"><a href="#cb16-244"></a>factors.</span>
+<span id="cb16-245"><a href="#cb16-245"></a></span>
+<span id="cb16-246"><a href="#cb16-246"></a>But this is not always the case! Sometimes you will also deal with factors that </span>
+<span id="cb16-247"><a href="#cb16-247"></a>do have a natural ordering between its categories. If this is the case, we have </span>
+<span id="cb16-248"><a href="#cb16-248"></a>to make sure that we pass this information to R…</span>
+<span id="cb16-249"><a href="#cb16-249"></a></span>
+<span id="cb16-250"><a href="#cb16-250"></a>Let us say that you are leading a research team of five data analysts and that</span>
+<span id="cb16-251"><a href="#cb16-251"></a>you want to evaluate their performance. To do this, you track their speed, </span>
+<span id="cb16-252"><a href="#cb16-252"></a>evaluate each analyst as <span class="in">`"slow"`</span>, <span class="in">`"medium"`</span> or <span class="in">`"fast"`</span>, and save the results </span>
+<span id="cb16-253"><a href="#cb16-253"></a>in speed_vector.</span>
+<span id="cb16-254"><a href="#cb16-254"></a></span>
+<span id="cb16-255"><a href="#cb16-255"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-256"><a href="#cb16-256"></a>As a first step, assign speed_vector a vector with 5 entries, one for each </span>
+<span id="cb16-257"><a href="#cb16-257"></a>analyst. Each entry should be either <span class="in">`"slow"`</span>, <span class="in">`"medium"`</span>, or <span class="in">`"fast"`</span>. </span>
+<span id="cb16-258"><a href="#cb16-258"></a>Use the list below:</span>
+<span id="cb16-259"><a href="#cb16-259"></a></span>
+<span id="cb16-260"><a href="#cb16-260"></a><span class="ss">- </span>Analyst 1 is medium,</span>
+<span id="cb16-261"><a href="#cb16-261"></a><span class="ss">- </span>Analyst 2 is slow,</span>
+<span id="cb16-262"><a href="#cb16-262"></a><span class="ss">- </span>Analyst 3 is slow,</span>
+<span id="cb16-263"><a href="#cb16-263"></a><span class="ss">- </span>Analyst 4 is medium and</span>
+<span id="cb16-264"><a href="#cb16-264"></a><span class="ss">- </span>Analyst 5 is fast.</span>
+<span id="cb16-265"><a href="#cb16-265"></a></span>
+<span id="cb16-266"><a href="#cb16-266"></a>No need to specify these are factors yet.</span>
+<span id="cb16-267"><a href="#cb16-267"></a></span>
+<span id="cb16-268"><a href="#cb16-268"></a><span class="in">```{.r filename="ex_39.R" }</span></span>
+<span id="cb16-269"><a href="#cb16-269"></a>speed_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb16-270"><a href="#cb16-270"></a>    <span class="st">"medium"</span>,</span>
+<span id="cb16-271"><a href="#cb16-271"></a>    <span class="st">"slow"</span>,</span>
+<span id="cb16-272"><a href="#cb16-272"></a>    <span class="st">"slow"</span>,</span>
+<span id="cb16-273"><a href="#cb16-273"></a>    <span class="st">"medium"</span>,</span>
+<span id="cb16-274"><a href="#cb16-274"></a>    <span class="st">"fast"</span></span>
+<span id="cb16-275"><a href="#cb16-275"></a>)</span>
+<span id="cb16-276"><a href="#cb16-276"></a><span class="in">```</span></span>
+<span id="cb16-277"><a href="#cb16-277"></a><span class="fu">## Ordered factors (2)</span></span>
+<span id="cb16-278"><a href="#cb16-278"></a></span>
+<span id="cb16-279"><a href="#cb16-279"></a><span class="in">`speed_vector`</span> should be converted to an ordinal factor since its categories </span>
+<span id="cb16-280"><a href="#cb16-280"></a>have a natural ordering. By default, the function <span class="in">`factor()`</span> transforms </span>
+<span id="cb16-281"><a href="#cb16-281"></a><span class="in">`speed_vector`</span> into an unordered factor. To create an ordered factor, </span>
+<span id="cb16-282"><a href="#cb16-282"></a>you have to add two additional arguments: ordered and levels.</span>
+<span id="cb16-283"><a href="#cb16-283"></a></span>
+<span id="cb16-284"><a href="#cb16-284"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb16-285"><a href="#cb16-285"></a><span class="fu">factor</span>(some_vector,</span>
+<span id="cb16-286"><a href="#cb16-286"></a>       <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-287"><a href="#cb16-287"></a>       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"lev1"</span>, <span class="st">"lev2"</span> ...))</span>
+<span id="cb16-288"><a href="#cb16-288"></a><span class="in">```</span></span>
+<span id="cb16-289"><a href="#cb16-289"></a></span>
+<span id="cb16-290"><a href="#cb16-290"></a>By setting the argument ordered to TRUE in the function factor(), you indicate </span>
+<span id="cb16-291"><a href="#cb16-291"></a>that the factor is ordered. With the argument levels you give the values of the </span>
+<span id="cb16-292"><a href="#cb16-292"></a>factor in the correct order.</span>
+<span id="cb16-293"><a href="#cb16-293"></a></span>
+<span id="cb16-294"><a href="#cb16-294"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-295"><a href="#cb16-295"></a></span>
+<span id="cb16-296"><a href="#cb16-296"></a>From <span class="in">`speed_vector`</span>, create an ordered factor vector: <span class="in">`factor_speed_vector`</span>. </span>
+<span id="cb16-297"><a href="#cb16-297"></a>Set <span class="in">`ordered`</span> to <span class="in">`TRUE`</span>, and set levels to</span>
+<span id="cb16-298"><a href="#cb16-298"></a><span class="in">`c("slow", "medium", "fast")`</span>.</span>
+<span id="cb16-299"><a href="#cb16-299"></a></span>
+<span id="cb16-300"><a href="#cb16-300"></a><span class="in">```{.r filename="ex_40.R"}</span></span>
+<span id="cb16-301"><a href="#cb16-301"></a><span class="co"># Create speed_vector</span></span>
+<span id="cb16-302"><a href="#cb16-302"></a>speed_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"medium"</span>, <span class="st">"slow"</span>, <span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb16-303"><a href="#cb16-303"></a></span>
+<span id="cb16-304"><a href="#cb16-304"></a><span class="co"># Convert speed_vector to ordered factor vector</span></span>
+<span id="cb16-305"><a href="#cb16-305"></a>factor_speed_vector <span class="ot">&lt;-</span> </span>
+<span id="cb16-306"><a href="#cb16-306"></a><span class="fu">factor</span>(</span>
+<span id="cb16-307"><a href="#cb16-307"></a>    speed_vector,</span>
+<span id="cb16-308"><a href="#cb16-308"></a>    <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-309"><a href="#cb16-309"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb16-310"><a href="#cb16-310"></a>)</span>
+<span id="cb16-311"><a href="#cb16-311"></a></span>
+<span id="cb16-312"><a href="#cb16-312"></a></span>
+<span id="cb16-313"><a href="#cb16-313"></a><span class="co"># Print factor_speed_vector</span></span>
+<span id="cb16-314"><a href="#cb16-314"></a>factor_speed_vector</span>
+<span id="cb16-315"><a href="#cb16-315"></a><span class="fu">summary</span>(factor_speed_vector)</span>
+<span id="cb16-316"><a href="#cb16-316"></a><span class="in">```</span></span>
+<span id="cb16-317"><a href="#cb16-317"></a></span>
+<span id="cb16-318"><a href="#cb16-318"></a><span class="fu">## Comparing ordered factors</span></span>
+<span id="cb16-319"><a href="#cb16-319"></a></span>
+<span id="cb16-320"><a href="#cb16-320"></a>Having a bad day at work, 'data analyst number two' enters your office and </span>
+<span id="cb16-321"><a href="#cb16-321"></a>starts complaining that 'data analyst number five' is slowing down the entire </span>
+<span id="cb16-322"><a href="#cb16-322"></a>project. Since you know that 'data analyst number two' has the reputation of </span>
+<span id="cb16-323"><a href="#cb16-323"></a>being a smarty-pants, you first decide to check if his statement is true.</span>
+<span id="cb16-324"><a href="#cb16-324"></a></span>
+<span id="cb16-325"><a href="#cb16-325"></a>The fact that <span class="in">`factor_speed_vector`</span> is now ordered enables us to compare </span>
+<span id="cb16-326"><a href="#cb16-326"></a>different elements (the data analysts in this case). You can simply do this by </span>
+<span id="cb16-327"><a href="#cb16-327"></a>using the well-known operators.</span>
+<span id="cb16-328"><a href="#cb16-328"></a></span>
+<span id="cb16-329"><a href="#cb16-329"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb16-330"><a href="#cb16-330"></a></span>
+<span id="cb16-331"><a href="#cb16-331"></a><span class="ss">- </span>Use <span class="in">`[2]`</span> to select from <span class="in">`factor_speed_vector`</span> the factor value for the second </span>
+<span id="cb16-332"><a href="#cb16-332"></a>data analyst. Store it as <span class="in">`da2`</span>.</span>
+<span id="cb16-333"><a href="#cb16-333"></a><span class="ss">- </span>Use <span class="in">`[5]`</span> to select the <span class="in">`factor_speed_vector`</span> factor value for the fifth </span>
+<span id="cb16-334"><a href="#cb16-334"></a>data analyst. Store it as <span class="in">`da5`</span>.</span>
+<span id="cb16-335"><a href="#cb16-335"></a><span class="ss">- </span>Check if <span class="in">`da2`</span> is greater than <span class="in">`da5`</span>; simply print out the result. </span>
+<span id="cb16-336"><a href="#cb16-336"></a>Remember that you can use the <span class="in">`&gt;`</span> operator to check whether one element is </span>
+<span id="cb16-337"><a href="#cb16-337"></a>larger than the other.</span>
+<span id="cb16-338"><a href="#cb16-338"></a></span>
+<span id="cb16-339"><a href="#cb16-339"></a><span class="in">```{.r filename="ex_41.R"}</span></span>
+<span id="cb16-340"><a href="#cb16-340"></a><span class="co"># Create factor_speed_vector</span></span>
+<span id="cb16-341"><a href="#cb16-341"></a>speed_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"medium"</span>, <span class="st">"slow"</span>, <span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb16-342"><a href="#cb16-342"></a>factor_speed_vector <span class="ot">&lt;-</span> </span>
+<span id="cb16-343"><a href="#cb16-343"></a>  <span class="fu">factor</span>(</span>
+<span id="cb16-344"><a href="#cb16-344"></a>    speed_vector,</span>
+<span id="cb16-345"><a href="#cb16-345"></a>    <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-346"><a href="#cb16-346"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"slow"</span>, <span class="st">"medium"</span>, <span class="st">"fast"</span>)</span>
+<span id="cb16-347"><a href="#cb16-347"></a>  )</span>
+<span id="cb16-348"><a href="#cb16-348"></a></span>
+<span id="cb16-349"><a href="#cb16-349"></a><span class="co"># Factor value for second data analyst</span></span>
+<span id="cb16-350"><a href="#cb16-350"></a>da2 <span class="ot">&lt;-</span> factor_speed_vector[<span class="dv">2</span>]</span>
+<span id="cb16-351"><a href="#cb16-351"></a></span>
+<span id="cb16-352"><a href="#cb16-352"></a><span class="co"># Factor value for fifth data analyst</span></span>
+<span id="cb16-353"><a href="#cb16-353"></a>da5 <span class="ot">&lt;-</span> factor_speed_vector[<span class="dv">5</span>]</span>
+<span id="cb16-354"><a href="#cb16-354"></a></span>
+<span id="cb16-355"><a href="#cb16-355"></a><span class="co"># Is data analyst 2 faster than data analyst 5?</span></span>
+<span id="cb16-356"><a href="#cb16-356"></a> <span class="fu">print</span>(da2 <span class="sc">&gt;</span> da5)</span>
+<span id="cb16-357"><a href="#cb16-357"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

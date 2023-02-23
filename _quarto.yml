@@ -1,10 +1,23 @@
 project:
   type: book
-  output-dir: docs
 book:
   title: "Statistical Inference For Data Science"
-  author: "Saul Diaz-Infante"
-  date: "1/16/2023"
+  author: "Saul Diaz Infante Velasco"
+  search: true
+  cover-image: cover.png
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  date: "2/23/2023"
+  repo-url: https://github.com/SaulDiazInfante/statisticalInferenceinR4DS   
+  repo-actions: [edit]
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 3
+    pinned: true
+  favicon: cover1.png
+  twitter-card: true
+  site-url: https://www.saul-diaz-infante-velasco.com
   chapters:
     - index.qmd
     - intro.qmd
@@ -27,9 +40,12 @@ book:
         - data_visualization.qmd
     - part: background_02.qmd
       chapters:
-        - writing_functions_01.qmd
-        - writing_functions_01.qmd
+        - _writing_functions_01.qmd
+        #
         - data_visualization.qmd        
+    - part: "importing and cleaning data"
+      chapters:
+        - _introduction_to_importing_data_in_R_01.qmd
     - part: statistical-inference-whole-game.qmd
       chapters:
         - statistical_inference.qmd
