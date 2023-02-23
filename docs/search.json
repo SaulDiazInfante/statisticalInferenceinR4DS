@@ -1043,6 +1043,62 @@
     "text": "12 Data Visualizations"
   },
   {
+    "objectID": "background_02.html",
+    "href": "background_02.html",
+    "title": "Introduction to Writing Functions in R",
+    "section": "",
+    "text": "Being able to write your own functions makes your analyses more readable, with fewer errors, and more reusable from project to project. Function writing will increase your productivity more than any other skill! In this course you’ll learn the basics of function writing, focusing on the arguments going into the function and the return values. You’ll be writing useful data science functions, and using real-world data on Wyoming tourism, stock price/earnings ratios, and grain yields."
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_01.html#read.csv",
+    "href": "_introduction_to_importing_data_in_R_01.html#read.csv",
+    "title": "14  Importing data from flat files with utils",
+    "section": "14.1 read.csv",
+    "text": "14.1 read.csv\nThe utils package, which is automatically loaded in your R session on startup, can import CSV files with the read.csv() function.\nIn this exercise, you’ll be working with swimming_pools.csv (view); it contains data on swimming pools in Brisbane, Australia (Source: data.gov.au). The file contains the column names in the first row. It uses a comma to separate values within rows.\nType dir() in the console to list the files in your working directory. You’ll see that it contains swimming_pools.csv, so you can start straight away.\n\n14.1.1 Instructions 100 XP\n\nUse read.csv() to import “swimming_pools.csv” as a data frame with the name pools.\nPrint the structure of pools using str().\n\n\n\nex_001.R\n\n# Import swimming_pools.csv: pools\npools <- read.csv(\"swimming_pools.csv\")\n# Print the structure of pools\nstr(pools)\n\n\n\nReferences\n\nhttp://s3.amazonaws.com/assets.datacamp.com/production/course_1477/datasets/swimming_pools.csv\nhttps://data.gov.au/dataset/swimming-pools-brisbane-city-council"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_01.html#stringsasfactors",
+    "href": "_introduction_to_importing_data_in_R_01.html#stringsasfactors",
+    "title": "14  Importing data from flat files with utils",
+    "section": "14.2 stringsAsFactors",
+    "text": "14.2 stringsAsFactors\nWith stringsAsFactors, you can tell R whether it should convert strings in the flat file to factors.\nFor all importing functions in the utils package, this argument is TRUE, which means that you import strings as factors. This only makes sense if the strings you import represent categorical variables in R. If you set stringsAsFactors to FALSE, the data frame columns corresponding to strings in your text file will be character.\nYou’ll again be working with the swimming_pools.csv (view in data folder) file. It contains two columns (Name and Address), which shouldn’t be factors.\n\nInstructions 100 XP\n\nUse read.csv() to import the data in \"swimming_pools.csv\" as a data frame called pools; make sure that strings are imported as characters, not as factors.\nUsing str(), display the structure of the dataset and check that you indeed get character vectors instead of factors.\n\n\n\nex_002.R\n\n# Import swimming_pools.csv correctly: pools\npools <- read.csv(\"swimming_pools.csv\", stringsAsFactors = FALSE)\n\n# Check the structure of pools\nstr(pools)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_01.html#any-changes",
+    "href": "_introduction_to_importing_data_in_R_01.html#any-changes",
+    "title": "14  Importing data from flat files with utils",
+    "section": "14.3 Any changes?",
+    "text": "14.3 Any changes?\nConsider the code below that loads data from swimming_pools.csv in two distinct ways:\n# Option A\npools <- read.csv(\"swimming_pools.csv\", stringsAsFactors = TRUE)\n\n# Option B\npools <- read.csv(\"swimming_pools.csv\", stringsAsFactors = FALSE)\n\n\nex_003.R\n\nlibrary(projmgr)\n\n# the following could be run in RMarkdown\ntodo_path <- system.file(\n    \"extdata\",\n    \"todo-ex.yml\",\n     package = \"projmgr\",\n     mustWork = TRUE\n)\n\nmy_todo <- read_todo(todo_path)\nreport_todo(my_todo)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_01.html#read.delim",
+    "href": "_introduction_to_importing_data_in_R_01.html#read.delim",
+    "title": "14  Importing data from flat files with utils",
+    "section": "14.4 read.delim",
+    "text": "14.4 read.delim\nAside from .csv files, there are also the .txt files which are basically text files. You can import these functions with read.delim(). By default, it sets the sep argument to \"\\t\" (fields in a record are delimited by tabs) and the header argument to TRUE (the first row contains the field names).\nIn this exercise, you will import hotdogs.txt (view), containing information on sodium and calorie levels in different hotdogs (Source: UCLA). The dataset has 3 variables, but the variable names are not available in the first line of the file. The file uses tabs as field separators.\n\nInstructions 100 XP\n\nImport the data in \"hotdogs.txt\" with read.delim(). Call the resulting data frame hotdogs. The variable names are not on the first line, so make sure to set the header argument appropriately.\nCall summary() on hotdogs. This will print out some summary statistics about all variables in the data frame.\n\n\n\nex_004.R\n\n# Import hotdogs.txt: hotdogs\nhotdogs <- read.delim(\n    \"hotdogs.txt\",\n    sep = '\\t',\n    header = FALSE\n)\n# Summarize hotdogs\nsummary(hotdogs)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_01.html#read.table",
+    "href": "_introduction_to_importing_data_in_R_01.html#read.table",
+    "title": "14  Importing data from flat files with utils",
+    "section": "14.5 read.table",
+    "text": "14.5 read.table\nIf you’re dealing with more exotic flat file formats, you’ll want to use read.table(). It’s the most basic importing function; you can specify tons of different arguments in this function. Unlike read.csv() and read.delim(), the header argument defaults to FALSE and the sep argument is “” by default.\nUp to you again! The data is still hotdogs.txt (view). It has no column names in the first row, and the field separators are tabs. This time, though, the file is in the data folder inside your current working directory. A variable path with the location of this file is already coded for you.\n\nInstructions 100 XP\n\nFinish the read.table() call that’s been prepared for you. Use the path variable, and make sure to set sep correctly.\nCall head() on hotdogs; this will print the first 6 observations in the data frame.\n\n\n\nex_005.R\n\n# Path to the hotdogs.txt file: path\npath <- file.path(\"data\", \"hotdogs.txt\")\n\n# Import the hotdogs.txt file: hotdogs\nhotdogs <- \n    read.table(\n        path, \n        sep = '\\t',\n        col.names = c(\"type\", \"calories\", \"sodium\")\n    )\n\n# Call head() on hotdogs\nhead(hotdogs)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_01.html#arguments",
+    "href": "_introduction_to_importing_data_in_R_01.html#arguments",
+    "title": "14  Importing data from flat files with utils",
+    "section": "14.6 Arguments",
+    "text": "14.6 Arguments\nLily and Tom are having an argument because they want to share a hot dog but they can’t seem to agree on which one to choose. After some time, they simply decide that they will have one each. Lily wants to have the one with the fewest calories while Tom wants to have the one with the most sodium.\nNext to calories and sodium, the hotdogs have one more variable: type. This can be one of three things: Beef, Meat, or Poultry, so a categorical variable: a factor is fine.\n\nInstructions 100 XP\n\nFinish the read.delim() call to import the data in “hotdogs.txt”. It’s a tab- delimited file without names in the first row.\nThe code that selects the observation with the lowest calorie count and stores it in the variable lily is already available. It uses the function which.min(), that returns the index the smallest value in a vector.\nDo a similar thing for Tom: select the observation with the most sodium and store it in tom. Use which.max() this time.\nFinally, print both the observations lily and tom.\n\n\n\nex_006.R\n\n# Finish the read.delim() call\nhotdogs <- \n    read.delim(\n        \"hotdogs.txt\",\n        header = FALSE,\n        col.names = c(\"type\", \"calories\", \"sodium\")\n    )\n\n# Select the hot dog with the least calories: lily\nlily <- hotdogs[which.min(hotdogs$calories), ]\n\n# Select the observation with the most sodium: tom\n\ntom <- hotdogs[which.max(hotdogs$sodium), ]\n# Print lily and tom\nlily\ntom"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_01.html#column-classes",
+    "href": "_introduction_to_importing_data_in_R_01.html#column-classes",
+    "title": "14  Importing data from flat files with utils",
+    "section": "14.7 Column classes",
+    "text": "14.7 Column classes\nNext to column names, you can also specify the column types or column classes of the resulting data frame. You can do this by setting the colClasses argument to a vector of strings representing classes:\nread.delim(\"my_file.txt\", \n           colClasses = c(\"character\",\n                          \"numeric\",\n                          \"logical\"))\nThis approach can be useful if you have some columns that should be factors and others that should be characters. You don’t have to bother with stringsAsFactors anymore; just state for each column what the class should be.\nIf a column is set to “NULL” in the colClasses vector, this column will be skipped and will not be loaded into the data frame.\n\nInstructions 100 XP\n\nThe read.delim() call from before is already included and creates the hotdogs data frame. Go ahead and display the structure of hotdogs.\nEdit the second read.delim() call. Assign the correct vector to the colClasses argument. NA should be replaced with a character vector: c(\"factor\", \"NULL\", \"numeric\").\nDisplay the structure of hotdogs2 and look for the difference.\n\n\n\nex_007.R\n\n# Previous call to import hotdogs.txt\nhotdogs <- \n    read.delim(\n        \"hotdogs.txt\",\n         header = FALSE,\n         col.names = c(\"type\", \"calories\", \"sodium\")\n    )\n\n# Display structure of hotdogs\nstr(hotdogs)\n\n# Edit the colClasses argument to import the data correctly: hotdogs2\nhotdogs2 <- read.delim(\n    \"hotdogs.txt\",\n    header = FALSE,\n    col.names = c(\"type\", \"calories\", \"sodium\"),\n    colClasses =  c(\"factor\", \"NULL\", \"numeric\")\n)\n\n\n# Display structure of hotdogs2\nstr(hotdogs2)"
+  },
+  {
     "objectID": "statistical-inference-whole-game.html",
     "href": "statistical-inference-whole-game.html",
     "title": "The whole game of statistical Inference",
@@ -1052,56 +1108,56 @@
   {
     "objectID": "statistical_inference.html",
     "href": "statistical_inference.html",
-    "title": "12  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
     "section": "",
-    "text": "13 Preleminaries"
+    "text": "16 Preleminaries"
   },
   {
     "objectID": "statistical_inference.html#likelihood-inference.",
     "href": "statistical_inference.html#likelihood-inference.",
-    "title": "12  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "13.1 Likelihood inference.",
-    "text": "13.1 Likelihood inference."
+    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "16.1 Likelihood inference.",
+    "text": "16.1 Likelihood inference."
   },
   {
     "objectID": "statistical_inference.html#variance-analisys.",
     "href": "statistical_inference.html#variance-analisys.",
-    "title": "12  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "13.2 Variance analisys.",
-    "text": "13.2 Variance analisys."
+    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "16.2 Variance analisys.",
+    "text": "16.2 Variance analisys."
   },
   {
     "objectID": "statistical_inference.html#roc-curves",
     "href": "statistical_inference.html#roc-curves",
-    "title": "12  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "13.3 ROC Curves",
-    "text": "13.3 ROC Curves"
+    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "16.3 ROC Curves",
+    "text": "16.3 ROC Curves"
   },
   {
     "objectID": "linear_regression.html#regression-models",
     "href": "linear_regression.html#regression-models",
-    "title": "13  Lienar Regression",
-    "section": "13.1 Regression models",
-    "text": "13.1 Regression models"
+    "title": "16  Lienar Regression",
+    "section": "16.1 Regression models",
+    "text": "16.1 Regression models"
   },
   {
     "objectID": "linear_regression.html#linear-regression",
     "href": "linear_regression.html#linear-regression",
-    "title": "13  Lienar Regression",
-    "section": "13.2 Linear Regression",
-    "text": "13.2 Linear Regression"
+    "title": "16  Lienar Regression",
+    "section": "16.2 Linear Regression",
+    "text": "16.2 Linear Regression"
   },
   {
     "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
     "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
-    "title": "13  Lienar Regression",
-    "section": "13.3 Multiple linear_regression and generalized linear regresion",
-    "text": "13.3 Multiple linear_regression and generalized linear regresion"
+    "title": "16  Lienar Regression",
+    "section": "16.3 Multiple linear_regression and generalized linear regresion",
+    "text": "16.3 Multiple linear_regression and generalized linear regresion"
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "\n14  Summary\n",
+    "title": "\n17  Summary\n",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
   },

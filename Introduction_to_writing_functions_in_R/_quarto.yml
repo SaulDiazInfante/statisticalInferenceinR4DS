@@ -2,13 +2,14 @@ project:
   type: book
 
 book:
-  title: "Introduction_to_writing_functions_in_R"
-  author: "Jane Doe"
+  title: "Introduction to writing functions in R"
+  author: "Saul Diaz Infante Velasco"
   date: "2/22/2023"
   chapters:
     - index.qmd
     - intro.qmd
     - _writing_functions_01.qmd
+    - _writing_functions_02.qmd
     - summary.qmd
     - references.qmd
 
@@ -16,7 +17,9 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: flatly
+      dark: cyborg
   pdf:
     documentclass: scrreprt
 

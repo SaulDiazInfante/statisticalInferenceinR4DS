@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 book:
   title: "Statistical Inference For Data Science"
   author: "Saul Diaz Infante Velasco"
@@ -41,7 +42,6 @@ book:
     - part: background_02.qmd
       chapters:
         - _writing_functions_01.qmd
-        #
         - data_visualization.qmd        
     - part: "importing and cleaning data"
       chapters:

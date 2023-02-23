@@ -24,7 +24,7 @@ book:
     - intro.qmd
     - part: Introduction to Importing Data in R
       chapters:
-      - _introduction_to_importing_data_in_R_1.qmd
+      - _introduction_to_importing_data_in_R_01.qmd
     - summary.qmd
     - references.qmd
 bibliography: references.bib
