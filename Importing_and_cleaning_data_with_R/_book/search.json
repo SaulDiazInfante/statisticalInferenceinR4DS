@@ -74,49 +74,49 @@
     "href": "_introduction_to_importing_data_in_R_02.html#read_csv",
     "title": "2  readr & data.table",
     "section": "2.1 read_csv",
-    "text": "2.1 read_csv"
+    "text": "2.1 read_csv\nCSV files can be imported with read_csv(). It’s a wrapper function around read_delim() that handles all the details for you. For example, it will assume that the first row contains the column names.\nThe dataset you’ll be working with here is potatoes.csv (view in dataset folder). It gives information on the impact of storage period and cooking on potatoes’ flavor. It uses commas to delimit fields in a record, and contains column names in the first row. The file is available in your workspace."
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_02.html#read_tsv",
     "href": "_introduction_to_importing_data_in_R_02.html#read_tsv",
     "title": "2  readr & data.table",
     "section": "2.2 read_tsv",
-    "text": "2.2 read_tsv"
+    "text": "2.2 read_tsv\nWhere you use read_csv() to easily read in CSV files, you use read_tsv() to easily read in TSV files. TSV is short for tab- separated values.\nThis time, the potatoes data comes in the form of a tab-separated values file; potatoes.txt. In contrast to potatoes.csv, this file does not contain columns names in the first row, though.\nThere’s a vector properties that you can use to specify these column names manually."
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_02.html#read_delim",
     "href": "_introduction_to_importing_data_in_R_02.html#read_delim",
     "title": "2  readr & data.table",
     "section": "2.3 read_delim",
-    "text": "2.3 read_delim"
+    "text": "2.3 read_delim\nJust as read.table() was the main utils function, read_delim() is the main readr function.\nread_delim() takes two mandatory arguments:\n\nfile: the file that contains the data\ndelim: the character that separates the values in the data file\n\nYou’ll again be working with potatoes.txt (view); the file uses tabs (\"\\t\") to delimit values and does not contain column names in its first line. It’s available in your working directory so you can start right away. As before, the vector properties is available to set the col_names.\n\nInstructions 100 XP\n\nImport all the data in “potatoes.txt” using read_delim(); store the resulting data frame in potatoes.\nPrint out potatoes.\n\n\n\nex_010.R\n\n# readr is already loaded\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import potatoes.txt using read_delim(): potatoes\npotatoes <- read_delim(\n    \"potatoes.txt\",\n    delim = \"\\t\",\n    col_names = properties\n)\n# Print out potatoes\npotatoes"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_02.html#skip-and-n_max",
     "href": "_introduction_to_importing_data_in_R_02.html#skip-and-n_max",
     "title": "2  readr & data.table",
     "section": "2.4 skip and n_max",
-    "text": "2.4 skip and n_max"
+    "text": "2.4 skip and n_max\nThrough skip and n_max you can control which part of your flat file you’re actually importing into R.\n\nskip specifies the number of lines you’re ignoring in the flat file before actually starting to import data.\nn_max specifies the number of lines you’re actually importing. Say for example you have a CSV file with 20 lines, and set skip = 2 and n_max = 3, you’re only reading in lines 3, 4 and 5 of the file.\n\nWatch out: Once you skip some lines, you also skip the first line that can contain column names!\npotatoes.txt, a flat file with tab-delimited records and without column names, is available in your workspace.\n\nInstructions 100 XP\n\nFinish the first read_tsv() call to import observations 7, 8, 9, 10 and 11 from potatoes.txt.\n\n\n\nex_011.R\n\n# readr is already loaded\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import 5 observations from potatoes.txt: potatoes_fragment\npotatoes_fragment <- read_tsv(\n    \"potatoes.txt\",\n    skip = 6, \n    n_max = 5,\n    col_names = properties\n)"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_02.html#col_types",
     "href": "_introduction_to_importing_data_in_R_02.html#col_types",
     "title": "2  readr & data.table",
     "section": "2.5 col_types",
-    "text": "2.5 col_types"
+    "text": "2.5 col_types\nYou can also specify which types the columns in your imported data frame should have. You can do this with col_types. If set to NULL, the default, functions from the readr package will try to find the correct types themselves. You can manually set the types with a string, where each character denotes the class of the column: character, double, integer and logical. _ skips the column as a whole.\npotatoes.txt, a flat file with tab-delimited records and without column names, is again available in your workspace.\n\nInstructions 100 XP\n\nIn the second read_tsv() call, edit the col_types argument to import all columns as characters (c). Store the resulting data frame in potatoes_char.\nPrint out the structure of potatoes_char and verify whether all column types are chr, short for character.\n\n\n\nex_012.R\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import all data, but force all columns to be character: potatoes_char\npotatoes_char <- read_tsv(\n    \"potatoes.txt\",\n    col_types = \"cccccccc\",\n    col_names = properties\n)\n# Print out structure of potatoes_char\nstr(potatoes_char)"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_02.html#fread",
     "href": "_introduction_to_importing_data_in_R_02.html#fread",
     "title": "2  readr & data.table",
-    "section": "2.6 fread",
-    "text": "2.6 fread"
+    "section": "2.7 fread",
+    "text": "2.7 fread"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_02.html#fread-more-advance-use",
     "href": "_introduction_to_importing_data_in_R_02.html#fread-more-advance-use",
     "title": "2  readr & data.table",
-    "section": "2.7 fread: more advance use",
-    "text": "2.7 fread: more advance use"
+    "section": "2.8 fread: more advance use",
+    "text": "2.8 fread: more advance use"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_01.html#read.csv",
@@ -166,5 +166,26 @@
     "title": "1  Importing data from flat files with utils",
     "section": "1.7 Column classes",
     "text": "1.7 Column classes\nNext to column names, you can also specify the column types or column classes of the resulting data frame. You can do this by setting the colClasses argument to a vector of strings representing classes:\nread.delim(\"my_file.txt\", \n           colClasses = c(\"character\",\n                          \"numeric\",\n                          \"logical\"))\nThis approach can be useful if you have some columns that should be factors and others that should be characters. You don’t have to bother with stringsAsFactors anymore; just state for each column what the class should be.\nIf a column is set to “NULL” in the colClasses vector, this column will be skipped and will not be loaded into the data frame.\n\nInstructions 100 XP\n\nThe read.delim() call from before is already included and creates the hotdogs data frame. Go ahead and display the structure of hotdogs.\nEdit the second read.delim() call. Assign the correct vector to the colClasses argument. NA should be replaced with a character vector: c(\"factor\", \"NULL\", \"numeric\").\nDisplay the structure of hotdogs2 and look for the difference.\n\n\n\nex_007.R\n\n# Previous call to import hotdogs.txt\nhotdogs <- \n    read.delim(\n        \"hotdogs.txt\",\n         header = FALSE,\n         col.names = c(\"type\", \"calories\", \"sodium\")\n    )\n\n# Display structure of hotdogs\nstr(hotdogs)\n\n# Edit the colClasses argument to import the data correctly: hotdogs2\nhotdogs2 <- read.delim(\n    \"hotdogs.txt\",\n    header = FALSE,\n    col.names = c(\"type\", \"calories\", \"sodium\"),\n    colClasses =  c(\"factor\", \"NULL\", \"numeric\")\n)\n\n\n# Display structure of hotdogs2\nstr(hotdogs2)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp",
+    "href": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp",
+    "title": "2  readr & data.table",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\nLoad the readr package with library().\nImport \"potatoes.csv\" using read_csv(). Assign the resulting data frame to the variable potatoes.\n\n\nex_008.R\n\n# Load the readr package\nlibrary(readr)\n\n# Import potatoes.csv with read_csv(): potatoes\npotatoes <- read_csv(\"potatoes.csv\")"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp-1",
+    "href": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp-1",
+    "title": "2  readr & data.table",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nUse read_tsv() to import the potatoes data from potatoes.txt and store it in the data frame potatoes. In addition to the path to the file, you’ll also have to specify the col_names argument; you can use the properties vector for this.\nCall head() on potatoes to show the first observations of your dataset.\n\n\n\nex_009.R\n\n# readr is already loaded\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import potatoes.txt: potatoes\npotatoes <- read_tsv(\n    \"potatoes.txt\",\n    col_names = properties\n)\n\n# Call head() on potatoes\nhead(potatoes)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#col_types-with-collectors",
+    "href": "_introduction_to_importing_data_in_R_02.html#col_types-with-collectors",
+    "title": "2  readr & data.table",
+    "section": "2.6 col_types with collectors",
+    "text": "2.6 col_types with collectors\nAnother way of setting the types of the imported columns is using collectors. Collector functions can be passed in a list() to the col_types argument of read_ functions to tell them how to interpret values in a column.\nFor a complete list of collector functions, you can take a look at the collector documentation. For this exercise you will need two collector functions:\n\ncol_integer(): the column should be interpreted as an integer.\ncol_factor(levels, ordered = FALSE): the column should be interpreted as a factor with levels.\n\nIn this exercise, you will work with `hotdogs.txt, which is a tab-delimited file without column names in the first row.\n\nInstructions 100 XP\n\nhotdogs is created for you without setting the column types. Inspect its summary using the summary() function.\nTwo collector functions are defined for you: fac and int. Have a look at them, do you understand what they’re collecting?\nIn the second read_tsv() call, edit the col_types argument: Pass a list() with the elements fac, int and int, so the first column is imported as a factor, and the second and third column as integers.\nCreate a summary() of hotdogs_factor. Compare this to the summary of hotdogs.\n\n\n\nex_013.R\n\n# check if readr is already loaded\n\n# Import without col_types\nhotdogs <- read_tsv(\n    \"hotdogs.txt\",\n    col_names = c(\"type\", \"calories\", \"sodium\")\n)\n\n# Display the summary of hotdogs\nsummary(hotdogs)\n\n# The collectors you will need to import the data\nfac <- col_factor(levels = c(\"Beef\", \"Meat\", \"Poultry\"))\nint <- col_integer()\n\n# Edit the col_types argument to import the data correctly: hotdogs_factor\nhotdogs_factor <- read_tsv(\n    \"hotdogs.txt\",\n    col_names = c(\"type\", \"calories\", \"sodium\"),\n    col_types = list(fac, int, int)\n)\n\n# Display the summary of hotdogs_factor\nsummary(hotdogs_factor)"
   }
 ]

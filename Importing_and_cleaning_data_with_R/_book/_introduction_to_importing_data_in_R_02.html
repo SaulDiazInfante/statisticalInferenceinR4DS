@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -180,12 +243,27 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#read_csv" id="toc-read_csv" class="nav-link active" data-scroll-target="#read_csv"><span class="toc-section-number">2.1</span>  read_csv</a></li>
+  <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
   <li><a href="#read_tsv" id="toc-read_tsv" class="nav-link" data-scroll-target="#read_tsv"><span class="toc-section-number">2.2</span>  read_tsv</a></li>
-  <li><a href="#read_delim" id="toc-read_delim" class="nav-link" data-scroll-target="#read_delim"><span class="toc-section-number">2.3</span>  read_delim</a></li>
-  <li><a href="#skip-and-n_max" id="toc-skip-and-n_max" class="nav-link" data-scroll-target="#skip-and-n_max"><span class="toc-section-number">2.4</span>  skip and n_max</a></li>
-  <li><a href="#col_types" id="toc-col_types" class="nav-link" data-scroll-target="#col_types"><span class="toc-section-number">2.5</span>  col_types</a></li>
-  <li><a href="#fread" id="toc-fread" class="nav-link" data-scroll-target="#fread"><span class="toc-section-number">2.6</span>  fread</a></li>
-  <li><a href="#fread-more-advance-use" id="toc-fread-more-advance-use" class="nav-link" data-scroll-target="#fread-more-advance-use"><span class="toc-section-number">2.7</span>  fread: more advance use</a></li>
+  <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
+  <li><a href="#read_delim" id="toc-read_delim" class="nav-link" data-scroll-target="#read_delim"><span class="toc-section-number">2.3</span>  read_delim</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#skip-and-n_max" id="toc-skip-and-n_max" class="nav-link" data-scroll-target="#skip-and-n_max"><span class="toc-section-number">2.4</span>  skip and n_max</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions 100 XP</a></li>
+  </ul></li>
+  <li><a href="#col_types" id="toc-col_types" class="nav-link" data-scroll-target="#col_types"><span class="toc-section-number">2.5</span>  col_types</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#col_types-with-collectors" id="toc-col_types-with-collectors" class="nav-link" data-scroll-target="#col_types-with-collectors"><span class="toc-section-number">2.6</span>  col_types with collectors</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#fread" id="toc-fread" class="nav-link" data-scroll-target="#fread"><span class="toc-section-number">2.7</span>  fread</a></li>
+  <li><a href="#fread-more-advance-use" id="toc-fread-more-advance-use" class="nav-link" data-scroll-target="#fread-more-advance-use"><span class="toc-section-number">2.8</span>  fread: more advance use</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_introduction_to_importing_data_in_R_02.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -212,24 +290,240 @@ ul.task-list li input[type="checkbox"] {
 <p>In addition to base R, there are dedicated packages to easily and efficiently import flat file data. We’ll talk about two such packages: <code>readr</code> and <code>data.table</code>.</p>
 <section id="read_csv" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">2.1</span> read_csv</h2>
+<p>CSV files can be imported with <code>read_csv()</code>. It’s a wrapper function around <code>read_delim()</code> that handles all the details for you. For example, it will assume that the first row contains the column names.</p>
+<p>The dataset you’ll be working with here is <code>potatoes.csv</code> (view in dataset folder). It gives information on the impact of storage period and cooking on potatoes’ flavor. It uses commas to delimit fields in a record, and contains column names in the first row. The file is available in your workspace.</p>
+</section>
+<section id="instructions-100-xp" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h2>
+<p>Load the <code>readr</code> package with <code>library()</code>.</p>
+<p>Import <code>"potatoes.csv"</code> using <code>read_csv()</code>. Assign the resulting data frame to the variable potatoes.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_008.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the readr package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import potatoes.csv with read_csv(): potatoes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>potatoes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"potatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="read_tsv" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="read_tsv"><span class="header-section-number">2.2</span> read_tsv</h2>
+<p>Where you use <code>read_csv()</code> to easily read in CSV files, you use <code>read_tsv()</code> to easily read in TSV files. TSV is short for tab- separated values.</p>
+<p>This time, the potatoes data comes in the form of a tab-separated values file; <code>potatoes.txt</code>. In contrast to <code>potatoes.csv</code>, this file does not contain columns names in the first row, though.</p>
+<p>There’s a vector properties that you can use to specify these column names manually.</p>
+</section>
+<section id="instructions-100-xp-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h2>
+<ul>
+<li>Use <code>read_tsv()</code> to import the potatoes data from potatoes.txt and store it in the data frame potatoes. In addition to the path to the file, you’ll also have to specify the <code>col_names</code> argument; you can use the properties vector for this.</li>
+<li>Call <code>head()</code> on potatoes to show the first observations of your dataset.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_009.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># readr is already loaded</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>properties <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"area"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"temp"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"size"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"storage"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"method"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"texture"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"flavor"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"moistness"</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import potatoes.txt: potatoes</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>potatoes <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"potatoes.txt"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> properties</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Call head() on potatoes</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(potatoes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="read_delim" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="read_delim"><span class="header-section-number">2.3</span> read_delim</h2>
+<p>Just as <code>read.table()</code> was the main utils function, <code>read_delim()</code> is the main readr function.</p>
+<p><code>read_delim()</code> takes two mandatory arguments:</p>
+<ul>
+<li><code>file</code>: the file that contains the data</li>
+<li><code>delim</code>: the character that separates the values in the data file</li>
+</ul>
+<p>You’ll again be working with <code>potatoes.txt</code> (view); the file uses tabs (<code>"\t"</code>) to delimit values and does not contain column names in its first line. It’s available in your working directory so you can start right away. As before, the vector <code>properties</code> is available to set the <code>col_names</code>.</p>
+<section id="instructions-100-xp-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Import all the data in “potatoes.txt” using read_delim(); store the resulting data frame in potatoes.</li>
+<li>Print out potatoes.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_010.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># readr is already loaded</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>properties <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"area"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"temp"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"size"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"storage"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"method"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"texture"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"flavor"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"moistness"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import potatoes.txt using read_delim(): potatoes</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>potatoes <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"potatoes.txt"</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> properties</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out potatoes</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>potatoes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 <section id="skip-and-n_max" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="skip-and-n_max"><span class="header-section-number">2.4</span> skip and n_max</h2>
+<p>Through <code>skip</code> and <code>n_max</code> you can control which part of your flat file you’re actually importing into R.</p>
+<ul>
+<li>skip specifies the number of lines you’re ignoring in the flat file before actually starting to import data.</li>
+<li>n_max specifies the number of lines you’re actually importing. Say for example you have a CSV file with 20 lines, and set <code>skip = 2</code> and <code>n_max = 3</code>, you’re only reading in lines 3, 4 and 5 of the file.</li>
+</ul>
+<p>Watch out: Once you skip some lines, you also skip the first line that can contain column names!</p>
+<p><code>potatoes.txt</code>, a flat file with tab-delimited records and without column names, is available in your workspace.</p>
+<section id="instructions-100-xp-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions 100 XP</h3>
+<ul>
+<li>Finish the first read_tsv() call to import observations 7, 8, 9, 10 and 11 from <code>potatoes.txt</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_011.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># readr is already loaded</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>properties <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"area"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"temp"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"size"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"storage"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"method"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"texture"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"flavor"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"moistness"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import 5 observations from potatoes.txt: potatoes_fragment</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>potatoes_fragment <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"potatoes.txt"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">skip =</span> <span class="dv">6</span>, </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_max =</span> <span class="dv">5</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> properties</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 <section id="col_types" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="col_types"><span class="header-section-number">2.5</span> col_types</h2>
+<p>You can also specify which types the columns in your imported data frame should have. You can do this with <code>col_types</code>. If set to <code>NULL</code>, the default, functions from the readr package will try to find the correct types themselves. You can manually set the types with a <code>string</code>, where each character denotes the class of the column: <code>character</code>, <code>double</code>, <code>integer</code> and <code>logical</code>. <code>_</code> skips the column as a whole.</p>
+<p><code>potatoes.txt</code>, a flat file with tab-delimited records and without column names, is again available in your workspace.</p>
+<section id="instructions-100-xp-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+<ul>
+<li>In the second <code>read_tsv()</code> call, edit the <code>col_types</code> argument to import all columns as characters (<code>c</code>). Store the resulting data frame in <code>potatoes_char</code>.</li>
+<li>Print out the structure of <code>potatoes_char</code> and verify whether all column types are <code>chr</code>, short for <code>character</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_012.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>properties <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"area"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"temp"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"size"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"storage"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"method"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"texture"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"flavor"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"moistness"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Import all data, but force all columns to be character: potatoes_char</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>potatoes_char <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"potatoes.txt"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="st">"cccccccc"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> properties</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out structure of potatoes_char</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(potatoes_char)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="fread" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="fread"><span class="header-section-number">2.6</span> fread</h2>
 </section>
-<section id="fread-more-advance-use" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="fread-more-advance-use"><span class="header-section-number">2.7</span> fread: more advance use</h2>
+<section id="col_types-with-collectors" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="col_types-with-collectors"><span class="header-section-number">2.6</span> col_types with collectors</h2>
+<p>Another way of setting the types of the imported columns is using collectors. Collector functions can be passed in a <code>list()</code> to the <code>col_types</code> argument of <code>read_</code> functions to tell them how to interpret values in a column.</p>
+<p>For a complete list of collector functions, you can take a look at the <code>collector</code> documentation. For this exercise you will need two collector functions:</p>
+<ul>
+<li><code>col_integer()</code>: the column should be interpreted as an integer.</li>
+<li><code>col_factor(levels, ordered = FALSE)</code>: the column should be interpreted as a factor with levels.</li>
+</ul>
+<p>In this exercise, you will work with `hotdogs.txt, which is a tab-delimited file without column names in the first row.</p>
+<section id="instructions-100-xp-5" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+<ul>
+<li><code>hotdogs</code> is created for you without setting the column types. Inspect its summary using the <code>summary()</code> function.</li>
+<li>Two collector functions are defined for you: <code>fac</code> and <code>int</code>. Have a look at them, do you understand what they’re collecting?</li>
+<li>In the second <code>read_tsv()</code> call, edit the <code>col_types</code> argument: Pass a <code>list()</code> with the elements <code>fac</code>, <code>int</code> and <code>int</code>, so the first column is imported as a factor, and the second and third column as integers.</li>
+<li>Create a <code>summary()</code> of <code>hotdogs_factor</code>. Compare this to the summary of hotdogs.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_013.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if readr is already loaded</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Import without col_types</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>hotdogs <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hotdogs.txt"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"type"</span>, <span class="st">"calories"</span>, <span class="st">"sodium"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the summary of hotdogs</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hotdogs)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># The collectors you will need to import the data</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>fac <span class="ot">&lt;-</span> <span class="fu">col_factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Beef"</span>, <span class="st">"Meat"</span>, <span class="st">"Poultry"</span>))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>int <span class="ot">&lt;-</span> <span class="fu">col_integer</span>()</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit the col_types argument to import the data correctly: hotdogs_factor</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>hotdogs_factor <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hotdogs.txt"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"type"</span>, <span class="st">"calories"</span>, <span class="st">"sodium"</span>),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">list</span>(fac, int, int)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the summary of hotdogs_factor</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hotdogs_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="fread" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="fread"><span class="header-section-number">2.7</span> fread</h2>
+</section>
+<section id="fread-more-advance-use" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="fread-more-advance-use"><span class="header-section-number">2.8</span> fread: more advance use</h2>
 
 
 </section>

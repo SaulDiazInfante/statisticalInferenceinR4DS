@@ -1,0 +1,31 @@
+## List the sheets of an Excel file
+
+### Instructions `100 XP` {.unnumbered}
+
+## Import an Excel sheet
+
+### Instructions `100 XP` {.unnumbered}
+
+## Reading a workbook
+
+### Instructions `100 XP` {.unnumbered}
+
+## The col_names argument
+
+### Instructions `100 XP` {.unnumbered}
+
+## The skip argument
+
+### Instructions `100 XP` {.unnumbered}
+
+## Import a local file
+
+### Instructions `100 XP` {.unnumbered}
+
+## read.xls() wraps around read.table()
+
+### Instructions `100 XP` {.unnumbered}
+
+## Work that Excel data!
+
+### Instructions `100 XP` {.unnumbered}

@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "_writing_functions_01.html#calling-functions",
+    "href": "_writing_functions_01.html#calling-functions",
+    "title": "2  How to Write a Function",
+    "section": "2.1 Calling functions",
+    "text": "2.1 Calling functions\nOne way to make your code more readable is to be careful about the order you pass arguments when you call functions, and whether you pass the arguments by position or by name.\ngold_medals, a numeric vector of the number of gold medals won by each country in the 2016 Summer Olympics, is provided.\nFor convenience, the arguments of median() and rank() are displayed using args(). Setting rank()’s na.last argument to “keep” means “keep the rank of NA values as NA”.\nBest practice for calling functions is to include them in the order shown by args(), and to only name rare arguments.\n\nInstructions 100 XP\n\nThe final line calculates the median number of gold medals each country won. Rewrite the call to median(), following best practices.\nThe final line calculates each country’s ranking by number of gold medals. It uses negative gold_medals so that the country with the most medals will have 1st place: the largest positive value in gold_medals is the smallest (“most negative”) value in -gold_medals.\n\nRewrite the call to rank(), following best practices.\n\n\nex_001.R\n\n# Note the arguments to rank()\nargs(rank)\n\n# Rewrite this function call, following best practices\nrank(\"keep\",\"min\",x=-gold_medals)\nrank(-gold_medals, na.last=\"keep\", ties.method=\"min\")"
+  },
+  {
+    "objectID": "_writing_functions_01.html#converting-scripts-into-functions",
+    "href": "_writing_functions_01.html#converting-scripts-into-functions",
+    "title": "2  How to Write a Function",
+    "section": "2.2 Converting scripts into functions",
+    "text": "2.2 Converting scripts into functions\nIf you have a script and want to turn it into a function, there are several steps you should take.\n\nInstructions 100 XP\nReorder the steps for converting a script into a function.\n\n\n\n\n\n\nFollow this suggested todo list.\n\n\n\n\n\n\nMake a template\nChoose the arguments\nPaste in the script\nRemove a final assigment\nMake specific variable names more general\nReplace specific values with armguents names"
+  },
+  {
+    "objectID": "_writing_functions_01.html#your-first-function-tossing-a-coin",
+    "href": "_writing_functions_01.html#your-first-function-tossing-a-coin",
+    "title": "2  How to Write a Function",
+    "section": "2.3 Your first function: tossing a coin",
+    "text": "2.3 Your first function: tossing a coin\nYour first function: tossing a coin Time to write your first function! It’s a really good idea when writing functions to start simple. You can always make a function more complicated later if it’s really necessary, so let’s not worry about arguments for now.\n\n\n\n\n\n\nInstructions 100 XP\n\n\n\n\nSimulate a single coin toss by using sample() to sample from\ncoin_sides once.\nWrite a template for your function, naming it toss_coin. The function should take no arguments. Don’t include the body of the function yet.\nCopy your script, and paste it into the function body.\nCall your function.\n\n\n\n\n\nex_002.R\n\n# Your functions, from previous steps\ntoss_coin <- function() {\n  coin_sides <- c(\"head\", \"tail\")\n  sample(coin_sides, 1)\n}\n\n# Call your function\ntoss_coin()"
+  },
+  {
+    "objectID": "_writing_functions_01.html#inputs-to-functions",
+    "href": "_writing_functions_01.html#inputs-to-functions",
+    "title": "2  How to Write a Function",
+    "section": "2.4 Inputs to functions",
+    "text": "2.4 Inputs to functions\nMost functions require some sort of input to determine what to compute. The inputs to functions are called arguments. You specify them inside the parentheses after the word “function.”\nAs mentioned in the video, the following exercises assume that you are using sample() to do random sampling.\n\nInstructions 100 XP\n\nSample from coin_sides n_flips times with replacement.\nUpdate the definition of toss_coin() to accept a single argument, n_flips. The function should sample coin_sides n_flips times with replacement. Remember to change the signature and the body. -Generate 10 coin flips.\n\n\n\nex_003.R\n\n# Update the function to return n coin tosses\ntoss_coin <- function(n_flips) {\n  coin_sides <- c(\"head\", \"tail\")\n  sample(coin_sides, size=n_flips, replace=TRUE)\n}\n\n# Generate 10 coin tosses\ntoss_coin(10)"
+  },
+  {
+    "objectID": "_writing_functions_01.html#multiple-inputs-to-functions",
+    "href": "_writing_functions_01.html#multiple-inputs-to-functions",
+    "title": "2  How to Write a Function",
+    "section": "2.5 Multiple inputs to functions",
+    "text": "2.5 Multiple inputs to functions\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_writing_functions_01.html#data-or-detail",
+    "href": "_writing_functions_01.html#data-or-detail",
+    "title": "2  How to Write a Function",
+    "section": "2.6 Data or detail?",
+    "text": "2.6 Data or detail?\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_writing_functions_01.html#renaming-glm",
+    "href": "_writing_functions_01.html#renaming-glm",
+    "title": "2  How to Write a Function",
+    "section": "2.7 Renaming GLM",
+    "text": "2.7 Renaming GLM\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "3  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  }
+]
