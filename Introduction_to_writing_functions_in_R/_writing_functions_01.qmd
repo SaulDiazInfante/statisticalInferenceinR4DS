@@ -1,0 +1,137 @@
+---
+title-block-banner: true
+---
+# How to Write a Function
+
+Learn why writing your own functions is useful, how to convert a 
+script into a function, and what order you should include the 
+arguments.
+
+## Calling functions
+
+One way to make your code more readable is to be careful about the 
+order you pass arguments when you call functions, and whether you 
+pass the arguments by position or by name.
+
+
+`gold_medals`, a numeric vector of the number of gold medals won by 
+each country in the 2016 Summer Olympics, is provided.
+
+
+For convenience, the arguments of `median()` and `rank()` are 
+displayed using args(). Setting rank()'s na.last argument to "keep" means "keep the rank of NA values as NA".
+
+Best practice for calling functions is to include them in the order 
+shown by args(), and to only name rare arguments.
+
+
+### Instructions `100 XP` {.unnumbered}
+
+- The final line calculates the median number of gold medals each 
+country won. Rewrite the call to `median()`, following best 
+practices.
+
+- The final line calculates each country's ranking by number of gold 
+medals. It uses negative `gold_medals` so that the country with the 
+most medals will have 1st place: the largest positive value in 
+gold_medals is the smallest ("most negative") value in 
+`-gold_medals`.
+
+Rewrite the call to `rank()`, following best practices.
+
+```{.r filename="ex_001.R"}
+# Note the arguments to rank()
+args(rank)
+
+# Rewrite this function call, following best practices
+rank("keep","min",x=-gold_medals)
+rank(-gold_medals, na.last="keep", ties.method="min")
+```
+
+## Converting scripts into functions
+
+If you have a script and want to turn it into a function, there are 
+several steps you should take.
+
+### Instructions `100 XP` {.unnumbered}
+
+Reorder the steps for converting a script into a function.
+
+::: {.callout-caution collapse="true"}
+## Follow this suggested todo list.
+- Make a template
+- Choose the arguments
+- Paste in the script
+- Remove a final assigment
+- Make specific variable names more general
+- Replace specific values with armguents names
+:::
+
+## Your first function: tossing a coin
+
+Your first function: tossing a coin
+Time to write your first function! It's a really good idea when 
+writing functions to start simple. You can always make a function 
+more complicated later if it's really necessary, so let's not worry 
+about arguments for now.
+
+::: {.callout-caution}
+## Instructions `100 XP` {.unnumbered}
+- Simulate a single coin toss by using `sample()` to sample from  
+`coin_sides` once.
+- Write a template for your function, naming it t`oss_coin`. The 
+function should take no arguments. Don't include the body of the 
+function yet.
+- Copy your script, and paste it into the function body.
+- Call your function.
+:::
+```{.r filename="ex_002.R"}
+# Your functions, from previous steps
+toss_coin <- function() {
+  coin_sides <- c("head", "tail")
+  sample(coin_sides, 1)
+}
+
+# Call your function
+toss_coin()
+```
+
+
+## Inputs to functions
+
+Most functions require some sort of input to determine what to 
+compute. The inputs to functions are called arguments. You specify 
+them inside the parentheses after the word "function."
+
+As mentioned in the video, the following exercises assume that you 
+are using `sample()` to do random sampling.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Sample from `coin_sides` `n_flips` times with replacement.
+- Update the definition of `toss_coin()` to accept a single argument, 
+`n_flips`. The function should sample `coin_sides` `n_flips` times 
+with replacement. Remember to change the signature and the body.
+-Generate 10 coin flips.
+
+```{.r filename="ex_003.R"}
+# Update the function to return n coin tosses
+toss_coin <- function(n_flips) {
+  coin_sides <- c("head", "tail")
+  sample(coin_sides, size=n_flips, replace=TRUE)
+}
+
+# Generate 10 coin tosses
+toss_coin(10)
+```
+## Multiple inputs to functions
+
+### Instructions `100 XP` {.unnumbered}
+
+## Data or detail?
+
+### Instructions `100 XP` {.unnumbered}
+
+## Renaming GLM
+
+### Instructions `100 XP` {.unnumbered}

@@ -1,0 +1,17 @@
+# Introduction {.unnumbered}
+
+Importing data into R should be the easiest step in your analysis.
+Unfortunately, that is almost never the case. Data can come in many formats,
+ranging from .csv and text files, to statistical software files, to databases
+and HTML data. Knowing which approach to use is key to getting started with the
+actual analysis. In this course, you’ll start by learning how to read .csv and
+text files in R. You will then cover the readr and data.table packages to easily
+and efficiently import flat file data. After that, you will learn how to read 
+.xls files in R using readxl and gdata.
+
+This content has been taken from the dataCamp course with the same 
+title. See
+
+<https://app.datacamp.com/learn/courses/introduction-to-importing-data-in-r> 
+
+for more details.

@@ -1,0 +1,38 @@
+## Counting by region
+
+The `countie`s dataset contains columns for region, state, population, and the 
+number of citizens, which we selected and saved as the `counties_selected` 
+table. In this exercise, you'll focus on the region column.
+```{.r code-line-numbers="false"}
+counties_selected <- counties %>%
+  select(county, region, state, population, citizens)    
+```
+
+### Intstructions `100 XP` {.unnumbered}
+
+- Use `count()` to find the number of counties in each region, using a second 
+argument to sort in descending order.
+
+```{.r filename="ex_008.R"}
+# Use count to find the number of counties in each region
+counties_selected %>%
+  count(region, sort = TRUE)
+```
+
+## Counting citizens by state
+You can weigh your count by particular variables rather than finding the number 
+of counties. In this case, you'll find the number of citizens in each state.
+
+```{.r code-line-numbers="false"}
+counties_selected <- counties %>%
+  select(county, region, state, population, citizens)
+```
+### Instructions `100 XP` {.unnumbered}
+Count the number of counties in each state, weighted based on the `citizens` 
+column, and sorted in descending order.
+
+```{.r filename="ex_009.R"}
+# Find number of counties per state, weighted by citizens
+counties_selected %>%
+  count(state, wt=citizens, sort=TRUE)
+```

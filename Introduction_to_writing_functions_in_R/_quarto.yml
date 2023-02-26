@@ -1,0 +1,27 @@
+project:
+  type: book
+
+book:
+  title: "Introduction to writing functions in R"
+  author: "Saul Diaz Infante Velasco"
+  date: "2/22/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - _writing_functions_01.qmd
+    - _writing_functions_02.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: cyborg
+  pdf:
+    documentclass: scrreprt
+
+
+

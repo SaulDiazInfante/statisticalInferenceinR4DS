@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#selecting-columns",
+    "href": "_data_manipulation_with_dplyr_01.html#selecting-columns",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.1 Selecting columns",
+    "text": "1.1 Selecting columns\nSelect the following four columns from the counties variable: - state - county - population - poverty\nYou don’t need to save the result to a variable.\n\nInstructions 100 XP\n\nSelect the columns listed from the counties variable.\n\n\n\nex_001.R\n\nfilename <- \"datasets/counties.rds\"\ncounties <- readRDS(filename)\n# Select the columns \n\ncounties %>%\n  select(state, county, population, poverty)"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#arranging-observations",
+    "href": "_data_manipulation_with_dplyr_01.html#arranging-observations",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.2 Arranging observations",
+    "text": "1.2 Arranging observations\nHere you see the counties_selected dataset with a few interesting variables selected. These variables: private_work, public_work, self_employed describe whether people work for the government, for private companies, or for themselves.\nIn these exercises, you’ll sort these observations to find the most interesting cases.\n\nInstructions 100 XP\n\nAdd a verb to sort the observations of the public_work variable in descending order.\n\n\n\nex_002.R\n\ncounties_selected <- counties %>%\n  select(state, county, population, private_work, public_work, self_employed)\n\n# Add a verb to sort in descending order of public_work\ncounties_selected %>%\n  arrange(desc(public_work))"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#filtering-for-conditions",
+    "href": "_data_manipulation_with_dplyr_01.html#filtering-for-conditions",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.3 Filtering for conditions",
+    "text": "1.3 Filtering for conditions\nYou use the filter() verb to get only observations that match a particular condition, or match multiple conditions.\n\nInstructions 100 XP\n\nFind only the counties that have a population above one million (1000000).\nFind only the counties in the state of California that also have a population above one million (1000000).\n\n\n\nex_003.R\n\ncounties_selected <- counties %>%\n  select(state, county, population)\n\n# Filter for counties with a population above 1000000\ncounties_selected %>%\n  filter(population > 1000000)"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#filtering-for-arranging",
+    "href": "_data_manipulation_with_dplyr_01.html#filtering-for-arranging",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.4 Filtering for arranging",
+    "text": "1.4 Filtering for arranging"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#calculating-the-number-of-goverment-employees",
+    "href": "_data_manipulation_with_dplyr_01.html#calculating-the-number-of-goverment-employees",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.5 Calculating the number of goverment employees",
+    "text": "1.5 Calculating the number of goverment employees\nIn the video, you used the unemployment variable, which is a percentage, to calculate the number of unemployed people in each county. In this exercise, you’ll do the same with another percentage variable: public_work.\nThe code provided already selects the state, county, population, and public_work columns.\n\nInstructions 100 XP\n\nUse mutate() to add a column called public_workers to the dataset, with the number of people employed in public (government) work.\n\n\n\nex_006.R\n\ncounties_selected <- counties %>%\n  select(state, county, population, public_work)\n\n# Add a new column public_workers with the number of people employed in public work\ncounties_selected %>%\n  mutate(public_workers = public_work * population / 100 )\n\ncounties_selected <- counties %>%\n  select(state, county, population, public_work)\n\n# Sort in descending order of the public_workers column\ncounties_selected %>%\n  mutate(public_workers = public_work * population / 100) %>%\n    arrange(desc(public_workers))"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#calculating-the-percentage-of-women-in-a-country",
+    "href": "_data_manipulation_with_dplyr_01.html#calculating-the-percentage-of-women-in-a-country",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.6 Calculating the percentage of women in a country",
+    "text": "1.6 Calculating the percentage of women in a country\nThe dataset includes columns for the total number (not percentage) of men and women in each county. You could use this, along with the population variable, to compute the fraction of men (or women) within each county.\nIn this exercise, you’ll select the relevant columns yourself.\n\nInstructions 100 XP\n\nSelect the columns state, county, population, men, and women.\n\n-Add a new variable called proportion_women with the fraction of the county’s population made up of women.\n\n\nex_007.R\n\n# Select the columns state, county, population, men, and women\ncounties_selected <- counties %>%\n  select(state, county, population, men, women)\n\n# Calculate proportion_women as the fraction of the population made up of women\ncounties_selected %>%\n  mutate(proportion_women = women / population)"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#select-mutate-filter-and-arrange",
+    "href": "_data_manipulation_with_dplyr_01.html#select-mutate-filter-and-arrange",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.7 Select, mutate, filter, and arrange",
+    "text": "1.7 Select, mutate, filter, and arrange\nIn this exercise, you’ll put together everything you’ve learned in this chapter (select(), mutate(), filter() and arrange()), to find the counties with the highest proportion of men.\n\nInstructions 100 XP\n\nSelect only the columns state, county, population, men, and women.\nAdd a variable proportion_men with the fraction of the county’s population made up of men.\nFilter for counties with a population of at least ten thousand (10000).\nArrange counties in descending order of their proportion of men.\n\n\n\nex_008.R\n\ncounties %>%\n  # Select the five columns \n  select(state, county, population, men, women) %>%\n  # Add the proportion_men variable\n    mutate(proportion_men = men / population) %>%\n  # Filter for population of at least 10,000\n      filter(population > 10000) %>%\n  # Arrange proportion of men in descending order \n        arrange(desc(proportion_men))"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr.html",
+    "href": "_data_manipulation_with_dplyr.html",
+    "title": "Data Manipulation with R: dplyr and data.table",
+    "section": "",
+    "text": "Say you’ve found a great dataset and would like to learn more about it. How can you start to answer the questions you have about the data? You can use dplyr to answer those questions—it can also help with basic transformations of your data. You’ll also learn to aggregate your data and add, remove, or change the variables. Along the way, you’ll explore a dataset containing information about counties in the United States. You’ll finish the course by applying these tools to the babynames dataset to explore trends of baby names in the United States."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Manipulation with R: dplyr and data.table",
+    "section": "",
+    "text": "Preface\nReal-world data is messy. That’s why packages like dplyr and data.table are so valuable. Using these packages, you can take the pain out of data manipulation by extracting, filtering, and transforming your data, clearing a path for quick and reliable data analysis.\nYou’ll learn how to prepare real-world data for analysis and grow your expertise as you work with multiple tables. You’ll also gain hands-on experience of how to combine, merge, and create visualizations. You’ll apply your new-found data manipulation skills using dplyr to analyze voting data from the United Nations. Start this track and discover how dplyr and data.table can save you time manipulating data.\nSay you’ve found a great dataset and would like to learn more about it. How can you start to answer the questions you have about the data? You can use dplyr to answer those questions—it can also help with basic transformations of your data. You’ll also learn to aggregate your data and add, remove, or change the variables. Along the way, you’ll explore a dataset containing information about counties in the United States. You’ll finish the course by applying these tools to the babynames dataset to explore trends of baby names in the United States.\nThis part of the book contemplates four parts namenly: 1. Data Manipulation with dplyr 2. Joining Data with dplyr 3. Data Manipulation with data.table 4. Joining Data with data.table"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_01.html#filtering-and-arranging",
+    "href": "_data_manipulation_with_dplyr_01.html#filtering-and-arranging",
+    "title": "1  Transforming Data with dplyr",
+    "section": "1.4 Filtering and arranging",
+    "text": "1.4 Filtering and arranging\nWe’re often interested in both filtering and sorting a dataset, to focus on observations of particular interest to you. Here, you’ll find counties that are extreme examples of what fraction of the population works in the private sector.\n\nInstructions 100 XP\n\nFilter for counties in the state of Texas that have more than ten thousand people (10000), and sort them in descending order of the percentage of people employed in private work.\n\n\n\nInstructions 100 XP\n\n\nex_004.R\n\ncounties_selected <- counties %>%\n  select(state, county, population, private_work, public_work, self_employed)\n# Filter for Texas and more than 10000 people; sort in descending order of \n# private_work\ncounties_selected %>%\n  filter(state=='Texas', population >10000) %>%\n    arrange(desc(private_work))"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_02.html",
+    "href": "_data_manipulation_with_dplyr_02.html",
+    "title": "2  Counting by region",
+    "section": "",
+    "text": "The counties dataset contains columns for region, state, population, and the number of citizens, which we selected and saved as the counties_selected table. In this exercise, you’ll focus on the region column.\ncounties_selected <- counties %>%\n  select(county, region, state, population, citizens)    \n\nIntstructions 100 XP\n\nUse count() to find the number of counties in each region, using a second argument to sort in descending order.\n\n\n\nex_008.R\n\n# Use count to find the number of counties in each region\ncounties_selected %>%\n  count(region, sort = TRUE)"
+  },
+  {
+    "objectID": "_data_manipulation_with_dplyr_02.html#counting-citizens-by-state",
+    "href": "_data_manipulation_with_dplyr_02.html#counting-citizens-by-state",
+    "title": "2  Counting by region",
+    "section": "2.1 Counting citizens by state",
+    "text": "2.1 Counting citizens by state\nYou can weigh your count by particular variables rather than finding the number of counties. In this case, you’ll find the number of citizens in each state.\ncounties_selected <- counties %>%\n  select(county, region, state, population, citizens)\n\nInstructions 100 XP\nCount the number of counties in each state, weighted based on the citizens column, and sorted in descending order.\n\n\nex_009.R\n\n# Find number of counties per state, weighted by citizens\ncounties_selected %>%\n  count(state, wt=citizens, sort=TRUE)"
+  }
+]

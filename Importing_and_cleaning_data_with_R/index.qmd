@@ -1,0 +1,22 @@
+# Preface {.unnumbered}
+
+Understanding how to prep your data is an essential skill when working in R.
+It’s what you have to do before you can reveal the insights that matter. 
+In this part, you’ll learn how to import your data from a variety of sources,
+among others .csv, .xls, text files, and more. You'll then gain the skills 
+you'll need to prepare your data for analysis, including converting data types,
+filling in missing values, and using fuzzy string matching. Throughout the
+track, you'll have the chance to apply your skills to real-world data such as
+customer asset portfolios and restaurant reviews. Start this track and gain the
+ data prepping skills you need to clean your dirty data.
+
+This part encloses four chapters. The first and second considers the
+general functions to load common formats. The rhird chapter treat some
+techinques to manage partial information. The fourth chapter is abour
+reshaping and we may close with a project in order to apply correspongin content
+of this course.
+
+1. Introduction to Importing Data in R
+2. Intermediate Importing Data in R
+3. Cleaning Data in R
+4. Reshaping Data with tidyr
