@@ -120,7 +120,8 @@ empire_strikes <- c(290.475, 247.900)
 return_jedi <- c(309.306, 165.8)
 
 # Construct matrix
-star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
+star_wars_matrix <- 
+  matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
 
 # Vectors region and titles, used for naming
 region <- c("US", "non-US")
@@ -210,9 +211,13 @@ all_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)
 ```
 
 ## Adding a row
-Just like every action has a reaction, every `cbind()` has an `rbind()`. (We admit, we are pretty bad with metaphors.)
+Just like every action has a reaction, every `cbind()` has an `rbind()`. 
+(We admit, we are pretty bad with metaphors.)
 
-Your R workspace, where all variables you defined 'live' (check out what a workspace is), has already been initialized and contains two matrices:
+Your R workspace, where all variables you defined 'live' (check out what a 
+workspace is), has already been initialized 
+and contains two matrices:
+
 
 - star_wars_matrix that we have used all along, with data on the original 
 trilogy,
