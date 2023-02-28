@@ -27,6 +27,7 @@ book:
         - _introduction_to_importing_data_in_R_01.qmd
         - _introduction_to_importing_data_in_R_02.qmd
         - _introduction_to_importing_data_in_R_03.qmd
+        - _introduction_to_importing_data_in_R_04.qmd
     - summary.qmd
     - references.qmd
 bibliography: references.bib

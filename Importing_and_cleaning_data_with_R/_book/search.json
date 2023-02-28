@@ -243,5 +243,54 @@
     "title": "3  List the sheets of an Excel file",
     "section": "3.2 Reading a workbook00",
     "text": "3.2 Reading a workbook00\nIn the previous exercise you generated a list of three Excel sheets that you imported. However, loading in every sheet manually and then merging them in a list can be quite tedious. Luckily, you can automate this with lapply(). If you have no experience with lapply(), feel free to take Chapter 4 of the Intermediate R course.\nHave a look at the example code below:\nmy_workbook <- lapply(excel_sheets(\"data.xlsx\"),\n                      read_excel,\n                      path = \"data.xlsx\")\nThe read_excel() function is called multiple times on the \"data.xlsx\" file and each sheet is loaded in one after the other. The result is a list of data frames, each data frame representing one of the sheets in data.xlsx.\nYou’re still working with the urbanpop.xlsx (view) file.\n\nInstructions 100 XP\n\nUse lapply() in combination with excel_sheets() and read_excel() to read all the Excel sheets in \"urbanpop.xlsx\". Name the resulting list pop_list.\nPrint the structure of pop_list.\n\n\n\nex_17.R\n\n# The readxl package is already loaded\n\n# Read all Excel sheets with lapply(): pop_list\npop_list <- lapply(\n    excel_sheets(\"urbanpop.xlsx\"),\n    read_excel,\n    path = \"urbanpop.xlsx\" \n)\n\n# Display the structure of pop_list\nstr(pop_list)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#connect-to-a-workbook",
+    "href": "_introduction_to_importing_data_in_R_04.html#connect-to-a-workbook",
+    "title": "4  Reproducible Excel work with XLConnect",
+    "section": "4.1 Connect to a workbook",
+    "text": "4.1 Connect to a workbook\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#list-and-read-excel-sheets",
+    "href": "_introduction_to_importing_data_in_R_04.html#list-and-read-excel-sheets",
+    "title": "4  Reproducible Excel work with XLConnect",
+    "section": "4.2 List and read Excel sheets",
+    "text": "4.2 List and read Excel sheets\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#customize-readworksheet",
+    "href": "_introduction_to_importing_data_in_R_04.html#customize-readworksheet",
+    "title": "4  Reproducible Excel work with XLConnect",
+    "section": "4.3 Customize readWorksheet",
+    "text": "4.3 Customize readWorksheet\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#add-worksheet",
+    "href": "_introduction_to_importing_data_in_R_04.html#add-worksheet",
+    "title": "4  Reproducible Excel work with XLConnect",
+    "section": "4.4 Add worksheet",
+    "text": "4.4 Add worksheet\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#populate-worksheet",
+    "href": "_introduction_to_importing_data_in_R_04.html#populate-worksheet",
+    "title": "4  Reproducible Excel work with XLConnect",
+    "section": "4.5 Populate worksheet",
+    "text": "4.5 Populate worksheet\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#renaming-sheets",
+    "href": "_introduction_to_importing_data_in_R_04.html#renaming-sheets",
+    "title": "4  Reproducible Excel work with XLConnect",
+    "section": "4.6 Renaming sheets",
+    "text": "4.6 Renaming sheets\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#removing-sheets",
+    "href": "_introduction_to_importing_data_in_R_04.html#removing-sheets",
+    "title": "4  Reproducible Excel work with XLConnect",
+    "section": "4.7 Removing sheets",
+    "text": "4.7 Removing sheets\n\nInstructions 100 XP"
   }
 ]

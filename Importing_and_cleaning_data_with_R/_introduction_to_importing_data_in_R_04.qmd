@@ -1,0 +1,34 @@
+# Reproducible Excel work with XLConnect
+
+Beyond importing data from Excel, you can take things one step 
+further with XLConnect. Learn all about it and bridge the gap between R and 
+Excel.
+
+## Connect to a workbook
+
+### Instructions `100 XP`  {.unnumbered}
+
+
+## List and read Excel sheets
+
+### Instructions `100 XP`  {.unnumbered}
+
+## Customize readWorksheet
+
+### Instructions `100 XP`  {.unnumbered}
+
+## Add worksheet
+
+### Instructions `100 XP`  {.unnumbered}
+
+## Populate worksheet
+
+### Instructions `100 XP`  {.unnumbered}
+
+## Renaming sheets
+
+### Instructions `100 XP`  {.unnumbered}
+
+## Removing sheets
+
+### Instructions `100 XP`  {.unnumbered}
