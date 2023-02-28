@@ -92,7 +92,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./_introduction_to_importing_data_in_R_03.html" rel="next">
 <link href="./_introduction_to_importing_data_in_R_01.html" rel="prev">
 <link href="./cover1.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -221,11 +221,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./_introduction_to_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -262,8 +267,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#fread" id="toc-fread" class="nav-link" data-scroll-target="#fread"><span class="toc-section-number">2.7</span>  fread</a></li>
-  <li><a href="#fread-more-advance-use" id="toc-fread-more-advance-use" class="nav-link" data-scroll-target="#fread-more-advance-use"><span class="toc-section-number">2.8</span>  fread: more advance use</a></li>
+  <li><a href="#fread" id="toc-fread" class="nav-link" data-scroll-target="#fread"><span class="toc-section-number">2.7</span>  fread</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#fread-more-advance-use" id="toc-fread-more-advance-use" class="nav-link" data-scroll-target="#fread-more-advance-use"><span class="toc-section-number">2.8</span>  fread: more advance use</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_introduction_to_importing_data_in_R_02.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -521,11 +532,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="fread" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="fread"><span class="header-section-number">2.7</span> fread</h2>
+<p>You still remember how to use <code>read.table()</code>, right? Well, <code>fread()</code> is a function that does the same job with very similar arguments. It is extremely easy to use and blazingly fast! Often, simply specifying the path to the file is enough to successfully import your data.</p>
+<p>Don’t take our word for it, try it yourself! You’ll be working with the <code>potatoes.csv</code> file, that’s available the dataset folder. Fields are delimited by commas, and the first line contains the column names.</p>
+<section id="instructions-100-xp-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
+<p>-Use <code>library()</code> to load (NOT install) the <code>data.table</code> package. Check If you<br>
+need to install this package.</p>
+<p>-Import <code>"potatoes.csv"</code> with <code>fread()</code>. Simply pass it the file path and see if it worked. Store the result in a variable potatoes. Print out potatoes.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_014.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data.table package using library()</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import potatoes.csv with fread(): potatoes</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>potatoes <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"potatoes.csv"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out potatoes</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>potatoes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 <section id="fread-more-advance-use" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="fread-more-advance-use"><span class="header-section-number">2.8</span> fread: more advance use</h2>
+<p>Now that you know the basics about <code>fread()</code>, you should know about two arguments of the function: <code>drop</code> and <code>select</code>, to drop or select variables of interest.</p>
+<p>Suppose you have a dataset that contains 5 variables and you want to keep the first and fifth variable, named “a” and “e”. The following options will all do the trick:</p>
+<div class="sourceCode" id="cb8" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fread</span>(<span class="st">"path/to/file.txt"</span>, <span class="at">drop =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fread</span>(<span class="st">"path/to/file.txt"</span>, <span class="at">select =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fread</span>(<span class="st">"path/to/file.txt"</span>, <span class="at">drop =</span> <span class="fu">c</span>(<span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fread</span>(<span class="st">"path/to/file.txt"</span>, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"e"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s stick with potatoes since we’re particularly fond of them here at DataCamp. The data is again available in the file potatoes.csv (view), containing comma- separated records.</p>
+<section id="instructions-100-xp-7" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-7">Instructions <code>100 XP</code></h3>
+<p>Using <code>fread()</code> and <code>select</code> or <code>drop</code> as arguments, only import the <code>texture</code> and <code>moistness</code> columns of the flat file. They correspond to the columns 6 and 8 in <code>"potatoes.csv"</code>. Store the result in a variable potatoes. - plot() 2 columns of the potatoes data frame: texture on the x-axis, moistness on the y-axis. Use the dollar sign notation twice. Feel free to name your axes and plot.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_014.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fread is already loaded</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"data.table"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"introduction_to_importing_data_in_R/potatoes.csv"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import columns 6 and 8 of potatoes.csv: potatoes</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>potatoes <span class="ot">&lt;-</span> <span class="fu">fread</span>(path, <span class="at">select =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot texture (x) and moistness (y) of potatoes</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(potatoes<span class="sc">$</span>texture, potatoes<span class="sc">$</span>moistness)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<p><img src="_introduction_to_importing_data_in_R_02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -669,8 +731,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./_introduction_to_importing_data_in_R_03.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
