@@ -19,7 +19,7 @@ see  that it contains swimming_pools.csv, so you can start straight away.
 
  - Use read.csv() to import "swimming_pools.csv" as a data frame with the name
  pools.
- - Print the structure of pools using str().
+ - Print the structure of pools using `str()`.
 
 ```{.r filename="ex_001.R"}
 # Import swimming_pools.csv: pools

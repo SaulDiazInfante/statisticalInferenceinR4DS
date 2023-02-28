@@ -500,20 +500,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-4"><a href="#cb5-4"></a>return_jedi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">309.306</span>, <span class="fl">165.8</span>)</span>
 <span id="cb5-5"><a href="#cb5-5"></a></span>
 <span id="cb5-6"><a href="#cb5-6"></a><span class="co"># Construct matrix</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>star_wars_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(new_hope, empire_strikes, return_jedi), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-8"><a href="#cb5-8"></a></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co"># Vectors region and titles, used for naming</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
-<span id="cb5-11"><a href="#cb5-11"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, <span class="st">"The Empire Strikes Back"</span>, <span class="st">"Return of the Jedi"</span>)</span>
-<span id="cb5-12"><a href="#cb5-12"></a></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># Name the columns with region</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="fu">colnames</span>(star_wars_matrix) <span class="ot">&lt;-</span> region</span>
-<span id="cb5-15"><a href="#cb5-15"></a></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># Name the rows with titles</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="fu">rownames</span>(star_wars_matrix) <span class="ot">&lt;-</span> titles</span>
-<span id="cb5-18"><a href="#cb5-18"></a></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="co"># Print out star_wars_matrix</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="fu">print</span>(star_wars_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7"></a>star_wars_matrix <span class="ot">&lt;-</span> </span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">matrix</span>(<span class="fu">c</span>(new_hope, empire_strikes, return_jedi), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co"># Vectors region and titles, used for naming</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, <span class="st">"The Empire Strikes Back"</span>, <span class="st">"Return of the Jedi"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co"># Name the columns with region</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="fu">colnames</span>(star_wars_matrix) <span class="ot">&lt;-</span> region</span>
+<span id="cb5-16"><a href="#cb5-16"></a></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="co"># Name the rows with titles</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="fu">rownames</span>(star_wars_matrix) <span class="ot">&lt;-</span> titles</span>
+<span id="cb5-19"><a href="#cb5-19"></a></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co"># Print out star_wars_matrix</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="fu">print</span>(star_wars_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1050,258 +1051,263 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-120"><a href="#cb15-120"></a>return_jedi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">309.306</span>, <span class="fl">165.8</span>)</span>
 <span id="cb15-121"><a href="#cb15-121"></a></span>
 <span id="cb15-122"><a href="#cb15-122"></a><span class="co"># Construct matrix</span></span>
-<span id="cb15-123"><a href="#cb15-123"></a>star_wars_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(new_hope, empire_strikes, return_jedi), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-124"><a href="#cb15-124"></a></span>
-<span id="cb15-125"><a href="#cb15-125"></a><span class="co"># Vectors region and titles, used for naming</span></span>
-<span id="cb15-126"><a href="#cb15-126"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
-<span id="cb15-127"><a href="#cb15-127"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, <span class="st">"The Empire Strikes Back"</span>, <span class="st">"Return of the Jedi"</span>)</span>
-<span id="cb15-128"><a href="#cb15-128"></a></span>
-<span id="cb15-129"><a href="#cb15-129"></a><span class="co"># Name the columns with region</span></span>
-<span id="cb15-130"><a href="#cb15-130"></a><span class="fu">colnames</span>(star_wars_matrix) <span class="ot">&lt;-</span> region</span>
-<span id="cb15-131"><a href="#cb15-131"></a></span>
-<span id="cb15-132"><a href="#cb15-132"></a><span class="co"># Name the rows with titles</span></span>
-<span id="cb15-133"><a href="#cb15-133"></a><span class="fu">rownames</span>(star_wars_matrix) <span class="ot">&lt;-</span> titles</span>
-<span id="cb15-134"><a href="#cb15-134"></a></span>
-<span id="cb15-135"><a href="#cb15-135"></a><span class="co"># Print out star_wars_matrix</span></span>
-<span id="cb15-136"><a href="#cb15-136"></a><span class="fu">print</span>(star_wars_matrix)</span>
-<span id="cb15-137"><a href="#cb15-137"></a></span>
-<span id="cb15-138"><a href="#cb15-138"></a><span class="in">```</span></span>
-<span id="cb15-139"><a href="#cb15-139"></a></span>
-<span id="cb15-140"><a href="#cb15-140"></a><span class="fu">##  Calculating the worldwide box office</span></span>
-<span id="cb15-141"><a href="#cb15-141"></a></span>
-<span id="cb15-142"><a href="#cb15-142"></a>The single most important thing for a movie in order to become an instant </span>
-<span id="cb15-143"><a href="#cb15-143"></a>legend in Tinseltown is its worldwide box office figures.</span>
-<span id="cb15-144"><a href="#cb15-144"></a></span>
-<span id="cb15-145"><a href="#cb15-145"></a>To calculate the total box office revenue for the three Star Wars movies, you</span>
-<span id="cb15-146"><a href="#cb15-146"></a>have to take the sum of the US revenue column and the non-US revenue column.</span>
-<span id="cb15-147"><a href="#cb15-147"></a></span>
-<span id="cb15-148"><a href="#cb15-148"></a>In R, the function <span class="in">`rowSums()`</span> conveniently calculates the totals for each row </span>
-<span id="cb15-149"><a href="#cb15-149"></a>of a matrix. This function creates a new vector:</span>
-<span id="cb15-150"><a href="#cb15-150"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb15-151"><a href="#cb15-151"></a><span class="fu">rowSums</span>(my_matrix)</span>
-<span id="cb15-152"><a href="#cb15-152"></a><span class="in">```</span></span>
-<span id="cb15-153"><a href="#cb15-153"></a></span>
-<span id="cb15-154"><a href="#cb15-154"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb15-155"><a href="#cb15-155"></a></span>
-<span id="cb15-156"><a href="#cb15-156"></a>Calculate the worldwide box office figures for the three movies and put these in </span>
-<span id="cb15-157"><a href="#cb15-157"></a>the vector named <span class="in">`worldwide_vector`</span>.</span>
-<span id="cb15-158"><a href="#cb15-158"></a> </span>
-<span id="cb15-159"><a href="#cb15-159"></a> <span class="in">```{.r filename="ex_26.R"}</span></span>
-<span id="cb15-160"><a href="#cb15-160"></a> <span class="co"># Construct star_wars_matrix</span></span>
-<span id="cb15-161"><a href="#cb15-161"></a>box_office <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">460.998</span>, <span class="fl">314.4</span>, <span class="fl">290.475</span>, <span class="fl">247.900</span>, <span class="fl">309.306</span>, <span class="fl">165.8</span>)</span>
-<span id="cb15-162"><a href="#cb15-162"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
-<span id="cb15-163"><a href="#cb15-163"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, </span>
-<span id="cb15-164"><a href="#cb15-164"></a>                 <span class="st">"The Empire Strikes Back"</span>, </span>
-<span id="cb15-165"><a href="#cb15-165"></a>                 <span class="st">"Return of the Jedi"</span>)</span>
-<span id="cb15-166"><a href="#cb15-166"></a>               </span>
-<span id="cb15-167"><a href="#cb15-167"></a>star_wars_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(box_office, </span>
-<span id="cb15-168"><a href="#cb15-168"></a>                      <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb15-169"><a href="#cb15-169"></a>                      <span class="at">dimnames =</span> <span class="fu">list</span>(titles, region))</span>
-<span id="cb15-170"><a href="#cb15-170"></a></span>
-<span id="cb15-171"><a href="#cb15-171"></a><span class="co"># Calculate worldwide box office figures</span></span>
-<span id="cb15-172"><a href="#cb15-172"></a>worldwide_vector <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(star_wars_matrix)</span>
-<span id="cb15-173"><a href="#cb15-173"></a> <span class="in">```</span></span>
-<span id="cb15-174"><a href="#cb15-174"></a></span>
-<span id="cb15-175"><a href="#cb15-175"></a><span class="fu">## Adding a column for the Worldwide box office</span></span>
-<span id="cb15-176"><a href="#cb15-176"></a></span>
-<span id="cb15-177"><a href="#cb15-177"></a>In the previous exercise you calculated the vector that contained the worldwide </span>
-<span id="cb15-178"><a href="#cb15-178"></a>box office receipt for each of the three Star Wars movies. However, this vector </span>
-<span id="cb15-179"><a href="#cb15-179"></a>is not yet part of star_wars_matrix.</span>
-<span id="cb15-180"><a href="#cb15-180"></a></span>
-<span id="cb15-181"><a href="#cb15-181"></a>You can add a column or multiple columns to a matrix with the cbind() function, </span>
-<span id="cb15-182"><a href="#cb15-182"></a>which merges matrices and/or vectors together by column. For example:</span>
-<span id="cb15-183"><a href="#cb15-183"></a></span>
-<span id="cb15-184"><a href="#cb15-184"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
-<span id="cb15-185"><a href="#cb15-185"></a>  big_matrix <span class="ot">&lt;-</span> <span class="fu">cbind</span>(matrix1, matrix2, vector1 ...)</span>
-<span id="cb15-186"><a href="#cb15-186"></a><span class="in">```</span></span>
-<span id="cb15-187"><a href="#cb15-187"></a></span>
-<span id="cb15-188"><a href="#cb15-188"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb15-189"><a href="#cb15-189"></a></span>
-<span id="cb15-190"><a href="#cb15-190"></a>Add <span class="in">`worldwide_vector`</span> as a new column to the <span class="in">`star_wars_matrix`</span> and assign the </span>
-<span id="cb15-191"><a href="#cb15-191"></a>result to <span class="in">`all_wars_matrix`</span>. Use the <span class="in">`cbind()`</span> function.</span>
-<span id="cb15-192"><a href="#cb15-192"></a></span>
-<span id="cb15-193"><a href="#cb15-193"></a><span class="in">```{.r filename="ex_27.R"}</span></span>
-<span id="cb15-194"><a href="#cb15-194"></a><span class="co"># Construct star_wars_matrix</span></span>
-<span id="cb15-195"><a href="#cb15-195"></a>box_office <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">460.998</span>, <span class="fl">314.4</span>, <span class="fl">290.475</span>, <span class="fl">247.900</span>, <span class="fl">309.306</span>, <span class="fl">165.8</span>)</span>
-<span id="cb15-196"><a href="#cb15-196"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
-<span id="cb15-197"><a href="#cb15-197"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, </span>
-<span id="cb15-198"><a href="#cb15-198"></a>            <span class="st">"The Empire Strikes Back"</span>, </span>
-<span id="cb15-199"><a href="#cb15-199"></a>            <span class="st">"Return of the Jedi"</span>)</span>
-<span id="cb15-200"><a href="#cb15-200"></a>               </span>
-<span id="cb15-201"><a href="#cb15-201"></a>star_wars_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(box_office, </span>
-<span id="cb15-202"><a href="#cb15-202"></a>                      <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb15-203"><a href="#cb15-203"></a>                      <span class="at">dimnames =</span> <span class="fu">list</span>(titles, region))</span>
-<span id="cb15-204"><a href="#cb15-204"></a></span>
-<span id="cb15-205"><a href="#cb15-205"></a><span class="co"># The worldwide box office figures</span></span>
-<span id="cb15-206"><a href="#cb15-206"></a>worldwide_vector <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(star_wars_matrix)</span>
-<span id="cb15-207"><a href="#cb15-207"></a></span>
-<span id="cb15-208"><a href="#cb15-208"></a><span class="co"># Bind the new variable worldwide_vector as a column to star_wars_matrix</span></span>
-<span id="cb15-209"><a href="#cb15-209"></a>all_wars_matrix <span class="ot">&lt;-</span> <span class="fu">cbind</span>(star_wars_matrix, worldwide_vector)</span>
-<span id="cb15-210"><a href="#cb15-210"></a><span class="in">```</span></span>
-<span id="cb15-211"><a href="#cb15-211"></a></span>
-<span id="cb15-212"><a href="#cb15-212"></a><span class="fu">## Adding a row</span></span>
-<span id="cb15-213"><a href="#cb15-213"></a>Just like every action has a reaction, every <span class="in">`cbind()`</span> has an <span class="in">`rbind()`</span>. (We admit, we are pretty bad with metaphors.)</span>
-<span id="cb15-214"><a href="#cb15-214"></a></span>
-<span id="cb15-215"><a href="#cb15-215"></a>Your R workspace, where all variables you defined 'live' (check out what a workspace is), has already been initialized and contains two matrices:</span>
+<span id="cb15-123"><a href="#cb15-123"></a>star_wars_matrix <span class="ot">&lt;-</span> </span>
+<span id="cb15-124"><a href="#cb15-124"></a>  <span class="fu">matrix</span>(<span class="fu">c</span>(new_hope, empire_strikes, return_jedi), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-125"><a href="#cb15-125"></a></span>
+<span id="cb15-126"><a href="#cb15-126"></a><span class="co"># Vectors region and titles, used for naming</span></span>
+<span id="cb15-127"><a href="#cb15-127"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
+<span id="cb15-128"><a href="#cb15-128"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, <span class="st">"The Empire Strikes Back"</span>, <span class="st">"Return of the Jedi"</span>)</span>
+<span id="cb15-129"><a href="#cb15-129"></a></span>
+<span id="cb15-130"><a href="#cb15-130"></a><span class="co"># Name the columns with region</span></span>
+<span id="cb15-131"><a href="#cb15-131"></a><span class="fu">colnames</span>(star_wars_matrix) <span class="ot">&lt;-</span> region</span>
+<span id="cb15-132"><a href="#cb15-132"></a></span>
+<span id="cb15-133"><a href="#cb15-133"></a><span class="co"># Name the rows with titles</span></span>
+<span id="cb15-134"><a href="#cb15-134"></a><span class="fu">rownames</span>(star_wars_matrix) <span class="ot">&lt;-</span> titles</span>
+<span id="cb15-135"><a href="#cb15-135"></a></span>
+<span id="cb15-136"><a href="#cb15-136"></a><span class="co"># Print out star_wars_matrix</span></span>
+<span id="cb15-137"><a href="#cb15-137"></a><span class="fu">print</span>(star_wars_matrix)</span>
+<span id="cb15-138"><a href="#cb15-138"></a></span>
+<span id="cb15-139"><a href="#cb15-139"></a><span class="in">```</span></span>
+<span id="cb15-140"><a href="#cb15-140"></a></span>
+<span id="cb15-141"><a href="#cb15-141"></a><span class="fu">##  Calculating the worldwide box office</span></span>
+<span id="cb15-142"><a href="#cb15-142"></a></span>
+<span id="cb15-143"><a href="#cb15-143"></a>The single most important thing for a movie in order to become an instant </span>
+<span id="cb15-144"><a href="#cb15-144"></a>legend in Tinseltown is its worldwide box office figures.</span>
+<span id="cb15-145"><a href="#cb15-145"></a></span>
+<span id="cb15-146"><a href="#cb15-146"></a>To calculate the total box office revenue for the three Star Wars movies, you</span>
+<span id="cb15-147"><a href="#cb15-147"></a>have to take the sum of the US revenue column and the non-US revenue column.</span>
+<span id="cb15-148"><a href="#cb15-148"></a></span>
+<span id="cb15-149"><a href="#cb15-149"></a>In R, the function <span class="in">`rowSums()`</span> conveniently calculates the totals for each row </span>
+<span id="cb15-150"><a href="#cb15-150"></a>of a matrix. This function creates a new vector:</span>
+<span id="cb15-151"><a href="#cb15-151"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb15-152"><a href="#cb15-152"></a><span class="fu">rowSums</span>(my_matrix)</span>
+<span id="cb15-153"><a href="#cb15-153"></a><span class="in">```</span></span>
+<span id="cb15-154"><a href="#cb15-154"></a></span>
+<span id="cb15-155"><a href="#cb15-155"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb15-156"><a href="#cb15-156"></a></span>
+<span id="cb15-157"><a href="#cb15-157"></a>Calculate the worldwide box office figures for the three movies and put these in </span>
+<span id="cb15-158"><a href="#cb15-158"></a>the vector named <span class="in">`worldwide_vector`</span>.</span>
+<span id="cb15-159"><a href="#cb15-159"></a> </span>
+<span id="cb15-160"><a href="#cb15-160"></a> <span class="in">```{.r filename="ex_26.R"}</span></span>
+<span id="cb15-161"><a href="#cb15-161"></a> <span class="co"># Construct star_wars_matrix</span></span>
+<span id="cb15-162"><a href="#cb15-162"></a>box_office <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">460.998</span>, <span class="fl">314.4</span>, <span class="fl">290.475</span>, <span class="fl">247.900</span>, <span class="fl">309.306</span>, <span class="fl">165.8</span>)</span>
+<span id="cb15-163"><a href="#cb15-163"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
+<span id="cb15-164"><a href="#cb15-164"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, </span>
+<span id="cb15-165"><a href="#cb15-165"></a>                 <span class="st">"The Empire Strikes Back"</span>, </span>
+<span id="cb15-166"><a href="#cb15-166"></a>                 <span class="st">"Return of the Jedi"</span>)</span>
+<span id="cb15-167"><a href="#cb15-167"></a>               </span>
+<span id="cb15-168"><a href="#cb15-168"></a>star_wars_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(box_office, </span>
+<span id="cb15-169"><a href="#cb15-169"></a>                      <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-170"><a href="#cb15-170"></a>                      <span class="at">dimnames =</span> <span class="fu">list</span>(titles, region))</span>
+<span id="cb15-171"><a href="#cb15-171"></a></span>
+<span id="cb15-172"><a href="#cb15-172"></a><span class="co"># Calculate worldwide box office figures</span></span>
+<span id="cb15-173"><a href="#cb15-173"></a>worldwide_vector <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(star_wars_matrix)</span>
+<span id="cb15-174"><a href="#cb15-174"></a> <span class="in">```</span></span>
+<span id="cb15-175"><a href="#cb15-175"></a></span>
+<span id="cb15-176"><a href="#cb15-176"></a><span class="fu">## Adding a column for the Worldwide box office</span></span>
+<span id="cb15-177"><a href="#cb15-177"></a></span>
+<span id="cb15-178"><a href="#cb15-178"></a>In the previous exercise you calculated the vector that contained the worldwide </span>
+<span id="cb15-179"><a href="#cb15-179"></a>box office receipt for each of the three Star Wars movies. However, this vector </span>
+<span id="cb15-180"><a href="#cb15-180"></a>is not yet part of star_wars_matrix.</span>
+<span id="cb15-181"><a href="#cb15-181"></a></span>
+<span id="cb15-182"><a href="#cb15-182"></a>You can add a column or multiple columns to a matrix with the cbind() function, </span>
+<span id="cb15-183"><a href="#cb15-183"></a>which merges matrices and/or vectors together by column. For example:</span>
+<span id="cb15-184"><a href="#cb15-184"></a></span>
+<span id="cb15-185"><a href="#cb15-185"></a><span class="in">```{.r code-line-numbers="false"}</span></span>
+<span id="cb15-186"><a href="#cb15-186"></a>  big_matrix <span class="ot">&lt;-</span> <span class="fu">cbind</span>(matrix1, matrix2, vector1 ...)</span>
+<span id="cb15-187"><a href="#cb15-187"></a><span class="in">```</span></span>
+<span id="cb15-188"><a href="#cb15-188"></a></span>
+<span id="cb15-189"><a href="#cb15-189"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb15-190"><a href="#cb15-190"></a></span>
+<span id="cb15-191"><a href="#cb15-191"></a>Add <span class="in">`worldwide_vector`</span> as a new column to the <span class="in">`star_wars_matrix`</span> and assign the </span>
+<span id="cb15-192"><a href="#cb15-192"></a>result to <span class="in">`all_wars_matrix`</span>. Use the <span class="in">`cbind()`</span> function.</span>
+<span id="cb15-193"><a href="#cb15-193"></a></span>
+<span id="cb15-194"><a href="#cb15-194"></a><span class="in">```{.r filename="ex_27.R"}</span></span>
+<span id="cb15-195"><a href="#cb15-195"></a><span class="co"># Construct star_wars_matrix</span></span>
+<span id="cb15-196"><a href="#cb15-196"></a>box_office <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">460.998</span>, <span class="fl">314.4</span>, <span class="fl">290.475</span>, <span class="fl">247.900</span>, <span class="fl">309.306</span>, <span class="fl">165.8</span>)</span>
+<span id="cb15-197"><a href="#cb15-197"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"non-US"</span>)</span>
+<span id="cb15-198"><a href="#cb15-198"></a>titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A New Hope"</span>, </span>
+<span id="cb15-199"><a href="#cb15-199"></a>            <span class="st">"The Empire Strikes Back"</span>, </span>
+<span id="cb15-200"><a href="#cb15-200"></a>            <span class="st">"Return of the Jedi"</span>)</span>
+<span id="cb15-201"><a href="#cb15-201"></a>               </span>
+<span id="cb15-202"><a href="#cb15-202"></a>star_wars_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(box_office, </span>
+<span id="cb15-203"><a href="#cb15-203"></a>                      <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-204"><a href="#cb15-204"></a>                      <span class="at">dimnames =</span> <span class="fu">list</span>(titles, region))</span>
+<span id="cb15-205"><a href="#cb15-205"></a></span>
+<span id="cb15-206"><a href="#cb15-206"></a><span class="co"># The worldwide box office figures</span></span>
+<span id="cb15-207"><a href="#cb15-207"></a>worldwide_vector <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(star_wars_matrix)</span>
+<span id="cb15-208"><a href="#cb15-208"></a></span>
+<span id="cb15-209"><a href="#cb15-209"></a><span class="co"># Bind the new variable worldwide_vector as a column to star_wars_matrix</span></span>
+<span id="cb15-210"><a href="#cb15-210"></a>all_wars_matrix <span class="ot">&lt;-</span> <span class="fu">cbind</span>(star_wars_matrix, worldwide_vector)</span>
+<span id="cb15-211"><a href="#cb15-211"></a><span class="in">```</span></span>
+<span id="cb15-212"><a href="#cb15-212"></a></span>
+<span id="cb15-213"><a href="#cb15-213"></a><span class="fu">## Adding a row</span></span>
+<span id="cb15-214"><a href="#cb15-214"></a>Just like every action has a reaction, every <span class="in">`cbind()`</span> has an <span class="in">`rbind()`</span>. </span>
+<span id="cb15-215"><a href="#cb15-215"></a>(We admit, we are pretty bad with metaphors.)</span>
 <span id="cb15-216"><a href="#cb15-216"></a></span>
-<span id="cb15-217"><a href="#cb15-217"></a><span class="ss">- </span>star_wars_matrix that we have used all along, with data on the original </span>
-<span id="cb15-218"><a href="#cb15-218"></a>trilogy,</span>
-<span id="cb15-219"><a href="#cb15-219"></a><span class="ss">- </span>star_wars_matrix2, with similar data for the prequels trilogy.</span>
+<span id="cb15-217"><a href="#cb15-217"></a>Your R workspace, where all variables you defined 'live' (check out what a </span>
+<span id="cb15-218"><a href="#cb15-218"></a>workspace is), has already been initialized </span>
+<span id="cb15-219"><a href="#cb15-219"></a>and contains two matrices:</span>
 <span id="cb15-220"><a href="#cb15-220"></a></span>
-<span id="cb15-221"><a href="#cb15-221"></a>Explore these matrices in the console if you want to have a closer look.</span>
-<span id="cb15-222"><a href="#cb15-222"></a>If you want to check out the contents of the workspace, you can type </span>
-<span id="cb15-223"><a href="#cb15-223"></a><span class="in">`ls()`</span> in the console.</span>
-<span id="cb15-224"><a href="#cb15-224"></a></span>
+<span id="cb15-221"><a href="#cb15-221"></a></span>
+<span id="cb15-222"><a href="#cb15-222"></a><span class="ss">- </span>star_wars_matrix that we have used all along, with data on the original </span>
+<span id="cb15-223"><a href="#cb15-223"></a>trilogy,</span>
+<span id="cb15-224"><a href="#cb15-224"></a><span class="ss">- </span>star_wars_matrix2, with similar data for the prequels trilogy.</span>
 <span id="cb15-225"><a href="#cb15-225"></a></span>
-<span id="cb15-226"><a href="#cb15-226"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb15-227"><a href="#cb15-227"></a></span>
-<span id="cb15-228"><a href="#cb15-228"></a>Use <span class="in">`rbind()`</span> to paste together <span class="in">`star_wars_matrix`</span> and <span class="in">`star_wars_matrix2`</span>, </span>
-<span id="cb15-229"><a href="#cb15-229"></a>in this order. Assign the resulting matrix to <span class="in">`all_wars_matrix`</span>.</span>
+<span id="cb15-226"><a href="#cb15-226"></a>Explore these matrices in the console if you want to have a closer look.</span>
+<span id="cb15-227"><a href="#cb15-227"></a>If you want to check out the contents of the workspace, you can type </span>
+<span id="cb15-228"><a href="#cb15-228"></a><span class="in">`ls()`</span> in the console.</span>
+<span id="cb15-229"><a href="#cb15-229"></a></span>
 <span id="cb15-230"><a href="#cb15-230"></a></span>
-<span id="cb15-231"><a href="#cb15-231"></a><span class="in">```{.r filename="ex_28.R"}</span></span>
-<span id="cb15-232"><a href="#cb15-232"></a><span class="co"># star_wars_matrix and star_wars_matrix2 are available in your workspace</span></span>
-<span id="cb15-233"><a href="#cb15-233"></a>star_wars_matrix  </span>
-<span id="cb15-234"><a href="#cb15-234"></a>star_wars_matrix2 </span>
+<span id="cb15-231"><a href="#cb15-231"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb15-232"><a href="#cb15-232"></a></span>
+<span id="cb15-233"><a href="#cb15-233"></a>Use <span class="in">`rbind()`</span> to paste together <span class="in">`star_wars_matrix`</span> and <span class="in">`star_wars_matrix2`</span>, </span>
+<span id="cb15-234"><a href="#cb15-234"></a>in this order. Assign the resulting matrix to <span class="in">`all_wars_matrix`</span>.</span>
 <span id="cb15-235"><a href="#cb15-235"></a></span>
-<span id="cb15-236"><a href="#cb15-236"></a><span class="co"># Combine both Star Wars trilogies in one matrix</span></span>
-<span id="cb15-237"><a href="#cb15-237"></a>all_wars_matrix <span class="ot">&lt;-</span> <span class="fu">rbind</span>(star_wars_matrix, star_wars_matrix2)   </span>
-<span id="cb15-238"><a href="#cb15-238"></a><span class="in">```</span></span>
-<span id="cb15-239"><a href="#cb15-239"></a></span>
-<span id="cb15-240"><a href="#cb15-240"></a><span class="fu">## The total box office revenue for the entire saga</span></span>
-<span id="cb15-241"><a href="#cb15-241"></a></span>
-<span id="cb15-242"><a href="#cb15-242"></a>Just like <span class="in">`cbind()`</span> has <span class="in">`rbind()`</span>, <span class="in">`colSums()`</span> has <span class="in">`rowSums()`</span>. Your R workspace </span>
-<span id="cb15-243"><a href="#cb15-243"></a>already contains the <span class="in">`all_wars_matrix`</span> that you constructed in the previous </span>
-<span id="cb15-244"><a href="#cb15-244"></a>exercise; type <span class="in">`all_wars_matrix`</span> to have another look. Let's now calculate the </span>
-<span id="cb15-245"><a href="#cb15-245"></a>total box office revenue for the entire saga.</span>
+<span id="cb15-236"><a href="#cb15-236"></a><span class="in">```{.r filename="ex_28.R"}</span></span>
+<span id="cb15-237"><a href="#cb15-237"></a><span class="co"># star_wars_matrix and star_wars_matrix2 are available in your workspace</span></span>
+<span id="cb15-238"><a href="#cb15-238"></a>star_wars_matrix  </span>
+<span id="cb15-239"><a href="#cb15-239"></a>star_wars_matrix2 </span>
+<span id="cb15-240"><a href="#cb15-240"></a></span>
+<span id="cb15-241"><a href="#cb15-241"></a><span class="co"># Combine both Star Wars trilogies in one matrix</span></span>
+<span id="cb15-242"><a href="#cb15-242"></a>all_wars_matrix <span class="ot">&lt;-</span> <span class="fu">rbind</span>(star_wars_matrix, star_wars_matrix2)   </span>
+<span id="cb15-243"><a href="#cb15-243"></a><span class="in">```</span></span>
+<span id="cb15-244"><a href="#cb15-244"></a></span>
+<span id="cb15-245"><a href="#cb15-245"></a><span class="fu">## The total box office revenue for the entire saga</span></span>
 <span id="cb15-246"><a href="#cb15-246"></a></span>
-<span id="cb15-247"><a href="#cb15-247"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb15-248"><a href="#cb15-248"></a></span>
-<span id="cb15-249"><a href="#cb15-249"></a><span class="ss">- </span>Calculate the total revenue for the US and the non-US region and assign </span>
-<span id="cb15-250"><a href="#cb15-250"></a> total_revenue_vector. You can use the colSums() function.</span>
-<span id="cb15-251"><a href="#cb15-251"></a><span class="ss">- </span>Print out total_revenue_vector to have a look at the results.</span>
-<span id="cb15-252"><a href="#cb15-252"></a></span>
-<span id="cb15-253"><a href="#cb15-253"></a><span class="in">```{.r filename="ex_29.R"}</span></span>
-<span id="cb15-254"><a href="#cb15-254"></a><span class="co"># all_wars_matrix is available in your workspace</span></span>
-<span id="cb15-255"><a href="#cb15-255"></a>all_wars_matrix</span>
-<span id="cb15-256"><a href="#cb15-256"></a></span>
-<span id="cb15-257"><a href="#cb15-257"></a><span class="co"># Total revenue for US and non-US</span></span>
-<span id="cb15-258"><a href="#cb15-258"></a>total_revenue_vector <span class="ot">&lt;-</span> <span class="fu">colSums</span>(all_wars_matrix)</span>
-<span id="cb15-259"><a href="#cb15-259"></a>  </span>
-<span id="cb15-260"><a href="#cb15-260"></a><span class="co"># Print out total_revenue_vector</span></span>
-<span id="cb15-261"><a href="#cb15-261"></a><span class="fu">print</span>(total_revenue_vector)</span>
-<span id="cb15-262"><a href="#cb15-262"></a><span class="in">```</span></span>
-<span id="cb15-263"><a href="#cb15-263"></a></span>
-<span id="cb15-264"><a href="#cb15-264"></a><span class="fu">## Selection of matrix elements</span></span>
-<span id="cb15-265"><a href="#cb15-265"></a></span>
-<span id="cb15-266"><a href="#cb15-266"></a>Similar to vectors, you can use the square brackets <span class="in">`[ ]`</span> to select one or </span>
-<span id="cb15-267"><a href="#cb15-267"></a>multiple elements from a matrix. Whereas vectors have one dimension, matrices </span>
-<span id="cb15-268"><a href="#cb15-268"></a>have two dimensions. You should therefore use a comma to separate the rows you </span>
-<span id="cb15-269"><a href="#cb15-269"></a>want to select from the columns. For example:</span>
+<span id="cb15-247"><a href="#cb15-247"></a>Just like <span class="in">`cbind()`</span> has <span class="in">`rbind()`</span>, <span class="in">`colSums()`</span> has <span class="in">`rowSums()`</span>. Your R workspace </span>
+<span id="cb15-248"><a href="#cb15-248"></a>already contains the <span class="in">`all_wars_matrix`</span> that you constructed in the previous </span>
+<span id="cb15-249"><a href="#cb15-249"></a>exercise; type <span class="in">`all_wars_matrix`</span> to have another look. Let's now calculate the </span>
+<span id="cb15-250"><a href="#cb15-250"></a>total box office revenue for the entire saga.</span>
+<span id="cb15-251"><a href="#cb15-251"></a></span>
+<span id="cb15-252"><a href="#cb15-252"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb15-253"><a href="#cb15-253"></a></span>
+<span id="cb15-254"><a href="#cb15-254"></a><span class="ss">- </span>Calculate the total revenue for the US and the non-US region and assign </span>
+<span id="cb15-255"><a href="#cb15-255"></a> total_revenue_vector. You can use the colSums() function.</span>
+<span id="cb15-256"><a href="#cb15-256"></a><span class="ss">- </span>Print out total_revenue_vector to have a look at the results.</span>
+<span id="cb15-257"><a href="#cb15-257"></a></span>
+<span id="cb15-258"><a href="#cb15-258"></a><span class="in">```{.r filename="ex_29.R"}</span></span>
+<span id="cb15-259"><a href="#cb15-259"></a><span class="co"># all_wars_matrix is available in your workspace</span></span>
+<span id="cb15-260"><a href="#cb15-260"></a>all_wars_matrix</span>
+<span id="cb15-261"><a href="#cb15-261"></a></span>
+<span id="cb15-262"><a href="#cb15-262"></a><span class="co"># Total revenue for US and non-US</span></span>
+<span id="cb15-263"><a href="#cb15-263"></a>total_revenue_vector <span class="ot">&lt;-</span> <span class="fu">colSums</span>(all_wars_matrix)</span>
+<span id="cb15-264"><a href="#cb15-264"></a>  </span>
+<span id="cb15-265"><a href="#cb15-265"></a><span class="co"># Print out total_revenue_vector</span></span>
+<span id="cb15-266"><a href="#cb15-266"></a><span class="fu">print</span>(total_revenue_vector)</span>
+<span id="cb15-267"><a href="#cb15-267"></a><span class="in">```</span></span>
+<span id="cb15-268"><a href="#cb15-268"></a></span>
+<span id="cb15-269"><a href="#cb15-269"></a><span class="fu">## Selection of matrix elements</span></span>
 <span id="cb15-270"><a href="#cb15-270"></a></span>
-<span id="cb15-271"><a href="#cb15-271"></a><span class="ss">- </span><span class="in">`my_matrix[1,2]`</span> selects the element at the first row and second column.</span>
-<span id="cb15-272"><a href="#cb15-272"></a><span class="ss">- </span><span class="in">`my_matrix[1:3,2:4]`</span> results in a matrix with the data on the rows 1, 2, 3 and </span>
-<span id="cb15-273"><a href="#cb15-273"></a>columns 2, 3, 4.</span>
-<span id="cb15-274"><a href="#cb15-274"></a></span>
-<span id="cb15-275"><a href="#cb15-275"></a>If you want to select all elements of a row or a column, no number is needed </span>
-<span id="cb15-276"><a href="#cb15-276"></a>before or after the comma, respectively:</span>
-<span id="cb15-277"><a href="#cb15-277"></a></span>
-<span id="cb15-278"><a href="#cb15-278"></a><span class="ss">- </span><span class="in">`my_matrix[,1]`</span> selects all elements of the first column.</span>
-<span id="cb15-279"><a href="#cb15-279"></a><span class="ss">- </span><span class="in">`my_matrix[1,]`</span> selects all elements of the first row.</span>
-<span id="cb15-280"><a href="#cb15-280"></a></span>
-<span id="cb15-281"><a href="#cb15-281"></a>Back to Star Wars with this newly acquired knowledge! As in the previous </span>
-<span id="cb15-282"><a href="#cb15-282"></a>exercise, all_wars_matrix is already available in your workspace.</span>
-<span id="cb15-283"><a href="#cb15-283"></a></span>
-<span id="cb15-284"><a href="#cb15-284"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb15-271"><a href="#cb15-271"></a>Similar to vectors, you can use the square brackets <span class="in">`[ ]`</span> to select one or </span>
+<span id="cb15-272"><a href="#cb15-272"></a>multiple elements from a matrix. Whereas vectors have one dimension, matrices </span>
+<span id="cb15-273"><a href="#cb15-273"></a>have two dimensions. You should therefore use a comma to separate the rows you </span>
+<span id="cb15-274"><a href="#cb15-274"></a>want to select from the columns. For example:</span>
+<span id="cb15-275"><a href="#cb15-275"></a></span>
+<span id="cb15-276"><a href="#cb15-276"></a><span class="ss">- </span><span class="in">`my_matrix[1,2]`</span> selects the element at the first row and second column.</span>
+<span id="cb15-277"><a href="#cb15-277"></a><span class="ss">- </span><span class="in">`my_matrix[1:3,2:4]`</span> results in a matrix with the data on the rows 1, 2, 3 and </span>
+<span id="cb15-278"><a href="#cb15-278"></a>columns 2, 3, 4.</span>
+<span id="cb15-279"><a href="#cb15-279"></a></span>
+<span id="cb15-280"><a href="#cb15-280"></a>If you want to select all elements of a row or a column, no number is needed </span>
+<span id="cb15-281"><a href="#cb15-281"></a>before or after the comma, respectively:</span>
+<span id="cb15-282"><a href="#cb15-282"></a></span>
+<span id="cb15-283"><a href="#cb15-283"></a><span class="ss">- </span><span class="in">`my_matrix[,1]`</span> selects all elements of the first column.</span>
+<span id="cb15-284"><a href="#cb15-284"></a><span class="ss">- </span><span class="in">`my_matrix[1,]`</span> selects all elements of the first row.</span>
 <span id="cb15-285"><a href="#cb15-285"></a></span>
-<span id="cb15-286"><a href="#cb15-286"></a><span class="ss">- </span>Select the non-US revenue for all movies (the entire second column of </span>
-<span id="cb15-287"><a href="#cb15-287"></a><span class="in">`all_wars_matrix`</span>), store the result as <span class="in">`non_us_all`</span>.</span>
-<span id="cb15-288"><a href="#cb15-288"></a><span class="ss">- </span>Use <span class="in">`mean()`</span> on <span class="in">`non_us_all`</span> to calculate the average non-US revenue for all </span>
-<span id="cb15-289"><a href="#cb15-289"></a>movies.  Simply print out the result.</span>
-<span id="cb15-290"><a href="#cb15-290"></a><span class="ss">- </span>This time, select the non-US revenue for the first two movies in </span>
-<span id="cb15-291"><a href="#cb15-291"></a><span class="in">`all_wars_matrix`</span>. Store the result as <span class="in">`non_us_some`</span>.</span>
-<span id="cb15-292"><a href="#cb15-292"></a><span class="ss">- </span>Use <span class="in">`mean()`</span> again to print out the average of the values in <span class="in">`non_us_some`</span>.</span>
-<span id="cb15-293"><a href="#cb15-293"></a></span>
-<span id="cb15-294"><a href="#cb15-294"></a><span class="in">```{.r filename="ex_30.R" }</span></span>
-<span id="cb15-295"><a href="#cb15-295"></a><span class="co"># all_wars_matrix is available in your workspace</span></span>
-<span id="cb15-296"><a href="#cb15-296"></a>all_wars_matrix</span>
-<span id="cb15-297"><a href="#cb15-297"></a></span>
-<span id="cb15-298"><a href="#cb15-298"></a><span class="co"># Select the non-US revenue for all movies</span></span>
-<span id="cb15-299"><a href="#cb15-299"></a>non_us_all <span class="ot">&lt;-</span> all_wars_matrix[,<span class="dv">2</span>]</span>
-<span id="cb15-300"><a href="#cb15-300"></a>  </span>
-<span id="cb15-301"><a href="#cb15-301"></a><span class="co"># Average non-US revenue</span></span>
-<span id="cb15-302"><a href="#cb15-302"></a><span class="fu">print</span>(<span class="fu">mean</span>(non_us_all))</span>
-<span id="cb15-303"><a href="#cb15-303"></a>  </span>
-<span id="cb15-304"><a href="#cb15-304"></a><span class="co"># Select the non-US revenue for first two movies</span></span>
-<span id="cb15-305"><a href="#cb15-305"></a>non_us_some <span class="ot">&lt;-</span> all_wars_matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>]</span>
-<span id="cb15-306"><a href="#cb15-306"></a>  </span>
-<span id="cb15-307"><a href="#cb15-307"></a><span class="co"># Average non-US revenue for first two movies</span></span>
-<span id="cb15-308"><a href="#cb15-308"></a><span class="fu">print</span>(<span class="fu">mean</span>(non_us_some))</span>
-<span id="cb15-309"><a href="#cb15-309"></a><span class="in">```</span></span>
-<span id="cb15-310"><a href="#cb15-310"></a><span class="fu">## A little arithmetic with matrices</span></span>
-<span id="cb15-311"><a href="#cb15-311"></a>Similar to what you have learned with vectors, the standard operators like </span>
-<span id="cb15-312"><a href="#cb15-312"></a><span class="in">`+`</span>, <span class="in">`-`</span>,<span class="in">` /`</span>, <span class="in">`*`</span>, etc. work in an element-wise way on matrices in R.</span>
-<span id="cb15-313"><a href="#cb15-313"></a></span>
-<span id="cb15-314"><a href="#cb15-314"></a>For example, <span class="in">`2 * my_matrix`</span> multiplies each element of <span class="in">`my_matrix`</span> by two.</span>
-<span id="cb15-315"><a href="#cb15-315"></a></span>
-<span id="cb15-316"><a href="#cb15-316"></a>As a newly-hired data analyst for Lucasfilm, it is your job to find out how many </span>
-<span id="cb15-317"><a href="#cb15-317"></a>visitors went to each movie for each geographical area. You already have the </span>
-<span id="cb15-318"><a href="#cb15-318"></a>total revenue figures in <span class="in">`all_wars_matrix`</span>. Assume that the price of a ticket </span>
-<span id="cb15-319"><a href="#cb15-319"></a>was 5 dollars. Simply dividing the box office numbers by this ticket price gives</span>
-<span id="cb15-320"><a href="#cb15-320"></a>you the number of visitors.</span>
-<span id="cb15-321"><a href="#cb15-321"></a></span>
-<span id="cb15-322"><a href="#cb15-322"></a><span class="fu">### Instructions `100 XP`</span></span>
-<span id="cb15-323"><a href="#cb15-323"></a></span>
-<span id="cb15-324"><a href="#cb15-324"></a><span class="ss">- </span>Divide <span class="in">`all_wars_matrix`</span> by 5, giving you the number of visitors in millions. </span>
-<span id="cb15-325"><a href="#cb15-325"></a><span class="ss">- </span>Assign the resulting matrix to visitors.</span>
-<span id="cb15-326"><a href="#cb15-326"></a><span class="ss">- </span>Print out visitors so you can have a look.</span>
-<span id="cb15-327"><a href="#cb15-327"></a></span>
-<span id="cb15-328"><a href="#cb15-328"></a><span class="in">```{.r filename="ex_31.R"}</span></span>
-<span id="cb15-329"><a href="#cb15-329"></a><span class="co"># all_wars_matrix is available in your workspace</span></span>
-<span id="cb15-330"><a href="#cb15-330"></a>all_wars_matrix</span>
-<span id="cb15-331"><a href="#cb15-331"></a></span>
-<span id="cb15-332"><a href="#cb15-332"></a><span class="co"># Estimate the visitors</span></span>
-<span id="cb15-333"><a href="#cb15-333"></a>visitors <span class="ot">&lt;-</span> all_wars_matrix <span class="sc">/</span> <span class="dv">5</span></span>
-<span id="cb15-334"><a href="#cb15-334"></a>  </span>
-<span id="cb15-335"><a href="#cb15-335"></a><span class="co"># Print the estimate to the console</span></span>
-<span id="cb15-336"><a href="#cb15-336"></a><span class="fu">print</span>(visitors)</span>
-<span id="cb15-337"><a href="#cb15-337"></a><span class="in">```</span>  </span>
-<span id="cb15-338"><a href="#cb15-338"></a></span>
-<span id="cb15-339"><a href="#cb15-339"></a><span class="fu">## A little arithmetic with matrices (2)</span></span>
-<span id="cb15-340"><a href="#cb15-340"></a></span>
-<span id="cb15-341"><a href="#cb15-341"></a>Just like <span class="in">`2 * my_matrix`</span> multiplied every element of my_matrix by two, </span>
-<span id="cb15-342"><a href="#cb15-342"></a><span class="in">`my_matrix1 * my_matrix2`</span> creates a matrix where each element is the product of </span>
-<span id="cb15-343"><a href="#cb15-343"></a>the corresponding elements in my_matrix1 and my_matrix2.</span>
-<span id="cb15-344"><a href="#cb15-344"></a></span>
-<span id="cb15-345"><a href="#cb15-345"></a>After looking at the result of the previous exercise, big boss Lucas points out </span>
-<span id="cb15-346"><a href="#cb15-346"></a>that the ticket prices went up over time. He asks to redo the analysis based on </span>
-<span id="cb15-347"><a href="#cb15-347"></a>the prices you can find in <span class="in">`ticket_prices_matrix`</span> (source: imagination).</span>
-<span id="cb15-348"><a href="#cb15-348"></a></span>
-<span id="cb15-349"><a href="#cb15-349"></a>Those who are familiar with matrices should note that this is not the standard </span>
-<span id="cb15-350"><a href="#cb15-350"></a>matrix multiplication for which you should use %*% in R.</span>
-<span id="cb15-351"><a href="#cb15-351"></a></span>
-<span id="cb15-352"><a href="#cb15-352"></a><span class="fu">### Instructions `100 XP`</span></span>
+<span id="cb15-286"><a href="#cb15-286"></a>Back to Star Wars with this newly acquired knowledge! As in the previous </span>
+<span id="cb15-287"><a href="#cb15-287"></a>exercise, all_wars_matrix is already available in your workspace.</span>
+<span id="cb15-288"><a href="#cb15-288"></a></span>
+<span id="cb15-289"><a href="#cb15-289"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb15-290"><a href="#cb15-290"></a></span>
+<span id="cb15-291"><a href="#cb15-291"></a><span class="ss">- </span>Select the non-US revenue for all movies (the entire second column of </span>
+<span id="cb15-292"><a href="#cb15-292"></a><span class="in">`all_wars_matrix`</span>), store the result as <span class="in">`non_us_all`</span>.</span>
+<span id="cb15-293"><a href="#cb15-293"></a><span class="ss">- </span>Use <span class="in">`mean()`</span> on <span class="in">`non_us_all`</span> to calculate the average non-US revenue for all </span>
+<span id="cb15-294"><a href="#cb15-294"></a>movies.  Simply print out the result.</span>
+<span id="cb15-295"><a href="#cb15-295"></a><span class="ss">- </span>This time, select the non-US revenue for the first two movies in </span>
+<span id="cb15-296"><a href="#cb15-296"></a><span class="in">`all_wars_matrix`</span>. Store the result as <span class="in">`non_us_some`</span>.</span>
+<span id="cb15-297"><a href="#cb15-297"></a><span class="ss">- </span>Use <span class="in">`mean()`</span> again to print out the average of the values in <span class="in">`non_us_some`</span>.</span>
+<span id="cb15-298"><a href="#cb15-298"></a></span>
+<span id="cb15-299"><a href="#cb15-299"></a><span class="in">```{.r filename="ex_30.R" }</span></span>
+<span id="cb15-300"><a href="#cb15-300"></a><span class="co"># all_wars_matrix is available in your workspace</span></span>
+<span id="cb15-301"><a href="#cb15-301"></a>all_wars_matrix</span>
+<span id="cb15-302"><a href="#cb15-302"></a></span>
+<span id="cb15-303"><a href="#cb15-303"></a><span class="co"># Select the non-US revenue for all movies</span></span>
+<span id="cb15-304"><a href="#cb15-304"></a>non_us_all <span class="ot">&lt;-</span> all_wars_matrix[,<span class="dv">2</span>]</span>
+<span id="cb15-305"><a href="#cb15-305"></a>  </span>
+<span id="cb15-306"><a href="#cb15-306"></a><span class="co"># Average non-US revenue</span></span>
+<span id="cb15-307"><a href="#cb15-307"></a><span class="fu">print</span>(<span class="fu">mean</span>(non_us_all))</span>
+<span id="cb15-308"><a href="#cb15-308"></a>  </span>
+<span id="cb15-309"><a href="#cb15-309"></a><span class="co"># Select the non-US revenue for first two movies</span></span>
+<span id="cb15-310"><a href="#cb15-310"></a>non_us_some <span class="ot">&lt;-</span> all_wars_matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>]</span>
+<span id="cb15-311"><a href="#cb15-311"></a>  </span>
+<span id="cb15-312"><a href="#cb15-312"></a><span class="co"># Average non-US revenue for first two movies</span></span>
+<span id="cb15-313"><a href="#cb15-313"></a><span class="fu">print</span>(<span class="fu">mean</span>(non_us_some))</span>
+<span id="cb15-314"><a href="#cb15-314"></a><span class="in">```</span></span>
+<span id="cb15-315"><a href="#cb15-315"></a><span class="fu">## A little arithmetic with matrices</span></span>
+<span id="cb15-316"><a href="#cb15-316"></a>Similar to what you have learned with vectors, the standard operators like </span>
+<span id="cb15-317"><a href="#cb15-317"></a><span class="in">`+`</span>, <span class="in">`-`</span>,<span class="in">` /`</span>, <span class="in">`*`</span>, etc. work in an element-wise way on matrices in R.</span>
+<span id="cb15-318"><a href="#cb15-318"></a></span>
+<span id="cb15-319"><a href="#cb15-319"></a>For example, <span class="in">`2 * my_matrix`</span> multiplies each element of <span class="in">`my_matrix`</span> by two.</span>
+<span id="cb15-320"><a href="#cb15-320"></a></span>
+<span id="cb15-321"><a href="#cb15-321"></a>As a newly-hired data analyst for Lucasfilm, it is your job to find out how many </span>
+<span id="cb15-322"><a href="#cb15-322"></a>visitors went to each movie for each geographical area. You already have the </span>
+<span id="cb15-323"><a href="#cb15-323"></a>total revenue figures in <span class="in">`all_wars_matrix`</span>. Assume that the price of a ticket </span>
+<span id="cb15-324"><a href="#cb15-324"></a>was 5 dollars. Simply dividing the box office numbers by this ticket price gives</span>
+<span id="cb15-325"><a href="#cb15-325"></a>you the number of visitors.</span>
+<span id="cb15-326"><a href="#cb15-326"></a></span>
+<span id="cb15-327"><a href="#cb15-327"></a><span class="fu">### Instructions `100 XP`</span></span>
+<span id="cb15-328"><a href="#cb15-328"></a></span>
+<span id="cb15-329"><a href="#cb15-329"></a><span class="ss">- </span>Divide <span class="in">`all_wars_matrix`</span> by 5, giving you the number of visitors in millions. </span>
+<span id="cb15-330"><a href="#cb15-330"></a><span class="ss">- </span>Assign the resulting matrix to visitors.</span>
+<span id="cb15-331"><a href="#cb15-331"></a><span class="ss">- </span>Print out visitors so you can have a look.</span>
+<span id="cb15-332"><a href="#cb15-332"></a></span>
+<span id="cb15-333"><a href="#cb15-333"></a><span class="in">```{.r filename="ex_31.R"}</span></span>
+<span id="cb15-334"><a href="#cb15-334"></a><span class="co"># all_wars_matrix is available in your workspace</span></span>
+<span id="cb15-335"><a href="#cb15-335"></a>all_wars_matrix</span>
+<span id="cb15-336"><a href="#cb15-336"></a></span>
+<span id="cb15-337"><a href="#cb15-337"></a><span class="co"># Estimate the visitors</span></span>
+<span id="cb15-338"><a href="#cb15-338"></a>visitors <span class="ot">&lt;-</span> all_wars_matrix <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb15-339"><a href="#cb15-339"></a>  </span>
+<span id="cb15-340"><a href="#cb15-340"></a><span class="co"># Print the estimate to the console</span></span>
+<span id="cb15-341"><a href="#cb15-341"></a><span class="fu">print</span>(visitors)</span>
+<span id="cb15-342"><a href="#cb15-342"></a><span class="in">```</span>  </span>
+<span id="cb15-343"><a href="#cb15-343"></a></span>
+<span id="cb15-344"><a href="#cb15-344"></a><span class="fu">## A little arithmetic with matrices (2)</span></span>
+<span id="cb15-345"><a href="#cb15-345"></a></span>
+<span id="cb15-346"><a href="#cb15-346"></a>Just like <span class="in">`2 * my_matrix`</span> multiplied every element of my_matrix by two, </span>
+<span id="cb15-347"><a href="#cb15-347"></a><span class="in">`my_matrix1 * my_matrix2`</span> creates a matrix where each element is the product of </span>
+<span id="cb15-348"><a href="#cb15-348"></a>the corresponding elements in my_matrix1 and my_matrix2.</span>
+<span id="cb15-349"><a href="#cb15-349"></a></span>
+<span id="cb15-350"><a href="#cb15-350"></a>After looking at the result of the previous exercise, big boss Lucas points out </span>
+<span id="cb15-351"><a href="#cb15-351"></a>that the ticket prices went up over time. He asks to redo the analysis based on </span>
+<span id="cb15-352"><a href="#cb15-352"></a>the prices you can find in <span class="in">`ticket_prices_matrix`</span> (source: imagination).</span>
 <span id="cb15-353"><a href="#cb15-353"></a></span>
-<span id="cb15-354"><a href="#cb15-354"></a><span class="ss">- </span>Divide all_wars_matrix by ticket_prices_matrix to get the estimated number </span>
-<span id="cb15-355"><a href="#cb15-355"></a>of US and non-US visitors for the six movies. Assign the result to visitors.</span>
-<span id="cb15-356"><a href="#cb15-356"></a><span class="ss">- </span>From the visitors matrix, select the entire first column, representing the </span>
-<span id="cb15-357"><a href="#cb15-357"></a>number of visitors in the US. Store this selection as <span class="in">`us_visitors`</span>.</span>
+<span id="cb15-354"><a href="#cb15-354"></a>Those who are familiar with matrices should note that this is not the standard </span>
+<span id="cb15-355"><a href="#cb15-355"></a>matrix multiplication for which you should use %*% in R.</span>
+<span id="cb15-356"><a href="#cb15-356"></a></span>
+<span id="cb15-357"><a href="#cb15-357"></a><span class="fu">### Instructions `100 XP`</span></span>
 <span id="cb15-358"><a href="#cb15-358"></a></span>
-<span id="cb15-359"><a href="#cb15-359"></a><span class="ss">- </span>Calculate the average number of US visitors; print out the result.</span>
-<span id="cb15-360"><a href="#cb15-360"></a></span>
-<span id="cb15-361"><a href="#cb15-361"></a><span class="in">```{.r filename="ex_32.R"}</span></span>
-<span id="cb15-362"><a href="#cb15-362"></a><span class="co"># all_wars_matrix and ticket_prices_matrix are available in your workspace</span></span>
-<span id="cb15-363"><a href="#cb15-363"></a>all_wars_matrix</span>
-<span id="cb15-364"><a href="#cb15-364"></a>ticket_prices_matrix</span>
+<span id="cb15-359"><a href="#cb15-359"></a><span class="ss">- </span>Divide all_wars_matrix by ticket_prices_matrix to get the estimated number </span>
+<span id="cb15-360"><a href="#cb15-360"></a>of US and non-US visitors for the six movies. Assign the result to visitors.</span>
+<span id="cb15-361"><a href="#cb15-361"></a><span class="ss">- </span>From the visitors matrix, select the entire first column, representing the </span>
+<span id="cb15-362"><a href="#cb15-362"></a>number of visitors in the US. Store this selection as <span class="in">`us_visitors`</span>.</span>
+<span id="cb15-363"><a href="#cb15-363"></a></span>
+<span id="cb15-364"><a href="#cb15-364"></a><span class="ss">- </span>Calculate the average number of US visitors; print out the result.</span>
 <span id="cb15-365"><a href="#cb15-365"></a></span>
-<span id="cb15-366"><a href="#cb15-366"></a><span class="co"># Estimated number of visitors</span></span>
-<span id="cb15-367"><a href="#cb15-367"></a>visitors <span class="ot">&lt;-</span> all_wars_matrix <span class="sc">/</span> ticket_prices_matrix</span>
-<span id="cb15-368"><a href="#cb15-368"></a></span>
-<span id="cb15-369"><a href="#cb15-369"></a><span class="co"># US visitors</span></span>
-<span id="cb15-370"><a href="#cb15-370"></a>us_visitors <span class="ot">&lt;-</span> visitors[, <span class="dv">1</span>]</span>
-<span id="cb15-371"><a href="#cb15-371"></a></span>
-<span id="cb15-372"><a href="#cb15-372"></a><span class="co"># Average number of US visitors</span></span>
-<span id="cb15-373"><a href="#cb15-373"></a><span class="fu">print</span>(<span class="fu">mean</span>(us_visitors))</span>
-<span id="cb15-374"><a href="#cb15-374"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-366"><a href="#cb15-366"></a><span class="in">```{.r filename="ex_32.R"}</span></span>
+<span id="cb15-367"><a href="#cb15-367"></a><span class="co"># all_wars_matrix and ticket_prices_matrix are available in your workspace</span></span>
+<span id="cb15-368"><a href="#cb15-368"></a>all_wars_matrix</span>
+<span id="cb15-369"><a href="#cb15-369"></a>ticket_prices_matrix</span>
+<span id="cb15-370"><a href="#cb15-370"></a></span>
+<span id="cb15-371"><a href="#cb15-371"></a><span class="co"># Estimated number of visitors</span></span>
+<span id="cb15-372"><a href="#cb15-372"></a>visitors <span class="ot">&lt;-</span> all_wars_matrix <span class="sc">/</span> ticket_prices_matrix</span>
+<span id="cb15-373"><a href="#cb15-373"></a></span>
+<span id="cb15-374"><a href="#cb15-374"></a><span class="co"># US visitors</span></span>
+<span id="cb15-375"><a href="#cb15-375"></a>us_visitors <span class="ot">&lt;-</span> visitors[, <span class="dv">1</span>]</span>
+<span id="cb15-376"><a href="#cb15-376"></a></span>
+<span id="cb15-377"><a href="#cb15-377"></a><span class="co"># Average number of US visitors</span></span>
+<span id="cb15-378"><a href="#cb15-378"></a><span class="fu">print</span>(<span class="fu">mean</span>(us_visitors))</span>
+<span id="cb15-379"><a href="#cb15-379"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

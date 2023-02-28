@@ -11,7 +11,7 @@
     "href": "intro.html#the-tidyverse",
     "title": "Introduction",
     "section": "The tidyverse",
-    "text": "The tidyverse\nWe need to install a R package. The majority of the packages that we will use are part of the so-called tidyverse package. The packages in the tidyverse share a common philosophy of data and R programming, and are designed to work together naturally.\nYou can install the complete tidyverse with the line of code:\n\n\n\nthen we can use it by loading in the preamble section with\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.3.0      ✔ stringr 1.5.0 \n✔ readr   2.1.3      ✔ forcats 0.5.2 \n✔ purrr   1.0.1      \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nsee https://www.tidyverse.org/ documentation."
+    "text": "The tidyverse\nWe need to install a R package. The majority of the packages that we will use are part of the so-called tidyverse package. The packages in the tidyverse share a common philosophy of data and R programming, and are designed to work together naturally.\nYou can install the complete tidyverse with the line of code:\n\n\n\nthen we can use it by loading in the preamble section with\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.0      ✔ stringr 1.5.0 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n✔ purrr   0.3.4      \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nsee https://www.tidyverse.org/ documentation."
   },
   {
     "objectID": "background_00.html",
@@ -333,7 +333,7 @@
     "href": "_introduction_to_r_03.html#naming-a-matrix",
     "title": "3  Matrices",
     "section": "3.3 Naming a matrix",
-    "text": "3.3 Naming a matrix\nTo help you remember what is stored in star_wars_matrix, you would like to add the names of the movies for the rows. Not only does this help you to read the data, but it is also useful to select certain elements from the matrix.\nSimilar to vectors, you can add names for the rows and the columns of a matrix\nrownames(my_matrix) <- row_names_vector\ncolnames(my_matrix) <- col_names_vector\nWe went ahead and prepared two vectors for you: region, and titles. You will need these vectors to name the columns and rows of star_wars_matrix, respectively.\n\nInstructions 100 XP\n\nUse colnames() to name the columns of star_wars_matrix with the region vector.\nUse rownames() to name the rows of star_wars_matrix with the titles vector.\nPrint out star_wars_matrix to see the result of your work.\n\n\n\nex_26.R\n\n# Box office Star Wars (in millions!)\nnew_hope <- c(460.998, 314.4)\nempire_strikes <- c(290.475, 247.900)\nreturn_jedi <- c(309.306, 165.8)\n\n# Construct matrix\nstar_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)\n\n# Vectors region and titles, used for naming\nregion <- c(\"US\", \"non-US\")\ntitles <- c(\"A New Hope\", \"The Empire Strikes Back\", \"Return of the Jedi\")\n\n# Name the columns with region\ncolnames(star_wars_matrix) <- region\n\n# Name the rows with titles\nrownames(star_wars_matrix) <- titles\n\n# Print out star_wars_matrix\nprint(star_wars_matrix)"
+    "text": "3.3 Naming a matrix\nTo help you remember what is stored in star_wars_matrix, you would like to add the names of the movies for the rows. Not only does this help you to read the data, but it is also useful to select certain elements from the matrix.\nSimilar to vectors, you can add names for the rows and the columns of a matrix\nrownames(my_matrix) <- row_names_vector\ncolnames(my_matrix) <- col_names_vector\nWe went ahead and prepared two vectors for you: region, and titles. You will need these vectors to name the columns and rows of star_wars_matrix, respectively.\n\nInstructions 100 XP\n\nUse colnames() to name the columns of star_wars_matrix with the region vector.\nUse rownames() to name the rows of star_wars_matrix with the titles vector.\nPrint out star_wars_matrix to see the result of your work.\n\n\n\nex_26.R\n\n# Box office Star Wars (in millions!)\nnew_hope <- c(460.998, 314.4)\nempire_strikes <- c(290.475, 247.900)\nreturn_jedi <- c(309.306, 165.8)\n\n# Construct matrix\nstar_wars_matrix <- \n  matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)\n\n# Vectors region and titles, used for naming\nregion <- c(\"US\", \"non-US\")\ntitles <- c(\"A New Hope\", \"The Empire Strikes Back\", \"Return of the Jedi\")\n\n# Name the columns with region\ncolnames(star_wars_matrix) <- region\n\n# Name the rows with titles\nrownames(star_wars_matrix) <- titles\n\n# Print out star_wars_matrix\nprint(star_wars_matrix)"
   },
   {
     "objectID": "_introduction_to_r_03.html#calculating-the-worldwide-box-office",
@@ -1157,11 +1157,7 @@
   {
     "objectID": "summary.html",
     "href": "summary.html",
-<<<<<<< HEAD
-    "title": "12  Summary",
-=======
     "title": "\n17  Summary\n",
->>>>>>> 524edd084ae94507df072f63869d41bc971a45a1
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
   },
