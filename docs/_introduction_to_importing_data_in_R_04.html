@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Inference For Data Science - 11&nbsp; Data visualization with ggplot2 and friends</title>
+<title>Statistical Inference For Data Science - 17&nbsp; Reproducible Excel work with XLConnect</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,8 +92,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./background_02.html" rel="next">
-<link href="./_intermediate_r_05.html" rel="prev">
+<link href="./statistical-inference-whole-game.html" rel="next">
+<link href="./_introduction_to_importing_data_in_R_03.html" rel="prev">
 <link href="./cover1.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -125,7 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="Statistical Inference For Data Science - 11&nbsp; Data visualization with ggplot2 and friends">
+<meta name="twitter:title" content="Statistical Inference For Data Science - 17&nbsp; Reproducible Excel work with XLConnect">
+<meta name="twitter:description" content="Beyond importing data from Excel, you can take things one step further with XLConnect. Learn all about it and bridge the gap between R and Excel.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -136,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -282,7 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
+  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></a>
   </div>
 </li>
       </ul>
@@ -332,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
+  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
   </div>
 </li>
       </ul>
@@ -376,16 +377,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-visualizations" id="toc-data-visualizations" class="nav-link active" data-scroll-target="#data-visualizations"><span class="toc-section-number">12</span>  Data Visualizations</a></li>
+  <li><a href="#connect-to-a-workbook" id="toc-connect-to-a-workbook" class="nav-link active" data-scroll-target="#connect-to-a-workbook"><span class="toc-section-number">17.1</span>  Connect to a workbook</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#list-and-read-excel-sheets" id="toc-list-and-read-excel-sheets" class="nav-link" data-scroll-target="#list-and-read-excel-sheets"><span class="toc-section-number">17.2</span>  List and read Excel sheets</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#customize-readworksheet" id="toc-customize-readworksheet" class="nav-link" data-scroll-target="#customize-readworksheet"><span class="toc-section-number">17.3</span>  Customize readWorksheet</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#add-worksheet" id="toc-add-worksheet" class="nav-link" data-scroll-target="#add-worksheet"><span class="toc-section-number">17.4</span>  Add worksheet</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#populate-worksheet" id="toc-populate-worksheet" class="nav-link" data-scroll-target="#populate-worksheet"><span class="toc-section-number">17.5</span>  Populate worksheet</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#renaming-sheets" id="toc-renaming-sheets" class="nav-link" data-scroll-target="#renaming-sheets"><span class="toc-section-number">17.6</span>  Renaming sheets</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#removing-sheets" id="toc-removing-sheets" class="nav-link" data-scroll-target="#removing-sheets"><span class="toc-section-number">17.7</span>  Removing sheets</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/data_visualization.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_introduction_to_importing_data_in_R_04.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data visualization with ggplot2 and friends</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -400,12 +428,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="data-visualizations" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Data Visualizations</h1>
+<p>Beyond importing data from Excel, you can take things one step further with XLConnect. Learn all about it and bridge the gap between R and Excel.</p>
+<section id="connect-to-a-workbook" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="connect-to-a-workbook"><span class="header-section-number">17.1</span> Connect to a workbook</h2>
+<section id="instructions-100-xp" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h3>
+</section>
+</section>
+<section id="list-and-read-excel-sheets" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="list-and-read-excel-sheets"><span class="header-section-number">17.2</span> List and read Excel sheets</h2>
+<section id="instructions-100-xp-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
+</section>
+</section>
+<section id="customize-readworksheet" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="customize-readworksheet"><span class="header-section-number">17.3</span> Customize readWorksheet</h2>
+<section id="instructions-100-xp-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+</section>
+</section>
+<section id="add-worksheet" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="add-worksheet"><span class="header-section-number">17.4</span> Add worksheet</h2>
+<section id="instructions-100-xp-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+</section>
+</section>
+<section id="populate-worksheet" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="populate-worksheet"><span class="header-section-number">17.5</span> Populate worksheet</h2>
+<section id="instructions-100-xp-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+</section>
+</section>
+<section id="renaming-sheets" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="renaming-sheets"><span class="header-section-number">17.6</span> Renaming sheets</h2>
+<section id="instructions-100-xp-5" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+</section>
+</section>
+<section id="removing-sheets" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="removing-sheets"><span class="header-section-number">17.7</span> Removing sheets</h2>
+<section id="instructions-100-xp-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
 
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -595,21 +663,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./_intermediate_r_05.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Utilities</span></span>
+      <a href="./_introduction_to_importing_data_in_R_03.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./background_02.html" class="pagination-link">
-        <span class="nav-page-text">Introduction to Writing Functions in R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./statistical-inference-whole-game.html" class="pagination-link">
+        <span class="nav-page-text">The whole game of statistical Inference</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data visualization with ggplot2 and friends"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Visualizations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reproducible Excel work with XLConnect</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Beyond importing data from Excel, you can take things one step </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>further with XLConnect. Learn all about it and bridge the gap between</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>R and Excel.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Connect to a workbook</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## List and read Excel sheets</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Customize readWorksheet</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Add worksheet</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Populate worksheet</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Renaming sheets</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Removing sheets</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

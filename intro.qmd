@@ -22,6 +22,177 @@ ggplot(airquality, aes(Temp, Ozone)) +
   
 ```
 
+We also want to cover the fundamentals of a common Data Analyst hast to 
+know according to the DataCamp's rubrics at the current date (March-01, 2023).
+
+# Rubrics for a Data Analyst (Associate and professional){.unnumbered}
+
+::: {.panel-tabset}
+## Associate
+```{r}
+header <- c("Topic", "Competency","Sufficient","Insufficient")
+topics <- c(
+  "Data Validation",
+  "Data Visualization",
+  "Communication"
+  )
+competnecy <- c(
+  "Assess data quality and perform validation tasks",
+  "Create data visualizations to demonstrate the characteristics of data and 
+  represent relationships between features",
+  "Presents data concepts to small, diverse audiences"
+) 
+sufficeint <- c(
+  "Has validated all variables against provided criteria and where necessary has
+  performed cleaning tasks to result in analysis-ready data",
+  "Has created at least two different visualizations of single variables 
+  (e.g. histogram, bar  chart, single boxplot) 
+  \n
+  Has created at least one visualization including two or more variables 
+  (e.g. scatterplot, filled bar chart, multiple boxplots)
+  \n
+  Has used visualizations that support the findings being presented",
+  "For each analysis step, 
+  has explained their findings and/or the reasoning for selecting approaches"
+)
+insufficent <- c(
+  "Has not conducted all the required checks and/or has not cleaned the data. 
+  May have removed data rather than performed cleaning tasks
+  ",
+  "
+    Has used the same visualization throughout
+    \n
+    Has not included graphics to represent single variables and relationships
+    \n
+    Has not used visualizations that support the findings being presented
+  ",
+  "
+    Has not provided a summary for each step 
+    (data validation, exploratory analysis)
+  "
+)
+
+df_rubric_da_associate <- 
+  data.frame(
+    Topics = topics,
+    Competnecy = competnecy,
+    Sufficeint = sufficeint,
+    Insufficent = insufficent
+  )
+knitr::kable(df_rubric_da_associate, format = "html")
+
+```
+## Professional
+
+```{r}
+header <- c("Topic", "Competency","Sufficient","Insufficient")
+topics <- c(
+  "Data Validation",
+  "Data Visualization",
+  "Business Focus",
+  "Business Metrics",
+  "Communication"
+  )
+competency <- c(
+  "
+    Assess data quality and perform validation tasks
+  ",
+  "
+    Create data visualizations to demonstrate the characteristics of data and 
+    represent relationships between features  ",
+  "
+    Collects relevant information, detects patterns, observes and interprets 
+    data
+  ",
+  "
+    Benchmarks, monitors, and evaluates business processes
+  ",
+  "
+    Employs multiple tactics (written and verbal) to communicate to business 
+    leaders
+  "
+)
+sufficient <- c(
+  "
+    Has validated all variables and where necessary has performed cleaning 
+    tasks to result in analysis-ready data
+  ",
+  "
+    Has created at least two different visualizations of single variables 
+    (e.g. histogram, bar chart, single boxplot)
+    \n
+    Has created at least one visualization including two or more variables 
+    (e.g. scatterplot, filled barchart, multiple boxplots)
+    \n
+    Has used visualizations that support the findings being presented
+  ",
+  "
+    Has described at least one of the business goals of the project
+    \n
+    Has explained how their work has addressed the business problem
+    \n
+    Has provided at least one recommendation for future action to be taken 
+    based on the outcome of the work done
+  ",
+  "
+    Has defined a metric that can be used by the business in the future to 
+    measure success in solving the problem
+    
+    Has evaluated the metric using the existing data to provide a baseline 
+    measure for the problem
+  ",
+  "
+    For each analysis step, has provided a written explanation of their findings
+    and/or reasoning for selecting approaches
+    \n
+    Has delivered a verbal presentation addressing the business goals, outcomes
+    and recommendations
+  "
+)
+insufficient <- c(
+  "
+    Has not conducted all the required checks and/or has not cleaned the data. 
+    May have removed data rather than performed cleaning tasks
+  ",
+  "
+    Has used the same visualization throughout
+    \n
+    Has not included graphics to represent single variables and relationships
+    \n
+    Has not used visualizations that support the findings being presented
+  ",
+  "
+    Has not identified any business goals
+    \n
+    Has not explained how their work has addressed the business problem
+    \n
+    Has not provided any recommendations for future actions
+  ",
+  "
+    Has not identified a metric to compare the model performance to the business
+    problem or has not shown the metric with the current data
+  ",
+  "
+    Has not provided a written summary for each step
+    \n
+    Has not delivered a verbal presentation
+  "
+)
+
+df_rubric_da_professional <- 
+  data.frame(
+    Topics = topics,
+    Competency = competency,
+    Sufficient = sufficient,
+    Insufficient = insufficient
+  )
+knitr::kable(df_rubric_da_professional, format = "html")
+
+```
+:::
+
+
+
 ## The tidyverse
 
 We need to install a R package. The majority of the packages that we will use

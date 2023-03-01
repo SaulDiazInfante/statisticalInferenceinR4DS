@@ -7,6 +7,13 @@
     "text": "Preface\nWho I am. I am Saul Diaz Infante Velasco. I just starting as assistant professor at the Data Science graduate program of Universidad de Sonora at Hermosillo Mexico. My Background is related with numerical analysis and stochastic models. I’m are a enthusiastic of this treading topic called Data-Science, but perhaps at the moment I only have just intuition about what really it is. However, I have been programming almost 20 years an moved from old programming langues as FORTRAN, Pascal, Basic, Cobol, C, C++ to the new well established treading development workflows like R, Python and Julia. This is my firs attempt in R.\nMore of this book is work in progress. We aim to provide material as well we review and improve our basic skills to face the study of the most popular methods in Machine learning. Thus the book try to cover fundamentals in R programming as data types, flow control structures and put particular importance in the well practice of coding functions. Then we moves to the management of data whit dplyr and other packages. To finish this part we discuss some package to visualize data. Then, we face the problem o estimation and explore techniques based on bootstrap–and another sampling flavors.\nThis book has been started on January, 2023 as part of a course to the Master on Data Science from Universidad de Sonora.\nI’m writing this book to follow a path of self learning, understanding and and joy for this matter called Data Science. I’m not try to become and expert instead I just pursuit the joy of the interaction of math, computational sciences and the generosity of this virtuous learning-teaching process.\nhttps://sauldiazinfante.github.io/statisticalInferenceinR4DS/"
   },
   {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Rubrics for a Data Analyst (Associate and professional)"
+  },
+  {
     "objectID": "intro.html#the-tidyverse",
     "href": "intro.html#the-tidyverse",
     "title": "Introduction",
@@ -1099,6 +1106,174 @@
     "text": "14.7 Column classes\nNext to column names, you can also specify the column types or column classes of the resulting data frame. You can do this by setting the colClasses argument to a vector of strings representing classes:\nread.delim(\"my_file.txt\", \n           colClasses = c(\"character\",\n                          \"numeric\",\n                          \"logical\"))\nThis approach can be useful if you have some columns that should be factors and others that should be characters. You don’t have to bother with stringsAsFactors anymore; just state for each column what the class should be.\nIf a column is set to “NULL” in the colClasses vector, this column will be skipped and will not be loaded into the data frame.\n\nInstructions 100 XP\n\nThe read.delim() call from before is already included and creates the hotdogs data frame. Go ahead and display the structure of hotdogs.\nEdit the second read.delim() call. Assign the correct vector to the colClasses argument. NA should be replaced with a character vector: c(\"factor\", \"NULL\", \"numeric\").\nDisplay the structure of hotdogs2 and look for the difference.\n\n\n\nex_007.R\n\n# Previous call to import hotdogs.txt\nhotdogs <- \n    read.delim(\n        \"hotdogs.txt\",\n         header = FALSE,\n         col.names = c(\"type\", \"calories\", \"sodium\")\n    )\n\n# Display structure of hotdogs\nstr(hotdogs)\n\n# Edit the colClasses argument to import the data correctly: hotdogs2\nhotdogs2 <- read.delim(\n    \"hotdogs.txt\",\n    header = FALSE,\n    col.names = c(\"type\", \"calories\", \"sodium\"),\n    colClasses =  c(\"factor\", \"NULL\", \"numeric\")\n)\n\n\n# Display structure of hotdogs2\nstr(hotdogs2)"
   },
   {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#read_csv",
+    "href": "_introduction_to_importing_data_in_R_02.html#read_csv",
+    "title": "15  readr & data.table",
+    "section": "15.1 read_csv",
+    "text": "15.1 read_csv\nCSV files can be imported with read_csv(). It’s a wrapper function around read_delim() that handles all the details for you. For example, it will assume that the first row contains the column names.\nThe dataset you’ll be working with here is potatoes.csv (view in dataset folder). It gives information on the impact of storage period and cooking on potatoes’ flavor. It uses commas to delimit fields in a record, and contains column names in the first row. The file is available in your workspace."
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp",
+    "href": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp",
+    "title": "15  readr & data.table",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\nLoad the readr package with library().\nImport \"potatoes.csv\" using read_csv(). Assign the resulting data frame to the variable potatoes.\n\n\nex_008.R\n\n# Load the readr package\nlibrary(readr)\n\n# Import potatoes.csv with read_csv(): potatoes\npotatoes <- read_csv(\"potatoes.csv\")"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#read_tsv",
+    "href": "_introduction_to_importing_data_in_R_02.html#read_tsv",
+    "title": "15  readr & data.table",
+    "section": "15.2 read_tsv",
+    "text": "15.2 read_tsv\nWhere you use read_csv() to easily read in CSV files, you use read_tsv() to easily read in TSV files. TSV is short for tab- separated values.\nThis time, the potatoes data comes in the form of a tab-separated values file; potatoes.txt. In contrast to potatoes.csv, this file does not contain columns names in the first row, though.\nThere’s a vector properties that you can use to specify these column names manually."
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp-1",
+    "href": "_introduction_to_importing_data_in_R_02.html#instructions-100-xp-1",
+    "title": "15  readr & data.table",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nUse read_tsv() to import the potatoes data from potatoes.txt and store it in the data frame potatoes. In addition to the path to the file, you’ll also have to specify the col_names argument; you can use the properties vector for this.\nCall head() on potatoes to show the first observations of your dataset.\n\n\n\nex_009.R\n\n# readr is already loaded\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import potatoes.txt: potatoes\npotatoes <- read_tsv(\n    \"potatoes.txt\",\n    col_names = properties\n)\n\n# Call head() on potatoes\nhead(potatoes)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#read_delim",
+    "href": "_introduction_to_importing_data_in_R_02.html#read_delim",
+    "title": "15  readr & data.table",
+    "section": "15.3 read_delim",
+    "text": "15.3 read_delim\nJust as read.table() was the main utils function, read_delim() is the main readr function.\nread_delim() takes two mandatory arguments:\n\nfile: the file that contains the data\ndelim: the character that separates the values in the data file\n\nYou’ll again be working with potatoes.txt (view); the file uses tabs (\"\\t\") to delimit values and does not contain column names in its first line. It’s available in your working directory so you can start right away. As before, the vector properties is available to set the col_names.\n\nInstructions 100 XP\n\nImport all the data in “potatoes.txt” using read_delim(); store the resulting data frame in potatoes.\nPrint out potatoes.\n\n\n\nex_010.R\n\n# readr is already loaded\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import potatoes.txt using read_delim(): potatoes\npotatoes <- read_delim(\n    \"potatoes.txt\",\n    delim = \"\\t\",\n    col_names = properties\n)\n# Print out potatoes\npotatoes"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#skip-and-n_max",
+    "href": "_introduction_to_importing_data_in_R_02.html#skip-and-n_max",
+    "title": "15  readr & data.table",
+    "section": "15.4 skip and n_max",
+    "text": "15.4 skip and n_max\nThrough skip and n_max you can control which part of your flat file you’re actually importing into R.\n\nskip specifies the number of lines you’re ignoring in the flat file before actually starting to import data.\nn_max specifies the number of lines you’re actually importing. Say for example you have a CSV file with 20 lines, and set skip = 2 and n_max = 3, you’re only reading in lines 3, 4 and 5 of the file.\n\nWatch out: Once you skip some lines, you also skip the first line that can contain column names!\npotatoes.txt, a flat file with tab-delimited records and without column names, is available in your workspace.\n\nInstructions 100 XP\n\nFinish the first read_tsv() call to import observations 7, 8, 9, 10 and 11 from potatoes.txt.\n\n\n\nex_011.R\n\n# readr is already loaded\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import 5 observations from potatoes.txt: potatoes_fragment\npotatoes_fragment <- read_tsv(\n    \"potatoes.txt\",\n    skip = 6, \n    n_max = 5,\n    col_names = properties\n)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#col_types",
+    "href": "_introduction_to_importing_data_in_R_02.html#col_types",
+    "title": "15  readr & data.table",
+    "section": "15.5 col_types",
+    "text": "15.5 col_types\nYou can also specify which types the columns in your imported data frame should have. You can do this with col_types. If set to NULL, the default, functions from the readr package will try to find the correct types themselves. You can manually set the types with a string, where each character denotes the class of the column: character, double, integer and logical. _ skips the column as a whole.\npotatoes.txt, a flat file with tab-delimited records and without column names, is again available in your workspace.\n\nInstructions 100 XP\n\nIn the second read_tsv() call, edit the col_types argument to import all columns as characters (c). Store the resulting data frame in potatoes_char.\nPrint out the structure of potatoes_char and verify whether all column types are chr, short for character.\n\n\n\nex_012.R\n\n# Column names\nproperties <- c(\n    \"area\",\n    \"temp\",\n    \"size\",\n    \"storage\",\n    \"method\",\n    \"texture\",\n    \"flavor\",\n    \"moistness\"\n)\n\n# Import all data, but force all columns to be character: potatoes_char\npotatoes_char <- read_tsv(\n    \"potatoes.txt\",\n    col_types = \"cccccccc\",\n    col_names = properties\n)\n# Print out structure of potatoes_char\nstr(potatoes_char)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#col_types-with-collectors",
+    "href": "_introduction_to_importing_data_in_R_02.html#col_types-with-collectors",
+    "title": "15  readr & data.table",
+    "section": "15.6 col_types with collectors",
+    "text": "15.6 col_types with collectors\nAnother way of setting the types of the imported columns is using collectors. Collector functions can be passed in a list() to the col_types argument of read_ functions to tell them how to interpret values in a column.\nFor a complete list of collector functions, you can take a look at the collector documentation. For this exercise you will need two collector functions:\n\ncol_integer(): the column should be interpreted as an integer.\ncol_factor(levels, ordered = FALSE): the column should be interpreted as a factor with levels.\n\nIn this exercise, you will work with `hotdogs.txt, which is a tab-delimited file without column names in the first row.\n\nInstructions 100 XP\n\nhotdogs is created for you without setting the column types. Inspect its summary using the summary() function.\nTwo collector functions are defined for you: fac and int. Have a look at them, do you understand what they’re collecting?\nIn the second read_tsv() call, edit the col_types argument: Pass a list() with the elements fac, int and int, so the first column is imported as a factor, and the second and third column as integers.\nCreate a summary() of hotdogs_factor. Compare this to the summary of hotdogs.\n\n\n\nex_013.R\n\n# check if readr is already loaded\n\n# Import without col_types\nhotdogs <- read_tsv(\n    \"hotdogs.txt\",\n    col_names = c(\"type\", \"calories\", \"sodium\")\n)\n\n# Display the summary of hotdogs\nsummary(hotdogs)\n\n# The collectors you will need to import the data\nfac <- col_factor(levels = c(\"Beef\", \"Meat\", \"Poultry\"))\nint <- col_integer()\n\n# Edit the col_types argument to import the data correctly: hotdogs_factor\nhotdogs_factor <- read_tsv(\n    \"hotdogs.txt\",\n    col_names = c(\"type\", \"calories\", \"sodium\"),\n    col_types = list(fac, int, int)\n)\n\n# Display the summary of hotdogs_factor\nsummary(hotdogs_factor)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#fread",
+    "href": "_introduction_to_importing_data_in_R_02.html#fread",
+    "title": "15  readr & data.table",
+    "section": "15.7 fread",
+    "text": "15.7 fread\nYou still remember how to use read.table(), right? Well, fread() is a function that does the same job with very similar arguments. It is extremely easy to use and blazingly fast! Often, simply specifying the path to the file is enough to successfully import your data.\nDon’t take our word for it, try it yourself! You’ll be working with the potatoes.csv file, that’s available the dataset folder. Fields are delimited by commas, and the first line contains the column names.\n\nInstructions 100 XP\n-Use library() to load (NOT install) the data.table package. Check If you\nneed to install this package.\n-Import \"potatoes.csv\" with fread(). Simply pass it the file path and see if it worked. Store the result in a variable potatoes. Print out potatoes.\n\n\nex_014.R\n\n# load the data.table package using library()\nlibrary(data.table)\n\n# Import potatoes.csv with fread(): potatoes\npotatoes <- fread(\"potatoes.csv\")\n\n# Print out potatoes\npotatoes"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_02.html#fread-more-advance-use",
+    "href": "_introduction_to_importing_data_in_R_02.html#fread-more-advance-use",
+    "title": "15  readr & data.table",
+    "section": "15.8 fread: more advance use",
+    "text": "15.8 fread: more advance use\nNow that you know the basics about fread(), you should know about two arguments of the function: drop and select, to drop or select variables of interest.\nSuppose you have a dataset that contains 5 variables and you want to keep the first and fifth variable, named “a” and “e”. The following options will all do the trick:\nfread(\"path/to/file.txt\", drop = 2:4)\nfread(\"path/to/file.txt\", select = c(1, 5))\nfread(\"path/to/file.txt\", drop = c(\"b\", \"c\", \"d\"))\nfread(\"path/to/file.txt\", select = c(\"a\", \"e\"))\nLet’s stick with potatoes since we’re particularly fond of them here at DataCamp. The data is again available in the file potatoes.csv (view), containing comma- separated records.\n\nInstructions 100 XP\nUsing fread() and select or drop as arguments, only import the texture and moistness columns of the flat file. They correspond to the columns 6 and 8 in \"potatoes.csv\". Store the result in a variable potatoes. - plot() 2 columns of the potatoes data frame: texture on the x-axis, moistness on the y-axis. Use the dollar sign notation twice. Feel free to name your axes and plot.\n\n\nex_014.R\n\n# fread is already loaded\nlibrary(\"data.table\")\npath <- \"introduction_to_importing_data_in_R/potatoes.csv\"\n# Import columns 6 and 8 of potatoes.csv: potatoes\npotatoes <- fread(path, select = c(6, 8))\n\n\n# Plot texture (x) and moistness (y) of potatoes\nplot(potatoes$texture, potatoes$moistness)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_03.html#import-an-excel-sheet",
+    "href": "_introduction_to_importing_data_in_R_03.html#import-an-excel-sheet",
+    "title": "16  List the sheets of an Excel file",
+    "section": "16.1 Import an Excel sheet",
+    "text": "16.1 Import an Excel sheet\nNow that you know the names of the sheets in the Excel file you want to import, it is time to import those sheets into R. You can do this with the read_excel() function. Have a look at this recipe:\ndata <- read_excel(\"data.xlsx\", sheet = \"my_sheet\")\nThis call simply imports the sheet with the name \"my_sheet\" from the \"data.xlsx\" file. You can also pass a number to the sheet argument; this will cause read_excel() to import the sheet with the given sheet number. sheet = 1 will import the first sheet, sheet = 2 will import the second sheet, and so on.\nIn this exercise, you’ll continue working with the urbanpop.xlsx (view) file.\n\nInstructions 100 XP\n\nThe code to import the first and second sheets is already included. Can you add a command to also import the third sheet, and store the resulting data frame in pop_3?\nStore the data frames pop_1, pop_2 and pop_3 in a list that you call pop_list.\nDisplay the structure of pop_list.\n\n\n\nex_16.R\n\n# The readxl package is already loaded\n\n# Read the sheets, one by one\npop_1 <- read_excel(\"urbanpop.xlsx\", sheet = 1)\npop_2 <- read_excel(\"urbanpop.xlsx\", sheet = 2)\npop_3 <- read_excel(\"urbanpop.xlsx\", sheet = 3)\n\n# Put pop_1, pop_2 and pop_3 in a list: pop_list\npop_list <- list(pop_1, pop_2, pop_3)\n\n# Display the structure of pop_list\nstr(pop_list)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_03.html#reading-a-workbook00",
+    "href": "_introduction_to_importing_data_in_R_03.html#reading-a-workbook00",
+    "title": "16  List the sheets of an Excel file",
+    "section": "16.2 Reading a workbook00",
+    "text": "16.2 Reading a workbook00\nIn the previous exercise you generated a list of three Excel sheets that you imported. However, loading in every sheet manually and then merging them in a list can be quite tedious. Luckily, you can automate this with lapply(). If you have no experience with lapply(), feel free to take Chapter 4 of the Intermediate R course.\nHave a look at the example code below:\nmy_workbook <- lapply(excel_sheets(\"data.xlsx\"),\n                      read_excel,\n                      path = \"data.xlsx\")\nThe read_excel() function is called multiple times on the \"data.xlsx\" file and each sheet is loaded in one after the other. The result is a list of data frames, each data frame representing one of the sheets in data.xlsx.\nYou’re still working with the urbanpop.xlsx (view) file.\n\nInstructions 100 XP\n\nUse lapply() in combination with excel_sheets() and read_excel() to read all the Excel sheets in \"urbanpop.xlsx\". Name the resulting list pop_list.\nPrint the structure of pop_list.\n\n\n\nex_17.R\n\n# The readxl package is already loaded\n\n# Read all Excel sheets with lapply(): pop_list\npop_list <- lapply(\n    excel_sheets(\"urbanpop.xlsx\"),\n    read_excel,\n    path = \"urbanpop.xlsx\" \n)\n\n# Display the structure of pop_list\nstr(pop_list)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_03.html#the-col_names-argument",
+    "href": "_introduction_to_importing_data_in_R_03.html#the-col_names-argument",
+    "title": "16  List the sheets of an Excel file",
+    "section": "16.3 The col_names argument",
+    "text": "16.3 The col_names argument\nApart from path and sheet, there are several other arguments you can specify in read_excel(). One of these arguments is called col_names.\nBy default it is TRUE, denoting whether the first row in the Excel sheets contains the column names. If this is not the case, you can set col_names to FALSE. In this case, R will choose column names for you. You can also choose to set col_names to a character vector with names for each column. It works exactly the same as in the readr package.\nYou’ll be working with the urbanpop_nonames.xlsx (view) file. It contains the same data as urbanpop.xlsx (view) but has no column names in the first row of the excel sheets.\n\nInstructions 100 XP\n\nImport the first Excel sheet of \"urbanpop_nonames.xlsx\" and store the result in pop_a. Have R set the column names of the resulting data frame itself.\nImport the first Excel sheet of urbanpop_nonames.xlsx; this time, use the cols vector that has already been prepared for you to specify the column names. Store the resulting data frame in pop_b.\nPrint out the summary of pop_a.\nPrint out the summary of pop_b. Can you spot the difference with the other summary?\n\n\n\nex_18.R\n\n# The readxl package is already loaded\n\n# Import the first Excel sheet of urbanpop_nonames.xlsx (R gives names): pop_a\npop_a <- read_excel(\"urbanpop_nonames.xlsx\", col_names = FALSE)\n\n# Import the first Excel sheet of urbanpop_nonames.xlsx (specify col_names): pop_b\ncols <- c(\"country\", paste0(\"year_\", 1960:1966))\npop_b <- read_excel(\"urbanpop_nonames.xlsx\", col_names = cols)\n\n# Print the summary of pop_a\nsummary(pop_a)\n\n# Print the summary of pop_b\nsummary(pop_b)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_03.html#the-skip-argument",
+    "href": "_introduction_to_importing_data_in_R_03.html#the-skip-argument",
+    "title": "16  List the sheets of an Excel file",
+    "section": "16.4 The skip argument",
+    "text": "16.4 The skip argument\nAnother argument that can be very useful when reading in Excel files that are less tidy, is skip. With skip, you can tell R to ignore a specified number of rows inside the Excel sheets you’re trying to pull data from. Have a look at this example:\nread_excel(\"data.xlsx\", skip = 15)\nIn this case, the first 15 rows in the first sheet of \"data.xlsx\" are ignored.\nIf the first row of this sheet contained the column names, this information will also be ignored by readxl. Make sure to set col_names to FALSE or manually specify column names in this case!\nThe file urbanpop.xlsx (view) is available in your directory; it has column names in the first rows.\n\nInstructions 100 XP\nImport the second sheet of \"urbanpop.xlsx\", but skip the first 21 rows. Make sure to set col_names = FALSE. Store the resulting data frame in a variable urbanpop_sel. Select the first observation from urbanpop_sel and print it out.\n\n\nex_18.R\n\n# The readxl package is already loaded\n\n# Import the second sheet of urbanpop.xlsx, skipping the first 21 rows: urbanpop_sel\n\nurbanpop_sel <- \n    read_excel(\n        sheet=2,\n        \"urbanpop.xlsx\",\n         col_names = FALSE,\n        skip=21     \n    )\n# Print out the first observation from urbanpop_sel\n\nhead(urbanpop_sel, 1)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_03.html#import-a-local-file",
+    "href": "_introduction_to_importing_data_in_R_03.html#import-a-local-file",
+    "title": "16  List the sheets of an Excel file",
+    "section": "16.5 Import a local file",
+    "text": "16.5 Import a local file\nIn this part of the chapter you’ll learn how to import .xls files using the gdata package. Similar to the readxl package, you can import single Excel sheets from Excel sheets to start your analysis in R.\nYou’ll be working with the urbanpop.xls (view) dataset, the .xls version of the Excel file you’ve been working with before. It’s available in your current working directory.\n\nInstructions 100 XP\n\nLoad the gdata package with library(). gdata and Perl are already installed on DataCamp’s Servers.\nImport the second sheet, named \"1967-1974\", of \"urbanpop.xls\" with read.xls(). Store the resulting data frame as urban_pop.\nPrint the first 11 observations of urban_pop with head().\n\n\n\nex_019.R\n\n# Load the gdata package\nlibrary(gdata)\n\n# Import the second sheet of urbanpop.xls: urban_pop\nurban_pop <- read.xls(\n    \"urbanpop.xls\",\n    sheet = \"1967-1974\"\n)\n\n# Print the first 11 observations using head()\nhead(urban_pop, 11)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_03.html#read.xls-wraps-around-read.table",
+    "href": "_introduction_to_importing_data_in_R_03.html#read.xls-wraps-around-read.table",
+    "title": "16  List the sheets of an Excel file",
+    "section": "16.6 read.xls() wraps around read.table()",
+    "text": "16.6 read.xls() wraps around read.table()\nRemember how read.xls() actually works? It basically comes down to two steps: converting the Excel file to a .csv file using a Perl script, and then reading that .csv file with the read.csv() function that is loaded by default in R, through the utils package.\nThis means that all the options that you can specify in read.csv(), can also be specified in read.xls().\nThe urbanpop.xls (view) dataset is already available in your workspace. It’s still comprised of three sheets, and has column names in the first row of each sheet.\n\nInstructions 100 XP\n\nFinish the read.xls() call that reads data from the second sheet of urbanpop.xls: skip the first 50 rows of the sheet. Make sure to set header appropriately and that the country names are not imported as factors.\nPrint the first 10 observations of urban_pop with head().\n\n\n\nex_20.R\n\n# The gdata package is alreaded loaded\n\n# Column names for urban_pop\ncolumns <- c(\"country\", paste0(\"year_\", 1967:1974))\n\n# Finish the read.xls call\nurban_pop <- read.xls(\n    \"urbanpop.xls\",\n    sheet = 2,\n    skip = 50,\n    header = FALSE, \n    stringsAsFactors = FALSE,\n    col.names = columns\n)\n\n# Print first 10 observation of urban_pop\nhead(urban_pop, 10)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_03.html#work-that-excel-data",
+    "href": "_introduction_to_importing_data_in_R_03.html#work-that-excel-data",
+    "title": "16  List the sheets of an Excel file",
+    "section": "16.7 Work that Excel data!",
+    "text": "16.7 Work that Excel data!\nNow that you can read in Excel data, let’s try to clean and merge it. You already used the cbind() function some exercises ago. Let’s take it one step further now.\nThe urbanpop.xls (view) dataset is available in your working directory. The file still contains three sheets, and has column names in the first row of each sheet.\n\nInstructions 100 XP\n\nAdd code to read the data from the third sheet in \"urbanpop.xls\". You want to end up with three data frames: urban_sheet1, urban_sheet2 and urban_sheet3.\nExtend the cbind() call so that it also includes urban_sheet3. Make sure the first column of urban_sheet2 and urban_sheet3 are removed, so you don’t have duplicate columns. Store the result in urban.\nUse na.omit() on the urban data frame to remove all rows that contain NA values. Store the cleaned data frame as urban_clean.\nPrint a summary of urban_clean and assert that there are no more NA values.\n\n\n\nex_21.R\n\n# Add code to import data from all three sheets in urbanpop.xls\npath <- \"urbanpop.xls\"\nurban_sheet1 <- read.xls(path, sheet = 1, stringsAsFactors = FALSE)\nurban_sheet2 <- read.xls(path, sheet = 2, stringsAsFactors = FALSE)\nurban_sheet3 <- read.xls(path, sheet = 3, stringsAsFactors = FALSE)\n\n\n# Extend the cbind() call to include urban_sheet3: urban\nurban <- cbind(\n    urban_sheet1,\n    urban_sheet2[-1],\n    urban_sheet3[-1]\n    )\n\n# Remove all rows with NAs from urban: urban_clean\n\nurban_clean <- na.omit(urban)\n# Print out a summary of urban_clean\nsummary(urban_clean)"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#connect-to-a-workbook",
+    "href": "_introduction_to_importing_data_in_R_04.html#connect-to-a-workbook",
+    "title": "17  Reproducible Excel work with XLConnect",
+    "section": "17.1 Connect to a workbook",
+    "text": "17.1 Connect to a workbook\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#list-and-read-excel-sheets",
+    "href": "_introduction_to_importing_data_in_R_04.html#list-and-read-excel-sheets",
+    "title": "17  Reproducible Excel work with XLConnect",
+    "section": "17.2 List and read Excel sheets",
+    "text": "17.2 List and read Excel sheets\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#customize-readworksheet",
+    "href": "_introduction_to_importing_data_in_R_04.html#customize-readworksheet",
+    "title": "17  Reproducible Excel work with XLConnect",
+    "section": "17.3 Customize readWorksheet",
+    "text": "17.3 Customize readWorksheet\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#add-worksheet",
+    "href": "_introduction_to_importing_data_in_R_04.html#add-worksheet",
+    "title": "17  Reproducible Excel work with XLConnect",
+    "section": "17.4 Add worksheet",
+    "text": "17.4 Add worksheet\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#populate-worksheet",
+    "href": "_introduction_to_importing_data_in_R_04.html#populate-worksheet",
+    "title": "17  Reproducible Excel work with XLConnect",
+    "section": "17.5 Populate worksheet",
+    "text": "17.5 Populate worksheet\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#renaming-sheets",
+    "href": "_introduction_to_importing_data_in_R_04.html#renaming-sheets",
+    "title": "17  Reproducible Excel work with XLConnect",
+    "section": "17.6 Renaming sheets",
+    "text": "17.6 Renaming sheets\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_introduction_to_importing_data_in_R_04.html#removing-sheets",
+    "href": "_introduction_to_importing_data_in_R_04.html#removing-sheets",
+    "title": "17  Reproducible Excel work with XLConnect",
+    "section": "17.7 Removing sheets",
+    "text": "17.7 Removing sheets\n\nInstructions 100 XP"
+  },
+  {
     "objectID": "statistical-inference-whole-game.html",
     "href": "statistical-inference-whole-game.html",
     "title": "The whole game of statistical Inference",
@@ -1108,56 +1283,56 @@
   {
     "objectID": "statistical_inference.html",
     "href": "statistical_inference.html",
-    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
     "section": "",
-    "text": "16 Preleminaries"
+    "text": "19 Preleminaries"
   },
   {
     "objectID": "statistical_inference.html#likelihood-inference.",
     "href": "statistical_inference.html#likelihood-inference.",
-    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "16.1 Likelihood inference.",
-    "text": "16.1 Likelihood inference."
+    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "19.1 Likelihood inference.",
+    "text": "19.1 Likelihood inference."
   },
   {
     "objectID": "statistical_inference.html#variance-analisys.",
     "href": "statistical_inference.html#variance-analisys.",
-    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "16.2 Variance analisys.",
-    "text": "16.2 Variance analisys."
+    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "19.2 Variance analisys.",
+    "text": "19.2 Variance analisys."
   },
   {
     "objectID": "statistical_inference.html#roc-curves",
     "href": "statistical_inference.html#roc-curves",
-    "title": "15  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "16.3 ROC Curves",
-    "text": "16.3 ROC Curves"
+    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "19.3 ROC Curves",
+    "text": "19.3 ROC Curves"
   },
   {
     "objectID": "linear_regression.html#regression-models",
     "href": "linear_regression.html#regression-models",
-    "title": "16  Lienar Regression",
-    "section": "16.1 Regression models",
-    "text": "16.1 Regression models"
+    "title": "19  Lienar Regression",
+    "section": "19.1 Regression models",
+    "text": "19.1 Regression models"
   },
   {
     "objectID": "linear_regression.html#linear-regression",
     "href": "linear_regression.html#linear-regression",
-    "title": "16  Lienar Regression",
-    "section": "16.2 Linear Regression",
-    "text": "16.2 Linear Regression"
+    "title": "19  Lienar Regression",
+    "section": "19.2 Linear Regression",
+    "text": "19.2 Linear Regression"
   },
   {
     "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
     "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
-    "title": "16  Lienar Regression",
-    "section": "16.3 Multiple linear_regression and generalized linear regresion",
-    "text": "16.3 Multiple linear_regression and generalized linear regresion"
+    "title": "19  Lienar Regression",
+    "section": "19.3 Multiple linear_regression and generalized linear regresion",
+    "text": "19.3 Multiple linear_regression and generalized linear regresion"
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "\n17  Summary\n",
+    "title": "\n20  Summary\n",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
   },

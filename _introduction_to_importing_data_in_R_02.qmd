@@ -322,7 +322,7 @@ a variable potatoes.
 on the y-axis. Use the dollar sign notation twice. Feel free to name your axes 
 and plot.
 
-```{r filename="ex_014.R"}
+```{.r filename="ex_014.R"}
 # fread is already loaded
 library("data.table")
 path <- "introduction_to_importing_data_in_R/potatoes.csv"
