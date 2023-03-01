@@ -1274,6 +1274,34 @@
     "text": "17.7 Removing sheets\nAfter presenting the new Excel sheet to your peers, it appears not everybody is a big fan. Why summarize sheets and store the info in Excel if all the information is implicitly available? To hell with it, just remove the entire fourth sheet!\n\nInstructions 100 XP\n\nLoad the XLConnect package.\nBuild a connection to “renamed.xlsx”, the Excel file that you’ve built in the previous exercise; it’s available in your working directory. Store this connection as my_book.\nUse removeSheet() to remove the fourth sheet from my_book. The sheet name is \"summary\". Recall that removeSheet() accepts either the index or the name of the sheet as the second argument.\nSave the resulting workbook, my_book, to a file \"clean.xlsx\".\n\n\n\nex_027.R\n\n# Load the XLConnect package\n\nlibrary(XLConnect)\n# Build connection to renamed.xlsx: my_book\nmy_book <- loadWorkbook(\"renamed.xlsx\")\n\n# Remove the fourth sheet\nremoveSheet(my_book, \"summary\")\n\n# Save workbook to \"clean.xlsx\"\nsaveWorkbook(my_book, \"clean.xlsx\")"
   },
   {
+    "objectID": "_intermediate_importing_data_in_R_01.html#establish-a-connection",
+    "href": "_intermediate_importing_data_in_R_01.html#establish-a-connection",
+    "title": "18  Importing data from databases (Part 1)",
+    "section": "18.1 Establish a connection",
+    "text": "18.1 Establish a connection\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_01.html#list-the-database-tables",
+    "href": "_intermediate_importing_data_in_R_01.html#list-the-database-tables",
+    "title": "18  Importing data from databases (Part 1)",
+    "section": "18.2 List the database tables",
+    "text": "18.2 List the database tables\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_01.html#import-users",
+    "href": "_intermediate_importing_data_in_R_01.html#import-users",
+    "title": "18  Importing data from databases (Part 1)",
+    "section": "18.3 Import users",
+    "text": "18.3 Import users\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_01.html#import-all-tables",
+    "href": "_intermediate_importing_data_in_R_01.html#import-all-tables",
+    "title": "18  Importing data from databases (Part 1)",
+    "section": "18.4 Import all tables",
+    "text": "18.4 Import all tables\n\nInstructions 100 XP"
+  },
+  {
     "objectID": "statistical-inference-whole-game.html",
     "href": "statistical-inference-whole-game.html",
     "title": "The whole game of statistical Inference",
@@ -1283,56 +1311,56 @@
   {
     "objectID": "statistical_inference.html",
     "href": "statistical_inference.html",
-    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
     "section": "",
-    "text": "19 Preleminaries"
+    "text": "24 Preleminaries"
   },
   {
     "objectID": "statistical_inference.html#likelihood-inference.",
     "href": "statistical_inference.html#likelihood-inference.",
-    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "19.1 Likelihood inference.",
-    "text": "19.1 Likelihood inference."
+    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "24.1 Likelihood inference.",
+    "text": "24.1 Likelihood inference."
   },
   {
     "objectID": "statistical_inference.html#variance-analisys.",
     "href": "statistical_inference.html#variance-analisys.",
-    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "19.2 Variance analisys.",
-    "text": "19.2 Variance analisys."
+    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "24.2 Variance analisys.",
+    "text": "24.2 Variance analisys."
   },
   {
     "objectID": "statistical_inference.html#roc-curves",
     "href": "statistical_inference.html#roc-curves",
-    "title": "18  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "19.3 ROC Curves",
-    "text": "19.3 ROC Curves"
+    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "24.3 ROC Curves",
+    "text": "24.3 ROC Curves"
   },
   {
     "objectID": "linear_regression.html#regression-models",
     "href": "linear_regression.html#regression-models",
-    "title": "19  Lienar Regression",
-    "section": "19.1 Regression models",
-    "text": "19.1 Regression models"
+    "title": "24  Lienar Regression",
+    "section": "24.1 Regression models",
+    "text": "24.1 Regression models"
   },
   {
     "objectID": "linear_regression.html#linear-regression",
     "href": "linear_regression.html#linear-regression",
-    "title": "19  Lienar Regression",
-    "section": "19.2 Linear Regression",
-    "text": "19.2 Linear Regression"
+    "title": "24  Lienar Regression",
+    "section": "24.2 Linear Regression",
+    "text": "24.2 Linear Regression"
   },
   {
     "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
     "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
-    "title": "19  Lienar Regression",
-    "section": "19.3 Multiple linear_regression and generalized linear regresion",
-    "text": "19.3 Multiple linear_regression and generalized linear regresion"
+    "title": "24  Lienar Regression",
+    "section": "24.3 Multiple linear_regression and generalized linear regresion",
+    "text": "24.3 Multiple linear_regression and generalized linear regresion"
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "\n20  Summary\n",
+    "title": "\n25  Summary\n",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
   },

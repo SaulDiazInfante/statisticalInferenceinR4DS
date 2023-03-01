@@ -19,5 +19,33 @@
     "title": "Intermediate Importing Data in R",
     "section": "",
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_01.html#establish-a-connection",
+    "href": "_intermediate_importing_data_in_R_01.html#establish-a-connection",
+    "title": "2  Importing data from databases (Part 1)",
+    "section": "2.1 Establish a connection",
+    "text": "2.1 Establish a connection\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_01.html#list-the-database-tables",
+    "href": "_intermediate_importing_data_in_R_01.html#list-the-database-tables",
+    "title": "2  Importing data from databases (Part 1)",
+    "section": "2.2 List the database tables",
+    "text": "2.2 List the database tables\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_01.html#import-users",
+    "href": "_intermediate_importing_data_in_R_01.html#import-users",
+    "title": "2  Importing data from databases (Part 1)",
+    "section": "2.3 Import users",
+    "text": "2.3 Import users\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_01.html#import-all-tables",
+    "href": "_intermediate_importing_data_in_R_01.html#import-all-tables",
+    "title": "2  Importing data from databases (Part 1)",
+    "section": "2.4 Import all tables",
+    "text": "2.4 Import all tables\n\nInstructions 100 XP"
   }
 ]
