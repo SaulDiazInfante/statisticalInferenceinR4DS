@@ -1,0 +1,45 @@
+
+project:
+  type: book
+book:
+  title: "Intermediate Importing Data in R"
+  author: "Saul Diaz Infante Velasco"
+  search: true
+  cover-image: cover2.png
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  date: "2/23/2023"
+  repo-url: https://github.com/SaulDiazInfante/statisticalInferenceinR4DS   
+  repo-actions: [edit]
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 3
+    pinned: true
+  favicon: cover1.png
+  twitter-card: true
+  site-url: https://www.saul-diaz-infante-velasco.com
+
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: Intermediate Importing Data in R
+      chapters:
+        - _intermediate_importing_data_in_R_01.qmd
+        - _intermediate_importing_data_in_R_02.qmd
+        - _intermediate_importing_data_in_R_03.qmd
+        - _intermediate_importing_data_in_R_04.qmd
+        - _intermediate_importing_data_in_R_05.qmd
+    - summary.qmd
+    - references.qmd
+bibliography: references.bib
+format:
+  pdf: 
+    documentclass: scrbook
+    include-in-header: preamble.tex
+    fontfamily: libertinus
+  html:
+    theme: darkly
+
+
+
