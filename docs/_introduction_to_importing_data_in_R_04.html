@@ -431,44 +431,224 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Beyond importing data from Excel, you can take things one step further with XLConnect. Learn all about it and bridge the gap between R and Excel.</p>
 <section id="connect-to-a-workbook" class="level2" data-number="17.1">
 <h2 data-number="17.1" class="anchored" data-anchor-id="connect-to-a-workbook"><span class="header-section-number">17.1</span> Connect to a workbook</h2>
+<p>When working with <code>XLConnect</code>, the first step will be to load a workbook in your R session with <code>loadWorkbook()</code>; this function will build a “bridge” between your Excel file and your R session.</p>
+<p>In this and the following exercises, you will continue to work with <code>urbanpop.xlsx</code> (view data folder), containing urban population data throughout time.</p>
 <section id="instructions-100-xp" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Load the <code>XLConnect</code> package using <code>library()</code>; it is already installed on DataCamp’s servers.</li>
+<li>Use <code>loadWorkbook()</code> to build a connection to the <code>"urbanpop.xlsx"</code> file in R. Call the workbook <code>my_book</code>.</li>
+<li>Print out the class of <code>my_book</code>. What does this tell you?</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_023.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># urbanpop.xlsx is available in your working directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the XLConnect package</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(XLConnect)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Build connection to urbanpop.xlsx: my_book</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"urbanpop.xlsx"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the class of my_book</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_book)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="list-and-read-excel-sheets" class="level2" data-number="17.2">
 <h2 data-number="17.2" class="anchored" data-anchor-id="list-and-read-excel-sheets"><span class="header-section-number">17.2</span> List and read Excel sheets</h2>
+<p>Just as <code>readxl</code> and <code>gdata</code>, you can use <code>XLConnect</code> to import data from Excel file into R.</p>
+<p>To list the sheets in an Excel file, use <code>getSheets()</code>. To actually import data from a sheet, you can use <code>readWorksheet()</code>. Both functions require an XLConnect workbook object as the first argument.</p>
+<p>You’ll again be working with <code>urbanpop.xlsx</code>. The <code>my_book</code> object that links to this Excel file has already been created.</p>
 <section id="instructions-100-xp-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Print out the sheets of the Excel file that <code>my_book</code> links to.</li>
+<li>Import the second sheet in <code>my_book</code> as a data frame. Print it out.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_024.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># XLConnect is already available</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Build connection to urbanpop.xlsx</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"urbanpop.xlsx"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># List the sheets in my_book</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">getSheets</span>(my_book)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the second sheet in my_book</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">readWorksheet</span>(my_book, <span class="at">sheet =</span> <span class="st">"1967-1974"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="customize-readworksheet" class="level2" data-number="17.3">
 <h2 data-number="17.3" class="anchored" data-anchor-id="customize-readworksheet"><span class="header-section-number">17.3</span> Customize readWorksheet</h2>
+<p>To get a clear overview about urbanpop.xlsx (view) without having to open up the Excel file, you can execute the following code:</p>
+<div class="sourceCode" id="cb3" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"urbanpop.xlsx"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sheets <span class="ot">&lt;-</span> <span class="fu">getSheets</span>(my_book)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>all <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sheets, readWorksheet, <span class="at">object =</span> my_book)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Suppose we’re only interested in urban population data of the years 1968, 1969 and 1970. The data for these years is in the columns 3, 4, and 5 of the second sheet. Only selecting these columns will leave us in the dark about the actual countries the figures belong to.</p>
 <section id="instructions-100-xp-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Extend the readWorksheet() command with the startCol and endCol arguments to only import the columns 3, 4, and 5 of the second sheet. -urbanpop_sel no longer contains information about the countries now. Can you write another readWorksheet() command that imports only the first column from the second sheet? Store the resulting data frame as countries. -Use cbind() to paste together countries and urbanpop_sel, in this order. Store the result as selection.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_025.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># XLConnect is already available</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Build connection to urbanpop.xlsx</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"urbanpop.xlsx"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import columns 3, 4, and 5 from second sheet in my_book: urbanpop_sel</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>urbanpop_sel <span class="ot">&lt;-</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">readWorksheet</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        my_book,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">sheet =</span> <span class="dv">2</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">startCol =</span> <span class="dv">3</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">endCol =</span> <span class="dv">5</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import first column from second sheet in my_book: </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># countries</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">readWorksheet</span>(</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        my_book,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">sheet =</span> <span class="dv">2</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">startCol =</span> <span class="dv">1</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">endCol =</span> <span class="dv">1</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># cbind() urbanpop_sel and countries together: selection</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>selection <span class="ot">&lt;-</span> <span class="fu">cbind</span>(countries, urbanpop_sel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="add-worksheet" class="level2" data-number="17.4">
 <h2 data-number="17.4" class="anchored" data-anchor-id="add-worksheet"><span class="header-section-number">17.4</span> Add worksheet</h2>
+<p>Where <code>readxl</code> and gdata were only able to import Excel data, <code>XLConnect's</code> approach of providing an actual interface to an Excel file makes it able to edit your Excel files from inside R. In this exercise, you’ll create a new sheet. In the next exercise, you’ll populate the sheet with data, and save the results in a new Excel file.</p>
+<p>You’ll continue to work with <code>urbanpop.xlsx</code>. The <code>my_book</code> object that links to this Excel file is already available.</p>
 <section id="instructions-100-xp-3" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Use <code>createSheet()</code>, to create a new sheet in <code>my_book</code>, named <code>"data_summary"</code>.</li>
+<li>Use <code>getSheets()</code> to verify that <code>my_book</code> now represents an Excel file with four sheets.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_026.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># XLConnect is already available</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Build connection to urbanpop.xlsx</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"urbanpop.xlsx"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a worksheet to my_book, named "data_summary"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">createSheet</span>(my_book, <span class="st">"data_summary"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Use getSheets() on my_book</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">getSheets</span>(my_book)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="populate-worksheet" class="level2" data-number="17.5">
 <h2 data-number="17.5" class="anchored" data-anchor-id="populate-worksheet"><span class="header-section-number">17.5</span> Populate worksheet</h2>
+<p>The first step of creating a sheet is done; let’s populate it with some data now! summ, a data frame with some summary statistics on the two Excel sheets is already coded so you can take it from there.</p>
 <section id="instructions-100-xp-4" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Use <code>writeWorksheet()</code> to populate the <code>"data_summary"</code> sheet with the summ data frame.</li>
+<li>Call <code>saveWorkbook()</code> to store the adapted Excel workbook as a new file, <code>"summary.xlsx"</code></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_026.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># XLConnect is already available</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Build connection to urbanpop.xlsx</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"urbanpop.xlsx"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a worksheet to my_book, named "data_summary"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">createSheet</span>(my_book, <span class="st">"data_summary"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data frame: summ</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>sheets <span class="ot">&lt;-</span> <span class="fu">getSheets</span>(my_book)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>dims <span class="ot">&lt;-</span> <span class="fu">sapply</span>(</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    sheets,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">function</span>(x) <span class="fu">dim</span>(<span class="fu">readWorksheet</span>(my_book, <span class="at">sheet =</span> x)),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">USE.NAMES =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>summ <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sheets =</span> sheets,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">nrows =</span> dims[<span class="dv">1</span>, ],</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ncols =</span> dims[<span class="dv">2</span>, ])</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Add data in summ to "data_summary" sheet</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">writeWorksheet</span>(my_book, summ, <span class="at">sheet =</span> <span class="st">"data_summary"</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Save workbook as summary.xlsx</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(my_book, <span class="st">"summary.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="renaming-sheets" class="level2" data-number="17.6">
 <h2 data-number="17.6" class="anchored" data-anchor-id="renaming-sheets"><span class="header-section-number">17.6</span> Renaming sheets</h2>
+<p>Come to think of it, “data_summary” is not an ideal name. As the summary of these excel sheets is always data-related, you simply want to name the sheet “summary”.</p>
+<p>The code to build a connection to <code>"urbanpop.xlsx"</code> and create my_book is already provided for you. It refers to an Excel file with 4 sheets: the three data sheets, and the “data_summary” sheet.</p>
 <section id="instructions-100-xp-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Use <code>renameSheet()</code> to rename the fourth sheet to <code>"summary"</code>.</li>
+<li>Next, call <code>getSheets()</code> on <code>my_book</code> to print out the sheet names.</li>
+<li>Finally, make sure to actually save the <code>my_book</code> object to a new Excel file, <code>"renamed.xlsx"</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_027.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build connection to urbanpop.xlsx: my_book</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"urbanpop.xlsx"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename "data_summary" sheet to "summary"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">renameSheet</span>(my_book, <span class="st">"data_summary"</span>, <span class="st">"summary"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out sheets of my_book</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getSheets</span>(my_book)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save workbook to "renamed.xlsx"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(my_book, <span class="st">"renamed.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="removing-sheets" class="level2" data-number="17.7">
 <h2 data-number="17.7" class="anchored" data-anchor-id="removing-sheets"><span class="header-section-number">17.7</span> Removing sheets</h2>
+<p>After presenting the new Excel sheet to your peers, it appears not everybody is a big fan. Why summarize sheets and store the info in Excel if all the information is implicitly available? To hell with it, just remove the entire fourth sheet!</p>
 <section id="instructions-100-xp-6" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Load the XLConnect package.</li>
+<li>Build a connection to “renamed.xlsx”, the Excel file that you’ve built in the previous exercise; it’s available in your working directory. Store this connection as my_book.</li>
+<li>Use <code>removeSheet()</code> to remove the fourth sheet from <code>my_book</code>. The sheet name is <code>"summary"</code>. Recall that <code>removeSheet()</code> accepts either the index or the name of the sheet as the second argument.</li>
+<li>Save the resulting workbook, <code>my_book</code>, to a file <code>"clean.xlsx"</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_027.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the XLConnect package</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(XLConnect)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Build connection to renamed.xlsx: my_book</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>my_book <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(<span class="st">"renamed.xlsx"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the fourth sheet</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">removeSheet</span>(my_book, <span class="st">"summary"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Save workbook to "clean.xlsx"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(my_book, <span class="st">"clean.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <!-- -->
@@ -673,40 +853,254 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reproducible Excel work with XLConnect</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Beyond importing data from Excel, you can take things one step </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>further with XLConnect. Learn all about it and bridge the gap between</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>R and Excel.</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Connect to a workbook</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## List and read Excel sheets</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Customize readWorksheet</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Add worksheet</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Populate worksheet</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Renaming sheets</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Removing sheets</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP`  {.unnumbered}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="markdown" data-shortcodes="false"><code># Reproducible Excel work with XLConnect
+
+Beyond importing data from Excel, you can take things one step 
+further with XLConnect. Learn all about it and bridge the gap between
+R and Excel.
+
+## Connect to a workbook
+
+When working with `XLConnect`, the first step will be to load a workbook in your
+R session with `loadWorkbook()`; this function will build a "bridge" between 
+your Excel file and your R session.
+
+In this and the following exercises, you will continue to work with 
+`urbanpop.xlsx` (view data folder), containing urban population data throughout
+time. 
+
+### Instructions `100 XP`  {.unnumbered}
+
+- Load the `XLConnect` package using `library()`; it is already installed on
+DataCamp's servers.
+- Use `loadWorkbook()` to build a connection to the `"urbanpop.xlsx"` file in R.
+Call the workbook `my_book`.
+- Print out the class of `my_book`. What does this tell you?
+
+```{.r filename="ex_023.R"}
+# urbanpop.xlsx is available in your working directory
+# Load the XLConnect package
+library(XLConnect)
+
+# Build connection to urbanpop.xlsx: my_book
+my_book &lt;- loadWorkbook("urbanpop.xlsx")
+
+# Print out the class of my_book
+class(my_book)
+```
+
+## List and read Excel sheets
+
+Just as `readxl` and `gdata`, you can use 
+`XLConnect` to import data from Excel file into R.
+
+To list the sheets in an Excel file, use 
+`getSheets()`. To actually import data from a sheet, you can use 
+`readWorksheet()`. Both functions require an XLConnect workbook object 
+as the first argument.
+
+You'll again be working with `urbanpop.xlsx`. The
+`my_book` object that links to this Excel file has already been created.
+
+### Instructions `100 XP`  {.unnumbered}
+- Print out the sheets of the Excel file that `my_book` links to.
+- Import the second sheet in `my_book` as a data frame. Print it out.
+```{.r filename="ex_024.R"}
+# XLConnect is already available
+
+# Build connection to urbanpop.xlsx
+my_book &lt;- loadWorkbook("urbanpop.xlsx")
+
+# List the sheets in my_book
+getSheets(my_book)
+
+# Import the second sheet in my_book
+readWorksheet(my_book, sheet = "1967-1974")
+
+```
+
+
+## Customize readWorksheet
+To get a clear overview about urbanpop.xlsx (view) without having to 
+open up the Excel file, you can execute the following code:
+
+```{.r code-line-numbers="false"}
+my_book &lt;- loadWorkbook("urbanpop.xlsx")
+sheets &lt;- getSheets(my_book)
+all &lt;- lapply(sheets, readWorksheet, object = my_book)
+str(all)
+```
+Suppose we're only interested in urban population data of the years 
+1968, 1969 and 1970. The data for these years is in the 
+columns 3, 4, and 5 of the second sheet. Only selecting these 
+columns will leave us in the dark about the actual countries the figures
+belong to.
+
+### Instructions `100 XP`  {.unnumbered}
+
+- Extend the readWorksheet() command with the startCol and endCol 
+arguments to only import the columns 3, 4, and 5 of the second sheet.
+-urbanpop_sel no longer contains information about the countries now. 
+Can you write another readWorksheet() command that imports only the 
+first column from the second sheet? Store the resulting data frame as 
+countries.
+-Use cbind() to paste together countries and urbanpop_sel, in this 
+order. Store the result as selection.
+```{.r filename="ex_025.R"}
+# XLConnect is already available
+
+# Build connection to urbanpop.xlsx
+my_book &lt;- loadWorkbook("urbanpop.xlsx")
+
+# Import columns 3, 4, and 5 from second sheet in my_book: urbanpop_sel
+urbanpop_sel &lt;- 
+    readWorksheet(
+        my_book,
+        sheet = 2,
+        startCol = 3,
+        endCol = 5
+    )
+
+# Import first column from second sheet in my_book: 
+# countries
+countries &lt;- 
+    readWorksheet(
+        my_book,
+        sheet = 2,
+        startCol = 1,
+        endCol = 1
+    )
+# cbind() urbanpop_sel and countries together: selection
+selection &lt;- cbind(countries, urbanpop_sel)
+```
+
+
+## Add worksheet
+Where `readxl` and gdata were only able to import Excel data, 
+`XLConnect's` approach of providing an actual interface to an Excel file 
+makes it able to edit your Excel files from inside R.
+In this exercise, you'll create 
+a new sheet. In the next exercise, you'll populate the sheet with data, 
+and save the results in a new Excel file.
+
+You'll continue to work with `urbanpop.xlsx`. The `my_book` object that 
+links to this Excel file is already available.
+
+### Instructions `100 XP`  {.unnumbered}
+- Use `createSheet()`, to create a new sheet in `my_book`,
+ named `"data_summary"`.
+- Use `getSheets()` to verify that `my_book` now represents an Excel file 
+with four sheets.
+
+```{.r filename="ex_026.R"}
+# XLConnect is already available
+
+# Build connection to urbanpop.xlsx
+my_book &lt;- loadWorkbook("urbanpop.xlsx")
+
+# Add a worksheet to my_book, named "data_summary"
+createSheet(my_book, "data_summary")
+
+# Use getSheets() on my_book
+getSheets(my_book)
+```
+## Populate worksheet
+
+The first step of creating a sheet is done; let's populate it with some
+data now! summ, a data frame with some summary statistics on the two 
+Excel sheets is already coded so you can take it from there.
+
+### Instructions `100 XP`  {.unnumbered}
+
+- Use `writeWorksheet()` to populate the `"data_summary"` sheet with the 
+summ data frame.
+- Call `saveWorkbook()` to store the adapted Excel workbook as a new 
+file, `"summary.xlsx"`
+
+```{.r filename="ex_026.R"}
+# XLConnect is already available
+
+# Build connection to urbanpop.xlsx
+my_book &lt;- loadWorkbook("urbanpop.xlsx")
+
+# Add a worksheet to my_book, named "data_summary"
+createSheet(my_book, "data_summary")
+
+# Create data frame: summ
+sheets &lt;- getSheets(my_book)[1:3]
+dims &lt;- sapply(
+    sheets,
+    function(x) dim(readWorksheet(my_book, sheet = x)),
+    USE.NAMES = FALSE
+)
+summ &lt;- data.frame(sheets = sheets,
+                   nrows = dims[1, ],
+                   ncols = dims[2, ])
+
+# Add data in summ to "data_summary" sheet
+writeWorksheet(my_book, summ, sheet = "data_summary")
+
+# Save workbook as summary.xlsx
+saveWorkbook(my_book, "summary.xlsx")
+```
+## Renaming sheets
+
+Come to think of it, "data_summary" is not an ideal name. As the summary 
+of these excel sheets is always data-related, you simply want to name 
+the sheet "summary".
+
+The code to build a connection to `"urbanpop.xlsx"` and create my_book is
+already provided for you. It refers to an Excel file with 4 sheets: 
+the three data sheets, and the "data_summary" sheet.
+
+### Instructions `100 XP`  {.unnumbered}
+- Use `renameSheet()` to rename the fourth sheet to `"summary"`.
+- Next, call `getSheets()` on `my_book` to print out the sheet names.
+- Finally, make sure to actually save the `my_book` object to a new 
+Excel file, `"renamed.xlsx"`.
+
+```{.r filename="ex_027.R"}
+# Build connection to urbanpop.xlsx: my_book
+my_book &lt;- loadWorkbook("urbanpop.xlsx")
+# Rename "data_summary" sheet to "summary"
+renameSheet(my_book, "data_summary", "summary")
+# Print out sheets of my_book
+getSheets(my_book)
+# Save workbook to "renamed.xlsx"
+saveWorkbook(my_book, "renamed.xlsx")
+```
+## Removing sheets
+After presenting the new Excel sheet to your peers, it appears not 
+everybody is a big fan. Why summarize sheets and store the info in Excel if all
+the information is implicitly available? To hell with it, just remove the entire
+fourth sheet!
+
+### Instructions `100 XP`  {.unnumbered}
+
+- Load the XLConnect package.
+- Build a connection to "renamed.xlsx", the Excel file that you've built in the 
+previous exercise; it's available in your working directory. Store this 
+connection as my_book.
+- Use `removeSheet()` to remove the fourth sheet from `my_book`. The sheet name
+is `"summary"`. 
+Recall that `removeSheet()` accepts either the index or the name of the sheet 
+as the second argument.
+- Save the resulting workbook, `my_book`, to a file `"clean.xlsx"`.
+
+```{.r filename="ex_027.R"}
+# Load the XLConnect package
+
+library(XLConnect)
+# Build connection to renamed.xlsx: my_book
+my_book &lt;- loadWorkbook("renamed.xlsx")
+
+# Remove the fourth sheet
+removeSheet(my_book, "summary")
+
+# Save workbook to "clean.xlsx"
+saveWorkbook(my_book, "clean.xlsx")
+
+```</code></pre>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -16,7 +16,7 @@ Load the `readxl` package using` library()`.
 It's already installed on DataCamp's servers.
 Use excel_sheets() to print out the names of the sheets in `urbanpop.xlsx`.
 
-```{.r filename="ex_15.R"}
+```{.r filename="ex_015.R"}
 # Load the readxl package
 library(readxl)
 
@@ -51,7 +51,7 @@ resulting data  frame in `pop_3`?
 that you call `pop_list`. 
 - Display the structure of `pop_list`.
 
-```{.r filename=ex_16.R}
+```{.r filename=ex_016.R}
 # The readxl package is already loaded
 
 # Read the sheets, one by one
@@ -95,7 +95,7 @@ You're still working with the `urbanpop.xlsx` (view) file.
 Name the resulting list `pop_list`.
 - Print the structure of pop_list.
 
-```{.r filename="ex_17.R"}
+```{.r filename="ex_017.R"}
 # The readxl package is already loaded
 
 # Read all Excel sheets with lapply(): pop_list
@@ -139,7 +139,7 @@ the column names. Store the resulting data frame in `pop_b`.
 - Print out the summary of `pop_b`. Can you spot the difference with the
 other summary?
 
-```{.r filename="ex_18.R"}
+```{.r filename="ex_018.R"}
 # The readxl package is already loaded
 
 # Import the first Excel sheet of urbanpop_nonames.xlsx (R gives names): pop_a
@@ -181,7 +181,7 @@ rows. Make sure to set `col_names = FALSE`.
 Store the resulting data frame in a variable `urbanpop_sel`.
 Select the first observation from `urbanpop_sel` and print it out.
 
-```{.r filename="ex_18.R"}
+```{.r filename="ex_019.R"}
 # The readxl package is already loaded
 
 # Import the second sheet of urbanpop.xlsx, skipping the first 21 rows: urbanpop_sel
@@ -216,7 +216,7 @@ installed on DataCamp's Servers.
 `read.xls()`. Store the resulting data frame as `urban_pop`.
 - Print the first 11 observations of `urban_pop` with `head()`.
 
-```{.r filename="ex_019.R"}
+```{.r filename="ex_020.R"}
 # Load the gdata package
 library(gdata)
 
@@ -252,7 +252,7 @@ Make sure to set header appropriately and that the country names are not
 imported as factors.
 
 - Print the first 10 observations of `urban_pop` with `head()`.
-```{.r filename="ex_20.R"}
+```{.r filename="ex_021.R"}
 # The gdata package is alreaded loaded
 
 # Column names for urban_pop
@@ -295,7 +295,7 @@ contain `NA` values. Store the cleaned data frame as `urban_clean`.
 - Print a summary of `urban_clean` and assert that there are no more 
 `NA` values.
 
-```{.r filename=ex_21.R}
+```{.r filename=ex_022.R}
 # Add code to import data from all three sheets in urbanpop.xls
 path <- "urbanpop.xls"
 urban_sheet1 <- read.xls(path, sheet = 1, stringsAsFactors = FALSE)

@@ -1229,49 +1229,49 @@
     "href": "_introduction_to_importing_data_in_R_04.html#connect-to-a-workbook",
     "title": "17  Reproducible Excel work with XLConnect",
     "section": "17.1 Connect to a workbook",
-    "text": "17.1 Connect to a workbook\n\nInstructions 100 XP"
+    "text": "17.1 Connect to a workbook\nWhen working with XLConnect, the first step will be to load a workbook in your R session with loadWorkbook(); this function will build a “bridge” between your Excel file and your R session.\nIn this and the following exercises, you will continue to work with urbanpop.xlsx (view data folder), containing urban population data throughout time.\n\nInstructions 100 XP\n\nLoad the XLConnect package using library(); it is already installed on DataCamp’s servers.\nUse loadWorkbook() to build a connection to the \"urbanpop.xlsx\" file in R. Call the workbook my_book.\nPrint out the class of my_book. What does this tell you?\n\n\n\nex_023.R\n\n# urbanpop.xlsx is available in your working directory\n# Load the XLConnect package\nlibrary(XLConnect)\n\n# Build connection to urbanpop.xlsx: my_book\nmy_book <- loadWorkbook(\"urbanpop.xlsx\")\n\n# Print out the class of my_book\nclass(my_book)"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_04.html#list-and-read-excel-sheets",
     "href": "_introduction_to_importing_data_in_R_04.html#list-and-read-excel-sheets",
     "title": "17  Reproducible Excel work with XLConnect",
     "section": "17.2 List and read Excel sheets",
-    "text": "17.2 List and read Excel sheets\n\nInstructions 100 XP"
+    "text": "17.2 List and read Excel sheets\nJust as readxl and gdata, you can use XLConnect to import data from Excel file into R.\nTo list the sheets in an Excel file, use getSheets(). To actually import data from a sheet, you can use readWorksheet(). Both functions require an XLConnect workbook object as the first argument.\nYou’ll again be working with urbanpop.xlsx. The my_book object that links to this Excel file has already been created.\n\nInstructions 100 XP\n\nPrint out the sheets of the Excel file that my_book links to.\nImport the second sheet in my_book as a data frame. Print it out.\n\n\n\nex_024.R\n\n# XLConnect is already available\n\n# Build connection to urbanpop.xlsx\nmy_book <- loadWorkbook(\"urbanpop.xlsx\")\n\n# List the sheets in my_book\ngetSheets(my_book)\n\n# Import the second sheet in my_book\nreadWorksheet(my_book, sheet = \"1967-1974\")"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_04.html#customize-readworksheet",
     "href": "_introduction_to_importing_data_in_R_04.html#customize-readworksheet",
     "title": "17  Reproducible Excel work with XLConnect",
     "section": "17.3 Customize readWorksheet",
-    "text": "17.3 Customize readWorksheet\n\nInstructions 100 XP"
+    "text": "17.3 Customize readWorksheet\nTo get a clear overview about urbanpop.xlsx (view) without having to open up the Excel file, you can execute the following code:\nmy_book <- loadWorkbook(\"urbanpop.xlsx\")\nsheets <- getSheets(my_book)\nall <- lapply(sheets, readWorksheet, object = my_book)\nstr(all)\nSuppose we’re only interested in urban population data of the years 1968, 1969 and 1970. The data for these years is in the columns 3, 4, and 5 of the second sheet. Only selecting these columns will leave us in the dark about the actual countries the figures belong to.\n\nInstructions 100 XP\n\nExtend the readWorksheet() command with the startCol and endCol arguments to only import the columns 3, 4, and 5 of the second sheet. -urbanpop_sel no longer contains information about the countries now. Can you write another readWorksheet() command that imports only the first column from the second sheet? Store the resulting data frame as countries. -Use cbind() to paste together countries and urbanpop_sel, in this order. Store the result as selection.\n\n\n\nex_025.R\n\n# XLConnect is already available\n\n# Build connection to urbanpop.xlsx\nmy_book <- loadWorkbook(\"urbanpop.xlsx\")\n\n# Import columns 3, 4, and 5 from second sheet in my_book: urbanpop_sel\nurbanpop_sel <- \n    readWorksheet(\n        my_book,\n        sheet = 2,\n        startCol = 3,\n        endCol = 5\n    )\n\n# Import first column from second sheet in my_book: \n# countries\ncountries <- \n    readWorksheet(\n        my_book,\n        sheet = 2,\n        startCol = 1,\n        endCol = 1\n    )\n# cbind() urbanpop_sel and countries together: selection\nselection <- cbind(countries, urbanpop_sel)"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_04.html#add-worksheet",
     "href": "_introduction_to_importing_data_in_R_04.html#add-worksheet",
     "title": "17  Reproducible Excel work with XLConnect",
     "section": "17.4 Add worksheet",
-    "text": "17.4 Add worksheet\n\nInstructions 100 XP"
+    "text": "17.4 Add worksheet\nWhere readxl and gdata were only able to import Excel data, XLConnect's approach of providing an actual interface to an Excel file makes it able to edit your Excel files from inside R. In this exercise, you’ll create a new sheet. In the next exercise, you’ll populate the sheet with data, and save the results in a new Excel file.\nYou’ll continue to work with urbanpop.xlsx. The my_book object that links to this Excel file is already available.\n\nInstructions 100 XP\n\nUse createSheet(), to create a new sheet in my_book, named \"data_summary\".\nUse getSheets() to verify that my_book now represents an Excel file with four sheets.\n\n\n\nex_026.R\n\n# XLConnect is already available\n\n# Build connection to urbanpop.xlsx\nmy_book <- loadWorkbook(\"urbanpop.xlsx\")\n\n# Add a worksheet to my_book, named \"data_summary\"\ncreateSheet(my_book, \"data_summary\")\n\n# Use getSheets() on my_book\ngetSheets(my_book)"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_04.html#populate-worksheet",
     "href": "_introduction_to_importing_data_in_R_04.html#populate-worksheet",
     "title": "17  Reproducible Excel work with XLConnect",
     "section": "17.5 Populate worksheet",
-    "text": "17.5 Populate worksheet\n\nInstructions 100 XP"
+    "text": "17.5 Populate worksheet\nThe first step of creating a sheet is done; let’s populate it with some data now! summ, a data frame with some summary statistics on the two Excel sheets is already coded so you can take it from there.\n\nInstructions 100 XP\n\nUse writeWorksheet() to populate the \"data_summary\" sheet with the summ data frame.\nCall saveWorkbook() to store the adapted Excel workbook as a new file, \"summary.xlsx\"\n\n\n\nex_026.R\n\n# XLConnect is already available\n\n# Build connection to urbanpop.xlsx\nmy_book <- loadWorkbook(\"urbanpop.xlsx\")\n\n# Add a worksheet to my_book, named \"data_summary\"\ncreateSheet(my_book, \"data_summary\")\n\n# Create data frame: summ\nsheets <- getSheets(my_book)[1:3]\ndims <- sapply(\n    sheets,\n    function(x) dim(readWorksheet(my_book, sheet = x)),\n    USE.NAMES = FALSE\n)\nsumm <- data.frame(sheets = sheets,\n                   nrows = dims[1, ],\n                   ncols = dims[2, ])\n\n# Add data in summ to \"data_summary\" sheet\nwriteWorksheet(my_book, summ, sheet = \"data_summary\")\n\n# Save workbook as summary.xlsx\nsaveWorkbook(my_book, \"summary.xlsx\")"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_04.html#renaming-sheets",
     "href": "_introduction_to_importing_data_in_R_04.html#renaming-sheets",
     "title": "17  Reproducible Excel work with XLConnect",
     "section": "17.6 Renaming sheets",
-    "text": "17.6 Renaming sheets\n\nInstructions 100 XP"
+    "text": "17.6 Renaming sheets\nCome to think of it, “data_summary” is not an ideal name. As the summary of these excel sheets is always data-related, you simply want to name the sheet “summary”.\nThe code to build a connection to \"urbanpop.xlsx\" and create my_book is already provided for you. It refers to an Excel file with 4 sheets: the three data sheets, and the “data_summary” sheet.\n\nInstructions 100 XP\n\nUse renameSheet() to rename the fourth sheet to \"summary\".\nNext, call getSheets() on my_book to print out the sheet names.\nFinally, make sure to actually save the my_book object to a new Excel file, \"renamed.xlsx\".\n\n\n\nex_027.R\n\n# Build connection to urbanpop.xlsx: my_book\nmy_book <- loadWorkbook(\"urbanpop.xlsx\")\n# Rename \"data_summary\" sheet to \"summary\"\nrenameSheet(my_book, \"data_summary\", \"summary\")\n# Print out sheets of my_book\ngetSheets(my_book)\n# Save workbook to \"renamed.xlsx\"\nsaveWorkbook(my_book, \"renamed.xlsx\")"
   },
   {
     "objectID": "_introduction_to_importing_data_in_R_04.html#removing-sheets",
     "href": "_introduction_to_importing_data_in_R_04.html#removing-sheets",
     "title": "17  Reproducible Excel work with XLConnect",
     "section": "17.7 Removing sheets",
-    "text": "17.7 Removing sheets\n\nInstructions 100 XP"
+    "text": "17.7 Removing sheets\nAfter presenting the new Excel sheet to your peers, it appears not everybody is a big fan. Why summarize sheets and store the info in Excel if all the information is implicitly available? To hell with it, just remove the entire fourth sheet!\n\nInstructions 100 XP\n\nLoad the XLConnect package.\nBuild a connection to “renamed.xlsx”, the Excel file that you’ve built in the previous exercise; it’s available in your working directory. Store this connection as my_book.\nUse removeSheet() to remove the fourth sheet from my_book. The sheet name is \"summary\". Recall that removeSheet() accepts either the index or the name of the sheet as the second argument.\nSave the resulting workbook, my_book, to a file \"clean.xlsx\".\n\n\n\nex_027.R\n\n# Load the XLConnect package\n\nlibrary(XLConnect)\n# Build connection to renamed.xlsx: my_book\nmy_book <- loadWorkbook(\"renamed.xlsx\")\n\n# Remove the fourth sheet\nremoveSheet(my_book, \"summary\")\n\n# Save workbook to \"clean.xlsx\"\nsaveWorkbook(my_book, \"clean.xlsx\")"
   },
   {
     "objectID": "statistical-inference-whole-game.html",
