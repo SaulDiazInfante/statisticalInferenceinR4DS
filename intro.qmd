@@ -22,13 +22,16 @@ ggplot(airquality, aes(Temp, Ozone)) +
   
 ```
 
+
+
+# Rubrics for a Data Analyst (Associate and professional){.unnumbered}
 We also want to cover the fundamentals of a common Data Analyst hast to 
 know according to the DataCamp's rubrics at the current date (March-01, 2023).
 
-# Rubrics for a Data Analyst (Associate and professional){.unnumbered}
-
 ::: {.panel-tabset}
+
 ## Associate
+
 ```{r}
 header <- c("Topic", "Competency","Sufficient","Insufficient")
 topics <- c(
@@ -82,6 +85,7 @@ df_rubric_da_associate <-
 knitr::kable(df_rubric_da_associate, format = "html")
 
 ```
+
 ## Professional
 
 ```{r}
@@ -128,9 +132,9 @@ sufficient <- c(
   ",
   "
     Has described at least one of the business goals of the project
-    \n
+    \\n
     Has explained how their work has addressed the business problem
-    \n
+    \\n
     Has provided at least one recommendation for future action to be taken 
     based on the outcome of the work done
   ",
@@ -144,7 +148,7 @@ sufficient <- c(
   "
     For each analysis step, has provided a written explanation of their findings
     and/or reasoning for selecting approaches
-    \n
+    \\n
     Has delivered a verbal presentation addressing the business goals, outcomes
     and recommendations
   "
@@ -190,6 +194,71 @@ knitr::kable(df_rubric_da_professional, format = "html")
 
 ```
 :::
+
+Here we also enclose the material to take the Skill Assessments for Data Analyst 
+and Data Scientist certifications.
+
+
+::: {.panel-tabset}
+
+## Data Analyst
+
+DataCamp recommends that you complete the follwing tracks the associate and 
+professional certification
+
+- Data Analyst with SQL career track for 
+- Data Analyst with R or 
+- Data Analyst with Python career tracks for the professional certification
+being R or Python accordingly
+
+
+```{r}
+header <- c("SKILL ASSESMENT", "ASSOCIATE", "PROFESSIONAL")
+skill <- c(
+  "Data Management in SQL (PostgreSQL)",
+  "Data Analysis in SQL (PostgreSQL)",
+  "Importing & Cleaning Data in R/Python",
+  "Data Manipulation in R/Python",
+  "Statistical Fundamentals in R/Python"
+)
+associate_points <- c(134, 115, NA, NA, NA)
+profesional_points <- c(134, 115, 111, 111, 125)
+df_data_analyst_assesments <- 
+  data.frame(skill, associate_points, profesional_points)
+names(df_data_analyst_assesments) <- header
+knitr::kable(df_data_analyst_assesments, format = "html")
+```
+## Data Scientist
+
+DataCamp recommends that you complete the following  tracks
+
+- SQL Fundamentals skill
+- Data Scientist with R (career)
+- Data Scientist with Python (career) 
+
+you may want to enroll in the Data Communication Concepts course to prepare for
+the practical exam.
+
+```{r}
+header <- c("SKILL ASSESMENT", "ASSOCIATE", "PROFESSIONAL")
+skill <- c(
+  "Data Manipulation in R/Python",
+  " Statistical Fundamentals in R/Python",
+  " Importing & Cleaning in R/Python",
+  " Data Management in SQL (PostgreSQL)",
+  " Machine Learning Fundamentals in R/Python",
+  " R / Python Programming"
+)
+associate_points <- c(131, 125, 130, NA, 119, 120)
+profesional_points <- c(131, 125, 149, 134, 119, 140)
+df_data_scientist_assesments <- 
+  data.frame(skill, associate_points, profesional_points)
+names(df_data_scientist_assesments) <- header
+knitr::kable(df_data_scientist_assesments, format = "html")
+```
+:::
+
+
 
 
 
