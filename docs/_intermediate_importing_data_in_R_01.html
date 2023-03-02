@@ -414,10 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="toc-section-number">18.4</span>  Import all tables</a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
-  </ul></li>
+  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="toc-section-number">18.4</span>  Import all tables</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_intermediate_importing_data_in_R_01.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -444,31 +441,130 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Many companies store their information in relational databases. The R community has also developed R packages to get data from these architectures. You’ll learn how to connect to a database and how to retrieve data from it.</p>
 <section id="establish-a-connection" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="establish-a-connection"><span class="header-section-number">18.1</span> Establish a connection</h2>
+<p>The first step to import data from a SQL database is creating a connection to it. As Filip explained, you need different packages depending on the database you want to connect to. All of these packages do this in a uniform way, as specified in the <code>DBI</code> package.</p>
+<p><code>dbConnect()</code> creates a connection between your R session and a SQL database. The first argument has to be a <code>DBIdriver</code> object, that specifies how connections are made and how data is mapped between R and the database. Specifically for MySQL databases, you can build such a driver with <code>RMySQL::MySQL()</code>.</p>
+<p>If the MySQL database is a remote database hosted on a server, you’ll also have to specify the following arguments in <code>dbConnect()</code>: <code>dbname</code>, <code>host</code>, <code>port</code>, <code>user</code> and <code>password</code>. Most of these details have already been provided.</p>
 <section id="instructions-100-xp" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Load the <code>DBI</code> library, which is already installed on DataCamp’s servers.</li>
+<li>Edit the <code>dbConnect()</code> call to connect to the <code>MySQL</code> database. Change the port argument (<code>3306</code>) and user argument (<code>"student"</code>).</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_001.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DBI package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit dbConnect() call</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">"tweater"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host =</span> <span class="st">"courses.csrrinzqubik.us-east-1.rds.amazonaws.com"</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port =</span> <span class="dv">3306</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user =</span> <span class="st">"student"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password =</span> <span class="st">"datacamp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="list-the-database-tables" class="level2" data-number="18.2">
 <h2 data-number="18.2" class="anchored" data-anchor-id="list-the-database-tables"><span class="header-section-number">18.2</span> List the database tables</h2>
+<p>After you’ve successfully connected to a remote <code>MySQL</code> database, the next step is to see what tables the database contains. You can do this with the <code>dbListTables()</code> function. As you might remember from the video, this function requires the connection object as an input, and outputs a character vector with the table names.</p>
 <section id="instructions-100-xp-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
+<ul>
+<li><p>Add code to create a vector tables, that contains the tables in the tweater database. You can connect to this database through the con object.</p></li>
+<li><p>Display the structure of tables; what’s the class of this vector?</p></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_002.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DBI package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the MySQL database: con</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">"tweater"</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host =</span> <span class="st">"courses.csrrinzqubik.us-east-1.rds.amazonaws.com"</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port =</span> <span class="dv">3306</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user =</span> <span class="st">"student"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password =</span> <span class="st">"datacamp"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a vector of table names: tables</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> <span class="fu">dbListTables</span>(con)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display structure of tables</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tables)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tables)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="import-users" class="level2" data-number="18.3">
 <h2 data-number="18.3" class="anchored" data-anchor-id="import-users"><span class="header-section-number">18.3</span> Import users</h2>
+<p>As you might have guessed by now, the database contains data on a more tasty version of Twitter, namely Tweater. Users can post tweats with short recipes for delicious snacks. People can comment on these tweats. There are three tables: <em>users, tweats</em>, and <em>comments</em> that have relations among them. Which ones, you ask? You’ll discover in a moment!</p>
+<p>Let’s start by importing the data on the users into your R session. You do this with the ‘dbReadTable()’ function. Simply pass it the connection object (‘con’), followed by the name of the table you want to import. The resulting object is a standard R data frame.</p>
 <section id="instructions-100-xp-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Add code that imports the “users” table from the tweater database and store the resulting data frame as users.</li>
+<li>Print the users data frame.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_003.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DBI package</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the MySQL database: con</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">"tweater"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host =</span> <span class="st">"courses.csrrinzqubik.us-east-1.rds.amazonaws.com"</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port =</span> <span class="dv">3306</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user =</span> <span class="st">"student"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password =</span> <span class="st">"datacamp"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the users table from tweater: users</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>users <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, <span class="st">"users"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Print users</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>users</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="import-all-tables" class="level2" data-number="18.4">
 <h2 data-number="18.4" class="anchored" data-anchor-id="import-all-tables"><span class="header-section-number">18.4</span> Import all tables</h2>
-<section id="instructions-100-xp-3" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<p>Next to the users, we’re also interested in the <code>tweats</code> and <code>comments</code> tables. However, separate <code>dbReadTable()</code> calls for each and every one of the tables in your database would mean a lot of code duplication. Remember about the <code>lapply()</code> function? You can use it again here! A connection is already coded for you, as well as a vector <code>table_names</code>, containing the names of all the tables in the database. ### Instructions <code>100 XP</code> {.unnumbered}</p>
+<ul>
+<li>Finish the <code>lapply()</code> function to import the <code>users</code>, <code>tweats</code> and <code>comments</code> tables in a single call. The result, a list of data frames, will be stored in the variable <code>tables</code>.</li>
+<li>Print tables to check if you got it right.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_004.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DBI package</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the MySQL database: con</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">"tweater"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host =</span> <span class="st">"courses.csrrinzqubik.us-east-1.rds.amazonaws.com"</span>, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port =</span> <span class="dv">3306</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user =</span> <span class="st">"student"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password =</span> <span class="st">"datacamp"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Get table names</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>table_names <span class="ot">&lt;-</span> <span class="fu">dbListTables</span>(con)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import all tables</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> <span class="fu">lapply</span>(table_names, dbReadTable, <span class="at">conn =</span> con)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out tables</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>tables</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -668,29 +764,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Importing data from databases (Part 1)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Many companies store their information in relational databases. The R</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>community has also developed R packages to get data from these </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>architectures. You'll learn how to connect to a database and how to </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>retrieve data from it.</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Establish a connection</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## List the database tables</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import users</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import all tables</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="markdown" data-shortcodes="false"><code># Importing data from databases (Part 1)
+
+Many companies store their information in relational databases. The R
+community has also developed R packages to get data from these 
+architectures. You'll learn how to connect to a database and how to 
+retrieve data from it.
+
+## Establish a connection
+
+The first step to import data from a SQL database is creating a connection 
+to it. As Filip explained, you need different packages depending on the 
+database you want to connect to. All of these packages do this in a uniform way,
+as specified in the `DBI` package.
+
+`dbConnect()` creates a connection between your R session and a SQL database. 
+The first argument has to be a `DBIdriver` object, that specifies how 
+connections are made and how data is mapped between R and the database. 
+Specifically for MySQL databases, you can build such a driver with 
+`RMySQL::MySQL()`.
+
+If the MySQL database is a remote database hosted on a server, you'll also have
+to specify the following arguments in `dbConnect()`:
+`dbname`, `host`, `port`, `user` and `password`. 
+Most of these details have already been provided.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Load the `DBI` library, which is already installed on DataCamp's servers.
+- Edit the `dbConnect()` call to connect to the `MySQL` database. Change the 
+port argument (`3306`) and user argument (`"student"`).
+```{.r filename="ex_001.R"}
+# Load the DBI package
+library(DBI)
+
+# Edit dbConnect() call
+con &lt;- dbConnect(RMySQL::MySQL(), 
+                 dbname = "tweater", 
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com", 
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+```
+## List the database tables
+
+After you've successfully connected to a remote `MySQL` database, the next step 
+is to see what tables the database contains. You can do this with the 
+`dbListTables()` function. As you might remember from the video, this function 
+requires the connection object as an input, and outputs a character vector with 
+the table names.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Add code to create a vector tables, that contains the tables in the tweater 
+database. You can connect to this database through the con object.
+
+- Display the structure of tables; what's the class of this vector?
+```{.r filename="ex_002.R"}
+# Load the DBI package
+library(DBI)
+# Connect to the MySQL database: con
+con &lt;- dbConnect(RMySQL::MySQL(), 
+                 dbname = "tweater", 
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com", 
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+# Build a vector of table names: tables
+tables &lt;- dbListTables(con)
+# Display structure of tables
+str(tables)
+class(tables)
+```
+## Import users
+As you might have guessed by now, the database contains data on a more tasty 
+version of Twitter, namely Tweater. Users can post tweats with short recipes 
+for delicious snacks. People can comment on these tweats. There are three 
+tables: *users, tweats*, and *comments* that have relations among them. Which 
+ones, you ask? You'll discover in a moment!
+
+Let's start by importing the data on the users into your R session. You do this 
+with the 'dbReadTable()' function. Simply pass it the connection object 
+('con'), followed by the name of the table you want to import. The resulting 
+object is a standard R data frame.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Add code that imports the "users" table from the tweater database and store 
+the resulting data frame as users.
+- Print the users data frame.
+```{.r filename="ex_003.R"}
+# Load the DBI package
+library(DBI)
+
+# Connect to the MySQL database: con
+con &lt;- dbConnect(RMySQL::MySQL(), 
+                 dbname = "tweater", 
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com", 
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
+# Import the users table from tweater: users
+users &lt;- dbReadTable(con, "users")
+
+# Print users
+users
+```
+
+## Import all tables
+
+Next to the users, we're also interested in the `tweats` and `comments` tables. 
+However, separate `dbReadTable()` calls for each and every one of the tables in
+your database would mean a lot of code duplication. Remember about the 
+`lapply()` function? You can use it again here! A connection is already coded 
+for you, as well as a vector `table_names`, containing the names of all the 
+tables in the database.
+### Instructions `100 XP` {.unnumbered}
+
+- Finish the `lapply()` function to import the `users`, `tweats` and `comments`
+tables in a single call. The result, a list of data frames, will be stored in 
+the variable `tables`.
+- Print tables to check if you got it right.
+
+```{.r filename="ex_004.R"}
+# Load the DBI package
+library(DBI)
+
+# Connect to the MySQL database: con
+con &lt;- dbConnect(RMySQL::MySQL(), 
+                 dbname = "tweater", 
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com", 
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
+# Get table names
+table_names &lt;- dbListTables(con)
+
+# Import all tables
+tables &lt;- lapply(table_names, dbReadTable, conn = con)
+
+# Print out tables
+tables
+```</code></pre>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
