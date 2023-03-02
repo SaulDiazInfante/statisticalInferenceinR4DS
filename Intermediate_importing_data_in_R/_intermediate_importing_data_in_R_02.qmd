@@ -1,1 +1,25 @@
 # Importing data from databases (Part 2)
+
+## Query tweater (1)
+
+### Instructions `100 XP` {.unnumbered}
+
+## Query tweater (2)
+
+### Instructions `100 XP` {.unnumbered}
+
+## Query tweater (3)
+
+### Instructions `100 XP` {.unnumbered}
+
+## Query tweater (4)
+
+### Instructions `100 XP` {.unnumbered}
+
+## Send - Fetch - Clear
+
+### Instructions `100 XP` {.unnumbered}
+
+## Be polite and ...
+
+### Instructions `100 XP` {.unnumbered}

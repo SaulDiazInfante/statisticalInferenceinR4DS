@@ -1,4 +1,4 @@
-# Introduction
+# Introduction {.unnumbered}
 
 In this course, you will take a deeper dive into the wide range of data formats
 out there. More specifically, you'll learn how to import data from relational

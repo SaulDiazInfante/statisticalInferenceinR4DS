@@ -23,29 +23,29 @@
   {
     "objectID": "_intermediate_importing_data_in_R_01.html#establish-a-connection",
     "href": "_intermediate_importing_data_in_R_01.html#establish-a-connection",
-    "title": "2  Importing data from databases (Part 1)",
-    "section": "2.1 Establish a connection",
-    "text": "2.1 Establish a connection\n\nInstructions 100 XP"
+    "title": "1  Importing data from databases (Part 1)",
+    "section": "1.1 Establish a connection",
+    "text": "1.1 Establish a connection\nThe first step to import data from a SQL database is creating a connection to it. As Filip explained, you need different packages depending on the database you want to connect to. All of these packages do this in a uniform way, as specified in the DBI package.\ndbConnect() creates a connection between your R session and a SQL database. The first argument has to be a DBIdriver object, that specifies how connections are made and how data is mapped between R and the database. Specifically for MySQL databases, you can build such a driver with RMySQL::MySQL().\nIf the MySQL database is a remote database hosted on a server, you’ll also have to specify the following arguments in dbConnect(): dbname, host, port, user and password. Most of these details have already been provided.\n\nInstructions 100 XP\n\nLoad the DBI library, which is already installed on DataCamp’s servers.\nEdit the dbConnect() call to connect to the MySQL database. Change the port argument (3306) and user argument (\"student\").\n\n\n\nex_001.R\n\n# Load the DBI package\nlibrary(DBI)\n\n# Edit dbConnect() call\ncon <- dbConnect(RMySQL::MySQL(), \n                 dbname = \"tweater\", \n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\", \n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")"
   },
   {
     "objectID": "_intermediate_importing_data_in_R_01.html#list-the-database-tables",
     "href": "_intermediate_importing_data_in_R_01.html#list-the-database-tables",
-    "title": "2  Importing data from databases (Part 1)",
-    "section": "2.2 List the database tables",
-    "text": "2.2 List the database tables\n\nInstructions 100 XP"
+    "title": "1  Importing data from databases (Part 1)",
+    "section": "1.2 List the database tables",
+    "text": "1.2 List the database tables\nAfter you’ve successfully connected to a remote MySQL database, the next step is to see what tables the database contains. You can do this with the dbListTables() function. As you might remember from the video, this function requires the connection object as an input, and outputs a character vector with the table names.\n\nInstructions 100 XP\n\nAdd code to create a vector tables, that contains the tables in the tweater database. You can connect to this database through the con object.\nDisplay the structure of tables; what’s the class of this vector?\n\n\n\nex_002.R\n\n# Load the DBI package\nlibrary(DBI)\n# Connect to the MySQL database: con\ncon <- dbConnect(RMySQL::MySQL(), \n                 dbname = \"tweater\", \n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\", \n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n# Build a vector of table names: tables\ntables <- dbListTables(con)\n# Display structure of tables\nstr(tables)\nclass(tables)"
   },
   {
     "objectID": "_intermediate_importing_data_in_R_01.html#import-users",
     "href": "_intermediate_importing_data_in_R_01.html#import-users",
-    "title": "2  Importing data from databases (Part 1)",
-    "section": "2.3 Import users",
-    "text": "2.3 Import users\n\nInstructions 100 XP"
+    "title": "1  Importing data from databases (Part 1)",
+    "section": "1.3 Import users",
+    "text": "1.3 Import users\nAs you might have guessed by now, the database contains data on a more tasty version of Twitter, namely Tweater. Users can post tweats with short recipes for delicious snacks. People can comment on these tweats. There are three tables: users, tweats, and comments that have relations among them. Which ones, you ask? You’ll discover in a moment!\nLet’s start by importing the data on the users into your R session. You do this with the ‘dbReadTable()’ function. Simply pass it the connection object (‘con’), followed by the name of the table you want to import. The resulting object is a standard R data frame.\n\nInstructions 100 XP\n\nAdd code that imports the “users” table from the tweater database and store the resulting data frame as users.\nPrint the users data frame.\n\n\n\nex_003.R\n\n# Load the DBI package\nlibrary(DBI)\n\n# Connect to the MySQL database: con\ncon <- dbConnect(RMySQL::MySQL(), \n                 dbname = \"tweater\", \n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\", \n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Import the users table from tweater: users\nusers <- dbReadTable(con, \"users\")\n\n# Print users\nusers"
   },
   {
     "objectID": "_intermediate_importing_data_in_R_01.html#import-all-tables",
     "href": "_intermediate_importing_data_in_R_01.html#import-all-tables",
-    "title": "2  Importing data from databases (Part 1)",
-    "section": "2.4 Import all tables",
-    "text": "2.4 Import all tables\n\nInstructions 100 XP"
+    "title": "1  Importing data from databases (Part 1)",
+    "section": "1.4 Import all tables",
+    "text": "1.4 Import all tables\n\nInstructions 100 XP"
   }
 ]
