@@ -268,10 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="toc-section-number">1.4</span>  Import all tables</a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
-  </ul></li>
+  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="toc-section-number">1.4</span>  Import all tables</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_intermediate_importing_data_in_R_01.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -389,11 +386,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="import-all-tables" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="import-all-tables"><span class="header-section-number">1.4</span> Import all tables</h2>
-<section id="instructions-100-xp-3" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<p>Next to the users, we’re also interested in the <code>tweats</code> and <code>comments</code> tables. However, separate <code>dbReadTable()</code> calls for each and every one of the tables in your database would mean a lot of code duplication. Remember about the <code>lapply()</code> function? You can use it again here! A connection is already coded for you, as well as a vector <code>table_names</code>, containing the names of all the tables in the database. ### Instructions <code>100 XP</code> {.unnumbered}</p>
+<ul>
+<li>Finish the <code>lapply()</code> function to import the <code>users</code>, <code>tweats</code> and <code>comments</code> tables in a single call. The result, a list of data frames, will be stored in the variable <code>tables</code>.</li>
+<li>Print tables to check if you got it right.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_004.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the DBI package</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the MySQL database: con</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">"tweater"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host =</span> <span class="st">"courses.csrrinzqubik.us-east-1.rds.amazonaws.com"</span>, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port =</span> <span class="dv">3306</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user =</span> <span class="st">"student"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password =</span> <span class="st">"datacamp"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Get table names</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>table_names <span class="ot">&lt;-</span> <span class="fu">dbListTables</span>(con)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import all tables</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> <span class="fu">lapply</span>(table_names, dbReadTable, <span class="at">conn =</span> con)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out tables</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>tables</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

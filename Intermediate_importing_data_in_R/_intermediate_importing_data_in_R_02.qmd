@@ -2,24 +2,241 @@
 
 ## Query tweater (1)
 
+In your life as a data scientist, you'll often be working with huge databases 
+that contain tables with millions of rows. If you want to do some analyses on 
+this data, it's possible that you only need a fraction of this data. In this 
+case, it's a good idea to send SQL queries to your database, and only import 
+the data you actually need into R.
+
+`dbGetQuery()` is what you need. As usual, you first pass the connection object
+to it. The second argument is an SQL query in the form of a character string. 
+This example selects the age variable from the people dataset where gender 
+equals "male":
+
+```{.r code-line-numbers="false"}
+dbGetQuery(con, "SELECT age FROM people WHERE gender = 'male'")
+```
+A connection to the tweater database has already been coded for you.
+
 ### Instructions `100 XP` {.unnumbered}
+
+- Use `dbGetQuery()` to create a data frame, elisabeth, that **selects** the 
+`tweat_id` column **from** the comments table **where** elisabeth is the 
+commenter, her` user_id` is 1
+- Print out elisabeth so you can see if you queried the database correctly.
+
+```{.r filename="ex_005.R"}
+# Connect to the database
+library(DBI)
+con <- dbConnect(RMySQL::MySQL(),
+    dbname = "tweater",
+    host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+    port = 3306,
+    user = "student",
+    password = "datacamp"
+)
+
+# Import tweat_id column of comments where user_id is 1: elisabeth
+
+qry <- "SELECT tweat_id FROM comments WHERE user_id = 1"
+elisabeth <- dbGetQuery(con, qry)
+
+# Print elisabeth
+elisabeth
+
+```
 
 ## Query tweater (2)
 
+Apart from checking equality, you can also check for less than and greater than relationships, with < and >, just like in R.
+
+con, a connection to the tweater database, is again available.
+
 ### Instructions `100 XP` {.unnumbered}
 
+- Create a data frame, `latest`, that **selects** the post column from the 
+`tweats` table  observations where the `date` is higher than `'2015-09-21'`.
+- Print out latest.
+```{.r filename="ex_006.R"}
+# Connect to the database
+library(DBI)
+con <- dbConnect(RMySQL::MySQL(),
+                 dbname = "tweater",
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
+# Import post column of tweats where date is higher than '2015-09-21': latest
+
+qry <- 
+    "SELECT post FROM tweats WHERE date > '2015-09-21'"
+
+latest <- dbGetQuery(con, qry)
+# Print latest
+latest
+```
 ## Query tweater (3)
 
+Suppose that you have a `people` table, with a bunch of information. This time, 
+you want to find out the `age` and `country` of `married` males. Provided that 
+there is a `married` column that's 1 when the person in question is married, the 
+following query would work.
+```{.r}
+SELECT age, country
+  FROM people
+    WHERE gender = "male" AND married = 1
+```
+Can you use a similar approach for a more specialized query on the `tweater` 
+database?
+
 ### Instructions `100 XP` {.unnumbered}
+
+Create an R data frame, specific, that selects the message column from the 
+comments table where the tweat_id is 77 and the user_id is greater than 4.
+Print specific.
+
+```{.r filename="ex_007.R"}
+# Connect to the database
+library(DBI)
+con <- dbConnect(RMySQL::MySQL(),
+                 dbname = "tweater",
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
+# Create data frame specific
+qry <- 
+    "SELECT message 
+        FROM comments
+            WHERE tweat_id = 77 AND user_id > 4"
+specific <- dbGetQuery(con, qry)
+
+# Print specific
+specific
+```
 
 ## Query tweater (4)
 
+There are also dedicated SQL functions that you can use in the WHERE clause of an 
+SQL query. For example, CHAR_LENGTH() returns the number of characters in a 
+string.
+
 ### Instructions `100 XP` {.unnumbered}
 
+- Create a data frame, `short`, that **selects** the `id` and `name` columns 
+**from** the users table **where** the number of characters in the name is strictly less than 5.
+- Print short.
+
+```{.r filename="ex_008.R"}
+# Connect to the database
+library(DBI)
+con <- dbConnect(RMySQL::MySQL(),
+                 dbname = "tweater",
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
+# Create data frame short
+qry <- 
+    "SELECT id, name 
+        FROM users 
+            WHERE CHAR_LENGTH(name) < 5
+    "
+short <- dbGetQuery(con, qry)
+
+# Print short
+short
+```
 ## Send - Fetch - Clear
+You've used `dbGetQuery()` multiple times now. This is a virtual function from
+the `DBI` package, but is actually implemented by the `RMySQL` package. Behind
+the scenes, the following steps are performed:
+
+- Sending the specified query with `dbSendQuery()`;
+- Fetching the result of executing the query on the database with `dbFetch()`;
+- Clearing the result with `dbClearResult()`.
+
+Let's not use `dbGetQuery()` this time and implement the steps above.
+This is tedious to write, but it gives you the ability to fetch the query's 
+result in chunks rather than all at once. You can do this by specifying the n 
+argument inside `dbFetch()`.
 
 ### Instructions `100 XP` {.unnumbered}
+
+- Inspect the `dbSendQuery()` call that has already been coded for you. It 
+selects the comments for the users with an id above 4.
+- Use `dbFetch()` twice. In the first call, import only two records of the query 
+result by setting the `n` argument to `2`. In the second call, import all 
+remaining queries (don't specify `n`). In both calls, simply print the resulting 
+data frames.
+- Clear res with dbClearResult().
+
+```{.r filename="ex_009.R"}
+# Connect to the database
+library(DBI)
+con <- dbConnect(RMySQL::MySQL(),
+                 dbname = "tweater",
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
+# Send query to the database
+res <- dbSendQuery(con, "SELECT * FROM comments WHERE user_id > 4")
+
+# Use dbFetch() twice
+
+dbFetch(res, n = 2)
+dbFetch(res)
+
+# Clear res
+dbClearResult(res)
+```
 
 ## Be polite and ...
 
+Every time you connect to a database using `dbConnect()`, you're creating a new 
+connection to the database you're referencing. `RMySQL` automatically specifies 
+a maximum of open connections and closes some of the connections for you, but 
+still: it's always polite to manually disconnect from the database afterwards. 
+You do this with the `dbDisconnect()` function.
+
+The code that connects you to the database is already available, 
+can you finish the script?
+
 ### Instructions `100 XP` {.unnumbered}
+
+- Using the technique you prefer, build a data frame `long_tweats`. 
+It **selects** the `post` and `date` columns from the observations in 
+`tweats` where the character length of the post variable exceeds `40`.
+- Print `long_tweats`.
+- Disconnect from the database by using `dbDisconnect()`.
+
+```{.r filename="ex_010.R"}
+# Connect to the database
+library(DBI)
+con <- dbConnect(RMySQL::MySQL(),
+                 dbname = "tweater",
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
+# Create the data frame  long_tweats
+qry <- 
+    "SELECT post, date
+        FROM tweats
+            WHERE CHAR_LENGTH(post) > 40
+    "
+long_tweats <- dbGetQuery(con, qry)
+# Print long_tweats
+print(long_tweats)
+
+# Disconnect from the database
+dbDisconnect(con)
+
+
+```

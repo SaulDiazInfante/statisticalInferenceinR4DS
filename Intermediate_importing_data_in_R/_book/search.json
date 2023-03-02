@@ -2,7 +2,7 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "Introduction",
     "section": "",
     "text": "In this course, you will take a deeper dive into the wide range of data formats out there. More specifically, you’ll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you’ll get hands-on experience with importing data from statistical software packages such as SAS, STATA, and SPSS."
   },
@@ -46,6 +46,48 @@
     "href": "_intermediate_importing_data_in_R_01.html#import-all-tables",
     "title": "1  Importing data from databases (Part 1)",
     "section": "1.4 Import all tables",
-    "text": "1.4 Import all tables\n\nInstructions 100 XP"
+    "text": "1.4 Import all tables\nNext to the users, we’re also interested in the tweats and comments tables. However, separate dbReadTable() calls for each and every one of the tables in your database would mean a lot of code duplication. Remember about the lapply() function? You can use it again here! A connection is already coded for you, as well as a vector table_names, containing the names of all the tables in the database. ### Instructions 100 XP {.unnumbered}\n\nFinish the lapply() function to import the users, tweats and comments tables in a single call. The result, a list of data frames, will be stored in the variable tables.\nPrint tables to check if you got it right.\n\n\n\nex_004.R\n\n# Load the DBI package\nlibrary(DBI)\n\n# Connect to the MySQL database: con\ncon <- dbConnect(RMySQL::MySQL(), \n                 dbname = \"tweater\", \n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\", \n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Get table names\ntable_names <- dbListTables(con)\n\n# Import all tables\ntables <- lapply(table_names, dbReadTable, conn = con)\n\n# Print out tables\ntables"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_02.html#query-tweater-1",
+    "href": "_intermediate_importing_data_in_R_02.html#query-tweater-1",
+    "title": "2  Importing data from databases (Part 2)",
+    "section": "2.1 Query tweater (1)",
+    "text": "2.1 Query tweater (1)\nIn your life as a data scientist, you’ll often be working with huge databases that contain tables with millions of rows. If you want to do some analyses on this data, it’s possible that you only need a fraction of this data. In this case, it’s a good idea to send SQL queries to your database, and only import the data you actually need into R.\ndbGetQuery() is what you need. As usual, you first pass the connection object to it. The second argument is an SQL query in the form of a character string. This example selects the age variable from the people dataset where gender equals “male”:\ndbGetQuery(con, \"SELECT age FROM people WHERE gender = 'male'\")\nA connection to the tweater database has already been coded for you.\n\nInstructions 100 XP\n\nUse dbGetQuery() to create a data frame, elisabeth, that selects the tweat_id column from the comments table where elisabeth is the commenter, heruser_id is 1\nPrint out elisabeth so you can see if you queried the database correctly.\n\n\n\nex_005.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n    dbname = \"tweater\",\n    host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n    port = 3306,\n    user = \"student\",\n    password = \"datacamp\"\n)\n\n# Import tweat_id column of comments where user_id is 1: elisabeth\n\nqry <- \"SELECT tweat_id FROM comments WHERE user_id = 1\"\nelisabeth <- dbGetQuery(con, qry)\n\n# Print elisabeth\nelisabeth"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_02.html#query-tweater-2",
+    "href": "_intermediate_importing_data_in_R_02.html#query-tweater-2",
+    "title": "2  Importing data from databases (Part 2)",
+    "section": "2.2 Query tweater (2)",
+    "text": "2.2 Query tweater (2)\nApart from checking equality, you can also check for less than and greater than relationships, with < and >, just like in R.\ncon, a connection to the tweater database, is again available.\n\nInstructions 100 XP\n\nCreate a data frame, latest, that selects the post column from the tweats table observations where the date is higher than '2015-09-21'.\nPrint out latest.\n\n\n\nex_006.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n                 dbname = \"tweater\",\n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Import post column of tweats where date is higher than '2015-09-21': latest\n\nqry <- \n    \"SELECT post FROM tweats WHERE date > '2015-09-21'\"\n\nlatest <- dbGetQuery(con, qry)\n# Print latest\nlatest"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_02.html#query-tweater-3",
+    "href": "_intermediate_importing_data_in_R_02.html#query-tweater-3",
+    "title": "2  Importing data from databases (Part 2)",
+    "section": "2.3 Query tweater (3)",
+    "text": "2.3 Query tweater (3)\nSuppose that you have a people table, with a bunch of information. This time, you want to find out the age and country of married males. Provided that there is a married column that’s 1 when the person in question is married, the following query would work.\nSELECT age, country\n  FROM people\n    WHERE gender = \"male\" AND married = 1\nCan you use a similar approach for a more specialized query on the tweater database?\n\nInstructions 100 XP\nCreate an R data frame, specific, that selects the message column from the comments table where the tweat_id is 77 and the user_id is greater than 4. Print specific.\n\n\nex_007.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n                 dbname = \"tweater\",\n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Create data frame specific\nqry <- \n    \"SELECT message \n        FROM comments\n            WHERE tweat_id = 77 AND user_id > 4\"\nspecific <- dbGetQuery(con, qry)\n\n# Print specific\nspecific"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_02.html#query-tweater-4",
+    "href": "_intermediate_importing_data_in_R_02.html#query-tweater-4",
+    "title": "2  Importing data from databases (Part 2)",
+    "section": "2.4 Query tweater (4)",
+    "text": "2.4 Query tweater (4)\nThere are also dedicated SQL functions that you can use in the WHERE clause of an SQL query. For example, CHAR_LENGTH() returns the number of characters in a string.\n\nInstructions 100 XP\n\nCreate a data frame, short, that selects the id and name columns from the users table where the number of characters in the name is strictly less than 5.\nPrint short.\n\n\n\nex_008.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n                 dbname = \"tweater\",\n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Create data frame short\nqry <- \n    \"SELECT id, name \n        FROM users \n            WHERE CHAR_LENGTH(name) < 5\n    \"\nshort <- dbGetQuery(con, qry)\n\n# Print short\nshort"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_02.html#send---fetch---clear",
+    "href": "_intermediate_importing_data_in_R_02.html#send---fetch---clear",
+    "title": "2  Importing data from databases (Part 2)",
+    "section": "2.5 Send - Fetch - Clear",
+    "text": "2.5 Send - Fetch - Clear\nYou’ve used dbGetQuery() multiple times now. This is a virtual function from the DBI package, but is actually implemented by the RMySQL package. Behind the scenes, the following steps are performed:\n\nSending the specified query with dbSendQuery();\nFetching the result of executing the query on the database with dbFetch();\nClearing the result with dbClearResult().\n\nLet’s not use dbGetQuery() this time and implement the steps above. This is tedious to write, but it gives you the ability to fetch the query’s result in chunks rather than all at once. You can do this by specifying the n argument inside dbFetch().\n\nInstructions 100 XP\n\nInspect the dbSendQuery() call that has already been coded for you. It selects the comments for the users with an id above 4.\nUse dbFetch() twice. In the first call, import only two records of the query result by setting the n argument to 2. In the second call, import all remaining queries (don’t specify n). In both calls, simply print the resulting data frames.\nClear res with dbClearResult().\n\n\n\nex_009.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n                 dbname = \"tweater\",\n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Send query to the database\nres <- dbSendQuery(con, \"SELECT * FROM comments WHERE user_id > 4\")\n\n# Use dbFetch() twice\n\ndbFetch(res, n = 2)\ndbFetch(res)\n\n# Clear res\ndbClearResult(res)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_02.html#be-polite-and",
+    "href": "_intermediate_importing_data_in_R_02.html#be-polite-and",
+    "title": "2  Importing data from databases (Part 2)",
+    "section": "2.6 Be polite and …",
+    "text": "2.6 Be polite and …\nEvery time you connect to a database using dbConnect(), you’re creating a new connection to the database you’re referencing. RMySQL automatically specifies a maximum of open connections and closes some of the connections for you, but still: it’s always polite to manually disconnect from the database afterwards. You do this with the dbDisconnect() function.\nThe code that connects you to the database is already available, can you finish the script?\n\nInstructions 100 XP\n\nUsing the technique you prefer, build a data frame long_tweats. It selects the post and date columns from the observations in tweats where the character length of the post variable exceeds 40.\nPrint long_tweats.\nDisconnect from the database by using dbDisconnect().\n\n\n\nex_010.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n                 dbname = \"tweater\",\n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Create the data frame  long_tweats\nqry <- \n    \"SELECT post, date\n        FROM tweats\n            WHERE CHAR_LENGTH(post) > 40\n    \"\nlong_tweats <- dbGetQuery(con, qry)\n# Print long_tweats\nprint(long_tweats)\n\n# Disconnect from the database\ndbDisconnect(con)"
   }
 ]
