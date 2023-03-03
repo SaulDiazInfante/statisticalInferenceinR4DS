@@ -42,3 +42,22 @@ plt_cum_confirmed_cases_china_vs_world <-
 
 # See the plot
 plt_cum_confirmed_cases_china_vs_world
+
+who_events <- tribble(
+  ~ date, ~ event,
+  "2020-01-30", "Global health\nemergency declared",
+  "2020-03-11", "Pandemic\ndeclared",
+  "2020-02-13", "China reporting\nchange"
+) %>%
+  mutate(date = as.Date(date))
+
+# Using who_events, add vertical dashed lines with an xintercept at date
+# and text at date, labeled by event, and at 100000 on the y-axis
+plt_cum_confirmed_cases_china_vs_world +
+  geom_vline(data= who_events,
+    aes(xintercept=date)
+  ) +
+  geom_text(data=who_events,
+    aes(x=date, label=event, y=100000)
+  )
+  ....
