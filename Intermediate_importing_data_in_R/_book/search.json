@@ -89,5 +89,47 @@
     "title": "2  Importing data from databases (Part 2)",
     "section": "2.6 Be polite and …",
     "text": "2.6 Be polite and …\nEvery time you connect to a database using dbConnect(), you’re creating a new connection to the database you’re referencing. RMySQL automatically specifies a maximum of open connections and closes some of the connections for you, but still: it’s always polite to manually disconnect from the database afterwards. You do this with the dbDisconnect() function.\nThe code that connects you to the database is already available, can you finish the script?\n\nInstructions 100 XP\n\nUsing the technique you prefer, build a data frame long_tweats. It selects the post and date columns from the observations in tweats where the character length of the post variable exceeds 40.\nPrint long_tweats.\nDisconnect from the database by using dbDisconnect().\n\n\n\nex_010.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n                 dbname = \"tweater\",\n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Create the data frame  long_tweats\nqry <- \n    \"SELECT post, date\n        FROM tweats\n            WHERE CHAR_LENGTH(post) > 40\n    \"\nlong_tweats <- dbGetQuery(con, qry)\n# Print long_tweats\nprint(long_tweats)\n\n# Disconnect from the database\ndbDisconnect(con)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_03.html#import-flat-files-from-the-web",
+    "href": "_intermediate_importing_data_in_R_03.html#import-flat-files-from-the-web",
+    "title": "3  Importing data from the web (Part 1)",
+    "section": "3.1 Import flat files from the web",
+    "text": "3.1 Import flat files from the web\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_03.html#secure-importing",
+    "href": "_intermediate_importing_data_in_R_03.html#secure-importing",
+    "title": "3  Importing data from the web (Part 1)",
+    "section": "3.2 Secure importing",
+    "text": "3.2 Secure importing\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_03.html#importing-excel-files-from-the-web",
+    "href": "_intermediate_importing_data_in_R_03.html#importing-excel-files-from-the-web",
+    "title": "3  Importing data from the web (Part 1)",
+    "section": "3.3 Importing Excel files from the web",
+    "text": "3.3 Importing Excel files from the web\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_03.html#donwloading-any-file-secure-or-not",
+    "href": "_intermediate_importing_data_in_R_03.html#donwloading-any-file-secure-or-not",
+    "title": "3  Importing data from the web (Part 1)",
+    "section": "3.4 Donwloading any file, secure or not",
+    "text": "3.4 Donwloading any file, secure or not\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_03.html#http-httr-1",
+    "href": "_intermediate_importing_data_in_R_03.html#http-httr-1",
+    "title": "3  Importing data from the web (Part 1)",
+    "section": "3.5 HTTP? httr! (1)",
+    "text": "3.5 HTTP? httr! (1)\n\nInstructions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_03.html#http-httr-2",
+    "href": "_intermediate_importing_data_in_R_03.html#http-httr-2",
+    "title": "3  Importing data from the web (Part 1)",
+    "section": "3.6 HTTP? httr! (2)",
+    "text": "3.6 HTTP? httr! (2)\n\nInstructions 100 XP"
   }
 ]

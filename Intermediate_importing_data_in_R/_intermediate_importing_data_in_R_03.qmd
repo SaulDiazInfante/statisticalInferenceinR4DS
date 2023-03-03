@@ -1,1 +1,34 @@
 # Importing data from the web (Part 1)
+
+More and more of the information that data scientists are using resides on the 
+web. Importing this data into R requires an understanding of the protocols used 
+on the web. In this chapter, you'll get a crash course in HTTP and learn to 
+perform your own HTTP requests from inside R.
+
+## Import flat files from the web
+
+### Instructions `100 XP` {.unnumbered}
+
+
+## Secure importing
+
+### Instructions `100 XP` {.unnumbered}
+
+
+## Importing Excel files from the web
+
+### Instructions `100 XP` {.unnumbered}
+
+
+## Donwloading any file, secure or not
+
+### Instructions `100 XP` {.unnumbered}
+
+## HTTP? httr! (1)
+
+### Instructions `100 XP` {.unnumbered}
+
+
+## HTTP? httr! (2)
+
+### Instructions `100 XP` {.unnumbered}

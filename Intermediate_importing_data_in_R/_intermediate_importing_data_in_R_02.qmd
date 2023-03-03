@@ -119,14 +119,15 @@ specific
 
 ## Query tweater (4)
 
-There are also dedicated SQL functions that you can use in the WHERE clause of an 
-SQL query. For example, CHAR_LENGTH() returns the number of characters in a 
+There are also dedicated SQL functions that you can use in the WHERE clause of 
+an SQL query. For example, CHAR_LENGTH() returns the number of characters in a 
 string.
 
 ### Instructions `100 XP` {.unnumbered}
 
 - Create a data frame, `short`, that **selects** the `id` and `name` columns 
-**from** the users table **where** the number of characters in the name is strictly less than 5.
+**from** the users table **where** the number of characters in the name is 
+strictly less than 5.
 - Print short.
 
 ```{.r filename="ex_008.R"}
@@ -237,6 +238,4 @@ print(long_tweats)
 
 # Disconnect from the database
 dbDisconnect(con)
-
-
 ```
