@@ -3,21 +3,25 @@ title: "Visualizing Covid-19"
 output: html_notebook
 ---
 #  From epidemic to pandemic¶
-In December 2019, COVID-19 coronavirus was first identified in the Wuhan region of China. By March 11, 2020, the World
-Health Organization (WHO) categorized the COVID-19 outbreak as a pandemic. A lot has happened in the months in between
+In December 2019, COVID-19 coronavirus was first identified in the Wuhan region
+of China. By March 11, 2020, the World Health Organization (WHO) categorized the
+COVID-19 outbreak as a pandemic. A lot has happened in the months in between
 with major outbreaks in Iran, South Korea, and Italy.
 
-We know that COVID-19 spreads through respiratory droplets, such as through coughing, sneezing, or speaking. But,
-how quickly did the virus spread across the globe? And, can we see any effect from country-wide policies, like
+We know that COVID-19 spreads through respiratory droplets, such as through
+coughing, sneezing, or speaking. But, how quickly did the virus spread
+across the globe? And, can we see any effect from country-wide policies, like
 shutdowns and quarantines?
 
-Fortunately, organizations around the world have been collecting data so that governments can monitor and learn from
-this pandemic. Notably, the Johns Hopkins University Center for Systems Science and Engineering created a publicly
-available data repository to consolidate this data from sources like the WHO, the Centers for Disease Control and
-Prevention (CDC), and the Ministry of Health from multiple countries.
+Fortunately, organizations around the world have been collecting data so that
+governments can monitor and learn from this pandemic. Notably, the Johns
+Hopkins University Center for Systems Science and Engineering created a publicly
+available data repository to consolidate this data from sources like the WHO,
+the Centers for Disease Control and Prevention (CDC), and the Ministry of
+Health from multiple countries.
 
-In this notebook, you will visualize COVID-19 data from the first several weeks of the outbreak to see at what point
-this virus became a global pandemic.
+In this notebook, you will visualize COVID-19 data from the first several weeks
+of the outbreak to see at what point this virus became a global pandemic.
 
 ```{r}
 library(readr)
@@ -27,7 +31,12 @@ library(coronavirus)
 update_dataset()
 # Read datasets/confirmed_cases_worldwide.csv into confirmed_cases_worldwide
 path <- getwd()
-path <- file.path(path, "datasets", "confirmed_cases_worldwide.csv")
+path <- file.path(
+  path,
+  "/covid19-visualization-Project",
+  "datasets",
+  "confirmed_cases_worldwide.csv"
+)
 confirmed_cases_worldwide <- read_csv(path)
 # See the result
 confirmed_cases_worldwide
@@ -36,9 +45,11 @@ confirmed_cases_worldwide
 
 ```
 # Confirmed cases throughout the world
-The table above shows the cumulative confirmed cases of COVID-19 worldwide by date.
-Just reading numbers in a table makes it hard to get a sense of the scale and growth of
-the outbreak. Let's draw a line plot to visualize the confirmed cases worldwide.
+
+The table above shows the cumulative confirmed cases of COVID-19 worldwide by
+date. Just reading numbers in a table makes it hard to get a sense of the
+scale and growth of the outbreak. Let's draw a line plot to visualize the
+confirmed cases worldwide.
 
 ```{r }
 # Draw a line plot of cumulative cases vs. date
@@ -54,23 +65,29 @@ confirmed_cases_worldwide %>%
 
 ```
 # China compared to the rest of the world
-The y-axis in that plot is pretty scary, with the total number of confirmed cases
-around the world
-approaching 200,000. Beyond that, some weird things are happening: there is an odd jump
-in mid February, then the rate of new cases slows down for a while, then speeds up
-again in March. We need to dig deeper to see what is happening.
 
-Early on in the outbreak, the COVID-19 cases were primarily centered in China. Let's
-plot confirmed COVID-19 cases in China and the rest of the world separately to see if
-it gives us any insight.
+The y-axis in that plot is pretty scary, with the total number of confirmed
+cases around the world approaching 200,000. Beyond that, some weird things
+are happening: there is an odd jump in mid February, then the rate of new
+cases slows down for a while, then speeds up again in March. We need to dig
+deeper to see what is happening.
 
-We'll build on this plot in future tasks. One thing that will be important for the
-following tasks is that you add aesthetics within the line geometry of your ggplot,
-rather than making them global aesthetics.
+Early on in the outbreak, the COVID-19 cases were primarily centered in China.
+Let's plot confirmed COVID-19 cases in China and the rest of the world
+separately to see if it gives us any insight.
+
+We'll build on this plot in future tasks. One thing that will be important for
+the following tasks is that you add aesthetics within the line geometry of your
+ggplot, rather than making them global aesthetics.
 
 ```{r}
 # Read in datasets/confirmed_cases_china_vs_world.csv
-path <- file.path(wd_path, "datasets", "confirmed_cases_china_vs_world.csv")
+path <- file.path(
+  wd_path,
+  "/covid19-visualization-Project",
+  "datasets",
+  "confirmed_cases_china_vs_world.csv"
+)
 confirmed_cases_china_vs_world <- read_csv(path)
 
 # See the result
@@ -94,14 +111,101 @@ plt_cum_confirmed_cases_china_vs_world
 ```
 # Let's annotate!
 
-Wow! The two lines have very different shapes. In February, the majority of cases were
-in China. That changed in March when it really became a global outbreak: around March
-14, the total number of cases outside China overtook the cases inside China. This was
-days after the WHO declared a pandemic.
+Wow! The two lines have very different shapes. In February, the majority of
+cases were in China. That changed in March when it really became a global
+outbreak: around March 14, the total number of cases outside China overtook the
+cases inside China. This was days after the WHO declared a pandemic.
 
-There were a couple of other landmark events that happened during the outbreak. For
-example, the huge jump in the China line on February 13, 2020 wasn't just a bad day
-regarding the outbreak; China changed the way it reported figures on that day (CT
-scans were accepted as evidence for COVID-19, rather than only lab tests).
+There were a couple of other landmark events that happened during the outbreak.
+For example, the huge jump in the China line on February 13, 2020 wasn't just a
+bad day regarding the outbreak; China changed the way it reported figures on
+that day (CT scans were accepted as evidence for COVID-19, rather than only
+lab tests).
 
 By annotating events like this, we can better interpret changes in the plot.
+```{r}
+who_events <- tribble(
+    ~ date, ~ event,
+    "2020-01-30", "Global health\nemergency declared",
+    "2020-03-11", "Pandemic\ndeclared",
+    "2020-02-13", "China reporting\nchange"
+) %>%
+    mutate(date = as.Date(date))
+# Using who_events, add vertical dashed lines with an xintercept at date
+# and text at date, labeled by event, and at 100000 on the y-axis
+
+plt_cum_confirmed_cases_china_vs_world +
+  geom_vline(data= who_events,
+    aes(xintercept=date)
+  ) +
+  geom_text(data=who_events,
+    aes(x=date, label=event, y=100000)
+  )
+```
+#  Adding a trend line to China
+When trying to assess how big future problems are going to be, we need a measure
+of how fast the number of cases is growing. A good starting point is to see
+if the cases are growing faster or slower than linearly.
+
+There is a clear surge of cases around February 13, 2020, with the reporting
+change in China. However, a couple of days after, the growth of cases in
+China slows down. How can we describe COVID-19's growth in China after
+February 15, 2020?
+
+```{r}
+# Filter for China, from Feb 15
+china_after_feb15 <- confirmed_cases_china_vs_world %>%
+  filter(date > "2020-02-15")
+
+# Using china_after_feb15, draw a line plot cum_cases vs. date
+# Add a smooth trend line using linear regression, no error bars
+ggplot(china_after_feb15,
+       aes(
+           x = date,
+           y = cum_cases
+       )
+) +
+    geom_line() +
+    geom_smooth(method = lm, se = FALSE) +
+    ylab("Cumulative confirmed cases")
+```
+# And the rest of the world?
+
+From the plot above, the growth rate in China is slower than linear. That's
+great news because it indicates China has at least somewhat contained the
+virus in late February and early March.
+
+How does the rest of the world compare to linear growth?
+
+```{r}
+not_china <- confirmed_cases_china_vs_world %>%
+  filter( > "2020-02-15")
+
+# Using china_after_feb15, draw a line plot cum_cases vs. date
+# Add a smooth trend line using linear regression, no error bars
+ggplot(china_after_feb15,
+       aes(
+           x = date,
+           y = cum_cases
+       )
+) +
+    geom_line() +
+    geom_smooth(method = lm, se = FALSE) +
+    ylab("Cumulative confirmed cases")
+```
+
+From the plot above, we can see a straight line does not fit well at all, and
+ the rest of the world is growing much faster than linearly. What if we
+added a logarithmic scale to the y-axis?
+```{r}
+# Modify the plot to use a logarithmic scale on the y-axis
+plt_not_china_trend_lin +
+    scale_y_log10()
+```
+# Plotting hardest hit countries as of Mid-March 2020¶
+Even though the outbreak was first identified in China, there is only one country from East Asia (South Korea) in the above table. Four of the listed countries (France, Germany, Italy, and Spain) are in Europe and share borders. To get more context, we can plot these countries' confirmed cases over time.
+
+Finally, congratulations on getting to the last step! If you would like to
+continue making visualizations or find the hardest hit countries as of today,
+you can do your own analyses with the latest data available
+<https://github.com/RamiKrispin/coronavirus>.
