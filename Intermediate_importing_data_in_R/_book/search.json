@@ -116,20 +116,97 @@
     "href": "_intermediate_importing_data_in_R_03.html#donwloading-any-file-secure-or-not",
     "title": "3  Importing data from the web (Part 1)",
     "section": "3.4 Donwloading any file, secure or not",
-    "text": "3.4 Donwloading any file, secure or not\n\nInstructions 100 XP"
+    "text": "3.4 Donwloading any file, secure or not\nIn the previous exercise you’ve seen how you can read excel files on the web using the read_excel package by first downloading the file with the download.file() function.\nThere’s more: with download.file() you can download any kind of file from the web, using HTTP and HTTPS: images, executable files, but also .RData files. An RData file is very efficient format to store R data.\nYou can load data from an RData file using the load() function, but this function does not accept a URL string as an argument. In this exercise, you’ll first download the RData file securely, and then import the local data file.\n\nInstructions 100 XP\n\nTake a look at the URL in url_rdata. It uses a secure connection, https://. This URL points to an RData file containing a data frame with some metrics on different kinds of wine.\nDownload the file aturl_rdata using download.file(). Call the file \"wine_local.RData\" in your working directory.\nLoad the file you created, wine_local.RData, using the load() function. It takes one argument, the path to the file, which is just the filename in our case. After running this command, the variable wine will automatically be available in your workspace.\nPrint out the summary() of the wine dataset.\n\n\n\nex_014.R\n\n# https URL to the wine RData file.\nurl_rdata <- \n\"https://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/wine.RData\"\n\n# Download the wine file to your working directory\ndownload.file(url_rdata, \"wine_local.RData\")\n\n# Load the wine data into your workspace using load()\nload(\"wine_local.RData\")\n\n# Print out the summary of the wine data\nsummary(wine)"
   },
   {
     "objectID": "_intermediate_importing_data_in_R_03.html#http-httr-1",
     "href": "_intermediate_importing_data_in_R_03.html#http-httr-1",
     "title": "3  Importing data from the web (Part 1)",
     "section": "3.5 HTTP? httr! (1)",
-    "text": "3.5 HTTP? httr! (1)\n\nInstructions 100 XP"
+    "text": "3.5 HTTP? httr! (1)\nDownloading a file from the Internet means sending a GET request and receiving the file you asked for. Internally, all the previously discussed functions use a GET request to download files.\nhttr provides a convenient function, GET() to execute this GET request. The result is a response object, that provides easy access to the status code, content-type and, of course, the actual content.\nYou can extract the content from the request using the content() function. At the time of writing, there are three ways to retrieve this content: as a raw object, as a character vector, or an R object, such as a list. If you don’t tell content() how to retrieve the content through the as argument, it’ll try its best to figure out which type is most appropriate based on the content-type.\n\nInstructions 100 XP\n\nLoad the httr package. It’s already installed on DataCamp’s servers.\nUse GET() to get the URL stored in url. Store the result of this GET() call as resp.\nPrint the resp object. What information does it contain?\nGet the content of resp using content() and set the as argument to “raw”. Assign the resulting vector to raw_content.\nPrint the first values in raw_content with head().\n\n\n\nex_015.R\n\n# Load the httr package\nlibrary(httr)\n\n# Get the url, save response to resp\nurl <- \"http://www.example.com/\"\n\nresp <- GET(url)\n# Print resp\nprint(resp)\n\n# Get the raw content of resp: raw_content\nraw_content <- content(resp, as = 'raw')\n\n# Print the head of raw_content\nhead(raw_content)"
   },
   {
     "objectID": "_intermediate_importing_data_in_R_03.html#http-httr-2",
     "href": "_intermediate_importing_data_in_R_03.html#http-httr-2",
     "title": "3  Importing data from the web (Part 1)",
     "section": "3.6 HTTP? httr! (2)",
-    "text": "3.6 HTTP? httr! (2)\n\nInstructions 100 XP"
+    "text": "3.6 HTTP? httr! (2)\nWeb content does not limit itself to HTML pages and files stored on remote servers such as DataCamp’s Amazon S3 instances. There are many other data formats out there. A very common one is JSON. This format is very often used by so-called Web APIs, interfaces to web servers with which you as a client can communicate to get or store information in more complicated ways.\nYou’ll learn about Web APIs and JSON in the video and exercises that follow, but some experimentation never hurts, does it?\n\nInstructions 100 XP\n\nUse GET() to get the url that has already been specified in the sample code. Store the response as resp.\nPrint resp. What is the content-type?\nUse content() to get the content of resp. Set the as argument to \"text\". Simply print out the result. What do you see?\nUse content() to get the content of resp, but this time do not specify a second argument. R figures out automatically that you’re dealing with a JSON, and converts the JSON to a named R list.\n\n\n\nex_016.R\n\n# httr is already loaded\n# Get the url\nurl <- \"http://www.omdbapi.com/?\napikey=72bc447a&t=Annie+Hall&y=&plot=short&r=json\"\nresp <- GET(url)\n# Print resp\nprint(resp)\n# Print content of resp as text\nprint(content(resp, as = \"text\"))\n# Print content of resp\nprint(content(resp))"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#from-json-to-r",
+    "href": "_intermediate_importing_data_in_R_04.html#from-json-to-r",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.1 From JSON to R",
+    "text": "4.1 From JSON to R\nIn the simplest setting, fromJSON() can convert character strings that represent JSON data into a nicely structured R list. Give it a try!\n\nInstructions 100 XP\n\nLoad the jsonlite package. It’s already installed on DataCamp’s servers.\nwine_json represents a JSON. Use fromJSON() to convert it to a list, named wine.\nDisplay the structure of wine\n\n\n\nex_017.R\n\n# Load the jsonlite package\nlibrary(jsonlite)\n\n# wine_json is a JSON\nwine_json <- '\n    {\n        \"name\":\"Chateau Migraine\",\n        \"year\":1997,\n        \"alcohol_pct\":12.4,\n        \"color\":\"red\",\n        \"awarded\":false\n    }\n'\n\n# Convert wine_json into a list: wine\nwine <- fromJSON(wine_json)\n\n# Print structure of wine\nprint(str(wine))"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#quandl-api",
+    "href": "_intermediate_importing_data_in_R_04.html#quandl-api",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.2 Quandl API",
+    "text": "4.2 Quandl API\nAs Filip showed in the video, fromJSON() also works if you pass a URL as a character string or the path to a local file that contains JSON data. Let’s try this out on the Quandl API, where you can fetch all sorts of financial and economical data.\n\nInstructions 100 XP\n\nquandl_url represents a URL. Use fromJSON() directly on this URL and store the result in quandl_data.\nDisplay the structure of quandl_data .\n\n\n\nex_018.R\n\n# jsonlite is preloaded\n\n# Definition of quandl_url\nquandl_url <- \"https://www.quandl.com/api/v3/datasets/WIKI/FB/data.json?auth_token=i83asDsiWUUyfoypkgMz\"\n\n# Import Quandl data: quandl_data\nquandl_data <- fromJSON(quandl_url)\n\n# Print structure of quandl_data\nstr(quandl_data)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html",
+    "href": "_intermediate_importing_data_in_R_04.html",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "",
+    "text": "5 OMDb API\nIn the video, you saw how easy it is to interact with an API once you know how to formulate requests. You also saw how to fetch all information on Rain Man from OMDb. Simply perform a GET() call, and next ask for the contents with the content() function. This content() function, which is part of the httr package, uses jsonlite behind the scenes to import the JSON data into R.\nHowever, by now you also know that jsonlite can handle URLs itself. Simply passing the request URL to fromJSON() will get your data into R. In this exercise, you will be using this technique to compare the release year of two movies in the Open Movie Database."
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#instructions-100-xp-2",
+    "href": "_intermediate_importing_data_in_R_04.html#instructions-100-xp-2",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nTwo URLs are included in the sample code, as well as a fromJSON() call to build sw4. Add a similar call to build sw3.\nPrint out the element named Title of both sw4 and sw3. You can use the $ operator. What movies are we dealing with here? -Write an expression that evaluates to TRUE if sw4 was released later than sw3. This information is stored in the Year element of the named lists.\n\n\n\nex_019.R\n\n# The package jsonlite is already loaded\n\n# Definition of the URLs\nurl_sw4 <- \"http://www.omdbapi.com/?apikey=72bc447a&i=tt0076759&r=json\"\nurl_sw3 <- \"http://www.omdbapi.com/?apikey=72bc447a&i=tt0121766&r=json\"\n\n# Import two URLs with fromJSON(): sw4 and sw3\nsw3 <- fromJSON(url_sw3)\nsw4 <- fromJSON(url_sw4)\n\n\n# Print out the Title element of both lists\nprint(sw3$Title)\nprint(sw4$Title)\n\n# Is the release year of sw4 later than sw3?\nsw4$Year > sw3$Year"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#json-practice-1",
+    "href": "_intermediate_importing_data_in_R_04.html#json-practice-1",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.4 JSON practice (1)",
+    "text": "4.4 JSON practice (1)\nJSON is built on two structures: objects and arrays. To help you experiment with these, two JSON strings are included in the sample code. It’s up to you to change them appropriately and then call jsonlite’s fromJSON() function on them each time.\n\nInstrucions 100 XP\n\nChange the assignment of json1 such that the R vector after conversion contains the numbers 1 up to 6, in ascending order. Next, call fromJSON() on json1.\nAdapt the code for json2 such that it’s converted to a named list with two elements: a, containing the numbers 1, 2 and 3 and b, containing the numbers 4, 5 and 6. Next, call fromJSON() on json2.\n\n\n\nex_020.R\n\n# jsonlite is already loaded\n# Challenge 1\njson1 <- '[1, 2, 3, 4, 5, 6]'\nfromJSON(json1)\n# Challenge 2\njson2 <- '{\n    \"a\": [1, 2, 3],\n    \"b\": [4, 5, 6]\n}'\nfromJSON(json2)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#section",
+    "href": "_intermediate_importing_data_in_R_04.html#section",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "5.3 ",
+    "text": "5.3 \n\n5.3.1 Instrucions 100 XP"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#json-practice-2",
+    "href": "_intermediate_importing_data_in_R_04.html#json-practice-2",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.5 JSON practice (2)",
+    "text": "4.5 JSON practice (2)\nWe prepared two more JSON strings in the sample code. Can you change them and call jsonlite’s fromJSON() function on them, similar to the previous exercise?\n\nInstrucions 100 XP\n\nRemove characters from json1 to build a 2 by 2 matrix containing only 1, 2, 3 and 4. Call fromJSON() on json1.\nAdd characters to json2 such that the data frame in which the json is converted contains an additional observation in the last row. For this observations, a equals 5 and b equals 6. Call fromJSON() one last time, on json2."
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#tojson",
+    "href": "_intermediate_importing_data_in_R_04.html#tojson",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.7 toJSON()",
+    "text": "4.7 toJSON()\nApart from converting JSON to R with fromJSON(), you can also use toJSON() to convert R data to a JSON format. In its most basic use, you simply pass this function an R object to convert to a JSON. The result is an R object of the class json, which is basically a character string representing that JSON.\nFor this exercise, you will be working with a .csv file containing information on the amount of desalinated water that is produced around the world. As you’ll see, it contains a lot of missing values. This data can be found on the URL that is specified in the sample code.\n\nInstrucions 100 XP\n\nUse a function of the utils package to import the .csv file directly from the URL specified in url_csv. Save the resulting data frame as water. Make sure that strings are not imported as factors.\nConvert the data frame water to a JSON. Call the resulting object water_json.\nPrint out water_json.\n\n\n\nex_021.R\n\n# jsonlite is already loaded\n\n# URL pointing to the .csv file\nurl_csv <- \"http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/water.csv\"\n\n# Import the .csv file located at url_csv\nwater <- read.csv(url_csv)\n\n# Convert the data file according to the requirements\nwater_json <- toJSON(water)\n\n# Print out water_json\nprint(water_json)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#minify-and-prettify",
+    "href": "_intermediate_importing_data_in_R_04.html#minify-and-prettify",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.8 Minify and prettify",
+    "text": "4.8 Minify and prettify\nJSONs can come in different formats. Take these two JSONs, that are in fact exactly the same: the first one is in a minified format, the second one is in a pretty format with indentation, whitespace and new lines:\n# Mini\n{\"a\":1,\"b\":2,\"c\":{\"x\":5,\"y\":6}}\n\n# Pretty\n{\n  \"a\": 1,\n  \"b\": 2,\n  \"c\": {\n    \"x\": 5,\n    \"y\": 6\n  }\n}\nUnless you’re a computer, you surely prefer the second version. However, the standard form that toJSON() returns, is the minified version, as it is more concise. You can adapt this behavior by setting the pretty argument inside toJSON() to TRUE. If you already have a JSON string, you can use prettify() or minify() to make the JSON pretty or as concise as possible.\n\nInstrucions 100 XP\n\nConvert the mtcars dataset, which is available in R by default, to a pretty JSON. Call the resulting JSON pretty_json.\nPrint out pretty_json. Can you understand the output easily?\nConvert pretty_json to a minimal version using minify(). Store this version under a new variable, mini_json.\nPrint out mini_json. Which version do you prefer, the pretty one or the minified one?\n\n\n\nex_022.R\n\n# jsonlite is already loaded\n# Convert mtcars to a pretty JSON: pretty_json\npretty_json <- toJSON(mtcars, pretty = TRUE)\n# Print pretty_json\nprint(pretty_json)\n\n# Minify pretty_json: mini_json\n\nmini_json <- minify(pretty_json)\n# Print mini_json\nprint(mini_json)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#json-practice-2-1",
+    "href": "_intermediate_importing_data_in_R_04.html#json-practice-2-1",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.6 JSON practice (2)",
+    "text": "4.6 JSON practice (2)\n\nInstrucions 100 XP\n\nRemove characters from json1 to build a 2 by 2 matrix containing only 1, 2, 3 and 4. Call fromJSON() on json1.\nAdd characters to json2 such that the data frame in which the json is converted contains an additional observation in the last row. For this observations, a equals 5 and b equals 6. Call fromJSON() one last time, on json2.\n\n\n\nex_021.R\n\n# jsonlite is already loaded\n# Challenge 1\njson1 <- '[[1, 2], [3, 4]]'\nfromJSON(json1)\n\n# Challenge 2\njson2 <-\n   '[{\"a\": 1, \"b\": 2}, {\"a\": 3, \"b\": 4}, {\"a\": 5, \"b\": 6}\n]'\nfromJSON(json2)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#omdb-api",
+    "href": "_intermediate_importing_data_in_R_04.html#omdb-api",
+    "title": "4  Importing data from the web (Part 2)",
+    "section": "4.3 OMDb API",
+    "text": "4.3 OMDb API\nIn the video, you saw how easy it is to interact with an API once you know how to formulate requests. You also saw how to fetch all information on Rain Man from OMDb. Simply perform a GET() call, and next ask for the contents with the content() function. This content() function, which is part of the httr package, uses jsonlite behind the scenes to import the JSON data into R.\nHowever, by now you also know that jsonlite can handle URLs itself. Simply passing the request URL to fromJSON() will get your data into R. In this exercise, you will be using this technique to compare the release year of two movies in the Open Movie Database.\n\nInstructions 100 XP\n\nTwo URLs are included in the sample code, as well as a fromJSON() call to build sw4. Add a similar call to build sw3.\nPrint out the element named Title of both sw4 and sw3. You can use the $ operator. What movies are we dealing with here? -Write an expression that evaluates to TRUE if sw4 was released later than sw3. This information is stored in the Year element of the named lists.\n\n\n\nex_019.R\n\n# The package jsonlite is already loaded\n\n# Definition of the URLs\nurl_sw4 <- \"http://www.omdbapi.com/?apikey=72bc447a&i=tt0076759&r=json\"\nurl_sw3 <- \"http://www.omdbapi.com/?apikey=72bc447a&i=tt0121766&r=json\"\n\n# Import two URLs with fromJSON(): sw4 and sw3\nsw3 <- fromJSON(url_sw3)\nsw4 <- fromJSON(url_sw4)\n\n\n# Print out the Title element of both lists\nprint(sw3$Title)\nprint(sw4$Title)\n\n# Is the release year of sw4 later than sw3?\nsw4$Year > sw3$Year"
   }
 ]
