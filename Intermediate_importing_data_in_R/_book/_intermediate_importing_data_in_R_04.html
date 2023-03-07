@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Intermediate Importing Data in R - 5&nbsp; Importing data from the web (Part 2)</title>
+<title>Intermediate Importing Data in R - 4&nbsp; Importing data from the web (Part 2)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -62,7 +125,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Intermediate Importing Data in R - 5&nbsp; Importing data from the web (Part 2)">
+<meta name="twitter:title" content="Intermediate Importing Data in R - 4&nbsp; Importing data from the web (Part 2)">
+<meta name="twitter:description" content="In the simplest setting, fromJSON() can convert character strings that represent JSON data into a nicely structured R list. Give it a try!">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -72,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -135,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -148,34 +212,34 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
+  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -188,14 +252,51 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#from-json-to-r" id="toc-from-json-to-r" class="nav-link active" data-scroll-target="#from-json-to-r"><span class="toc-section-number">4.1</span>  From JSON to R</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#quandl-api" id="toc-quandl-api" class="nav-link" data-scroll-target="#quandl-api"><span class="toc-section-number">4.2</span>  Quandl API</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#omdb-api" id="toc-omdb-api" class="nav-link" data-scroll-target="#omdb-api"><span class="toc-section-number">4.3</span>  OMDb API</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#json-practice-1" id="toc-json-practice-1" class="nav-link" data-scroll-target="#json-practice-1"><span class="toc-section-number">4.4</span>  JSON practice (1)</a>
+  <ul class="collapse">
+  <li><a href="#instrucions-100-xp" id="toc-instrucions-100-xp" class="nav-link" data-scroll-target="#instrucions-100-xp">Instrucions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#json-practice-2" id="toc-json-practice-2" class="nav-link" data-scroll-target="#json-practice-2"><span class="toc-section-number">4.5</span>  JSON practice (2)</a>
+  <ul class="collapse">
+  <li><a href="#instrucions-100-xp-1" id="toc-instrucions-100-xp-1" class="nav-link" data-scroll-target="#instrucions-100-xp-1">Instrucions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#json-practice-2-1" id="toc-json-practice-2-1" class="nav-link" data-scroll-target="#json-practice-2-1"><span class="toc-section-number">4.6</span>  JSON practice (2)</a>
+  <ul class="collapse">
+  <li><a href="#instrucions-100-xp-2" id="toc-instrucions-100-xp-2" class="nav-link" data-scroll-target="#instrucions-100-xp-2">Instrucions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#tojson" id="toc-tojson" class="nav-link" data-scroll-target="#tojson"><span class="toc-section-number">4.7</span>  toJSON()</a>
+  <ul class="collapse">
+  <li><a href="#instrucions-100-xp-3" id="toc-instrucions-100-xp-3" class="nav-link" data-scroll-target="#instrucions-100-xp-3">Instrucions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#minify-and-prettify" id="toc-minify-and-prettify" class="nav-link" data-scroll-target="#minify-and-prettify"><span class="toc-section-number">4.8</span>  Minify and prettify</a>
+  <ul class="collapse">
+  <li><a href="#instrucions-100-xp-4" id="toc-instrucions-100-xp-4" class="nav-link" data-scroll-target="#instrucions-100-xp-4">Instrucions <code>100 XP</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_intermediate_importing_data_in_R_04.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></h1>
 </div>
 
 
@@ -210,8 +311,239 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="from-json-to-r" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="from-json-to-r"><span class="header-section-number">4.1</span> From JSON to R</h2>
+<p>In the simplest setting, fromJSON() can convert character strings that represent JSON data into a nicely structured R list. Give it a try!</p>
+<section id="instructions-100-xp" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Load the jsonlite package. It’s already installed on DataCamp’s servers.</li>
+<li>wine_json represents a JSON. Use fromJSON() to convert it to a list, named wine.</li>
+<li>Display the structure of wine</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_017.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the jsonlite package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># wine_json is a JSON</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>wine_json <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">    {</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">        "name":"Chateau Migraine",</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">        "year":1997,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">        "alcohol_pct":12.4,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">        "color":"red",</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">        "awarded":false</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert wine_json into a list: wine</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>wine <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(wine_json)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Print structure of wine</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">str</span>(wine))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="quandl-api" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="quandl-api"><span class="header-section-number">4.2</span> Quandl API</h2>
+<p>As Filip showed in the video, <code>fromJSON()</code> also works if you pass a URL as a character string or the path to a local file that contains JSON data. Let’s try this out on the Quandl API, where you can fetch all sorts of financial and economical data.</p>
+<section id="instructions-100-xp-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
+<ul>
+<li><code>quandl_url</code> represents a URL. Use <code>fromJSON()</code> directly on this URL and store the result in <code>quandl_data</code>.</li>
+<li>Display the structure of <code>quandl_data</code> .</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_018.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jsonlite is preloaded</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition of quandl_url</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>quandl_url <span class="ot">&lt;-</span> <span class="st">"https://www.quandl.com/api/v3/datasets/WIKI/FB/data.json?auth_token=i83asDsiWUUyfoypkgMz"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Quandl data: quandl_data</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>quandl_data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(quandl_url)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print structure of quandl_data</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(quandl_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="omdb-api" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="omdb-api"><span class="header-section-number">4.3</span> OMDb API</h2>
+<p>In the video, you saw how easy it is to interact with an API once you know how to formulate requests. You also saw how to fetch all information on Rain Man from OMDb. Simply perform a <code>GET()</code> call, and next ask for the contents with the <code>content()</code> function. This <code>content()</code> function, which is part of the <code>httr</code> package, uses jsonlite behind the scenes to import the JSON data into R.</p>
+<p>However, by now you also know that jsonlite can handle URLs itself. Simply passing the request URL to fromJSON() will get your data into R. In this exercise, you will be using this technique to compare the release year of two movies in the Open Movie Database.</p>
+<section id="instructions-100-xp-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Two URLs are included in the sample code, as well as a <code>fromJSON()</code> call to build <code>sw4</code>. Add a similar call to build <code>sw3</code>.</li>
+<li>Print out the element named <code>Title</code> of both <code>sw4</code> and <code>sw3</code>. You can use the <code>$</code> operator. What movies are we dealing with here? -Write an expression that evaluates to <code>TRUE</code> <code>if sw4</code> was released later than <code>sw3</code>. This information is stored in the <code>Year</code> element of the named lists.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_019.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The package jsonlite is already loaded</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition of the URLs</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>url_sw4 <span class="ot">&lt;-</span> <span class="st">"http://www.omdbapi.com/?apikey=72bc447a&amp;i=tt0076759&amp;r=json"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>url_sw3 <span class="ot">&lt;-</span> <span class="st">"http://www.omdbapi.com/?apikey=72bc447a&amp;i=tt0121766&amp;r=json"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Import two URLs with fromJSON(): sw4 and sw3</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>sw3 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url_sw3)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>sw4 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url_sw4)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the Title element of both lists</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sw3<span class="sc">$</span>Title)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sw4<span class="sc">$</span>Title)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the release year of sw4 later than sw3?</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>sw4<span class="sc">$</span>Year <span class="sc">&gt;</span> sw3<span class="sc">$</span>Year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="json-practice-1" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="json-practice-1"><span class="header-section-number">4.4</span> JSON practice (1)</h2>
+<p>JSON is built on two structures: objects and arrays. To help you experiment with these, two JSON strings are included in the sample code. It’s up to you to change them appropriately and then call jsonlite’s fromJSON() function on them each time.</p>
+<section id="instrucions-100-xp" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instrucions-100-xp">Instrucions <code>100 XP</code></h3>
+<ul>
+<li>Change the assignment of json1 such that the R vector after conversion contains the numbers 1 up to 6, in ascending order. Next, call <code>fromJSON()</code> on <code>json1</code>.</li>
+<li>Adapt the code for json2 such that it’s converted to a named list with two elements: <code>a</code>, containing the numbers 1, 2 and 3 and <code>b</code>, containing the numbers 4, 5 and 6. Next, call <code>fromJSON()</code> on <code>json2</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_020.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jsonlite is already loaded</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>json1 <span class="ot">&lt;-</span> <span class="st">'[1, 2, 3, 4, 5, 6]'</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json1)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>json2 <span class="ot">&lt;-</span> <span class="st">'{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">    "a": [1, 2, 3],</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">    "b": [4, 5, 6]</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="json-practice-2" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="json-practice-2"><span class="header-section-number">4.5</span> JSON practice (2)</h2>
+<p>We prepared two more <code>JSON</code> strings in the sample code. Can you change them and call <code>jsonlite</code>’s <code>fromJSON()</code> function on them, similar to the previous exercise?</p>
+<section id="instrucions-100-xp-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instrucions-100-xp-1">Instrucions <code>100 XP</code></h3>
+<ul>
+<li><p>Remove characters from <code>json1</code> to build a 2 by 2 matrix containing only 1, 2, 3 and 4. Call <code>fromJSON()</code> on <code>json1</code>.</p></li>
+<li><p>Add characters to <code>json2</code> such that the data frame in which the json is converted contains an additional observation in the last row. For this observations, <code>a</code> equals 5 and <code>b</code> equals 6. Call <code>fromJSON()</code> one last time, on <code>json2</code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="json-practice-2-1" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="json-practice-2-1"><span class="header-section-number">4.6</span> JSON practice (2)</h2>
+<section id="instrucions-100-xp-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instrucions-100-xp-2">Instrucions <code>100 XP</code></h3>
+<ul>
+<li><p>Remove characters from json1 to build a 2 by 2 matrix containing only 1, 2, 3 and 4. Call <code>fromJSON()</code> on json1.</p></li>
+<li><p>Add characters to <code>json2</code> such that the data frame in which the json is converted contains an additional observation in the last row. For this observations, <code>a</code> equals 5 and <code>b</code> equals 6. Call <code>fromJSON()</code> one last time, on json2.</p></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_021.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jsonlite is already loaded</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>json1 <span class="ot">&lt;-</span> <span class="st">'[[1, 2], [3, 4]]'</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json1)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>json2 <span class="ot">&lt;-</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>   <span class="st">'[{"a": 1, "b": 2}, {"a": 3, "b": 4}, {"a": 5, "b": 6}</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">]'</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="tojson" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="tojson"><span class="header-section-number">4.7</span> toJSON()</h2>
+<p>Apart from converting <code>JSON</code> to R with <code>fromJSON()</code>, you can also use <code>toJSON()</code> to convert R data to a <code>JSON</code> format. In its most basic use, you simply pass this function an R object to convert to a JSON. The result is an R object of the class <code>json</code>, which is basically a character string representing that JSON.</p>
+<p>For this exercise, you will be working with a <code>.csv</code> file containing information on the amount of desalinated water that is produced around the world. As you’ll see, it contains a lot of missing values. This data can be found on the URL that is specified in the sample code.</p>
+<section id="instrucions-100-xp-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instrucions-100-xp-3">Instrucions <code>100 XP</code></h3>
+<ul>
+<li>Use a function of the utils package to import the <code>.csv</code> file directly from the URL specified in <code>url_csv</code>. Save the resulting data frame as <code>water</code>. Make sure that strings are not imported as factors.</li>
+<li>Convert the data frame <code>water</code> to a JSON. Call the resulting object <code>water_json</code>.</li>
+<li>Print out <code>water_json</code>.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_021.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jsonlite is already loaded</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># URL pointing to the .csv file</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>url_csv <span class="ot">&lt;-</span> <span class="st">"http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/water.csv"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the .csv file located at url_csv</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>water <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url_csv)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the data file according to the requirements</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>water_json <span class="ot">&lt;-</span> <span class="fu">toJSON</span>(water)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out water_json</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(water_json)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="minify-and-prettify" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="minify-and-prettify"><span class="header-section-number">4.8</span> Minify and prettify</h2>
+<p>JSONs can come in different formats. Take these two JSONs, that are in fact exactly the same: the first one is in a minified format, the second one is in a pretty format with indentation, whitespace and new lines:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mini</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>{<span class="st">"a"</span><span class="sc">:</span><span class="dv">1</span>,<span class="st">"b"</span><span class="sc">:</span><span class="dv">2</span>,<span class="st">"c"</span><span class="sc">:</span>{<span class="st">"x"</span><span class="sc">:</span><span class="dv">5</span>,<span class="st">"y"</span><span class="sc">:</span><span class="dv">6</span>}}</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"a"</span><span class="sc">:</span> <span class="dv">1</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"b"</span><span class="sc">:</span> <span class="dv">2</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"c"</span><span class="sc">:</span> {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x"</span><span class="sc">:</span> <span class="dv">5</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"y"</span><span class="sc">:</span> <span class="dv">6</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Unless you’re a computer, you surely prefer the second version. However, the standard form that <code>toJSON()</code> returns, is the minified version, as it is more concise. You can adapt this behavior by setting the <code>pretty</code> argument inside <code>toJSON()</code> to <code>TRUE</code>. If you already have a JSON string, you can use <code>prettify()</code> or <code>minify()</code> to make the JSON pretty or as concise as possible.</p>
+<section id="instrucions-100-xp-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instrucions-100-xp-4">Instrucions <code>100 XP</code></h3>
+<ul>
+<li>Convert the <code>mtcars</code> dataset, which is available in R by default, to a <code>pretty JSON</code>. Call the resulting JSON <code>pretty_json</code>.</li>
+<li>Print out <code>pretty_json</code>. Can you understand the output easily?</li>
+<li>Convert <code>pretty_json</code> to a minimal version using <code>minify()</code>. Store this version under a new variable, <code>mini_json</code>.</li>
+<li>Print out <code>mini_json</code>. Which version do you prefer, the pretty one or the minified one?</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_022.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jsonlite is already loaded</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert mtcars to a pretty JSON: pretty_json</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pretty_json <span class="ot">&lt;-</span> <span class="fu">toJSON</span>(mtcars, <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print pretty_json</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pretty_json)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Minify pretty_json: mini_json</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>mini_json <span class="ot">&lt;-</span> <span class="fu">minify</span>(pretty_json)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Print mini_json</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mini_json)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -350,12 +682,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./_intermediate_importing_data_in_R_03.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./_intermediate_importing_data_in_R_05.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

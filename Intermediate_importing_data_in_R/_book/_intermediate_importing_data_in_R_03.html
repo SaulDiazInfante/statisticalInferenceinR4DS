@@ -417,20 +417,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="donwloading-any-file-secure-or-not" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="donwloading-any-file-secure-or-not"><span class="header-section-number">3.4</span> Donwloading any file, secure or not</h2>
+<p>In the previous exercise you’ve seen how you can read excel files on the web using the read_excel package by first downloading the file with the <code>download.file()</code> function.</p>
+<p>There’s more: with <code>download.file()</code> you can download any kind of file from the web, using <code>HTTP</code> and <code>HTTPS:</code> images, executable files, but also <code>.RData</code> files. An <code>RData</code> file is very efficient format to store R data.</p>
+<p>You can load data from an RData file using the <code>load()</code> function, but this function does not accept a URL string as an argument. In this exercise, you’ll first download the RData file securely, and then import the local data file.</p>
 <section id="instructions-100-xp-3" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Take a look at the URL in <code>url_rdata</code>. It uses a secure connection, <code>https://</code>. This URL points to an <code>RData</code> file containing a data frame with some metrics on different kinds of wine.</li>
+<li>Download the file at<code>url_rdata</code> using <code>download.file()</code>. Call the file <code>"wine_local.RData"</code> in your working directory.</li>
+<li>Load the file you created, <code>wine_local.RData</code>, using the <code>load()</code> function. It takes one argument, the path to the file, which is just the filename in our case. After running this command, the variable wine will automatically be available in your workspace.</li>
+<li>Print out the <code>summary()</code> of the wine dataset.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_014.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https URL to the wine RData file.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>url_rdata <span class="ot">&lt;-</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">"https://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/wine.RData"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the wine file to your working directory</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url_rdata, <span class="st">"wine_local.RData"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the wine data into your workspace using load()</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"wine_local.RData"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the summary of the wine data</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(wine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="http-httr-1" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="http-httr-1"><span class="header-section-number">3.5</span> HTTP? httr! (1)</h2>
+<p>Downloading a file from the Internet means sending a <code>GET</code> request and receiving the file you asked for. Internally, all the previously discussed functions use a GET request to download files.</p>
+<p><code>httr</code> provides a convenient function, <code>GET()</code> to execute this <code>GET</code> request. The result is a response object, that provides easy access to the status code, content-type and, of course, the actual content.</p>
+<p>You can extract the content from the request using the <code>content()</code> function. At the time of writing, there are three ways to retrieve this content: as a raw object, as a character vector, or an R object, such as a list. If you don’t tell <code>content()</code> how to retrieve the content through the as argument, it’ll try its best to figure out which type is most appropriate based on the content-type.</p>
 <section id="instructions-100-xp-4" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Load the httr package. It’s already installed on DataCamp’s servers.</li>
+<li>Use GET() to get the URL stored in url. Store the result of this GET() call as resp.</li>
+<li>Print the resp object. What information does it contain?</li>
+<li>Get the content of resp using content() and set the as argument to “raw”. Assign the resulting vector to raw_content.</li>
+<li>Print the first values in raw_content with head().</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_015.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the httr package</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the url, save response to resp</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://www.example.com/"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">GET</span>(url)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print resp</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resp)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the raw content of resp: raw_content</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>raw_content <span class="ot">&lt;-</span> <span class="fu">content</span>(resp, <span class="at">as =</span> <span class="st">'raw'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the head of raw_content</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(raw_content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="http-httr-2" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="http-httr-2"><span class="header-section-number">3.6</span> HTTP? httr! (2)</h2>
+<p>Web content does not limit itself to HTML pages and files stored on remote servers such as DataCamp’s Amazon S3 instances. There are many other data formats out there. A very common one is JSON. This format is very often used by so-called Web APIs, interfaces to web servers with which you as a client can communicate to get or store information in more complicated ways.</p>
+<p>You’ll learn about Web APIs and JSON in the video and exercises that follow, but some experimentation never hurts, does it?</p>
 <section id="instructions-100-xp-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Use <code>GET()</code> to get the url that has already been specified in the sample code. Store the response as resp.</li>
+<li>Print <code>resp.</code> What is the content-type?</li>
+<li>Use <code>content()</code> to get the content of <code>resp.</code> Set the as argument to <code>"text"</code>. Simply print out the result. What do you see?</li>
+<li>Use <code>content()</code> to get the content of resp, but this time do not specify a second argument. R figures out automatically that you’re dealing with a JSON, and converts the JSON to a named R list.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_016.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># httr is already loaded</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the url</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://www.omdbapi.com/?</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">apikey=72bc447a&amp;t=Annie+Hall&amp;y=&amp;plot=short&amp;r=json"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">GET</span>(url)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print resp</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resp)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print content of resp as text</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">content</span>(resp, <span class="at">as =</span> <span class="st">"text"</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Print content of resp</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">content</span>(resp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>

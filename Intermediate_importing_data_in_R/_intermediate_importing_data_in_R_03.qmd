@@ -128,16 +128,125 @@ download.file(url_xls, "local_latitude.xls")
 excel_readxl <- read_excel("local_latitude.xls")
 ```
 
-
 ## Donwloading any file, secure or not
 
+In the previous exercise you've seen how you can read excel files on the web 
+using the read_excel package by first downloading the file with the 
+`download.file()` function.
+
+There's more: with `download.file()` you can download any kind of file from the 
+web, using `HTTP` and `HTTPS:` images, executable files, but also `.RData` 
+files. An `RData` file is very efficient format to store R data.
+
+You can load data from an RData file using the `load()` function, but this 
+function does not accept a URL string as an argument. In this exercise, you'll 
+first download the RData file securely, and then import the local data file.
+
 ### Instructions `100 XP` {.unnumbered}
 
+- Take a look at the URL in `url_rdata`. It uses a secure connection, 
+`https://`. This URL points to an `RData` file containing a data frame with some 
+metrics on different kinds of wine.
+- Download the file at`url_rdata` using `download.file()`. Call the file 
+`"wine_local.RData"` in your working directory.
+- Load the file you created, `wine_local.RData`, using the `load()` function. 
+It takes one argument, the path to the file, which is just the filename in our 
+case. 
+After running this command, the variable wine will automatically be available 
+in your workspace. 
+- Print out the `summary()` of the wine dataset.
+
+```{.r filename="ex_014.R"}
+# https URL to the wine RData file.
+url_rdata <- 
+"https://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/wine.RData"
+
+# Download the wine file to your working directory
+download.file(url_rdata, "wine_local.RData")
+
+# Load the wine data into your workspace using load()
+load("wine_local.RData")
+
+# Print out the summary of the wine data
+summary(wine)
+```
 ## HTTP? httr! (1)
+Downloading a file from the Internet means sending a `GET` request and 
+receiving the file you asked for. Internally, all the previously discussed 
+functions use a GET request to download files.
+
+`httr` provides a convenient function, `GET()` to execute this `GET` request. 
+The result is a response object, that provides easy access to the status code, 
+content-type and, of course, the actual content.
+
+You can extract the content from the request using the `content()` function. 
+At the time of writing, there are three ways to retrieve this content: as a raw 
+object, as a character vector, or an R object, such as a list. If you don't tell 
+`content()` how to retrieve the content through the as argument, it'll try its 
+best to figure out which type is most appropriate based on the content-type.
 
 ### Instructions `100 XP` {.unnumbered}
+- Load the httr package. It's already installed on DataCamp's servers.
+- Use GET() to get the URL stored in url. Store the result of this GET() call 
+as resp.
+- Print the resp object. What information does it contain?
+- Get the content of resp using content() and set the as argument to "raw". 
+Assign the resulting vector to raw_content.
+- Print the first values in raw_content with head().
+
+
+```{.r filename="ex_015.R"}
+# Load the httr package
+library(httr)
+
+# Get the url, save response to resp
+url <- "http://www.example.com/"
+
+resp <- GET(url)
+# Print resp
+print(resp)
+
+# Get the raw content of resp: raw_content
+raw_content <- content(resp, as = 'raw')
+
+# Print the head of raw_content
+head(raw_content)
+
+```
 
 
 ## HTTP? httr! (2)
 
+Web content does not limit itself to HTML pages and files stored on remote 
+servers such as DataCamp's Amazon S3 instances. There are many other data 
+formats out there. A very common one is JSON. This format is very often used by
+so-called Web APIs, interfaces to web servers with which you as a client can
+communicate to get or store information in more complicated ways.
+
+You'll learn about Web APIs and JSON in the video and exercises that follow, 
+but some experimentation never hurts, does it?
+
 ### Instructions `100 XP` {.unnumbered}
+
+- Use `GET()` to get the url that has already been specified in the sample code. 
+Store the response as resp.
+- Print `resp.` What is the content-type?
+- Use `content()` to get the content of `resp.` Set the as argument to 
+`"text"`. Simply print out the result. What do you see?
+- Use `content()` to get the content of resp, but this time do not specify a 
+second argument. R figures out automatically that you're dealing with a JSON, 
+and converts the JSON to a named R list.
+
+```{.r filename="ex_016.R"}
+# httr is already loaded
+# Get the url
+url <- "http://www.omdbapi.com/?
+apikey=72bc447a&t=Annie+Hall&y=&plot=short&r=json"
+resp <- GET(url)
+# Print resp
+print(resp)
+# Print content of resp as text
+print(content(resp, as = "text"))
+# Print content of resp
+print(content(resp))
+```
