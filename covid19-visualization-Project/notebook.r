@@ -15,8 +15,8 @@ confirmed_cases_worldwide
 confirmed_cases_worldwide %>%
     ggplot(
         aes(
-            x=date,
-            y=cum_cases
+            x = date,
+            y = cum_cases
         )
     ) +  geom_line() + ylab("Cumulative confirmed cases")
 
