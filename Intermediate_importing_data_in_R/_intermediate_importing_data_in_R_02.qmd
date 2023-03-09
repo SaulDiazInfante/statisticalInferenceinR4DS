@@ -1,5 +1,10 @@
 # Importing data from databases (Part 2)
 
+Importing an entire table from a database while you might only need a tiny bit 
+of information seems like a lot of unncessary work. In this chapter, you'll
+learn about SQL queries, which will help you make things more efficient by
+ performing some computations on the database side.
+
 ## Query tweater (1)
 
 In your life as a data scientist, you'll often be working with huge databases 

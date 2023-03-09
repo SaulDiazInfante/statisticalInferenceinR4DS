@@ -1,5 +1,8 @@
 # Importing data from the web (Part 2)
 
+Importing data from the web is one thing; actually being able to extract useful 
+information is another. Learn more about the JSON format to get one step closer
+to web domination.
 ## From JSON to R
 
 In the simplest setting, fromJSON() can convert character strings 

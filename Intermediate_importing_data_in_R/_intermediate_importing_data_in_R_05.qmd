@@ -100,9 +100,13 @@ classify human personality. The SPSS dataset is called person.sav and is
 available in your working directory.
 
 ### Instructions `100 XP` {.unnumbered}
-- Use `read_sav()` to import the `SPSS` data in `"person.sav"`. Name the imported data frame `traits`.
-- `traits` contains several missing values, or `NAs`. Run `summary()` on it to find out how many` NA`s are contained in each variable.
-- Print out a subset of those individuals that scored high on Extroversion and on Agreeableness, i.e. scoring higher than 40 on each of these two categories. You can use `subset()` for this.
+- Use `read_sav()` to import the `SPSS` data in `"person.sav"`. 
+Name the imported data frame `traits`.
+- `traits` contains several missing values, or `NAs`. Run `summary()` on it to
+ find out how many` NA`s are contained in each variable.
+- Print out a subset of those individuals that scored high on Extroversion and 
+on Agreeableness, i.e. scoring higher than 40 on each of these two categories. 
+You can use `subset()` for this.
 
 ```{.r filename="ex_025.R"}
 # haven is already loaded
