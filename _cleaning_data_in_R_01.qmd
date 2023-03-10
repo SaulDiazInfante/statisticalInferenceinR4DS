@@ -31,56 +31,242 @@ glimpse(bike_share_rides)
 
 # Summary of user_birth_year
 summary(bike_share_rides$user_birth_year)
+
+# Convert user_birth_year to factor: user_birth_year_fct
+bike_share_rides <- bike_share_rides %>%
+  mutate(user_birth_year_fct = as.factor(user_birth_year))
+
+# Assert user_birth_year_fct is a factor
+assert_is_factor(bike_share_rides$user_birth_year_fct)
+
+# Summary of user_birth_year_fct
+summary(bike_share_rides$user_birth_year_fct)
+
 ```
 
-##
+## Trimming strings
+In the previous exercise, you were able to identify the correct data type and
+convert `user_birth_year` to the correct type, allowing you to extract counts 
+that gave you a bit more insight into the dataset.
+
+Another common dirty data problem is having extra bits like percent signs or
+periods in numbers, causing them to be read in as `character`s. In order to be 
+able to crunch these numbers, the extra bits need to be removed and the numbers
+need to be converted from `character` to `numeric`. In this exercise, you'll 
+need to convert the duration column from character to `numeric`, but before this
+can happen, the word "minutes" needs to be removed from each value.
+
+`dplyr`, `assertive`, and `stringr` are loaded and bike_share_rides is 
+available.
 
 ### Instructions `100 XP` {.unnumbered}
+
+- Use `str_remove()` to remove `"minutes"` from the duration column of 
+`bike_share_rides`. Add this as a new column called `duration_trimmed`.
+- Convert the `duration_trimmed` column to a numeric type and add this as a
+ new column called `duration_mins`.
+- Glimpse at `bike_share_rides` and assert that the `duration_mins` column is
+ `numeric`.
+- Calculate the mean of `duration_mins`.
 
 ```{.r filename=ex_002.R}
+bike_share_rides <- bike_share_rides %>%
+  # Remove 'minutes' from duration: duration_trimmed
+  mutate(duration_trimmed = str_remove(duration, "minutes"),
+  # Convert duration_trimmed to numeric: duration_mins
+         duration_mins = as.numeric(duration_trimmed))
 
+# Glimpse at bike_share_rides
+glimpse(bike_share_rides)
+
+# Assert duration_mins is numeric
+assert_is_numeric(bike_share_rides$duration_mins)
+
+# Calculate mean duration
+mean(bike_share_rides$duration_mins)
 ```
+## Ride duration constraints
 
-##
+Values that are out of range can throw off an analysis, so it's important to 
+catch them early on. In this exercise, you'll be examining the `duration_min`
+column more closely. Bikes are not allowed to be kept out for more than 
+24 hours, or 1440 minutes at a time, but issues with some of the bikes caused
+inaccurate recording of the time they were returned.
+
+In this exercise, you'll replace erroneous data with the range limit (
+1440 minutes), however, you could just as easily replace these values with NAs.
+
+load `dplyr`, `assertive`, and g`gplot2` and`bike_share_rides`.
 
 ### Instructions `100 XP` {.unnumbered}
+
+Create a three-bin histogram of the `duration_min` column of
+`bike_share_rides` using `ggplot2` to identify if there is out-of-range data.
 
 ```{.r filename=ex_003.R}
+# Create breaks
+breaks <- 
+  c(
+    min(bike_share_rides$duration_min),
+    0,
+    1440,
+    max(bike_share_rides$duration_min)
+  )
+
+# Create a histogram of duration_min
+ggplot(bike_share_rides, aes(duration_min)) +
+  geom_histogram(breaks = breaks)
+
+# duration_min_const: replace vals of duration_min > 1440 with 1440
+bike_share_rides <- bike_share_rides %>%
+  mutate(
+    duration_min_const = replace(
+      duration_min,
+      duration_min > 1440 ,
+      1440
+    )
+  )
+
+# Make sure all values of 
+# duration_min_const are between 0 and 1440
+assert_all_are_in_closed_range(
+  bike_share_rides$duration_min_const,
+  lower = 0, upper = 1440
+)
 
 ```
-##
+## Back to the future
+
+Something has gone wrong and it looks like you have data with dates from the
+future, which is way outside of the date range you expected to be working with.
+To fix this, you'll need to remove any rides from the dataset that have a 
+`date` in the future. Before you can do this, the date column needs to be 
+converted from a `character` to a `Date`. Having these as `Date` objects will 
+make it much easier to figure out which rides are from the future, since R makes
+it easy to check if one Date object is before (`<`) or after (`>`) another.
+
+load `dplyr`, `assertive` and `bike_share_rides`.
 
 ### Instructions `100 XP` {.unnumbered}
+- Convert the date column of `bike_share_rides` from `character` to the `Date` 
+data type.
+- Assert that all values in the `date` column happened sometime in the past 
+and not in the future.
+- Filter `bike_share_rides` to get only the rides from the past or today, 
+and save this as `bike_share_rides_past`.
+- Assert that the dates in `bike_share_rides_past` occurred only in the past.
 
 ```{.r filename=ex_004.R}
+library(lubridate)
+# Convert date to Date type
+bike_share_rides <- bike_share_rides %>%
+  mutate(date = as.Date(date))
 
+# Make sure all dates are in the past
+assert_all_are_in_past(bike_share_rides$date)
+
+
+# Filter for rides that occurred before or on today's date
+bike_share_rides_past <- bike_share_rides %>%
+  filter(date <= today())
+
+# Make sure all dates from bike_share_rides_past are in the past
+assert_all_are_in_past(bike_share_rides_past$date)
 ```
-##
+## Full duplicates
+
+You've been notified that an update has been made to the bike sharing data 
+pipeline to make it more efficient, but that duplicates are more likely to be
+generated as a result. To make sure that you can continue using the same 
+scripts to run your weekly analyses about ride statistics, you'll need to 
+ensure that any duplicates in the dataset are removed first.
+
+When multiple rows of a data frame share the same values for all columns, 
+they're full duplicates of each other. Removing duplicates like this is
+important, since having the same value repeated multiple times can alter
+summary statistics like the mean and median. Each ride, including its 
+`ride_id` should be unique.
+
+be sure that`dplyr` is loaded and `bike_share_rides` is available.
 
 ### Instructions `100 XP` {.unnumbered}
+
+- Get the total number of full duplicates in `bike_share_rides`.
+- Remove all full duplicates from `bike_share_rides` and save the new 
+data frame as `bike_share_rides_unique`.
+- Get the total number of full duplicates in the new `bike_share_rides_unique` 
+data frame.
 
 ```{.r filename=ex_005.R}
 
 ```
-##
+
+## Full duplicates
+
+You've been notified that an update has been made to the bike sharing data 
+pipeline to make it more efficient, but that duplicates are more likely to be
+generated as a result. To make sure that you can continue using the same 
+scripts to run your weekly analyses about ride statistics, you'll need to
+ensure that any duplicates in the dataset are removed first.
+
+When multiple rows of a data frame share the same values for all columns,
+they're full duplicates of each other. Removing duplicates like this is 
+important, since having the same value repeated multiple times can alter 
+summary statistics like the mean and median. Each ride, including its `ride_id` 
+should be unique.
+
+be sure that`dplyr` is loaded and `bike_share_rides` is available.
 
 ### Instructions `100 XP` {.unnumbered}
+
+- Get the total number of full duplicates in `bike_share_rides`.
+- Remove all full duplicates from 
+`bike_share_rides` and save the new data frame as `bike_share_rides_unique`.
+- Get the total number of full duplicates in the new 
+`bike_share_rides_unique` data frame.
 
 ```{.r filename=ex_006.R}
-
+# Count the number of full duplicate
+sum(duplicated(bike_share_rides))
+# Remove duplicates
+bike_share_rides_unique <- distinct(bike_share_rides)
+# Count the full duplicates in bike_share_rides_unique
+sum(duplicated(bike_share_rides_unique))
 ```
-##
+
+## Removing partial duplicates
+
+Now that you've identified and removed the full duplicates, it's time to check
+for partial duplicates. Partial duplicates are a bit tricker to deal with than
+full duplicates. In this exercise, you'll first identify any partial duplicates
+and then practice the most common technique to deal with them, which involves
+dropping all partial duplicates, keeping only the first.
+
+`dplyr` is loaded and `bike_share_rides` is available.
 
 ### Instructions `100 XP` {.unnumbered}
+
+- Count the number of occurrences of each `ride_id`.
+- Filter for `ride_id`s that occur multiple times.
+- Remove full and partial duplicates from `bike_share_rides` based on 
+`ride_id` only, keeping all columns.
+- Store this as `bike_share_rides_unique`.
 
 ```{.r filename=ex_007.R}
+# Find duplicated ride_ids
+bike_share_rides %>% 
+  count(ride_id) %>% 
+  filter(n > 1)
 
-```
+# Remove full and partial duplicates
+bike_share_rides_unique <- bike_share_rides %>%
+  # Only based on ride_id instead of all cols
+  distinct(ride_id, .keep_all = TRUE)
 
-##
-
-### Instructions `100 XP` {.unnumbered}
-
-```{.r filename=ex_008.R}
-
+# Find duplicated ride_ids in bike_share_rides_unique
+bike_share_rides_unique %>%
+  # Count the number of occurrences of each ride_id
+  count(ride_id) %>%
+  # Filter for rows with a count > 1
+  filter(n>1)
 ```
