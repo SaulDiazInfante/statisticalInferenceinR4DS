@@ -1,0 +1,86 @@
+# Common Data Problems
+
+In this chapter, you'll learn how to overcome some of the most common
+dirty data problems. You'll convert data types, apply range constraints 
+to remove future data points, and remove duplicated data points to avoid
+double-counting.
+
+## Converting data types
+
+Throughout this chapter, you'll be working with San Francisco bike share ride 
+data called bike_share_rides. It contains information on start and end stations 
+of each trip, the trip duration, and some user information.
+
+Before beginning to analyze any dataset, it's important to take a look at the 
+different types of columns you'll be working with, which you can do using 
+`glimpse()`.
+
+In this exercise, you'll take a look at the data types contained in 
+`bike_share_rides` and see how an incorrect data type can flaw your analysis.
+
+`dplyr` and `assertive` are loaded and `bike_share_rides` is available.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Examine the data types of the columns of bike_share_rides.
+- Get a summary of the user_birth_year column of bike_share_rides.
+
+```{.r filename=ex_001.R}
+# Glimpse at bike_share_rides
+glimpse(bike_share_rides)
+
+# Summary of user_birth_year
+summary(bike_share_rides$user_birth_year)
+```
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_002.R}
+
+```
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_003.R}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_004.R}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_005.R}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_006.R}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_007.R}
+
+```
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_008.R}
+
+```

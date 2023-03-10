@@ -54,6 +54,10 @@ book:
         - _intermediate_importing_data_in_R_03.qmd
         - _intermediate_importing_data_in_R_04.qmd
         - _intermediate_importing_data_in_R_05.qmd
+        - _cleaning_data_in_R_01.qmd
+        - _cleaning_data_in_R_02.qmd
+        - _cleaning_data_in_R_03.qmd
+        - _cleaning_data_in_R_04.qmd
     - part: statistical-inference-whole-game.qmd
       chapters:
         - statistical_inference.qmd

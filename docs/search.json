@@ -1344,6 +1344,174 @@
     "text": "19.6 Be polite and …\nEvery time you connect to a database using dbConnect(), you’re creating a new connection to the database you’re referencing. RMySQL automatically specifies a maximum of open connections and closes some of the connections for you, but still: it’s always polite to manually disconnect from the database afterwards. You do this with the dbDisconnect() function.\nThe code that connects you to the database is already available, can you finish the script?\n\nInstructions 100 XP\n\nUsing the technique you prefer, build a data frame long_tweats. It selects the post and date columns from the observations in tweats where the character length of the post variable exceeds 40.\nPrint long_tweats.\nDisconnect from the database by using dbDisconnect().\n\n\n\nex_010.R\n\n# Connect to the database\nlibrary(DBI)\ncon <- dbConnect(RMySQL::MySQL(),\n                 dbname = \"tweater\",\n                 host = \"courses.csrrinzqubik.us-east-1.rds.amazonaws.com\",\n                 port = 3306,\n                 user = \"student\",\n                 password = \"datacamp\")\n\n# Create the data frame  long_tweats\nqry <- \n    \"SELECT post, date\n        FROM tweats\n            WHERE CHAR_LENGTH(post) > 40\n    \"\nlong_tweats <- dbGetQuery(con, qry)\n# Print long_tweats\nprint(long_tweats)\n\n# Disconnect from the database\ndbDisconnect(con)"
   },
   {
+    "objectID": "_intermediate_importing_data_in_R_04.html#from-json-to-r",
+    "href": "_intermediate_importing_data_in_R_04.html#from-json-to-r",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.1 From JSON to R",
+    "text": "21.1 From JSON to R\nIn the simplest setting, fromJSON() can convert character strings that represent JSON data into a nicely structured R list. Give it a try!\n\nInstructions 100 XP\n\nLoad the jsonlite package. It’s already installed on DataCamp’s servers.\nwine_json represents a JSON. Use fromJSON() to convert it to a list, named wine.\nDisplay the structure of wine\n\n\n\nex_017.R\n\n# Load the jsonlite package\nlibrary(jsonlite)\n\n# wine_json is a JSON\nwine_json <- '\n    {\n        \"name\":\"Chateau Migraine\",\n        \"year\":1997,\n        \"alcohol_pct\":12.4,\n        \"color\":\"red\",\n        \"awarded\":false\n    }\n'\n\n# Convert wine_json into a list: wine\nwine <- fromJSON(wine_json)\n\n# Print structure of wine\nprint(str(wine))"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#quandl-api",
+    "href": "_intermediate_importing_data_in_R_04.html#quandl-api",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.2 Quandl API",
+    "text": "21.2 Quandl API\nAs Filip showed in the video, fromJSON() also works if you pass a URL as a character string or the path to a local file that contains JSON data. Let’s try this out on the Quandl API, where you can fetch all sorts of financial and economical data.\n\nInstructions 100 XP\n\nquandl_url represents a URL. Use fromJSON() directly on this URL and store the result in quandl_data.\nDisplay the structure of quandl_data .\n\n\n\nex_018.R\n\n# jsonlite is preloaded\n\n# Definition of quandl_url\nquandl_url <- \"https://www.quandl.com/api/v3/datasets/WIKI/FB/data.json?auth_token=i83asDsiWUUyfoypkgMz\"\n\n# Import Quandl data: quandl_data\nquandl_data <- fromJSON(quandl_url)\n\n# Print structure of quandl_data\nstr(quandl_data)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#omdb-api",
+    "href": "_intermediate_importing_data_in_R_04.html#omdb-api",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.3 OMDb API",
+    "text": "21.3 OMDb API\nIn the video, you saw how easy it is to interact with an API once you know how to formulate requests. You also saw how to fetch all information on Rain Man from OMDb. Simply perform a GET() call, and next ask for the contents with the content() function. This content() function, which is part of the httr package, uses jsonlite behind the scenes to import the JSON data into R.\nHowever, by now you also know that jsonlite can handle URLs itself. Simply passing the request URL to fromJSON() will get your data into R. In this exercise, you will be using this technique to compare the release year of two movies in the Open Movie Database.\n\nInstructions 100 XP\n\nTwo URLs are included in the sample code, as well as a fromJSON() call to build sw4. Add a similar call to build sw3.\nPrint out the element named Title of both sw4 and sw3. You can use the $ operator. What movies are we dealing with here? -Write an expression that evaluates to TRUE if sw4 was released later than sw3. This information is stored in the Year element of the named lists.\n\n\n\nex_019.R\n\n# The package jsonlite is already loaded\n\n# Definition of the URLs\nurl_sw4 <- \"http://www.omdbapi.com/?apikey=72bc447a&i=tt0076759&r=json\"\nurl_sw3 <- \"http://www.omdbapi.com/?apikey=72bc447a&i=tt0121766&r=json\"\n\n# Import two URLs with fromJSON(): sw4 and sw3\nsw3 <- fromJSON(url_sw3)\nsw4 <- fromJSON(url_sw4)\n\n\n# Print out the Title element of both lists\nprint(sw3$Title)\nprint(sw4$Title)\n\n# Is the release year of sw4 later than sw3?\nsw4$Year > sw3$Year"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#json-practice-1",
+    "href": "_intermediate_importing_data_in_R_04.html#json-practice-1",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.4 JSON practice (1)",
+    "text": "21.4 JSON practice (1)\nJSON is built on two structures: objects and arrays. To help you experiment with these, two JSON strings are included in the sample code. It’s up to you to change them appropriately and then call jsonlite’s fromJSON() function on them each time.\n\nInstrucions 100 XP\n\nChange the assignment of json1 such that the R vector after conversion contains the numbers 1 up to 6, in ascending order. Next, call fromJSON() on json1.\nAdapt the code for json2 such that it’s converted to a named list with two elements: a, containing the numbers 1, 2 and 3 and b, containing the numbers 4, 5 and 6. Next, call fromJSON() on json2.\n\n\n\nex_020.R\n\n# jsonlite is already loaded\n# Challenge 1\njson1 <- '[1, 2, 3, 4, 5, 6]'\nfromJSON(json1)\n# Challenge 2\njson2 <- '{\n    \"a\": [1, 2, 3],\n    \"b\": [4, 5, 6]\n}'\nfromJSON(json2)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#json-practice-2",
+    "href": "_intermediate_importing_data_in_R_04.html#json-practice-2",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.5 JSON practice (2)",
+    "text": "21.5 JSON practice (2)\nWe prepared two more JSON strings in the sample code. Can you change them and call jsonlite’s fromJSON() function on them, similar to the previous exercise?\n\nInstrucions 100 XP\n\nRemove characters from json1 to build a 2 by 2 matrix containing only 1, 2, 3 and 4. Call fromJSON() on json1.\nAdd characters to json2 such that the data frame in which the json is converted contains an additional observation in the last row. For this observations, a equals 5 and b equals 6. Call fromJSON() one last time, on json2."
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#json-practice-2-1",
+    "href": "_intermediate_importing_data_in_R_04.html#json-practice-2-1",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.6 JSON practice (2)",
+    "text": "21.6 JSON practice (2)\n\nInstrucions 100 XP\n\nRemove characters from json1 to build a 2 by 2 matrix containing only 1, 2, 3 and 4. Call fromJSON() on json1.\nAdd characters to json2 such that the data frame in which the json is converted contains an additional observation in the last row. For this observations, a equals 5 and b equals 6. Call fromJSON() one last time, on json2.\n\n\n\nex_021.R\n\n# jsonlite is already loaded\n# Challenge 1\njson1 <- '[[1, 2], [3, 4]]'\nfromJSON(json1)\n\n# Challenge 2\njson2 <-\n   '[{\"a\": 1, \"b\": 2}, {\"a\": 3, \"b\": 4}, {\"a\": 5, \"b\": 6}\n]'\nfromJSON(json2)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#tojson",
+    "href": "_intermediate_importing_data_in_R_04.html#tojson",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.7 toJSON()",
+    "text": "21.7 toJSON()\nApart from converting JSON to R with fromJSON(), you can also use toJSON() to convert R data to a JSON format. In its most basic use, you simply pass this function an R object to convert to a JSON. The result is an R object of the class json, which is basically a character string representing that JSON.\nFor this exercise, you will be working with a .csv file containing information on the amount of desalinated water that is produced around the world. As you’ll see, it contains a lot of missing values. This data can be found on the URL that is specified in the sample code.\n\nInstrucions 100 XP\n\nUse a function of the utils package to import the .csv file directly from the URL specified in url_csv. Save the resulting data frame as water. Make sure that strings are not imported as factors.\nConvert the data frame water to a JSON. Call the resulting object water_json.\nPrint out water_json.\n\n\n\nex_021.R\n\n# jsonlite is already loaded\n\n# URL pointing to the .csv file\nurl_csv <- \"http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/water.csv\"\n\n# Import the .csv file located at url_csv\nwater <- read.csv(url_csv)\n\n# Convert the data file according to the requirements\nwater_json <- toJSON(water)\n\n# Print out water_json\nprint(water_json)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_04.html#minify-and-prettify",
+    "href": "_intermediate_importing_data_in_R_04.html#minify-and-prettify",
+    "title": "21  Importing data from the web (Part 2)",
+    "section": "21.8 Minify and prettify",
+    "text": "21.8 Minify and prettify\nJSONs can come in different formats. Take these two JSONs, that are in fact exactly the same: the first one is in a minified format, the second one is in a pretty format with indentation, whitespace and new lines:\n# Mini\n{\"a\":1,\"b\":2,\"c\":{\"x\":5,\"y\":6}}\n\n# Pretty\n{\n  \"a\": 1,\n  \"b\": 2,\n  \"c\": {\n    \"x\": 5,\n    \"y\": 6\n  }\n}\nUnless you’re a computer, you surely prefer the second version. However, the standard form that toJSON() returns, is the minified version, as it is more concise. You can adapt this behavior by setting the pretty argument inside toJSON() to TRUE. If you already have a JSON string, you can use prettify() or minify() to make the JSON pretty or as concise as possible.\n\nInstrucions 100 XP\n\nConvert the mtcars dataset, which is available in R by default, to a pretty JSON. Call the resulting JSON pretty_json.\nPrint out pretty_json. Can you understand the output easily?\nConvert pretty_json to a minimal version using minify(). Store this version under a new variable, mini_json.\nPrint out mini_json. Which version do you prefer, the pretty one or the minified one?\n\n\n\nex_022.R\n\n# jsonlite is already loaded\n# Convert mtcars to a pretty JSON: pretty_json\npretty_json <- toJSON(mtcars, pretty = TRUE)\n# Print pretty_json\nprint(pretty_json)\n\n# Minify pretty_json: mini_json\n\nmini_json <- minify(pretty_json)\n# Print mini_json\nprint(mini_json)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#import-sas-data-with-haven",
+    "href": "_intermediate_importing_data_in_R_05.html#import-sas-data-with-haven",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.1 Import SAS data with haven",
+    "text": "22.1 Import SAS data with haven\nhaven is an extremely easy-to-use package to import data from three software packages: SAS, STATA and SPSS. Depending on the software, you use different functions:\n\nSAS: read_sas()\nSTATA: read_dta() (or read_stata(), which are identical)\nSPSS: read_sav() or read_por(), depending on the file type.\n\nAll these functions take one key argument: the path to your local file. In fact, you can even pass a URL; haven will then automatically download the file for you before importing it.\nYou’ll be working with data on the age, gender, income, and purchase level (0 = low, 1 = high) of 36 individuals (Source: SAS). The information is stored in a SAS file, sales.sas7bdat, which is available in the dataset directory. You can also download the data here http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/sales.sas7bdat.\n\nInstructions 100 XP\n\nLoad the haven package.\nImport the data file \"sales.sas7bdat\". Call the imported data frame sales.\nDisplay the structure of sales with str(). Some columns represent categorical variables, so they should be factors.\n\n\n\nex_023.R\n\n# Load the haven package\nlibrary(haven)\n\n# Import sales.sas7bdat: sales\nsales <- read_sas(\"sales.sas7bdat\")\n\n# Display the structure of sales\nstr(sales)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#import-stata-data-with-haven",
+    "href": "_intermediate_importing_data_in_R_05.html#import-stata-data-with-haven",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.2 Import STATA data with haven",
+    "text": "22.2 Import STATA data with haven\nNext up are STATA data files; you can use read_dta() for these.\nWhen inspecting the result of the read_dta() call, you will notice that one column will be imported as a labelled vector, an R equivalent for the common data structure in other statistical environments. In order to effectively continue working on the data in R, it’s best to change this data into a standard R class. To convert a variable of the class labelled to a factor, you’ll need haven’s as_factor() function.\nIn this exercise, you will work with data on yearly import and export numbers of sugar, both in USD and in weight. The data can be found at: http://assets.datacamp.com/production/course_1478/datasets/trade.dta\n\nInstructions 100 XP\n\nImport the data file directly from the URL using read_dta(), and store it as sugar.\nPrint out the structure of sugar. The Date column has class labelled.\nConvert the values in the Date column of sugar to dates, using as.Date(as_factor(___)).\nPrint out the structure of sugar once more. Looks better now?\n\n\n\nex_024.R\n\n# haven is already loaded\nlibrary(haven)\n# Import the data from the URL: sugar\nurl <- \"http://assets.datacamp.com/production/course_1478/datasets/trade.dta\"\n\nsugar <- read_dta(url)\n\n# Structure of sugar\nstr(sugar)\n\n# Convert values in Date column to dates\nsugar$Date <- as.Date(as_factor(sugar$Date))\n\n# Structure of sugar again\nstr(sugar)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#import-spss-data-with-haven",
+    "href": "_intermediate_importing_data_in_R_05.html#import-spss-data-with-haven",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.3 Import SPSS data with haven",
+    "text": "22.3 Import SPSS data with haven\nThe haven package can also import data files from SPSS. Again, importing the data is pretty straightforward. Depending on the SPSS data file you’re working with, you’ll need either read_sav() - for .sav files - or read_por() - for .por files.\nIn this exercise, you will work with data on four of the Big Five personality traits for 434 persons (Source: University of Bath). The Big Five is a psychological concept including, originally, five dimensions of personality to classify human personality. The SPSS dataset is called person.sav and is available in your working directory.\n\nInstructions 100 XP\n\nUse read_sav() to import the SPSS data in \"person.sav\". Name the imported data frame traits.\ntraits contains several missing values, or NAs. Run summary() on it to find out how manyNAs are contained in each variable.\nPrint out a subset of those individuals that scored high on Extroversion and on Agreeableness, i.e. scoring higher than 40 on each of these two categories. You can use subset() for this.\n\n\n\nex_025.R\n\n# haven is already loaded\n\n# Import person.sav: traits\ntraits <- read_sav(\"person.sav\")\n\n# Summarize traits\nsummary(traits)\n\n# Print out a subset\n\nsubset(traits, Extroversion > 40 & Agreeableness > 40)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#factorize-round-two",
+    "href": "_intermediate_importing_data_in_R_05.html#factorize-round-two",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.4 Factorize, round two",
+    "text": "22.4 Factorize, round two\nIn the last exercise you learned how to import a data file using the command read_sav(). With SPSS data files, it can also happen that some of the variables you import have the labelled class. This is done to keep all the labelling information that was originally present in the .sav and .por files. It’s advised to coerce (or change) these variables to factors or other standard R classes.\nThe data for this exercise involves information on employees and their demographic and economic attributes (Source: QRiE). The data can be found on the following URL: http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/employee.sav\n\nInstructions 100 XP\n\nImport the SPSS data straight from the URL and store the resulting data frame as work.\nDisplay the summary of the GENDER column of work. This information doesn’t give you a lot of useful information, right?\nConvert the GENDER column in work to a factor, the class to denote categorical variables in R. Use as_factor().\nOnce again display the summary of the GENDER column. This time, the printout makes much more sense.\n\n\n\nex_027.R\n\n# haven is already loaded\n\n# Import SPSS data from the URL: work\nurl <- \"http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/employee.sav\"\nwork <- read_sav(url)\n\n# Display summary of work$GENDER\nsummary(work$GENDER)\n# Convert work$GENDER to a factor\nwork$GENDER <- as_factor(work$GENDER)\n# Display summary of work$GENDER again\nsummary(work$GENDER)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#import-stata-data-with-foreign-1",
+    "href": "_intermediate_importing_data_in_R_05.html#import-stata-data-with-foreign-1",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.5 Import STATA data with foreign (1)",
+    "text": "22.5 Import STATA data with foreign (1)\nThe foreign package offers a simple function to import and read STATA data: read.dta().\nIn this exercise, you will import data on the US presidential elections in the year 2000. The data in florida.dta contains the total numbers of votes for each of the four candidates as well as the total number of votes per election area in the state of Florida (Source: Florida Department of State). The file is available in the dataset directory, you can download it here http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/florida.dta\nif you want to experiment some more.\n\nInstructions 100 XP\n\nLoad the foreign package; it’s already installed on DataCamp’s servers.\nImport the data on the elections in Florida, \"florida.dta\", and name the resulting data frame florida. Use read.dta() without specifying extra arguments.\nCheck out the last 6 observations of florida with tail().\n\n\n\nex_028.R\n\n# Load the foreign package\nlibrary(foreign)\n\n# Import florida.dta and name the resulting data frame florida\n\nflorida <- read.dta(\"florida.dta\")\n# Check tail() of florida\ntail(florida)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#import-stata-data-with-foreign-2",
+    "href": "_intermediate_importing_data_in_R_05.html#import-stata-data-with-foreign-2",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.6 Import STATA data with foreign (2)",
+    "text": "22.6 Import STATA data with foreign (2)\nData can be very diverse, going from character vectors to categorical variables, dates and more. It’s in these cases that the additional arguments of read.dta() will come in handy.\nThe arguments you will use most often are convert.dates, convert.factors, missing.type and convert.underscore. Their meaning is pretty straightforward, as Filip explained in the video. It’s all about correctly converting STATA data to standard R data structures. Type ?read.dta to find out about about the default values.\nThe dataset for this exercise contains socio-economic measures and access to education for different individuals (Source: World Bank). This data is available as edequality.dta, which is located in the worldbank folder in your working directory.\n\nInstructions 100 XP\n\n\nex_029.R\n\n# foreign is already loaded\n\n# Specify the file path using file.path(): path\npath <- file.path(\"worldbank\", \"edequality.dta\")\n\n# Create and print structure of edu_equal_1\nedu_equal_1 <- read.dta(path)\nstr(edu_equal_1)\n\n\n# Create and print structure of edu_equal_2\nedu_equal_2 <- \n    read.dta(\n        path,\n        convert.factors = FALSE\n    )\nstr(edu_equal_2)\n\n\n# Create and print structure of edu_equal_3\n\nedu_equal_3 <- \n    read.dta(\n        path,\n        convert.underscore = TRUE\n    )\nstr(edu_equal_3)\n\n\nnrow(\n    subset(\n        edu_equal_1,\n        edu_equal_1$ethnicity_head == \"Bulgarian\",\n        income > 1000\n    )\n)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#import-spss-data-with-foreign-1",
+    "href": "_intermediate_importing_data_in_R_05.html#import-spss-data-with-foreign-1",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.7 Import SPSS data with foreign (1)",
+    "text": "22.7 Import SPSS data with foreign (1)\nAll great things come in pairs. Where foreign provided read.dta() to read Stata data, there’s also read.spss() to read SPSS data files. To get a data frame, make sure to set to.data.frame = TRUE inside read.spss().\nIn this exercise, you’ll be working with socio-economic variables from different countries (Source: Quantative Data Analysis in Education). The SPSS data is in a file called international.sav, which is in your working directory. You can also download it here if you want to play around with it some more.\n\nInstructions 100 XP\n\n\nex_030.R\n\n# foreign is already loaded\n\n# Import international.sav as a data frame: demo\n\ndemo <- read.spss(\n    \"international.sav\", to.data.frame=TRUE)\n# Create boxplot of gdp variable of demo\nboxplot(demo$gdp)"
+  },
+  {
+    "objectID": "_intermediate_importing_data_in_R_05.html#import-spss-data-with-foreign-2",
+    "href": "_intermediate_importing_data_in_R_05.html#import-spss-data-with-foreign-2",
+    "title": "22  Importing data from statistical software packages",
+    "section": "22.8 Import SPSS data with foreign (2)",
+    "text": "22.8 Import SPSS data with foreign (2)\nIn the previous exercise, you used the to.data.frame argument inside read.spss(). There are many other ways in which to customize the way your SPSS data is imported.\nIn this exercise you will experiment with another argument, use.value.labels. It specifies whether variables with value labels should be converted into R factors with levels that are named accordingly. The argument is TRUE by default which means that so called labelled variables inside SPSS are converted to factors inside R.\nYou’ll again be working with the international.sav data, which is available in your current working directory.\n\nInstructions 100 XP\n\nImport the data file \"international.sav\" as a data frame, demo_1.\nPrint the first few rows of demo_1 using the head() function.\nImport the data file \"international.sav\" as a data frame, demo_2, but this time in a way such that variables with value labels are not converted to R factors.\nAgain, print the first few rows of demo_2. Can you tell the difference between the two data frames?\n\n\n\nex_031.R\n\n# foreign is already loaded\n# Import international.sav as demo_1\ndemo_1 <- read.spss(\n    \"international.sav\",\n    to.data.frame = TRUE,\n    )\n# Print out the head of demo_1\nhead(demo_1)\n\n# Import international.sav as demo_2\ndemo_2 <- read.spss(\n    \"international.sav\",\n    to.data.frame = TRUE,\n    use.value.labels = FALSE\n    )\n\n# Print out the head of demo_2\nhead(demo_2)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#converting-data-types",
+    "href": "_cleaning_data_in_R_01.html#converting-data-types",
+    "title": "23  Common Data Problems",
+    "section": "23.1 Converting data types",
+    "text": "23.1 Converting data types\nThroughout this chapter, you’ll be working with San Francisco bike share ride data called bike_share_rides. It contains information on start and end stations of each trip, the trip duration, and some user information.\nBefore beginning to analyze any dataset, it’s important to take a look at the different types of columns you’ll be working with, which you can do using glimpse().\nIn this exercise, you’ll take a look at the data types contained in bike_share_rides and see how an incorrect data type can flaw your analysis.\ndplyr and assertive are loaded and bike_share_rides is available.\n\nInstructions 100 XP\n\nExamine the data types of the columns of bike_share_rides.\nGet a summary of the user_birth_year column of bike_share_rides.\n\n\n\nex_001.R\n\n# Glimpse at bike_share_rides\nglimpse(bike_share_rides)\n\n# Summary of user_birth_year\nsummary(bike_share_rides$user_birth_year)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#section",
+    "href": "_cleaning_data_in_R_01.html#section",
+    "title": "23  Common Data Problems",
+    "section": "23.2 ",
+    "text": "23.2 \n\nInstructions 100 XP\n\n\nex_002.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#section-1",
+    "href": "_cleaning_data_in_R_01.html#section-1",
+    "title": "23  Common Data Problems",
+    "section": "23.3 ",
+    "text": "23.3 \n\nInstructions 100 XP\n\n\nex_003.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#section-2",
+    "href": "_cleaning_data_in_R_01.html#section-2",
+    "title": "23  Common Data Problems",
+    "section": "23.4 ",
+    "text": "23.4 \n\nInstructions 100 XP\n\n\nex_004.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#section-3",
+    "href": "_cleaning_data_in_R_01.html#section-3",
+    "title": "23  Common Data Problems",
+    "section": "23.5 ",
+    "text": "23.5 \n\nInstructions 100 XP\n\n\nex_005.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#section-4",
+    "href": "_cleaning_data_in_R_01.html#section-4",
+    "title": "23  Common Data Problems",
+    "section": "23.6 ",
+    "text": "23.6 \n\nInstructions 100 XP\n\n\nex_006.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#section-5",
+    "href": "_cleaning_data_in_R_01.html#section-5",
+    "title": "23  Common Data Problems",
+    "section": "23.7 ",
+    "text": "23.7 \n\nInstructions 100 XP\n\n\nex_007.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_01.html#section-6",
+    "href": "_cleaning_data_in_R_01.html#section-6",
+    "title": "23  Common Data Problems",
+    "section": "23.8 ",
+    "text": "23.8 \n\nInstructions 100 XP\n\n\nex_008.R"
+  },
+  {
     "objectID": "statistical-inference-whole-game.html",
     "href": "statistical-inference-whole-game.html",
     "title": "The whole game of statistical Inference",
@@ -1353,56 +1521,56 @@
   {
     "objectID": "statistical_inference.html",
     "href": "statistical_inference.html",
-    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
     "section": "",
-    "text": "24 Preleminaries"
+    "text": "28 Preleminaries"
   },
   {
     "objectID": "statistical_inference.html#likelihood-inference.",
     "href": "statistical_inference.html#likelihood-inference.",
-    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "24.1 Likelihood inference.",
-    "text": "24.1 Likelihood inference."
+    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "28.1 Likelihood inference.",
+    "text": "28.1 Likelihood inference."
   },
   {
     "objectID": "statistical_inference.html#variance-analisys.",
     "href": "statistical_inference.html#variance-analisys.",
-    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "24.2 Variance analisys.",
-    "text": "24.2 Variance analisys."
+    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "28.2 Variance analisys.",
+    "text": "28.2 Variance analisys."
   },
   {
     "objectID": "statistical_inference.html#roc-curves",
     "href": "statistical_inference.html#roc-curves",
-    "title": "23  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "24.3 ROC Curves",
-    "text": "24.3 ROC Curves"
+    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "28.3 ROC Curves",
+    "text": "28.3 ROC Curves"
   },
   {
     "objectID": "linear_regression.html#regression-models",
     "href": "linear_regression.html#regression-models",
-    "title": "24  Lienar Regression",
-    "section": "24.1 Regression models",
-    "text": "24.1 Regression models"
+    "title": "28  Lienar Regression",
+    "section": "28.1 Regression models",
+    "text": "28.1 Regression models"
   },
   {
     "objectID": "linear_regression.html#linear-regression",
     "href": "linear_regression.html#linear-regression",
-    "title": "24  Lienar Regression",
-    "section": "24.2 Linear Regression",
-    "text": "24.2 Linear Regression"
+    "title": "28  Lienar Regression",
+    "section": "28.2 Linear Regression",
+    "text": "28.2 Linear Regression"
   },
   {
     "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
     "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
-    "title": "24  Lienar Regression",
-    "section": "24.3 Multiple linear_regression and generalized linear regresion",
-    "text": "24.3 Multiple linear_regression and generalized linear regresion"
+    "title": "28  Lienar Regression",
+    "section": "28.3 Multiple linear_regression and generalized linear regresion",
+    "text": "28.3 Multiple linear_regression and generalized linear regresion"
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "\n25  Summary\n",
+    "title": "\n29  Summary\n",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
   },

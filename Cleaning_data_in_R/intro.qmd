@@ -1,0 +1,25 @@
+# Introduction {.unnumbered}
+
+## Overcome Common Data Problems Like Removing Duplicates in R {.unnumbered}
+
+It's commonly said that data scientists spend 80% of their time cleaning and 
+manipulating data and only 20% of their time analyzing it. The time spent
+cleaning is vital since analyzing dirty data can lead you to draw inaccurate
+conclusions.
+
+In this course, you’ll learn a variety of techniques to help you clean dirty 
+data using R. You’ll start by converting data types, applying range 
+constraints, and dealing with full and partial duplicates to avoid 
+double-counting.
+
+## Delve into Advanced Data Challenges {.unnumbered}
+Once you’ve practiced working on common data issues, you’ll move on to more
+advanced challenges such as ensuring consistency in measurements and dealing 
+with missing data. After every new concept, you’ll have the chance to complete 
+a hands-on exercise to cement your knowledge and build your experience.
+
+## Learn to Use Record Linkage During Data Cleaning {.unnumbered}
+Record Linkage is used to merge datasets together when the values have issues
+such as typos or different spellings. You’ll explore this useful technique in
+the final chapter and practice the application by using it to join two
+restaurant review datasets together into a single dataset.
