@@ -145,5 +145,61 @@
     "title": "2  Categorical and Text Data",
     "section": "2.1 ",
     "text": "2.1 \n\n2.1.1 Instructions 100 XP\n{.r filename= ex_}"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html",
+    "href": "_cleaning_data_in_R_02.html",
+    "title": "2  Categorical and Text Data",
+    "section": "",
+    "text": "3 Count cleanliness\nsfo_survey %>% count(cleanliness)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html#not-a-member",
+    "href": "_cleaning_data_in_R_02.html#not-a-member",
+    "title": "2  Categorical and Text Data",
+    "section": "2.1 Not a member",
+    "text": "2.1 Not a member\nNow that you’ve practiced identifying membership constraint problems, it’s time to fix these problems in a new dataset. Throughout this chapter, you’ll be working with a dataset called sfo_survey, containing survey responses from passengers taking flights from San Francisco International Airport (SFO). Participants were asked questions about the airport’s cleanliness, wait times, safety, and their overall satisfaction.\nThere were a few issues during data collection that resulted in some inconsistencies in the dataset. In this exercise, you’ll be working with the dest_size column, which categorizes the size of the destination airport that the passengers were flying to. A data frame called dest_sizes is available that contains all the possible destination sizes. Your mission is to find rows with invalid dest_sizes and remove them from the data frame.\nLoad dplyr, sfo_survey and dest_sizes.\n\nInstructions 100 XP\n\nCount the number of occurrences of each dest_size in sfo_survey.\n\n\n\nex_008.R\n\n\n# Count the number of occurrences of dest_size\nsfo_survey %>%\n  count(dest_size)\n\n# Find bad dest_size rows\nsfo_survey %>% \n  # Join with dest_sizes data frame to get bad dest_size rows\n  anti_join(dest_sizes, by = \"dest_size\") %>%\n  # Select id, airline, destination, and dest_size cols\n  select(id, airline, destination, dest_size)\n\n# Remove bad dest_size rows\nsfo_survey %>% \n  # Join with dest_sizes\n  semi_join(dest_sizes, by = \"dest_size\") %>%\n  # Count the number of each dest_size\n  count(dest_size)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html#correcting-inconsistency",
+    "href": "_cleaning_data_in_R_02.html#correcting-inconsistency",
+    "title": "2  Categorical and Text Data",
+    "section": "2.3 Correcting inconsistency",
+    "text": "2.3 Correcting inconsistency\nNow that you’ve identified that dest_size has whitespace inconsistencies and cleanliness has capitalization inconsistencies, you’ll use the new tools at your disposal to fix the inconsistent values in sfo_survey instead of removing the data points entirely, which could add bias to your dataset if more than 5% of the data points need to be dropped.\nLoad dplyr, stringr and sfo_survey.\n\nInstructions 100 XP\n\nAdd a column to sfo_survey called dest_size_trimmed that contains the values in the dest_size column with all leading and trailing whitespace removed.\nAdd another column called cleanliness_lower that contains the values in the cleanliness column converted to all lowercase.\nCount the number of occurrences of each category in dest_size_trimmed.\nCount the number of occurrences of each category in cleanliness_lower.\n\n\n\nex_010.R\n\n# Add new columns to sfo_survey\nsfo_survey <- sfo_survey %>%\n  # dest_size_trimmed: dest_size without whitespace\n  mutate(dest_size_trimmed =  str_trim(dest_size),\n         # cleanliness_lower: cleanliness converted to lowercase\n         cleanliness_lower = str_to_lower(cleanliness))\n\n# Count values of dest_size_trimmed\nsfo_survey %>%\n  count(dest_size_trimmed)\n\n# Count values of cleanliness_lower\nsfo_survey %>%\n  count(cleanliness_lower)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html#detecting-inconsistency-text-data",
+    "href": "_cleaning_data_in_R_02.html#detecting-inconsistency-text-data",
+    "title": "2  Categorical and Text Data",
+    "section": "2.5 Detecting inconsistency text data",
+    "text": "2.5 Detecting inconsistency text data\nYou’ve recently received some news that the customer support team wants to ask the SFO survey participants some follow-up questions. However, the auto-dialer that the call center uses isn’t able to parse all of the phone numbers since they’re all in different formats. After some investigation, you found that some phone numbers are written with hyphens (-) and some are written with parentheses ((,)). In this exercise, you’ll figure out which phone numbers have these issues so that you know which ones need fixing.\nLoad dplyr, stringr and sfo_survey.\n\nInstructions 100 XP\n\nFilter for rows with phone numbers that contain “-”s.\nFilter for rows with phone numbers that contain “(”, or “)”. Remember to use fixed() when searching for parentheses.\n\n\n\nex_012.R\n\n\n# Filter for rows with \"-\" in the phone column\nsfo_survey %>%\n  filter(str_detect(phone, \"-\"))\n\n# Filter for rows with \"(\" or \")\" in the phone column\nsfo_survey %>%\n  filter(str_detect(phone, fixed(\"(\")) | str_detect(phone, fixed(\")\")))"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html#invalid-phone-numbers",
+    "href": "_cleaning_data_in_R_02.html#invalid-phone-numbers",
+    "title": "2  Categorical and Text Data",
+    "section": "2.7 Invalid phone numbers",
+    "text": "2.7 Invalid phone numbers\nThe customer support team is grateful for your work so far, but during their first day of calling participants, they ran into some phone numbers that were invalid. In this exercise, you’ll remove any rows with invalid phone numbers so that these faulty numbers don’t keep slowing the team down.\nMake dplyr, stringr and sfo_survey available.\n\nInstructions 100 XP\n\nExamine the invalid phone numbers by filtering for numbers whose length is not equal to 12.\nRemove the rows with invalid numbers by filtering for numbers with a length of exactly 12\n\n\n\nex_014.R\n\n# Check out the invalid numbers\nsfo_survey %>%\n  filter(str_length(phone) != 12)\n\n# Remove rows with invalid numbers\nsfo_survey %>%\n   filter(str_length(phone) == 12)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html#identifiying-inconsistency",
+    "href": "_cleaning_data_in_R_02.html#identifiying-inconsistency",
+    "title": "2  Categorical and Text Data",
+    "section": "2.2 Identifiying inconsistency",
+    "text": "2.2 Identifiying inconsistency\nIn the video exercise, you learned about different kinds of inconsistencies that can occur within categories, making it look like a variable has more categories than it should.\nIn this exercise, you’ll continue working with the sfo_survey dataset. You’ll examine the dest_size column again as well as the cleanliness column and determine what kind of issues, if any, these two categorical variables face.\nLoad dplyr and sfo_survey .\n\nInstructions 100 XP\n\nCount the number of occurrences of each category of the dest_size variable of sfo_survey.\n\n\n\nex_009.R\n\n# Count dest_size\n# Count dest_size\nsfo_survey %>%\n  count(dest_size)\n\n# Count cleanliness\nsfo_survey %>%\n  count(cleanliness)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html#collapsing-categories",
+    "href": "_cleaning_data_in_R_02.html#collapsing-categories",
+    "title": "2  Categorical and Text Data",
+    "section": "2.4 Collapsing categories",
+    "text": "2.4 Collapsing categories\nOne of the tablets that participants filled out the sfo_survey on was not properly configured, allowing the response for dest_region to be free text instead of a dropdown menu. This resulted in some inconsistencies in the dest_region variable that you’ll need to correct in this exercise to ensure that the numbers you report to your boss are as accurate as possible.\nMake dplyr, forcats and sfo_survey available.\n\nInstructions 100 XP\n\nCount the categories of dest_region.\n\n\n\nex_011.R\n\n# Count categories of dest_region\nsfo_survey %>%\n  count(dest_region)\n\n# Categories to map to Europe\neurope_categories <- c(\"EU\",\"eur\", \"Europ\")\n\n# Add a new col dest_region_collapsed\nsfo_survey %>%\n  # Map all categories in europe_categories to Europe\n  mutate(\n    dest_region_collapsed = fct_collapse(dest_region, \n                                     Europe = europe_categories)) %>%\n  # Count categories of dest_region_collapsed\n  count(dest_region_collapsed)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_02.html#replacing-and-removing",
+    "href": "_cleaning_data_in_R_02.html#replacing-and-removing",
+    "title": "2  Categorical and Text Data",
+    "section": "2.6 Replacing and removing",
+    "text": "2.6 Replacing and removing\nIn the last exercise, you saw that the phone column of sfo_survey is plagued with unnecessary parentheses and hyphens. The customer support team has requested that all phone numbers be in the format \"123 456 7890\". In this exercise, you’ll use your new stringr skills to fulfill this request.\nMake dplyr, stringr and sfo_survey available.\n\nInstructions 100 XP\n\nRemove opening and closing parentheses from the phone column. Store this as a variable called phone_no_parens. Remember to use fixed()!\nAdd a new column to sfo_survey called phone_no_parens that contains the contents of phone_no_parens.\n\n\n\nex_013.R\n\n# Remove parentheses from phone column\nphone_no_parens <- sfo_survey$phone %>%\n  # Remove \"(\"s\n  str_remove(fixed(\"(\")) %>%\n  # Remove \")\"s\n  str_remove(fixed(\")\"))\n\n  # Remove parentheses from phone column\nphone_no_parens <- sfo_survey$phone %>%\n  # Remove \"(\"s\n  str_remove_all(fixed(\"(\")) %>%\n  # Remove \")\"s\n  str_remove_all(fixed(\")\"))\n\n# Add phone_no_parens as column\nsfo_survey %>%\n  mutate(phone_no_parens=phone_no_parens)\n\n# Remove parentheses from phone column\nphone_no_parens <- sfo_survey$phone %>%\n  # Remove \"(\"s\n  str_remove_all(fixed(\"(\")) %>%\n  # Remove \")\"s\n  str_remove_all(fixed(\")\"))\n\n# Add phone_no_parens as column\nsfo_survey %>%\n  mutate(\n    phone_no_parens = phone_no_parens,\n  # Replace all hyphens in phone_no_parens with spaces\n    phone_clean = str_replace_all(\n      phone_no_parens, \"-\", \" \"))"
   }
 ]

@@ -27,7 +27,9 @@ Load `dplyr`, `sfo_survey` and `dest_sizes`.
 
 - Count the number of occurrences of each `dest_size` in `sfo_survey`.
 
-```{.r filename= ex_008.R}
+
+```{.r filename="ex_008.R"}
+
 # Count the number of occurrences of dest_size
 sfo_survey %>%
   count(dest_size)
@@ -45,6 +47,7 @@ sfo_survey %>%
   semi_join(dest_sizes, by = "dest_size") %>%
   # Count the number of each dest_size
   count(dest_size)
+
 ```
 
 ## Identifiying inconsistency
@@ -61,7 +64,7 @@ Load `dplyr` and `sfo_survey` .
 ### Instructions `100 XP` {.unnumbered}
 - Count the number of occurrences of each category of the `dest_size` variable of 
 `sfo_survey`.
-```{.r filename= ex_009.R}
+```{.r filename="ex_009.R"}
 # Count dest_size
 # Count dest_size
 sfo_survey %>%
@@ -91,7 +94,7 @@ the cleanliness column converted to all lowercase.
 - Count the number of occurrences of each category in dest_size_trimmed.
 - Count the number of occurrences of each category in cleanliness_lower.
 
-```{.r filename= ex_010.R}
+```{.r filename="ex_010.R"}
 # Add new columns to sfo_survey
 sfo_survey <- sfo_survey %>%
   # dest_size_trimmed: dest_size without whitespace
@@ -123,7 +126,7 @@ Make `dplyr`, `forcats` and `sfo_survey` available.
 - Count the categories of dest_region.
 
 
-```{.r filename= ex_011.R}
+```{.r filename="ex_011.R"}
 # Count categories of dest_region
 sfo_survey %>%
   count(dest_region)
@@ -157,7 +160,7 @@ Load `dplyr`, `stringr` and `sfo_survey`.
 - Filter for rows with phone numbers that contain "-"s.
 - Filter for rows with phone numbers that contain "(", or ")". 
 Remember to use fixed() when searching for parentheses.
-```{.r filename= ex_012.R}
+```{.r filename="ex_012.R"}
 
 # Filter for rows with "-" in the phone column
 sfo_survey %>%
@@ -183,7 +186,7 @@ Store this as a variable called phone_no_parens. Remember to use fixed()!
 
 - Add a new column to sfo_survey called phone_no_parens that contains 
 the contents of phone_no_parens.
-```{.r filename= ex_013.R}
+```{.r filename="ex_013.R"}
 # Remove parentheses from phone column
 phone_no_parens <- sfo_survey$phone %>%
   # Remove "("s
@@ -234,7 +237,7 @@ Make `dplyr`, `stringr` and `sfo_survey` available.
 - Remove the rows with invalid numbers by filtering for numbers with a length 
 of exactly 12
 
-```{.r filename= ex_014.R}
+```{.r filename="ex_014.R"}
 # Check out the invalid numbers
 sfo_survey %>%
   filter(str_length(phone) != 12)
