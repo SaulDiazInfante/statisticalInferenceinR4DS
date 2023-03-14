@@ -201,5 +201,19 @@
     "title": "2  Categorical and Text Data",
     "section": "2.6 Replacing and removing",
     "text": "2.6 Replacing and removing\nIn the last exercise, you saw that the phone column of sfo_survey is plagued with unnecessary parentheses and hyphens. The customer support team has requested that all phone numbers be in the format \"123 456 7890\". In this exercise, you’ll use your new stringr skills to fulfill this request.\nMake dplyr, stringr and sfo_survey available.\n\nInstructions 100 XP\n\nRemove opening and closing parentheses from the phone column. Store this as a variable called phone_no_parens. Remember to use fixed()!\nAdd a new column to sfo_survey called phone_no_parens that contains the contents of phone_no_parens.\n\n\n\nex_013.R\n\n# Remove parentheses from phone column\nphone_no_parens <- sfo_survey$phone %>%\n  # Remove \"(\"s\n  str_remove(fixed(\"(\")) %>%\n  # Remove \")\"s\n  str_remove(fixed(\")\"))\n\n  # Remove parentheses from phone column\nphone_no_parens <- sfo_survey$phone %>%\n  # Remove \"(\"s\n  str_remove_all(fixed(\"(\")) %>%\n  # Remove \")\"s\n  str_remove_all(fixed(\")\"))\n\n# Add phone_no_parens as column\nsfo_survey %>%\n  mutate(phone_no_parens=phone_no_parens)\n\n# Remove parentheses from phone column\nphone_no_parens <- sfo_survey$phone %>%\n  # Remove \"(\"s\n  str_remove_all(fixed(\"(\")) %>%\n  # Remove \")\"s\n  str_remove_all(fixed(\")\"))\n\n# Add phone_no_parens as column\nsfo_survey %>%\n  mutate(\n    phone_no_parens = phone_no_parens,\n  # Replace all hyphens in phone_no_parens with spaces\n    phone_clean = str_replace_all(\n      phone_no_parens, \"-\", \" \"))"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_03.html#date-uniformity",
+    "href": "_cleaning_data_in_R_03.html#date-uniformity",
+    "title": "3  Advanced Data Problems",
+    "section": "3.1 Date uniformity",
+    "text": "3.1 Date uniformity\n\nInstructions 100 XP\n\n\nex_00.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_03.html#currency-uniformity",
+    "href": "_cleaning_data_in_R_03.html#currency-uniformity",
+    "title": "3  Advanced Data Problems",
+    "section": "3.2 Currency uniformity",
+    "text": "3.2 Currency uniformity\n\nInstructions 100 XP\n\n\nex_00.R"
   }
 ]

@@ -83,6 +83,7 @@ format:
     documentclass: scrreprt
   epub:
     cover-image: cover.png
+jupyter: python3
 
 execute:
   echo: false
