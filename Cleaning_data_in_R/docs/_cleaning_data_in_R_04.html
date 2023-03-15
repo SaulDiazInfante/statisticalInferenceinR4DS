@@ -246,17 +246,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">4.5</span>  </a>
+  <li><a href="#putting-it-together" id="toc-putting-it-together" class="nav-link" data-scroll-target="#putting-it-together"><span class="toc-section-number">4.5</span>  Putting it together</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="toc-section-number">4.6</span>  </a>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">4.6</span>  </a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
-  </ul></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="toc-section-number">4.7</span>  </a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_cleaning_data_in_R_04.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -398,10 +394,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="section" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="section"><span class="header-section-number">4.5</span> </h2>
+<section id="putting-it-together" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="putting-it-together"><span class="header-section-number">4.5</span> Putting it together</h2>
+<p>During this chapter, you’ve cleaned up the <code>city</code> column of <code>zagat</code> using string similarity, as well as generated and compared pairs of restaurants from <code>zagat</code> and <code>fodors</code>. The end is near - all that’s left to do is score and select pairs and link the data together, and you’ll be able to begin your analysis in no time!</p>
+<p>Load <code>reclin</code>, <code>dplyr</code>, <code>zagat</code>, and <code>fodors</code>.</p>
 <section id="instructions-100-xp-4" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Score the pairs of records probabilistically.</li>
+<li>Select the pairs that are considered matches.</li>
+<li>Link the two data frames together.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_025.R</strong></pre>
@@ -410,27 +413,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="section-1" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="section-1"><span class="header-section-number">4.6</span> </h2>
+<section id="section" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="section"><span class="header-section-number">4.6</span> </h2>
 <section id="instructions-100-xp-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_026.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="section-2" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="section-2"><span class="header-section-number">4.7</span> </h2>
-<section id="instructions-100-xp-6" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>ex_027.R</strong></pre>
-</div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pairs</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pair_blocking</span>(zagat, fodors, <span class="at">blocking_var =</span> <span class="st">"city"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compare pairs</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compare_pairs</span>(<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name"</span>, <span class="st">"addr"</span>), <span class="at">default_comparator =</span> <span class="fu">jaro_winkler</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Score pairs</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">score_problink</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select pairs</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_n_to_m</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Link data </span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">link</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -633,164 +633,177 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-next">
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Record Linkage</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Record linkage is a powerful technique used to merge multiple datasets together,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>used when values have typos or different spellings. In this chapter, you'll </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>learn how to link records by calculating the similarity between strings—you’ll</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>then use your new skills to join two restaurant review datasets into one clean</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>master dataset.</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Small distance, small difference</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>In the video exercise, you learned that there are multiple ways to calculate </span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>how similar or different two strings are. Now you'll practice using the </span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="in">`stringdist`</span> package to compute string distances using various methods. It's </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>important to be familiar with different methods, as some methods work better</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>on certain datasets, while others work better on other datasets.</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>The stringdist package has been loaded for you.</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calculate the Damerau-Levenshtein distance between </span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>"las angelos" and "los angeles".</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_021.R"}</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Damerau-Levenshtein distance</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">stringdist</span>(</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"las angelos"</span>,</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"los angeles"</span>, <span class="at">method =</span> <span class="st">"dl"</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate LCS distance</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">stringdist</span>(</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"las angelos"</span>,</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"los angeles"</span>, <span class="at">method =</span> <span class="st">"lcs"</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Jaccard distance</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">stringdist</span>(</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"las angelos"</span>,</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"los angeles"</span>, </span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"jaccard"</span></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fixing typos with string distance</span></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>In this chapter, one of the datasets you'll be working with, <span class="in">`zagat`</span>, is a set </span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>of restaurants in New York, Los Angeles, Atlanta, San Francisco, and Las Vegas.</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>The data is from <span class="in">`Zagat`</span>, a company that collects restaurant reviews, and </span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>includes the restaurant names, addresses, phone numbers, as well as other</span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>restaurant information.</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>The <span class="in">`city`</span> column contains the name of the <span class="in">`city`</span> that the restaurant is </span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>located in. However, there are a number of typos throughout the column. Your</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>task is to map each <span class="in">`city`</span> to one of the five correctly-spelled cities </span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>contained in the <span class="in">`cities`</span> data frame.</span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>Load <span class="in">`dplyr`</span>, <span class="in">`fuzzyjoin`</span>, <span class="in">`zagat`</span> and <span class="in">`cities`</span>.</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_022.R"}</span></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of each city variation</span></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of each city variation</span></span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>zagat <span class="sc">%&gt;%</span></span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(city)</span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Join zagat and cities and look at results</span></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>zagat <span class="sc">%&gt;%</span></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Left join based on stringdist using city and city_actual cols</span></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stringdist_left_join</span>(</span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>    cities,</span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"city"</span> <span class="ot">=</span> <span class="st">"city_actual"</span>), <span class="at">method =</span> <span class="st">"dl"</span></span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">%&gt;%</span></span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select the name, city, and city_actual cols</span></span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, city, city_actual)</span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pair blocking</span></span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>Zagat and Fodor's are both companies that gather restaurant reviews. The <span class="in">`zagat`</span></span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>and <span class="in">`fodors`</span> datasets both contain information about various restaurants,</span>
-<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>including addresses, phone numbers, and cuisine types. Some restaurants appear</span>
-<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>in both datasets, but don't necessarily have the same exact name or phone number</span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>written down. In this chapter, you'll work towards figuring out which </span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>restaurants appear in both datasets.</span>
-<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>The first step towards this goal is to generate pairs of records so that you</span>
-<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>can compare them. In this exercise, you'll first generate all possible pairs,</span>
-<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>and then use your newly-cleaned <span class="in">`city`</span> column as a blocking variable.</span>
-<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>Make <span class="in">`zagat`</span> and <span class="in">`fodors`</span>  available.</span>
-<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Load the reclin package.</span>
-<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generate all possible pairs of records between the <span class="in">`zagat`</span> and <span class="in">`fodors`</span> </span>
-<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>datasets.</span>
-<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_023.R"}</span></span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="co"># Load reclin</span></span>
-<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reclin)</span>
-<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all possible pairs</span></span>
-<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="fu">pair_blocking</span>(zagat, fodors)</span>
-<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate pairs with same city</span></span>
-<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="fu">pair_blocking</span>(zagat, fodors, <span class="at">blocking_var =</span><span class="st">"city"</span>)</span>
-<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparing pairs</span></span>
-<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>Now that you've generated the pairs of restaurants, it's time to compare them. </span>
-<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>You can easily customize how you perform your comparisons using the by and</span>
-<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="in">`default_comparator`</span> arguments. There's no right answer as to what each should</span>
-<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>be set to, so in this exercise, you'll try a couple options out.</span>
-<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>Load <span class="in">`dplyr`</span>, <span class="in">`reclin`</span>,  <span class="in">`zagat`</span> and <span class="in">`fodors`</span>.</span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Compare pairs by name using lcs() distance.</span>
-<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_024.R"}</span></span>
-<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate pairs</span></span>
-<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="fu">pair_blocking</span>(zagat, fodors, <span class="at">blocking_var =</span> <span class="st">"city"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compare pairs by name using lcs()</span></span>
-<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compare_pairs</span>(</span>
-<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"name"</span>,</span>
-<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">default_comparator =</span> <span class="fu">lcs</span>()</span>
-<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate pairs</span></span>
-<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="fu">pair_blocking</span>(zagat, fodors, <span class="at">blocking_var =</span> <span class="st">"city"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compare pairs by name, phone, addr</span></span>
-<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compare_pairs</span>(</span>
-<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name"</span>, <span class="st">"phone"</span>, <span class="st">"addr"</span> ),</span>
-<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>    <span class="at">default_comparator =</span> <span class="fu">jaro_winkler</span>()</span>
-<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>##</span>
-<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_025.R"}</span></span>
-<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>##</span>
-<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_026.R"}</span></span>
-<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a>##</span>
-<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_027.R"}</span></span>
-<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="markdown" data-shortcodes="false"><code># Record Linkage
+
+Record linkage is a powerful technique used to merge multiple datasets together,
+used when values have typos or different spellings. In this chapter, you'll 
+learn how to link records by calculating the similarity between strings—you’ll
+then use your new skills to join two restaurant review datasets into one clean
+master dataset.
+
+
+## Small distance, small difference
+
+In the video exercise, you learned that there are multiple ways to calculate 
+how similar or different two strings are. Now you'll practice using the 
+`stringdist` package to compute string distances using various methods. It's 
+important to be familiar with different methods, as some methods work better
+on certain datasets, while others work better on other datasets.
+
+The stringdist package has been loaded for you.
+
+### Instructions `100 XP` {.unnumbered}
+- Calculate the Damerau-Levenshtein distance between 
+"las angelos" and "los angeles".
+
+```{.r filename="ex_021.R"}
+# Calculate Damerau-Levenshtein distance
+stringdist(
+    "las angelos",
+    "los angeles", method = "dl"
+)
+# Calculate LCS distance
+stringdist(
+    "las angelos",
+    "los angeles", method = "lcs"
+)
+
+# Calculate Jaccard distance
+stringdist(
+    "las angelos",
+    "los angeles", 
+    method = "jaccard"
+)
+
+```
+
+
+## Fixing typos with string distance
+In this chapter, one of the datasets you'll be working with, `zagat`, is a set 
+of restaurants in New York, Los Angeles, Atlanta, San Francisco, and Las Vegas.
+The data is from `Zagat`, a company that collects restaurant reviews, and 
+includes the restaurant names, addresses, phone numbers, as well as other
+restaurant information.
+
+The `city` column contains the name of the `city` that the restaurant is 
+located in. However, there are a number of typos throughout the column. Your
+task is to map each `city` to one of the five correctly-spelled cities 
+contained in the `cities` data frame.
+
+Load `dplyr`, `fuzzyjoin`, `zagat` and `cities`.
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_022.R"}
+# Count the number of each city variation
+# Count the number of each city variation
+zagat %&gt;%
+  count(city)
+
+# Join zagat and cities and look at results
+zagat %&gt;%
+  # Left join based on stringdist using city and city_actual cols
+  stringdist_left_join(
+    cities,
+    by = c("city" = "city_actual"), method = "dl"
+  )%&gt;%
+  # Select the name, city, and city_actual cols
+  select(name, city, city_actual)
+```
+## Pair blocking
+
+Zagat and Fodor's are both companies that gather restaurant reviews. The `zagat`
+and `fodors` datasets both contain information about various restaurants,
+including addresses, phone numbers, and cuisine types. Some restaurants appear
+in both datasets, but don't necessarily have the same exact name or phone number
+written down. In this chapter, you'll work towards figuring out which 
+restaurants appear in both datasets.
+
+The first step towards this goal is to generate pairs of records so that you
+can compare them. In this exercise, you'll first generate all possible pairs,
+and then use your newly-cleaned `city` column as a blocking variable.
+
+Make `zagat` and `fodors`  available.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Load the reclin package.
+- Generate all possible pairs of records between the `zagat` and `fodors` 
+datasets.
+
+```{.r filename="ex_023.R"}
+# Load reclin
+library(reclin)
+# Generate all possible pairs
+pair_blocking(zagat, fodors)
+
+# Generate pairs with same city
+pair_blocking(zagat, fodors, blocking_var ="city")
+```
+## Comparing pairs
+
+Now that you've generated the pairs of restaurants, it's time to compare them. 
+You can easily customize how you perform your comparisons using the by and
+`default_comparator` arguments. There's no right answer as to what each should
+be set to, so in this exercise, you'll try a couple options out.
+
+Load `dplyr`, `reclin`,  `zagat` and `fodors`.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Compare pairs by name using lcs() distance.
+
+```{.r filename="ex_024.R"}
+# Generate pairs
+pair_blocking(zagat, fodors, blocking_var = "city") %&gt;%
+  # Compare pairs by name using lcs()
+  compare_pairs(
+    by = "name",
+    default_comparator = lcs()
+  )
+# Generate pairs
+pair_blocking(zagat, fodors, blocking_var = "city") %&gt;%
+  # Compare pairs by name, phone, addr
+  compare_pairs(
+    by = c("name", "phone", "addr" ),
+    default_comparator = jaro_winkler()
+  )
+
+```
+
+## Putting it together
+
+During this chapter, you've cleaned up the `city` column of `zagat` using string
+similarity, as well as generated and compared pairs of restaurants from `zagat`
+and `fodors`. The end is near - all that's left to do is score and select 
+pairs and link the data together, and you'll be able to begin your analysis in
+ no time!
+
+Load `reclin`,  `dplyr`, `zagat`, and `fodors`.
+
+### Instructions `100 XP` {.unnumbered}
+- Score the pairs of records probabilistically.
+- Select the pairs that are considered matches.
+- Link the two data frames together.
+```{.r filename="ex_025.R"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_026.R"}
+# Create pairs
+pair_blocking(zagat, fodors, blocking_var = "city") %&gt;%
+  # Compare pairs
+  compare_pairs(by = c("name", "addr"), default_comparator = jaro_winkler()) %&gt;%
+  # Score pairs
+  score_problink() %&gt;%
+  # Select pairs
+  select_n_to_m() %&gt;%
+  # Link data 
+  link()
+```</code></pre>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
