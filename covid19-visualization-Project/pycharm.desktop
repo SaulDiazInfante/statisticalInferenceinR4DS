@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Pycharm
+Comment=Pycharm
+Exec=/home/saul/pycharm-2022.3.2/bin
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/saul/pycharm-2022.3.2/pycharm.png
+StartupNotify=true

@@ -207,13 +207,118 @@
     "href": "_cleaning_data_in_R_03.html#date-uniformity",
     "title": "3  Advanced Data Problems",
     "section": "3.1 Date uniformity",
-    "text": "3.1 Date uniformity\n\nInstructions 100 XP\n\n\nex_00.R"
+    "text": "3.1 Date uniformity\nIn this chapter, you work at an asset management company and you’ll be working with the accounts dataset, which contains information about each customer, the amount in their account, and the date their account was opened. Your boss has asked you to calculate some summary statistics about the average value of each account and whether the age of the account is associated with a higher or lower account value. Before you can do this, you need to make sure that the accounts dataset you’ve been given doesn’t contain any uniformity problems. In this exercise, you’ll investigate the date_opened column and clean it up so that all the dates are in the same format.\nMake dplyr and lubridate and accounts available. ### Instructions 100 XP {.unnumbered} Take a look at the head of accounts to get a sense of the data you’re working with.\n\n\nex_015.R\n\nhead(accounts)\n\n# Define the date formats\nformats <- c(\"%Y-%m-%d\", \"%B %d, %Y\")\n\n# Convert dates to the same format\naccounts %>%\n  mutate(date_opened_clean = parse_date_time(date_opened, formats))"
   },
   {
     "objectID": "_cleaning_data_in_R_03.html#currency-uniformity",
     "href": "_cleaning_data_in_R_03.html#currency-uniformity",
     "title": "3  Advanced Data Problems",
     "section": "3.2 Currency uniformity",
-    "text": "3.2 Currency uniformity\n\nInstructions 100 XP\n\n\nex_00.R"
+    "text": "3.2 Currency uniformity\nNow that your dates are in order, you’ll need to correct any unit differences. When you first plot the data, you’ll notice that there’s a group of very high values, and a group of relatively lower values. The bank has two different offices - one in New York, and one in Tokyo, so you suspect that the accounts managed by the Tokyo office are in Japanese yen instead of U.S. dollars. Luckily, you have a data frame called account_offices that indicates which office manages each customer’s account, so you can use this information to figure out which totals need to be converted from yen to dollars.\nThe formula to convert yen to dollars is USD = JPY / 104.\nload dplyr, ggplot2 , the accounts and account_offices data frames.\n\nInstructions 100 XP\n\nCreate a scatter plot with date_opened on the x-axis and total on the y-axis.\nLeft join accounts and account_offices by their id columns.\n\n\n\nex_016.R\n\n# Scatter plot of opening date and total amount\naccounts %>%\n  ggplot(aes(x = date_opened, y = total)) +\n  geom_point()\n\n# Left join accounts to account_offices by id\naccounts %>%\n  left_join(account_offices, by = \"id\") %>%\n  # Convert totals from the Tokyo office to USD\n  mutate(total_usd = ifelse(office == \"Tokyo\", total / 104, total)) %>%\n  # Scatter plot of opening date vs total_usd\n  ggplot(aes(x = date_opened, y = total_usd)) +\n    geom_point()"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_03.html#validating-totals",
+    "href": "_cleaning_data_in_R_03.html#validating-totals",
+    "title": "3  Advanced Data Problems",
+    "section": "3.3 Validating totals",
+    "text": "3.3 Validating totals\nIn this lesson, you’ll continue to work with the accounts data frame, but this time, you have a bit more information about each account. There are three different funds that account holders can store their money in. In this exercise, you’ll validate whether the total amount in each account is equal to the sum of the amount in fund_A, fund_B, and fund_C. If there are any accounts that don’t match up, you can look into them further to see what went wrong in the bookkeeping that led to inconsistencies.\nLoad dplyr and accounts.\n\nInstructions 100 XP\n\nCreate a new column called theoretical_total that contains the sum of the amounts in each fund.\nFind the accounts where the total doesn’t match the theoretical_total.\n\n\n\nex_017.R\n\n# Find invalid totals\naccounts %>%\n  # theoretical_total: sum of the three funds\n  mutate(\n    theoretical_total = fund_A + fund_B + fund_C\n  )%>%\n  # Find accounts where total doesn't match theoretical_total\n  filter(theoretical_total != total)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_03.html#validating-age",
+    "href": "_cleaning_data_in_R_03.html#validating-age",
+    "title": "3  Advanced Data Problems",
+    "section": "3.4 Validating age",
+    "text": "3.4 Validating age\nNow that you found some inconsistencies in the total amounts, you’re suspicious that there may also be inconsistencies in the acct_age column, and you want tosee if these inconsistencies are related. Using the skills you learned from the video exercise, you’ll need to validate the age of each account and see if rows with inconsistent acct_ages are the same ones that had inconsistent totals\nMake dplyr and lubridate and accounts available.\n\nInstructions 100 XP\n\nCreate a new column called theoretical_age that contains the age of each account based on the date_opened.\nFind the accounts where the acct_age doesn’t match the theoretical_age.\n\n\n\nex_018.R\n\n# Find invalid acct_age\naccounts %>%\n  # theoretical_age: age of acct based on date_opened\n  mutate(theoretical_age = \n    floor(\n      as.numeric(\n        as.Date(date_opened) %--% today(),\n        \"years\"\n      )\n    )\n  ) %>%\n  # Filter for rows where acct_age is different from theoretical_age\n  filter(theoretical_age != acct_age)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_03.html#visualizing-missing-data",
+    "href": "_cleaning_data_in_R_03.html#visualizing-missing-data",
+    "title": "3  Advanced Data Problems",
+    "section": "3.5 Visualizing missing data",
+    "text": "3.5 Visualizing missing data\nDealing with missing data is one of the most common tasks in data science. There are a variety of types of missingness, as well as a variety of types of solutions to missing data.\nYou just received a new version of the accounts data frame containing data on the amount held and amount invested for new and existing customers. However, there are rows with missing inv_amount values.\nYou know for a fact that most customers below 25 do not have investment accounts yet, and suspect it could be driving the missingness.\nLoad dplyr and visdat packages and accounts dataframe.\n\nInstructions 100 XP\n\nVisualize the missing values in accounts by column using a function from the visdat package.\nAdd a logical column to accounts called missing_inv that indicates whether each row is missing the inv_amount or not.\nGroup by missing_inv.\nCalculate the mean age for each group of missing_inv.\n\n\n\nex_019.R\n\nvis_miss(accounts)\n# Visualize the missing values by column\nvis_miss(accounts)\n\naccounts %>%\n  # missing_inv: Is inv_amount missing?\n  mutate(missing_inv = is.na(inv_amount)) %>%\n  # Group by missing_inv\n  group_by(missing_inv) %>%\n  # Calculate mean age for each missing_inv group\n  summarize(avg_age = mean(age))\n\n# Visualize the missing values by column\nvis_miss(accounts)\n\naccounts %>%\n  # missing_inv: Is inv_amount missing?\n  mutate(missing_inv = is.na(inv_amount)) %>%\n  # Group by missing_inv\n  group_by(missing_inv) %>%\n  # Calculate mean age for each missing_inv group\n  summarize(avg_age = mean(age))\n\n# Sort by age and visualize missing vals\naccounts %>%\n  arrange(age) %>%\n  vis_miss()"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_03.html#treating-missing-data",
+    "href": "_cleaning_data_in_R_03.html#treating-missing-data",
+    "title": "3  Advanced Data Problems",
+    "section": "3.6 Treating missing data",
+    "text": "3.6 Treating missing data\nIn this exercise, you’re working with another version of the accounts data that contains missing values for both the cust_id and acct_amount columns.\nYou want to figure out how many unique customers the bank has, as well as the average amount held by customers. You know that rows with missing cust_id don’t really help you, and that on average, the acct_amount is usually 5 times the amount of inv_amount.\nIn this exercise, you will drop rows of accounts with missing cust_ids, and impute missing values of inv_amount with some domain knowledge.\nLoad dplyr, assertive and accounts.\n\nInstructions 100 XP\n\nFilter accounts to remove rows with missing cust_ids and save as accounts_clean.\nCreate a new column called acct_amount_filled, which contains the values of acct_amount, except all NA values should be replaced with 5 times the amount in inv_amount.\nAssert that there are no missing values in the cust_id column of accounts_clean.\nAssert that there are no missing values in the acct_amount_filled column of accounts_clean.\n\n\n\nex_020.R\n\naccounts_clean <- accounts %>%\n  # Filter to remove rows with missing cust_id\n  filter(!is.na(cust_id))\n\n\naccounts_clean\n# Create accounts_clean\naccounts_clean <- accounts %>%\n  # Filter to remove rows with missing cust_id\n  filter(!is.na(cust_id)) %>%\n  # Add new col acct_amount_filled with replaced NAs\n  mutate(\n    acct_amount_filled = ifelse(\n      is.na(acct_amount), 5 * inv_amount, acct_amount))\n\naccounts_clean\n\n# Create accounts_clean\n# Create accounts_clean\naccounts_clean <- accounts %>%\n  # Filter to remove rows with missing cust_id\n  filter(!is.na(cust_id)) %>%\n  # Add new col acct_amount_filled with replaced NAs\n    mutate(\n        acct_amount_filled = ifelse(\n            is.na(acct_amount),\n            inv_amount * 5,\n            acct_amount\n        )\n    )\n# Assert that cust_id has no missing vals\nassert_all_are_not_na(accounts_clean$cust_id)\nassert_all_are_not_na(accounts_clean$acc)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html",
+    "href": "_cleaning_data_in_R_04.html",
+    "title": "Instructions 100 XP",
+    "section": "",
+    "text": "ex_021.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#small-distance-small-difference",
+    "href": "_cleaning_data_in_R_04.html#small-distance-small-difference",
+    "title": "4  Record Linkage",
+    "section": "4.1 Small distance, small difference",
+    "text": "4.1 Small distance, small difference\nIn the video exercise, you learned that there are multiple ways to calculate how similar or different two strings are. Now you’ll practice using the stringdist package to compute string distances using various methods. It’s important to be familiar with different methods, as some methods work better on certain datasets, while others work better on other datasets.\nThe stringdist package has been loaded for you.\n\nInstructions 100 XP\n\nCalculate the Damerau-Levenshtein distance between “las angelos” and “los angeles”.\n\n\n\nex_021.R\n\n# Calculate Damerau-Levenshtein distance\nstringdist(\n    \"las angelos\",\n    \"los angeles\", method = \"dl\"\n)\n# Calculate LCS distance\nstringdist(\n    \"las angelos\",\n    \"los angeles\", method = \"lcs\"\n)\n\n# Calculate Jaccard distance\nstringdist(\n    \"las angelos\",\n    \"los angeles\", \n    method = \"jaccard\"\n)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#section",
+    "href": "_cleaning_data_in_R_04.html#section",
+    "title": "4  Record Linkage",
+    "section": "4.5 ",
+    "text": "4.5 \n\nInstructions 100 XP\n\n\nex_025.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#section-1",
+    "href": "_cleaning_data_in_R_04.html#section-1",
+    "title": "4  Record Linkage",
+    "section": "4.6 ",
+    "text": "4.6 \n\nInstructions 100 XP\n\n\nex_026.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#section-2",
+    "href": "_cleaning_data_in_R_04.html#section-2",
+    "title": "4  Record Linkage",
+    "section": "4.7 ",
+    "text": "4.7 \n\nInstructions 100 XP\n\n\nex_027.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#section-3",
+    "href": "_cleaning_data_in_R_04.html#section-3",
+    "title": "4  Record Linkage",
+    "section": "4.7 ",
+    "text": "4.7 \n\nInstructions 100 XP\n\n\nex_027.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#section-4",
+    "href": "_cleaning_data_in_R_04.html#section-4",
+    "title": "4  Record Linkage",
+    "section": "4.7 ",
+    "text": "4.7 \n\nInstructions 100 XP\n\n\nex_027.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#section-5",
+    "href": "_cleaning_data_in_R_04.html#section-5",
+    "title": "4  Record Linkage",
+    "section": "4.7 ",
+    "text": "4.7 \n\nInstructions 100 XP\n\n\nex_027.R"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#fixing-typos-with-string-distance",
+    "href": "_cleaning_data_in_R_04.html#fixing-typos-with-string-distance",
+    "title": "4  Record Linkage",
+    "section": "4.2 Fixing typos with string distance",
+    "text": "4.2 Fixing typos with string distance\nIn this chapter, one of the datasets you’ll be working with, zagat, is a set of restaurants in New York, Los Angeles, Atlanta, San Francisco, and Las Vegas. The data is from Zagat, a company that collects restaurant reviews, and includes the restaurant names, addresses, phone numbers, as well as other restaurant information.\nThe city column contains the name of the city that the restaurant is located in. However, there are a number of typos throughout the column. Your task is to map each city to one of the five correctly-spelled cities contained in the cities data frame.\nLoad dplyr, fuzzyjoin, zagat and cities.\n\nInstructions 100 XP\n\n\nex_022.R\n\n# Count the number of each city variation\n# Count the number of each city variation\nzagat %>%\n  count(city)\n\n# Join zagat and cities and look at results\nzagat %>%\n  # Left join based on stringdist using city and city_actual cols\n  stringdist_left_join(\n    cities,\n    by = c(\"city\" = \"city_actual\"), method = \"dl\"\n  )%>%\n  # Select the name, city, and city_actual cols\n  select(name, city, city_actual)"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#pair-blocking",
+    "href": "_cleaning_data_in_R_04.html#pair-blocking",
+    "title": "4  Record Linkage",
+    "section": "4.3 Pair blocking",
+    "text": "4.3 Pair blocking\nZagat and Fodor’s are both companies that gather restaurant reviews. The zagat and fodors datasets both contain information about various restaurants, including addresses, phone numbers, and cuisine types. Some restaurants appear in both datasets, but don’t necessarily have the same exact name or phone number written down. In this chapter, you’ll work towards figuring out which restaurants appear in both datasets.\nThe first step towards this goal is to generate pairs of records so that you can compare them. In this exercise, you’ll first generate all possible pairs, and then use your newly-cleaned city column as a blocking variable.\nMake zagat and fodors available.\n\nInstructions 100 XP\n\nLoad the reclin package.\nGenerate all possible pairs of records between the zagat and fodors datasets.\n\n\n\nex_023.R\n\n# Load reclin\nlibrary(reclin)\n# Generate all possible pairs\npair_blocking(zagat, fodors)\n\n# Generate pairs with same city\npair_blocking(zagat, fodors, blocking_var =\"city\")"
+  },
+  {
+    "objectID": "_cleaning_data_in_R_04.html#comparing-pairs",
+    "href": "_cleaning_data_in_R_04.html#comparing-pairs",
+    "title": "4  Record Linkage",
+    "section": "4.4 Comparing pairs",
+    "text": "4.4 Comparing pairs\nNow that you’ve generated the pairs of restaurants, it’s time to compare them. You can easily customize how you perform your comparisons using the by and default_comparator arguments. There’s no right answer as to what each should be set to, so in this exercise, you’ll try a couple options out.\nLoad dplyr, reclin, zagat and fodors.\n\nInstructions 100 XP\n\nCompare pairs by name using lcs() distance.\n\n\n\nex_024.R\n\n# Generate pairs\npair_blocking(zagat, fodors, blocking_var = \"city\") %>%\n  # Compare pairs by name using lcs()\n  compare_pairs(\n    by = \"name\",\n    default_comparator = lcs()\n  )\n# Generate pairs\npair_blocking(zagat, fodors, blocking_var = \"city\") %>%\n  # Compare pairs by name, phone, addr\n  compare_pairs(\n    by = c(\"name\", \"phone\", \"addr\" ),\n    default_comparator = jaro_winkler()\n  )"
   }
 ]
