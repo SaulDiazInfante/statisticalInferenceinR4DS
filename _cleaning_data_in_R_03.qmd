@@ -1,0 +1,256 @@
+# Advanced Data Problems
+In this chapter, you’ll dive into more advanced data cleaning problems,
+such as ensuring that weights are all written in kilograms instead of pounds.
+You’ll also gain invaluable skills that will help you verify that values have
+been added correctly and that missing values don’t negatively impact your
+analyses.
+
+## Date uniformity
+
+In this chapter, you work at an asset management company and you'll be working
+with the `accounts` dataset, which contains information about each customer,
+the amount in their account, and the date their account was opened. Your boss
+has asked you to calculate some summary statistics about the average value of
+each account and whether the age of the account is associated with a higher or
+lower account value. Before you can do this, you need to make sure that the
+accounts dataset you've been given doesn't contain any uniformity problems.
+In this exercise, you'll investigate the `date_opened` column and clean it up
+so that all the dates are in the same format.
+
+Make `dplyr` and `lubridate` and `accounts` available.
+### Instructions `100 XP` {.unnumbered}
+Take a look at the head of accounts to get a sense of the data you're working
+with.
+
+```{.r filename="ex_015.R"}
+head(accounts)
+
+# Define the date formats
+formats <- c("%Y-%m-%d", "%B %d, %Y")
+
+# Convert dates to the same format
+accounts %>%
+  mutate(date_opened_clean = parse_date_time(date_opened, formats))
+```
+
+## Currency uniformity
+
+Now that your dates are in order, you'll need to correct any unit differences.
+When you first plot the data, you'll notice that there's a group of very high
+values, and a group of relatively lower values.
+The bank has two different offices - one in New York, and one in Tokyo, so you
+suspect that the accounts managed by the Tokyo office are in Japanese yen 
+instead of U.S. dollars. Luckily, you have a data frame called `account_offices`
+that indicates which office manages each customer's account, so you can use 
+this information to figure out which `totals` need to be converted from 
+`yen` to dollars.
+
+The formula to convert yen to dollars is USD = JPY / 104.
+
+load `dplyr`, `ggplot2` , the `accounts` and `account_offices` data frames.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Create a scatter plot with date_opened on the x-axis and total on the y-axis.
+- Left join accounts and account_offices by their id columns.
+
+
+```{.r filename="ex_016.R"}
+# Scatter plot of opening date and total amount
+accounts %>%
+  ggplot(aes(x = date_opened, y = total)) +
+  geom_point()
+
+# Left join accounts to account_offices by id
+accounts %>%
+  left_join(account_offices, by = "id") %>%
+  # Convert totals from the Tokyo office to USD
+  mutate(total_usd = ifelse(office == "Tokyo", total / 104, total)) %>%
+  # Scatter plot of opening date vs total_usd
+  ggplot(aes(x = date_opened, y = total_usd)) +
+    geom_point()
+
+```
+
+## Validating totals
+In this lesson, you'll continue to work with the accounts data frame, but this 
+time, you have a bit more information about each account. There are three 
+different funds that account holders can store their money in. In this 
+exercise, you'll validate whether the total amount in each account is equal
+to the sum of the amount in `fund_A`, `fund_B`, and `fund_C`. If there are any
+accounts that don't match up, you can look into them further to see what went
+wrong in the bookkeeping that led to inconsistencies.
+
+Load `dplyr` and `accounts`.
+
+
+### Instructions `100 XP` {.unnumbered}
+
+- Create a new column called `theoretical_total` that contains the sum of
+the amounts in each fund.
+- Find the accounts where the total doesn't match the `theoretical_total`.
+
+```{.r filename="ex_017.R"}
+# Find invalid totals
+accounts %>%
+  # theoretical_total: sum of the three funds
+  mutate(
+    theoretical_total = fund_A + fund_B + fund_C
+  )%>%
+  # Find accounts where total doesn't match theoretical_total
+  filter(theoretical_total != total)
+```
+
+## Validating age
+
+Now that you found some inconsistencies in the `total` amounts, you're 
+suspicious that there may also be inconsistencies in the `acct_age` column, and
+you want tosee if these inconsistencies are related. Using the skills you 
+learned from the video exercise, you'll need to validate the age of each account
+and see if rows with inconsistent `acct_ages` are the same ones that had 
+inconsistent `totals`
+
+Make `dplyr` and `lubridate` and `accounts` available.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Create a new column called `theoretical_age` that contains the age of each 
+account based on the `date_opened`.
+
+- Find the accounts where the `acct_age` doesn't match the `theoretical_age`.
+
+```{.r filename="ex_018.R"}
+# Find invalid acct_age
+accounts %>%
+  # theoretical_age: age of acct based on date_opened
+  mutate(theoretical_age = 
+    floor(
+      as.numeric(
+        as.Date(date_opened) %--% today(),
+        "years"
+      )
+    )
+  ) %>%
+  # Filter for rows where acct_age is different from theoretical_age
+  filter(theoretical_age != acct_age)
+```
+
+## Visualizing missing data
+
+Dealing with missing data is one of the most common tasks in data science.
+There are a variety of types of missingness, as well as a variety of types of
+solutions to missing data.
+
+You just received a new version of the accounts data frame containing data on
+the amount held and amount invested for new and existing customers. However,
+there are rows with missing `inv_amount` values.
+
+You know for a fact that most customers below 25 do not have investment 
+accounts yet, and suspect it could be driving the missingness. 
+
+Load `dplyr` and `visdat` packages and `accounts` dataframe.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Visualize the missing values in `accounts` by column using a function from 
+the visdat package.
+
+- Add a logical column to accounts called `missing_inv` that indicates whether
+each row is missing the inv_amount or not.
+- Group by `missing_inv`.
+- Calculate the mean age for each group of missing_inv.
+
+```{.r filename="ex_019.R"}
+vis_miss(accounts)
+# Visualize the missing values by column
+vis_miss(accounts)
+
+accounts %>%
+  # missing_inv: Is inv_amount missing?
+  mutate(missing_inv = is.na(inv_amount)) %>%
+  # Group by missing_inv
+  group_by(missing_inv) %>%
+  # Calculate mean age for each missing_inv group
+  summarize(avg_age = mean(age))
+
+# Visualize the missing values by column
+vis_miss(accounts)
+
+accounts %>%
+  # missing_inv: Is inv_amount missing?
+  mutate(missing_inv = is.na(inv_amount)) %>%
+  # Group by missing_inv
+  group_by(missing_inv) %>%
+  # Calculate mean age for each missing_inv group
+  summarize(avg_age = mean(age))
+
+# Sort by age and visualize missing vals
+accounts %>%
+  arrange(age) %>%
+  vis_miss()
+
+```
+
+
+## Treating missing data
+
+In this exercise, you're working with another version of the accounts data that
+contains missing values for both the `cust_id` and `acct_amount` columns.
+
+You want to figure out how many unique customers the bank has, as well as the
+average amount held by customers. You know that rows with missing `cust_id`
+don't really help you, and that on average, the `acct_amount` is usually 5 times
+the amount of `inv_amount`.
+
+In this exercise, you will drop rows of `accounts` with missing `cust_ids`, and
+impute missing values of `inv_amount` with some domain knowledge. 
+
+Load `dplyr`, `assertive` and `accounts`.
+
+
+### Instructions `100 XP` {.unnumbered}
+
+- Filter accounts to remove rows with missing cust_ids and save as 
+`accounts_clean`.
+- Create a new column called `acct_amount_filled`, which contains the values of 
+`acct_amount`, except all `NA` values should be replaced with 5 times the amount
+ in `inv_amount`.
+- Assert that there are no missing values in the `cust_id` column of 
+`accounts_clean`.
+- Assert that there are no missing values in the `acct_amount_filled` column 
+of accounts_clean.
+```{.r filename="ex_020.R"}
+accounts_clean <- accounts %>%
+  # Filter to remove rows with missing cust_id
+  filter(!is.na(cust_id))
+
+
+accounts_clean
+# Create accounts_clean
+accounts_clean <- accounts %>%
+  # Filter to remove rows with missing cust_id
+  filter(!is.na(cust_id)) %>%
+  # Add new col acct_amount_filled with replaced NAs
+  mutate(
+    acct_amount_filled = ifelse(
+      is.na(acct_amount), 5 * inv_amount, acct_amount))
+
+accounts_clean
+
+# Create accounts_clean
+# Create accounts_clean
+accounts_clean <- accounts %>%
+  # Filter to remove rows with missing cust_id
+  filter(!is.na(cust_id)) %>%
+  # Add new col acct_amount_filled with replaced NAs
+    mutate(
+        acct_amount_filled = ifelse(
+            is.na(acct_amount),
+            inv_amount * 5,
+            acct_amount
+        )
+    )
+# Assert that cust_id has no missing vals
+assert_all_are_not_na(accounts_clean$cust_id)
+assert_all_are_not_na(accounts_clean$acc)
+```

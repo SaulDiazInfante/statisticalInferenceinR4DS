@@ -1,0 +1,170 @@
+# Record Linkage
+
+Record linkage is a powerful technique used to merge multiple datasets together,
+used when values have typos or different spellings. In this chapter, you'll 
+learn how to link records by calculating the similarity between strings—you’ll
+then use your new skills to join two restaurant review datasets into one clean
+master dataset.
+
+
+## Small distance, small difference
+
+In the video exercise, you learned that there are multiple ways to calculate 
+how similar or different two strings are. Now you'll practice using the 
+`stringdist` package to compute string distances using various methods. It's 
+important to be familiar with different methods, as some methods work better
+on certain datasets, while others work better on other datasets.
+
+The stringdist package has been loaded for you.
+
+### Instructions `100 XP` {.unnumbered}
+- Calculate the Damerau-Levenshtein distance between 
+"las angelos" and "los angeles".
+
+```{.r filename="ex_021.R"}
+# Calculate Damerau-Levenshtein distance
+stringdist(
+    "las angelos",
+    "los angeles", method = "dl"
+)
+# Calculate LCS distance
+stringdist(
+    "las angelos",
+    "los angeles", method = "lcs"
+)
+
+# Calculate Jaccard distance
+stringdist(
+    "las angelos",
+    "los angeles", 
+    method = "jaccard"
+)
+
+```
+
+
+## Fixing typos with string distance
+In this chapter, one of the datasets you'll be working with, `zagat`, is a set 
+of restaurants in New York, Los Angeles, Atlanta, San Francisco, and Las Vegas.
+The data is from `Zagat`, a company that collects restaurant reviews, and 
+includes the restaurant names, addresses, phone numbers, as well as other
+restaurant information.
+
+The `city` column contains the name of the `city` that the restaurant is 
+located in. However, there are a number of typos throughout the column. Your
+task is to map each `city` to one of the five correctly-spelled cities 
+contained in the `cities` data frame.
+
+Load `dplyr`, `fuzzyjoin`, `zagat` and `cities`.
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_022.R"}
+# Count the number of each city variation
+# Count the number of each city variation
+zagat %>%
+  count(city)
+
+# Join zagat and cities and look at results
+zagat %>%
+  # Left join based on stringdist using city and city_actual cols
+  stringdist_left_join(
+    cities,
+    by = c("city" = "city_actual"), method = "dl"
+  )%>%
+  # Select the name, city, and city_actual cols
+  select(name, city, city_actual)
+```
+## Pair blocking
+
+Zagat and Fodor's are both companies that gather restaurant reviews. The `zagat`
+and `fodors` datasets both contain information about various restaurants,
+including addresses, phone numbers, and cuisine types. Some restaurants appear
+in both datasets, but don't necessarily have the same exact name or phone number
+written down. In this chapter, you'll work towards figuring out which 
+restaurants appear in both datasets.
+
+The first step towards this goal is to generate pairs of records so that you
+can compare them. In this exercise, you'll first generate all possible pairs,
+and then use your newly-cleaned `city` column as a blocking variable.
+
+Make `zagat` and `fodors`  available.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Load the reclin package.
+- Generate all possible pairs of records between the `zagat` and `fodors` 
+datasets.
+
+```{.r filename="ex_023.R"}
+# Load reclin
+library(reclin)
+# Generate all possible pairs
+pair_blocking(zagat, fodors)
+
+# Generate pairs with same city
+pair_blocking(zagat, fodors, blocking_var ="city")
+```
+## Comparing pairs
+
+Now that you've generated the pairs of restaurants, it's time to compare them. 
+You can easily customize how you perform your comparisons using the by and
+`default_comparator` arguments. There's no right answer as to what each should
+be set to, so in this exercise, you'll try a couple options out.
+
+Load `dplyr`, `reclin`,  `zagat` and `fodors`.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Compare pairs by name using lcs() distance.
+
+```{.r filename="ex_024.R"}
+# Generate pairs
+pair_blocking(zagat, fodors, blocking_var = "city") %>%
+  # Compare pairs by name using lcs()
+  compare_pairs(
+    by = "name",
+    default_comparator = lcs()
+  )
+# Generate pairs
+pair_blocking(zagat, fodors, blocking_var = "city") %>%
+  # Compare pairs by name, phone, addr
+  compare_pairs(
+    by = c("name", "phone", "addr" ),
+    default_comparator = jaro_winkler()
+  )
+
+```
+
+## Putting it together
+
+During this chapter, you've cleaned up the `city` column of `zagat` using string
+similarity, as well as generated and compared pairs of restaurants from `zagat`
+and `fodors`. The end is near - all that's left to do is score and select 
+pairs and link the data together, and you'll be able to begin your analysis in
+ no time!
+
+Load `reclin`,  `dplyr`, `zagat`, and `fodors`.
+
+### Instructions `100 XP` {.unnumbered}
+- Score the pairs of records probabilistically.
+- Select the pairs that are considered matches.
+- Link the two data frames together.
+```{.r filename="ex_025.R"}
+
+```
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_026.R"}
+# Create pairs
+pair_blocking(zagat, fodors, blocking_var = "city") %>%
+  # Compare pairs
+  compare_pairs(by = c("name", "addr"), default_comparator = jaro_winkler()) %>%
+  # Score pairs
+  score_problink() %>%
+  # Select pairs
+  select_n_to_m() %>%
+  # Link data 
+  link()
+```
