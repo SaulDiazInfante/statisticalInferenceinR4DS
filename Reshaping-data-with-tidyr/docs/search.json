@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Resping Data with tidyr",
+    "section": "",
+    "text": "Preface\nPreface for this part"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data in the wild can be scary—when confronted with a complicated and messy dataset you may find yourself wondering, where do I even start? The tidyr package allows you to wrangle such beasts into nice and tidy datasets. Inaccessible values stored in column names will be put into rows, JSON files will become data frames, and missing values will never go missing again. You’ll practice these techniques on a wide range of messy datasets, learning along the way how many dogs the Soviet Union sent into space and what bird is most popular in New Zealand. With the tidyr package in your tidyverse toolkit, you’ll be able to transform almost any dataset in a tidy format which will pay-off during the rest of your analysis."
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#multiple-variables-per-column",
+    "href": "_reshaping_data_with_tidyr_01.html#multiple-variables-per-column",
+    "title": "1  Tidy Data",
+    "section": "1.1 Multiple variables per column",
+    "text": "1.1 Multiple variables per column\nBeing a busy person, you don’t want to spend too much time on Netflix, so you decide to crunch some numbers on TV show and movie durations before deciding what to watch. You’ve managed to obtain a dataset named netflix_df, but its duration column has an issue. It contains strings with both a value and unit of duration (\"min\" or \"Season\").\nYou’ll tidy this dataset so that each variable gets its own column.\nAs will always be the case in this course, load the tidyr package.\n\nInstructions 100 XP\n\nInspect netflix_df by typing its name directly in the R console and hitting Enter to see what string separates the value from the unit in the duration column.\nSeparate the duration column over two variables named value and unit. Pass the string separating the number from the unit to the sep argument.\n\n\n\nex_001.R\n\nnetflix_df %>% \n  # Split the duration column into value and unit columns\n  separate(duration, into =c(\"value\",\"unit\"),sep = \" \", convert = TRUE)"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#internall-phone-numbers",
+    "href": "_reshaping_data_with_tidyr_01.html#internall-phone-numbers",
+    "title": "1  Tidy Data",
+    "section": "1.2 Internall phone numbers",
+    "text": "1.2 Internall phone numbers\nYou work for a multinational company that uses auto-dialer software to contact its customers. When new customers subscribe online they are asked for a phone number but they often forget to add the country code needed for international calls. You were asked to fix this issue in the database. You’ve been given a data frame with national numbers and country codes named phone_nr_df. Now you want to combine the country_code and national_number columns to create valid international numbers.\n\nInstructions 100 XP\nUse the unite() function to create a new international_number column, using an empty string as the separator.\n\n\nex_002.R\n\nphone_nr_df %>%\n  # Unite the country_code and national_number columns\n  unite(\n    \"international_number\",\n    country_code,\n    national_number,\n    sep=\"\"\n  )"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#extracting-observations-from-values",
+    "href": "_reshaping_data_with_tidyr_01.html#extracting-observations-from-values",
+    "title": "1  Tidy Data",
+    "section": "1.3 Extracting observations from values",
+    "text": "1.3 Extracting observations from values\nExtracting observations from values You’re given a sample of the Netflix dataset containing TV shows and their casts called tvshow_df. You want to learn which six actors have the most appearances.\nHowever, the dataset only has one row per TV show, and multiple actors are listed in the cast column.\nTransform the data so that for each TV show, every actor has a row. The number of appearances will be calculated for you.\nLoad dplyr package.\n\nInstructions 100 XP\n\nUse separate_rows() on the cast column, using the appropriate separator for the sep argument.\nUse the head() function to keep just the top six.\n\n\n\nex_003.R\n\ntvshow_df %>% \n  # Separate the actors in the cast column over multiple rows\n  separate_rows(cast, sep=\", \") %>% \n  rename(actor = cast) %>% \n  count(actor, sort = TRUE) %>% \n  head()"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#separating-into-columns-and-rows",
+    "href": "_reshaping_data_with_tidyr_01.html#separating-into-columns-and-rows",
+    "title": "1  Tidy Data",
+    "section": "1.4 Separating into columns and rows",
+    "text": "1.4 Separating into columns and rows\nRemember the drink ingredients data from the video? You’ve been given a similar version (drink_df) that also includes quantities and units. Now you want to create an overview of how much of each ingredient you should buy to make these drinks.\nLoad dplyr.\n\nInstructions 100 XP\n\nInspect drink_df in the console to find the right separator in the ingredients column.\nSeparate the ingredients column so that for each drink each ingredient gets a row. -Inspect the output of the previous step to find the separator that splits the ingredients column into three columns: ingredient, quantity, and unit. -Make sure to convert data types to numeric when possible.\n\n\n\nex_004.R\n\ndrink_df %>% \n  # Separate the ingredients over rows\n  separate_rows(ingredients, sep = \"; \") %>% \n  # Separate ingredients into three columns\n  separate(\n    ingredients, \n    into = c(\"ingredient\", \"quantity\", \"unit\"), \n    sep = \" \", \n    convert = TRUE\n  ) %>% \n  # Group by ingredient and unit\n  group_by(ingredient, unit) %>% \n  # Calculate the total quantity of each ingredient\n  summarize(quantity = sum(quantity))"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#and-the-oscar-tfor-best-director-goet-to-..",
+    "href": "_reshaping_data_with_tidyr_01.html#and-the-oscar-tfor-best-director-goet-to-..",
+    "title": "1  Tidy Data",
+    "section": "1.5 And the Oscar tfor best director goet to .. ",
+    "text": "1.5 And the Oscar tfor best director goet to .. \nYou’re working on a sample of the Netflix dataset pre-loaded as director_df. This time, the data frame contains just the directors and movie titles. Your goal is to identify the directors who created the most movies. Since the director column contains multiple names, you’ll first separate its values over multiple rows and then count the directors.\nSince you don’t want movies without directors polluting your overview, you’ll apply the drop_na() function.\nLoad dplyr package.\n\nInstructions 100 XP\n\nInspect director_df in the console to see what string separates directors in the director column.\nSpread the values in the director column over separate rows.\nCount the number of times each director appears in the data. Make sure to sort the output.\nDrop rows containing NA values in the director column.\n\n\n\nex_005.R\n\ndirector_df %>% \n  # Spread the director column over separate rows\n  separate_rows(\n    director,\n    sep = \", \"\n  )\n\ndirector_df %>% \n  # Spread the director column over separate rows\n  separate_rows(director, sep = \", \") %>% \n  # Count the number of movies per director\n  count(director)\n\ndirector_df %>% \n  # Spread the director column over separate rows\n  separate_rows(director, sep = \", \") %>% \n  # Count the number of movies per director\n  count(director, sort=TRUE) \n\ndirector_df %>% \n  # Drop rows with NA values in the director column\n  drop_na(director) %>% \n  # Spread the director column over separate rows\n  separate_rows(director, sep = \", \") %>% \n  # Count the number of movies per director\n  count(director, sort = TRUE)"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#imputing-sales-data",
+    "href": "_reshaping_data_with_tidyr_01.html#imputing-sales-data",
+    "title": "1  Tidy Data",
+    "section": "1.6 Imputing sales data",
+    "text": "1.6 Imputing sales data\nYou’ve been asked to create a report that allows management to compare sales figures per quarter for two years. The problem is that the dataset (sales_df) contains missing values. You’ll need to impute the values in the year column so that you can visualize the data.\nLoad ggplot2.\n\nInstructions 100 XP\n\nInspect sales_df in the console, pay attention to the year column.\nUse the fill() function to impute the year column in the correct direction.\nCreate a line plot where each year has a different color.\n\n\n\nex_006.R\n\nsales_df %>% \n  # Impute the year column\n  fill(year, .direction = \"up\") %>%\n  # Create a line plot with sales per quarter colored by year.\n  ggplot(\n    aes(\n      x = quarter,\n      y = sales,\n      color = year,\n      group = year\n    )\n  ) +\n  geom_line()"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#nuclear-bombs-per-continent",
+    "href": "_reshaping_data_with_tidyr_01.html#nuclear-bombs-per-continent",
+    "title": "1  Tidy Data",
+    "section": "1.7 Nuclear bombs per continent",
+    "text": "1.7 Nuclear bombs per continent\nSince WWII, a number of nations have been detonating nuclear bombs for military research. A tally of bombs detonated per nation has been calculated from the Nuclear Explosion DataBase (NEDB) and provided as nuke_df. You are interested in finding out how many bombs have been detonated by nations grouped per continent. To achieve this goal, nuke_df will be joined to country_to_continent_df which is a mapping of nation to continent. You will need to overwrite missing values with zeros so that you can create a nice plot.\nLoad dplyr and ggplot2.\n\nSide note 1:\n\nBombs detonated by the Soviet Union were attributed to the Russian Federation.\n\nSide note 2:\n\nThe Russian Federation is solely mapped to Europe for simplicity.\n\n\n\nInstructions 100 XP\n\nInspect nuke_df and country_to_continent_df in the console.\nReplace the missing values in the n_bombs columns with 0L. Adding the L sets the data type to integer.\nGroup the dataset by continent and aggregate the data by summing the number of bombs.\nPlot the summed number of bombs detonated by nations from each continent.\n\n\n\nex_007.R\n\n  country_to_continent_df %>% \n  left_join(nuke_df, by = \"country_code\") %>%  \n  # Impute the missing values in the n_bombs column with 0L\n  replace_na(list(n_bombs = 0L)) %>% \n  # Group the dataset by continent\n  group_by(continent) %>% \n  # Sum the number of bombs per continent\n  summarize(n_bombs_continent = sum(n_bombs)) %>% \n  # Plot the number of bombs per continent\n  ggplot(aes(x = continent, y = n_bombs_continent)) +\n  geom_col()"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "5  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_01.html#international-phone-numbers",
+    "href": "_reshaping_data_with_tidyr_01.html#international-phone-numbers",
+    "title": "1  Tidy Data",
+    "section": "1.2 International phone numbers",
+    "text": "1.2 International phone numbers\nYou work for a multinational company that uses auto-dialer software to contact its customers. When new customers subscribe online they are asked for a phone number but they often forget to add the country code needed for international calls. You were asked to fix this issue in the database. You’ve been given a data frame with national numbers and country codes named phone_nr_df. Now you want to combine the country_code and national_number columns to create valid international numbers.\n\nInstructions 100 XP\nUse the unite() function to create a new international_number column, using an empty string as the separator.\n\n\nex_002.R\n\nphone_nr_df %>%\n  # Unite the country_code and national_number columns\n  unite(\n    \"international_number\",\n    country_code,\n    national_number,\n    sep=\"\"\n  )"
+  }
+]

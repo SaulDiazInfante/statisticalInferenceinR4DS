@@ -1,0 +1,244 @@
+# Tidy Data
+
+You'll be introduced to the concept of tidy data which is central to this
+course. In the first two lessons, you'll jump straight into the action by
+separating messy character columns into tidy variables and observations ready
+for analysis. In the final lesson, you'll learn how to overwrite and remove
+missing values.
+
+## Multiple variables per column
+
+Being a busy person, you don't want to spend too much time on Netflix, so you
+decide to crunch some numbers on TV show and movie durations before deciding
+what to watch. You've managed to obtain a dataset named `netflix_df`, but its
+`duration` column has an issue. It contains strings with both a value and unit
+of duration (`"min"` or `"Season"`).
+
+You'll tidy this dataset so that each variable gets its own column.
+
+As will always be the case in this course, load the tidyr package.
+
+### Instructions `100 XP` {.unnumbered}
+
+-   Inspect `netflix_df` by typing its name directly in the R console and
+    hitting Enter to see what string separates the value from the unit in the
+    `duration` column.
+-   Separate the `duration` column over two variables named `value` and `unit`.
+    Pass the string separating the number from the unit to the `sep` argument.
+
+``` {.r filename="ex_001.R"}
+netflix_df %>% 
+  # Split the duration column into value and unit columns
+  separate(duration, into =c("value","unit"),sep = " ", convert = TRUE)
+```
+
+## International phone numbers
+
+You work for a multinational company that uses auto-dialer software to contact
+its customers. When new customers subscribe online they are asked for a phone
+number but they often forget to add the country code needed for international
+calls. You were asked to fix this issue in the database. You've been given a
+data frame with national numbers and country codes named `phone_nr_df`. Now you
+want to combine the country_code and `national_number` columns to create valid
+international numbers.
+
+### Instructions `100 XP` {.unnumbered}
+
+Use the `unite()` function to create a new `international_number` column, using
+an empty string as the separator.
+
+``` {.r filename="ex_002.R"}
+phone_nr_df %>%
+  # Unite the country_code and national_number columns
+  unite(
+    "international_number",
+    country_code,
+    national_number,
+    sep=""
+  )
+```
+
+## Extracting observations from values
+Extracting observations from values
+You're given a sample of the Netflix dataset containing TV shows and their casts
+called `tvshow_df`. You want to learn which six actors have the most appearances.
+
+However, the dataset only has one row per TV show, and multiple actors are 
+listed in the cast column.
+
+Transform the data so that for each TV show, every actor has a row. The number
+of appearances will be calculated for you.
+
+Load  dplyr package.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Use `separate_rows()` on the cast column, using the appropriate separator
+for the sep argument.
+- Use the `head()` function to keep just the top six.
+
+``` {.r filename="ex_003.R"}
+tvshow_df %>% 
+  # Separate the actors in the cast column over multiple rows
+  separate_rows(cast, sep=", ") %>% 
+  rename(actor = cast) %>% 
+  count(actor, sort = TRUE) %>% 
+  head()
+```
+
+## Separating into columns and rows
+Remember the drink ingredients data from the video? You've been given a similar
+version (`drink_df`) that also includes quantities and units. Now you want to
+create an overview of how much of each ingredient you should buy to make these 
+drinks.
+
+Load `dplyr`.
+
+### Instructions `100 XP` {.unnumbered}
+- Inspect `drink_df` in the console to find the right separator in the 
+`ingredients` column.
+- Separate the `ingredients` column so that for each drink each ingredient 
+gets a row.
+-Inspect the output of the previous step to find the separator that splits
+the ingredients column into three columns: `ingredient`, `quantity`, and `unit`.
+-Make sure to convert data types to numeric when possible.
+
+``` {.r filename="ex_004.R"}
+drink_df %>% 
+  # Separate the ingredients over rows
+  separate_rows(ingredients, sep = "; ") %>% 
+  # Separate ingredients into three columns
+  separate(
+    ingredients, 
+    into = c("ingredient", "quantity", "unit"), 
+    sep = " ", 
+    convert = TRUE
+  ) %>% 
+  # Group by ingredient and unit
+  group_by(ingredient, unit) %>% 
+  # Calculate the total quantity of each ingredient
+  summarize(quantity = sum(quantity))
+```
+
+## And the Oscar tfor best director goet to .. <NA>
+
+You're working on a sample of the Netflix dataset pre-loaded as
+`director_df`. This time, the data frame contains just the directors and movie
+titles. Your goal is to identify the directors who created the most movies.
+Since the `director` column contains multiple names, you'll first separate its
+values over multiple rows and then count the directors.
+
+Since you don't want movies without directors polluting your overview,
+you'll apply the `drop_na()` function.
+
+Load dplyr package.
+
+
+### Instructions `100 XP` {.unnumbered}
+- Inspect `director_df` in the console to see what string separates directors
+in the `director` column.
+- Spread the values in the `director` column over separate rows.
+- Count the number of times each director appears in the data. Make sure to sort
+the output.
+- Drop rows containing NA values in the director column.
+
+``` {.r filename="ex_005.R"}
+director_df %>% 
+  # Spread the director column over separate rows
+  separate_rows(
+    director,
+    sep = ", "
+  )
+
+director_df %>% 
+  # Spread the director column over separate rows
+  separate_rows(director, sep = ", ") %>% 
+  # Count the number of movies per director
+  count(director)
+
+director_df %>% 
+  # Spread the director column over separate rows
+  separate_rows(director, sep = ", ") %>% 
+  # Count the number of movies per director
+  count(director, sort=TRUE) 
+
+director_df %>% 
+  # Drop rows with NA values in the director column
+  drop_na(director) %>% 
+  # Spread the director column over separate rows
+  separate_rows(director, sep = ", ") %>% 
+  # Count the number of movies per director
+  count(director, sort = TRUE)
+```
+
+## Imputing sales data
+
+You've been asked to create a report that allows management to compare sales 
+figures per quarter for two years. The problem is that the dataset (`sales_df`)
+contains missing values. You'll need to impute the values in the year column
+so that you can visualize the data.
+
+Load `ggplot2`.
+
+### Instructions `100 XP` {.unnumbered}
+- Inspect `sales_df` in the console, pay attention to the year column.
+- Use the `fill()` function to impute the year column in the correct direction.
+- Create a line `plot` where each year has a different color.
+
+``` {.r filename="ex_006.R"}
+sales_df %>% 
+  # Impute the year column
+  fill(year, .direction = "up") %>%
+  # Create a line plot with sales per quarter colored by year.
+  ggplot(
+    aes(
+      x = quarter,
+      y = sales,
+      color = year,
+      group = year
+    )
+  ) +
+  geom_line()
+```
+
+## Nuclear bombs per continent
+
+Since WWII, a number of nations have been detonating nuclear bombs for military
+research. A tally of bombs detonated per nation has been calculated from the 
+Nuclear Explosion DataBase (NEDB) and provided as `nuke_df`. You are interested
+in finding out how many bombs have been detonated by nations grouped per 
+continent. To achieve this goal, `nuke_df` will be joined to 
+`country_to_continent_df` which is a mapping of nation to continent. 
+You will need to overwrite missing values with zeros so that you can create a 
+nice plot.
+
+Load `dplyr` and `ggplot2`.
+
+Side note 1:
+: Bombs detonated by the Soviet Union were attributed to the Russian Federation.
+
+Side note 2:
+: The Russian Federation is solely mapped to Europe for simplicity.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Inspect `nuke_df` and `country_to_continent_df` in the console.
+- Replace the missing values in the `n_bombs` columns with `0L`. Adding the L 
+sets the data type to integer.
+- Group the dataset by `continent` and aggregate the data by summing the number 
+of bombs.
+- Plot the summed number of bombs detonated by nations from each continent.
+
+``` {.r filename="ex_007.R"}
+  country_to_continent_df %>% 
+  left_join(nuke_df, by = "country_code") %>%  
+  # Impute the missing values in the n_bombs column with 0L
+  replace_na(list(n_bombs = 0L)) %>% 
+  # Group the dataset by continent
+  group_by(continent) %>% 
+  # Sum the number of bombs per continent
+  summarize(n_bombs_continent = sum(n_bombs)) %>% 
+  # Plot the number of bombs per continent
+  ggplot(aes(x = continent, y = n_bombs_continent)) +
+  geom_col()
+```

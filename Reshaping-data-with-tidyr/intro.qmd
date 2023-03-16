@@ -1,0 +1,12 @@
+# Introduction {.unnumbered}
+
+Data in the wild can be scary—when confronted with a complicated and messy 
+dataset you may find yourself wondering, where do I even start? 
+The `tidyr` package allows you to wrangle such beasts into nice and tidy 
+datasets. Inaccessible values stored in column names will be put into rows,
+JSON files will become data frames, and missing values will never go missing
+again. You'll practice these techniques on a wide range of messy datasets,
+learning along the way how many dogs the Soviet Union sent into space and
+what bird is most popular in New Zealand. With the tidyr package in your 
+tidyverse toolkit, you'll be able to transform almost any dataset in a tidy
+format which will pay-off during the rest of your analysis.
