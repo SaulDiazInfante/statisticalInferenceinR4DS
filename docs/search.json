@@ -1057,6 +1057,13 @@
     "text": "Introduction to Writing Functions in R\nBeing able to write your own functions makes your analyses more readable, with fewer errors, and more reusable from project to project. Function writing will increase your productivity more than any other skill! In this course you’ll learn the basics of function writing, focusing on the arguments going into the function and the return values. You’ll be writing useful data science functions, and using real-world data on Wyoming tourism, stock price/earnings ratios, and grain yields."
   },
   {
+    "objectID": "background_03.html",
+    "href": "background_03.html",
+    "title": "R fundamentals: importing, cleaning and reshaping data",
+    "section": "",
+    "text": "Introduction to Writing Functions in R\nBeing able to write your own functions makes your analyses more readable, with fewer errors, and more reusable from project to project. Function writing will increase your productivity more than any other skill! In this course you’ll learn the basics of function writing, focusing on the arguments going into the function and the return values. You’ll be writing useful data science functions, and using real-world data on Wyoming tourism, stock price/earnings ratios, and grain yields."
+  },
+  {
     "objectID": "_introduction_to_importing_data_in_R_01.html#read.csv",
     "href": "_introduction_to_importing_data_in_R_01.html#read.csv",
     "title": "14  Importing data from flat files with utils",
@@ -1631,83 +1638,6 @@
     "text": "26.5 Putting it together\nDuring this chapter, you’ve cleaned up the city column of zagat using string similarity, as well as generated and compared pairs of restaurants from zagat and fodors. The end is near - all that’s left to do is score and select pairs and link the data together, and you’ll be able to begin your analysis in no time!\nLoad reclin, dplyr, zagat, and fodors.\n\nInstructions 100 XP\n\nScore the pairs of records probabilistically.\nSelect the pairs that are considered matches.\nLink the two data frames together.\n\n\n\nex_025.R\n\n\n\n\n\nInstructions 100 XP\n\n\nex_026.R\n\n# Create pairs\npair_blocking(zagat, fodors, blocking_var = \"city\") %>%\n  # Compare pairs\n  compare_pairs(by = c(\"name\", \"addr\"), default_comparator = jaro_winkler()) %>%\n  # Score pairs\n  score_problink() %>%\n  # Select pairs\n  select_n_to_m() %>%\n  # Link data \n  link()"
   },
   {
-    "objectID": "statistical-inference-whole-game.html",
-    "href": "statistical-inference-whole-game.html",
-    "title": "The whole game of statistical Inference",
-    "section": "",
-    "text": "Whole game\nOur goal in this part of the book is to give you a rapid overview of the main tools of data science: importing, tidying, transforming, and visualizing data, as shown in ?fig-ds-whole-game. We want to show you the “whole game” of data science giving you just enough of all the major pieces so that you can tackle real, if simple, data sets. The later parts of the book, will hit each of these topics in more depth, increasing the range of data science challenges that you can tackle."
-  },
-  {
-    "objectID": "statistical_inference.html",
-    "href": "statistical_inference.html",
-    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "",
-    "text": "28 Preleminaries"
-  },
-  {
-    "objectID": "statistical_inference.html#likelihood-inference.",
-    "href": "statistical_inference.html#likelihood-inference.",
-    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "28.1 Likelihood inference.",
-    "text": "28.1 Likelihood inference."
-  },
-  {
-    "objectID": "statistical_inference.html#variance-analisys.",
-    "href": "statistical_inference.html#variance-analisys.",
-    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "28.2 Variance analisys.",
-    "text": "28.2 Variance analisys."
-  },
-  {
-    "objectID": "statistical_inference.html#roc-curves",
-    "href": "statistical_inference.html#roc-curves",
-    "title": "27  Statistical Inference with resampling: Bootstrap and Jacknife.",
-    "section": "28.3 ROC Curves",
-    "text": "28.3 ROC Curves"
-  },
-  {
-    "objectID": "linear_regression.html#regression-models",
-    "href": "linear_regression.html#regression-models",
-    "title": "28  Lienar Regression",
-    "section": "28.1 Regression models",
-    "text": "28.1 Regression models"
-  },
-  {
-    "objectID": "linear_regression.html#linear-regression",
-    "href": "linear_regression.html#linear-regression",
-    "title": "28  Lienar Regression",
-    "section": "28.2 Linear Regression",
-    "text": "28.2 Linear Regression"
-  },
-  {
-    "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
-    "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
-    "title": "28  Lienar Regression",
-    "section": "28.3 Multiple linear_regression and generalized linear regresion",
-    "text": "28.3 Multiple linear_regression and generalized linear regresion"
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "\n29  Summary\n",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
-  },
-  {
-    "objectID": "background_03.html",
-    "href": "background_03.html",
-    "title": "R fundamentals: importing, cleaning and reshaping data",
-    "section": "",
-    "text": "Introduction to Writing Functions in R\nBeing able to write your own functions makes your analyses more readable, with fewer errors, and more reusable from project to project. Function writing will increase your productivity more than any other skill! In this course you’ll learn the basics of function writing, focusing on the arguments going into the function and the return values. You’ll be writing useful data science functions, and using real-world data on Wyoming tourism, stock price/earnings ratios, and grain yields."
-  },
-  {
     "objectID": "_reshaping_data_with_tidyr_01.html#multiple-variables-per-column",
     "href": "_reshaping_data_with_tidyr_01.html#multiple-variables-per-column",
     "title": "27  Tidy Data",
@@ -1832,5 +1762,75 @@
     "title": "28  From Wide to Long and Back",
     "section": "28.11 Transporting plantet data",
     "text": "28.11 Transporting plantet data\n\nInstructions 100 XP\n\n\nex_018.R"
+  },
+  {
+    "objectID": "statistical-inference-whole-game.html",
+    "href": "statistical-inference-whole-game.html",
+    "title": "The whole game of statistical Inference",
+    "section": "",
+    "text": "Whole game\nOur goal in this part of the book is to give you a rapid overview of the main tools of data science: importing, tidying, transforming, and visualizing data, as shown in ?fig-ds-whole-game. We want to show you the “whole game” of data science giving you just enough of all the major pieces so that you can tackle real, if simple, data sets. The later parts of the book, will hit each of these topics in more depth, increasing the range of data science challenges that you can tackle."
+  },
+  {
+    "objectID": "statistical_inference.html",
+    "href": "statistical_inference.html",
+    "title": "31  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "",
+    "text": "32 Preleminaries"
+  },
+  {
+    "objectID": "statistical_inference.html#likelihood-inference.",
+    "href": "statistical_inference.html#likelihood-inference.",
+    "title": "31  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "32.1 Likelihood inference.",
+    "text": "32.1 Likelihood inference."
+  },
+  {
+    "objectID": "statistical_inference.html#variance-analisys.",
+    "href": "statistical_inference.html#variance-analisys.",
+    "title": "31  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "32.2 Variance analisys.",
+    "text": "32.2 Variance analisys."
+  },
+  {
+    "objectID": "statistical_inference.html#roc-curves",
+    "href": "statistical_inference.html#roc-curves",
+    "title": "31  Statistical Inference with resampling: Bootstrap and Jacknife.",
+    "section": "32.3 ROC Curves",
+    "text": "32.3 ROC Curves"
+  },
+  {
+    "objectID": "linear_regression.html#regression-models",
+    "href": "linear_regression.html#regression-models",
+    "title": "32  Lienar Regression",
+    "section": "32.1 Regression models",
+    "text": "32.1 Regression models"
+  },
+  {
+    "objectID": "linear_regression.html#linear-regression",
+    "href": "linear_regression.html#linear-regression",
+    "title": "32  Lienar Regression",
+    "section": "32.2 Linear Regression",
+    "text": "32.2 Linear Regression"
+  },
+  {
+    "objectID": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
+    "href": "linear_regression.html#multiple-linear_regression-and-generalized-linear-regresion",
+    "title": "32  Lienar Regression",
+    "section": "32.3 Multiple linear_regression and generalized linear regresion",
+    "text": "32.3 Multiple linear_regression and generalized linear regresion"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "\n33  Summary\n",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
   }
 ]
