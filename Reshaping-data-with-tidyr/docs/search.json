@@ -75,5 +75,89 @@
     "title": "1  Tidy Data",
     "section": "1.2 International phone numbers",
     "text": "1.2 International phone numbers\nYou work for a multinational company that uses auto-dialer software to contact its customers. When new customers subscribe online they are asked for a phone number but they often forget to add the country code needed for international calls. You were asked to fix this issue in the database. You’ve been given a data frame with national numbers and country codes named phone_nr_df. Now you want to combine the country_code and national_number columns to create valid international numbers.\n\nInstructions 100 XP\nUse the unite() function to create a new international_number column, using an empty string as the separator.\n\n\nex_002.R\n\nphone_nr_df %>%\n  # Unite the country_code and national_number columns\n  unite(\n    \"international_number\",\n    country_code,\n    national_number,\n    sep=\"\"\n  )"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html",
+    "href": "_reshaping_data_with_tidyr_02.html",
+    "title": "2  A simple example based on Allison Horst’s",
+    "section": "",
+    "text": "Palmer Penguins dataset. Here we look at how penguin body mass varies across both sex and species (use the provided inputs to filter the dataset by bill length and island):\n\n\nCode\nviewof bill_length_min = Inputs.range(\n  [32, 50], \n  {value: 35, step: 1, label: \"Bill length (min):\"}\n)\nviewof islands = Inputs.checkbox(\n  [\"Torgersen\", \"Biscoe\", \"Dream\"], \n  { value: [\"Torgersen\", \"Biscoe\"], \n    label: \"Islands:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotData\n\n\n\n\nCode\nPlot.rectY(filtered, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"body_mass_g\", fill: \"species\", thresholds: 20}\n  ))\n  .plot({\n    facet: {\n      data: filtered,\n      x: \"sex\",\n      y: \"species\",\n      marginRight: 80\n    },\n    marks: [\n      Plot.frame(),\n    ]\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\nCode\nInputs.table(filtered)\n\n\n\n\n\n\n\n\n\n\n\n\nCode\ndata = FileAttachment(\"penguins.csv\").csv({ typed: true })\n\n\n\n\n\n\n\n\n\nCode\nfiltered = data.filter(function(penguin) {\n  return bill_length_min < penguin.bill_length_mm &&\n         islands.includes(penguin.island);\n})"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#nuclear-bombs-per-country",
+    "href": "_reshaping_data_with_tidyr_02.html#nuclear-bombs-per-country",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.1 Nuclear bombs per country",
+    "text": "2.1 Nuclear bombs per country\n\nInstructions 100 XP\n\n\nex_008.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#bond-james-bond",
+    "href": "_reshaping_data_with_tidyr_02.html#bond-james-bond",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.3 Bond… James Bond",
+    "text": "2.3 Bond… James Bond\n\nInstructions 100 XP\n\n\nex_010.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#big-tech-stock-prices",
+    "href": "_reshaping_data_with_tidyr_02.html#big-tech-stock-prices",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.5 Big tech stock prices",
+    "text": "2.5 Big tech stock prices\n\nInstructions 100 XP\n\n\nex_012.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#who-obesity-vs.-life-expectancy",
+    "href": "_reshaping_data_with_tidyr_02.html#who-obesity-vs.-life-expectancy",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.7 WHO obesity vs. life expectancy",
+    "text": "2.7 WHO obesity vs. life expectancy\n\nInstructions 100 XP\n\n\nex_014.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-flight-perspective",
+    "href": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-flight-perspective",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.9 Soviet space dogs, the flight perspective",
+    "text": "2.9 Soviet space dogs, the flight perspective\n\nInstructions 100 XP\n\n\nex_016.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#transporting-plantet-data",
+    "href": "_reshaping_data_with_tidyr_02.html#transporting-plantet-data",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.11 Transporting plantet data",
+    "text": "2.11 Transporting plantet data\n\nInstructions 100 XP\n\n\nex_018.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#who-obesity-per-country",
+    "href": "_reshaping_data_with_tidyr_02.html#who-obesity-per-country",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.2 WHO obesity per country",
+    "text": "2.2 WHO obesity per country\n\nInstructions 100 XP\n\n\nex_009.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#new-zealands-bird-of-the-year",
+    "href": "_reshaping_data_with_tidyr_02.html#new-zealands-bird-of-the-year",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.4 New-Zealand’s bird of the year",
+    "text": "2.4 New-Zealand’s bird of the year\n\nInstructions 100 XP\n\n\nex_011.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-dogs-perspective",
+    "href": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-dogs-perspective",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.6 Soviet space dogs, the dogs perspective",
+    "text": "2.6 Soviet space dogs, the dogs perspective\n\nInstructions 100 XP\n\n\nex_013.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#unconting-ovservations",
+    "href": "_reshaping_data_with_tidyr_02.html#unconting-ovservations",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.8 Unconting ovservations",
+    "text": "2.8 Unconting ovservations\n\nInstructions 100 XP\n\n\nex_015.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_02.html#planet-temperature-distance-to-the-sun",
+    "href": "_reshaping_data_with_tidyr_02.html#planet-temperature-distance-to-the-sun",
+    "title": "2  From Wide to Long and Back",
+    "section": "2.10 Planet temperature & distance to the Sun",
+    "text": "2.10 Planet temperature & distance to the Sun\n\nInstructions 100 XP\n\n\nex_017.R"
   }
 ]
