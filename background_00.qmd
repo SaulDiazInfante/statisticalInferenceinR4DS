@@ -1,5 +1,5 @@
 ---
-title: "R fundamentals in programming, data managment and visualization"
+title: "R fundamentals: core data types "
 ---
 
 We dedicate this part to overview the basics to program in R. The aim of this

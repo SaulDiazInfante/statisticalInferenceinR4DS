@@ -1,0 +1,94 @@
+# From Wide to Long and Back
+This chapter is all about pivoting data from a wide to long format and back 
+again using the `pivot_longer()` and `pivot_wider()` functions. You'll need 
+these functions when variables are hidden in messy column names or when 
+variables are stored in rows instead of columns. You'll learn about space dogs,
+nuclear bombs, and planet temperatures along the way.
+
+## Nuclear bombs per country
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_008.R"}
+
+```
+
+## WHO obesity per country
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_009.R"}
+
+```
+
+## Bond... James Bond
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_010.R"}
+
+```
+
+## New-Zealand's bird of the year
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_011.R"}
+
+```
+
+## Big tech stock prices
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_012.R"}
+
+```
+
+## Soviet space dogs, the dogs perspective
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_013.R"}
+
+```
+
+## WHO obesity vs. life expectancy
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_014.R"}
+
+```
+
+## Unconting ovservations
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_015.R"}
+
+```
+
+## Soviet space dogs, the flight perspective
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_016.R"}
+
+```
+
+## Planet temperature & distance to the Sun
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_017.R"}
+
+```
+
+## Transporting plantet data
+ 
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_018.R"}
+
+```

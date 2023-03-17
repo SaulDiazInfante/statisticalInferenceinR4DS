@@ -1,5 +1,5 @@
 ---
-title: "R fundamentals: functional programming"
+title: "R fundamentals: importing, cleaning and reshaping data"
 ---
 
 # Introduction to Writing Functions in R {.unnumbered}
