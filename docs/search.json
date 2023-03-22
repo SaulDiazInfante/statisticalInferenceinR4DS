@@ -1719,49 +1719,49 @@
     "href": "_reshaping_data_with_tidyr_02.html#big-tech-stock-prices",
     "title": "28  From Wide to Long and Back",
     "section": "28.5 Big tech stock prices",
-    "text": "28.5 Big tech stock prices\n\nInstructions 100 XP\n\n\nex_012.R"
+    "text": "28.5 Big tech stock prices\nYou’re an analyst at an investment firm and want to visualize the weekly closing prices of five big tech firms’ stocks. However, the dataset you’ve been handed (stock_df) is messy and has the year and week variables stored in the column headers. You’ll pivot this data into a tidy format, extract the variables from the headers, and create a line plot.\nLoad the ggplot2 package. ### Instructions 100 XP {.unnumbered} - Pivot stock_df so that the integer columns year and week are created from the column names and the original values are moved to the price column. Use the names_sep argument to separate the column names.\n\n\nex_012.R\n\nstock_df %>% \n  # Pivot the data to create 3 new columns: year, week, price\npivot_longer(\n  -company,\n  names_to = c(\"year\", \"week\"),\n  names_transform = list(year=as.integer, week=as.integer),\n  values_to = \"price\", \n  names_sep = \"_week\"\n)\n\nstock_df %>% \n  # Pivot the data to create 3 new columns: year, week, price\n  pivot_longer(\n    -company,\n    names_to = c(\"year\", \"week\"),\n    values_to = \"price\",\n    names_sep = \"_week\",\n    names_transform = list(\n      year = as.integer,\n      week = as.integer)\n  ) %>%\n  # Create a line plot with price per week, color by company\n  ggplot(aes(x=week, y=price, group(company), color=company)) +\n  geom_line() +\n  facet_grid(. ~ year)"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-dogs-perspective",
     "href": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-dogs-perspective",
     "title": "28  From Wide to Long and Back",
     "section": "28.6 Soviet space dogs, the dogs perspective",
-    "text": "28.6 Soviet space dogs, the dogs perspective\n\nInstructions 100 XP\n\n\nex_013.R"
+    "text": "28.6 Soviet space dogs, the dogs perspective\nYou’ll be working on an pre-processed sample of the USSR space dogs database compiled by Duncan Geere and pre-loaded for you as space_dogs_df. Each of the 42 rows in this dataset represents a test rocket launch which had one or two very brave dogs on board.\nYour goal is to reshape this dataset so that for each launch, each dog has a row.\nThe challenge is that in the column headers (name_1, name_2, gender_1, and gender_2), the part before the _ separator can point to two different variables (name and gender), while the second part always points to the dog ID (1st or 2nd dog).\n\nInstructions 100 XP\n\nAs the first argument to pivot_longer(), pass the columns to pivot (name_1, name_2, gender_1, and gender_2).\nComplete the names_to argument so that the first part of the column headers are reused.\nMake sure NA values are dropped since not all rockets had two dogs.\n\n\n\nex_013.R\n\nspace_dogs_df %>% \n  pivot_longer(\n    # Add the columns to pivot\n    c(\n      \"name_1\",\n      \"name_2\",\n      \"gender_1\",\n      \"gender_2\"\n    ),\n    names_sep = \"_\",\n    # Complete the names_to argument to re-use the first part of the column headers\n    names_to = c(\".value\",  \"dog_id\"),\n    # Make sure NA values are dropped\n    values_drop_na = TRUE\n  )"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_02.html#who-obesity-vs.-life-expectancy",
     "href": "_reshaping_data_with_tidyr_02.html#who-obesity-vs.-life-expectancy",
     "title": "28  From Wide to Long and Back",
     "section": "28.7 WHO obesity vs. life expectancy",
-    "text": "28.7 WHO obesity vs. life expectancy\n\nInstructions 100 XP\n\n\nex_014.R"
+    "text": "28.7 WHO obesity vs. life expectancy\nYou’ve been given a sample of WHO data (who_df) with obesity percentages and life expectancy data per country, year, and sex. You want to visually inspect the correlation between obesity and life expectancy.\nHowever, the data is very messy with four variables hidden in the column names. Each column name is made up of three parts separated by underscores: Values for the year, followed by those for sex, and then values for either pct.obese or life.exp. Since the third part of the column name string holds two variables you’ll need to use the special “.value” value in the names_to argument.\nYou’ll pivot the data into a tidy format and create the scatterplot.\nLoad the ggplot2 package.\n\nInstructions 100 XP\n\n\nex_014.R\n\nwho_df %>% \n  # Put each variable in its own column\n  pivot_longer(\n    -country,\n    names_to = c(\"year\", \"sex\", \".value\"),\n    names_sep = \"_\", \n    names_transform = list(\"year\" = as.integer)\n  ) %>%\n  # Create a plot with life expectancy over obesity\n  ggplot(\n    aes(\n      x = pct.obese,\n      y = life.exp,\n      color=sex\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_02.html#unconting-ovservations",
     "href": "_reshaping_data_with_tidyr_02.html#unconting-ovservations",
     "title": "28  From Wide to Long and Back",
     "section": "28.8 Unconting ovservations",
-    "text": "28.8 Unconting ovservations\n\nInstructions 100 XP\n\n\nex_015.R"
+    "text": "28.8 Unconting ovservations\nYou’ve found the job of your dreams providing technical support for a dog breed beauty contest. The jury members want a spreadsheet with the breed and id of each participating dog so that they can add the scores later on. You’ve only been given the number of participants per dog breed (dog_df) so you decide to use your tidyr skills to create the desired result.\n\nInstructions 100 XP\n\nInspect the data in the console.\nUncount the data so that per breed, each dog gets a row and an ID. The ID should go in the dog_id column.\n\n\n\nex_015.R\n\ndog_df %>% \n  # Create one row for each participant and add the id\n  uncount(n_participants, .id = \"dog_id\")"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-flight-perspective",
     "href": "_reshaping_data_with_tidyr_02.html#soviet-space-dogs-the-flight-perspective",
     "title": "28  From Wide to Long and Back",
     "section": "28.9 Soviet space dogs, the flight perspective",
-    "text": "28.9 Soviet space dogs, the flight perspective\n\nInstructions 100 XP\n\n\nex_016.R"
+    "text": "28.9 Soviet space dogs, the flight perspective\nRemember the USSR space dogs dataset1? You changed it to a long format so that for every dog in every rocket launch, there was a row. Suppose you’re given this tidy dataset and are asked to answer the question, “In what percentage of flights were both dogs of the same gender?”\nYou’ll reshape and investigate space_dogs_df to find the answer.\nThe dplyr package has been pre-loaded for you.\n\nInstructions 100 XP\n\n\nex_016.R\n\nspace_dogs_df %>% \n  # Pivot the data to a wider format\n  pivot_wider(\n    names_from = dog_id,\n    values_from = gender,\n    names_prefix = \"gender_\"\n  ) %>% \n  # Drop rows with NA values\n  drop_na() %>% \n  # Create a Boolean column on whether both dogs have the same gender\n  mutate(\n    same_gender= ifelse(gender_1==gender_2,\n    TRUE,\n    FALSE\n    )\n  ) %>% \n  summarize(pct_same_gender = mean(same_gender))"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_02.html#planet-temperature-distance-to-the-sun",
     "href": "_reshaping_data_with_tidyr_02.html#planet-temperature-distance-to-the-sun",
     "title": "28  From Wide to Long and Back",
     "section": "28.10 Planet temperature & distance to the Sun",
-    "text": "28.10 Planet temperature & distance to the Sun\n\nInstructions 100 XP\n\n\nex_017.R"
+    "text": "28.10 Planet temperature & distance to the Sun\nThe intensity of light radiated by a light source follows an inverse square relationship with the distance it has traveled. https://en.wikipedia.org/wiki/Inverse-square_law You wonder if you could observe this trend in the temperature of the planets in our Solar System given their distance to the Sun. You’ll use the planet_df dataset from the devstronomy project to investigate this.\n\nInstructions 100 XP\n\nUse the pivot_wider() function to extract column names from the metric column and values from the value column.\n\n\n\nex_017.R\n\n\nplanet_df %>% \n  # Give each planet variable its own column\n  pivot_wider(\n    names_from = metric,\n    values_from = value\n  )\n\n  planet_df %>% \n  # Give each planet variable its own column\n  pivot_wider(\n    names_from = metric,\n    values_from = value\n  )"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_02.html#transporting-plantet-data",
     "href": "_reshaping_data_with_tidyr_02.html#transporting-plantet-data",
     "title": "28  From Wide to Long and Back",
     "section": "28.11 Transporting plantet data",
-    "text": "28.11 Transporting plantet data\n\nInstructions 100 XP\n\n\nex_018.R"
+    "text": "28.11 Transporting plantet data\nYou’re again working on a planet dataset derived from the devstronomy project. This time, you’re interested in the correlation between the diameter of a planet and the number of moons circling it.\nHowever, the dataset (planet_df) has a row for each variable and a column for each planet (observation). You’ll transpose this data in two steps and then create a plot to inspect the correlation.\nLoad ggplot2 package. ### Instructions 100 XP {.unnumbered} - Pivot the data so that planet names are put in a column named planet\n\n\nex_018.R\n\n\nplanet_df %>%\n  # Pivot all columns except metric to long format\n  pivot_longer(\n    -metric, \n    names_to = \"planet\"\n  )\n\nplanet_df %>%\n  # Pivot all columns except metric to long format\n  pivot_longer(-metric, names_to = \"planet\") %>% \n  # Put each metric in its own column\n  pivot_wider(names_from = metric, values_from = value) %>% \n  # Plot the number of moons vs. planet diameter\n  ggplot(aes(x=diameter, y=number_of_moons)) +\n  geom_point(aes(size = diameter)) +\n  geom_text(aes(label = planet), vjust = -1) +\n  labs(x = \"Diameter (km)\", y = \"Number of moons\") +\n  theme(legend.position = \"none\")"
   },
   {
     "objectID": "statistical-inference-whole-game.html",
