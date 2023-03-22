@@ -123,7 +123,7 @@
     "href": "_reshaping_data_with_tidyr_02.html#transporting-plantet-data",
     "title": "2  From Wide to Long and Back",
     "section": "2.11 Transporting plantet data",
-    "text": "2.11 Transporting plantet data\n\nInstructions 100 XP\n\n\nex_018.R"
+    "text": "2.11 Transporting plantet data\nYou’re again working on a planet dataset derived from the devstronomy project. This time, you’re interested in the correlation between the diameter of a planet and the number of moons circling it.\nHowever, the dataset (planet_df) has a row for each variable and a column for each planet (observation). You’ll transpose this data in two steps and then create a plot to inspect the correlation.\nLoad ggplot2 package.\n\nInstructions 100 XP\n\nPivot the data so that planet names are put in a column named planet\n\n\n\nex_018.R\n\n\nplanet_df %>%\n  # Pivot all columns except metric to long format\n  pivot_longer(\n    -metric, \n    names_to = \"planet\"\n  )\n\nplanet_df %>%\n  # Pivot all columns except metric to long format\n  pivot_longer(-metric, names_to = \"planet\") %>% \n  # Put each metric in its own column\n  pivot_wider(names_from = metric, values_from = value) %>% \n  # Plot the number of moons vs. planet diameter\n  ggplot(aes(x=diameter, y=number_of_moons)) +\n  geom_point(aes(size = diameter)) +\n  geom_text(aes(label = planet), vjust = -1) +\n  labs(x = \"Diameter (km)\", y = \"Number of moons\") +\n  theme(legend.position = \"none\")"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_02.html#who-obesity-per-country",

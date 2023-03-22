@@ -416,8 +416,13 @@ each planet (`observation`). You'll transpose this data in two steps and
 then create a plot to inspect the correlation.
 
 Load ggplot2 package.
+
 ### Instructions `100 XP` {.unnumbered}
-- Pivot the data so that planet names are put in a column named planet
+- Pivot the data so that planet names are put in a column named `planet`.
+- Pivot the data so that each variable in the `metric` column gets its own 
+column.
+- Use the g`gplot()` function to create a plot with the `number_of_moons` 
+over `diameter`.
 ```{.r filename="ex_018.R"}
 
 planet_df %>%
