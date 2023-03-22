@@ -476,7 +476,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#transporting-plantet-data" id="toc-transporting-plantet-data" class="nav-link" data-scroll-target="#transporting-plantet-data"><span class="toc-section-number">28.11</span>  Transporting plantet data</a></li>
+  <li><a href="#transporting-plantet-data" id="toc-transporting-plantet-data" class="nav-link" data-scroll-target="#transporting-plantet-data"><span class="toc-section-number">28.11</span>  Transporting plantet data</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-8" id="toc-instructions-100-xp-8" class="nav-link" data-scroll-target="#instructions-100-xp-8">Instructions <code>100 XP</code></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_reshaping_data_with_tidyr_02.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -859,7 +862,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="28.11" class="anchored" data-anchor-id="transporting-plantet-data"><span class="header-section-number">28.11</span> Transporting plantet data</h2>
 <p>You’re again working on a planet dataset derived from the <a href="https://devstronomy.com/#/datasets">devstronomy</a> project. This time, you’re interested in the correlation between the diameter of a planet and the number of moons circling it.</p>
 <p>However, the dataset (<code>planet_df</code>) has a row for each variable and a column for each planet (<code>observation</code>). You’ll transpose this data in two steps and then create a plot to inspect the correlation.</p>
-<p>Load ggplot2 package. ### Instructions <code>100 XP</code> {.unnumbered} - Pivot the data so that planet names are put in a column named planet</p>
+<p>Load ggplot2 package.</p>
+<section id="instructions-100-xp-8" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-8">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Pivot the data so that planet names are put in a column named <code>planet</code>.</li>
+<li>Pivot the data so that each variable in the <code>metric</code> column gets its own column.</li>
+<li>Use the <code>ggplot()</code> function to create a plot with the <code>number_of_moons</code> over <code>diameter</code>.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_018.R</strong></pre>
@@ -889,6 +899,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <!-- -->
 
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -1512,31 +1523,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-416"><a href="#cb12-416" aria-hidden="true" tabindex="-1"></a>then create a plot to inspect the correlation.</span>
 <span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-418"><a href="#cb12-418" aria-hidden="true" tabindex="-1"></a>Load ggplot2 package.</span>
-<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb12-420"><a href="#cb12-420" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pivot the data so that planet names are put in a column named planet</span>
-<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_018.R"}</span></span>
-<span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>planet_df <span class="sc">%&gt;%</span></span>
-<span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pivot all columns except metric to long format</span></span>
-<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>metric, </span>
-<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"planet"</span></span>
-<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a>planet_df <span class="sc">%&gt;%</span></span>
-<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pivot all columns except metric to long format</span></span>
-<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>metric, <span class="at">names_to =</span> <span class="st">"planet"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Put each metric in its own column</span></span>
-<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> metric, <span class="at">values_from =</span> value) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot the number of moons vs. planet diameter</span></span>
-<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>diameter, <span class="at">y=</span>number_of_moons)) <span class="sc">+</span></span>
-<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> diameter)) <span class="sc">+</span></span>
-<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> planet), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Diameter (km)"</span>, <span class="at">y =</span> <span class="st">"Number of moons"</span>) <span class="sc">+</span></span>
-<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-420"><a href="#cb12-420" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pivot the data so that planet names are put in a column named <span class="in">`planet`</span>.</span>
+<span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pivot the data so that each variable in the <span class="in">`metric`</span> column gets its own </span>
+<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>column.</span>
+<span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the <span class="in">`ggplot()`</span> function to create a plot with the <span class="in">`number_of_moons`</span> </span>
+<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a>over <span class="in">`diameter`</span>.</span>
+<span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_018.R"}</span></span>
+<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a>planet_df <span class="sc">%&gt;%</span></span>
+<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pivot all columns except metric to long format</span></span>
+<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>metric, </span>
+<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"planet"</span></span>
+<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a>planet_df <span class="sc">%&gt;%</span></span>
+<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pivot all columns except metric to long format</span></span>
+<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>metric, <span class="at">names_to =</span> <span class="st">"planet"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Put each metric in its own column</span></span>
+<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> metric, <span class="at">values_from =</span> value) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot the number of moons vs. planet diameter</span></span>
+<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>diameter, <span class="at">y=</span>number_of_moons)) <span class="sc">+</span></span>
+<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> diameter)) <span class="sc">+</span></span>
+<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> planet), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Diameter (km)"</span>, <span class="at">y =</span> <span class="st">"Number of moons"</span>) <span class="sc">+</span></span>
+<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
