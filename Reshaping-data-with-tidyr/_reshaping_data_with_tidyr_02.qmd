@@ -195,56 +195,249 @@ bird_df %>%
 
 ## Big tech stock prices
 
+You're an analyst at an investment firm and want to visualize the weekly closing
+prices of five big tech firms' stocks. However, the dataset you've been handed
+(`stock_df`) is messy and has the year and week variables stored in the column
+headers. You'll pivot this data into a tidy format, extract the variables from 
+the headers, and create a line plot.
+
+Load the ggplot2 package.
 ### Instructions `100 XP` {.unnumbered}
+- Pivot stock_df so that the integer columns year and week are created from the 
+column names and the original values are moved to the price column. Use the
+`names_sep` argument to separate the column names.
 
 ```{.r filename="ex_012.R"}
+stock_df %>% 
+  # Pivot the data to create 3 new columns: year, week, price
+pivot_longer(
+  -company,
+  names_to = c("year", "week"),
+  names_transform = list(year=as.integer, week=as.integer),
+  values_to = "price", 
+  names_sep = "_week"
+)
+
+stock_df %>% 
+  # Pivot the data to create 3 new columns: year, week, price
+  pivot_longer(
+    -company,
+    names_to = c("year", "week"),
+    values_to = "price",
+    names_sep = "_week",
+    names_transform = list(
+      year = as.integer,
+      week = as.integer)
+  ) %>%
+  # Create a line plot with price per week, color by company
+  ggplot(aes(x=week, y=price, group(company), color=company)) +
+  geom_line() +
+  facet_grid(. ~ year)
 
 ```
 
 ## Soviet space dogs, the dogs perspective
+You'll be working on an pre-processed sample of the USSR space dogs database 
+compiled by Duncan Geere and pre-loaded for you as `space_dogs_df`. Each of the
+42 rows in this dataset represents a test rocket launch which had one or two
+very brave dogs on board.
+
+Your goal is to reshape this dataset so that for each launch, each dog
+has a row.
+
+The challenge is that in the column headers 
+(`name_1`, `name_2`, `gender_1`, and `gender_2`), the part before 
+the `_` separator can point to two different variables (name and gender), 
+while the second part always points to the dog ID (1st or 2nd dog).
 
 ### Instructions `100 XP` {.unnumbered}
+- As the first argument to pivot_longer(), pass the columns to pivot 
+(`name_1`, `name_2`, `gender_1`, and `gender_2`).
+- Complete the names_to argument so that the first part of the column headers 
+are reused. 
+- Make sure NA values are dropped since not all rockets had two dogs.
 
 ```{.r filename="ex_013.R"}
-
+space_dogs_df %>% 
+  pivot_longer(
+    # Add the columns to pivot
+    c(
+      "name_1",
+      "name_2",
+      "gender_1",
+      "gender_2"
+    ),
+    names_sep = "_",
+    # Complete the names_to argument to re-use the first part of the column headers
+    names_to = c(".value",  "dog_id"),
+    # Make sure NA values are dropped
+    values_drop_na = TRUE
+  )
 ```
 
 ## WHO obesity vs. life expectancy
 
+You've been given a sample of WHO data (`who_df`) with obesity percentages and 
+life expectancy data per country, year, and sex. You want to visually 
+inspect the correlation between obesity and life expectancy.
+
+However, the data is very messy with four variables hidden in the column names. 
+Each column name is made up of three parts separated by underscores:
+Values for the year, followed by those for `sex`, and then values for either 
+`pct.obese` or `life.exp`. Since the third part of the column name string holds 
+two variables you'll need to use the special "`.value`" value in the 
+`names_to` argument.
+
+You'll pivot the data into a tidy format and create the `scatterplot`.
+
+Load the `ggplot2` package.
+
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_014.R"}
+who_df %>% 
+  # Put each variable in its own column
+  pivot_longer(
+    -country,
+    names_to = c("year", "sex", ".value"),
+    names_sep = "_", 
+    names_transform = list("year" = as.integer)
+  ) %>%
+  # Create a plot with life expectancy over obesity
+  ggplot(
+    aes(
+      x = pct.obese,
+      y = life.exp,
+      color=sex
+    )
+  ) +
+  geom_point()
 
 ```
 
 ## Unconting ovservations
 
+You've found the job of your dreams providing technical support for a dog breed
+beauty contest. The jury members want a spreadsheet with the breed and id of 
+each participating dog so that they can add the scores later on. You've only 
+been given the number of participants per dog breed (`dog_df`) so you decide to
+use your tidyr skills to create the desired result.
+
 ### Instructions `100 XP` {.unnumbered}
+- Inspect the data in the console.
+- Uncount the data so that per breed, each dog gets a row and an ID. The 
+ID should go in the `dog_id` column.
 
 ```{.r filename="ex_015.R"}
-
+dog_df %>% 
+  # Create one row for each participant and add the id
+  uncount(n_participants, .id = "dog_id")
 ```
 
 ## Soviet space dogs, the flight perspective
 
+Remember the USSR space dogs dataset[^1]? 
+You changed it to a long format so that for every dog in every rocket launch, 
+there was a row. Suppose you're given this tidy dataset and are asked to answer
+the question, "In what percentage of flights were both dogs of the same gender?"
+
+You'll reshape and investigate space_dogs_df to find the answer.
+
+The dplyr package has been pre-loaded for you.
+
+[^1]: Compiled by 
+[Duncan Geere](
+  https://airtable.com/universe/expG3z2CFykG1dZsp/soviet-space-dogs
+).
+
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_016.R"}
-
+space_dogs_df %>% 
+  # Pivot the data to a wider format
+  pivot_wider(
+    names_from = dog_id,
+    values_from = gender,
+    names_prefix = "gender_"
+  ) %>% 
+  # Drop rows with NA values
+  drop_na() %>% 
+  # Create a Boolean column on whether both dogs have the same gender
+  mutate(
+    same_gender= ifelse(gender_1==gender_2,
+    TRUE,
+    FALSE
+    )
+  ) %>% 
+  summarize(pct_same_gender = mean(same_gender))
 ```
 
 ## Planet temperature & distance to the Sun
 
+The intensity of light radiated by a light source follows an inverse square 
+relationship with the distance it has traveled. 
+<https://en.wikipedia.org/wiki/Inverse-square_law>
+You wonder if you could observe this trend in the temperature of the planets in
+our Solar System given their distance to the Sun. You'll use the 
+`planet_df` dataset from the [devstronomy](https://devstronomy.com/#/datasets) 
+project to investigate this.
+
 ### Instructions `100 XP` {.unnumbered}
+- Use the `pivot_wider()` function to extract column names from the `metric` 
+column and values from the `value` column.
 
 ```{.r filename="ex_017.R"}
+
+planet_df %>% 
+  # Give each planet variable its own column
+  pivot_wider(
+    names_from = metric,
+    values_from = value
+  )
+
+  planet_df %>% 
+  # Give each planet variable its own column
+  pivot_wider(
+    names_from = metric,
+    values_from = value
+  )
 
 ```
 
 ## Transporting plantet data
- 
-### Instructions `100 XP` {.unnumbered}
 
+You're again working on a planet dataset derived from the
+[devstronomy](https://devstronomy.com/#/datasets) project. 
+This time, you're interested in the correlation between the diameter of a 
+planet and the number of moons circling it.
+
+However, the dataset (`planet_df`) has a row for each variable and a column for
+each planet (`observation`). You'll transpose this data in two steps and 
+then create a plot to inspect the correlation.
+
+Load ggplot2 package.
+### Instructions `100 XP` {.unnumbered}
+- Pivot the data so that planet names are put in a column named planet
 ```{.r filename="ex_018.R"}
+
+planet_df %>%
+  # Pivot all columns except metric to long format
+  pivot_longer(
+    -metric, 
+    names_to = "planet"
+  )
+
+planet_df %>%
+  # Pivot all columns except metric to long format
+  pivot_longer(-metric, names_to = "planet") %>% 
+  # Put each metric in its own column
+  pivot_wider(names_from = metric, values_from = value) %>% 
+  # Plot the number of moons vs. planet diameter
+  ggplot(aes(x=diameter, y=number_of_moons)) +
+  geom_point(aes(size = diameter)) +
+  geom_text(aes(label = planet), vjust = -1) +
+  labs(x = "Diameter (km)", y = "Number of moons") +
+  theme(legend.position = "none")
+
 
 ```
