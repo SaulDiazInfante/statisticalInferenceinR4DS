@@ -1,6 +1,3 @@
----
-fig-cap-location: bottom
----
 # Expanding Data
 
 Values can often be missing in your data, and sometimes entire observations are 
@@ -28,6 +25,8 @@ sequences are known as codons. The concept is illustrated in the image below.
 - Create a tibble with three columns called `letter1`, `letter2`, and `letter3`
 that holds all possible combinations of the vector letters using 
 `expand_grid()`.
+- Use the `unite()` function from chapter one to merge these three columns into 
+a single column named codon. Use an empty string as the separator.
 
 ```{.r filename="ex_019.R"}
 letters <- c("A", "C", "G", "U")
@@ -38,63 +37,324 @@ codon_df <- expand_grid(
     leter3 = letters
 )
 codon_df
-```
 
+letters <- c("A", "C", "G", "U")
+# Create a tibble with all possible 3 way combinations
+codon_df <- expand_grid(
+  letter1 = letters,
+  letter2 = letters,
+  letter3 = letters
+)
+#
+codon_df %>% 
+  # Unite these three columns into a "codon" column
+  unite("codon",  c(letter1, letter2, letter3),
+    sep = ''
+  )
+```
 
 ## When did humans replace dogs in space
 
+You already know that in the early days of spaceflight, the USSR was testing
+rockets with dogs. You now wonder when exactly humans started replacing dogs on
+space flight missions. You've been given a dataset `space_df` with the number
+of both dogs (compiled by Duncan Geere) and humans in space per year from 1951
+till 1970 (collected from Wikipedia).
+
+Your goal is to create a plot that shows you the number of individuals sent
+into space per species. Before you can create this plot, you'll first have to
+introduce zero values for missing combinations of `year` and `species`.
+
+Load dplyr and ggplot2 packages.
+
 ### Instructions `100 XP` {.unnumbered}
+- Create `full_df`, a tibble with all unique combinations of the variables year 
+(from 1951 to 1970) and `species` (`"Human"` and `"Dog"`).
+- Perform a `right_join()` between `space_df` and `full_df` on the `year` and
+species columns.
+- Use the ggplot() function to create a line plot of n_in_space over year,
+colored by species.
+- Use the replace_na() function to overwrite NA values in the n_in_space 
+column with zeros.
 
 ```{.r filename="ex_020.R"}
+# Create a tibble with all combinations of years and species
+full_df <- expand_grid(
+  year = 1951:1970, 
+  species = c("Human", "Dog")
+)
+
+space_df %>% 
+  # Join with full_df so that missing values are introduced
+  right_join(full_df, by = c("year", "species")) %>% 
+  # Create a line plot with n_in_space over year, color by species
+  ggplot(
+    aes(
+      x = n_in_space,
+      y = year,
+      group = species,
+      color = species
+    )
+  ) +
+  geom_line()
+# Create a tibble with all combinations of years and species
+full_df <- expand_grid(
+  year = 1951:1970, 
+  species = c("Human", "Dog")
+)
+
+space_df %>% 
+  # Join with full_df so that missing values are introduced
+  right_join(full_df, by = c("year", "species")) %>% 
+  # Overwrite NA values for n_in_space with 0L
+  replace_na(list(n_in_space = 0L)) %>% 
+  # Create a line plot with n_in_space over year, color by species
+  ggplot(aes(x = year, y = n_in_space, color = species)) +
+  geom_line()
 
 ```
+
 ## Finding missing observations
 
+You're an inspector at a nuclear plant and have to validate whether every 
+reactor has received its daily safety check over the course of a full year.
+The safety check logs are in `reactor_df`, a data frame with columns date,
+reactor, and check.
+
+Two vectors, `dates` and `reactors`, with all dates of the year and reactors at
+the plant respectively have been created for you. You'll use the combination of
+the `expand_grid()` and `anti_join()` functions to find dates where 
+particular reactors were not checked.
+
+Load `dplyr` package.
+
 ### Instructions `100 XP` {.unnumbered}
+- Use the `expand_grid()` function to create a tibble holding all combinations
+of the variables date and reactor.  Use the dates and reactors vectors created
+for you.
+- Perform an anti-join between f`ull_df` and `reactor_df` on the date and 
+reactor columns.
+
 
 ```{.r filename="ex_021.R"}
+# Create a tibble with all combinations of dates and reactors
+full_df <- expand_grid(
+  date = dates, 
+  reactor = reactors
+)
 
+# Find the reactor - date combinations not present in reactor_df
+full_df %>% 
+  anti_join(reactor_df, by=c("date", "reactor"))
 ```
-## Complete the Solar System
+## Completing the Solar System
+You have been given a data frame (`planet_df`) from the 
+[devstronomy](https://devstronomy.com/#/datasets)
+project with the number of moons per planet in our Solar System.
+However, Mercury and Venus, the two moonless planets, are absent.
+You want to expand this dataset using the `complete()` function and a 
+vector `planets` that contains all eight planet's names.
 
 ### Instructions `100 XP` {.unnumbered}
 
+- Complete the `planet` variable using the `planets` vector.
+- Replace `NA` values in the `n_moons` variable with `0L` values.
+
 ```{.r filename="ex_022.R"}
+planets = c(
+    "Mercury",
+    "Venus",
+    "Earth",
+    "Mars",
+    "Jupiter",
+    "Saturn",
+    "Uranus",
+    "Neptune"
+)
+
+planet_df %>% 
+  complete(
+    # Complete the planet variable
+    planet =  planets,
+    # Overwrite NA values for n_moons with 0L
+    fill= list(n_moons = 0L)
+  )
 
 ```
 ## Zero Olymoic medals
 
+Since 1896, athletes from all over the world have been competing in the modern 
+Olympic games. You've been given a dataset (`medal_df`) with observations for 
+all medals won by athletes from the 10 most successful countries in Olympic 
+history. You want to create a visual with the number of medals won per country
+(`team`) per `year`. However, since not all countries won medals each year,
+you'll have to introduce zero values before you can make an accurate visual.
+
+![](olympic_flag_large.png)
+Load `ggplot2` and `dplyr`. 
+In step 2 and 3 the `scale_color_brewer()` function is used to color lines in 
+the plot with a palette that makes it easier to distinguish the different
+countries.
+
 ### Instructions `100 XP` {.unnumbered}
+
+- Count the number of medals won per team and year.
+- Use `ggplot()` to create a line plot with `n_medals` over `year`, colored 
+by team.
+- Complete the `team` and `year` variables, replace `NA` values in the 
+`n_medals` column with zeros.
 
 ```{.r filename="ex_023.R"}
+medal_df %>% 
+  # Count the medals won per team and year
+  count(team, year, name = "n_medals")
+medal_df %>% 
+  # Count the medals won per team and year
+  count(team, year, name = "n_medals") %>% 
+  # Plot n_medals over year, colored by team
+  ggplot(
+    aes(
+      x = year,
+      y = n_medals,
+      group = team,
+      color = team
+    )
+  ) +
+  geom_line() +
+  scale_color_brewer(palette = "Paired")
+
+medal_df %>% 
+  # Count the medals won per team and year
+  count(team, year, name = "n_medals") %>% 
+  # Complete the team and year variables, fill n_medals with zeros
+  complete(
+    team,
+    year,
+    fill = list(n_medals = 0)
+  ) %>% 
+  # Plot n_medals over year, colored by team
+  ggplot(aes(x = year, y = n_medals, color = team)) +
+  geom_line() +
+  scale_color_brewer(palette = "Paired")
 
 ```
-## The Cold War's hottest year
+## Creating a sequence with full_seq()
+
+The `full_seq()` function will look for the minimal and maximal values inside
+the vector you pass it and will then generate a full sequence of numbers with a
+fixed period in between them. When used inside the `complete()` function,
+`full_seq()` is a handy tool to make sure there are no missing observations
+in your data. Before combining these two functions you'll generate a few 
+sequences with `full_seq()` on its own to get the hang of this function.
 
 ### Instructions `100 XP` {.unnumbered}
+
+- Use `full_seq()` to create a sequence with all years from 2020 till 2030.
+- Use full_seq() to create a sequence with all decades from 1980 till 2030.
+- Use full_seq() to create a sequence with all dates in 1980 using the 
+outer_dates vector.
+
 
 ```{.r filename="ex_024.R"}
+# Generate all years from 2020 to 2030
+years <- full_seq(c(2020, 2030), period = 1)
+years
+# Generate all decades from 1980 to 2030
+decades <- full_seq(c(1980, 2030), period = 10)
+decades
+
+outer_dates <- c(as.Date("1980-01-01"), as.Date("1980-12-31"))
+# Generate the dates for all days in 1980
+full_seq(outer_dates, period = 1)
 
 ```
 
-## Olympic medals per continent
+## The Cold War's hottest year
+
+In October 1962, during the Cuban missile crisis, the world came close to a full
+scale nuclear war. Throughout 1962, the USA, USSR, and France together detonated
+a record 178 nuclear bombs for military power display and research.
+You've been given a sample of the Nuclear Explosion Database (NEDB) for that 
+year (`cumul_nukes_1962_df`) with an observation for each date on which a bomb
+was detonated. The `total_bombs` variable contains the cumulative number of
+bombs detonated by a country up to that point in time.
+
+You'll complete the dataset to hold the full sequence of dates, and visualize
+the total number of bombs per country over time. You'll also use the `fill()`
+function from Chapter One to impute missing values.
+
+Load dplyr and ggplot2 packages.
 
 ### Instructions `100 XP` {.unnumbered}
+- Complete the dataset so that for each `country` there is an observation of each 
+date using the `full_seq()` function.
 
-```{.r filename="ex_025.R"}
+```{.r filename="ex_026.R"}
+
+cumul_nukes_1962_df %>% 
+  # Complete the dataset
+  complete(
+    country,
+    date = full_seq(date, period = 1) 
+  )
+
+cumul_nukes_1962_df %>% 
+  # Complete the dataset
+  complete(country, date = full_seq(date, period = 1)) %>% 
+  # Group the data by country
+  group_by(country) %>% 
+  # Impute missing values with the last known observation
+  fill(total_bombs)
+cumul_nukes_1962_df %>% 
+  # Complete the dataset
+    complete(country, date = full_seq(date, period = 1)) %>% 
+  # Group the data by country
+    group_by(country) %>% 
+  # Impute missing values with the last known observation
+    fill(total_bombs) %>% 
+  # Plot the number of bombs over time, color by country
+    ggplot(
+        aes(
+        x = date,
+        y = total_bombs,
+        group = country,
+        color = country
+        )
+    ) +
+  # These two lines will mark the Cuban Missile Crisis 
+    geom_rect(
+        xmin = as.Date("1962-10-16"),
+        xmax = as.Date("1962-10-29"),
+        ymin = -Inf,
+        ymax = Inf,
+        color = NA) + 
+    geom_text(
+        x = as.Date("1962-10-22"),
+        y = 15, label = "Cuban Missile Crisis",
+        angle = 90,
+        color = "white"
+    ) +
+  geom_line()
 
 ```
-## Tracking a virus outbreak
+## Olympic medals per continent
 
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_026.R"}
 
 ```
-## Counting office occupants
+## Tracking a virus outbreak
 
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_027.R"}
+
+```
+## Counting office occupants
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_028.R"}
 
 ```

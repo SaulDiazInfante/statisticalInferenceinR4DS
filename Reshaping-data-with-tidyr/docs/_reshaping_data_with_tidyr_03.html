@@ -253,7 +253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#complete-the-solar-system" id="toc-complete-the-solar-system" class="nav-link" data-scroll-target="#complete-the-solar-system"><span class="toc-section-number">3.4</span>  Complete the Solar System</a>
+  <li><a href="#completing-the-solar-system" id="toc-completing-the-solar-system" class="nav-link" data-scroll-target="#completing-the-solar-system"><span class="toc-section-number">3.4</span>  Completing the Solar System</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
   </ul></li>
@@ -261,21 +261,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#the-cold-wars-hottest-year" id="toc-the-cold-wars-hottest-year" class="nav-link" data-scroll-target="#the-cold-wars-hottest-year"><span class="toc-section-number">3.6</span>  The Cold War’s hottest year</a>
+  <li><a href="#creating-a-sequence-with-full_seq" id="toc-creating-a-sequence-with-full_seq" class="nav-link" data-scroll-target="#creating-a-sequence-with-full_seq"><span class="toc-section-number">3.6</span>  Creating a sequence with full_seq()</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#olympic-medals-per-continent" id="toc-olympic-medals-per-continent" class="nav-link" data-scroll-target="#olympic-medals-per-continent"><span class="toc-section-number">3.7</span>  Olympic medals per continent</a>
+  <li><a href="#the-cold-wars-hottest-year" id="toc-the-cold-wars-hottest-year" class="nav-link" data-scroll-target="#the-cold-wars-hottest-year"><span class="toc-section-number">3.7</span>  The Cold War’s hottest year</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#tracking-a-virus-outbreak" id="toc-tracking-a-virus-outbreak" class="nav-link" data-scroll-target="#tracking-a-virus-outbreak"><span class="toc-section-number">3.8</span>  Tracking a virus outbreak</a>
+  <li><a href="#olympic-medals-per-continent" id="toc-olympic-medals-per-continent" class="nav-link" data-scroll-target="#olympic-medals-per-continent"><span class="toc-section-number">3.8</span>  Olympic medals per continent</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#counting-office-occupants" id="toc-counting-office-occupants" class="nav-link" data-scroll-target="#counting-office-occupants"><span class="toc-section-number">3.9</span>  Counting office occupants</a>
+  <li><a href="#tracking-a-virus-outbreak" id="toc-tracking-a-virus-outbreak" class="nav-link" data-scroll-target="#tracking-a-virus-outbreak"><span class="toc-section-number">3.9</span>  Tracking a virus outbreak</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-8" id="toc-instructions-100-xp-8" class="nav-link" data-scroll-target="#instructions-100-xp-8">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#counting-office-occupants" id="toc-counting-office-occupants" class="nav-link" data-scroll-target="#counting-office-occupants"><span class="toc-section-number">3.10</span>  Counting office occupants</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-9" id="toc-instructions-100-xp-9" class="nav-link" data-scroll-target="#instructions-100-xp-9">Instructions <code>100 XP</code></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_reshaping_data_with_tidyr_03.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -316,6 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp">Instructions <code>100 XP</code></h3>
 <ul>
 <li>Create a tibble with three columns called <code>letter1</code>, <code>letter2</code>, and <code>letter3</code> that holds all possible combinations of the vector letters using <code>expand_grid()</code>.</li>
+<li>Use the <code>unite()</code> function from chapter one to merge these three columns into a single column named codon. Use an empty string as the separator.</li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -328,84 +333,278 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter2 =</span> letters,</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter3 =</span> letters</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>codon_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>codon_df</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>letters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"U"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all possible 3 way combinations</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>codon_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">letter1 =</span> letters,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">letter2 =</span> letters,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">letter3 =</span> letters</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>codon_df <span class="sc">%&gt;%</span> </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Unite these three columns into a "codon" column</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"codon"</span>,  <span class="fu">c</span>(letter1, letter2, letter3),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">''</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="when-did-humans-replace-dogs-in-space" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="when-did-humans-replace-dogs-in-space"><span class="header-section-number">3.2</span> When did humans replace dogs in space</h2>
+<p>You already know that in the early days of spaceflight, the USSR was testing rockets with dogs. You now wonder when exactly humans started replacing dogs on space flight missions. You’ve been given a dataset <code>space_df</code> with the number of both dogs (compiled by Duncan Geere) and humans in space per year from 1951 till 1970 (collected from Wikipedia).</p>
+<p>Your goal is to create a plot that shows you the number of individuals sent into space per species. Before you can create this plot, you’ll first have to introduce zero values for missing combinations of <code>year</code> and <code>species</code>.</p>
+<p>Load dplyr and ggplot2 packages.</p>
 <section id="instructions-100-xp-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Create <code>full_df</code>, a tibble with all unique combinations of the variables year (from 1951 to 1970) and <code>species</code> (<code>"Human"</code> and <code>"Dog"</code>).</li>
+<li>Perform a <code>right_join()</code> between <code>space_df</code> and <code>full_df</code> on the <code>year</code> and species columns.</li>
+<li>Use the ggplot() function to create a line plot of n_in_space over year, colored by species.</li>
+<li>Use the replace_na() function to overwrite NA values in the n_in_space column with zeros.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_020.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all combinations of years and species</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>full_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="dv">1951</span><span class="sc">:</span><span class="dv">1970</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Human"</span>, <span class="st">"Dog"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>space_df <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Join with full_df so that missing values are introduced</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(full_df, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"species"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a line plot with n_in_space over year, color by species</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> n_in_space,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> year,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> species,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> species</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all combinations of years and species</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>full_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="dv">1951</span><span class="sc">:</span><span class="dv">1970</span>, </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Human"</span>, <span class="st">"Dog"</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>space_df <span class="sc">%&gt;%</span> </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Join with full_df so that missing values are introduced</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(full_df, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"species"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Overwrite NA values for n_in_space with 0L</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">n_in_space =</span> 0L)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a line plot with n_in_space over year, color by species</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_in_space, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="finding-missing-observations" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="finding-missing-observations"><span class="header-section-number">3.3</span> Finding missing observations</h2>
+<p>You’re an inspector at a nuclear plant and have to validate whether every reactor has received its daily safety check over the course of a full year. The safety check logs are in <code>reactor_df</code>, a data frame with columns date, reactor, and check.</p>
+<p>Two vectors, <code>dates</code> and <code>reactors</code>, with all dates of the year and reactors at the plant respectively have been created for you. You’ll use the combination of the <code>expand_grid()</code> and <code>anti_join()</code> functions to find dates where particular reactors were not checked.</p>
+<p>Load <code>dplyr</code> package.</p>
 <section id="instructions-100-xp-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-2">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Use the <code>expand_grid()</code> function to create a tibble holding all combinations of the variables date and reactor. Use the dates and reactors vectors created for you.</li>
+<li>Perform an anti-join between f<code>ull_df</code> and <code>reactor_df</code> on the date and reactor columns.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_021.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all combinations of dates and reactors</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>full_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> dates, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">reactor =</span> reactors</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the reactor - date combinations not present in reactor_df</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>full_df <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(reactor_df, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"date"</span>, <span class="st">"reactor"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="complete-the-solar-system" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="complete-the-solar-system"><span class="header-section-number">3.4</span> Complete the Solar System</h2>
+<section id="completing-the-solar-system" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="completing-the-solar-system"><span class="header-section-number">3.4</span> Completing the Solar System</h2>
+<p>You have been given a data frame (<code>planet_df</code>) from the <a href="https://devstronomy.com/#/datasets">devstronomy</a> project with the number of moons per planet in our Solar System. However, Mercury and Venus, the two moonless planets, are absent. You want to expand this dataset using the <code>complete()</code> function and a vector <code>planets</code> that contains all eight planet’s names.</p>
 <section id="instructions-100-xp-3" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Complete the <code>planet</code> variable using the <code>planets</code> vector.</li>
+<li>Replace <code>NA</code> values in the <code>n_moons</code> variable with <code>0L</code> values.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_022.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>planets <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mercury"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Venus"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Earth"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mars"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Jupiter"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Saturn"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Uranus"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Neptune"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>planet_df <span class="sc">%&gt;%</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Complete the planet variable</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">planet =</span>  planets,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Overwrite NA values for n_moons with 0L</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span> <span class="fu">list</span>(<span class="at">n_moons =</span> 0L)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="zero-olymoic-medals" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="zero-olymoic-medals"><span class="header-section-number">3.5</span> Zero Olymoic medals</h2>
+<p>Since 1896, athletes from all over the world have been competing in the modern Olympic games. You’ve been given a dataset (<code>medal_df</code>) with observations for all medals won by athletes from the 10 most successful countries in Olympic history. You want to create a visual with the number of medals won per country (<code>team</code>) per <code>year</code>. However, since not all countries won medals each year, you’ll have to introduce zero values before you can make an accurate visual.</p>
+<p><img src="olympic_flag_large.png" class="img-fluid"> Load <code>ggplot2</code> and <code>dplyr</code>. In step 2 and 3 the <code>scale_color_brewer()</code> function is used to color lines in the plot with a palette that makes it easier to distinguish the different countries.</p>
 <section id="instructions-100-xp-4" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Count the number of medals won per team and year.</li>
+<li>Use <code>ggplot()</code> to create a line plot with <code>n_medals</code> over <code>year</code>, colored by team.</li>
+<li>Complete the <code>team</code> and <code>year</code> variables, replace <code>NA</code> values in the <code>n_medals</code> column with zeros.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_023.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>medal_df <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the medals won per team and year</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(team, year, <span class="at">name =</span> <span class="st">"n_medals"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>medal_df <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the medals won per team and year</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(team, year, <span class="at">name =</span> <span class="st">"n_medals"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot n_medals over year, colored by team</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> year,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> n_medals,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> team,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> team</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Paired"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>medal_df <span class="sc">%&gt;%</span> </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the medals won per team and year</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(team, year, <span class="at">name =</span> <span class="st">"n_medals"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the team and year variables, fill n_medals with zeros</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    team,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    year,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">n_medals =</span> <span class="dv">0</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot n_medals over year, colored by team</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_medals, <span class="at">color =</span> team)) <span class="sc">+</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="the-cold-wars-hottest-year" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="the-cold-wars-hottest-year"><span class="header-section-number">3.6</span> The Cold War’s hottest year</h2>
+<section id="creating-a-sequence-with-full_seq" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="creating-a-sequence-with-full_seq"><span class="header-section-number">3.6</span> Creating a sequence with full_seq()</h2>
+<p>The <code>full_seq()</code> function will look for the minimal and maximal values inside the vector you pass it and will then generate a full sequence of numbers with a fixed period in between them. When used inside the <code>complete()</code> function, <code>full_seq()</code> is a handy tool to make sure there are no missing observations in your data. Before combining these two functions you’ll generate a few sequences with <code>full_seq()</code> on its own to get the hang of this function.</p>
 <section id="instructions-100-xp-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Use <code>full_seq()</code> to create a sequence with all years from 2020 till 2030.</li>
+<li>Use full_seq() to create a sequence with all decades from 1980 till 2030.</li>
+<li>Use full_seq() to create a sequence with all dates in 1980 using the outer_dates vector.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_024.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all years from 2020 to 2030</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">full_seq</span>(<span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">2030</span>), <span class="at">period =</span> <span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>years</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all decades from 1980 to 2030</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>decades <span class="ot">&lt;-</span> <span class="fu">full_seq</span>(<span class="fu">c</span>(<span class="dv">1980</span>, <span class="dv">2030</span>), <span class="at">period =</span> <span class="dv">10</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>decades</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>outer_dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">as.Date</span>(<span class="st">"1980-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"1980-12-31"</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the dates for all days in 1980</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">full_seq</span>(outer_dates, <span class="at">period =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="olympic-medals-per-continent" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="olympic-medals-per-continent"><span class="header-section-number">3.7</span> Olympic medals per continent</h2>
+<section id="the-cold-wars-hottest-year" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="the-cold-wars-hottest-year"><span class="header-section-number">3.7</span> The Cold War’s hottest year</h2>
+<p>In October 1962, during the Cuban missile crisis, the world came close to a full scale nuclear war. Throughout 1962, the USA, USSR, and France together detonated a record 178 nuclear bombs for military power display and research. You’ve been given a sample of the Nuclear Explosion Database (NEDB) for that year (<code>cumul_nukes_1962_df</code>) with an observation for each date on which a bomb was detonated. The <code>total_bombs</code> variable contains the cumulative number of bombs detonated by a country up to that point in time.</p>
+<p>You’ll complete the dataset to hold the full sequence of dates, and visualize the total number of bombs per country over time. You’ll also use the <code>fill()</code> function from Chapter One to impute missing values.</p>
+<p>Load dplyr and ggplot2 packages.</p>
 <section id="instructions-100-xp-6" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
+<ul>
+<li>Complete the dataset so that for each <code>country</code> there is an observation of each date using the <code>full_seq()</code> function.</li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>ex_025.R</strong></pre>
+<pre><strong>ex_026.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>cumul_nukes_1962_df <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the dataset</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    country,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>) </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>cumul_nukes_1962_df <span class="sc">%&gt;%</span> </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the dataset</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(country, <span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group the data by country</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Impute missing values with the last known observation</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(total_bombs)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>cumul_nukes_1962_df <span class="sc">%&gt;%</span> </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the dataset</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">complete</span>(country, <span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group the data by country</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Impute missing values with the last known observation</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fill</span>(total_bombs) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot the number of bombs over time, color by country</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> date,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> total_bombs,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">group =</span> country,</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> country</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># These two lines will mark the Cuban Missile Crisis </span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">xmin =</span> <span class="fu">as.Date</span>(<span class="st">"1962-10-16"</span>),</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">xmax =</span> <span class="fu">as.Date</span>(<span class="st">"1962-10-29"</span>),</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="cn">Inf</span>,</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span> </span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">as.Date</span>(<span class="st">"1962-10-22"</span>),</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="dv">15</span>, <span class="at">label =</span> <span class="st">"Cuban Missile Crisis"</span>,</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="tracking-a-virus-outbreak" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="tracking-a-virus-outbreak"><span class="header-section-number">3.8</span> Tracking a virus outbreak</h2>
+<section id="olympic-medals-per-continent" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="olympic-medals-per-continent"><span class="header-section-number">3.8</span> Olympic medals per continent</h2>
 <section id="instructions-100-xp-7" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-7">Instructions <code>100 XP</code></h3>
 <div class="code-with-filename">
@@ -416,8 +615,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="counting-office-occupants" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="counting-office-occupants"><span class="header-section-number">3.9</span> Counting office occupants</h2>
+<section id="tracking-a-virus-outbreak" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="tracking-a-virus-outbreak"><span class="header-section-number">3.9</span> Tracking a virus outbreak</h2>
 <section id="instructions-100-xp-8" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-8">Instructions <code>100 XP</code></h3>
 <div class="code-with-filename">
@@ -425,6 +624,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><strong>ex_027.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="counting-office-occupants" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="counting-office-occupants"><span class="header-section-number">3.10</span> Counting office occupants</h2>
+<section id="instructions-100-xp-9" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-9">Instructions <code>100 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_028.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -630,106 +841,366 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">fig-cap-location:</span><span class="co"> bottom</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu"># Expanding Data</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>Values can often be missing in your data, and sometimes entire observations are </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>absent too. In this chapter, you'll learn how to complete your dataset with </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>these missing observations. You'll add observations with zero values to counted </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>data, expand time series to a full sequence of intervals, and more!</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Letters of the genetic code</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>The basic building blocks of **RNA** are four molecules described by a single</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>letter each: adenine (**A**), cytosine (**C**), guanine (**G**), and </span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>uracil (**U**).</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>The information carried by an RNA strand can be represented as a long</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>sequence of these four letters. To read this code, one has to divide this chain </span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>into sequences of three letters each (e.g.** GCU, ACG**, …). These three letter </span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>sequences are known as codons. The concept is illustrated in the image below.</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="al">![Helix rna model](rna.png "RNA")</span>{fig-alt="Ribonucleic Acid"}</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create a tibble with three columns called <span class="in">`letter1`</span>, <span class="in">`letter2`</span>, and <span class="in">`letter3`</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>that holds all possible combinations of the vector letters using </span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="in">`expand_grid()`</span>.</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_019.R"}</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>letters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"U"</span>)</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all possible 3 way combinations</span></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>codon_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter1 =</span> letters,</span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter2 =</span> letters,</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter3 =</span> letters</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>codon_df</span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## When did humans replace dogs in space</span></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_020.R"}</span></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Finding missing observations</span></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_021.R"}</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete the Solar System</span></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_022.R"}</span></span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zero Olymoic medals</span></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_023.R"}</span></span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Cold War's hottest year</span></span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_024.R"}</span></span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Olympic medals per continent</span></span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_025.R"}</span></span>
-<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tracking a virus outbreak</span></span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_026.R"}</span></span>
-<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Counting office occupants</span></span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_027.R"}</span></span>
-<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Expanding Data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Values can often be missing in your data, and sometimes entire observations are </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>absent too. In this chapter, you'll learn how to complete your dataset with </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>these missing observations. You'll add observations with zero values to counted </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>data, expand time series to a full sequence of intervals, and more!</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Letters of the genetic code</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>The basic building blocks of **RNA** are four molecules described by a single</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>letter each: adenine (**A**), cytosine (**C**), guanine (**G**), and </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>uracil (**U**).</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>The information carried by an RNA strand can be represented as a long</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>sequence of these four letters. To read this code, one has to divide this chain </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>into sequences of three letters each (e.g.** GCU, ACG**, …). These three letter </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>sequences are known as codons. The concept is illustrated in the image below.</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="al">![Helix rna model](rna.png "RNA")</span>{fig-alt="Ribonucleic Acid"}</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create a tibble with three columns called <span class="in">`letter1`</span>, <span class="in">`letter2`</span>, and <span class="in">`letter3`</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>that holds all possible combinations of the vector letters using </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="in">`expand_grid()`</span>.</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the <span class="in">`unite()`</span> function from chapter one to merge these three columns into </span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>a single column named codon. Use an empty string as the separator.</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_019.R"}</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>letters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"U"</span>)</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all possible 3 way combinations</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>codon_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter1 =</span> letters,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter2 =</span> letters,</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">leter3 =</span> letters</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>codon_df</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>letters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"U"</span>)</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all possible 3 way combinations</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>codon_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">letter1 =</span> letters,</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">letter2 =</span> letters,</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">letter3 =</span> letters</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>codon_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Unite these three columns into a "codon" column</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"codon"</span>,  <span class="fu">c</span>(letter1, letter2, letter3),</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">''</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## When did humans replace dogs in space</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>You already know that in the early days of spaceflight, the USSR was testing</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>rockets with dogs. You now wonder when exactly humans started replacing dogs on</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>space flight missions. You've been given a dataset <span class="in">`space_df`</span> with the number</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>of both dogs (compiled by Duncan Geere) and humans in space per year from 1951</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>till 1970 (collected from Wikipedia).</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>Your goal is to create a plot that shows you the number of individuals sent</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>into space per species. Before you can create this plot, you'll first have to</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>introduce zero values for missing combinations of <span class="in">`year`</span> and <span class="in">`species`</span>.</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>Load dplyr and ggplot2 packages.</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Create <span class="in">`full_df`</span>, a tibble with all unique combinations of the variables year </span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>(from 1951 to 1970) and <span class="in">`species`</span> (<span class="in">`"Human"`</span> and <span class="in">`"Dog"`</span>).</span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform a <span class="in">`right_join()`</span> between <span class="in">`space_df`</span> and <span class="in">`full_df`</span> on the <span class="in">`year`</span> and</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a>species columns.</span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the ggplot() function to create a line plot of n_in_space over year,</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>colored by species.</span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the replace_na() function to overwrite NA values in the n_in_space </span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>column with zeros.</span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_020.R"}</span></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all combinations of years and species</span></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>full_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="dv">1951</span><span class="sc">:</span><span class="dv">1970</span>, </span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Human"</span>, <span class="st">"Dog"</span>)</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>space_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Join with full_df so that missing values are introduced</span></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(full_df, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"species"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a line plot with n_in_space over year, color by species</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> n_in_space,</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> year,</span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> species,</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> species</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all combinations of years and species</span></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>full_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="dv">1951</span><span class="sc">:</span><span class="dv">1970</span>, </span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">"Human"</span>, <span class="st">"Dog"</span>)</span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>space_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Join with full_df so that missing values are introduced</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(full_df, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"species"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Overwrite NA values for n_in_space with 0L</span></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">n_in_space =</span> 0L)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a line plot with n_in_space over year, color by species</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_in_space, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Finding missing observations</span></span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>You're an inspector at a nuclear plant and have to validate whether every </span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>reactor has received its daily safety check over the course of a full year.</span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>The safety check logs are in <span class="in">`reactor_df`</span>, a data frame with columns date,</span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>reactor, and check.</span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>Two vectors, <span class="in">`dates`</span> and <span class="in">`reactors`</span>, with all dates of the year and reactors at</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>the plant respectively have been created for you. You'll use the combination of</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>the <span class="in">`expand_grid()`</span> and <span class="in">`anti_join()`</span> functions to find dates where </span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>particular reactors were not checked.</span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a>Load <span class="in">`dplyr`</span> package.</span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the <span class="in">`expand_grid()`</span> function to create a tibble holding all combinations</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>of the variables date and reactor.  Use the dates and reactors vectors created</span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>for you.</span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform an anti-join between f<span class="in">`ull_df`</span> and <span class="in">`reactor_df`</span> on the date and </span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>reactor columns.</span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_021.R"}</span></span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tibble with all combinations of dates and reactors</span></span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>full_df <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> dates, </span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>  <span class="at">reactor =</span> reactors</span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the reactor - date combinations not present in reactor_df</span></span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a>full_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(reactor_df, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"date"</span>, <span class="st">"reactor"</span>))</span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a><span class="fu">## Completing the Solar System</span></span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a>You have been given a data frame (<span class="in">`planet_df`</span>) from the </span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">devstronomy</span><span class="co">](https://devstronomy.com/#/datasets)</span></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a>project with the number of moons per planet in our Solar System.</span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a>However, Mercury and Venus, the two moonless planets, are absent.</span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a>You want to expand this dataset using the <span class="in">`complete()`</span> function and a </span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>vector <span class="in">`planets`</span> that contains all eight planet's names.</span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete the <span class="in">`planet`</span> variable using the <span class="in">`planets`</span> vector.</span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Replace <span class="in">`NA`</span> values in the <span class="in">`n_moons`</span> variable with <span class="in">`0L`</span> values.</span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_022.R"}</span></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>planets <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mercury"</span>,</span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Venus"</span>,</span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Earth"</span>,</span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mars"</span>,</span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Jupiter"</span>,</span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Saturn"</span>,</span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Uranus"</span>,</span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Neptune"</span></span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a>planet_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Complete the planet variable</span></span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>    <span class="at">planet =</span>  planets,</span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Overwrite NA values for n_moons with 0L</span></span>
+<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span> <span class="fu">list</span>(<span class="at">n_moons =</span> 0L)</span>
+<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zero Olymoic medals</span></span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a>Since 1896, athletes from all over the world have been competing in the modern </span>
+<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a>Olympic games. You've been given a dataset (<span class="in">`medal_df`</span>) with observations for </span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>all medals won by athletes from the 10 most successful countries in Olympic </span>
+<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a>history. You want to create a visual with the number of medals won per country</span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>(<span class="in">`team`</span>) per <span class="in">`year`</span>. However, since not all countries won medals each year,</span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>you'll have to introduce zero values before you can make an accurate visual.</span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a><span class="al">![](olympic_flag_large.png)</span></span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a>Load <span class="in">`ggplot2`</span> and <span class="in">`dplyr`</span>. </span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>In step 2 and 3 the <span class="in">`scale_color_brewer()`</span> function is used to color lines in </span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>the plot with a palette that makes it easier to distinguish the different</span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a>countries.</span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Count the number of medals won per team and year.</span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`ggplot()`</span> to create a line plot with <span class="in">`n_medals`</span> over <span class="in">`year`</span>, colored </span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>by team.</span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete the <span class="in">`team`</span> and <span class="in">`year`</span> variables, replace <span class="in">`NA`</span> values in the </span>
+<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a><span class="in">`n_medals`</span> column with zeros.</span>
+<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_023.R"}</span></span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a>medal_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the medals won per team and year</span></span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(team, year, <span class="at">name =</span> <span class="st">"n_medals"</span>)</span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>medal_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the medals won per team and year</span></span>
+<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(team, year, <span class="at">name =</span> <span class="st">"n_medals"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot n_medals over year, colored by team</span></span>
+<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> year,</span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> n_medals,</span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> team,</span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> team</span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Paired"</span>)</span>
+<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a>medal_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the medals won per team and year</span></span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(team, year, <span class="at">name =</span> <span class="st">"n_medals"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the team and year variables, fill n_medals with zeros</span></span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a>    team,</span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>    year,</span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">n_medals =</span> <span class="dv">0</span>)</span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot n_medals over year, colored by team</span></span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_medals, <span class="at">color =</span> team)) <span class="sc">+</span></span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Paired"</span>)</span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a><span class="fu">## Creating a sequence with full_seq()</span></span>
+<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a>The <span class="in">`full_seq()`</span> function will look for the minimal and maximal values inside</span>
+<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a>the vector you pass it and will then generate a full sequence of numbers with a</span>
+<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a>fixed period in between them. When used inside the <span class="in">`complete()`</span> function,</span>
+<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a><span class="in">`full_seq()`</span> is a handy tool to make sure there are no missing observations</span>
+<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a>in your data. Before combining these two functions you'll generate a few </span>
+<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a>sequences with <span class="in">`full_seq()`</span> on its own to get the hang of this function.</span>
+<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`full_seq()`</span> to create a sequence with all years from 2020 till 2030.</span>
+<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use full_seq() to create a sequence with all decades from 1980 till 2030.</span>
+<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use full_seq() to create a sequence with all dates in 1980 using the </span>
+<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>outer_dates vector.</span>
+<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_024.R"}</span></span>
+<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all years from 2020 to 2030</span></span>
+<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">full_seq</span>(<span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">2030</span>), <span class="at">period =</span> <span class="dv">1</span>)</span>
+<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>years</span>
+<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all decades from 1980 to 2030</span></span>
+<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a>decades <span class="ot">&lt;-</span> <span class="fu">full_seq</span>(<span class="fu">c</span>(<span class="dv">1980</span>, <span class="dv">2030</span>), <span class="at">period =</span> <span class="dv">10</span>)</span>
+<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a>decades</span>
+<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>outer_dates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">as.Date</span>(<span class="st">"1980-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"1980-12-31"</span>))</span>
+<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the dates for all days in 1980</span></span>
+<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a><span class="fu">full_seq</span>(outer_dates, <span class="at">period =</span> <span class="dv">1</span>)</span>
+<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Cold War's hottest year</span></span>
+<span id="cb11-273"><a href="#cb11-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a>In October 1962, during the Cuban missile crisis, the world came close to a full</span>
+<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a>scale nuclear war. Throughout 1962, the USA, USSR, and France together detonated</span>
+<span id="cb11-276"><a href="#cb11-276" aria-hidden="true" tabindex="-1"></a>a record 178 nuclear bombs for military power display and research.</span>
+<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a>You've been given a sample of the Nuclear Explosion Database (NEDB) for that </span>
+<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a>year (<span class="in">`cumul_nukes_1962_df`</span>) with an observation for each date on which a bomb</span>
+<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a>was detonated. The <span class="in">`total_bombs`</span> variable contains the cumulative number of</span>
+<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a>bombs detonated by a country up to that point in time.</span>
+<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a>You'll complete the dataset to hold the full sequence of dates, and visualize</span>
+<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a>the total number of bombs per country over time. You'll also use the <span class="in">`fill()`</span></span>
+<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a>function from Chapter One to impute missing values.</span>
+<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a>Load dplyr and ggplot2 packages.</span>
+<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete the dataset so that for each <span class="in">`country`</span> there is an observation of each </span>
+<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a>date using the <span class="in">`full_seq()`</span> function.</span>
+<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_026.R"}</span></span>
+<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a>cumul_nukes_1962_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the dataset</span></span>
+<span id="cb11-296"><a href="#cb11-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(</span>
+<span id="cb11-297"><a href="#cb11-297" aria-hidden="true" tabindex="-1"></a>    country,</span>
+<span id="cb11-298"><a href="#cb11-298" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>) </span>
+<span id="cb11-299"><a href="#cb11-299" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-300"><a href="#cb11-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-301"><a href="#cb11-301" aria-hidden="true" tabindex="-1"></a>cumul_nukes_1962_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-302"><a href="#cb11-302" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the dataset</span></span>
+<span id="cb11-303"><a href="#cb11-303" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(country, <span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-304"><a href="#cb11-304" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group the data by country</span></span>
+<span id="cb11-305"><a href="#cb11-305" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-306"><a href="#cb11-306" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Impute missing values with the last known observation</span></span>
+<span id="cb11-307"><a href="#cb11-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(total_bombs)</span>
+<span id="cb11-308"><a href="#cb11-308" aria-hidden="true" tabindex="-1"></a>cumul_nukes_1962_df <span class="sc">%&gt;%</span> </span>
+<span id="cb11-309"><a href="#cb11-309" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the dataset</span></span>
+<span id="cb11-310"><a href="#cb11-310" aria-hidden="true" tabindex="-1"></a>    <span class="fu">complete</span>(country, <span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-311"><a href="#cb11-311" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group the data by country</span></span>
+<span id="cb11-312"><a href="#cb11-312" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-313"><a href="#cb11-313" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Impute missing values with the last known observation</span></span>
+<span id="cb11-314"><a href="#cb11-314" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fill</span>(total_bombs) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-315"><a href="#cb11-315" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot the number of bombs over time, color by country</span></span>
+<span id="cb11-316"><a href="#cb11-316" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(</span>
+<span id="cb11-317"><a href="#cb11-317" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(</span>
+<span id="cb11-318"><a href="#cb11-318" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> date,</span>
+<span id="cb11-319"><a href="#cb11-319" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> total_bombs,</span>
+<span id="cb11-320"><a href="#cb11-320" aria-hidden="true" tabindex="-1"></a>        <span class="at">group =</span> country,</span>
+<span id="cb11-321"><a href="#cb11-321" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> country</span>
+<span id="cb11-322"><a href="#cb11-322" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb11-323"><a href="#cb11-323" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb11-324"><a href="#cb11-324" aria-hidden="true" tabindex="-1"></a>  <span class="co"># These two lines will mark the Cuban Missile Crisis </span></span>
+<span id="cb11-325"><a href="#cb11-325" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(</span>
+<span id="cb11-326"><a href="#cb11-326" aria-hidden="true" tabindex="-1"></a>        <span class="at">xmin =</span> <span class="fu">as.Date</span>(<span class="st">"1962-10-16"</span>),</span>
+<span id="cb11-327"><a href="#cb11-327" aria-hidden="true" tabindex="-1"></a>        <span class="at">xmax =</span> <span class="fu">as.Date</span>(<span class="st">"1962-10-29"</span>),</span>
+<span id="cb11-328"><a href="#cb11-328" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>,</span>
+<span id="cb11-329"><a href="#cb11-329" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="cn">Inf</span>,</span>
+<span id="cb11-330"><a href="#cb11-330" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span> </span>
+<span id="cb11-331"><a href="#cb11-331" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(</span>
+<span id="cb11-332"><a href="#cb11-332" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">as.Date</span>(<span class="st">"1962-10-22"</span>),</span>
+<span id="cb11-333"><a href="#cb11-333" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="dv">15</span>, <span class="at">label =</span> <span class="st">"Cuban Missile Crisis"</span>,</span>
+<span id="cb11-334"><a href="#cb11-334" aria-hidden="true" tabindex="-1"></a>        <span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb11-335"><a href="#cb11-335" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb11-336"><a href="#cb11-336" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb11-337"><a href="#cb11-337" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb11-338"><a href="#cb11-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-339"><a href="#cb11-339" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-340"><a href="#cb11-340" aria-hidden="true" tabindex="-1"></a><span class="fu">## Olympic medals per continent</span></span>
+<span id="cb11-341"><a href="#cb11-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-342"><a href="#cb11-342" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-343"><a href="#cb11-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-344"><a href="#cb11-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_026.R"}</span></span>
+<span id="cb11-345"><a href="#cb11-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-346"><a href="#cb11-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-347"><a href="#cb11-347" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tracking a virus outbreak</span></span>
+<span id="cb11-348"><a href="#cb11-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-349"><a href="#cb11-349" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-350"><a href="#cb11-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-351"><a href="#cb11-351" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_027.R"}</span></span>
+<span id="cb11-352"><a href="#cb11-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-353"><a href="#cb11-353" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-354"><a href="#cb11-354" aria-hidden="true" tabindex="-1"></a><span class="fu">## Counting office occupants</span></span>
+<span id="cb11-355"><a href="#cb11-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-356"><a href="#cb11-356" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb11-357"><a href="#cb11-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-358"><a href="#cb11-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="ex_028.R"}</span></span>
+<span id="cb11-359"><a href="#cb11-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-360"><a href="#cb11-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
