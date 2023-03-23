@@ -1764,6 +1764,69 @@
     "text": "28.11 Transporting plantet data\nYou’re again working on a planet dataset derived from the devstronomy project. This time, you’re interested in the correlation between the diameter of a planet and the number of moons circling it.\nHowever, the dataset (planet_df) has a row for each variable and a column for each planet (observation). You’ll transpose this data in two steps and then create a plot to inspect the correlation.\nLoad ggplot2 package.\n\nInstructions 100 XP\n\nPivot the data so that planet names are put in a column named planet.\nPivot the data so that each variable in the metric column gets its own column.\nUse the ggplot() function to create a plot with the number_of_moons over diameter.\n\n\n\nex_018.R\n\n\nplanet_df %>%\n  # Pivot all columns except metric to long format\n  pivot_longer(\n    -metric, \n    names_to = \"planet\"\n  )\n\nplanet_df %>%\n  # Pivot all columns except metric to long format\n  pivot_longer(-metric, names_to = \"planet\") %>% \n  # Put each metric in its own column\n  pivot_wider(names_from = metric, values_from = value) %>% \n  # Plot the number of moons vs. planet diameter\n  ggplot(aes(x=diameter, y=number_of_moons)) +\n  geom_point(aes(size = diameter)) +\n  geom_text(aes(label = planet), vjust = -1) +\n  labs(x = \"Diameter (km)\", y = \"Number of moons\") +\n  theme(legend.position = \"none\")"
   },
   {
+    "objectID": "_reshaping_data_with_tidyr_03.html#letters-of-the-genetic-code",
+    "href": "_reshaping_data_with_tidyr_03.html#letters-of-the-genetic-code",
+    "title": "29  Expanding Data",
+    "section": "29.1 Letters of the genetic code",
+    "text": "29.1 Letters of the genetic code\nThe basic building blocks of RNA are four molecules described by a single letter each: adenine (A), cytosine (C), guanine (G), and uracil (U). The information carried by an RNA strand can be represented as a long sequence of these four letters. To read this code, one has to divide this chain into sequences of three letters each (e.g.** GCU, ACG**, …). These three letter sequences are known as codons. The concept is illustrated in the image below.\n\n\n\n\n\nHelix rna model\n\n\n\nInstructions 100 XP\n\nCreate a tibble with three columns called letter1, letter2, and letter3 that holds all possible combinations of the vector letters using expand_grid().\n\n\n\nex_019.R\n\nletters <- c(\"A\", \"C\", \"G\", \"U\")\n# Create a tibble with all possible 3 way combinations\ncodon_df <- expand_grid(\n    leter1 = letters,\n    leter2 = letters,\n    leter3 = letters\n)\ncodon_df"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#when-did-humans-replace-dogs-in-space",
+    "href": "_reshaping_data_with_tidyr_03.html#when-did-humans-replace-dogs-in-space",
+    "title": "29  Expanding Data",
+    "section": "29.2 When did humans replace dogs in space",
+    "text": "29.2 When did humans replace dogs in space\n\nInstructions 100 XP\n\n\nex_020.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#finding-missing-observations",
+    "href": "_reshaping_data_with_tidyr_03.html#finding-missing-observations",
+    "title": "29  Expanding Data",
+    "section": "29.3 Finding missing observations",
+    "text": "29.3 Finding missing observations\n\nInstructions 100 XP\n\n\nex_021.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#complete-the-solar-system",
+    "href": "_reshaping_data_with_tidyr_03.html#complete-the-solar-system",
+    "title": "29  Expanding Data",
+    "section": "29.4 Complete the Solar System",
+    "text": "29.4 Complete the Solar System\n\nInstructions 100 XP\n\n\nex_022.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#zero-olymoic-medals",
+    "href": "_reshaping_data_with_tidyr_03.html#zero-olymoic-medals",
+    "title": "29  Expanding Data",
+    "section": "29.5 Zero Olymoic medals",
+    "text": "29.5 Zero Olymoic medals\n\nInstructions 100 XP\n\n\nex_023.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#the-cold-wars-hottest-year",
+    "href": "_reshaping_data_with_tidyr_03.html#the-cold-wars-hottest-year",
+    "title": "29  Expanding Data",
+    "section": "29.6 The Cold War’s hottest year",
+    "text": "29.6 The Cold War’s hottest year\n\nInstructions 100 XP\n\n\nex_024.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#olympic-medals-per-continent",
+    "href": "_reshaping_data_with_tidyr_03.html#olympic-medals-per-continent",
+    "title": "29  Expanding Data",
+    "section": "29.7 Olympic medals per continent",
+    "text": "29.7 Olympic medals per continent\n\nInstructions 100 XP\n\n\nex_025.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#tracking-a-virus-outbreak",
+    "href": "_reshaping_data_with_tidyr_03.html#tracking-a-virus-outbreak",
+    "title": "29  Expanding Data",
+    "section": "29.8 Tracking a virus outbreak",
+    "text": "29.8 Tracking a virus outbreak\n\nInstructions 100 XP\n\n\nex_026.R"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_03.html#counting-office-occupants",
+    "href": "_reshaping_data_with_tidyr_03.html#counting-office-occupants",
+    "title": "29  Expanding Data",
+    "section": "29.9 Counting office occupants",
+    "text": "29.9 Counting office occupants\n\nInstructions 100 XP\n\n\nex_027.R"
+  },
+  {
     "objectID": "statistical-inference-whole-game.html",
     "href": "statistical-inference-whole-game.html",
     "title": "The whole game of statistical Inference",

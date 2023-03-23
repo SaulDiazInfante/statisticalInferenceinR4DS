@@ -1,1 +1,100 @@
+---
+fig-cap-location: bottom
+---
 # Expanding Data
+
+Values can often be missing in your data, and sometimes entire observations are 
+absent too. In this chapter, you'll learn how to complete your dataset with 
+these missing observations. You'll add observations with zero values to counted 
+data, expand time series to a full sequence of intervals, and more!
+
+
+## Letters of the genetic code
+
+The basic building blocks of **RNA** are four molecules described by a single
+letter each: adenine (**A**), cytosine (**C**), guanine (**G**), and 
+uracil (**U**).
+The information carried by an RNA strand can be represented as a long
+sequence of these four letters. To read this code, one has to divide this chain 
+into sequences of three letters each (e.g.** GCU, ACG**, …). These three letter 
+sequences are known as codons. The concept is illustrated in the image below.
+
+
+![Helix rna model](rna.png "RNA"){fig-alt="Ribonucleic Acid"}
+
+
+### Instructions `100 XP` {.unnumbered}
+
+- Create a tibble with three columns called `letter1`, `letter2`, and `letter3`
+that holds all possible combinations of the vector letters using 
+`expand_grid()`.
+
+```{.r filename="ex_019.R"}
+letters <- c("A", "C", "G", "U")
+# Create a tibble with all possible 3 way combinations
+codon_df <- expand_grid(
+    leter1 = letters,
+    leter2 = letters,
+    leter3 = letters
+)
+codon_df
+```
+
+
+## When did humans replace dogs in space
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_020.R"}
+
+```
+## Finding missing observations
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_021.R"}
+
+```
+## Complete the Solar System
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_022.R"}
+
+```
+## Zero Olymoic medals
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_023.R"}
+
+```
+## The Cold War's hottest year
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_024.R"}
+
+```
+
+## Olympic medals per continent
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_025.R"}
+
+```
+## Tracking a virus outbreak
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_026.R"}
+
+```
+## Counting office occupants
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_027.R"}
+
+```
