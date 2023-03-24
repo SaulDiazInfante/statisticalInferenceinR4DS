@@ -339,22 +339,133 @@ cumul_nukes_1962_df %>%
 ```
 ## Olympic medals per continent
 
+You want to compare Olympic performance of athletes per continent over time,
+both on the winter and summer Olympics. You've been given a dataset `medal_df` 
+with the average number of medals won per participant of each continent since 
+1928 . You'll complete this data to introduce zero values for years where a
+continent did not win any medals.
+
+The `ggplot2` package has been pre-loaded for you.
+
 ### Instructions `100 XP` {.unnumbered}
 
-```{.r filename="ex_026.R"}
+- Complete the dataset so that each continent has a `medals_per_participant` 
+value at each Olympic event. Missing values should be filled with zeros.
 
+- Nest the season and year variables using the `nesting()` function, since the
+summer and winter Olympics don't occur in the same years.
+
+- Use `ggplot()` to create a line plot with the `medals_per_participant` per 
+year, color the plot by continent.
+
+```{.r filename="ex_026.R"}
+medal_df %>% 
+  # Give each continent an observation at each Olympic event
+  complete(
+    continent,
+    nesting(season, year),  
+    fill = list(medals_per_participant = 0L)
+  ) %>%
+  # Plot the medals_per_participant over time, colored by continent
+  ggplot(
+    aes(
+      x = year,
+      y = medals_per_participant,
+      group(continent),
+      color = continent
+    )
+  ) +
+  geom_line() +
+  facet_grid(season ~ .)
 ```
 ## Tracking a virus outbreak
 
+You're a doctor in a remote village confronted with a virus outbreak.
+You have been collecting data on when your patients got infected and recovered
+in a data frame named `patient_df`. Your goal is to create a visual with the
+number of sick patients over time. You'll first have to reshape the data so 
+that you can count the number of sick patients per day.
+
+The data frame has three columns: `patient`, `infected`, and `recovered`.
+The `dplyr` and `ggplot2` packages have been pre-loaded for you.
+
 ### Instructions `100 XP` {.unnumbered}
 
+- Pivot the `infected` and recovered columns to long format, the old column
+names should go in the `status` variable, the values to `date`.
+
+- Group the data by patient and then complete the date column so that each date
+between infection and recovery is added using the `full_seq()` column. At the 
+end, ungroup the data.
+
 ```{.r filename="ex_027.R"}
+
+patient_df %>% 
+  # Pivot the infected and recovered columns to long format
+  pivot_longer(
+    -patient,
+    names_to = "status",
+    values_to = "date"
+  )
+
+patient_df %>% 
+  # Pivot the infected and recovered columns to long format
+  pivot_longer(-patient, names_to = "status", values_to = "date") %>% 
+  select(-status) %>% 
+  # Group by patient
+  group_by(patient) %>% 
+  # Complete the date range per patient using full_seq()
+  complete(date = full_seq(date, period = 1)) %>% 
+  # Ungroup the data
+  ungroup()
+
+patient_df %>% 
+  # Pivot the infected and recovered columns to long format
+  pivot_longer(-patient, names_to = "status", values_to = "date") %>% 
+  select(-status) %>% 
+  # Group by patient
+  group_by(patient) %>% 
+  # Complete the date range per patient using full_seq()
+  complete(date = full_seq(date, period = 1)) %>% 
+  # Ungroup the data
+  ungroup()
 
 ```
 ## Counting office occupants
 
+Imagine you're an office facility manager and want to know how many people are
+present throughout the day. You've installed a sensor at the entrance that
+counts the number of people entering and leaving the building. The sensor sends
+an update at the end of every 20 minute time slot if at least one person passed.
+
+To create a dataset ready for visualization, you'll combine the different
+techniques you've learned so far.
+
+Load `dplyr` and `ggplot2` packages.
+
 ### Instructions `100 XP` {.unnumbered}
+- Complete the time variable by using the `seq()` function to create a sequence
+between the min and max values with an interval of "20 min". 
+Fill NA values of enter and exit with 0L.
 
 ```{.r filename="ex_028.R"}
+sensor_df %>% 
+  # Complete the time column with a 20 minute interval
+  complete(time = seq(min(time), max(time), by = "20 min"),
+           fill = list(enter = 0L, exit = 0L)) %>%
+  # Calculate the total number of people inside
+  mutate(total_inside = cumsum(enter + exit)) %>% 
+  # Pivot the enter and exit columns to long format
+  pivot_longer(enter:exit, names_to = "direction", values_to = "n_people") %>% 
+  # Plot the number of people over time, fill by direction
+  ggplot(
+    aes(
+      x =time, 
+      y = n_people, 
+      fill = direction
+    )
+  ) +
+  geom_area() +
+  geom_line(aes(y = total_inside))
 
 ```

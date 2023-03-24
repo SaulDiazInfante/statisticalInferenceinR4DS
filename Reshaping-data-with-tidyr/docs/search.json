@@ -46,21 +46,21 @@
     "href": "_reshaping_data_with_tidyr_03.html#olympic-medals-per-continent",
     "title": "3  Expanding Data",
     "section": "3.8 Olympic medals per continent",
-    "text": "3.8 Olympic medals per continent\n\nInstructions 100 XP\n\n\nex_026.R"
+    "text": "3.8 Olympic medals per continent\nYou want to compare Olympic performance of athletes per continent over time, both on the winter and summer Olympics. You’ve been given a dataset medal_df with the average number of medals won per participant of each continent since 1928 . You’ll complete this data to introduce zero values for years where a continent did not win any medals.\nThe ggplot2 package has been pre-loaded for you.\n\nInstructions 100 XP\n\nComplete the dataset so that each continent has a medals_per_participant value at each Olympic event. Missing values should be filled with zeros.\nNest the season and year variables using the nesting() function, since the summer and winter Olympics don’t occur in the same years.\nUse ggplot() to create a line plot with the medals_per_participant per year, color the plot by continent.\n\n\n\nex_026.R\n\nmedal_df %>% \n  # Give each continent an observation at each Olympic event\n  complete(\n    continent,\n    nesting(season, year),  \n    fill = list(medals_per_participant = 0L)\n  ) %>%\n  # Plot the medals_per_participant over time, colored by continent\n  ggplot(\n    aes(\n      x = year,\n      y = medals_per_participant,\n      group(continent),\n      color = continent\n    )\n  ) +\n  geom_line() +\n  facet_grid(season ~ .)"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_03.html#tracking-a-virus-outbreak",
     "href": "_reshaping_data_with_tidyr_03.html#tracking-a-virus-outbreak",
     "title": "3  Expanding Data",
     "section": "3.9 Tracking a virus outbreak",
-    "text": "3.9 Tracking a virus outbreak\n\nInstructions 100 XP\n\n\nex_027.R"
+    "text": "3.9 Tracking a virus outbreak\nYou’re a doctor in a remote village confronted with a virus outbreak. You have been collecting data on when your patients got infected and recovered in a data frame named patient_df. Your goal is to create a visual with the number of sick patients over time. You’ll first have to reshape the data so that you can count the number of sick patients per day.\nThe data frame has three columns: patient, infected, and recovered. The dplyr and ggplot2 packages have been pre-loaded for you.\n\nInstructions 100 XP\n\nPivot the infected and recovered columns to long format, the old column names should go in the status variable, the values to date.\nGroup the data by patient and then complete the date column so that each date between infection and recovery is added using the full_seq() column. At the end, ungroup the data.\n\n\n\nex_027.R\n\n\npatient_df %>% \n  # Pivot the infected and recovered columns to long format\n  pivot_longer(\n    -patient,\n    names_to = \"status\",\n    values_to = \"date\"\n  )\n\npatient_df %>% \n  # Pivot the infected and recovered columns to long format\n  pivot_longer(-patient, names_to = \"status\", values_to = \"date\") %>% \n  select(-status) %>% \n  # Group by patient\n  group_by(patient) %>% \n  # Complete the date range per patient using full_seq()\n  complete(date = full_seq(date, period = 1)) %>% \n  # Ungroup the data\n  ungroup()\n\npatient_df %>% \n  # Pivot the infected and recovered columns to long format\n  pivot_longer(-patient, names_to = \"status\", values_to = \"date\") %>% \n  select(-status) %>% \n  # Group by patient\n  group_by(patient) %>% \n  # Complete the date range per patient using full_seq()\n  complete(date = full_seq(date, period = 1)) %>% \n  # Ungroup the data\n  ungroup()"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_03.html#counting-office-occupants",
     "href": "_reshaping_data_with_tidyr_03.html#counting-office-occupants",
     "title": "3  Expanding Data",
     "section": "3.10 Counting office occupants",
-    "text": "3.10 Counting office occupants\n\nInstructions 100 XP\n\n\nex_028.R"
+    "text": "3.10 Counting office occupants\nImagine you’re an office facility manager and want to know how many people are present throughout the day. You’ve installed a sensor at the entrance that counts the number of people entering and leaving the building. The sensor sends an update at the end of every 20 minute time slot if at least one person passed.\nTo create a dataset ready for visualization, you’ll combine the different techniques you’ve learned so far.\nLoad dplyr and ggplot2 packages.\n\nInstructions 100 XP\n\nComplete the time variable by using the seq() function to create a sequence between the min and max values with an interval of “20 min”. Fill NA values of enter and exit with 0L.\n\n\n\nex_028.R"
   },
   {
     "objectID": "_reshaping_data_with_tidyr_03.html#the-cold-wars-hottest-year",
