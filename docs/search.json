@@ -1834,6 +1834,62 @@
     "text": "29.10 Counting office occupants\nImagine you’re an office facility manager and want to know how many people are present throughout the day. You’ve installed a sensor at the entrance that counts the number of people entering and leaving the building. The sensor sends an update at the end of every 20 minute time slot if at least one person passed.\nTo create a dataset ready for visualization, you’ll combine the different techniques you’ve learned so far.\nLoad dplyr and ggplot2 packages.\n\nInstructions 100 XP\n\nComplete the time variable by using the seq() function to create a sequence between the min and max values with an interval of “20 min”. Fill NA values of enter and exit with 0L.\n\n\n\nex_028.R\n\nsensor_df %>% \n  # Complete the time column with a 20 minute interval\n  complete(time = seq(min(time), max(time), by = \"20 min\"),\n           fill = list(enter = 0L, exit = 0L)) %>%\n  # Calculate the total number of people inside\n  mutate(total_inside = cumsum(enter + exit)) %>% \n  # Pivot the enter and exit columns to long format\n  pivot_longer(enter:exit, names_to = \"direction\", values_to = \"n_people\") %>% \n  # Plot the number of people over time, fill by direction\n  ggplot(\n    aes(\n      x =time, \n      y = n_people, \n      fill = direction\n    )\n  ) +\n  geom_area() +\n  geom_line(aes(y = total_inside))"
   },
   {
+    "objectID": "_reshaping_data_with_tidyr_04.html#rectangling-stars-wars-movies",
+    "href": "_reshaping_data_with_tidyr_04.html#rectangling-stars-wars-movies",
+    "title": "30  Rectangling Data",
+    "section": "30.1 Rectangling Stars Wars movies",
+    "text": "30.1 Rectangling Stars Wars movies\nLet’s pretend you’re a big Star Wars fan and decided to scrape some data from the Star Wars API. You’ve already loaded the JSON-formatted response into R, and now have two lists of movies named movie_list and movie_planets_list. Your goal is to turn these into rectangular data frames with one row per movie so that you can start crunching those movie stats.\nLoad dplyr package.\n\nInstructions 100 XP\n\nCreate a tibble with a single column called movie out of the input movie_list\nWiden the dataset by unnesting the movie column over multiple columns.\nRe-create the tibble with a single column called movie out of movie_planets_list.\nUnnest the planets column to a wider format.\n\n\n\nex_029.R\n\n# Create a movie column from the movie_list\ntibble(movie = movie_list) %>% \n  # Unnest the movie column\n  unnest_wider(movie)\n# Create a tibble with a movie column\ntibble(movie = movie_planets_list) %>% \n  # Unnest the movie column\n  unnest_wider(movie) %>% \n  # Unnest the planets column\n  unnest_wider(planets)"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_04.html#rectangling-star-wars-planets",
+    "href": "_reshaping_data_with_tidyr_04.html#rectangling-star-wars-planets",
+    "title": "30  Rectangling Data",
+    "section": "30.2 Rectangling Star Wars planets",
+    "text": "30.2 Rectangling Star Wars planets\nLet’s finish what we started in the last exercise of the previous lesson, exploring Star Wars planets! The movie_planets_list scraped from the Star Wars API has been pre-loaded for you. You’ll need two specific unnesting operations to completely rectangle this data.\n\nInstructions 100 XP\n\nCreate a tibble with a single column called movie out of movie_planets_list.\nUnnest the movie list column which contains named lists of equal length.\nUnnest the planets list column which contains unnamed lists of unequal length.\n\n\n\nex_030.R\n\n# Create a tibble from movie_planets_list\ntibble(movie = movie_planets_list) %>% \n  # Unnest the movie column in the correct direction\n  unnest_wider(movie) %>% \n  # Unnest the planets column in the correct direction\n  unnest_longer(planets)"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_04.html#the-solar-systems-biggest-moons",
+    "href": "_reshaping_data_with_tidyr_04.html#the-solar-systems-biggest-moons",
+    "title": "30  Rectangling Data",
+    "section": "30.3 The Solar System’s biggest moons",
+    "text": "30.3 The Solar System’s biggest moons\nMost planets in our solar system are accompanied by at least one moon. You now wonder which planets are circled by the biggest moons and want to create a top five based on moon radius. However, you’ll first have to unnest the devstronomy project data in planet_df using the unnest_longer() and unnest_wider() functions.\nThe dplyr package is needed.\n\nInstructions 100 XP\n\nUnnest the moons column so that each moon gets an observation.\nUnnest the moons column so that its contents are split over columns.\nUnnest the moon_data column so that its contents are split over columns.\nUse dplyr’s slice_max() function on moon radius to get a top 5 of biggest moons.\n\n\n\nex_031.R\n\nplanet_df %>% \n  # Unnest the moons list column over observations\n  unnest_longer(moons) %>% \n  # Further unnest the moons column\n  unnest_wider(moons) %>% \n  # Unnest the moon_data column\n  unnest_wider(moon_data) %>% \n  # Get the top five largest moons by radius\n  slice_max(radius, n = 5)"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_04.html#hoisting-star-wars-films",
+    "href": "_reshaping_data_with_tidyr_04.html#hoisting-star-wars-films",
+    "title": "30  Rectangling Data",
+    "section": "30.4 Hoisting Star Wars films",
+    "text": "30.4 Hoisting Star Wars films\nYou’ve been given a nested data set on Star Wars characters (character_df) and want to explore the films in which they appeared. You’ll first use the unnest_wider() and unnest_longer() functions to explore the data and will then switch to hoist() to select a specific element in the nested data structure directly.\n\nInstructions 100 XP\n\nUnnest the metadata column.\nUnnest the films column.\nAs an alternative approach, use hoist() to select the first film from the films list nested in the metadata column.\n\n\n\nex_032.R\n\ncharacter_df %>% \n  # Unnest the metadata column\n  unnest_wider(metadata) %>% \n  # Unnest the films column\n  unnest_longer(films)\ncharacter_df %>% \n  hoist(\n    metadata,\n    first_film = list(\"films\", 1)\n  )"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_04.html#hoisting-movie-ratings",
+    "href": "_reshaping_data_with_tidyr_04.html#hoisting-movie-ratings",
+    "title": "30  Rectangling Data",
+    "section": "30.5 Hoisting movie ratings",
+    "text": "30.5 Hoisting movie ratings\nYou’ve written a script to scrape data on your favorite movies from the Open Movie DataBase API. Now you want to process the JSON data to extract the Rotten Tomatoes rating for each movie. You’ve been given a data frame named movie_df which holds the JSON responses for five movies. You’ll explore this data with unnest_wider() and unnest_longer() before switching to hoist().\nThe dplyr package is needed.\n\nInstructions 100 XP\n\nUnnest the movie column.\n\n\n\nex_033.R\n\nmovie_df %>% \n  # Unnest the movie column\n  unnest_wider(movie) %>% \n  select(Title, Year, Ratings) %>% \n  # Unnest the Ratings column\n  unnest_wider(Ratings)\nmovie_df %>% \n  hoist(\n    movie,\n    title = \"Title\",\n    year = \"Year\",\n    rating = list(\"Ratings\", \"Rotten Tomatoes\")\n  )"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_04.html#tidy-model-outputs-with-broom",
+    "href": "_reshaping_data_with_tidyr_04.html#tidy-model-outputs-with-broom",
+    "title": "30  Rectangling Data",
+    "section": "30.6 Tidy model outputs with broom",
+    "text": "30.6 Tidy model outputs with broom\nYou’re trying to predict a person’s weight based on their waist circumference and stature (height). To do so you’re using the US army body measurement dataset ANSUR II. The model has already been trained for you using this code:\nmodel <- lm(weight_kg ~ waist_circum_m \n            + stature_m, data = ansur_df)\nYou will use the broom package’s glance() and tidy() functions in the console to inspect model outputs in a tidy format.\n\nInstructions 100 XP\n\nWhat is the standard error on the intercept?\n\n\n\nex_034.R\n\n# TODO: import ansur data\ntidy(model)\nglance(model)\nmodel <- lm(weight_kg ~ waist_circum_m \n            + stature_m, data = ansur_df)"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_04.html#nesting-tibbles",
+    "href": "_reshaping_data_with_tidyr_04.html#nesting-tibbles",
+    "title": "30  Rectangling Data",
+    "section": "30.7 Nesting tibbles",
+    "text": "30.7 Nesting tibbles\nYou’re pre-processing the US army body measurement dataset ANSUR II to train multiple models in a single pipeline. You’ll experiment with the nest() function to create a list column with nested tibbles containing sub-sets of the data.\nWe need the dplyr package.\n\nInstructions 100 XP\n\nGroup the data by army branch and then nest it.\nWhat is the shape of the Combat Arms branch nested dataset? 1 582 x 5\nGroup the data by both branch and sex, then nest it.\nWhat is the nested tibble shape for females in the Combat Arms branch? 43 x 4\n\n\n\nex_035.R\n\nansur_df %>% \n  # Group the data by branch, then nest\n  group_by(branch) %>% \n  nest()\n\nansur_df %>% \n  # Group the data by branch and sex, then nest\n  group_by(branch, sex) %>% \n  nest()"
+  },
+  {
+    "objectID": "_reshaping_data_with_tidyr_04.html#section",
+    "href": "_reshaping_data_with_tidyr_04.html#section",
+    "title": "30  Rectangling Data",
+    "section": "30.8 ",
+    "text": "30.8 \n\nInstructions 100 XP\n\n\nex_036.R\n\nansur_df %>%\n  # Group the data by sex\n  group_by(sex) %>% \n  # Nest the data\n  nest() %>% \n  mutate(\n    fit = map(\n        data,\n        function(df) \n            lm(weight_kg ~ waist_circum_m + stature_m, data = df)\n    ),\n    glanced = map(fit, glance)\n  ) %>% \n  # Unnest the glanced column\n  unnest(glanced)"
+  },
+  {
     "objectID": "statistical-inference-whole-game.html",
     "href": "statistical-inference-whole-game.html",
     "title": "The whole game of statistical Inference",

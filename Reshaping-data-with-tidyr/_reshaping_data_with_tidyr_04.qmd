@@ -1,1 +1,233 @@
 # Rectangling Data
+
+In this chapter, you'll learn how to turn nested data structures such as
+JSON and XML files into tidy, rectangular data. This skill will enable
+you to process data from web APIs. You'll also learn how nested data 
+structures can be used to write elegant modeling pipelines that produce
+tidy outputs.
+
+## Rectangling Stars Wars movies
+
+Let's pretend you're a big Star Wars fan and decided to scrape some 
+data from the [Star Wars API](https://swapi.dev/). 
+You've already loaded the JSON-formatted 
+response into R, and now have two lists of movies named `movie_list` and 
+`movie_planets_list`. Your goal is to turn these into rectangular data 
+frames with one row per movie so that you can start crunching those 
+movie stats.
+
+Load `dplyr` package.
+
+###  Instructions `100 XP` {.unnumbered}
+
+- Create a tibble with a single column called movie out of the input 
+movie_list
+
+- Widen the dataset by unnesting the movie column over multiple columns.
+- Re-create the tibble with a single column called movie out of 
+movie_planets_list.
+- Unnest the planets column to a wider format.
+
+```{.r filename="ex_029.R"}
+# Create a movie column from the movie_list
+tibble(movie = movie_list) %>% 
+  # Unnest the movie column
+  unnest_wider(movie)
+# Create a tibble with a movie column
+tibble(movie = movie_planets_list) %>% 
+  # Unnest the movie column
+  unnest_wider(movie) %>% 
+  # Unnest the planets column
+  unnest_wider(planets)
+```
+
+## Rectangling Star Wars planets
+
+Let's finish what we started in the last exercise of the previous 
+lesson, exploring Star Wars planets! The `movie_planets_list` scraped
+from the [Star Wars API](https://swapi.dev/) has been pre-loaded for 
+you. You'll need two specific unnesting operations to completely 
+rectangle this data.
+
+###  Instructions `100 XP` {.unnumbered}
+
+- Create a tibble with a single column called movie out of movie_planets_list.
+- Unnest the movie list column which contains named lists of equal length.
+- Unnest the planets list column which contains unnamed lists of unequal 
+length.
+
+```{.r filename="ex_030.R"}
+# Create a tibble from movie_planets_list
+tibble(movie = movie_planets_list) %>% 
+  # Unnest the movie column in the correct direction
+  unnest_wider(movie) %>% 
+  # Unnest the planets column in the correct direction
+  unnest_longer(planets)
+```
+## The Solar System's biggest moons
+
+Most planets in our solar system are accompanied by at least one moon.
+You now wonder which planets are circled by the biggest moons and want
+to create a top five based on moon radius. However, you'll first have
+to unnest the [devstronomy project](https://devstronomy.com/#/datasets) 
+data in `planet_df` using the `unnest_longer()` and `unnest_wider()`
+functions.
+
+The `dplyr` package is needed.
+
+###  Instructions `100 XP` {.unnumbered}
+
+- Unnest the moons column so that each moon gets an observation.
+- Unnest the moons column so that its contents are split over columns.
+- Unnest the `moon_data` column so that its contents are split over
+ columns.
+- Use `dplyr`'s `slice_max()` function on moon radius to get a top 5 of
+biggest moons.
+
+
+```{.r filename="ex_031.R"}
+planet_df %>% 
+  # Unnest the moons list column over observations
+  unnest_longer(moons) %>% 
+  # Further unnest the moons column
+  unnest_wider(moons) %>% 
+  # Unnest the moon_data column
+  unnest_wider(moon_data) %>% 
+  # Get the top five largest moons by radius
+  slice_max(radius, n = 5)
+```
+## Hoisting Star Wars films
+
+You've been given a nested data set on Star Wars characters
+(`character_df`) and want to explore the films in which they appeared.
+You'll first use the `unnest_wider()` and `unnest_longer()` functions to 
+explore the data and will then switch to `hoist()` to select a specific 
+element in the nested data structure directly.
+
+###  Instructions `100 XP` {.unnumbered}
+
+- Unnest the `metadata` column.
+- Unnest the films column.
+- As an alternative approach, use hoist() to select the first film from 
+the films list nested in the metadata column.
+
+```{.r filename="ex_032.R"}
+character_df %>% 
+  # Unnest the metadata column
+  unnest_wider(metadata) %>% 
+  # Unnest the films column
+  unnest_longer(films)
+character_df %>% 
+  hoist(
+    metadata,
+    first_film = list("films", 1)
+  )
+```
+## Hoisting movie ratings
+
+You've written a script to scrape data on your favorite movies from the 
+[Open Movie DataBase API](http://www.omdbapi.com/). Now you want to 
+process the JSON data to extract the Rotten Tomatoes rating for each 
+movie. You've been given a data frame named `movie_df` which holds the 
+JSON responses for five movies. You'll explore this data with 
+`unnest_wider()` and `unnest_longer()` before switching to `hoist()`.
+
+The dplyr package is needed.
+
+###  Instructions `100 XP` {.unnumbered}
+- Unnest the movie column.
+
+```{.r filename="ex_033.R"}
+movie_df %>% 
+  # Unnest the movie column
+  unnest_wider(movie) %>% 
+  select(Title, Year, Ratings) %>% 
+  # Unnest the Ratings column
+  unnest_wider(Ratings)
+movie_df %>% 
+  hoist(
+    movie,
+    title = "Title",
+    year = "Year",
+    rating = list("Ratings", "Rotten Tomatoes")
+  )
+```
+## Tidy model outputs with broom
+You're trying to predict a person's weight based on their waist 
+circumference and stature (height). To do so you're using the US 
+army body measurement dataset 
+[ANSUR II](https://www.openlab.psu.edu/ansur2/). The model has
+already been trained for you using this code:
+
+```{.r code-line-numbers="false"}
+model <- lm(weight_kg ~ waist_circum_m 
+            + stature_m, data = ansur_df)
+``` 
+You will use the `broom` package's `glance()` and `tidy()` functions
+in the console to inspect model outputs in a tidy format.
+
+###  Instructions `100 XP` {.unnumbered}
+- What is the standard error on the intercept?
+
+
+```{.r filename="ex_034.R"}
+# TODO: import ansur data
+tidy(model)
+glance(model)
+model <- lm(weight_kg ~ waist_circum_m 
+            + stature_m, data = ansur_df)
+
+```
+
+##  Nesting tibbles
+
+You're pre-processing the US army body measurement dataset 
+[ANSUR II](https://www.openlab.psu.edu/ansur2/) to 
+train multiple models in a single pipeline. You'll experiment with the 
+`nest()` function to create a list column with nested tibbles 
+containing sub-sets of the data.
+
+We need the `dplyr` package.
+
+###  Instructions `100 XP` {.unnumbered}
+- Group the data by army branch and then nest it.
+- What is the shape of the Combat Arms branch nested dataset? 
+`1 582 x 5`
+- Group the data by both branch and sex, then nest it.
+- What is the nested tibble shape for females in the Combat 
+Arms branch? `43 x 4`
+
+```{.r filename="ex_035.R"}
+ansur_df %>% 
+  # Group the data by branch, then nest
+  group_by(branch) %>% 
+  nest()
+
+ansur_df %>% 
+  # Group the data by branch and sex, then nest
+  group_by(branch, sex) %>% 
+  nest()
+
+```
+## 
+
+###  Instructions `100 XP` {.unnumbered}
+
+
+```{.r filename="ex_036.R"}
+ansur_df %>%
+  # Group the data by sex
+  group_by(sex) %>% 
+  # Nest the data
+  nest() %>% 
+  mutate(
+    fit = map(
+        data,
+        function(df) 
+            lm(weight_kg ~ waist_circum_m + stature_m, data = df)
+    ),
+    glanced = map(fit, glance)
+  ) %>% 
+  # Unnest the glanced column
+  unnest(glanced)
+```
