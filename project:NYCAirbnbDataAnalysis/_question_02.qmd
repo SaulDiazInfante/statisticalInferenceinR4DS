@@ -1,0 +1,10 @@
+## How many of the listings are private rooms? 
+
+Save your answer as a numeric variable called `nb_private_rooms`.
+
+
+```{r}
+#| echo: true
+#| eval: true 
+#| file: _question_02.R
+```

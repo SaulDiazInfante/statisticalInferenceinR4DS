@@ -1,0 +1,11 @@
+# What is the average listing price? 
+Save your answer as a numeric variable, avg_price.
+
+
+```{r}
+#| echo: true
+#| eval: true 
+#| file: _question_01.R
+```
+
+

@@ -1,0 +1,49 @@
+project:
+  type: book
+
+book:
+  title: "Project: NYC Airbnb Data Analysis"
+  author: "Saul Diaz Infante Velasco"
+  date: "3/28/2023"  
+  search: true
+  cover-image: nyc.jpg
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  repo-url: https://github.com/SaulDiazInfante/statisticalInferenceinR4DS   
+  repo-actions: [edit]
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 3
+    pinned: true
+  favicon: nyc.jpg
+  twitter-card: true
+  site-url: https://www.saul-diaz-infante-velasco.com   
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - _question_01.qmd
+    - _question_02.qmd
+    - _question_03.qmd
+    - summary.qmd
+    - references.qmd
+bibliography: references.bib
+
+format:
+  html:
+    theme: darkly
+    fig-width: 8
+    fig-height: 4
+    code-fold: true
+    code-tools: true
+    code-link: true
+  pdf:
+    documentclass: scrreprt
+  epub:
+    cover-image: cover.png
+
+jupyter: python3
+
+execute:
+  echo: false
+

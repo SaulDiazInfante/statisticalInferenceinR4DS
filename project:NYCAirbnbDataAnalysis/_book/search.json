@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "intro.html#introduction",
+    "href": "intro.html#introduction",
+    "title": "1  Airbnb listings in New York City",
+    "section": "Introduction",
+    "text": "Introduction\nIn this project, you will apply your data importing and cleaning skills to uncover insights about the Airbnb market in New York City.\nYou will import data from multiple file types and combine them to answer questions about the Airbnb market in New York. You will also use your string cleaning and date manipulation skills to extract accurate information from the datasets. The packages and tools used here are utilized by data scientists everyday since so much of the world’s data is stored in unconventional formats and is not clean or analysis-ready."
+  },
+  {
+    "objectID": "intro.html#instructions",
+    "href": "intro.html#instructions",
+    "title": "1  Airbnb listings in New York City",
+    "section": "1.1 Instructions",
+    "text": "1.1 Instructions\nYou are a consultant working for a real estate start-up and have been asked to look into the short-term rental market in New York, so you’ve gathered Airbnb listing data from several different sources. You’ll examine this data to answer the following questions, but you’ll need to combine the different files from your three sources into one dataset and clean it in order to calculate the metrics you’re interested in.\nYour questions are as follows:\n\nWhat is the average listing price? Save your answer as a numeric variable, avg_price.\nHow many of the listings are private rooms? Save your answer as a numeric variable called nb_private_rooms.\n\nWhen were the earliest and most recent reviews in the dataset? Save these as Dates in a tibble called review_dates. It should contain two columns named first_reviewed, which contains the earliest date in the dataset, and last_reviewed, which contains the latest date in the dataset."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project: NYC Airbnb Data Analysis",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "_question_01.html",
+    "href": "_question_01.html",
+    "title": "\n2  What is the average listing price?\n",
+    "section": "",
+    "text": "Save your answer as a numeric variable, avg_price.\n\nCodelibrary(\"dplyr\")\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nCodelibrary(\"readr\")\nlibrary(\"stringr\")\n\npath <- file.path(\"datasets\", \"airbnb_price.csv\")\ndf_price <- read_csv(path)\n\nRows: 25209 Columns: 3\n\n\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): price, nbhood_full\ndbl (1): listing_id\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nCodeglimpse(df_price)\n\nRows: 25,209\nColumns: 3\n$ listing_id  <dbl> 2595, 3831, 5099, 5178, 5238, 5295, 5441, 5803, 6021, 6848…\n$ price       <chr> \"225 dollars\", \"89 dollars\", \"200 dollars\", \"79 dollars\", …\n$ nbhood_full <chr> \"Manhattan, Midtown\", \"Brooklyn, Clinton Hill\", \"Manhattan…\n\nCodeavg_price <- df_price %>%\n    mutate(price = as.numeric(str_remove(price, \" dollars\"))) %>%\n    summarize(mean_price = mean(price))\nprint(avg_price)\n\n# A tibble: 1 × 1\n  mean_price\n       <dbl>\n1       142."
+  },
+  {
+    "objectID": "_question_02.html",
+    "href": "_question_02.html",
+    "title": "\n3  How many of the listings are private rooms?\n",
+    "section": "",
+    "text": "Save your answer as a numeric variable called nb_private_rooms.\n\nCodelibrary(\"tidyverse\")\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0      ✔ purrr   0.3.4 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.0      ✔ stringr 1.5.0 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nCodelibrary(\"readxl\")\nlibrary(\"stringr\")\n\npath <- file.path(\"datasets\", \"airbnb_room_type.xlsx\")\ndf_room_type <- read_excel(path, sheet = 1)\nglimpse(df_room_type)\n\nRows: 25,209\nColumns: 3\n$ listing_id  <dbl> 2595, 3831, 5099, 5178, 5238, 5295, 5441, 5803, 6021, 6848…\n$ description <chr> \"Skylit Midtown Castle\", \"Cozy Entire Floor of Brownstone\"…\n$ room_type   <chr> \"Entire home/apt\", \"Entire home/apt\", \"Entire home/apt\", \"…\n\nCodenb_private_rooms <- df_room_type %>%\n    mutate(room_type = str_to_lower(room_type)) %>%\n    filter(room_type == \"private room\") %>%\n    count()\n\nprint(nb_private_rooms)\n\n# A tibble: 1 × 1\n      n\n  <int>\n1 11356"
+  },
+  {
+    "objectID": "_question_03.html",
+    "href": "_question_03.html",
+    "title": "4  When were the earliest and most recent reviews in the dataset?",
+    "section": "",
+    "text": "Save these as Dates in a tibble called review_dates. It should contain two columns named first_reviewed, which contains the earliest date in the dataset, and last_reviewed, which contains the latest date in the dataset."
+  }
+]

@@ -1,0 +1,7 @@
+# When were the earliest and most recent reviews in the dataset? 
+
+Save these as Dates in a tibble called review_dates. It should 
+contain two columns named first_reviewed, which contains the earliest 
+date in the dataset, and last_reviewed, which contains the latest 
+date in the dataset.
+
