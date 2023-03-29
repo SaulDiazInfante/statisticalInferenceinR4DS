@@ -76,7 +76,9 @@ csl: elsevier-with-titles-alphabetical.csl
 
 format:
   html:
-    theme: darkly
+    theme:
+      light: flatly
+      dark: darkly
     fig-width: 8
     fig-height: 4
     code-fold: true
