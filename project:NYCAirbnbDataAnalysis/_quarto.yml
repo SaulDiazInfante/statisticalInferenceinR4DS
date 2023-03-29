@@ -25,6 +25,7 @@ book:
     - _question_01.qmd
     - _question_02.qmd
     - _question_03.qmd
+    - assesment.qmd
     - summary.qmd
     - references.qmd
 bibliography: references.bib
