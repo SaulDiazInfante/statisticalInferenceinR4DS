@@ -1,11 +1,16 @@
+# Cleaning and importing Assesment:Intent 01
 
-## Convert the character strings in the vector colors to all upper case.
-Complete the code to return the output
 ```{r}
 library(tidyverse)
 library(stringr)
 library(readr)
 library(readxl)
+```
+## Convert the character strings in the vector colors to all upper case.
+Complete the code to return the output
+
+```{r}
+
 colors <- c("Red", "green", "bluE")
 str_to_upper(colors)
 ```
@@ -48,7 +53,7 @@ sales %>%
 ```
 ## Following is a preview of the data frames df1 and df2:
 
-```{r}
+```{.r}
 df1 <- data.frame(
     customer_id = c(20, 21, 22),
     order_id = c(5, 6, 7)

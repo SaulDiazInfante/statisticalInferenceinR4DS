@@ -51,9 +51,9 @@
   {
     "objectID": "assesment.html#import-the-third-sheet-titled-chickwts-of-character_excel.",
     "href": "assesment.html#import-the-third-sheet-titled-chickwts-of-character_excel.",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.1 Import the third sheet, titled “chickwts” of character_excel.",
-    "text": "5.1 Import the third sheet, titled “chickwts” of character_excel.\nSince the first row is skipped you must specify the column names as “weight” and “feed” in that order. Complete the code to return the output\nlibrary(readxl)\n\nread_excel(character_excel,\n    sheet = 3,\n    col_names = c(\"weight\", \"feed\"),\n    skip = 1\n)"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.2 Import the third sheet, titled “chickwts” of character_excel.",
+    "text": "5.2 Import the third sheet, titled “chickwts” of character_excel.\nSince the first row is skipped you must specify the column names as “weight” and “feed” in that order. Complete the code to return the output\nlibrary(readxl)\n\nread_excel(character_excel,\n    sheet = 3,\n    col_names = c(\"weight\", \"feed\"),\n    skip = 1\n)"
   },
   {
     "objectID": "assesment.html#section",
@@ -72,16 +72,16 @@
   {
     "objectID": "assesment.html#the-sales-data-previewed-below-contains-one-column-for-each",
     "href": "assesment.html#the-sales-data-previewed-below-contains-one-column-for-each",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.2 The sales data, previewed below, contains one column for each",
-    "text": "5.2 The sales data, previewed below, contains one column for each\nelement of the date, however the day column contains numbers that are currently stored as character strings. Convert so that they are correctly stored as numbers.\n   month day year items_sold\n1    Oct  06 2019         26\n2    Oct  15 2019         12\n3    Oct  24 2019         82\n4    Oct  30 2019          6\n5    Nov  05 2019        101\n6    Nov  18 2019         18\nComplete the code to return the output\nsales %>% \n  mutate(day = as.numeric(day)) %>% \n  head()"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.3 The sales data, previewed below, contains one column for each",
+    "text": "5.3 The sales data, previewed below, contains one column for each\nelement of the date, however the day column contains numbers that are currently stored as character strings. Convert so that they are correctly stored as numbers.\n   month day year items_sold\n1    Oct  06 2019         26\n2    Oct  15 2019         12\n3    Oct  24 2019         82\n4    Oct  30 2019          6\n5    Nov  05 2019        101\n6    Nov  18 2019         18\nComplete the code to return the output\nsales %>% \n  mutate(day = as.numeric(day)) %>% \n  head()"
   },
   {
     "objectID": "assesment.html#following-is-a-preview-of-the-data-frames-df1-and-df2",
     "href": "assesment.html#following-is-a-preview-of-the-data-frames-df1-and-df2",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.3 Following is a preview of the data frames df1 and df2:",
-    "text": "5.3 Following is a preview of the data frames df1 and df2:\n\n\n  customer_id order_id.x order_id.y\n1          20          5       Jane\n2          21          6       John\n3          22          7       <NA>"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.4 Following is a preview of the data frames df1 and df2:",
+    "text": "5.4 Following is a preview of the data frames df1 and df2:\ndf1 <- data.frame(\n    customer_id = c(20, 21, 22),\n    order_id = c(5, 6, 7)\n)\n\ndf2 <- data.frame(\n    customer_id = c(20, 21, 23),\n    order_id = c(\"Jane\", \"John\", \"Joe\")\n)\nleft_join(df1, df2, by = \"customer_id\")"
   },
   {
     "objectID": "assesment.html#import-the-third-sheet-titled-chickwts-of-character_excel.-1",
@@ -107,71 +107,281 @@
   {
     "objectID": "assesment.html#the-survey_sav-file-is-an-spss-file-whose-file-extension-is-.sav.",
     "href": "assesment.html#the-survey_sav-file-is-an-spss-file-whose-file-extension-is-.sav.",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.4 The survey_sav file is an SPSS file whose file extension is .sav.",
-    "text": "5.4 The survey_sav file is an SPSS file whose file extension is .sav.\nImport this file using an appropriate function. Complete the code to return the output\nlibrary(haven)\nread_sav(survey_sav)"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.5 The survey_sav file is an SPSS file whose file extension is .sav.",
+    "text": "5.5 The survey_sav file is an SPSS file whose file extension is .sav.\nImport this file using an appropriate function. Complete the code to return the output\nlibrary(haven)\nread_sav(survey_sav)"
   },
   {
     "objectID": "assesment.html#the-preview-of-the-plants-data-frame-shows-that-the",
     "href": "assesment.html#the-preview-of-the-plants-data-frame-shows-that-the",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.5 The preview of the plants data frame shows that the",
-    "text": "5.5 The preview of the plants data frame shows that the\nsales_price has been stored as a character string. Convert the sales_price to a numeric variable.\n# A tibble: 5 x 3\n  name     binomial_name      sales_price\n  <chr>    <chr>              <chr>      \n1 Alfredo  Monstera Deliciosa 24.95      \n2 Isabella Calathea Orbifolia 28.95      \n3 Marty    Areca              44.95      \n4 Ollie    Alocasia Zebrina   29.95      \n5 Howerd   Kentiapalm         49.95       \nComplete the code to return the output\nlibrary(dplyr)\n\nplants %>% \n  mutate(sales_price = as.numeric(sales_price))"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.6 The preview of the plants data frame shows that the",
+    "text": "5.6 The preview of the plants data frame shows that the\nsales_price has been stored as a character string. Convert the sales_price to a numeric variable.\n# A tibble: 5 x 3\n  name     binomial_name      sales_price\n  <chr>    <chr>              <chr>      \n1 Alfredo  Monstera Deliciosa 24.95      \n2 Isabella Calathea Orbifolia 28.95      \n3 Marty    Areca              44.95      \n4 Ollie    Alocasia Zebrina   29.95      \n5 Howerd   Kentiapalm         49.95       \nComplete the code to return the output\nlibrary(dplyr)\n\nplants %>% \n  mutate(sales_price = as.numeric(sales_price))"
   },
   {
     "objectID": "assesment.html#convert-the-elements-in-the-vector-numbers_as_chars-into-numeric",
     "href": "assesment.html#convert-the-elements-in-the-vector-numbers_as_chars-into-numeric",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.6 Convert the elements in the vector numbers_as_chars into numeric",
-    "text": "5.6 Convert the elements in the vector numbers_as_chars into numeric\ndata. Complete the code to return the output\nlibrary(readr)\n\nnumbers_as_chars <- c(\"1000\", \"10.2\", \"178\")\n\nas.numeric(numbers_as_chars)"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.7 Convert the elements in the vector numbers_as_chars into numeric",
+    "text": "5.7 Convert the elements in the vector numbers_as_chars into numeric\ndata. Complete the code to return the output\nlibrary(readr)\n\nnumbers_as_chars <- c(\"1000\", \"10.2\", \"178\")\n\nas.numeric(numbers_as_chars)"
   },
   {
     "objectID": "assesment.html#the-costs-table-shown-below-contains-a-column-of-dates-in-character",
     "href": "assesment.html#the-costs-table-shown-below-contains-a-column-of-dates-in-character",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.7 The costs table shown below contains a column of dates in character",
-    "text": "5.7 The costs table shown below contains a column of dates in character\nstring format.\n# A tibble: 3 x 2\n  date_chr   value   \n  <chr>      <chr>   \n1 2019-09-01 USD-1275\n2 2019-09-03 GBP-995 \n3 2019-08-30 EUR-1050\n\nComplete the code to return the output\nlibrary(dplyr)\nlibrary(lubridate)\n\ncosts %>%\n  mutate(\n    date_format = as_date(date_chr)\n  )"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.8 The costs table shown below contains a column of dates in character",
+    "text": "5.8 The costs table shown below contains a column of dates in character\nstring format.\n# A tibble: 3 x 2\n  date_chr   value   \n  <chr>      <chr>   \n1 2019-09-01 USD-1275\n2 2019-09-03 GBP-995 \n3 2019-08-30 EUR-1050\n\nComplete the code to return the output\nlibrary(dplyr)\nlibrary(lubridate)\n\ncosts %>%\n  mutate(\n    date_format = as_date(date_chr)\n  )"
   },
   {
     "objectID": "assesment.html#the-data-movie_reviews-has-been-imported-in-the-format-shown-below.",
     "href": "assesment.html#the-data-movie_reviews-has-been-imported-in-the-format-shown-below.",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.8 The data movie_reviews has been imported in the format shown below.",
-    "text": "5.8 The data movie_reviews has been imported in the format shown below.\nConvert this to a suitable structure so that it can be used for plotting using ggplot2.\n# A tibble: 3 x 3\n  `Casino Royale` `Despicable Me` `Harry Potter`\n            <dbl>           <dbl>          <dbl>\n1              10               4              8\n2               2               9              8\n3      \nlibrary(tidyr)\n\nmovie_reviews %>% \n    pivot_longer(everything(), \n               names_to = \"movie\", \n               values_to = \"rating\")\nExpected Output\n# A tibble: 9 × 2\n  movie         rating\n  <chr>          <dbl>\n1 Casino Royale     10\n2 Despicable Me      4\n3 Harry Potter       8\n4 Casino Royale      2\n5 Despicable Me      9\n6 Harry Potter       8\n7 Casino Royale      5\n8 Despicable Me      8\n9 Harry Potter       6"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.9 The data movie_reviews has been imported in the format shown below.",
+    "text": "5.9 The data movie_reviews has been imported in the format shown below.\nConvert this to a suitable structure so that it can be used for plotting using ggplot2.\n# A tibble: 3 x 3\n  `Casino Royale` `Despicable Me` `Harry Potter`\n            <dbl>           <dbl>          <dbl>\n1              10               4              8\n2               2               9              8\n3      \nlibrary(tidyr)\n\nmovie_reviews %>% \n    pivot_longer(everything(), \n               names_to = \"movie\", \n               values_to = \"rating\")\nExpected Output\n# A tibble: 9 × 2\n  movie         rating\n  <chr>          <dbl>\n1 Casino Royale     10\n2 Despicable Me      4\n3 Harry Potter       8\n4 Casino Royale      2\n5 Despicable Me      9\n6 Harry Potter       8\n7 Casino Royale      5\n8 Despicable Me      8\n9 Harry Potter       6"
   },
   {
     "objectID": "assesment.html#before-each-of-the-strings-in-the-vector-x",
     "href": "assesment.html#before-each-of-the-strings-in-the-vector-x",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.9 Before each of the strings in the vector x,",
-    "text": "5.9 Before each of the strings in the vector x,\nadd underscores (_) so they are all a width of 4 characters. Complete the code to return the output\nlibrary(stringr)\n\nx <- c(\"A\", \"BC\", \"DEF\")\n\nstr_pad(x, width = 4, \n    side = \"left\", pad = \"_\")\nExpected Output\n[1] \"___A\" \"__BC\" \"_DEF\""
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.10 Before each of the strings in the vector x,",
+    "text": "5.10 Before each of the strings in the vector x,\nadd underscores (_) so they are all a width of 4 characters. Complete the code to return the output\nlibrary(stringr)\n\nx <- c(\"A\", \"BC\", \"DEF\")\n\nstr_pad(x, width = 4, \n    side = \"left\", pad = \"_\")\nExpected Output\n[1] \"___A\" \"__BC\" \"_DEF\""
   },
   {
     "objectID": "assesment.html#list-all-of-the-sheets-of-the-character_excel-excel-workbook.",
     "href": "assesment.html#list-all-of-the-sheets-of-the-character_excel-excel-workbook.",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.10 List all of the sheets of the character_excel excel workbook.",
-    "text": "5.10 List all of the sheets of the character_excel excel workbook.\nComplete the code to return the output\nlibrary(readxl)\n\nexcel_sheets(character_excel)\nExpected Output\n[1] \"iris\"     \"mtcars\"   \"chickwts\" \"quakes\""
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.11 List all of the sheets of the character_excel excel workbook.",
+    "text": "5.11 List all of the sheets of the character_excel excel workbook.\nComplete the code to return the output\nlibrary(readxl)\n\nexcel_sheets(character_excel)\nExpected Output\n[1] \"iris\"     \"mtcars\"   \"chickwts\" \"quakes\""
   },
   {
     "objectID": "assesment.html#some-mistakes-were-made-during-data-entry-of-plant-inventory-for",
     "href": "assesment.html#some-mistakes-were-made-during-data-entry-of-plant-inventory-for",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.11 Some mistakes were made during data entry of plant inventory for",
-    "text": "5.11 Some mistakes were made during data entry of plant inventory for\nGreen Friend Nursery. Remove the leading spaces from all entries in the water_requirement column of the plants data.\n# A tibble: 5 x 3\n  name     binomial_name      water_requirement\n  <chr>    <chr>              <chr>            \n1 Alfredo  Monstera Deliciosa moderate         \n2 Isabella Calathea Orbifolia   moderate     \n3 Marty    Areca                high         \n4 Ollie    Alocasia Zebrina   high             \n5 Howerd   Kentiapalm         moderate  \nComplete the code to return the output\nlibrary(stringr)\nlibrary(dplyr)\n\nplants %>% \n  mutate(water_requirement = str_trim(water_requirement))\n# A tibble: 5 × 3\n  name     binomial_name      water_requirement\n  <chr>    <chr>              <chr>            \n1 Alfredo  Monstera Deliciosa moderate         \n2 Isabella Calathea Orbifolia moderate         \n3 Marty    Areca              high             \n4 Ollie    Alocasia Zebrina   high             \n5 Howerd   Kentiapalm         moderate"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.12 Some mistakes were made during data entry of plant inventory for",
+    "text": "5.12 Some mistakes were made during data entry of plant inventory for\nGreen Friend Nursery. Remove the leading spaces from all entries in the water_requirement column of the plants data.\n# A tibble: 5 x 3\n  name     binomial_name      water_requirement\n  <chr>    <chr>              <chr>            \n1 Alfredo  Monstera Deliciosa moderate         \n2 Isabella Calathea Orbifolia   moderate     \n3 Marty    Areca                high         \n4 Ollie    Alocasia Zebrina   high             \n5 Howerd   Kentiapalm         moderate  \nComplete the code to return the output\nlibrary(stringr)\nlibrary(dplyr)\n\nplants %>% \n  mutate(water_requirement = str_trim(water_requirement))\n# A tibble: 5 × 3\n  name     binomial_name      water_requirement\n  <chr>    <chr>              <chr>            \n1 Alfredo  Monstera Deliciosa moderate         \n2 Isabella Calathea Orbifolia moderate         \n3 Marty    Areca              high             \n4 Ollie    Alocasia Zebrina   high             \n5 Howerd   Kentiapalm         moderate"
   },
   {
     "objectID": "assesment.html#complete-the-code-to-import-the",
     "href": "assesment.html#complete-the-code-to-import-the",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.12 Complete the code to import the",
-    "text": "5.12 Complete the code to import the\ncharacter_chart csv, using column headers “numbers”, “letters”, and “symbols” in that order.\nComplete the code to return the output\nlibrary(tidyverse)\nread_csv(character_chart, col_names =  c(\"numbers\", \"letters\", \"symbols\") )\nExpected Output\n# A tibble: 5 × 3\n  numbers letters symbols\n    <dbl> <chr>   <chr>  \n1       1 a       !      \n2       2 b       @      \n3       3 c       #      \n4       4 d       $      \n5       5 e       %"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.13 Complete the code to import the",
+    "text": "5.13 Complete the code to import the\ncharacter_chart csv, using column headers “numbers”, “letters”, and “symbols” in that order.\nComplete the code to return the output\nlibrary(tidyverse)\nread_csv(character_chart, col_names =  c(\"numbers\", \"letters\", \"symbols\") )\nExpected Output\n# A tibble: 5 × 3\n  numbers letters symbols\n    <dbl> <chr>   <chr>  \n1       1 a       !      \n2       2 b       @      \n3       3 c       #      \n4       4 d       $      \n5       5 e       %"
   },
   {
     "objectID": "assesment.html#the-data-df-shown-below-contains-information-about-bmi-for-a",
     "href": "assesment.html#the-data-df-shown-below-contains-information-about-bmi-for-a",
-    "title": "\n5  Convert the character strings in the vector colors to all upper case.\n",
-    "section": "\n5.13 The data, df shown below, contains information about bmi for a",
-    "text": "5.13 The data, df shown below, contains information about bmi for a\nnumber of countries over time. For presentation purposes you want to join the countries and iso columns into a single column, country_iso.\nComplete the code to return the output\nlibrary(tidyr)\nunite(df, country_iso, countries, iso, sep = \"/\")\nExpected Output\nyear    country_iso      bmi\n1 1980 Afghanistan/AF 21.48678\n2 1980     Albania/AL 25.22533\n3 1980     Algeria/DZ 22.25703"
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.14 The data, df shown below, contains information about bmi for a",
+    "text": "5.14 The data, df shown below, contains information about bmi for a\nnumber of countries over time. For presentation purposes you want to join the countries and iso columns into a single column, country_iso.\nComplete the code to return the output\nlibrary(tidyr)\nunite(df, country_iso, countries, iso, sep = \"/\")\nExpected Output\nyear    country_iso      bmi\n1 1980 Afghanistan/AF 21.48678\n2 1980     Albania/AL 25.22533\n3 1980     Algeria/DZ 22.25703"
+  },
+  {
+    "objectID": "assesment.html#convert-the-character-strings-in-the-vector-colors-to-all-upper-case.",
+    "href": "assesment.html#convert-the-character-strings-in-the-vector-colors-to-all-upper-case.",
+    "title": "\n5  Cleaning and importing Assesment\n",
+    "section": "\n5.1 Convert the character strings in the vector colors to all upper case.",
+    "text": "5.1 Convert the character strings in the vector colors to all upper case.\nComplete the code to return the output\n\n\n[1] \"RED\"   \"GREEN\" \"BLUE\""
+  },
+  {
+    "objectID": "assesment_02.html",
+    "href": "assesment_02.html",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "",
+    "text": "7 A tibble: 5 x 3\nname binomial_name water_requirement \n1 Alfredo Monstera Deliciosa moderate\n2 Isabella Calathea Orbifolia moderate\n3 Marty Areca high\n4 Ollie Alocasia Zebrina high\n5 Howerd Kentiapalm moderate"
+  },
+  {
+    "objectID": "assesment_02.html#list-all-of-the-sheets-of-the-character_excel-excel-workbook.",
+    "href": "assesment_02.html#list-all-of-the-sheets-of-the-character_excel-excel-workbook.",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n6.1 List all of the sheets of the character_excel excel workbook.",
+    "text": "6.1 List all of the sheets of the character_excel excel workbook.\nComplete the code to return the output\nlibrary(readxl)\n\nexcel_sheets(character_excel)\nExpected Output\n[1] \"iris\"     \"mtcars\"   \"chickwts\" \"quakes\"  \n\n## Some mistakes were made during data entry of plant inventory for \nGreen Friend Nursery. Remove the leading spaces from all entries in the \n`water_requirement` column of the `plants` data."
+  },
+  {
+    "objectID": "assesment_02.html#consider-the-fictional-character-data-previewed-below.",
+    "href": "assesment_02.html#consider-the-fictional-character-data-previewed-below.",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.1 Consider the fictional character data previewed below.",
+    "text": "7.1 Consider the fictional character data previewed below.\nSplit the data into Name, Street, City and Country columns so that it would be possible to determine how many characters are from each country.\n# A tibble: 3 x 1\n  Address                                             \n  <chr>                                               \n1 Sherlock Holmes,221B Baker Street,London,England    \n2 Harry Potter,4 Private Drive,Surry,England          \n3 Bruce Wayne,1007 Mountain Drive,Gotham,United States\nComplete the code to return the output\nlibrary(tidyr)\n\ndata  %>% \ndata  %>% \n    separate(\n        Address, \n        into = c('Name', 'Street', 'City', 'Country'),\n        sep=','\n    )"
+  },
+  {
+    "objectID": "assesment_02.html#before-each-of-the-strings-in-the-vector-x",
+    "href": "assesment_02.html#before-each-of-the-strings-in-the-vector-x",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.2 Before each of the strings in the vector x,",
+    "text": "7.2 Before each of the strings in the vector x,\nadd underscores (_) so they are all a width of 4 characters. Complete the code to return the output\nlibrary(stringr)\n\nx <- c(\"A\", \"BC\", \"DEF\")\n\nstr_pad(x, width = 4, \n    side = \"left\", pad = \"_\")\nExpected Output\n[1] \"___A\" \"__BC\" \"_DEF\""
+  },
+  {
+    "objectID": "assesment_02.html#below-is-a-preview-of-the-candy_reviews-data.-remove-all-rows-that",
+    "href": "assesment_02.html#below-is-a-preview-of-the-candy_reviews-data.-remove-all-rows-that",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.3 Below is a preview of the candy_reviews data. Remove all rows that",
+    "text": "7.3 Below is a preview of the candy_reviews data. Remove all rows that\ncontain a missing value, in any column\n# A tibble: 4 x 3\n  reviewer candy    rating\n  <chr>    <chr>     <dbl>\n1 a        M&Ms          9\n2 a        NA            5\n3 b        M&Ms         NA\n4 b        Skittles      3\n\nComplete the code to return the output\nlibrary(tidyr)\n\ndrop_na(candy_reviews)\nExpected Output\n# A tibble: 2 × 3\n  reviewer candy    rating\n  <chr>    <chr>     <dbl>\n1 a        M&Ms          9\n2 b        Skittles      3"
+  },
+  {
+    "objectID": "assesment_02.html#import-the-first-sheet-titled-iris-of-the",
+    "href": "assesment_02.html#import-the-first-sheet-titled-iris-of-the",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.4 Import the first sheet, titled “iris” of the",
+    "text": "7.4 Import the first sheet, titled “iris” of the\ncharacter_excel excel spreadsheet.\nComplete the code to return the output\nlibrary(readxl)\nread_excel(character_excel, sheet = 1)"
+  },
+  {
+    "objectID": "assesment_02.html#all-information-relating-to-participants-in-a-trial-is-contained-in",
+    "href": "assesment_02.html#all-information-relating-to-participants-in-a-trial-is-contained-in",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.5 All information relating to participants in a trial is contained in",
+    "text": "7.5 All information relating to participants in a trial is contained in\nthe data subjects, previewed below. Combine the country_code and number columns to create a column (full_number) containing the entire phone number.\n  surname_initial age country_code number\n1         Smith J  24          504  12345\n2      Williams F  52          852 987654\n3        Taylor K  14           44  13579\n4         Jones D  78           27  24680\nComplete the code to return the output\nlibrary(tidyr)\n\nfull_subjects <- subjects %>% \n  unite(full_number, country_code, number, sep = '-', remove = FALSE)\n\nhead(full_subjects, 3)"
+  },
+  {
+    "objectID": "assesment_02.html#given-the-following-data-yearly_price-replace-all-missing-values",
+    "href": "assesment_02.html#given-the-following-data-yearly_price-replace-all-missing-values",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.6 Given the following data, yearly_price, replace all missing values",
+    "text": "7.6 Given the following data, yearly_price, replace all missing values\nin the value column with the last non-missing value.\n# A tibble: 5 x 2\n   year value\n  <int> <dbl>\n1  2015   3  \n2  2016   3.5\n3  2017  NA  \n4  2018  NA  \n5  2019   7  \nComplete the code to return the output\nlibrary(tidyr)\nyearly_price %>%\n  fill(value)"
+  },
+  {
+    "objectID": "assesment_02.html#the-sales-data-previewed-below-contains-a-number-of-missing-values.",
+    "href": "assesment_02.html#the-sales-data-previewed-below-contains-a-number-of-missing-values.",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.7 The sales data, previewed below contains a number of missing values.",
+    "text": "7.7 The sales data, previewed below contains a number of missing values.\nFor your analysis it is sufficient to replace missing values with the previous observation. Update the data to replace the missing values in the items_sold column.\n# A tibble: 6 x 2\n  date       items_sold\n  <chr>          <dbl>\n1 2019-10-06        26\n2 2019-10-15        12\n3 2019-10-24        82\n4 2019-10-30        NA\n5 2019-11-05       101\n6 2019-11-18        18\n\nComplete the code to return the output\nlibrary(tidyr)\n\nsales %>%\n  fill(items_sold)"
+  },
+  {
+    "objectID": "assesment_02.html#the-2weels-bicycle-shop-stores-their-sales-data-and-inventory-in-one",
+    "href": "assesment_02.html#the-2weels-bicycle-shop-stores-their-sales-data-and-inventory-in-one",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.8 The 2Weels Bicycle Shop stores their sales data and inventory in one",
+    "text": "7.8 The 2Weels Bicycle Shop stores their sales data and inventory in one\nExcel sheet. Import the inventory data located in the table starting at cell F2. \nComplete the code to return the output\nlibrary(readxl)\nread_xlsx(\"bicycle_shop_sales.xlsx\", range = 'F2:H10')"
+  },
+  {
+    "objectID": "assesment_02.html#the-photo.csv-file-contains-data-on-photos-and-the-details-of-the-camera",
+    "href": "assesment_02.html#the-photo.csv-file-contains-data-on-photos-and-the-details-of-the-camera",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.9 The photo.csv file contains data on photos and the details of the camera",
+    "text": "7.9 The photo.csv file contains data on photos and the details of the camera\nsettings. Import the first 4 rows of the file. The file path as been stored in photo_file.\nphoto_id,camera,aperture,focal_length,exposure_time,iso\n50003732063,Canon EOS 80D,f/10.0,135,1,100\n50008729602,Canon EOS 5D,f/11.0,93,1/80,1600\n50010147847,Nikon D5500,f/10.0,18,1/400,200\n50008680253,Sony ILCE-7M3,f/4.5,42,1/320,160\n50013128382,Nikon D810,f/10.0,160,1/13,64\nComplete the code to return the output\nlibrary(tidyverse)\nread_csv(photo_file, n_max = 4)"
+  },
+  {
+    "objectID": "assesment_02.html#reshape-the-fresh_produce-data-to-create-the-plot.",
+    "href": "assesment_02.html#reshape-the-fresh_produce-data-to-create-the-plot.",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.10 Reshape the fresh_produce data to create the plot.",
+    "text": "7.10 Reshape the fresh_produce data to create the plot.\n# A tibble: 5 x 3\n  product      `Quarter 1` `Quarter 2` `Quarter 3` `Quarter 4`\n  <chr>              <dbl>       <dbl>       <dbl>       <dbl>\n1 Apples              1682         993        1203        1984\n2 Bananas              852        1321         243        3427\n3 Bread                192        1767        2853        1937\nComplete the code to return the output\n\nlibrary(tidyr)\nlibrary(ggplot2)\n\nfresh_produce %>% \n    pivot_longer(-Product, \n               names_to = \"Quarter\", \n               values_to = \"Sales\") %>%\n    ggplot(aes(Product, Sales, fill = Quarter)) + \n      geom_col(position = \"dodge\")"
+  },
+  {
+    "objectID": "assesment_02.html#given-the-following-data-yearly_price",
+    "href": "assesment_02.html#given-the-following-data-yearly_price",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.11 Given the following data, yearly_price,",
+    "text": "7.11 Given the following data, yearly_price,\nreplace all missing values in the value column with the value 5.\n\n# A tibble: 5 x 2\n   year value\n  <int> <dbl>\n1  2015   3  \n2  2016   3.5\n3  2017  NA  \n4  2018  NA  \n5  2019   7  \nComplete the code to return the output\nlibrary(tidyr)\n\nyearly_price %>%\n  replace_na(replace = list(value = 5))"
+  },
+  {
+    "objectID": "assesment_02.html#the-data-df-shown-below-contains-information-about-bmi-for-a-number-of",
+    "href": "assesment_02.html#the-data-df-shown-below-contains-information-about-bmi-for-a-number-of",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.12 The data, df shown below, contains information about bmi for a number of",
+    "text": "7.12 The data, df shown below, contains information about bmi for a number of\ncountries over time. For presentation purposes you want to join the countries and iso columns into a single column, country_iso.\n    countries iso  year      bmi\n1 Afghanistan  AF Y1980 21.48678\n2     Albania  AL Y1980 25.22533\n3     Algeria  DZ Y1980 22.25703\nComplete the code to return the output\nlibrary(tidyr)\nunite(df, country_iso, countries, iso, sep = \"/\")"
+  },
+  {
+    "objectID": "assesment_02.html#import-the-third-sheet-titled-chickwts-of-character_excel.",
+    "href": "assesment_02.html#import-the-third-sheet-titled-chickwts-of-character_excel.",
+    "title": "\n6  Cleaning and importing Assesment: Intent 02\n",
+    "section": "\n7.13 Import the third sheet, titled “chickwts” of character_excel.",
+    "text": "7.13 Import the third sheet, titled “chickwts” of character_excel.\nSince the first row is skipped you must specify the column names as “weight” and “feed” in that order.\nComplete the code to return the output\nlibrary(readxl)\nread_excel(character_excel, sheet = 3, col_names=c(\"weight\", \"feed\"), skip = 1)"
+  },
+  {
+    "objectID": "assesment_01.html#convert-the-character-strings-in-the-vector-colors-to-all-upper-case.",
+    "href": "assesment_01.html#convert-the-character-strings-in-the-vector-colors-to-all-upper-case.",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.1 Convert the character strings in the vector colors to all upper case.",
+    "text": "5.1 Convert the character strings in the vector colors to all upper case.\nComplete the code to return the output\n\n\n[1] \"RED\"   \"GREEN\" \"BLUE\""
+  },
+  {
+    "objectID": "assesment_01.html#import-the-third-sheet-titled-chickwts-of-character_excel.",
+    "href": "assesment_01.html#import-the-third-sheet-titled-chickwts-of-character_excel.",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.2 Import the third sheet, titled “chickwts” of character_excel.",
+    "text": "5.2 Import the third sheet, titled “chickwts” of character_excel.\nSince the first row is skipped you must specify the column names as “weight” and “feed” in that order. Complete the code to return the output\nlibrary(readxl)\n\nread_excel(character_excel,\n    sheet = 3,\n    col_names = c(\"weight\", \"feed\"),\n    skip = 1\n)"
+  },
+  {
+    "objectID": "assesment_01.html#the-sales-data-previewed-below-contains-one-column-for-each",
+    "href": "assesment_01.html#the-sales-data-previewed-below-contains-one-column-for-each",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.3 The sales data, previewed below, contains one column for each",
+    "text": "5.3 The sales data, previewed below, contains one column for each\nelement of the date, however the day column contains numbers that are currently stored as character strings. Convert so that they are correctly stored as numbers.\n   month day year items_sold\n1    Oct  06 2019         26\n2    Oct  15 2019         12\n3    Oct  24 2019         82\n4    Oct  30 2019          6\n5    Nov  05 2019        101\n6    Nov  18 2019         18\nComplete the code to return the output\nsales %>% \n  mutate(day = as.numeric(day)) %>% \n  head()"
+  },
+  {
+    "objectID": "assesment_01.html#following-is-a-preview-of-the-data-frames-df1-and-df2",
+    "href": "assesment_01.html#following-is-a-preview-of-the-data-frames-df1-and-df2",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.4 Following is a preview of the data frames df1 and df2:",
+    "text": "5.4 Following is a preview of the data frames df1 and df2:\ndf1 <- data.frame(\n    customer_id = c(20, 21, 22),\n    order_id = c(5, 6, 7)\n)\n\ndf2 <- data.frame(\n    customer_id = c(20, 21, 23),\n    order_id = c(\"Jane\", \"John\", \"Joe\")\n)\nleft_join(df1, df2, by = \"customer_id\")"
+  },
+  {
+    "objectID": "assesment_01.html#the-survey_sav-file-is-an-spss-file-whose-file-extension-is-.sav.",
+    "href": "assesment_01.html#the-survey_sav-file-is-an-spss-file-whose-file-extension-is-.sav.",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.5 The survey_sav file is an SPSS file whose file extension is .sav.",
+    "text": "5.5 The survey_sav file is an SPSS file whose file extension is .sav.\nImport this file using an appropriate function. Complete the code to return the output\nlibrary(haven)\nread_sav(survey_sav)"
+  },
+  {
+    "objectID": "assesment_01.html#the-preview-of-the-plants-data-frame-shows-that-the",
+    "href": "assesment_01.html#the-preview-of-the-plants-data-frame-shows-that-the",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.6 The preview of the plants data frame shows that the",
+    "text": "5.6 The preview of the plants data frame shows that the\nsales_price has been stored as a character string. Convert the sales_price to a numeric variable.\n# A tibble: 5 x 3\n  name     binomial_name      sales_price\n  <chr>    <chr>              <chr>      \n1 Alfredo  Monstera Deliciosa 24.95      \n2 Isabella Calathea Orbifolia 28.95      \n3 Marty    Areca              44.95      \n4 Ollie    Alocasia Zebrina   29.95      \n5 Howerd   Kentiapalm         49.95       \nComplete the code to return the output\nlibrary(dplyr)\n\nplants %>% \n  mutate(sales_price = as.numeric(sales_price))"
+  },
+  {
+    "objectID": "assesment_01.html#convert-the-elements-in-the-vector-numbers_as_chars-into-numeric",
+    "href": "assesment_01.html#convert-the-elements-in-the-vector-numbers_as_chars-into-numeric",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.7 Convert the elements in the vector numbers_as_chars into numeric",
+    "text": "5.7 Convert the elements in the vector numbers_as_chars into numeric\ndata. Complete the code to return the output\nlibrary(readr)\n\nnumbers_as_chars <- c(\"1000\", \"10.2\", \"178\")\n\nas.numeric(numbers_as_chars)"
+  },
+  {
+    "objectID": "assesment_01.html#the-costs-table-shown-below-contains-a-column-of-dates-in-character",
+    "href": "assesment_01.html#the-costs-table-shown-below-contains-a-column-of-dates-in-character",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.8 The costs table shown below contains a column of dates in character",
+    "text": "5.8 The costs table shown below contains a column of dates in character\nstring format.\n# A tibble: 3 x 2\n  date_chr   value   \n  <chr>      <chr>   \n1 2019-09-01 USD-1275\n2 2019-09-03 GBP-995 \n3 2019-08-30 EUR-1050\n\nComplete the code to return the output\nlibrary(dplyr)\nlibrary(lubridate)\n\ncosts %>%\n  mutate(\n    date_format = as_date(date_chr)\n  )"
+  },
+  {
+    "objectID": "assesment_01.html#the-data-movie_reviews-has-been-imported-in-the-format-shown-below.",
+    "href": "assesment_01.html#the-data-movie_reviews-has-been-imported-in-the-format-shown-below.",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.9 The data movie_reviews has been imported in the format shown below.",
+    "text": "5.9 The data movie_reviews has been imported in the format shown below.\nConvert this to a suitable structure so that it can be used for plotting using ggplot2.\n# A tibble: 3 x 3\n  `Casino Royale` `Despicable Me` `Harry Potter`\n            <dbl>           <dbl>          <dbl>\n1              10               4              8\n2               2               9              8\n3      \nlibrary(tidyr)\n\nmovie_reviews %>% \n    pivot_longer(everything(), \n               names_to = \"movie\", \n               values_to = \"rating\")\nExpected Output\n# A tibble: 9 × 2\n  movie         rating\n  <chr>          <dbl>\n1 Casino Royale     10\n2 Despicable Me      4\n3 Harry Potter       8\n4 Casino Royale      2\n5 Despicable Me      9\n6 Harry Potter       8\n7 Casino Royale      5\n8 Despicable Me      8\n9 Harry Potter       6"
+  },
+  {
+    "objectID": "assesment_01.html#before-each-of-the-strings-in-the-vector-x",
+    "href": "assesment_01.html#before-each-of-the-strings-in-the-vector-x",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.10 Before each of the strings in the vector x,",
+    "text": "5.10 Before each of the strings in the vector x,\nadd underscores (_) so they are all a width of 4 characters. Complete the code to return the output\nlibrary(stringr)\n\nx <- c(\"A\", \"BC\", \"DEF\")\n\nstr_pad(x, width = 4, \n    side = \"left\", pad = \"_\")\nExpected Output\n[1] \"___A\" \"__BC\" \"_DEF\""
+  },
+  {
+    "objectID": "assesment_01.html#list-all-of-the-sheets-of-the-character_excel-excel-workbook.",
+    "href": "assesment_01.html#list-all-of-the-sheets-of-the-character_excel-excel-workbook.",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.11 List all of the sheets of the character_excel excel workbook.",
+    "text": "5.11 List all of the sheets of the character_excel excel workbook.\nComplete the code to return the output\nlibrary(readxl)\n\nexcel_sheets(character_excel)\nExpected Output\n[1] \"iris\"     \"mtcars\"   \"chickwts\" \"quakes\""
+  },
+  {
+    "objectID": "assesment_01.html#some-mistakes-were-made-during-data-entry-of-plant-inventory-for",
+    "href": "assesment_01.html#some-mistakes-were-made-during-data-entry-of-plant-inventory-for",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.12 Some mistakes were made during data entry of plant inventory for",
+    "text": "5.12 Some mistakes were made during data entry of plant inventory for\nGreen Friend Nursery. Remove the leading spaces from all entries in the water_requirement column of the plants data.\n# A tibble: 5 x 3\n  name     binomial_name      water_requirement\n  <chr>    <chr>              <chr>            \n1 Alfredo  Monstera Deliciosa moderate         \n2 Isabella Calathea Orbifolia   moderate     \n3 Marty    Areca                high         \n4 Ollie    Alocasia Zebrina   high             \n5 Howerd   Kentiapalm         moderate  \nComplete the code to return the output\nlibrary(stringr)\nlibrary(dplyr)\n\nplants %>% \n  mutate(water_requirement = str_trim(water_requirement))\n# A tibble: 5 × 3\n  name     binomial_name      water_requirement\n  <chr>    <chr>              <chr>            \n1 Alfredo  Monstera Deliciosa moderate         \n2 Isabella Calathea Orbifolia moderate         \n3 Marty    Areca              high             \n4 Ollie    Alocasia Zebrina   high             \n5 Howerd   Kentiapalm         moderate"
+  },
+  {
+    "objectID": "assesment_01.html#complete-the-code-to-import-the",
+    "href": "assesment_01.html#complete-the-code-to-import-the",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.13 Complete the code to import the",
+    "text": "5.13 Complete the code to import the\ncharacter_chart csv, using column headers “numbers”, “letters”, and “symbols” in that order.\nComplete the code to return the output\nlibrary(tidyverse)\nread_csv(character_chart, col_names =  c(\"numbers\", \"letters\", \"symbols\") )\nExpected Output\n# A tibble: 5 × 3\n  numbers letters symbols\n    <dbl> <chr>   <chr>  \n1       1 a       !      \n2       2 b       @      \n3       3 c       #      \n4       4 d       $      \n5       5 e       %"
+  },
+  {
+    "objectID": "assesment_01.html#the-data-df-shown-below-contains-information-about-bmi-for-a",
+    "href": "assesment_01.html#the-data-df-shown-below-contains-information-about-bmi-for-a",
+    "title": "\n5  Cleaning and importing Assesment:Intent 01\n",
+    "section": "\n5.14 The data, df shown below, contains information about bmi for a",
+    "text": "5.14 The data, df shown below, contains information about bmi for a\nnumber of countries over time. For presentation purposes you want to join the countries and iso columns into a single column, country_iso.\nComplete the code to return the output\nlibrary(tidyr)\nunite(df, country_iso, countries, iso, sep = \"/\")\nExpected Output\nyear    country_iso      bmi\n1 1980 Afghanistan/AF 21.48678\n2 1980     Albania/AL 25.22533\n3 1980     Algeria/DZ 22.25703"
   }
 ]
