@@ -1,0 +1,266 @@
+
+## Convert the character strings in the vector colors to all upper case.
+Complete the code to return the output
+```{r}
+library(tidyverse)
+library(stringr)
+library(readr)
+library(readxl)
+colors <- c("Red", "green", "bluE")
+str_to_upper(colors)
+```
+
+## Import the third sheet, titled "chickwts" of character_excel.
+Since the first row is skipped you must specify the column names as 
+"weight" and "feed" in that order.
+Complete the code to return the output
+
+```{.r}
+library(readxl)
+
+read_excel(character_excel,
+    sheet = 3,
+    col_names = c("weight", "feed"),
+    skip = 1
+)
+```
+
+## The sales data, previewed below, contains one column for each 
+element of
+the date, however the day column contains numbers that are currently 
+stored as character strings. Convert so that they are correctly stored as numbers.
+
+```{.r code-line-numbers="false"}
+   month day year items_sold
+1    Oct  06 2019         26
+2    Oct  15 2019         12
+3    Oct  24 2019         82
+4    Oct  30 2019          6
+5    Nov  05 2019        101
+6    Nov  18 2019         18
+```
+Complete the code to return the output
+
+```{.r}
+sales %>% 
+  mutate(day = as.numeric(day)) %>% 
+  head()
+```
+## Following is a preview of the data frames df1 and df2:
+
+```{r}
+df1 <- data.frame(
+    customer_id = c(20, 21, 22),
+    order_id = c(5, 6, 7)
+)
+
+df2 <- data.frame(
+    customer_id = c(20, 21, 23),
+    order_id = c("Jane", "John", "Joe")
+)
+left_join(df1, df2, by = "customer_id")
+```
+
+## The survey_sav file is an SPSS file whose file extension is `.sav`. 
+
+Import this file using an appropriate function.
+Complete the code to return the output
+
+```{.r code-line-numbers="false"}
+library(haven)
+read_sav(survey_sav)
+```
+## The preview of the plants data frame shows that the 
+`sales_price` has been stored as a character string. Convert the 
+`sales_price` to a numeric variable.
+
+```{.r code-line-numbers="false"}
+# A tibble: 5 x 3
+  name     binomial_name      sales_price
+  <chr>    <chr>              <chr>      
+1 Alfredo  Monstera Deliciosa 24.95      
+2 Isabella Calathea Orbifolia 28.95      
+3 Marty    Areca              44.95      
+4 Ollie    Alocasia Zebrina   29.95      
+5 Howerd   Kentiapalm         49.95       
+```
+Complete the code to return the output
+```{.r}
+library(dplyr)
+
+plants %>% 
+  mutate(sales_price = as.numeric(sales_price))
+```
+## Convert the elements in the vector `numbers_as_chars` into numeric
+data. Complete the code to return the output
+
+```{.r}
+library(readr)
+
+numbers_as_chars <- c("1000", "10.2", "178")
+
+as.numeric(numbers_as_chars)
+```
+## The `costs` table shown below contains a column of dates in character
+string format.
+
+```
+# A tibble: 3 x 2
+  date_chr   value   
+  <chr>      <chr>   
+1 2019-09-01 USD-1275
+2 2019-09-03 GBP-995 
+3 2019-08-30 EUR-1050
+
+```
+Complete the code to return the output
+
+```{.r}
+library(dplyr)
+library(lubridate)
+
+costs %>%
+  mutate(
+    date_format = as_date(date_chr)
+  )
+```
+## The data `movie_reviews` has been imported in the format shown below.
+Convert this to a suitable structure so that it can be used for plotting 
+using `ggplot2`.
+```
+# A tibble: 3 x 3
+  `Casino Royale` `Despicable Me` `Harry Potter`
+            <dbl>           <dbl>          <dbl>
+1              10               4              8
+2               2               9              8
+3      
+```
+
+
+```{.r}
+library(tidyr)
+
+movie_reviews %>% 
+	pivot_longer(everything(), 
+               names_to = "movie", 
+               values_to = "rating")
+```
+
+**Expected Output**
+```
+# A tibble: 9 × 2
+  movie         rating
+  <chr>          <dbl>
+1 Casino Royale     10
+2 Despicable Me      4
+3 Harry Potter       8
+4 Casino Royale      2
+5 Despicable Me      9
+6 Harry Potter       8
+7 Casino Royale      5
+8 Despicable Me      8
+9 Harry Potter       6
+```
+
+## Before each of the strings in the vector x, 
+add underscores (_) so they are all a width of 4 characters.
+**Complete the code to return the output**
+```{.r code-line-numbers="false"}
+library(stringr)
+
+x <- c("A", "BC", "DEF")
+
+str_pad(x, width = 4, 
+    side = "left", pad = "_")
+```
+**Expected Output**
+```
+[1] "___A" "__BC" "_DEF"
+```
+## List all of the sheets of the character_excel excel workbook.
+**Complete the code to return the output**
+```{.r code-line-numbers="false"}
+library(readxl)
+
+excel_sheets(character_excel)
+```
+**Expected Output**
+```
+[1] "iris"     "mtcars"   "chickwts" "quakes"  
+```
+
+## Some mistakes were made during data entry of plant inventory for 
+Green Friend Nursery. Remove the leading spaces from all entries in the 
+`water_requirement` column of the `plants` data.
+```
+# A tibble: 5 x 3
+  name     binomial_name      water_requirement
+  <chr>    <chr>              <chr>            
+1 Alfredo  Monstera Deliciosa moderate         
+2 Isabella Calathea Orbifolia   moderate     
+3 Marty    Areca                high         
+4 Ollie    Alocasia Zebrina   high             
+5 Howerd   Kentiapalm         moderate  
+```
+**Complete the code to return the output**
+
+```{.r}
+library(stringr)
+library(dplyr)
+
+plants %>% 
+  mutate(water_requirement = str_trim(water_requirement))
+```
+
+```
+# A tibble: 5 × 3
+  name     binomial_name      water_requirement
+  <chr>    <chr>              <chr>            
+1 Alfredo  Monstera Deliciosa moderate         
+2 Isabella Calathea Orbifolia moderate         
+3 Marty    Areca              high             
+4 Ollie    Alocasia Zebrina   high             
+5 Howerd   Kentiapalm         moderate 
+
+```
+
+## Complete the code to import the 
+`character_chart` csv, using column headers "numbers", "letters", and 
+"symbols" in that order.
+
+**Complete the code to return the output**
+
+```{.r code-line-numbers="false"}
+library(tidyverse)
+read_csv(character_chart, col_names =  c("numbers", "letters", "symbols") )
+```
+**Expected Output**
+```
+# A tibble: 5 × 3
+  numbers letters symbols
+    <dbl> <chr>   <chr>  
+1       1 a       !      
+2       2 b       @      
+3       3 c       #      
+4       4 d       $      
+5       5 e       %      
+```
+
+## The data, df shown below, contains information about bmi for a 
+number of countries over time. For presentation purposes you want to join the 
+countries and iso columns into a single column, `country_iso`.
+
+**Complete the code to return the output**
+```{.r }
+library(tidyr)
+unite(df, country_iso, countries, iso, sep = "/")
+``` 
+**Expected Output**
+```
+year    country_iso      bmi
+1 1980 Afghanistan/AF 21.48678
+2 1980     Albania/AL 25.22533
+3 1980     Algeria/DZ 22.25703
+```
+
+
