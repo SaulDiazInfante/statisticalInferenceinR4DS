@@ -213,6 +213,7 @@ being R or Python accordingly
 
 
 ```{r}
+library(kableExtra)
 header <- c("SKILL ASSESMENT", "ASSOCIATE", "PROFESSIONAL")
 skill <- c(
   "Data Management in SQL (PostgreSQL)",
@@ -226,7 +227,9 @@ profesional_points <- c(134, 115, 111, 111, 125)
 df_data_analyst_assesments <- 
   data.frame(skill, associate_points, profesional_points)
 names(df_data_analyst_assesments) <- header
-knitr::kable(df_data_analyst_assesments, format = "html")
+df_data_analyst_assesments %>%
+  kbl() %>%
+    kable_material_dark(c("striped", "hover"))
 ```
 ## Data Scientist
 
@@ -254,7 +257,9 @@ profesional_points <- c(131, 125, 149, 134, 119, 140)
 df_data_scientist_assesments <- 
   data.frame(skill, associate_points, profesional_points)
 names(df_data_scientist_assesments) <- header
-knitr::kable(df_data_scientist_assesments, format = "html")
+df_data_scientist_assesments %>%
+  kbl() %>%
+  kable_material_dark(c("striped", "hover"))
 ```
 :::
 

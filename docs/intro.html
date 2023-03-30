@@ -119,7 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
+}</script><script src="site_libs/kePrint-0.0.1/kePrint.js"></script><link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <meta name="twitter:title" content="Statistical Inference For Data Science - Introduction">
 <meta name="twitter:description" content="The focus of this course is int the programming and basic techniques for inference that are usually applied in data science. We start by reviewing and enforcing programming skills.">
 <meta name="twitter:card" content="summary">
@@ -632,7 +632,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material-dark lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> SKILL ASSESMENT </th>
    <th style="text-align:right;"> ASSOCIATE </th>
@@ -680,7 +680,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material-dark lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> SKILL ASSESMENT </th>
    <th style="text-align:right;"> ASSOCIATE </th>
@@ -739,8 +739,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✔ readr   2.1.2      ✔ forcats 0.5.2 
 ✔ purrr   0.3.4      
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
+✖ dplyr::filter()     masks stats::filter()
+✖ dplyr::group_rows() masks kableExtra::group_rows()
+✖ dplyr::lag()        masks stats::lag()</code></pre>
 </div>
 </div>
 <p>see <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a> documentation.</p>
@@ -1272,75 +1273,80 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>header <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"SKILL ASSESMENT"</span>, <span class="st">"ASSOCIATE"</span>, <span class="st">"PROFESSIONAL"</span>)</span>
-<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a>skill <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Management in SQL (PostgreSQL)"</span>,</span>
-<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Analysis in SQL (PostgreSQL)"</span>,</span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Importing &amp; Cleaning Data in R/Python"</span>,</span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Manipulation in R/Python"</span>,</span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Statistical Fundamentals in R/Python"</span></span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>associate_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">134</span>, <span class="dv">115</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>profesional_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">134</span>, <span class="dv">115</span>, <span class="dv">111</span>, <span class="dv">111</span>, <span class="dv">125</span>)</span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>df_data_analyst_assesments <span class="ot">&lt;-</span> </span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(skill, associate_points, profesional_points)</span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df_data_analyst_assesments) <span class="ot">&lt;-</span> header</span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_data_analyst_assesments, <span class="at">format =</span> <span class="st">"html"</span>)</span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Scientist</span></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>DataCamp recommends that you complete the following  tracks</span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>SQL Fundamentals skill</span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data Scientist with R (career)</span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data Scientist with Python (career) </span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>you may want to enroll in the Data Communication Concepts course to prepare for</span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>the practical exam.</span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a>header <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"SKILL ASSESMENT"</span>, <span class="st">"ASSOCIATE"</span>, <span class="st">"PROFESSIONAL"</span>)</span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>skill <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Management in SQL (PostgreSQL)"</span>,</span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Analysis in SQL (PostgreSQL)"</span>,</span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Importing &amp; Cleaning Data in R/Python"</span>,</span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Manipulation in R/Python"</span>,</span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Statistical Fundamentals in R/Python"</span></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>associate_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">134</span>, <span class="dv">115</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>profesional_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">134</span>, <span class="dv">115</span>, <span class="dv">111</span>, <span class="dv">111</span>, <span class="dv">125</span>)</span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>df_data_analyst_assesments <span class="ot">&lt;-</span> </span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(skill, associate_points, profesional_points)</span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df_data_analyst_assesments) <span class="ot">&lt;-</span> header</span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>df_data_analyst_assesments <span class="sc">%&gt;%</span></span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_material_dark</span>(<span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Scientist</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>DataCamp recommends that you complete the following  tracks</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>SQL Fundamentals skill</span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data Scientist with R (career)</span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data Scientist with Python (career) </span>
 <span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>header <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"SKILL ASSESMENT"</span>, <span class="st">"ASSOCIATE"</span>, <span class="st">"PROFESSIONAL"</span>)</span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>skill <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Manipulation in R/Python"</span>,</span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Statistical Fundamentals in R/Python"</span>,</span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Importing &amp; Cleaning in R/Python"</span>,</span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Data Management in SQL (PostgreSQL)"</span>,</span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Machine Learning Fundamentals in R/Python"</span>,</span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>  <span class="st">" R / Python Programming"</span></span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>associate_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">131</span>, <span class="dv">125</span>, <span class="dv">130</span>, <span class="cn">NA</span>, <span class="dv">119</span>, <span class="dv">120</span>)</span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>profesional_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">131</span>, <span class="dv">125</span>, <span class="dv">149</span>, <span class="dv">134</span>, <span class="dv">119</span>, <span class="dv">140</span>)</span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>df_data_scientist_assesments <span class="ot">&lt;-</span> </span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(skill, associate_points, profesional_points)</span>
-<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df_data_scientist_assesments) <span class="ot">&lt;-</span> header</span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_data_scientist_assesments, <span class="at">format =</span> <span class="st">"html"</span>)</span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a><span class="fu">## The tidyverse</span></span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>you may want to enroll in the Data Communication Concepts course to prepare for</span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>the practical exam.</span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>header <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"SKILL ASSESMENT"</span>, <span class="st">"ASSOCIATE"</span>, <span class="st">"PROFESSIONAL"</span>)</span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>skill <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Data Manipulation in R/Python"</span>,</span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Statistical Fundamentals in R/Python"</span>,</span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Importing &amp; Cleaning in R/Python"</span>,</span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Data Management in SQL (PostgreSQL)"</span>,</span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>  <span class="st">" Machine Learning Fundamentals in R/Python"</span>,</span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>  <span class="st">" R / Python Programming"</span></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>associate_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">131</span>, <span class="dv">125</span>, <span class="dv">130</span>, <span class="cn">NA</span>, <span class="dv">119</span>, <span class="dv">120</span>)</span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>profesional_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">131</span>, <span class="dv">125</span>, <span class="dv">149</span>, <span class="dv">134</span>, <span class="dv">119</span>, <span class="dv">140</span>)</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>df_data_scientist_assesments <span class="ot">&lt;-</span> </span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(skill, associate_points, profesional_points)</span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df_data_scientist_assesments) <span class="ot">&lt;-</span> header</span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>df_data_scientist_assesments <span class="sc">%&gt;%</span></span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_material_dark</span>(<span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>We need to install a R package. The majority of the packages that we will use</span>
-<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>are part of the so-called tidyverse package. The packages in the tidyverse share</span>
-<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>a common philosophy of data and R programming, and are designed to work together</span>
-<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>naturally.</span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="fu">## The tidyverse</span></span>
 <span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>You can install the complete tidyverse with the line of code:</span>
-<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>  <span class="co"># install.packages("tidyverse")</span></span>
-<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>then we can use it by loading in the preamble section with</span>
-<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>see <span class="ot">&lt;https://www.tidyverse.org/&gt;</span> documentation.</span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>We need to install a R package. The majority of the packages that we will use</span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>are part of the so-called tidyverse package. The packages in the tidyverse share</span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>a common philosophy of data and R programming, and are designed to work together</span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>naturally.</span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>You can install the complete tidyverse with the line of code:</span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a>  <span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>then we can use it by loading in the preamble section with</span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>see <span class="ot">&lt;https://www.tidyverse.org/&gt;</span> documentation.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
