@@ -1,0 +1,5 @@
+# Full, Semi, and Anti Joins
+
+In this chapter, you'll cover three more joining verbs: full-join,
+semi-join, and anti-join. You'll then use these verbs to answer questions
+about the similarities and differences between a variety of LEGO sets.

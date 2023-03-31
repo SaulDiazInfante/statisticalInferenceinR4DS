@@ -1,0 +1,7 @@
+# Left and Right Joins
+
+Learn two more mutating joins, the left and right join, which are mirror images
+of each other! You'll learn use cases for each type of join as you explore
+parts and colors of LEGO themes. Then, you'll explore how to join tables to
+themselves to understand the hierarchy of LEGO themes in the data.
+

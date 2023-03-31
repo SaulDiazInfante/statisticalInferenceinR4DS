@@ -1,0 +1,7 @@
+# Case Study: Joins on Stack Overflow Data
+
+Put together all the types of join you learned in this course to analyze a new
+dataset: Stack Overflow questions, answers, and tags. This includes calculating
+and visualizing trends for some notable tags like `dplyr` and `ggplot2`. You'll also
+master one more method for combining tables, the bind_rows verb, which stacks 
+tables on top of each other.

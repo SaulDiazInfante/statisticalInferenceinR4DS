@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "joining_data_with_dplyr_04.html",
+    "href": "joining_data_with_dplyr_04.html",
+    "title": "5  Case Study: Joins on Stack Overflow Data",
+    "section": "",
+    "text": "Put together all the types of join you learned in this course to analyze a new dataset: Stack Overflow questions, answers, and tags. This includes calculating and visualizing trends for some notable tags like dplyr and ggplot2. You’ll also master one more method for combining tables, the bind_rows verb, which stacks tables on top of each other."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Often in data science, you’ll encounter fascinating data that is spread across multiple tables. This course will teach you the skills you’ll need to join multiple tables together to analyze them in combination. You’ll practice your skills using a fun dataset about LEGOs from the Rebrickable website. The dataset contains information about the sets, parts, themes, and colors of LEGOs, but is spread across many tables. You’ll work with the data throughout the course as you learn a total of six different joins! You’ll learn four mutating joins: inner join, left join, right join, and full join, and two filtering joins: semi join and anti join. In the final chapter, you’ll apply your new skills to Stack Overflow data, containing each of the almost 300,000 Stack Oveflow questions that are tagged with R, including information about their answers, the date they were asked, and their score. Get ready to take your dplyr skills to the next level!"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#section",
+    "href": "joining_data_with_dplyr_01.html#section",
+    "title": "2  Joining Tables",
+    "section": "2.1 ",
+    "text": "2.1 \n\n2.1.1 Instructions 1000 XP\n\n\nex_00.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#section-1",
+    "href": "joining_data_with_dplyr_01.html#section-1",
+    "title": "2  Joining Tables",
+    "section": "2.2 ",
+    "text": "2.2 \n\n2.2.1 Instructions 1000 XP\n\n\nex_00.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#section-2",
+    "href": "joining_data_with_dplyr_01.html#section-2",
+    "title": "2  Joining Tables",
+    "section": "2.3 ",
+    "text": "2.3 \n\n2.3.1 Instructions 1000 XP\n\n\nex_00.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#section-3",
+    "href": "joining_data_with_dplyr_01.html#section-3",
+    "title": "2  Joining Tables",
+    "section": "2.4 ",
+    "text": "2.4 \n\n2.4.1 Instructions 1000 XP\n\n\nex_00.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#section-4",
+    "href": "joining_data_with_dplyr_01.html#section-4",
+    "title": "2  Joining Tables",
+    "section": "2.5 ",
+    "text": "2.5 \n\n2.5.1 Instructions 1000 XP\n\n\nex_00.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html",
+    "href": "joining_data_with_dplyr_02.html",
+    "title": "3  Left and Right Joins",
+    "section": "",
+    "text": "Learn two more mutating joins, the left and right join, which are mirror images of each other! You’ll learn use cases for each type of join as you explore parts and colors of LEGO themes. Then, you’ll explore how to join tables to themselves to understand the hierarchy of LEGO themes in the data."
+  },
+  {
+    "objectID": "joining_data_with_dplyr_03.html",
+    "href": "joining_data_with_dplyr_03.html",
+    "title": "4  Full, Semi, and Anti Joins",
+    "section": "",
+    "text": "In this chapter, you’ll cover three more joining verbs: full-join, semi-join, and anti-join. You’ll then use these verbs to answer questions about the similarities and differences between a variety of LEGO sets."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "6  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Joining-data-with-dplyr",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "index.html#joining-data-with-dplyr",
+    "href": "index.html#joining-data-with-dplyr",
+    "title": "Joining-data-with-dplyr",
+    "section": "Joining Data with dplyr",
+    "text": "Joining Data with dplyr\nOften in data science, you’ll encounter fascinating data that is spread across multiple tables. This course will teach you the skills you’ll need to join multiple tables together to analyze them in combination. You’ll practice your skills using a fun dataset about LEGOs from the Rebrickable website. The dataset contains information about the sets, parts, themes, and colors of LEGOs, but is spread across many tables. You’ll work with the data throughout the course as you learn a total of six different joins! You’ll learn four mutating joins: inner join, left join, right join, and full join, and two filtering joins: semi join and anti join. In the final chapter, you’ll apply your new skills to Stack Overflow data, containing each of the almost 300,000 Stack Oveflow questions that are tagged with R, including information about their answers, the date they were asked, and their score. Get ready to take your dplyr skills to the next level!"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#joining-parts-and-part-categories",
+    "href": "joining_data_with_dplyr_01.html#joining-parts-and-part-categories",
+    "title": "2  Joining Tables",
+    "section": "2.1 Joining parts and part categories",
+    "text": "2.1 Joining parts and part categories\nThe inner_join is the key to bring tables together. To use it, you need to provide the two tables that must be joined and the columns on which they should be joined.\nIn this exercise, you’ll join a list of LEGO parts, available as parts, with these parts’ corresponding categories, available as part_categories. For example, the part Sticker Sheet 1 for Set 1650-1 is from the Stickers part category. You can join these tables to see all parts’ categories!\n\nInstructions 1000 XP\n\nAdd the correct joining verb, the name of the second table, and the joining column for the second table.\nNow, use the suffix argument to add “_part” and “_category” suffixes to replace the name.x and name.y fields.\n\n\n\nex_001.R\n\n# Add the correct verb, table, and joining column\nparts %>% \n  inner_join(part_categories, by = c(\"part_cat_id\" = \"id\"))\n# Use the suffix argument to replace .x and .y suffixes\nparts %>% \n  inner_join(\n    part_categories,\n    by = c(\"part_cat_id\" = \"id\"),\n    suffix = c(\"_part\", \"_category\")\n  )"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#joining-parts-and-inventories",
+    "href": "joining_data_with_dplyr_01.html#joining-parts-and-inventories",
+    "title": "2  Joining Tables",
+    "section": "2.2 Joining parts and Inventories",
+    "text": "2.2 Joining parts and Inventories\nThe LEGO data has many tables that can be joined together. Often times, some of the things you care about may be a few tables away (we’ll get to that later in the course). For now, we know that parts is a list of all LEGO parts, and a new table, inventory_parts, has some additional information about those parts, such as the color_id of each part you would find in a specific LEGO kit.\nLet’s join these two tables together to observe how joining parts with inventory_parts increases the size of your table because of the one-to-many relationship that exists between these two tables.\n\nInstructions 1000 XP\n\n\nex_002.R\n\n# Combine the parts and inventory_parts tables\nparts %>%\n  inner_join(\n    inventory_parts,\n    by = c(\"part_num\" = \"part_num\")\n  )"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#joining-in-either-direction",
+    "href": "joining_data_with_dplyr_01.html#joining-in-either-direction",
+    "title": "2  Joining Tables",
+    "section": "2.3 Joining in either direction",
+    "text": "2.3 Joining in either direction\nAn inner_join works the same way with either table in either position. The table that is specified first is arbitrary, since you will end up with the same information in the resulting table either way.\nLet’s prove this by joining the same two tables from the last exercise in the opposite order!\n\nInstructions 1000 XP\n\nConnect the inventory_parts and parts tables by their part numbers using an inner join.\n\n\n\nex_003.R\n\n# Combine the parts and inventory_parts tables\ninventory_parts %>%\n  inner_join(\n    parts,\n    by = c(\"part_num\" = \"part_num\")\n  )"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#joining-three-or-more-tables",
+    "href": "joining_data_with_dplyr_01.html#joining-three-or-more-tables",
+    "title": "2  Joining Tables",
+    "section": "2.4 Joining three or more tables",
+    "text": "2.4 Joining three or more tables\n\nInstructions 1000 XP\n\n\nex_004.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#joining-three-tables",
+    "href": "joining_data_with_dplyr_01.html#joining-three-tables",
+    "title": "2  Joining Tables",
+    "section": "2.4 Joining three tables",
+    "text": "2.4 Joining three tables\nYou can string together multiple joins with inner_join and the pipe (%>%), both with which you are already very familiar!\nWe’ll now connect sets, a table that tells us about each LEGO kit, with inventories, a table that tells us the specific version of a given set, and finally to inventory_parts, a table which tells us how many of each part is available in each LEGO kit.\nSo if you were building a Batman LEGO set, sets would tell you the name of the set, inventories would give you IDs for each of the versions of the set, and inventory_parts would tell you how many of each part would be in each version.\n\nInstructions 1000 XP\n\nCombine the inventories table with the sets table.\nNext, join the inventory_parts table to the table you created in the previous join by the inventory IDs.\n\n\n\nex_004.R\n\nsets %>%\n  # Add inventories using an inner join \n  inner_join(\n    inventories,\n    by = c(\"set_num\")\n  ) %>%\n  # Add inventory_parts using an inner join \n  inner_join(\n    inventory_parts,\n    by = c(\"id\" = \"inventory_id\"),\n  )"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_01.html#whats-the-most-common-color",
+    "href": "joining_data_with_dplyr_01.html#whats-the-most-common-color",
+    "title": "2  Joining Tables",
+    "section": "2.5 What’s the most common color?",
+    "text": "2.5 What’s the most common color?\nNow let’s join an additional table, colors, which will tell us the color of each part in each set, so that we can answer the question, “what is the most common color of a LEGO piece?”\n\nInstructions 1000 XP\n\nInner join the colors table using the color_id column from the previous join and the id column from colors; use the suffixes \"_set\" and \"_color\".\nCount the name_color column and sort the results so the most prominent colors appear first.\n\n\n\nex_005.R\n\n# Add an inner join for the colors table\nsets %>%\n  inner_join(inventories, by = \"set_num\") %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  inner_join(\n    colors,\n    by = c(\"color_id\" = \"id\"),\n    suffix = c(\"_set\", \"_color\")\n  )\n\nsets %>%\n  inner_join(inventories, by = \"set_num\") %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  inner_join(colors, by = c(\"color_id\" = \"id\"), suffix = c(\"_set\", \"_color\")) %>%\n  count(name_color)\n\n# Count the number of colors and sort\nsets %>%\n  inner_join(inventories, by = \"set_num\") %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  inner_join(\n    colors,\n    by = c(\"color_id\" = \"id\"),\n    suffix = c(\"_set\", \"_color\")\n) %>%\n  count(name_color, sort = TRUE)"
+  }
+]

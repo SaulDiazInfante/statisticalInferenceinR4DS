@@ -1,0 +1,53 @@
+project:
+  type: book
+  output-dir: docs
+book:
+  title: "Joining-data-with-dplyr"
+  author: "Saul Diaz Infante Velasco"
+  search: true
+  cover-image: cover.png
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  date: "2/23/2023"
+  repo-url: https://github.com/SaulDiazInfante/statisticalInferenceinR4DS   
+  repo-actions: [edit]
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 3
+    pinned: true
+  favicon: cover.png
+  twitter-card: true
+  site-url: https://www.saul-diaz-infante-velasco.com
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - joining_data_with_dplyr_01.qmd
+    - joining_data_with_dplyr_02.qmd
+    - joining_data_with_dplyr_03.qmd
+    - joining_data_with_dplyr_04.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    fig-width: 8
+    fig-height: 4
+    code-fold: true
+    code-tools: true
+    code-link: true
+
+pdf:
+  documentclass: scrreprt
+epub:
+  cover-image: cover.png
+jupyter: python3
+execute:
+  echo: false
+
+

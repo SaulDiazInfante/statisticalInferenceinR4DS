@@ -1,0 +1,15 @@
+# Introduction
+
+Often in data science, you'll encounter fascinating data that is spread across 
+multiple tables. This course will teach you the skills you'll need to join 
+multiple tables together to analyze them in combination. You'll practice your 
+skills using a fun dataset about LEGOs from the Rebrickable website. The dataset
+contains information about the sets, parts, themes, and colors of LEGOs, but is
+spread across many tables. You'll work with the data throughout the course as 
+you learn a total of six different joins! You'll learn four mutating joins:
+inner join, left join, right join, and full join, and two filtering joins:
+semi join and anti join. In the final chapter, you'll apply your new skills 
+to Stack Overflow data, containing each of the almost 300,000 Stack Oveflow
+questions that are tagged with R, including information about their answers, 
+the date they were asked, and their score. Get ready to take your dplyr skills 
+to the next level!
