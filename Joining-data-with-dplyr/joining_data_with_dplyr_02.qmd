@@ -5,3 +5,108 @@ of each other! You'll learn use cases for each type of join as you explore
 parts and colors of LEGO themes. Then, you'll explore how to join tables to
 themselves to understand the hierarchy of LEGO themes in the data.
 
+## Left joining two sets by part and color
+
+You has been learned how to left join two LEGO sets. Now you'll practice your
+ability to do this looking at two new sets: the Millennium Falcon and Star
+Destroyer sets. We've created these for you and they have been preloaded for you:
+
+```{.r code-line-numbers="false"}
+millennium_falcon <- inventory_parts_joined %>%
+  filter(set_num == "7965-1")
+star_destroyer <- inventory_parts_joined %>%
+  filter(set_num == "75190-1")
+```
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_006.R"}
+# Combine the star_destroyer and millennium_falcon tables
+millennium_falcon %>%
+  left_join(
+    star_destroyer,
+    by = c("part_num", "color_id"),
+    suffix =  c("_falcon", "_star_destroyer")
+  )
+```
+
+## Left joining two sets by color
+
+In the last exercise, you joined two sets based on their part and color.
+What if you joined the datasets by color alone? As with the last exercise,
+the Millennium Falcon and Star Destroyer sets have been created and preloaded for you:
+
+```{.r code-line-numbers="false"}
+millennium_falcon <- inventory_parts_joined %>%
+  filter(set_num == "7965-1")
+star_destroyer <- inventory_parts_joined %>%
+  filter(set_num == "75190-1")
+```
+
+### Instructions `100 XP` {.unnumbered}
+- Sum the `quantity` column by color_id in the Millennium Falcon dataset.
+- 
+```{.r filename="ex_007.R"}
+# Aggregate Millennium Falcon for the total quantity in each part
+millennium_falcon_colors <- millennium_falcon %>%
+  group_by(color_id) %>%
+  summarize(total_quantity = sum(quantity))
+
+```
+
+## Finding an observation that doesn't have a match
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.R"}
+
+```
+
+## Which join is best?
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.R"}
+
+```
+
+## Counting part colors
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.R"}
+
+```
+
+## Cleaning up your count
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.R"}
+
+```
+
+## Joining themes to their children 
+
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.R"}
+
+```
+
+## Joining themes to their grandchildren
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.R"}
+
+```
+
+## Left join a table to itself
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.R"}
+
+```

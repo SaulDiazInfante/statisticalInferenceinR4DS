@@ -34,8 +34,8 @@ bibliography: references.bib
 format:
   html:
     theme:
-      light: flatly
       dark: darkly
+      light: flatly
     fig-width: 8
     fig-height: 4
     code-fold: true

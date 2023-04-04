@@ -124,5 +124,68 @@
     "title": "2  Joining Tables",
     "section": "2.5 What’s the most common color?",
     "text": "2.5 What’s the most common color?\nNow let’s join an additional table, colors, which will tell us the color of each part in each set, so that we can answer the question, “what is the most common color of a LEGO piece?”\n\nInstructions 1000 XP\n\nInner join the colors table using the color_id column from the previous join and the id column from colors; use the suffixes \"_set\" and \"_color\".\nCount the name_color column and sort the results so the most prominent colors appear first.\n\n\n\nex_005.R\n\n# Add an inner join for the colors table\nsets %>%\n  inner_join(inventories, by = \"set_num\") %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  inner_join(\n    colors,\n    by = c(\"color_id\" = \"id\"),\n    suffix = c(\"_set\", \"_color\")\n  )\n\nsets %>%\n  inner_join(inventories, by = \"set_num\") %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  inner_join(colors, by = c(\"color_id\" = \"id\"), suffix = c(\"_set\", \"_color\")) %>%\n  count(name_color)\n\n# Count the number of colors and sort\nsets %>%\n  inner_join(inventories, by = \"set_num\") %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  inner_join(\n    colors,\n    by = c(\"color_id\" = \"id\"),\n    suffix = c(\"_set\", \"_color\")\n) %>%\n  count(name_color, sort = TRUE)"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#left-joining-two-sets-by-part-and-color",
+    "href": "joining_data_with_dplyr_02.html#left-joining-two-sets-by-part-and-color",
+    "title": "3  Left and Right Joins",
+    "section": "3.1 Left joining two sets by part and color",
+    "text": "3.1 Left joining two sets by part and color\nYou has been learned how to left join two LEGO sets. Now you’ll practice your ability to do this looking at two new sets: the Millennium Falcon and Star Destroyer sets. We’ve created these for you and they have been preloaded for you:\nmillennium_falcon <- inventory_parts_joined %>%\n  filter(set_num == \"7965-1\")\nstar_destroyer <- inventory_parts_joined %>%\n  filter(set_num == \"75190-1\")\n\nInstructions 100 XP\n\n\nex_0.R\n\nstart_destroyer"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#left-joining-two-sets-by-color",
+    "href": "joining_data_with_dplyr_02.html#left-joining-two-sets-by-color",
+    "title": "3  Left and Right Joins",
+    "section": "3.2 Left joining two sets by color",
+    "text": "3.2 Left joining two sets by color\n\nInstructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#finding-an-observation-that-doesnt-have-a-match",
+    "href": "joining_data_with_dplyr_02.html#finding-an-observation-that-doesnt-have-a-match",
+    "title": "3  Left and Right Joins",
+    "section": "3.3 Finding an observation that doesn’t have a match",
+    "text": "3.3 Finding an observation that doesn’t have a match\n\nInstructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#which-join-is-best",
+    "href": "joining_data_with_dplyr_02.html#which-join-is-best",
+    "title": "3  Left and Right Joins",
+    "section": "3.4 Which join is best?",
+    "text": "3.4 Which join is best?\n\nInstructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#counting-part-colors",
+    "href": "joining_data_with_dplyr_02.html#counting-part-colors",
+    "title": "3  Left and Right Joins",
+    "section": "3.5 Counting part colors",
+    "text": "3.5 Counting part colors\n\nInstructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#cleaning-up-your-count",
+    "href": "joining_data_with_dplyr_02.html#cleaning-up-your-count",
+    "title": "3  Left and Right Joins",
+    "section": "3.6 Cleaning up your count",
+    "text": "3.6 Cleaning up your count\n\nInstructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#joining-themes-to-their-children",
+    "href": "joining_data_with_dplyr_02.html#joining-themes-to-their-children",
+    "title": "3  Left and Right Joins",
+    "section": "3.7 Joining themes to their children",
+    "text": "3.7 Joining themes to their children\n\nInstructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#joining-themes-to-their-grandchildren",
+    "href": "joining_data_with_dplyr_02.html#joining-themes-to-their-grandchildren",
+    "title": "3  Left and Right Joins",
+    "section": "3.8 Joining themes to their grandchildren",
+    "text": "3.8 Joining themes to their grandchildren\n\nInstructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "joining_data_with_dplyr_02.html#left-join-a-table-to-itself",
+    "href": "joining_data_with_dplyr_02.html#left-join-a-table-to-itself",
+    "title": "3  Left and Right Joins",
+    "section": "3.9 Left join a table to itself",
+    "text": "3.9 Left join a table to itself\n\nInstructions 100 XP\n\n\nex_0.R"
   }
 ]
