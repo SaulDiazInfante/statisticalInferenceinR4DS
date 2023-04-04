@@ -107,7 +107,8 @@ a right join is for you.
 
 In this exercise, we'll count the `part_cat_id` from `parts`, before using a 
 `right_join` to join with `part_categories`. The reason we do this is because
-we don't only want to know the count of `part_cat_id` in `parts`, but we also want to know if there are any `part_cat_ids` not present in `parts`.
+we don't only want to know the count of `part_cat_id` in `parts`, 
+but we also want to know if there are any `part_cat_ids` not present in `parts`.
 
 ### Instructions `100 XP` {.unnumbered}
 
@@ -183,7 +184,6 @@ similar but reversed. Let's try this out to discover what children the theme
 - Inner join `themes` to their own children, resulting in the suffixes 
 `"_parent"` and `"_child"`, respectively.
 - Filter this table to find the children of the `"Harry Potter"` theme.
-
 
 ```{.r filename="ex_012.R"}
 themes %>% 
