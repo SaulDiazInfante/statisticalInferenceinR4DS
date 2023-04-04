@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="SDIV">
 
-<title>Statistical Inference For Data Science - 35&nbsp; Statistical Inference with resampling: Bootstrap and Jacknife.</title>
+<title>Statistical Inference For Data Science - 31&nbsp; Joining Tables</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +92,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./linear_regression.html" rel="next">
-<link href="./statistical-inference-whole-game.html" rel="prev">
+<link href="./_joining_data_with_dplyr_02.html" rel="next">
+<link href="./_reshaping_data_with_tidyr_04.html" rel="prev">
 <link href="./cover1.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -128,7 +127,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="Statistical Inference For Data Science - 35&nbsp; Statistical Inference with resampling: Bootstrap and Jacknife.">
+<meta name="twitter:title" content="Statistical Inference For Data Science - 31&nbsp; Joining Tables">
+<meta name="twitter:description" content="Get started with your first joining verb: inner-join!">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Joining Tables</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -406,7 +406,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
+  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -436,7 +436,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -465,33 +465,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preleminaries" id="toc-preleminaries" class="nav-link active" data-scroll-target="#preleminaries"><span class="toc-section-number">36</span>  Preleminaries</a>
+  <li><a href="#joining-parts-and-part-categories" id="toc-joining-parts-and-part-categories" class="nav-link active" data-scroll-target="#joining-parts-and-part-categories"><span class="toc-section-number">31.1</span>  Joining parts and part categories</a>
   <ul class="collapse">
-  <li><a href="#likelihood-inference." id="toc-likelihood-inference." class="nav-link" data-scroll-target="#likelihood-inference."><span class="toc-section-number">36.1</span>  Likelihood inference.</a></li>
-  <li><a href="#variance-analisys." id="toc-variance-analisys." class="nav-link" data-scroll-target="#variance-analisys."><span class="toc-section-number">36.2</span>  Variance analisys.</a></li>
-  <li><a href="#roc-curves" id="toc-roc-curves" class="nav-link" data-scroll-target="#roc-curves"><span class="toc-section-number">36.3</span>  ROC Curves</a></li>
+  <li><a href="#instructions-1000-xp" id="toc-instructions-1000-xp" class="nav-link" data-scroll-target="#instructions-1000-xp">Instructions <code>1000 XP</code></a></li>
+  </ul></li>
+  <li><a href="#joining-parts-and-inventories" id="toc-joining-parts-and-inventories" class="nav-link" data-scroll-target="#joining-parts-and-inventories"><span class="toc-section-number">31.2</span>  Joining parts and Inventories</a>
+  <ul class="collapse">
+  <li><a href="#instructions-1000-xp-1" id="toc-instructions-1000-xp-1" class="nav-link" data-scroll-target="#instructions-1000-xp-1">Instructions <code>1000 XP</code></a></li>
+  </ul></li>
+  <li><a href="#joining-in-either-direction" id="toc-joining-in-either-direction" class="nav-link" data-scroll-target="#joining-in-either-direction"><span class="toc-section-number">31.3</span>  Joining in either direction</a>
+  <ul class="collapse">
+  <li><a href="#instructions-1000-xp-2" id="toc-instructions-1000-xp-2" class="nav-link" data-scroll-target="#instructions-1000-xp-2">Instructions <code>1000 XP</code></a></li>
+  </ul></li>
+  <li><a href="#joining-three-tables" id="toc-joining-three-tables" class="nav-link" data-scroll-target="#joining-three-tables"><span class="toc-section-number">31.4</span>  Joining three tables</a>
+  <ul class="collapse">
+  <li><a href="#instructions-1000-xp-3" id="toc-instructions-1000-xp-3" class="nav-link" data-scroll-target="#instructions-1000-xp-3">Instructions <code>1000 XP</code></a></li>
+  </ul></li>
+  <li><a href="#whats-the-most-common-color" id="toc-whats-the-most-common-color" class="nav-link" data-scroll-target="#whats-the-most-common-color"><span class="toc-section-number">31.5</span>  What’s the most common color?</a>
+  <ul class="collapse">
+  <li><a href="#instructions-1000-xp-4" id="toc-instructions-1000-xp-4" class="nav-link" data-scroll-target="#instructions-1000-xp-4">Instructions <code>1000 XP</code></a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/statistical_inference.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_joining_data_with_dplyr_01.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Joining Tables</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>SDIV </p>
-          </div>
-  </div>
     
   
     
@@ -500,16 +508,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="preleminaries" class="level1" data-number="36">
-<h1 data-number="36"><span class="header-section-number">36</span> Preleminaries</h1>
-<section id="likelihood-inference." class="level2" data-number="36.1">
-<h2 data-number="36.1" class="anchored" data-anchor-id="likelihood-inference."><span class="header-section-number">36.1</span> Likelihood inference.</h2>
+<p>Get started with your first joining verb: inner-join! You’ll learn to join tables together to answer questions about the LEGO dataset, which contains information across many tables about the sets, parts, themes, and colors of LEGOs over time.</p>
+<section id="joining-parts-and-part-categories" class="level2" data-number="31.1">
+<h2 data-number="31.1" class="anchored" data-anchor-id="joining-parts-and-part-categories"><span class="header-section-number">31.1</span> Joining parts and part categories</h2>
+<p>The inner_join is the key to bring tables together. To use it, you need to provide the two tables that must be joined and the columns on which they should be joined.</p>
+<p>In this exercise, you’ll join a list of LEGO parts, available as parts, with these parts’ corresponding categories, available as <code>part_categories</code>. For example, the part Sticker Sheet 1 for Set 1650-1 is from the Stickers part category. You can join these tables to see all parts’ categories!</p>
+<section id="instructions-1000-xp" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-1000-xp">Instructions <code>1000 XP</code></h3>
+<ul>
+<li>Add the correct joining verb, the name of the second table, and the joining column for the second table.</li>
+<li>Now, use the suffix argument to add “_part” and “_category” suffixes to replace the name.x and name.y fields.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_001.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the correct verb, table, and joining column</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>parts <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(part_categories, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"part_cat_id"</span> <span class="ot">=</span> <span class="st">"id"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the suffix argument to replace .x and .y suffixes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>parts <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    part_categories,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"part_cat_id"</span> <span class="ot">=</span> <span class="st">"id"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">"_part"</span>, <span class="st">"_category"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="variance-analisys." class="level2" data-number="36.2">
-<h2 data-number="36.2" class="anchored" data-anchor-id="variance-analisys."><span class="header-section-number">36.2</span> Variance analisys.</h2>
 </section>
-<section id="roc-curves" class="level2" data-number="36.3">
-<h2 data-number="36.3" class="anchored" data-anchor-id="roc-curves"><span class="header-section-number">36.3</span> ROC Curves</h2>
+<section id="joining-parts-and-inventories" class="level2" data-number="31.2">
+<h2 data-number="31.2" class="anchored" data-anchor-id="joining-parts-and-inventories"><span class="header-section-number">31.2</span> Joining parts and Inventories</h2>
+<p>The LEGO data has many tables that can be joined together. Often times, some of the things you care about may be a few tables away (we’ll get to that later in the course). For now, we know that <code>parts</code> is a list of all LEGO parts, and a new table, <code>inventory_parts</code>, has some additional information about those parts, such as the color_id of each part you would find in a specific LEGO kit.</p>
+<p>Let’s join these two tables together to observe how joining parts with <code>inventory_parts</code> increases the size of your table because of the one-to-many relationship that exists between these two tables.</p>
+<section id="instructions-1000-xp-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-1000-xp-1">Instructions <code>1000 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_002.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the parts and inventory_parts tables</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>parts <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    inventory_parts,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"part_num"</span> <span class="ot">=</span> <span class="st">"part_num"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="joining-in-either-direction" class="level2" data-number="31.3">
+<h2 data-number="31.3" class="anchored" data-anchor-id="joining-in-either-direction"><span class="header-section-number">31.3</span> Joining in either direction</h2>
+<p>An <code>inner_join</code> works the same way with either table in either position. The table that is specified first is arbitrary, since you will end up with the same information in the resulting table either way.</p>
+<p>Let’s prove this by joining the same two tables from the last exercise in the opposite order!</p>
+<section id="instructions-1000-xp-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-1000-xp-2">Instructions <code>1000 XP</code></h3>
+<ul>
+<li>Connect the <code>inventory_parts</code> and parts tables by their <strong>part numbers</strong> using an inner join.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_003.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the parts and inventory_parts tables</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>inventory_parts <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    parts,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"part_num"</span> <span class="ot">=</span> <span class="st">"part_num"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="joining-three-tables" class="level2" data-number="31.4">
+<h2 data-number="31.4" class="anchored" data-anchor-id="joining-three-tables"><span class="header-section-number">31.4</span> Joining three tables</h2>
+<p>You can string together multiple joins with <code>inner_join</code> and the pipe <code>(%&gt;%)</code>, both with which you are already very familiar!</p>
+<p>We’ll now connect <code>sets</code>, a table that tells us about each LEGO kit, with <code>inventories</code>, a table that tells us the specific version of a given set, and finally to <code>inventory_parts</code>, a table which tells us how many of each part is available in each LEGO kit.</p>
+<p>So if you were building a Batman LEGO set, <code>sets</code> would tell you the name of the set, <code>inventories</code> would give you IDs for each of the versions of the set, and <code>inventory_parts</code> would tell you how many of each part would be in each version.</p>
+<section id="instructions-1000-xp-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-1000-xp-3">Instructions <code>1000 XP</code></h3>
+<ul>
+<li>Combine the <code>inventories</code> table with the <code>sets</code> table.</li>
+<li>Next, join the <code>inventory_parts</code> table to the table you created in the previous join by the inventory IDs.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_004.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sets <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add inventories using an inner join </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    inventories,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"set_num"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add inventory_parts using an inner join </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    inventory_parts,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"inventory_id"</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="whats-the-most-common-color" class="level2" data-number="31.5">
+<h2 data-number="31.5" class="anchored" data-anchor-id="whats-the-most-common-color"><span class="header-section-number">31.5</span> What’s the most common color?</h2>
+<p>Now let’s join an additional table, <code>colors</code>, which will tell us the color of each part in each set, so that we can answer the question, “what is the most common color of a LEGO piece?”</p>
+<section id="instructions-1000-xp-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-1000-xp-4">Instructions <code>1000 XP</code></h3>
+<ul>
+<li>Inner join the <code>colors</code> table using the <code>color_id</code> column from the previous join and the <code>id</code> column from colors; use the suffixes <code>"_set"</code> and <code>"_color"</code>.</li>
+<li>Count the name_color column and sort the results so the most prominent colors appear first.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_005.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add an inner join for the colors table</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sets <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(inventories, <span class="at">by =</span> <span class="st">"set_num"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(inventory_parts, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"inventory_id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    colors,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"color_id"</span> <span class="ot">=</span> <span class="st">"id"</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">"_set"</span>, <span class="st">"_color"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>sets <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(inventories, <span class="at">by =</span> <span class="st">"set_num"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(inventory_parts, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"inventory_id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(colors, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"color_id"</span> <span class="ot">=</span> <span class="st">"id"</span>), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">"_set"</span>, <span class="st">"_color"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(name_color)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of colors and sort</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>sets <span class="sc">%&gt;%</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(inventories, <span class="at">by =</span> <span class="st">"set_num"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(inventory_parts, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"inventory_id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    colors,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"color_id"</span> <span class="ot">=</span> <span class="st">"id"</span>),</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">"_set"</span>, <span class="st">"_color"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(name_color, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <!-- -->
@@ -819,28 +956,175 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./statistical-inference-whole-game.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The whole game of statistical Inference</span>
+      <a href="./_reshaping_data_with_tidyr_04.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Rectangling Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./linear_regression.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Lienar Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./_joining_data_with_dplyr_02.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Left and Right Joins</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Statistical Inference with resampling: Bootstrap and Jacknife."</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "SDIV"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preleminaries</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Likelihood inference.</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variance analisys.</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC Curves</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="markdown" data-shortcodes="false"><code># Joining Tables
+
+Get started with your first joining verb: inner-join! You'll learn to join 
+tables together to answer questions about the LEGO dataset, which contains 
+information across many tables about the sets, parts, themes, and colors of
+LEGOs over time.
+
+## Joining parts and part categories
+
+The inner_join is the key to bring tables together. To use it, you need to 
+provide the two tables that must be joined and the columns on which they should 
+be joined.
+
+In this exercise, you'll join a list of LEGO parts, available as parts, with 
+these parts' corresponding categories, available as `part_categories`. 
+For example, the part Sticker Sheet 1 for Set 1650-1 is from the Stickers part category. You can join these tables to see all parts' categories!
+
+### Instructions `1000 XP` {.unnumbered}
+
+- Add the correct joining verb, the name of the second table, and the joining 
+  column for the second table.
+- Now, use the suffix argument to add "_part" and "_category" suffixes to 
+replace the name.x and name.y fields.
+```{.r filename="ex_001.R"}
+# Add the correct verb, table, and joining column
+parts %&gt;% 
+  inner_join(part_categories, by = c("part_cat_id" = "id"))
+# Use the suffix argument to replace .x and .y suffixes
+parts %&gt;% 
+  inner_join(
+    part_categories,
+    by = c("part_cat_id" = "id"),
+    suffix = c("_part", "_category")
+  )
+
+```
+
+## Joining parts and Inventories 
+
+The LEGO data has many tables that can be joined together. Often times,
+some of the things you care about may be a few tables away (we'll get to that
+later in the course). For now, we know that `parts` is a list of all LEGO parts,
+and a new table, `inventory_parts`, has some additional information about those
+parts, such as the color_id of each part you would find in a specific LEGO kit.
+
+Let's join these two tables together to observe how joining parts with 
+`inventory_parts` increases the size of your table because of the one-to-many relationship that exists between these two tables.
+
+### Instructions `1000 XP` {.unnumbered}
+
+```{.r filename="ex_002.R"}
+# Combine the parts and inventory_parts tables
+parts %&gt;%
+  inner_join(
+    inventory_parts,
+    by = c("part_num" = "part_num")
+  )
+  
+```
+
+## Joining in either direction
+
+An `inner_join` works the same way with either table in either position.
+The table that is specified first is arbitrary, since you will end up with
+the same information in the resulting table either way.
+
+Let's prove this by joining the same two tables from the last exercise in the
+opposite order!
+
+### Instructions `1000 XP` {.unnumbered}
+- Connect the `inventory_parts` and parts tables by their **part numbers** using
+an inner join. 
+
+```{.r filename="ex_003.R"}
+# Combine the parts and inventory_parts tables
+inventory_parts %&gt;%
+  inner_join(
+    parts,
+    by = c("part_num" = "part_num")
+  )
+```
+
+## Joining three tables
+
+You can string together multiple joins with `inner_join` and the 
+pipe `(%&gt;%)`, both with which you are already very familiar!
+
+We'll now connect `sets`, a table that tells us about each LEGO kit, with
+`inventories`, a table that tells us the specific version of a given set,
+and finally to `inventory_parts`, a table which tells us how many of each 
+part is available in each LEGO kit.
+
+So if you were building a Batman LEGO set, `sets` would tell you the name of 
+the set, `inventories` would give you IDs for each of the versions of the set,
+and `inventory_parts` would tell you how many of each part would be in each
+version.
+
+### Instructions `1000 XP` {.unnumbered}
+
+- Combine the `inventories` table with the `sets` table.
+- Next, join the `inventory_parts` table to the table you created in the
+previous join by the inventory IDs.
+
+```{.r filename="ex_004.R"}
+sets %&gt;%
+  # Add inventories using an inner join 
+  inner_join(
+    inventories,
+    by = c("set_num")
+  ) %&gt;%
+  # Add inventory_parts using an inner join 
+  inner_join(
+    inventory_parts,
+    by = c("id" = "inventory_id"),
+  )
+```
+
+## What's the most common color?
+
+Now let's join an additional table, `colors`, which will tell us the 
+color of each part in each set, so that we can answer the question,
+"what is the most common color of a LEGO piece?"
+
+### Instructions `1000 XP` {.unnumbered}
+
+- Inner join the `colors` table using the `color_id` column from the previous
+join and the `id` column from colors; use the suffixes `"_set"` and 
+`"_color"`.
+- Count the name_color column and sort the results so the most prominent colors
+ appear first.
+
+```{.r filename="ex_005.R"}
+# Add an inner join for the colors table
+sets %&gt;%
+  inner_join(inventories, by = "set_num") %&gt;%
+  inner_join(inventory_parts, by = c("id" = "inventory_id")) %&gt;%
+  inner_join(
+    colors,
+    by = c("color_id" = "id"),
+    suffix = c("_set", "_color")
+  )
+
+sets %&gt;%
+  inner_join(inventories, by = "set_num") %&gt;%
+  inner_join(inventory_parts, by = c("id" = "inventory_id")) %&gt;%
+  inner_join(colors, by = c("color_id" = "id"), suffix = c("_set", "_color")) %&gt;%
+  count(name_color)
+
+# Count the number of colors and sort
+sets %&gt;%
+  inner_join(inventories, by = "set_num") %&gt;%
+  inner_join(inventory_parts, by = c("id" = "inventory_id")) %&gt;%
+  inner_join(
+    colors,
+    by = c("color_id" = "id"),
+    suffix = c("_set", "_color")
+) %&gt;%
+  count(name_color, sort = TRUE)
+```</code></pre>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

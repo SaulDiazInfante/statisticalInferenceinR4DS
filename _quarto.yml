@@ -62,6 +62,10 @@ book:
         - _reshaping_data_with_tidyr_02.qmd
         - _reshaping_data_with_tidyr_03.qmd
         - _reshaping_data_with_tidyr_04.qmd
+        - _joining_data_with_dplyr_01.qmd
+        - _joining_data_with_dplyr_02.qmd
+        - _joining_data_with_dplyr_03.qmd
+        - _joining_data_with_dplyr_04.qmd
     - part: statistical-inference-whole-game.qmd
       chapters:
         - statistical_inference.qmd
@@ -77,8 +81,8 @@ csl: elsevier-with-titles-alphabetical.csl
 format:
   html:
     theme:
-      light: flatly
       dark: darkly
+      light: flatly
     fig-width: 8
     fig-height: 4
     code-fold: true
