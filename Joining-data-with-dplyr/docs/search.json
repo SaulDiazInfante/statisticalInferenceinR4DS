@@ -130,62 +130,62 @@
     "href": "joining_data_with_dplyr_02.html#left-joining-two-sets-by-part-and-color",
     "title": "3  Left and Right Joins",
     "section": "3.1 Left joining two sets by part and color",
-    "text": "3.1 Left joining two sets by part and color\nYou has been learned how to left join two LEGO sets. Now you’ll practice your ability to do this looking at two new sets: the Millennium Falcon and Star Destroyer sets. We’ve created these for you and they have been preloaded for you:\nmillennium_falcon <- inventory_parts_joined %>%\n  filter(set_num == \"7965-1\")\nstar_destroyer <- inventory_parts_joined %>%\n  filter(set_num == \"75190-1\")\n\nInstructions 100 XP\n\n\nex_0.R\n\nstart_destroyer"
+    "text": "3.1 Left joining two sets by part and color\nYou has been learned how to left join two LEGO sets. Now you’ll practice your ability to do this looking at two new sets: the Millennium Falcon and Star Destroyer sets. We’ve created these for you and they have been preloaded for you:\nmillennium_falcon <- inventory_parts_joined %>%\n  filter(set_num == \"7965-1\")\nstar_destroyer <- inventory_parts_joined %>%\n  filter(set_num == \"75190-1\")\n\nInstructions 100 XP\n\n\nex_006.R\n\n# Combine the star_destroyer and millennium_falcon tables\nmillennium_falcon %>%\n  left_join(\n    star_destroyer,\n    by = c(\"part_num\", \"color_id\"),\n    suffix =  c(\"_falcon\", \"_star_destroyer\")\n  )"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#left-joining-two-sets-by-color",
     "href": "joining_data_with_dplyr_02.html#left-joining-two-sets-by-color",
     "title": "3  Left and Right Joins",
     "section": "3.2 Left joining two sets by color",
-    "text": "3.2 Left joining two sets by color\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.2 Left joining two sets by color\nIn the last exercise, you joined two sets based on their part and color. What if you joined the datasets by color alone? As with the last exercise, the Millennium Falcon and Star Destroyer sets have been created and preloaded for you:\nmillennium_falcon <- inventory_parts_joined %>%\n  filter(set_num == \"7965-1\")\nstar_destroyer <- inventory_parts_joined %>%\n  filter(set_num == \"75190-1\")\n\nInstructions 100 XP\n\nSum the quantity column by color_id in the Millennium Falcon dataset.\n\n\n\n\nex_007.R\n\n# Aggregate Millennium Falcon for the total quantity in each part\nmillennium_falcon_colors <- millennium_falcon %>%\n  group_by(color_id) %>%\n  summarize(total_quantity = sum(quantity))\n\n# Aggregate Star Destroyer for the total quantity in each part\nstar_destroyer_colors <- star_destroyer %>%\n  group_by(color_id) %>%\n  summarize(total_quantity = sum(quantity))\n\n# Left join the Millennium Falcon colors to the Star Destroyer colors\nmillennium_falcon_colors %>%\n  left_join(\n    star_destroyer_colors,\n    by = c(\"color_id\"),\n    suffix =c(\n      \"_falcon\",\n      \"_star_destroyer\"\n    )\n   )"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#finding-an-observation-that-doesnt-have-a-match",
     "href": "joining_data_with_dplyr_02.html#finding-an-observation-that-doesnt-have-a-match",
     "title": "3  Left and Right Joins",
     "section": "3.3 Finding an observation that doesn’t have a match",
-    "text": "3.3 Finding an observation that doesn’t have a match\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.3 Finding an observation that doesn’t have a match\nLeft joins are really great for testing your assumptions about a data set and ensuring your data has integrity.\nFor example, the inventories table has a version column, for when a LEGO kit gets some kind of change or upgrade. It would be fair to assume that all sets (which joins well with inventories) would have at least a version 1. But let’s test this assumption out in the following exercise.\n\nInstructions 100 XP\n\nUse a left_join to join together sets and inventory_version_1 using their common column.\nfilter for where the version column is NA using is.na.\n\n\n\nex_008.R\n\ninventory_version_1 <- inventories %>%\n  filter(version == 1)\n\n# Join versions to sets\nsets %>%\n  left_join(\n    inventory_version_1,\n    by = c(\"set_num\")  \n  ) %>%\n  # Filter for where version is na\n  filter(is.na(version))"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#which-join-is-best",
     "href": "joining_data_with_dplyr_02.html#which-join-is-best",
     "title": "3  Left and Right Joins",
     "section": "3.4 Which join is best?",
-    "text": "3.4 Which join is best?\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.4 Which join is best?\nSometimes you’ll want to do some processing before you do a join, and prioritize keeping the second (right) table’s rows instead. In this case, a right join is for you.\nIn this exercise, we’ll count the part_cat_id from parts, before using a right_join to join with part_categories. The reason we do this is because we don’t only want to know the count of part_cat_id in parts, but we also want to know if there are any part_cat_ids not present in parts.\n\nInstructions 100 XP\n\n\nex_009.R\n\nparts %>%\n  # Count the part_cat_id\n  count(part_cat_id) %>%\n  # Right join part_categories\n  right_join(\n    part_categories,\n    by=c(\"part_cat_id\" = \"id\" )\n  )"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#counting-part-colors",
     "href": "joining_data_with_dplyr_02.html#counting-part-colors",
     "title": "3  Left and Right Joins",
     "section": "3.5 Counting part colors",
-    "text": "3.5 Counting part colors\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.5 Counting part colors\nSometimes you’ll want to do some processing before you do a join, and prioritize keeping the second (right) table’s rows instead. In this case, a right join is for you.\nIn this exercise, we’ll count the part_cat_id from parts, before using a right_join to join with part_categories. The reason we do this is because we don’t only want to know the count of part_cat_id in parts, but we also want to know if there are any part_cat_ids not present in parts.\n\nInstructions 100 XP\n\n\nex_010.R\n\nparts %>%\n  count(part_cat_id) %>%\n  right_join(part_categories, by = c(\"part_cat_id\" = \"id\")) %>%\n  # Filter for NA\n  filter(is.na(n))"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#cleaning-up-your-count",
     "href": "joining_data_with_dplyr_02.html#cleaning-up-your-count",
     "title": "3  Left and Right Joins",
     "section": "3.6 Cleaning up your count",
-    "text": "3.6 Cleaning up your count\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.6 Cleaning up your count\nIn both left and right joins, there is the opportunity for there to be NA values in the resulting table. Fortunately, the replace_na function can turn those NAs into meaningful values.\nIn the last exercise, we saw that the n column had NAs after the right_join. Let’s use the replace_na column, which takes a list of column names and the values with which NAs should be replaced, to clean up our table.\n\nInstructions 100 XP\nUse replace_na to replace NAs in the n column with the value 0.\n\n\nex_011.R\n\nparts %>%\n  count(part_cat_id) %>%\n  right_join(part_categories, by = c(\"part_cat_id\" = \"id\")) %>%\n  # Use replace_na to replace missing values in the n column\n  replace_na(list(n = 0))"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#joining-themes-to-their-children",
     "href": "joining_data_with_dplyr_02.html#joining-themes-to-their-children",
     "title": "3  Left and Right Joins",
     "section": "3.7 Joining themes to their children",
-    "text": "3.7 Joining themes to their children\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.7 Joining themes to their children\nTables can be joined to themselves!\nIn the themes table, which is available for you to inspect in the console, you’ll notice there is both an id column and a parent_id column. Keeping that in mind, you can join the themes table to itself to determine the parent- child relationships that exist for different themes.\nIn the videos, you saw themes joined to their own parents. In this exercise, you’ll try a similar approach of joining themes to their own children, which is similar but reversed. Let’s try this out to discover what children the theme \"Harry Potter\" has.\n\nInstructions 100 XP\n\nInner join themes to their own children, resulting in the suffixes \"_parent\" and \"_child\", respectively.\nFilter this table to find the children of the \"Harry Potter\" theme.\n\n\n\nex_012.R\n\nthemes %>% \n  # Inner join the themes table\n  inner_join(\n    themes, \n    by = c(\"id\" = \"parent_id\" ),\n    suffix = c( \"_parent\", \"_child\")\n  ) %>%\n  # Filter for the \"Harry Potter\" parent name \n  filter(name_parent == \"Harry Potter\")"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#joining-themes-to-their-grandchildren",
     "href": "joining_data_with_dplyr_02.html#joining-themes-to-their-grandchildren",
     "title": "3  Left and Right Joins",
     "section": "3.8 Joining themes to their grandchildren",
-    "text": "3.8 Joining themes to their grandchildren\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.8 Joining themes to their grandchildren\nWe can go a step further than looking at themes and their children. Some themes actually have grandchildren: their children’s children.\nHere, we can inner join themes to a filtered version of itself again to establish a connection between our last join’s children and their children.\n\nInstructions 100 XP\n\nUse another inner join to combine themes again with itself.\n\nBe sure to use the suffixes “_parent” and “_grandchild” so the columns in the resulting table are clear.\nUpdate the by argument to specify the correct columns to join on. If you’re unsure of what columns to join on, it might help to look at the result of the first join to get a feel for it.\n\n\n\n\nex_013.R\n\n# Join themes to itself again to find the grandchild relationships\nthemes %>% \n  inner_join(\n    themes,\n    by = c(\"id\" = \"parent_id\"),\n    suffix = c(\"_parent\", \"_child\")) %>%\n  inner_join(\n    themes,\n    by = c(\"id_child\" = \"parent_id\"),\n    suffix = c(\"_parent\", \"_grandchild\")\n  )"
   },
   {
     "objectID": "joining_data_with_dplyr_02.html#left-join-a-table-to-itself",
     "href": "joining_data_with_dplyr_02.html#left-join-a-table-to-itself",
     "title": "3  Left and Right Joins",
     "section": "3.9 Left join a table to itself",
-    "text": "3.9 Left join a table to itself\n\nInstructions 100 XP\n\n\nex_0.R"
+    "text": "3.9 Left join a table to itself\nSo far, you’ve been inner joining a table to itself in order to find the children of themes like \"Harry Potter\" or \"The Lord of the Rings\".\nBut some themes might not have any children at all, which means they won’t be included in the inner join. As you’ve learned in this chapter, you can identify those with a left_join and a filter().\n\nInstructions 100 XP\n\nLeft join the themes table to its own children, with the suffixes _parent and _child respectively.\nFilter the result of the join to find themes that have no children.\n\n\n\nex_014.R\n\nthemes %>% \n  # Left join the themes table to its own children\n  left_join(\n    themes,\n    by = c(\"id\" = \"parent_id\"),\n    suffix = c(\"_parent\", \"_child\")\n  ) %>%\n  # Filter for themes that have no child themes\n  filter(is.na(id_child))"
   }
 ]
