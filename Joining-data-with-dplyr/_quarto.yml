@@ -22,10 +22,10 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - joining_data_with_dplyr_01.qmd
-    - joining_data_with_dplyr_02.qmd
-    - joining_data_with_dplyr_03.qmd
-    - joining_data_with_dplyr_04.qmd
+    - _joining_data_with_dplyr_01.qmd
+    - _joining_data_with_dplyr_02.qmd
+    - _joining_data_with_dplyr_03.qmd
+    - _joining_data_with_dplyr_04.qmd
     - summary.qmd
     - references.qmd
 
