@@ -3,3 +3,183 @@
 In this chapter, you'll cover three more joining verbs: full-join,
 semi-join, and anti-join. You'll then use these verbs to answer questions
 about the similarities and differences between a variety of LEGO sets.
+
+## Differences between Batman and Star Wars
+
+In the video, you compared two sets. Now, you'll compare two themes, each
+of which is made up of many sets.
+
+First, you'll need to join in the `themes`. Recall that doing so requires
+going through the sets first. You'll use the `inventory_parts_joined` 
+table from the video, which is already available to you in the console.
+
+```{.r code-line-numbers="false"}
+inventory_parts_joined <- inventories %>%
+  inner_join(inventory_parts, by = c("id" = "inventory_id")) %>%
+  arrange(desc(quantity)) %>%
+  select(-id, -version)
+```
+
+### Instructions `100 XP` {.unnumbered}
+- In order to join in the themes, you'll first need to combine the 
+ `inventory_parts_joined` and `sets` tables.
+
+- Then, combine the first join with the `themes` table, using the suffix 
+argument to clarify which table each `name` came from (`"_set"` or 
+`"_theme"`).
+
+
+```{.r filename="ex_015.R"}
+
+# Start with inventory_parts_joined table
+inventory_parts_joined %>%
+  # Combine with the sets table 
+  inner_join(
+    sets,
+    by = c ("set_num")
+  ) %>%
+  # Combine with the themes table 
+  inner_join(
+    themes,
+    by = c("theme_id" = "id"),
+    suffix = c("_set", "_theme")
+  )
+```
+
+
+## Aggregating each theme
+
+Previously, you combined tables to compare themes. Before doing this 
+comparison, you'll want to aggregate the data to learn more about the 
+pieces that are a part of each theme, as well as the colors of those 
+pieces.
+
+The table you created previously has been preloaded for you as 
+`inventory_sets_themes`. It was filtered for each theme, and the objects
+have been saved as batman and `star_wars`.
+
+```{.r code-line-numbers="false"}
+inventory_sets_themes <- inventory_parts_joined %>%
+  inner_join(sets, by = "set_num") %>%
+  inner_join(
+    themes,
+    by = c("theme_id" = "id"),
+    suffix = c("_set", "_theme")
+)
+
+batman <- inventory_sets_themes %>%
+  filter(name_theme == "Batman")
+
+star_wars <- inventory_sets_themes %>%
+  filter(name_theme == "Star Wars")
+```
+
+### Instructions `100 XP` {.unnumbered}
+- Count the part number and color id for the parts in Batman and Star 
+  Wars, weighted by quantity.
+
+```{.r filename="ex_016.R"}
+# Count the part number and color id, weight by quantity
+batman %>%
+  count(part_num, color_id, wt=quantity)
+
+star_wars %>%
+  count(part_num, color_id, wt=quantity)
+```
+
+
+## Full joining Batman and Star Wars LEGO parts
+
+Now that you've got separate tables for the pieces in the batman and 
+`star_wars` themes, you'll want to be able to combine them to see any 
+similarities or differences between the two themes. The aggregating from 
+the last exercise has been saved as `batman_parts` and 
+`star_wars_parts`, and is preloaded for you.
+
+```{.r code-line-numbers="false"}
+batman_parts <- batman %>%
+  count(part_num, color_id, wt = quantity)
+
+star_wars_parts <- star_wars %>%
+  count(part_num, color_id, wt = quantity)
+```
+
+### Instructions `100 XP` {.unnumbered}
+
+- Combine the `star_wars_parts` table with the `batman_parts` table; use 
+the suffix argument to include the `"_batman"` and `"_star_wars"`
+suffixes.
+
+- Replace all the `NA` values in the `n_batman` and `n_star_wars` 
+columns with `0`s.
+
+```{.r filename="ex_017.R"}
+batman_parts %>%
+  # Combine the star_wars_parts table 
+  full_join(
+    star_wars_parts,
+    by = c("part_num", "color_id"),
+    suffix = c("_batman", "_star_wars")
+    ) %>%
+  # Replace NAs with 0s in the n_batman and n_star_wars columns 
+  replace_na(list("n_batman" = 0, "n_star_wars" = 0))
+```
+
+
+## Comparing Bataman and Star Wars LEGO parts
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_018.R"}
+
+```
+
+## Select the join
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_019.R"}
+
+```
+## Something within one set but not another
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_020.R"}
+
+```
+## What colors are included in at least one set?
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_021.R"}
+
+```
+## Which set is missing version 1?
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_022.R"}
+
+```
+## Aggregating sets to look at their differences
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_023.R"}
+
+```
+## Combining sets
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_024.R"}
+
+```
+## Visualizing the difference: Batman and Star Wars
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_025.R"}
+
+```

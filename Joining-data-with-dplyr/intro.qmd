@@ -1,4 +1,4 @@
-# Introduction
+# Introduction {.unnumbered}
 
 Often in data science, you'll encounter fascinating data that is spread across 
 multiple tables. This course will teach you the skills you'll need to join 
