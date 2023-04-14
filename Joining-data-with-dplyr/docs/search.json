@@ -9,7 +9,7 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "Introduction",
     "section": "",
     "text": "Often in data science, you’ll encounter fascinating data that is spread across multiple tables. This course will teach you the skills you’ll need to join multiple tables together to analyze them in combination. You’ll practice your skills using a fun dataset about LEGOs from the Rebrickable website. The dataset contains information about the sets, parts, themes, and colors of LEGOs, but is spread across many tables. You’ll work with the data throughout the course as you learn a total of six different joins! You’ll learn four mutating joins: inner join, left join, right join, and full join, and two filtering joins: semi join and anti join. In the final chapter, you’ll apply your new skills to Stack Overflow data, containing each of the almost 300,000 Stack Oveflow questions that are tagged with R, including information about their answers, the date they were asked, and their score. Get ready to take your dplyr skills to the next level!"
   },
@@ -375,7 +375,7 @@
     "href": "_joining_data_with_dplyr_03.html#differences-between-batman-and-star-wars",
     "title": "3  Full, Semi, and Anti Joins",
     "section": "3.1 Differences between Batman and Star Wars",
-    "text": "3.1 Differences between Batman and Star Wars\n\nInstructions 100 XP\n\n\nex_015.R"
+    "text": "3.1 Differences between Batman and Star Wars\nIn the video, you compared two sets. Now, you’ll compare two themes, each of which is made up of many sets.\nFirst, you’ll need to join in the themes. Recall that doing so requires going through the sets first. You’ll use the inventory_parts_joined table from the video, which is already available to you in the console.\ninventory_parts_joined <- inventories %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  arrange(desc(quantity)) %>%\n  select(-id, -version)\n\nInstructions 100 XP\n\nIn order to join in the themes, you’ll first need to combine the inventory_parts_joined and sets tables.\nThen, combine the first join with the themes table, using the suffix argument to clarify which table each name came from (\"_set\" or \"_theme\").\n\n\n\nex_015.R\n\n\n# Start with inventory_parts_joined table\ninventory_parts_joined %>%\n  # Combine with the sets table \n  inner_join(\n    sets,\n    by = c (\"set_num\")\n  ) %>%\n  # Combine with the themes table \n  inner_join(\n    themes,\n    by = c(\"theme_id\" = \"id\"),\n    suffix = c(\"_set\", \"_theme\")\n  )"
   },
   {
     "objectID": "_joining_data_with_dplyr_03.html#section-11",
@@ -389,21 +389,21 @@
     "href": "_joining_data_with_dplyr_03.html#aggregating-each-theme",
     "title": "3  Full, Semi, and Anti Joins",
     "section": "3.2 Aggregating each theme",
-    "text": "3.2 Aggregating each theme\n\nInstructions 100 XP\n\n\nex_016.R"
+    "text": "3.2 Aggregating each theme\nPreviously, you combined tables to compare themes. Before doing this comparison, you’ll want to aggregate the data to learn more about the pieces that are a part of each theme, as well as the colors of those pieces.\nThe table you created previously has been preloaded for you as inventory_sets_themes. It was filtered for each theme, and the objects have been saved as batman and star_wars.\ninventory_sets_themes <- inventory_parts_joined %>%\n  inner_join(sets, by = \"set_num\") %>%\n  inner_join(\n    themes,\n    by = c(\"theme_id\" = \"id\"),\n    suffix = c(\"_set\", \"_theme\")\n)\n\nbatman <- inventory_sets_themes %>%\n  filter(name_theme == \"Batman\")\n\nstar_wars <- inventory_sets_themes %>%\n  filter(name_theme == \"Star Wars\")\n\nInstructions 100 XP\n\nCount the part number and color id for the parts in Batman and Star Wars, weighted by quantity.\n\n\n\nex_016.R\n\n# Count the part number and color id, weight by quantity\nbatman %>%\n  count(part_num, color_id, wt=quantity)\n\nstar_wars %>%\n  count(part_num, color_id, wt=quantity)"
   },
   {
     "objectID": "_joining_data_with_dplyr_03.html#full-joining-batman-and-star-wars-lego-parts",
     "href": "_joining_data_with_dplyr_03.html#full-joining-batman-and-star-wars-lego-parts",
     "title": "3  Full, Semi, and Anti Joins",
     "section": "3.3 Full joining Batman and Star Wars LEGO parts",
-    "text": "3.3 Full joining Batman and Star Wars LEGO parts\n\nInstructions 100 XP\n\n\nex_017.R"
+    "text": "3.3 Full joining Batman and Star Wars LEGO parts\nNow that you’ve got separate tables for the pieces in the batman and star_wars themes, you’ll want to be able to combine them to see any similarities or differences between the two themes. The aggregating from the last exercise has been saved as batman_parts and star_wars_parts, and is preloaded for you.\nbatman_parts <- batman %>%\n  count(part_num, color_id, wt = quantity)\n\nstar_wars_parts <- star_wars %>%\n  count(part_num, color_id, wt = quantity)\n\nInstructions 100 XP\n\nCombine the star_wars_parts table with the batman_parts table; use the suffix argument to include the \"_batman\" and \"_star_wars\" suffixes.\nReplace all the NA values in the n_batman and n_star_wars columns with 0s.\n\n\n\nex_017.R\n\nbatman_parts %>%\n  # Combine the star_wars_parts table \n  full_join(\n    star_wars_parts,\n    by = c(\"part_num\", \"color_id\"),\n    suffix = c(\"_batman\", \"_star_wars\")\n    ) %>%\n  # Replace NAs with 0s in the n_batman and n_star_wars columns \n  replace_na(list(\"n_batman\" = 0, \"n_star_wars\" = 0))"
   },
   {
     "objectID": "_joining_data_with_dplyr_03.html#comparing-bataman-and-star-wars-lego-parts",
     "href": "_joining_data_with_dplyr_03.html#comparing-bataman-and-star-wars-lego-parts",
     "title": "3  Full, Semi, and Anti Joins",
     "section": "3.4 Comparing Bataman and Star Wars LEGO parts",
-    "text": "3.4 Comparing Bataman and Star Wars LEGO parts\n\nInstructions 100 XP\n\n\nex_018.R"
+    "text": "3.4 Comparing Bataman and Star Wars LEGO parts\nThe table you created in the last exercise includes the part number of each piece, the color id, and the number of each piece in the Star Wars and Batman themes. However, we have more information about each of these parts that we can gain by combining this table with some of the information we have in other tables. Before we compare the themes, let’s ensure that we have enough information to make our findings more interpretable. The table from the last exercise has been saved as parts_joined and is preloaded for you.\n  parts_joined <- batman_parts %>%\n  full_join(\n    star_wars_parts,\n    by = c(\"part_num\", \"color_id\"),\n    suffix = c(\"_batman\", \"_star_wars\")\n  ) %>%\n  replace_na(list(n_batman = 0, n_star_wars = 0))\n\nInstructions 100 XP\n\n\nex_018.R\n\nparts_joined %>%\n  # Sort the number of star wars pieces in descending order \n  arrange(desc(n_star_wars)) %>%\n  # Join the colors table to the parts_joined table\n  inner_join(\n    colors,\n    by = c(\"color_id\" = \"id\")\n  ) %>%\n  # Join the parts table to the previous join \n  inner_join(\n    parts,\n    by=\"part_num\",\n    suffix = c(\"_color\", \"_part\")\n    )"
   },
   {
     "objectID": "_joining_data_with_dplyr_03.html#select-the-join",

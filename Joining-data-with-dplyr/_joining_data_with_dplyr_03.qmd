@@ -128,58 +128,128 @@ batman_parts %>%
 
 ## Comparing Bataman and Star Wars LEGO parts
 
+The table you created in the last exercise includes the part number of each
+piece, the color id, and the number of each piece in the Star Wars and Batman
+themes. However, we have more information about each of these parts that we
+can gain by combining this table with some of the information we have in other
+tables. Before we compare the themes, let's ensure that we have enough 
+information to make our findings more interpretable. The table from the 
+last exercise has been saved as parts_joined and is preloaded for you.
+
+```{.r code-line-numbers="false"}
+  parts_joined <- batman_parts %>%
+  full_join(
+    star_wars_parts,
+    by = c("part_num", "color_id"),
+    suffix = c("_batman", "_star_wars")
+  ) %>%
+  replace_na(list(n_batman = 0, n_star_wars = 0))
+```
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_018.R"}
-
+parts_joined %>%
+  # Sort the number of star wars pieces in descending order 
+  arrange(desc(n_star_wars)) %>%
+  # Join the colors table to the parts_joined table
+  inner_join(
+    colors,
+    by = c("color_id" = "id")
+  ) %>%
+  # Join the parts table to the previous join 
+  inner_join(
+    parts,
+    by="part_num",
+    suffix = c("_color", "_part")
+    )
 ```
 
-## Select the join
+## Something within one set but not another
 
+In the videos, you learned how to filter using the semi- and anti join verbs
+to answer questions you have about your data. Let's focus on the batwing
+dataset, and use our skills to determine which parts are in both the batwing
+and batmobile sets, and which sets are in one, but not the other.
+While answering these questions, we'll also be determining whether or not 
+the parts we're looking at in both sets also have the same color in common.
+
+The batmobile and batwing datasets have been preloaded for you.
+
+```{.r code-line-numbers="false"}
+batmobile <- inventory_parts_joined %>%
+  filter(set_num == "7784-1") %>%
+  select(-set_num)
+
+batwing <- inventory_parts_joined %>%
+  filter(set_num == "70916-1") %>%
+  select(-set_num)
+```
 ### Instructions `100 XP` {.unnumbered}
 
-```{.r filename="ex_019.R"}
+- Filter the batwing set for parts that are also in the batmobile, whether or
+not they have the same color.
+- Filter the batwing set for parts that aren't also in the batmobile, whether 
+or not they have the same color.
 
+```{.r filename="ex_019.R"}
+# Filter the batwing set for parts that are also in the batmobile set
+batwing %>%
+  semi_join(
+    batmobile,
+    by = c("part_num")
+  )
+
+# Filter the batwing set for parts that aren't in the batmobile set
+
+batwing %>%
+  anti_join(
+    batmobile,
+    by = c("part_num")
+  )
 ```
-## Something within one set but not another
+## What colors are included in at least one set?
+Besides comparing two sets directly, you could also use a filtering join like
+semi_join to find out which colors ever appear in any inventory part.
+Some of the colors could be optional, meaning they aren't included in any
+sets.
+
+The inventory_parts and colors tables have been preloaded for you.
 
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_020.R"}
-
+# Use inventory_parts to find colors included in at least one set
+colors %>%
+  semi_join(
+    inventory_parts,
+    by=c("id" = "color_id")
+    )
 ```
-## What colors are included in at least one set?
+## Which set is missing version 1?
 
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_021.R"}
 
 ```
-## Which set is missing version 1?
+## Aggregating sets to look at their differences
 
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_022.R"}
 
 ```
-## Aggregating sets to look at their differences
+## Combining sets
 
 ### Instructions `100 XP` {.unnumbered}
 
 ```{.r filename="ex_023.R"}
 
 ```
-## Combining sets
-
-### Instructions `100 XP` {.unnumbered}
-
-```{.r filename="ex_024.R"}
-
-```
 ## Visualizing the difference: Batman and Star Wars
 
 ### Instructions `100 XP` {.unnumbered}
 
-```{.r filename="ex_025.R"}
+```{.r filename="ex_024.R"}
 
 ```
