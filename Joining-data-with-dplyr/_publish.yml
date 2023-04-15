@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 3580839e-feb1-45f0-936a-ce0fe7475545
+      url: 'https://quartopub.com/sites/sauldiazinfante/joining-data-with-dplyr'
