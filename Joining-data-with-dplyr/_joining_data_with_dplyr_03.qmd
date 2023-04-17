@@ -227,29 +227,178 @@ colors %>%
 ```
 ## Which set is missing version 1?
 
+Each set included in the LEGO data has an associated version number.
+We want to understand the version we are looking at to learn more about the
+parts that are included. Before doing that, we should confirm that there aren't
+any sets that are missing a particular version.
+
+Let's start by looking at the first version of each set to see if there are any
+sets that don't include a first version.
+
 ### Instructions `100 XP` {.unnumbered}
+
+- Use `filter()` to extract `version 1` from the inventories table; save the 
+filter to `version_1_inventories`.
+
+- Use `anti_join` to combine `version_1_inventories` with sets to 
+  etermine which set is missing a `version 1`.
 
 ```{.r filename="ex_021.R"}
+# Use filter() to extract version 1 
+version_1_inventories <- inventories %>%
+  filter(version == 1)
 
+# Use anti_join() to find which set is missing a version 1
+sets %>%
+  anti_join(version_1_inventories)
 ```
+
 ## Aggregating sets to look at their differences
+
+  To compare two individual sets, and the kinds of LEGO pieces that comprise
+them, we'll need to aggregate the data into separate themes. Additionally, as
+we saw in the video, we'll want to add a column so that we can understand the 
+fractions of specific pieces that are part of each set, rather than looking at
+the numbers of pieces alone.
+
+The inventory_parts_themes table has been preloaded for you.
+
+```{.r code-line-numbers="false"}
+inventory_parts_themes <- inventories %>%
+  inner_join(inventory_parts, by = c("id" = "inventory_id")) %>%
+  arrange(desc(quantity)) %>%
+  select(-id, -version) %>%
+  inner_join(sets, by = "set_num") %>%
+  inner_join(themes, by = c("theme_id" = "id"), suffix = c("_set", "_theme"))
+```
 
 ### Instructions `100 XP` {.unnumbered}
 
-```{.r filename="ex_022.R"}
+- Add a filter for the "Batman" theme to create the batman_colors object.
+- Add a fraction column to batman_colors that displays the total divided by the 
+sum of the total.
+- Repeat the steps to filter and aggregate the "Star Wars" set data to create 
+the star_wars_colors object.
+- Add a fraction column to star_wars_colors to display the fraction of the 
+total.
 
+```{.r filename="ex_022.R"}
+batman_colors <- inventory_parts_themes %>%
+  # Filter the inventory_parts_themes table for the Batman theme
+  filter(name_theme == "Batman") %>%
+  group_by(color_id) %>%
+  summarize(total = sum(quantity)) %>%
+  # Add a fraction column of the total divided by the sum of the total 
+  mutate(fraction = total/sum(total))
+
+# Filter and aggregate the Star Wars set data; add a fraction column
+star_wars_colors <- inventory_parts_themes %>%
+  filter(name_theme == "Star Wars") %>%
+  group_by(color_id) %>%
+  summarize(total = sum(quantity)) %>%
+  # Add a fraction column of the total divided by the sum of the total 
+  mutate(fraction = total/sum(total))
 ```
 ## Combining sets
 
+The data you aggregated in the last exercise has been preloaded for you as 
+`batman_colors` and `star_wars_colors`. Prior to visualizing the data, you'll
+want to combine these tables to be able to directly compare the themes' colors.
+
+```{.r code-line-numbers="false"}
+batman_colors <- inventory_parts_themes %>%
+  filter(name_theme == "Batman") %>%
+  group_by(color_id) %>%
+  summarize(total = sum(quantity)) %>%
+  mutate(fraction = total / sum(total))
+star_wars_colors <- inventory_parts_themes %>%
+  filter(name_theme == "Star Wars") %>%
+  group_by(color_id) %>%
+  summarize(total = sum(quantity)) %>%
+  mutate(fraction = total / sum(total))
+```
+
 ### Instructions `100 XP` {.unnumbered}
+
+- Join the `batman_colors` and `star_wars_colors` tables; be sure 
+to include all observations from both tables.
+
+- Replace the NAs in the `total_batman` and `total_star_wars` columns.
+
 
 ```{.r filename="ex_023.R"}
+batman_colors %>%
+  # Join the Batman and Star Wars colors
+  full_join(
+    star_wars_colors,
+    by = "color_id",
+    suffix = c("_batman", "_star_wars")
+  ) %>%
+  # Replace NAs in the total_batman and total_star_wars columns
+  replace_na(
+    list(
+      total_batman=0,
+      total_star_wars=0  
+    )
+  ) %>%
+  inner_join(colors, by = c("color_id" = "id"))
 
+  batman_colors %>%
+       full_join(
+              star_wars_colors,
+              by = "color_id",
+              suffix = c("_batman", "_star_wars")
+       ) %>%
+       replace_na(
+              list(total_batman = 0, total_star_wars = 0)
+       ) %>%
+       inner_join(colors, by = c("color_id" = "id")) %>%
+       # Create the difference and total columns
+       mutate(
+              difference = 
+                     fraction_batman - fraction_star_wars,
+              total = total_batman + total_star_wars
+       ) %>%
+       # Filter for totals greater than 200
+       filter(total >= 200)
 ```
+
 ## Visualizing the difference: Batman and Star Wars
 
+In the last exercise, you created colors_joined. Now you'll create a bar plot
+with one bar for each color (name), showing the difference in fractions.
+
+Because factors and visualization are beyond the scope of this course, we've 
+done some processing for you: here is the code that created the colors_joined 
+table that will be used in the video.
+
+```{.r code-line-numbers="false"}
+colors_joined <- batman_colors %>%
+  full_join(star_wars_colors, by = "color_id", suffix = c("_batman", "_star_wars")) %>%
+  replace_na(list(total_batman = 0, total_star_wars = 0)) %>%
+  inner_join(colors, by = c("color_id" = "id")) %>%
+  mutate(difference = fraction_batman - fraction_star_wars,
+         total = total_batman + total_star_wars) %>%
+  filter(total >= 200) %>%
+  mutate(name = fct_reorder(name, difference)) 
+```
+
+### Instructions `100 XP` 
+Create a bar plot using the colors_joined table to display the most prominent
+colors in the Batman and Star Wars themes, with the bars colored by their name.
+
 ### Instructions `100 XP` {.unnumbered}
+Create a bar plot using the `colors_joined` table to display the most prominent 
+colors in the Batman and Star Wars themes, with the bars colored by their 
+`name`.
 
 ```{.r filename="ex_024.R"}
-
+# Create a bar plot using colors_joined and the name and difference columns
+ggplot(
+  colors_joined,
+  aes(name, difference, fill = name)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_manual(values = color_palette, guide = "none") +
+  labs(y = "Difference: Batman - Star Wars")
 ```

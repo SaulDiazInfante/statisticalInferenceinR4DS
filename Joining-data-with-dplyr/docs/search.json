@@ -158,14 +158,14 @@
     "href": "_joining_data_with_dplyr_03.html#which-set-is-missing-version-1",
     "title": "3  Full, Semi, and Anti Joins",
     "section": "3.7 Which set is missing version 1?",
-    "text": "3.7 Which set is missing version 1?\n\nInstructions 100 XP\n\n\nex_021.R"
+    "text": "3.7 Which set is missing version 1?\nEach set included in the LEGO data has an associated version number. We want to understand the version we are looking at to learn more about the parts that are included. Before doing that, we should confirm that there aren’t any sets that are missing a particular version.\nLet’s start by looking at the first version of each set to see if there are any sets that don’t include a first version.\n\nInstructions 100 XP\n\nUse filter() to extract version 1 from the inventories table; save the filter to version_1_inventories.\nUse anti_join to combine version_1_inventories with sets to etermine which set is missing a version 1.\n\n\n\nex_021.R\n\n# Use filter() to extract version 1 \nversion_1_inventories <- inventories %>%\n  filter(version == 1)\n\n# Use anti_join() to find which set is missing a version 1\nsets %>%\n  anti_join(version_1_inventories)"
   },
   {
     "objectID": "_joining_data_with_dplyr_03.html#aggregating-sets-to-look-at-their-differences",
     "href": "_joining_data_with_dplyr_03.html#aggregating-sets-to-look-at-their-differences",
     "title": "3  Full, Semi, and Anti Joins",
     "section": "3.8 Aggregating sets to look at their differences",
-    "text": "3.8 Aggregating sets to look at their differences\n\nInstructions 100 XP\n\n\nex_022.R"
+    "text": "3.8 Aggregating sets to look at their differences\nTo compare two individual sets, and the kinds of LEGO pieces that comprise them, we’ll need to aggregate the data into separate themes. Additionally, as we saw in the video, we’ll want to add a column so that we can understand the fractions of specific pieces that are part of each set, rather than looking at the numbers of pieces alone.\nThe inventory_parts_themes table has been preloaded for you.\ninventory_parts_themes <- inventories %>%\n  inner_join(inventory_parts, by = c(\"id\" = \"inventory_id\")) %>%\n  arrange(desc(quantity)) %>%\n  select(-id, -version) %>%\n  inner_join(sets, by = \"set_num\") %>%\n  inner_join(themes, by = c(\"theme_id\" = \"id\"), suffix = c(\"_set\", \"_theme\"))\n\nInstructions 100 XP\n\nAdd a filter for the “Batman” theme to create the batman_colors object.\nAdd a fraction column to batman_colors that displays the total divided by the sum of the total.\nRepeat the steps to filter and aggregate the “Star Wars” set data to create the star_wars_colors object.\nAdd a fraction column to star_wars_colors to display the fraction of the total.\n\n\n\n\nex_022.R"
   },
   {
     "objectID": "_joining_data_with_dplyr_03.html#combining-sets",
