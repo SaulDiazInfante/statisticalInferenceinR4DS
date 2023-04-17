@@ -2,6 +2,86 @@
 
 Put together all the types of join you learned in this course to analyze a new
 dataset: Stack Overflow questions, answers, and tags. This includes calculating
-and visualizing trends for some notable tags like `dplyr` and `ggplot2`. You'll also
-master one more method for combining tables, the bind_rows verb, which stacks 
-tables on top of each other.
+and visualizing trends for some notable tags like `dplyr` and `ggplot2`. You'll 
+also master one more method for combining tables, the bind_rows verb, which 
+stacks tables on top of each other.
+
+## Left joining questions and tags
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Comparing scores across tags
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## What tags never appear on R questions?
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Finding gaps between questions and answers
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Joining questions, answers, and counts
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Joining questions, answers, and tags
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Average answers by question
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Joining questions and answers with tags
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Binding and counting posts with tags
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```
+
+## Visualizing questions and answers in tags
+
+## Instructions `100 XP` {.unnumbered}
+
+```{.r filename=ex_0.R}
+
+```

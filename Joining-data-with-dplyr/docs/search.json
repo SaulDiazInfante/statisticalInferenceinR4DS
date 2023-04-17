@@ -194,5 +194,145 @@
     "title": "5  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#left-joining-questions-and-tags",
+    "href": "_joining_data_with_dplyr_04.html#left-joining-questions-and-tags",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.1 Left joining questions and tags",
+    "text": "4.1 Left joining questions and tags"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#comparing-scores-across-tags",
+    "href": "_joining_data_with_dplyr_04.html#comparing-scores-across-tags",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.2 Comparing scores across tags",
+    "text": "4.2 Comparing scores across tags"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-1",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-1",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#what-tags-never-appear-on-r-questions",
+    "href": "_joining_data_with_dplyr_04.html#what-tags-never-appear-on-r-questions",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.3 What tags never appear on R questions?",
+    "text": "4.3 What tags never appear on R questions?"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-2",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-2",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#finding-gaps-between-questions-and-answers",
+    "href": "_joining_data_with_dplyr_04.html#finding-gaps-between-questions-and-answers",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.4 Finding gaps between questions and answers",
+    "text": "4.4 Finding gaps between questions and answers"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-3",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-3",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-counts",
+    "href": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-counts",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.5 Joining questions, answers, and counts",
+    "text": "4.5 Joining questions, answers, and counts"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-4",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-4",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-tags",
+    "href": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-tags",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.6 Joining questions, answers, and tags",
+    "text": "4.6 Joining questions, answers, and tags"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-5",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-5",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#average-answers-by-question",
+    "href": "_joining_data_with_dplyr_04.html#average-answers-by-question",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.7 Average answers by question",
+    "text": "4.7 Average answers by question"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-6",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-6",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#joining-questions-and-answers-with-tags",
+    "href": "_joining_data_with_dplyr_04.html#joining-questions-and-answers-with-tags",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.8 Joining questions and answers with tags",
+    "text": "4.8 Joining questions and answers with tags"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-7",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-7",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#binding-and-counting-posts-with-tags",
+    "href": "_joining_data_with_dplyr_04.html#binding-and-counting-posts-with-tags",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.9 Binding and counting posts with tags",
+    "text": "4.9 Binding and counting posts with tags"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-8",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-8",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#visualizing-questions-and-answers-in-tags",
+    "href": "_joining_data_with_dplyr_04.html#visualizing-questions-and-answers-in-tags",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "4.10 Visualizing questions and answers in tags",
+    "text": "4.10 Visualizing questions and answers in tags"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-9",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-9",
+    "title": "4  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\n\nex_0.R"
   }
 ]
