@@ -2266,5 +2266,194 @@
     "title": "References",
     "section": "",
     "text": "[1] T. Hastie, R. Tibshirani, J. Friedman, The elements of statistical learning, Second, Springer, New York, 2009.\n\n\n[2] W.J. Krzanowski, D.J. Hand, ROC curves for continuous data, CRC Press, Boca Raton, FL, 2009.\n\n\n[3] R. Martin, A statistical inference course based on p-values, The American Statistician. 71 (2017) 128–136.\n\n\n[4] P. McCullagh, J.A. Nelder, Generalized linear models, Chapman & Hall, London, 1989.\n\n\n[5] B. Ratner, Statistical and machine-learning data mining:: Techniques for better predictive modeling and analysis of big data, third edition, CRC Press, 2017.\n\n\n[6] D.A. Sprott, Statistical inference in science, Springer-Verlag, New York, 2000."
+  },
+  {
+    "objectID": "_writing_functions_01.html#calling-functions",
+    "href": "_writing_functions_01.html#calling-functions",
+    "title": "12  How to Write a Function",
+    "section": "12.1 Calling functions",
+    "text": "12.1 Calling functions\nOne way to make your code more readable is to be careful about the order you pass arguments when you call functions, and whether you pass the arguments by position or by name.\ngold_medals, a numeric vector of the number of gold medals won by each country in the 2016 Summer Olympics, is provided.\nFor convenience, the arguments ofmedian() and are displayed using args(). Setting rank()’s na.last argument to “keep” means “keep the rank of NA values as NA”.\nBest practice for calling functions is to include them in the order shown by args(), and to only name rare arguments.\n\nInstructions 100 XP\n\nThe final line calculates the median number of gold medals each country won.\nRewrite the call to median(), following best practices.\n\n\n\nex_01.R\n\n# Look at the gold medals data\ngold_medals\n\n# Note the arguments to median()\nargs(median)\n\n# Rewrite this function call, following best practices\nmedian(gold_medals, na.rm = TRUE)"
+  },
+  {
+    "objectID": "_writing_functions_01.html#the-benefits-of-writing-functions",
+    "href": "_writing_functions_01.html#the-benefits-of-writing-functions",
+    "title": "12  How to Write a Function",
+    "section": "12.2 The benefits of writing functions",
+    "text": "12.2 The benefits of writing functions\nThere are lots of great reasons that you should write your own functions.\nWhich of these is not one of them?"
+  },
+  {
+    "objectID": "_writing_functions_01.html#answer-the-question-50xp",
+    "href": "_writing_functions_01.html#answer-the-question-50xp",
+    "title": "12  How to Write a Function",
+    "section": "Answer the question 50XP",
+    "text": "Answer the question 50XP\nPossible Answers - You can type less code, saving effort and making your analyses more readable. - You make less “copy and paste”-related errors. - You can reuse your code from project to project. - You can make your code harder to read, potentially improving your job security because only you can maintain it."
+  },
+  {
+    "objectID": "_writing_functions_01.html#your-first-function-tossing-a-coin",
+    "href": "_writing_functions_01.html#your-first-function-tossing-a-coin",
+    "title": "12  How to Write a Function",
+    "section": "12.3 Your first function: tossing a coin",
+    "text": "12.3 Your first function: tossing a coin\nTime to write your first function! It’s a really good idea when writing functions to start simple. You can always make a function more complicated later if it’s really necessary, so let’s not worry about arguments for now.\n\nInstructions 100 XP\n\nSimulate a single coin toss by using sample() to sample from coin_sides once.\nWrite a template for your function, naming it toss_coin. The function should take no arguments. Don’t include the body of the function yet.\nCopy your script, and paste it into the function body.\nCall your function.\n\n\n\nex_02.R\n\ncoin_sides <- c(\"head\", \"tail\")\n\n# Sample from coin_sides once\nsample(coin_sides,1)\n\n# Write a template for your function, toss_coin()\ntoss_coin <- function() {\n  \n\n  # (Leave the contents of the body for later)\n# Add punctuation to finish the body\n}\n\n# Your script, from a previous step\ncoin_sides <- c(\"head\", \"tail\")\n\n# Paste your script into the function body\ntoss_coin <- function() {\n  sample(coin_sides, 1)\n  \n}\n\n# Your functions, from previous steps\ntoss_coin <- function() {\n  coin_sides <- c(\"head\", \"tail\")\n  sample(coin_sides, 1)\n}\n\n# Call your function\ntoss_coin()"
+  },
+  {
+    "objectID": "_writing_functions_01.html#inputs-to-functions",
+    "href": "_writing_functions_01.html#inputs-to-functions",
+    "title": "12  How to Write a Function",
+    "section": "12.4 Inputs to functions",
+    "text": "12.4 Inputs to functions\nMost functions require some sort of input to determine what to compute. The inputs to functions are called arguments. You specify them inside the parentheses after the word “function.”\nAs mentioned in the video, the following exercises assume that you are using sample() to do random sampling.\n\nInstructions 100 XP\n\nSample from coin_sides n_flips times with replacement.\nUpdate the definition of toss_coin() to accept a single argument, n_flips. The function should sample coin_sides n_flips times with replacement. Remember to change the signature and the body.\nGenerate 10 coin flips.\n\n\n\nex_03.R\n\ncoin_sides <- c(\"head\", \"tail\")\nn_flips <- 10\n\n# Sample from coin_sides n_flips times with replacement\nsample(coin_sides,n_flips,replace = TRUE)\n\n# Update the function to return n coin tosses\ntoss_coin <- function(n_flips) {\n  coin_sides <- c(\"head\", \"tail\")\n  sample(coin_sides, n_flips,replace = TRUE)\n}\n\n# Generate 10 coin tosses\ntoss_coin(10)"
+  },
+  {
+    "objectID": "_writing_functions_01.html#multiple-inputs-to-functions",
+    "href": "_writing_functions_01.html#multiple-inputs-to-functions",
+    "title": "12  How to Write a Function",
+    "section": "12.5 Multiple inputs to functions",
+    "text": "12.5 Multiple inputs to functions\nIf a function should have more than one argument, list them in the function signature, separated by commas.\nTo solve this exercise, you need to know how to specify sampling weights to sample(). Set the prob argument to a numeric vector with the same length as x. Each value of prob is the probability of sampling the corresponding element of x, so their values add up to one. In the following example, each sample has a 20% chance of “bat”, a 30% chance of “cat” and a 50% chance of “rat”.\n\nsample(c(“bat”, “cat”, “rat”), 10, replace = TRUE, prob = c(0.2, 0.3, 0.5))\n\n\nInstructions 100 XP\n\nBias the coin by weighting the sampling. Specify the prob argument so that heads are sampled with probability p_head (and tails are sampled with probability 1 - p_head).\nUpdate the definition of toss_coin() so it accepts an argument, p_head, and weights the samples using the code you wrote in the previous step.\nGenerate 10 coin tosses with an 80% chance of each head.\n\n\n\nex_04.R\n\n\ncoin_sides <- c(\"head\", \"tail\")\nn_flips <- 10\np_head <- 0.8\n\n# Define a vector of weights\nweights <- c(p_head, 1 - p_head)\n\n# Update so that heads are sampled with prob p_head\nsample(coin_sides, n_flips, replace = TRUE, prob = weights)\n\n# Update the function so heads have probability p_head\ntoss_coin <- function(n_flips,p_head) {\n  coin_sides <- c(\"head\", \"tail\")\n  # Define a vector of weights\n  weights <- c(p_head,1-p_head)\n  # Modify the sampling to be weighted\n  sample(coin_sides, n_flips, replace = TRUE,prob=weights)\n}\n\n# Generate 10 coin tosses\ntoss_coin(10,0.8)"
+  },
+  {
+    "objectID": "_writing_functions_01.html#renaming-glm",
+    "href": "_writing_functions_01.html#renaming-glm",
+    "title": "12  How to Write a Function",
+    "section": "12.6 Renaming GLM",
+    "text": "12.6 Renaming GLM\nR’s generalized linear regression function, glm(), suffers the same usability problems as lm(): its name is an acronym, and its formula and data arguments are in the wrong order.\nTo solve this exercise, you need to know two things about generalized linear regression:\nglm() formulas are specified like lm() formulas: response is on the left, and explanatory variables are added on the right. To model count data, set glm()’s family argument to poisson, making it a Poisson regression. Here you’ll use data on the number of yearly visits to Snake River at Jackson Hole, Wyoming, snake_river_visits.\n\nInstructions 100 XP\n\nRun a generalized linear regression by calling glm(). Model n_visits vs.  gender, income, and travel on the snake_river_visits dataset, setting the family to poisson.\nDefine a function, run_poisson_regression(), to run a Poisson regression. This should take two arguments: data and formula, and call glm(), passing those arguments and setting family to poisson.\nRecreate the Poisson regression model from the first step, this time by calling your run_poisson_regression() function.\n\n\n\nex_05.R\n\n# Run a generalized linear regression \nglm(\n  # Model no. of visits vs. gender, income, travel\n  n_visits ~ gender + income + travel, \n  # Use the snake_river_visits dataset\n  data = snake_river_visits, \n  # Make it a Poisson regression\n  family = poisson\n)\n\n# Write a function to run a Poisson regression\nrun_poisson_regression <- function(data, formula) {\n    glm(formula, data, family = poisson)\n}\n\n# From previous step\nrun_poisson_regression <- function(data, formula) {\n  glm(formula, data, family = poisson)\n}\n\n# Re-run the Poisson regression, using your function\nmodel <- snake_river_visits %>%\n  run_poisson_regression(n_visits ~ gender + income + travel)\n\n# Run this to see the predictions\nsnake_river_explanatory %>%\n  mutate(predicted_n_visits = predict(model, ., type = \"response\"))%>%\n  arrange(desc(predicted_n_visits))"
+  },
+  {
+    "objectID": "_writing_functions_01.html#numeric-defaults",
+    "href": "_writing_functions_01.html#numeric-defaults",
+    "title": "12  How to Write a Function",
+    "section": "12.7 Numeric defaults",
+    "text": "12.7 Numeric defaults\ncut_by_quantile() converts a numeric vector into a categorical variable where quantiles define the cut points. This is a useful function, but at the moment you have to specify five arguments to make it work. This is too much thinking and typing.\nBy specifying default arguments, you can make it easier to use. Let’s start with n, which specifies how many categories to cut x into.\nA numeric vector of the number of visits to Snake River is provided as n_visits.\n\nInstructions 100 XP\nUpdate the definition of cut_by_quantile() so that the n argument defaults to 5. Remove the n argument from the call to cut_by_quantile().\n\n\nex_06.R\n\n# Set the default for n to 5\ncut_by_quantile <- function(x, n=5, na.rm, labels, interval_type) {\n  probs <- seq(0, 1, length.out = n + 1)\n  qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE)\n  right <- switch(interval_type, \"(lo, hi]\" = TRUE, \"[lo, hi)\" = FALSE)\n  cut(x, qtiles, labels = labels, right = right, include.lowest = TRUE)\n}\n\n# Remove the n argument from the call\ncut_by_quantile(\n  n_visits, \n  na.rm = FALSE, \n  labels = c(\"very low\", \"low\", \"medium\", \"high\", \"very high\"),\n  interval_type = \"(lo, hi]\"\n)\nformals(cut_by_quantile)"
+  },
+  {
+    "objectID": "_writing_functions_01.html#logical-defaults",
+    "href": "_writing_functions_01.html#logical-defaults",
+    "title": "12  How to Write a Function",
+    "section": "12.8 Logical defaults",
+    "text": "12.8 Logical defaults\ncut_by_quantile() is now slightly easier to use, but you still always have to specify the na.rm argument. This removes missing values—it behaves the same as the na.rm argument to mean() or sd().\nWhere functions have an argument for removing missing values, the best practice is to not remove them by default (in case you hadn’t spotted that you had missing values). That means that the default for na.rm should be FALSE.\n\nInstructions 100 XP\nUpdate the definition of cut_by_quantile() so that the na.rm argument defaults to FALSE. Remove the na.rm argument from the call to cut_by_quantile().\n\n\nex_07.R\n\n# Set the default for na.rm to FALSE\ncut_by_quantile <- function(x, n = 5, na.rm = FALSE, labels, interval_type) {\n  probs <- seq(0, 1, length.out = n + 1)\n  qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE)\n  right <- switch(interval_type, \"(lo, hi]\" = TRUE, \"[lo, hi)\" = FALSE)\n  cut(x, qtiles, labels = labels, right = right, include.lowest = TRUE)\n}\n\n# Remove the na.rm argument from the call\ncut_by_quantile(\n  n_visits, \n  labels = c(\"very low\", \"low\", \"medium\", \"high\", \"very high\"),\n  interval_type = \"(lo, hi]\"\n)"
+  },
+  {
+    "objectID": "_writing_functions_02.html#null-defaults",
+    "href": "_writing_functions_02.html#null-defaults",
+    "title": "13  All About Arguments",
+    "section": "13.1 NULL defaults",
+    "text": "13.1 NULL defaults\nThe cut() function used by cut_by_quantile() can automatically provide sensible labels for each category. The code to generate these labels is pretty complicated, so rather than appearing in the function signature directly, its labels argument defaults to NULL, and the calculation details are shown on the ?cut help page.\n\nInstructions 100 XP\nUpdate the definition of cut_by_quantile() so that the labels argument defaults to NULL. Remove the labels argument from the call to cut_by_quantile().\n\n\nex_08.R\n\n# Set the default for labels to NULL\ncut_by_quantile <- function(x, n = 5, na.rm = FALSE, labels=NULL, \ninterval_type) {\n  probs <- seq(0, 1, length.out = n + 1)\n  qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE)\n  right <- switch(interval_type, \"(lo, hi]\" = TRUE, \"[lo, hi)\" = FALSE)\n  cut(x, qtiles, labels = labels, right = right, include.lowest = TRUE)\n}\n\n# Remove the labels argument from the call\ncut_by_quantile(\n  n_visits,\n  interval_type = \"(lo, hi]\"\n)"
+  },
+  {
+    "objectID": "_writing_functions_02.html#categorical-defaults",
+    "href": "_writing_functions_02.html#categorical-defaults",
+    "title": "13  All About Arguments",
+    "section": "13.2 Categorical defaults",
+    "text": "13.2 Categorical defaults\nWhen cutting up a numeric vector, you need to worry about what happens if a value lands exactly on a boundary. You can either put this value into a category of the lower interval or the higher interval. That is, you can choose your intervals to include values at the top boundary but not the bottom (in mathematical terminology, “open on the left, closed on the right”, or (lo, hi]). Or you can choose the opposite (“closed on the left, open on the right”, or [lo, hi)). cut_by_quantile() should allow these two choices.\nThe pattern for categorical defaults is:\nfunction(cat_arg = c(\"choice1\", \"choice2\")) { \n    cat_arg \\<- match.arg(cat_arg)\n}\nFree hint: In the console, type head(rank) to see the start of rank()’s definition, and look at the ties.method argument.\n\nInstructions 100 XP\nUpdate the signature of cut_by_quantile() so that the interval_type argument can be “(lo, hi ]” or ” [lo, hi)“. Note the space after each comma. Update the body of cut_by_quantile() to match the interval_type argument. Remove the interval_type argument from the call to cut_by_quantile().\n\n\nex_09.R\n\n# Set the categories for interval_type to \"(lo, hi]\" and \"[lo, hi)\"\ncut_by_quantile <- function(x, n = 5, na.rm = FALSE, labels = NULL, \ninterval_type=  c(\"(lo, hi]\", \"[lo, hi)\")) {\n  # Match the interval_type argument\n  interval_type <- match.arg(interval_type)\n  probs <- seq(0, 1, length.out = n + 1)\n  qtiles <- quantile(x, probs, na.rm = na.rm, names = FALSE)\n  right <- switch(interval_type, \"(lo, hi]\" = TRUE, \"[lo, hi)\" = FALSE)\n  cut(x, qtiles, labels = labels, right = right, include.lowest = TRUE)\n}\n# Remove the interval_type argument from the call\ncut_by_quantile(n_visits)"
+  },
+  {
+    "objectID": "_writing_functions_02.html#harmonic-mean",
+    "href": "_writing_functions_02.html#harmonic-mean",
+    "title": "13  All About Arguments",
+    "section": "13.3 Harmonic mean",
+    "text": "13.3 Harmonic mean\nThe harmonic mean is the reciprocal of the arithmetic mean of the reciprocal of the data. That is the harmonic mean is often used to average ratio data. You’ll be using it on the price/earnings ratio of stocks in the Standard and Poor’s 500 index, provided as std_and_poor500. Price/earnings ratio is a measure of how expensive a stock is.\nThe dplyr package is loaded.\n\nInstructions 100 XP\n\nLook at std_and_poor500 (you’ll need this later). Write a function, get_reciprocal, to get the reciprocal of an input x. Its only argument should be x, and it should return one over x.\nWrite a function, calc_harmonic_mean(), that calculates the harmonic mean of its only input, x.\nUsing std_and_poor500, group by sector, and summarize to calculate the harmonic mean of the price/earning ratios in the pe_ratio column.\n\n\n\nex_10.R\n\n# Look at the Standard and Poor 500 data\nglimpse(std_and_poor500)\n\n# Write a function to calculate the reciprocal\nget_reciprocal <- function(x){\n  1/x \n}\n\n# From previous step\nget_reciprocal <- function(x) {\n  1 / x\n}\n\n# Write a function to calculate the harmonic mean\ncalc_harmonic_mean <- function(x) {\n  x %>%\n    get_reciprocal() %>%\n    mean() %>%\n    get_reciprocal()\n}\n\n# From previous steps\nget_reciprocal <- function(x) {\n  1 / x\n}\ncalc_harmonic_mean <- function(x) {\n  x %>%\n    get_reciprocal() %>%\n    mean() %>%\n    get_reciprocal()\n}\n\nstd_and_poor500 %>% \n  # Group by sector\n  group_by(sector) %>% \n  # Summarize, calculating harmonic mean of P/E ratio\n  summarize(hmean_pe_ratio = calc_harmonic_mean(pe_ratio))"
+  },
+  {
+    "objectID": "_writing_functions_02.html#dealing-with-missing-values",
+    "href": "_writing_functions_02.html#dealing-with-missing-values",
+    "title": "13  All About Arguments",
+    "section": "13.4 Dealing with missing values",
+    "text": "13.4 Dealing with missing values\nIn the last exercise, many sectors had an NA value for the harmonic mean. It would be useful for your function to be able to remove missing values before calculating.\nRather than writing your own code for this, you can outsource this functionality to mean().\nThe dplyr package is loaded.\n\nInstructions 100 XP\n\nModify the signature and body of calc_harmonic_mean() so it has an na.rm argument, defaulting to false, that gets passed to mean().\nUsing std_and_poor500, group by sector, and summarize to calculate the harmonic mean of the price/earning ratios in the pe_ratio column, removing missing values.\n\n\n\nex_11.R\n\n# Add an na.rm arg with a default, and pass it to mean()\ncalc_harmonic_mean <- function(x,na.rm = FALSE) {\n  x %>%\n    get_reciprocal() %>%\n    mean(na.rm =na.rm) %>%\n    get_reciprocal()\n}\n\n# From previous step\ncalc_harmonic_mean <- function(x, na.rm = FALSE) {\n  x %>%\n    get_reciprocal() %>%\n    mean(na.rm = na.rm) %>%\n    get_reciprocal()\n}\n\nstd_and_poor500 %>% \n  # Group by sector\n  group_by(sector) %>% \n  # Summarize, calculating harmonic mean of P/E ratio\n  summarize(hmean_pe_ratio = calc_harmonic_mean(pe_ratio,\n   na.rm = TRUE))"
+  },
+  {
+    "objectID": "_writing_functions_02.html#passing-arguments-with-...",
+    "href": "_writing_functions_02.html#passing-arguments-with-...",
+    "title": "13  All About Arguments",
+    "section": "13.5 Passing arguments with ...",
+    "text": "13.5 Passing arguments with ...\nRather than explicitly giving calc_harmonic_mean() and na.rm argument, you can use ... to simply “pass other arguments” to mean().\nThe dplyr package is loaded.\n\nInstructions 100 XP\n\nReplace the na.rm argument with … in the signature and body of calc_harmonic_mean().\nUsing std_and_poor500, group by sector, and summarize to calculate the harmonic mean of the price/earning ratios in the pe_ratio column, removing missing values.\n\n\n\nex_12.R\n\n# Swap na.rm arg for ... in signature and body\ncalc_harmonic_mean <- function(x, ...) {\n  x %>%\n    get_reciprocal() %>%\n    mean(...) %>%\n    get_reciprocal()\n}\ncalc_harmonic_mean(x = c(1, NA, 3, NA, 5))\n\ncalc_harmonic_mean <- function(x, ...) {\n  x %>%\n    get_reciprocal() %>%\n    mean(...) %>%\n    get_reciprocal()\n}\n\nstd_and_poor500 %>% \n  # Group by sector\n  group_by(sector) %>% \n  # Summarize, calculating harmonic mean of P/E ratio\n  summarize(hmean_pe_ratio = calc_harmonic_mean(pe_ratio,\n   na.rm = TRUE))"
+  },
+  {
+    "objectID": "_writing_functions_02.html#throwing-errors-with-bad-arguments",
+    "href": "_writing_functions_02.html#throwing-errors-with-bad-arguments",
+    "title": "13  All About Arguments",
+    "section": "13.6 Throwing errors with bad arguments",
+    "text": "13.6 Throwing errors with bad arguments\nIf a user provides a bad input to a function, the best course of action is to throw an error letting them know. The two rules are\nThrow the error message as soon as you realize there is a problem (typically at the start of the function). Make the error message easily understandable. You can use the assert\\_\\*() functions from assertive to check inputs and throw errors when they fail.\n\nInstructions 100 XP\n\nAdd a line to the body of calc_harmonic_mean() to assert that x is numeric.\nLook at what happens when you pass a character argument to calc_harmonic_mean().\n\n\n\nex_13.R\n\nalc_harmonic_mean <- function(x, na.rm = FALSE) {\n  # Assert that x is numeric\n  assert_is_numeric(x)\n  x %>%\n    get_reciprocal() %>%\n    mean(na.rm = na.rm) %>%\n    get_reciprocal()\n}\n\n# See what happens when you pass it strings\ncalc_harmonic_mean(std_and_poor500$sector)"
+  },
+  {
+    "objectID": "_writing_functions_02.html#custom-error-logic",
+    "href": "_writing_functions_02.html#custom-error-logic",
+    "title": "13  All About Arguments",
+    "section": "13.7 Custom error logic",
+    "text": "13.7 Custom error logic\nSometimes the assert_*() functions in assertive don’t give the most informative error message. For example, the assertions that check if a number is in a numeric range will tell the user that a value is out of range, but the won’t say why that’s a problem. In that case, you can use the is \\_\\*() functions in conjunction with messages, warnings, or errors to define custom feedback.\nThe harmonic mean only makes sense when x has all positive values. (Try calculating the harmonic mean of one and minus one to see why.) Make sure your users know this!\n\n13.7.1 Instructions 100 XP\n\nIf any values of x are non-positive (ignoring NAs) then throw an error.\nLook at what happens when you pass a character argument to calc_harmonic_mean().\n\n\n\nex_14.R\n\ncalc_harmonic_mean <- function(x, na.rm = FALSE) {\n  assert_is_numeric(x)\n  # Check if any values of x are non-positive\n  if(any(is_non_positive(x), na.rm = TRUE)) {\n    # Throw an error\n    stop(\"x contains non-positive values, so the harmonic mean makes no sense.\")\n  }\n  x %>%\n    get_reciprocal() %>%\n    mean(na.rm = na.rm) %>%\n    get_reciprocal()\n}\n\n# See what happens when you pass it negative numbers\ncalc_harmonic_mean(std_and_poor500$pe_ratio - 20)"
+  },
+  {
+    "objectID": "_writing_functions_02.html#fixing-function-arguments",
+    "href": "_writing_functions_02.html#fixing-function-arguments",
+    "title": "13  All About Arguments",
+    "section": "13.8 Fixing function arguments",
+    "text": "13.8 Fixing function arguments\nThe harmonic mean function is almost complete. However, you still need to provide some checks on the na.rm argument. This time, rather than throwing errors when the input is in an incorrect form, you are going to try to fix it.\nna.rm should be a logical vector with one element (that is, TRUE, or FALSE).\nThe assertive package is loaded for you.\n\nInstructions 100 XP\n\nUpdate calc_harmonic_mean() to fix the na.rm argument by using use_first() to select the first na.rm element, and coerce_to() to change it to logical.\n\n\n\nex_15.R\n\n# Update the function definition to fix the na.rm argument\ncalc_harmonic_mean <- function(x, na.rm = FALSE) {\n  assert_is_numeric(x)\n  if(any(is_non_positive(x), na.rm = TRUE)) {\n    stop(\"x contains non-positive values, so the harmonic mean makes no sense.\")\n  }\n  # Use the first value of na.rm, and coerce to logical\n  na.rm <- coerce_to(use_first(na.rm), target_class  = \"logical\")\n  x %>%\n    get_reciprocal() %>%\n    mean(na.rm = na.rm) %>%\n    get_reciprocal()\n}\n\n# See what happens when you pass it malformed na.rm\ncalc_harmonic_mean(std_and_poor500$pe_ratio, na.rm = 1:5)"
+  },
+  {
+    "objectID": "_writing_functions_03.html#returning-early",
+    "href": "_writing_functions_03.html#returning-early",
+    "title": "14  Return Values and Scope",
+    "section": "14.1 Returning early",
+    "text": "14.1 Returning early\nSometimes, you don’t need to run through the whole body of a function to get the answer. In that case you can return early from that function using return().\nTo check if x is divisible by n, you can use is_divisible_by(x, n) from assertive.\nAlternatively, use the modulo operator, %%. x %% n gives the remainder when dividing x by n, so x %% n == 0 determines whether x is divisible by n. Try 1:10 %% 3 == 0 in the console.\nTo solve this exercise, you need to know that a leap year is every 400th year (like the year 2000) or every 4th year that isn’t a century (like 1904 but not 1900 or 1905).\nassertive is loaded.\n\n14.1.1 Instructions 100 XP\nComplete the definition of is_leap_year(), checking for the cases of year being divisible by 400, then 100, then 4, returning early from the function in each case.\n\n\nex_16.R\n\nis_leap_year <- function(year) {\n  # If year is div. by 400 return TRUE\n  if(is_divisible_by(year,400)) {\n    return(TRUE)\n  }\n  # If year is div. by 100 return FALSE\n  if(is_divisible_by(year,100)) {\n    return(FALSE)\n  }  \n  # If year is div. by 4 return TRUE\n  if(is_divisible_by(year,4)) {\n    return(TRUE)\n  }\n  \n  # Otherwise return FALSE\n  FALSE\n}"
+  },
+  {
+    "objectID": "_writing_functions_03.html#returning-invisibly",
+    "href": "_writing_functions_03.html#returning-invisibly",
+    "title": "14  Return Values and Scope",
+    "section": "14.2 Returning invisibly",
+    "text": "14.2 Returning invisibly\nWhen the main purpose of a function is to generate output, like drawing a plot or printing something in the console, you may not want a return value to be rinted as well. In that case, the value should be invisibly returned.\nThe base R plot function returns NULL, since its main purpose is to draw a plot. This isn’t helpful if you want to use it in piped code: instead it should invisibly return the plot data to be piped on to the next step.\nRecall that plot() has a formula interface: instead of giving it vectors for x and y, you can specify a formula describing which columns of a data frame go on the x and y axes, and a data argument for the data frame. Note that just like lm(), the arguments are the wrong way round because the detail argument, formula, comes before the data argument.\nplot(y \\~ x, data = data)\n\nInstructions 100 XP\n\nUse the cars dataset and the formula interface to plot(), draw a scatter plot of dist versus speed.\nGive pipeable_plot() data and formula arguments (in that order) and make it draw the plot, then invisibly return data.\nDraw the scatter plot of dist vs. speed again by calling pipeable_plot()\n\n\n\nex_17.R\n\n# Using cars, draw a scatter plot of dist vs. speed\nplt_dist_vs_speed <- plot(dist ~ speed, data = cars)\n\n# Oh no! The plot object is NULL\nplt_dist_vs_speed\n\n# Define a pipeable plot fn with data and formula args\npipeable_plot <- function(data, formula) {\n  # Call plot() with the formula interface\n  plot(formula, data)\n  # Invisibly return the input dataset\n  invisible(data)\n}\n\n# Draw the scatter plot of dist vs. speed again\nplt_dist_vs_speed <- cars %>% \n  pipeable_plot(dist ~ speed)"
+  },
+  {
+    "objectID": "_writing_functions_03.html#returning-many-things",
+    "href": "_writing_functions_03.html#returning-many-things",
+    "title": "14  Return Values and Scope",
+    "section": "14.3 Returning many things",
+    "text": "14.3 Returning many things\nFunctions can only return one value. If you want to return multiple things, then you can store them all in a list.\nIf users want to have the list items as separate variables, they can assign each list element to its own variable using zeallot’s multi-assignment operator, %\\<-%.\nglance(), tidy(), and augment() each take the model object as their only rgument.\nThe Poisson regression model of Snake River visits is available as model. broom and zeallot are loaded.\n\nInstructions 100 XP\n\nExamine the structure of model.\nUse broom functions on model to create a list containing the model–, coefficient–, and observation-level parts of model.\nWrap the code into a function, groom_model(), that accepts model as its only argument.\nCall groom_model() on model, multi-assigning the result to three variables at once: mdl, cff, and obs.\n\n\n\nex_18.R\n\n# Look at the structure of model (it's a mess!)\nstr(model)\n\n# Use broom tools to get a list of 3 data frames\nlist(\n  # Get model-level values\n  model = glance(model),\n  # Get coefficient-level values\n  coefficients = tidy(model),\n  # Get observation-level values\n  observations = augment(model)\n)\n\n# Wrap this code into a function, groom_model\ngroom_model <- function(model){\n  list(\n    model = glance(model),\n    coefficients = tidy(model),\n    observations = augment(model)\n  )\n}\n\ngroom_model(model)\n\n# From previous step\ngroom_model <- function(model) {\n  list(\n    model = glance(model),\n    coefficients = tidy(model),\n    observations = augment(model)\n  )\n}\n\n# Call groom_model on model, assigning to 3 variables\nc(mdl, cff, obs) %<-% groom_model(model)\n#c(var1, var2, var3) %<-% fn(args)\n\n# See these individual variables\nmdl; cff; obs"
+  },
+  {
+    "objectID": "_writing_functions_03.html#returning-metadata",
+    "href": "_writing_functions_03.html#returning-metadata",
+    "title": "14  Return Values and Scope",
+    "section": "14.4 Returning metadata",
+    "text": "14.4 Returning metadata\nSometimes you want to return multiple things from a function, but you want the result to have a particular class (for example, a data frame or a numeric vector), so returning a list isn’t appropriate. This is common when you have a result plus metadata about the result. (Metadata is “data about the data”. For example, it could be the file a dataset was loaded from, or the username of the person who created the variable, or the number of iterations for an algorithm to converge.)\nIn that case, you can store the metadata in attributes. Recall the syntax for assigning attributes is as follows.\nattr(object, \"attribute_name\") \\<- attribute_value\n\nInstructions 100 XP\n\nUpdate pipeable_plot() so the result has an attribute named “formula” with the value of formula.\nplt_dist_vs_speed, that you previously created, is shown. Examine its updated structure.\n\n\n\nex_19.R\n\npipeable_plot <- function(data, formula) {\n  plot(formula, data)\n  # Add a \"formula\" attribute to data\n  attr(data, \"formula\") <- formula\n  invisible(data)\n}\n\n# From previous exercise\nplt_dist_vs_speed <- cars %>% \n  pipeable_plot(dist ~ speed)\n\n# Examine the structure of the result\nstr(plt_dist_vs_speed)"
+  },
+  {
+    "objectID": "_writing_functions_03.html#creating-and-exploring-environments",
+    "href": "_writing_functions_03.html#creating-and-exploring-environments",
+    "title": "14  Return Values and Scope",
+    "section": "14.5 Creating and exploring environments",
+    "text": "14.5 Creating and exploring environments\nEnvironments are used to store other variables. Mostly, you can think of them as lists, but there’s an important extra property that is relevant to writing functions. Every environment has a parent environment (except the empty environment, at the root of the environment tree). This determines which variables R know about at ifferent places in your code.\nFacts about the Republic of South Africa are contained in capitals, national_parks, and population.\n\nInstructions 100 XP\n\nCreate rsa_lst, a named list from capitals, national_parks, and population. Use those values as the names.\nList the structure of each element of rsa_lst using ls.str().\nConvert the list to an environment, rsa_env, using list2env().\nList the structure of each element of rsa_env\nFind the parent environment of rsa_env and print its name.\n\n\n\nex_20.R\n\n# Add capitals, national_parks, & population to a named list\nrsa_lst <- list(\n  capitals = capitals,\n  national_parks = national_parks,\n  population = population\n)\n\n# List the structure of each element of rsa_lst\nls.str(rsa_lst)\n\n# From previous step\nrsa_lst <- list(\n  capitals = capitals,\n  national_parks = national_parks,\n  population = population\n)\n\n# Convert the list to an environment\nrsa_env <- list2env(rsa_lst)\n\n# List the structure of each variable\nls.str(rsa_env)\n\n# From previous steps\nrsa_lst <- list(\n  capitals = capitals,\n  national_parks = national_parks,\n  population = population\n)\nrsa_env <- list2env(rsa_lst)\n\n# Find the parent environment of rsa_env\nparent <- parent.env(rsa_env)\nenvironmentName(parent)\n\n# Print its name\nprint(environmentName)"
+  },
+  {
+    "objectID": "_writing_functions_03.html#do-variables-exist",
+    "href": "_writing_functions_03.html#do-variables-exist",
+    "title": "14  Return Values and Scope",
+    "section": "14.6 Do variables exist?",
+    "text": "14.6 Do variables exist?\nIf R cannot find a variable in the current environment, it will look in the parent environment, then the grandparent environment, and so on until it finds it.\nrsa_env has been modified so it includes capitals and national_parks, but not population.\n\nInstructions 100 XP\n\nCheck if population exists in rsa_env, using default inheritance rules.\nCheck if population exists in rsa_env, ignoring inheritance.\n\n\n\nex_21.R\n\n# Compare the contents of the global environment and rsa_env\nls.str(globalenv())\nls.str(rsa_env)\n\n# Does population exist in rsa_env?\nexists(\"population\", envir = rsa_env)\n\n# Does population exist in rsa_env, ignoring inheritance?\nexists(\"population\", envir = rsa_env,inherits = FALSE)"
+  },
+  {
+    "objectID": "_writing_functions_03.html#variable-precedence-1",
+    "href": "_writing_functions_03.html#variable-precedence-1",
+    "title": "14  Return Values and Scope",
+    "section": "14.7 Variable precedence 1",
+    "text": "14.7 Variable precedence 1\nConsider this code, run in a fresh R session.\nx_plus_y <- function(x) { y <- 3 x + y } y <- 7\nIf you now call x_plus_y(5), what is the result?"
+  },
+  {
+    "objectID": "_writing_functions_03.html#answer-the-question-50xp",
+    "href": "_writing_functions_03.html#answer-the-question-50xp",
+    "title": "14  Return Values and Scope",
+    "section": "14.8 Answer the question 50XP",
+    "text": "14.8 Answer the question 50XP\nPossible Answers\n\n\n\n\n\n\n\nAn error is thrown."
+  },
+  {
+    "objectID": "_writing_functions_03.html#variable-precedence-2",
+    "href": "_writing_functions_03.html#variable-precedence-2",
+    "title": "14  Return Values and Scope",
+    "section": "14.9 Variable precedence 2",
+    "text": "14.9 Variable precedence 2\nConsider this (slightly different) code, run in a fresh R session.\nx_plus_y \\<- function(x) { x \\<- 6 y \\<- 3 x + y } y \\<- 7  \nIf you now call x_plus_y(5), what is the result?"
+  },
+  {
+    "objectID": "_writing_functions_03.html#answer-the-question-50xp-1",
+    "href": "_writing_functions_03.html#answer-the-question-50xp-1",
+    "title": "14  Return Values and Scope",
+    "section": "14.10 Answer the question 50XP",
+    "text": "14.10 Answer the question 50XP\nPossible Answers\n\n\n\n\n\n\nAn error is thrown."
   }
 ]

@@ -479,18 +479,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#multiple-inputs-to-functions" id="toc-multiple-inputs-to-functions" class="nav-link" data-scroll-target="#multiple-inputs-to-functions"><span class="toc-section-number">12.5</span>  Multiple inputs to functions</a></li>
-  <li><a href="#renaming-glm" id="toc-renaming-glm" class="nav-link" data-scroll-target="#renaming-glm"><span class="toc-section-number">12.6</span>  Renaming GLM</a>
+  <li><a href="#multiple-inputs-to-functions" id="toc-multiple-inputs-to-functions" class="nav-link" data-scroll-target="#multiple-inputs-to-functions"><span class="toc-section-number">12.5</span>  Multiple inputs to functions</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#numeric-defaults" id="toc-numeric-defaults" class="nav-link" data-scroll-target="#numeric-defaults"><span class="toc-section-number">12.7</span>  Numeric defaults</a>
+  <li><a href="#renaming-glm" id="toc-renaming-glm" class="nav-link" data-scroll-target="#renaming-glm"><span class="toc-section-number">12.6</span>  Renaming GLM</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#logical-defaults" id="toc-logical-defaults" class="nav-link" data-scroll-target="#logical-defaults"><span class="toc-section-number">12.8</span>  Logical defaults</a>
+  <li><a href="#numeric-defaults" id="toc-numeric-defaults" class="nav-link" data-scroll-target="#numeric-defaults"><span class="toc-section-number">12.7</span>  Numeric defaults</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#logical-defaults" id="toc-logical-defaults" class="nav-link" data-scroll-target="#logical-defaults"><span class="toc-section-number">12.8</span>  Logical defaults</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_writing_functions_01.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -529,7 +532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>E1.R</strong></pre>
+<pre><strong>ex_01.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the gold medals data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gold_medals</span>
@@ -549,13 +552,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="answer-the-question-50xp" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="answer-the-question-50xp">Answer the question <code>50XP</code></h2>
-<p>Possible Answers</p>
-<ul>
-<li><p>You can type less code, saving effort and making your analyses more readable.</p></li>
-<li><p>You make less “copy and paste”-related errors.</p></li>
-<li><p>You can reuse your code from project to project.</p></li>
-<li><p>You can make your code harder to read, potentially improving your job security because only you can maintain it.</p></li>
-</ul>
+<p>Possible Answers - You can type less code, saving effort and making your analyses more readable. - You make less “copy and paste”-related errors. - You can reuse your code from project to project. - You can make your code harder to read, potentially improving your job security because only you can maintain it.</p>
 </section>
 <section id="your-first-function-tossing-a-coin" class="level2" data-number="12.3">
 <h2 data-number="12.3" class="anchored" data-anchor-id="your-first-function-tossing-a-coin"><span class="header-section-number">12.3</span> Your first function: tossing a coin</h2>
@@ -570,7 +567,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>E2.R</strong></pre>
+<pre><strong>ex_02.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -618,7 +615,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>E3.R</strong></pre>
+<pre><strong>ex_03.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_flips <span class="ot">&lt;-</span> <span class="dv">10</span></span>
@@ -644,7 +641,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>sample(c(“bat”, “cat”, “rat”), 10, replace = TRUE, prob = c(0.2, 0.3, 0.5))</p>
 </blockquote>
-<p>##Instructions <code>100 XP</code> {.unnumbered}</p>
+<section id="instructions-100-xp-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
 <ul>
 <li>Bias the coin by weighting the sampling. Specify the prob argument so that heads are sampled with probability p_head (and tails are sampled with probability 1 - p_head).</li>
 <li>Update the definition of toss_coin() so it accepts an argument, p_head, and weights the samples using the code you wrote in the previous step.</li>
@@ -652,7 +650,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>E4.R</strong></pre>
+<pre><strong>ex_04.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
@@ -678,21 +676,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">toss_coin</span>(<span class="dv">10</span>,<span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+</section>
 <section id="renaming-glm" class="level2" data-number="12.6">
 <h2 data-number="12.6" class="anchored" data-anchor-id="renaming-glm"><span class="header-section-number">12.6</span> Renaming GLM</h2>
-<p>R’s generalized linear regression function, glm(), suffers the same usability problems as lm(): its name is an acronym, and its formula and data arguments are in the wrong order.</p>
+<p>R’s generalized linear regression function, <code>glm()</code>, suffers the same usability problems as <code>lm()</code>: its name is an acronym, and its formula and data arguments are in the wrong order.</p>
 <p>To solve this exercise, you need to know two things about generalized linear regression:</p>
-<p>glm() formulas are specified like lm() formulas: response is on the left, and explanatory variables are added on the right. To model count data, set glm()’s family argument to poisson, making it a Poisson regression. Here you’ll use data on the number of yearly visits to Snake River at Jackson Hole, Wyoming, snake_river_visits.</p>
-<section id="instructions-100-xp-3" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<p><code>glm()</code> formulas are specified like <code>lm()</code> formulas: response is on the left, and explanatory variables are added on the right. To model count data, set <code>glm()</code>’s family argument to poisson, making it a Poisson regression. Here you’ll use data on the number of yearly visits to Snake River at Jackson Hole, Wyoming, <code>snake_river_visits</code>.</p>
+<section id="instructions-100-xp-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
 <ul>
-<li><p>Run a generalized linear regression by calling glm(). Model n_visits vs.&nbsp;gender, income, and travel on the snake_river_visits dataset, setting the family to poisson.</p></li>
-<li><p>Define a function, run_poisson_regression(), to run a Poisson regression. This should take two arguments: data and formula, and call glm(), passing those arguments and setting family to poisson.</p></li>
+<li><p>Run a generalized linear regression by calling <code>glm()</code>. Model n_visits vs.&nbsp; gender, income, and travel on the <code>snake_river_visits</code> dataset, setting the family to poisson.</p></li>
+<li><p>Define a function, <code>run_poisson_regression()</code>, to run a Poisson regression. This should take two arguments: data and formula, and call <code>glm()</code>, passing those arguments and setting family to poisson.</p></li>
 <li><p>Recreate the Poisson regression model from the first step, this time by calling your run_poisson_regression() function.</p></li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>E5.R</strong></pre>
+<pre><strong>ex_05.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a generalized linear regression </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(</span>
@@ -727,15 +726,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="numeric-defaults" class="level2" data-number="12.7">
 <h2 data-number="12.7" class="anchored" data-anchor-id="numeric-defaults"><span class="header-section-number">12.7</span> Numeric defaults</h2>
-<p>cut_by_quantile() converts a numeric vector into a categorical variable where quantiles define the cut points. This is a useful function, but at the moment you have to specify five arguments to make it work. This is too much thinking and typing.</p>
-<p>By specifying default arguments, you can make it easier to use. Let’s start with n, which specifies how many categories to cut x into.</p>
-<p>A numeric vector of the number of visits to Snake River is provided as n_visits.</p>
-<section id="instructions-100-xp-4" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-4">Instructions <code>100 XP</code></h3>
-<p>Update the definition of cut_by_quantile() so that the n argument defaults to 5. Remove the n argument from the call to cut_by_quantile().</p>
+<p><code>cut_by_quantile()</code> converts a numeric vector into a categorical variable where quantiles define the cut points. This is a useful function, but at the moment you have to specify five arguments to make it work. This is too much thinking and typing.</p>
+<p>By specifying default arguments, you can make it easier to use. Let’s start with <code>n</code>, which specifies how many categories to cut <code>x</code> into.</p>
+<p>A numeric vector of the number of visits to Snake River is provided as <code>n_visits</code>.</p>
+<section id="instructions-100-xp-5" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+<p>Update the definition of <code>cut_by_quantile()</code> so that the n argument defaults to 5. Remove the n argument from the call to <code>cut_by_quantile()</code>.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>E6.R</strong></pre>
+<pre><strong>ex_06.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the default for n to 5</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cut_by_quantile <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n=</span><span class="dv">5</span>, na.rm, labels, interval_type) {</span>
@@ -760,12 +759,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="12.8" class="anchored" data-anchor-id="logical-defaults"><span class="header-section-number">12.8</span> Logical defaults</h2>
 <p>cut_by_quantile() is now slightly easier to use, but you still always have to specify the na.rm argument. This removes missing values—it behaves the same as the na.rm argument to mean() or sd().</p>
 <p>Where functions have an argument for removing missing values, the best practice is to not remove them by default (in case you hadn’t spotted that you had missing values). That means that the default for na.rm should be FALSE.</p>
-<section id="instructions-100-xp-5" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
+<section id="instructions-100-xp-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-6">Instructions <code>100 XP</code></h3>
 <p>Update the definition of cut_by_quantile() so that the na.rm argument defaults to FALSE. Remove the na.rm argument from the call to cut_by_quantile().</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>E7.R</strong></pre>
+<pre><strong>ex_07.R</strong></pre>
 </div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the default for na.rm to FALSE</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>cut_by_quantile <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, labels, interval_type) {</span>
@@ -1125,7 +1124,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The final line calculates the median number of gold medals each country won.</span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rewrite the call to median(), following best practices.</span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="E1.R"}</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="ex_01.R"}</span></span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the gold medals data</span></span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>gold_medals</span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
@@ -1145,244 +1144,258 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answer the question `50XP` {.unnumbered}</span></span>
 <span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>Possible Answers</span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can type less code, saving effort and making your analyses more readable.</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You make less "copy and paste"-related errors.</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can reuse your code from project to project.</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can type less code, saving effort and making your analyses more </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>readable.</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You make less "copy and paste"-related errors.</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can reuse your code from project to project.</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can make your code harder to read, potentially improving your job security</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>because only you can maintain it.</span>
 <span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can make your code harder to read, potentially improving your job security</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>because only you can maintain it.</span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your first function: tossing a coin</span></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>Time to write your first function! It's a really good idea when writing</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>functions to start simple. You can always make a function more complicated </span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>later if it's really necessary, so let's not worry about arguments for now.</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Simulate a single coin toss by using sample() to sample from coin_sides once.</span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Write a template for your function, naming it toss_coin. The function </span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>should take no arguments. Don't include the body of the function yet.</span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Copy your script, and paste it into the function body.</span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Call your function.</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your first function: tossing a coin</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>Time to write your first function! It's a really good idea when writing</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>functions to start simple. You can always make a function more complicated </span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>later if it's really necessary, so let's not worry about arguments for now.</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Simulate a single coin toss by using sample() to sample from coin_sides once.</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Write a template for your function, naming it toss_coin. The function </span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>should take no arguments. Don't include the body of the function yet.</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Copy your script, and paste it into the function body.</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Call your function.</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="ex_02.R"}</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
 <span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="E2.R"}</span></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from coin_sides once</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coin_sides,<span class="dv">1</span>)</span>
 <span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from coin_sides once</span></span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coin_sides,<span class="dv">1</span>)</span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a template for your function, toss_coin()</span></span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (Leave the contents of the body for later)</span></span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Add punctuation to finish the body</span></span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a template for your function, toss_coin()</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (Leave the contents of the body for later)</span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="co"># Add punctuation to finish the body</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Your script, from a previous step</span></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
 <span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Your script, from a previous step</span></span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste your script into the function body</span></span>
-<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, <span class="dv">1</span>)</span>
-<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="co"># Your functions, from previous steps</span></span>
-<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>  coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
-<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, <span class="dv">1</span>)</span>
-<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Call your function</span></span>
-<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="fu">toss_coin</span>()</span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inputs to functions</span></span>
-<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>Most functions require some sort of input to determine what to compute.</span>
-<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>The inputs to functions are called arguments. You specify them inside the </span>
-<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>parentheses after the word "function."</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste your script into the function body</span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, <span class="dv">1</span>)</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Your functions, from previous steps</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>  coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, <span class="dv">1</span>)</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Call your function</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="fu">toss_coin</span>()</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inputs to functions</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>Most functions require some sort of input to determine what to compute.</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>The inputs to functions are called arguments. You specify them inside the </span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>parentheses after the word "function."</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>As mentioned in the video, the following exercises assume that you are using</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="in">`sample()`</span> to do random sampling.</span>
 <span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>As mentioned in the video, the following exercises assume that you are using</span>
-<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="in">`sample()`</span> to do random sampling.</span>
-<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sample from coin_sides n_flips times with replacement.</span>
-<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Update the definition of toss_coin() to accept a single argument, n_flips. The function should sample coin_sides n_flips times with replacement. Remember to change the signature and the body.</span>
-<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generate 10 coin flips.</span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="E3.R"}</span></span>
-<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
-<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>n_flips <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sample from coin_sides n_flips times with replacement.</span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Update the definition of toss_coin() to accept a single argument, n_flips. The function should sample coin_sides n_flips times with replacement. Remember to change the signature and the body.</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generate 10 coin flips.</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="ex_03.R"}</span></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>n_flips <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from coin_sides n_flips times with replacement</span></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coin_sides,n_flips,<span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from coin_sides n_flips times with replacement</span></span>
-<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coin_sides,n_flips,<span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the function to return n coin tosses</span></span>
-<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>(n_flips) {</span>
-<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>  coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
-<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, n_flips,<span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 10 coin tosses</span></span>
-<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="fu">toss_coin</span>(<span class="dv">10</span>)</span>
-<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multiple inputs to functions</span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the function to return n coin tosses</span></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>(n_flips) {</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a>  coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, n_flips,<span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 10 coin tosses</span></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="fu">toss_coin</span>(<span class="dv">10</span>)</span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multiple inputs to functions</span></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>If a function should have more than one argument, list them in the function </span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>signature, separated by commas.</span>
 <span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>If a function should have more than one argument, list them in the function </span>
-<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>signature, separated by commas.</span>
-<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>To solve this exercise, you need to know how to specify sampling weights to</span>
-<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a><span class="in">`sample()`</span>. Set the prob argument to a numeric vector with the same length as </span>
-<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a><span class="in">`x`</span>. Each value of prob is the probability of sampling the corresponding </span>
-<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>element of <span class="in">`x`</span>, so their values add up to one. In the following example, each</span>
-<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>sample has a 20% chance of "bat", a 30% chance of "cat" and a 50% chance of </span>
-<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>"rat".</span>
-<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; sample(c("bat", "cat", "rat"), 10, replace = TRUE, prob = c(0.2, 0.3, 0.5))</span></span>
-<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>##Instructions <span class="in">`100 XP`</span> {.unnumbered}</span>
-<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Bias the coin by weighting the sampling. Specify the prob argument so that heads are sampled with probability p_head (and tails are sampled with probability 1 - p_head).</span>
-<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Update the definition of toss_coin() so it accepts an argument, p_head, and weights the samples using the code you wrote in the previous step.</span>
-<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Generate 10 coin tosses with an 80% chance of each head.</span>
-<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="E4.R"}</span></span>
-<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
-<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>n_flips <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>p_head <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>To solve this exercise, you need to know how to specify sampling weights to</span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="in">`sample()`</span>. Set the prob argument to a numeric vector with the same length as </span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="in">`x`</span>. Each value of prob is the probability of sampling the corresponding </span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>element of <span class="in">`x`</span>, so their values add up to one. In the following example, each</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>sample has a 20% chance of "bat", a 30% chance of "cat" and a 50% chance of </span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>"rat".</span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; sample(c("bat", "cat", "rat"), 10, replace = TRUE, prob = c(0.2, 0.3, 0.5))</span></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Bias the coin by weighting the sampling. Specify the prob argument so that heads are sampled with probability p_head (and tails are sampled with probability 1 - p_head).</span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Update the definition of toss_coin() so it accepts an argument, p_head, and weights the samples using the code you wrote in the previous step.</span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Generate 10 coin tosses with an 80% chance of each head.</span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="ex_04.R"}</span></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a>coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a>n_flips <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a>p_head <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a vector of weights</span></span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="fu">c</span>(p_head, <span class="dv">1</span> <span class="sc">-</span> p_head)</span>
 <span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a vector of weights</span></span>
-<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="fu">c</span>(p_head, <span class="dv">1</span> <span class="sc">-</span> p_head)</span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a><span class="co"># Update so that heads are sampled with prob p_head</span></span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coin_sides, n_flips, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> weights)</span>
 <span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Update so that heads are sampled with prob p_head</span></span>
-<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(coin_sides, n_flips, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> weights)</span>
-<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the function so heads have probability p_head</span></span>
-<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>(n_flips,p_head) {</span>
-<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>  coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
-<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define a vector of weights</span></span>
-<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>  weights <span class="ot">&lt;-</span> <span class="fu">c</span>(p_head,<span class="dv">1</span><span class="sc">-</span>p_head)</span>
-<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modify the sampling to be weighted</span></span>
-<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, n_flips, <span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">prob=</span>weights)</span>
-<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 10 coin tosses</span></span>
-<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a><span class="fu">toss_coin</span>(<span class="dv">10</span>,<span class="fl">0.8</span>)</span>
-<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a><span class="fu">## Renaming GLM</span></span>
-<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a>R's generalized linear regression function, glm(), suffers the same usability problems as lm(): its name is an acronym, and its formula and data arguments are in the wrong order.</span>
-<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a>To solve this exercise, you need to know two things about generalized linear regression:</span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the function so heads have probability p_head</span></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a>toss_coin <span class="ot">&lt;-</span> <span class="cf">function</span>(n_flips,p_head) {</span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>  coin_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"head"</span>, <span class="st">"tail"</span>)</span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define a vector of weights</span></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>  weights <span class="ot">&lt;-</span> <span class="fu">c</span>(p_head,<span class="dv">1</span><span class="sc">-</span>p_head)</span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modify the sampling to be weighted</span></span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(coin_sides, n_flips, <span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">prob=</span>weights)</span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 10 coin tosses</span></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a><span class="fu">toss_coin</span>(<span class="dv">10</span>,<span class="fl">0.8</span>)</span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a><span class="fu">## Renaming GLM</span></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>R's generalized linear regression function, <span class="in">`glm()`</span>, suffers the same usability </span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a>problems as <span class="in">`lm()`</span>: its name is an acronym, and its formula and data arguments</span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>are in the wrong order.</span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a>To solve this exercise, you need to know two things about generalized linear </span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a>regression:</span>
 <span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a>glm() formulas are specified like lm() formulas: response is on the left, and explanatory variables are added on the right. To model count data, set glm()'s family argument to poisson, making it a Poisson regression. Here you'll use data on the number of yearly visits to Snake River at Jackson Hole, Wyoming, snake_river_visits.</span>
-<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Run a generalized linear regression by calling glm(). Model n_visits vs. gender, income, and travel on the snake_river_visits dataset, setting the family to poisson.</span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a><span class="in">`glm()`</span> formulas are specified like <span class="in">`lm()`</span> formulas: response is on the left, </span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a>and explanatory variables are added on the right. To model count data, set </span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a><span class="in">`glm()`</span>'s family argument to poisson, making it a Poisson regression. </span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a>Here you'll use data on the number of yearly visits to Snake River at Jackson </span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a>Hole, Wyoming, <span class="in">`snake_river_visits`</span>.</span>
 <span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Define a function, run_poisson_regression(), to run a Poisson regression. This should take two arguments: data and formula, and call glm(), passing those arguments and setting family to poisson.</span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
 <span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Recreate the Poisson regression model from the first step, this time by calling your run_poisson_regression() function.</span>
-<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="E5.R"}</span></span>
-<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a generalized linear regression </span></span>
-<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(</span>
-<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Model no. of visits vs. gender, income, travel</span></span>
-<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a>  n_visits <span class="sc">~</span> gender <span class="sc">+</span> income <span class="sc">+</span> travel, </span>
-<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use the snake_river_visits dataset</span></span>
-<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> snake_river_visits, </span>
-<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it a Poisson regression</span></span>
-<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> poisson</span>
-<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a function to run a Poisson regression</span></span>
-<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a>run_poisson_regression <span class="ot">&lt;-</span> <span class="cf">function</span>(data, formula) {</span>
-<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a>    <span class="fu">glm</span>(formula, data, <span class="at">family =</span> poisson)</span>
-<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a><span class="co"># From previous step</span></span>
-<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a>run_poisson_regression <span class="ot">&lt;-</span> <span class="cf">function</span>(data, formula) {</span>
-<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(formula, data, <span class="at">family =</span> poisson)</span>
-<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-run the Poisson regression, using your function</span></span>
-<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> snake_river_visits <span class="sc">%&gt;%</span></span>
-<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">run_poisson_regression</span>(n_visits <span class="sc">~</span> gender <span class="sc">+</span> income <span class="sc">+</span> travel)</span>
-<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this to see the predictions</span></span>
-<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a>snake_river_explanatory <span class="sc">%&gt;%</span></span>
-<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predicted_n_visits =</span> <span class="fu">predict</span>(model, ., <span class="at">type =</span> <span class="st">"response"</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(predicted_n_visits))</span>
-<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a><span class="fu">## Numeric defaults</span></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Run a generalized linear regression by calling <span class="in">`glm()`</span>. Model n_visits vs. </span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a>gender, income, and travel on the <span class="in">`snake_river_visits`</span> dataset, setting the </span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a>family to poisson.</span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Define a function, <span class="in">`run_poisson_regression()`</span>, to run a Poisson regression. </span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a>This should take two arguments: data and formula, and call <span class="in">`glm()`</span>, passing </span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a>those arguments and setting family to poisson.</span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Recreate the Poisson regression model from the first step, this time by calling your run_poisson_regression() function.</span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="ex_05.R"}</span></span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a generalized linear regression </span></span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(</span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Model no. of visits vs. gender, income, travel</span></span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a>  n_visits <span class="sc">~</span> gender <span class="sc">+</span> income <span class="sc">+</span> travel, </span>
+<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use the snake_river_visits dataset</span></span>
+<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> snake_river_visits, </span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it a Poisson regression</span></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> poisson</span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a function to run a Poisson regression</span></span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a>run_poisson_regression <span class="ot">&lt;-</span> <span class="cf">function</span>(data, formula) {</span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a>    <span class="fu">glm</span>(formula, data, <span class="at">family =</span> poisson)</span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a><span class="co"># From previous step</span></span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a>run_poisson_regression <span class="ot">&lt;-</span> <span class="cf">function</span>(data, formula) {</span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(formula, data, <span class="at">family =</span> poisson)</span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-run the Poisson regression, using your function</span></span>
+<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> snake_river_visits <span class="sc">%&gt;%</span></span>
+<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">run_poisson_regression</span>(n_visits <span class="sc">~</span> gender <span class="sc">+</span> income <span class="sc">+</span> travel)</span>
 <span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a>cut_by_quantile() converts a numeric vector into a categorical variable where quantiles define the cut points. This is a useful function, but at the moment you have to specify five arguments to make it work. This is too much thinking and typing.</span>
-<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-230"><a href="#cb8-230" aria-hidden="true" tabindex="-1"></a>By specifying default arguments, you can make it easier to use. Let's start with n, which specifies how many categories to cut x into.</span>
-<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a>A numeric vector of the number of visits to Snake River is provided as n_visits.</span>
+<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this to see the predictions</span></span>
+<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a>snake_river_explanatory <span class="sc">%&gt;%</span></span>
+<span id="cb8-230"><a href="#cb8-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predicted_n_visits =</span> <span class="fu">predict</span>(model, ., <span class="at">type =</span> <span class="st">"response"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(predicted_n_visits))</span>
+<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb8-233"><a href="#cb8-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## Numeric defaults</span></span>
 <span id="cb8-235"><a href="#cb8-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a>Update the definition of cut_by_quantile() so that the n argument defaults to 5. Remove the n argument from the call to cut_by_quantile().</span>
-<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-238"><a href="#cb8-238" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="E6.R"}</span></span>
-<span id="cb8-239"><a href="#cb8-239" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the default for n to 5</span></span>
-<span id="cb8-240"><a href="#cb8-240" aria-hidden="true" tabindex="-1"></a>cut_by_quantile <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n=</span><span class="dv">5</span>, na.rm, labels, interval_type) {</span>
-<span id="cb8-241"><a href="#cb8-241" aria-hidden="true" tabindex="-1"></a>  probs <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> n <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb8-242"><a href="#cb8-242" aria-hidden="true" tabindex="-1"></a>  qtiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> na.rm, <span class="at">names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-243"><a href="#cb8-243" aria-hidden="true" tabindex="-1"></a>  right <span class="ot">&lt;-</span> <span class="cf">switch</span>(interval_type, <span class="st">"(lo, hi]"</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">"[lo, hi)"</span> <span class="ot">=</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-244"><a href="#cb8-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cut</span>(x, qtiles, <span class="at">labels =</span> labels, <span class="at">right =</span> right, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-245"><a href="#cb8-245" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a><span class="in">`cut_by_quantile()`</span> converts a numeric vector into a categorical variable where</span>
+<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a>quantiles define the cut points. This is a useful function, but at the moment </span>
+<span id="cb8-238"><a href="#cb8-238" aria-hidden="true" tabindex="-1"></a>you have to specify five arguments to make it work. This is too much thinking </span>
+<span id="cb8-239"><a href="#cb8-239" aria-hidden="true" tabindex="-1"></a>and typing.</span>
+<span id="cb8-240"><a href="#cb8-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-241"><a href="#cb8-241" aria-hidden="true" tabindex="-1"></a>By specifying default arguments, you can make it easier to use. Let's start with </span>
+<span id="cb8-242"><a href="#cb8-242" aria-hidden="true" tabindex="-1"></a><span class="in">`n`</span>, which specifies how many categories to cut <span class="in">`x`</span> into.</span>
+<span id="cb8-243"><a href="#cb8-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-244"><a href="#cb8-244" aria-hidden="true" tabindex="-1"></a>A numeric vector of the number of visits to Snake River is provided as </span>
+<span id="cb8-245"><a href="#cb8-245" aria-hidden="true" tabindex="-1"></a><span class="in">`n_visits`</span>.</span>
 <span id="cb8-246"><a href="#cb8-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-247"><a href="#cb8-247" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the n argument from the call</span></span>
-<span id="cb8-248"><a href="#cb8-248" aria-hidden="true" tabindex="-1"></a><span class="fu">cut_by_quantile</span>(</span>
-<span id="cb8-249"><a href="#cb8-249" aria-hidden="true" tabindex="-1"></a>  n_visits, </span>
-<span id="cb8-250"><a href="#cb8-250" aria-hidden="true" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb8-251"><a href="#cb8-251" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"very low"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>, <span class="st">"very high"</span>),</span>
-<span id="cb8-252"><a href="#cb8-252" aria-hidden="true" tabindex="-1"></a>  <span class="at">interval_type =</span> <span class="st">"(lo, hi]"</span></span>
-<span id="cb8-253"><a href="#cb8-253" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-254"><a href="#cb8-254" aria-hidden="true" tabindex="-1"></a><span class="fu">formals</span>(cut_by_quantile)</span>
-<span id="cb8-255"><a href="#cb8-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-256"><a href="#cb8-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-257"><a href="#cb8-257" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logical defaults</span></span>
-<span id="cb8-258"><a href="#cb8-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-259"><a href="#cb8-259" aria-hidden="true" tabindex="-1"></a>cut_by_quantile() is now slightly easier to use, but you still always have to specify the na.rm argument. This removes missing values---it behaves the same as the na.rm argument to mean() or sd().</span>
+<span id="cb8-247"><a href="#cb8-247" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb8-248"><a href="#cb8-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-249"><a href="#cb8-249" aria-hidden="true" tabindex="-1"></a>Update the definition of <span class="in">`cut_by_quantile()`</span> so that the n argument defaults </span>
+<span id="cb8-250"><a href="#cb8-250" aria-hidden="true" tabindex="-1"></a>to 5. Remove the n argument from the call to <span class="in">`cut_by_quantile()`</span>.</span>
+<span id="cb8-251"><a href="#cb8-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-252"><a href="#cb8-252" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="ex_06.R"}</span></span>
+<span id="cb8-253"><a href="#cb8-253" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the default for n to 5</span></span>
+<span id="cb8-254"><a href="#cb8-254" aria-hidden="true" tabindex="-1"></a>cut_by_quantile <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n=</span><span class="dv">5</span>, na.rm, labels, interval_type) {</span>
+<span id="cb8-255"><a href="#cb8-255" aria-hidden="true" tabindex="-1"></a>  probs <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> n <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb8-256"><a href="#cb8-256" aria-hidden="true" tabindex="-1"></a>  qtiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> na.rm, <span class="at">names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-257"><a href="#cb8-257" aria-hidden="true" tabindex="-1"></a>  right <span class="ot">&lt;-</span> <span class="cf">switch</span>(interval_type, <span class="st">"(lo, hi]"</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">"[lo, hi)"</span> <span class="ot">=</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-258"><a href="#cb8-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cut</span>(x, qtiles, <span class="at">labels =</span> labels, <span class="at">right =</span> right, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-259"><a href="#cb8-259" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-260"><a href="#cb8-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-261"><a href="#cb8-261" aria-hidden="true" tabindex="-1"></a>Where functions have an argument for removing missing values, the best practice is to not remove them by default (in case you hadn't spotted that you had missing values). That means that the default for na.rm should be FALSE.</span>
-<span id="cb8-262"><a href="#cb8-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-263"><a href="#cb8-263" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
-<span id="cb8-264"><a href="#cb8-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-265"><a href="#cb8-265" aria-hidden="true" tabindex="-1"></a>Update the definition of cut_by_quantile() so that the na.rm argument defaults to FALSE. Remove the na.rm argument from the call to cut_by_quantile().</span>
-<span id="cb8-266"><a href="#cb8-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-267"><a href="#cb8-267" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="E7.R"}</span></span>
-<span id="cb8-268"><a href="#cb8-268" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the default for na.rm to FALSE</span></span>
-<span id="cb8-269"><a href="#cb8-269" aria-hidden="true" tabindex="-1"></a>cut_by_quantile <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, labels, interval_type) {</span>
-<span id="cb8-270"><a href="#cb8-270" aria-hidden="true" tabindex="-1"></a>  probs <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> n <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb8-271"><a href="#cb8-271" aria-hidden="true" tabindex="-1"></a>  qtiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> na.rm, <span class="at">names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-272"><a href="#cb8-272" aria-hidden="true" tabindex="-1"></a>  right <span class="ot">&lt;-</span> <span class="cf">switch</span>(interval_type, <span class="st">"(lo, hi]"</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">"[lo, hi)"</span> <span class="ot">=</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-273"><a href="#cb8-273" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cut</span>(x, qtiles, <span class="at">labels =</span> labels, <span class="at">right =</span> right, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-274"><a href="#cb8-274" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-275"><a href="#cb8-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-276"><a href="#cb8-276" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the na.rm argument from the call</span></span>
-<span id="cb8-277"><a href="#cb8-277" aria-hidden="true" tabindex="-1"></a><span class="fu">cut_by_quantile</span>(</span>
-<span id="cb8-278"><a href="#cb8-278" aria-hidden="true" tabindex="-1"></a>  n_visits, </span>
-<span id="cb8-279"><a href="#cb8-279" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"very low"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>, <span class="st">"very high"</span>),</span>
-<span id="cb8-280"><a href="#cb8-280" aria-hidden="true" tabindex="-1"></a>  <span class="at">interval_type =</span> <span class="st">"(lo, hi]"</span></span>
-<span id="cb8-281"><a href="#cb8-281" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-282"><a href="#cb8-282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-261"><a href="#cb8-261" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the n argument from the call</span></span>
+<span id="cb8-262"><a href="#cb8-262" aria-hidden="true" tabindex="-1"></a><span class="fu">cut_by_quantile</span>(</span>
+<span id="cb8-263"><a href="#cb8-263" aria-hidden="true" tabindex="-1"></a>  n_visits, </span>
+<span id="cb8-264"><a href="#cb8-264" aria-hidden="true" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-265"><a href="#cb8-265" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"very low"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>, <span class="st">"very high"</span>),</span>
+<span id="cb8-266"><a href="#cb8-266" aria-hidden="true" tabindex="-1"></a>  <span class="at">interval_type =</span> <span class="st">"(lo, hi]"</span></span>
+<span id="cb8-267"><a href="#cb8-267" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-268"><a href="#cb8-268" aria-hidden="true" tabindex="-1"></a><span class="fu">formals</span>(cut_by_quantile)</span>
+<span id="cb8-269"><a href="#cb8-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-270"><a href="#cb8-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-271"><a href="#cb8-271" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logical defaults</span></span>
+<span id="cb8-272"><a href="#cb8-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-273"><a href="#cb8-273" aria-hidden="true" tabindex="-1"></a>cut_by_quantile() is now slightly easier to use, but you still always have to specify the na.rm argument. This removes missing values---it behaves the same as the na.rm argument to mean() or sd().</span>
+<span id="cb8-274"><a href="#cb8-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-275"><a href="#cb8-275" aria-hidden="true" tabindex="-1"></a>Where functions have an argument for removing missing values, the best practice is to not remove them by default (in case you hadn't spotted that you had missing values). That means that the default for na.rm should be FALSE.</span>
+<span id="cb8-276"><a href="#cb8-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-277"><a href="#cb8-277" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instructions `100 XP` {.unnumbered}</span></span>
+<span id="cb8-278"><a href="#cb8-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-279"><a href="#cb8-279" aria-hidden="true" tabindex="-1"></a>Update the definition of cut_by_quantile() so that the na.rm argument defaults to FALSE. Remove the na.rm argument from the call to cut_by_quantile().</span>
+<span id="cb8-280"><a href="#cb8-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-281"><a href="#cb8-281" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.r filename="ex_07.R"}</span></span>
+<span id="cb8-282"><a href="#cb8-282" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the default for na.rm to FALSE</span></span>
+<span id="cb8-283"><a href="#cb8-283" aria-hidden="true" tabindex="-1"></a>cut_by_quantile <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, labels, interval_type) {</span>
+<span id="cb8-284"><a href="#cb8-284" aria-hidden="true" tabindex="-1"></a>  probs <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> n <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb8-285"><a href="#cb8-285" aria-hidden="true" tabindex="-1"></a>  qtiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x, probs, <span class="at">na.rm =</span> na.rm, <span class="at">names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-286"><a href="#cb8-286" aria-hidden="true" tabindex="-1"></a>  right <span class="ot">&lt;-</span> <span class="cf">switch</span>(interval_type, <span class="st">"(lo, hi]"</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">"[lo, hi)"</span> <span class="ot">=</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-287"><a href="#cb8-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cut</span>(x, qtiles, <span class="at">labels =</span> labels, <span class="at">right =</span> right, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-288"><a href="#cb8-288" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-289"><a href="#cb8-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-290"><a href="#cb8-290" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the na.rm argument from the call</span></span>
+<span id="cb8-291"><a href="#cb8-291" aria-hidden="true" tabindex="-1"></a><span class="fu">cut_by_quantile</span>(</span>
+<span id="cb8-292"><a href="#cb8-292" aria-hidden="true" tabindex="-1"></a>  n_visits, </span>
+<span id="cb8-293"><a href="#cb8-293" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"very low"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>, <span class="st">"very high"</span>),</span>
+<span id="cb8-294"><a href="#cb8-294" aria-hidden="true" tabindex="-1"></a>  <span class="at">interval_type =</span> <span class="st">"(lo, hi]"</span></span>
+<span id="cb8-295"><a href="#cb8-295" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-296"><a href="#cb8-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
