@@ -2058,11 +2058,144 @@
     "text": "33.10 Visualizing the difference: Batman and Star Wars\nIn the last exercise, you created colors_joined. Now you’ll create a bar plot with one bar for each color (name), showing the difference in fractions.\nBecause factors and visualization are beyond the scope of this course, we’ve done some processing for you: here is the code that created the colors_joined table that will be used in the video.\ncolors_joined <- batman_colors %>%\n  full_join(star_wars_colors, by = \"color_id\", suffix = c(\"_batman\", \"_star_wars\")) %>%\n  replace_na(list(total_batman = 0, total_star_wars = 0)) %>%\n  inner_join(colors, by = c(\"color_id\" = \"id\")) %>%\n  mutate(difference = fraction_batman - fraction_star_wars,\n         total = total_batman + total_star_wars) %>%\n  filter(total >= 200) %>%\n  mutate(name = fct_reorder(name, difference)) \n\n33.10.1 Instructions 100 XP\nCreate a bar plot using the colors_joined table to display the most prominent colors in the Batman and Star Wars themes, with the bars colored by their name.\n\n\nInstructions 100 XP\nCreate a bar plot using the colors_joined table to display the most prominent colors in the Batman and Star Wars themes, with the bars colored by their name.\n\n\nex_024.R\n\n# Create a bar plot using colors_joined and the name and difference columns\nggplot(\n  colors_joined,\n  aes(name, difference, fill = name)) +\n  geom_col() +\n  coord_flip() +\n  scale_fill_manual(values = color_palette, guide = \"none\") +\n  labs(y = \"Difference: Batman - Star Wars\")"
   },
   {
-    "objectID": "_joining_data_with_dplyr_04.html",
-    "href": "_joining_data_with_dplyr_04.html",
+    "objectID": "_joining_data_with_dplyr_04.html#left-joining-questions-and-tags",
+    "href": "_joining_data_with_dplyr_04.html#left-joining-questions-and-tags",
     "title": "34  Case Study: Joins on Stack Overflow Data",
-    "section": "",
-    "text": "Put together all the types of join you learned in this course to analyze a new dataset: Stack Overflow questions, answers, and tags. This includes calculating and visualizing trends for some notable tags like dplyr and ggplot2. You’ll also master one more method for combining tables, the bind_rows verb, which stacks tables on top of each other."
+    "section": "34.1 Left joining questions and tags",
+    "text": "34.1 Left joining questions and tags\nThree of the Stack Overflow survey datasets are questions, question_tags, and tags:\n\nquestions: an ID and the score, or how many times the question has been upvoted; the data only includes R-based questions\nquestion_tags: a tag ID for each question and the question’s id\ntags: a tag id and the tag’s name, which can be used to identify the subject of each question, such as ggplot2 or dplyr\n\nIn this exercise, we’ll be stitching together these datasets and replacing NAs in important fields.\nNote that we’ll be using left_joins in this exercise to ensure we keep all questions, even those without a corresponding tag. However, since we know the questions data is all R data, we’ll want to manually tag these as R questions with replace_na."
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\nJoin together questions and question_tags using the id and question_id columns, respectively.\n\n\nex_025.R\n\n# Join the questions and question_tags tables\nquestions %>%\n  left_join(\n    question_tags,\n    by = c(\"id\" = \"question_id\")\n  )\n# Join in the tags table\nquestions %>%\n  left_join(\n    question_tags,\n    by = c(\"id\" = \"question_id\")\n  ) %>%\n  left_join(\n    tags,\n    by = c(\"tag_id\" = \"id\")\n  )\n\n  # Replace the NAs in the tag_name column\nquestions %>%\n  left_join(\n    question_tags,\n    by = c(\"id\" = \"question_id\")\n  ) %>%\n  left_join(\n    tags,\n    by = c(\"tag_id\" = \"id\")\n  ) %>%\n  replace_na(\n    list(tag_name = \"only-r\")\n  )"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#comparing-scores-across-tags",
+    "href": "_joining_data_with_dplyr_04.html#comparing-scores-across-tags",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.2 Comparing scores across tags",
+    "text": "34.2 Comparing scores across tags\nThe complete dataset you created in the last exercise is available to you as questions_with_tags. Let’s do a quick bit of analysis on it! You’ll use familiar dplyr verbs like group_by, summarize, arrange, and n to find out the average score of the most asked questions."
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-1",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-1",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nAggregate by the tag_name.\nSummarize to get the mean score for each question, score, as well as the total number of questions, num_questions.\nArrange num_questions in descending order to sort the answers by the most asked questions.\n\n\n\nex_026.R\n\nquestions_with_tags %>% \n  # Group by tag_name\n  group_by(tag_name) %>%\n  # Get mean score and num_questions\n  summarize(score = mean(score),\n            num_questions = n()) %>%\n  # Sort num_questions in descending order\n  arrange(desc(num_questions))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#what-tags-never-appear-on-r-questions",
+    "href": "_joining_data_with_dplyr_04.html#what-tags-never-appear-on-r-questions",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.3 What tags never appear on R questions?",
+    "text": "34.3 What tags never appear on R questions?\nThe tags table includes all Stack Overflow tags, but some have nothing to do with R. How could you filter for just the tags that never appear on an R question? The tags and question_tags tables have been preloaded for you."
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-2",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-2",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nUse a join to determine which tags never appear on an R question.\n\n\n\nex_027.R\n\ntags %>%\n  anti_join(question_tags, by = c(\"id\" = \"tag_id\"))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#finding-gaps-between-questions-and-answers",
+    "href": "_joining_data_with_dplyr_04.html#finding-gaps-between-questions-and-answers",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.4 Finding gaps between questions and answers",
+    "text": "34.4 Finding gaps between questions and answers\nNow we’ll join together questions with answers so we can measure the time between questions and answers.\nMake sure to explore the tables and columns in the console before starting the exercise. Can you tell how are questions identified in the questions table? How can you identify which answer corresponds to which question using the answers table?"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-3",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-3",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nUse an inner join to combine the questions and answers tables using the suffixes \"_question\" and \"_answer\", respectively.\nSubtract creation_date_question from creation_date_answer within the as.integer() function to create the gap column.\n\n\n\nex_028.R\n\nquestions %>%\n  # Inner join questions and answers with proper suffixes\n  inner_join(\n    answers,\n    by = c(\"id\" = \"question_id\"),\n    suffix = c(\"_question\", \"_answer\")\n  ) %>%\n  # Subtract creation_date_question from creation_date_answer to create gap\n  mutate(\n    gap = as.integer(\n      as.integer(\n        creation_date_answer - creation_date_question\n      )\n    )\n  )"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-counts",
+    "href": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-counts",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.5 Joining questions, answers, and counts",
+    "text": "34.5 Joining questions, answers, and counts\nWe can also determine how many questions actually yield answers. If we count the number of answers for each question, we can then join the answers counts with the questions table."
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-4",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-4",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nCount and sort the question_id column in the answers table to create the answer_counts table.\nJoin the questions table with the answer_counts table and include all observations from the questions table. -Replace the NA values in the n column with 0s.\n\n\n\nex_029.R\n\n# Count and sort the question id column in the answers table\nanswer_counts <- answers %>%\n  count(question_id, sort = TRUE)\n\n# Combine the answer_counts and questions tables\nquestions %>%\n  left_join(\n    answer_counts,\n    by = c(\"id\" = \"question_id\")\n  ) %>%\n  # Replace the NAs in the n column\n  replace_na(list(n=0))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-tags",
+    "href": "_joining_data_with_dplyr_04.html#joining-questions-answers-and-tags",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.6 Joining questions, answers, and tags",
+    "text": "34.6 Joining questions, answers, and tags\nLet’s build on the last exercise by adding the tags table to our previous joins. This will allow us to do a better job of identifying which R topics get the most traction on Stack Overflow. The tables you created in the last exercise have been preloaded for you as answer_counts and question_answer_counts.\nanswer_counts <- answers %>%\n    count(question_id, sort = TRUE)\n\nquestion_answer_counts <- questions %>%\n    left_join(answer_counts, by = c(\"id\" = \"question_id\")) %>%\n    replace_na(list(n = 0))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-5",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-5",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nCombine the question_tags table with question_answer_counts using an inner_join.\nNow, use another inner_join to add the tags table.\n\n\n\nex_030.R\n\nquestion_answer_counts %>%\n  # Join the question_tags tables\n  inner_join(\n    question_tags,\n    by = c(\"id\" = \"question_id\")\n  ) %>%\n  # Join the tags table\n  inner_join(tags, by = c(\"tag_id\" = \"id\"))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#average-answers-by-question",
+    "href": "_joining_data_with_dplyr_04.html#average-answers-by-question",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.7 Average answers by question",
+    "text": "34.7 Average answers by question\nThe table you created in the last exercise has been preloaded for you as tagged_answers. You can use this table to determine, on average, how many answers each questions gets.\ntagged_answers <- question_answer_counts %>%\n    inner_join(question_tags, by = c(\"id\" = \"question_id\")) %>%\n    inner_join(tags, by = c(\"tag_id\" = \"id\"))\nSome of the important variables from this table include: n, the number of answers for each question, and tag_name, the name of each tag associated with each question.\nLet’s use some of our favorite dplyr verbs to find out how many answers each question gets on average."
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-6",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-6",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nAggregate the tagged_answers table by tag_name.\nSummarize tagged_answers to get the count of questions and the average_answers.\nSort the resulting questions column in descending order.\n\n\n\nex_031.R\n\ntagged_answers %>%\n  # Aggregate by tag_name\n  group_by(tag_name) %>%\n  # Summarize questions and average_answers\n  summarize(\n    questions = n(),\n    average_answers = mean(n)\n  ) %>%\n  # Sort the questions in descending order\n  arrange(desc(questions))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#joining-questions-and-answers-with-tags",
+    "href": "_joining_data_with_dplyr_04.html#joining-questions-and-answers-with-tags",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.8 Joining questions and answers with tags",
+    "text": "34.8 Joining questions and answers with tags\nTo learn more about the questions and answers tables, you’ll want to use the question_tags table to understand the tags associated with each question that was asked, and each answer that was provided. You’ll be able to combine these tables using two inner joins on both the questions table and the answers table."
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-7",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-7",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nUse two inner joins to combine the question_tags and tags tables with the questions table.\nNow, use two inner joins to combine the question_tags and tags tables with the answers table.\n\n\n\nex_032.R\n\n# Inner join the question_tags and tags tables with the questions table\nquestions %>%\n  inner_join(\n    question_tags,\n    by = c(\"id\" = \"question_id\")\n  ) %>%\n  inner_join(\n    tags,\n    by = c(\"tag_id\" = \"id\")\n  )\n\n# Inner join the question_tags and tags tables with the answers table\nanswers %>%\n  inner_join(question_tags, by = \"question_id\") %>%\n  inner_join(tags, by = c(\"tag_id\" = \"id\"))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#binding-and-counting-posts-with-tags",
+    "href": "_joining_data_with_dplyr_04.html#binding-and-counting-posts-with-tags",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.9 Binding and counting posts with tags",
+    "text": "34.9 Binding and counting posts with tags\nThe tables you created in the previous exercise have been preloaded as questions_with_tags and answers_with_tags. First, you’ll want to combine these tables into a single table called posts_with_tags. Once the information is consolidated into a single table, you can add more information by creating a date variable using the lubridate package, which has been preloaded for you.\nquestions_with_tags <- questions %>%\n  inner_join(question_tags, by = c(\"id\" = \"question_id\")) %>%\n  inner_join(tags, by = c(\"tag_id\" = \"id\"))\nanswers_with_tags <- answers %>%\n  inner_join(question_tags, by = \"question_id\") %>%\n  inner_join(tags, by = c(\"tag_id\" = \"id\"))"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-8",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-8",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nCombine the questions_with_tags and answers_with_tags tables into posts_with_tags.\nAdd a year column to the posts_with_tags table, then count posts by type, year, and tag_name.\n\n\n\nex_033.R\n\n# Combine the two tables into posts_with_tags\nposts_with_tags <- \n  bind_rows(\n    questions_with_tags %>% \n      mutate(type = \"question\"),\n    answers_with_tags %>%\n      mutate(type = \"answer\")\n  )\n\n# Add a year column, then count by type, year, and tag_name\nposts_with_tags %>%\n  mutate(year = year(creation_date)) %>%\n  count(type, year, tag_name)"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#visualizing-questions-and-answers-in-tags",
+    "href": "_joining_data_with_dplyr_04.html#visualizing-questions-and-answers-in-tags",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "34.10 Visualizing questions and answers in tags",
+    "text": "34.10 Visualizing questions and answers in tags\nIn the last exercise, you modified the posts_with_tags table to add a year column, and aggregated by type, year, and tag_name. The modified table has been preloaded for you as by_type_year_tag, and has one observation for each type (question/answer), year, and tag. Let’s create a plot to examine the information that the table contains about questions and answers for the dplyr and ggplot2 tags. The ggplot2 package has been preloaded for you.\nby_type_year_tag <- posts_with_tags %>%\n  mutate(year = year(creation_date)) %>%\n  count(type, year, tag_name)"
+  },
+  {
+    "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp-9",
+    "href": "_joining_data_with_dplyr_04.html#instructions-100-xp-9",
+    "title": "34  Case Study: Joins on Stack Overflow Data",
+    "section": "Instructions 100 XP",
+    "text": "Instructions 100 XP\n\nFilter the by_type_year_tag table for the dplyr and ggplot2 tags.\nCreate a line plot with that filtered table that plots the frequency (n) over time, colored by question/answer and faceted by tag.\n\n\n\nex_034.R\n\n# Filter for the dplyr and ggplot2 tag names \nby_type_year_tag_filtered <- by_type_year_tag %>%\n  filter(\n    tag_name %in% c(\"dplyr\", \"ggplot2\")\n  )\n\n# Create a line plot faceted by the tag name \nggplot(\n  by_type_year_tag_filtered,\n  aes(year, n, color = type)) +\n  geom_line() +\n  facet_wrap(~ tag_name)"
   },
   {
     "objectID": "statistical-inference-whole-game.html",
