@@ -200,7 +200,7 @@
     "href": "_joining_data_with_dplyr_04.html#left-joining-questions-and-tags",
     "title": "4  Case Study: Joins on Stack Overflow Data",
     "section": "4.1 Left joining questions and tags",
-    "text": "4.1 Left joining questions and tags"
+    "text": "4.1 Left joining questions and tags\nThree of the Stack Overflow survey datasets are questions, question_tags, and tags:\n\nquestions: an ID and the score, or how many times the question has been upvoted; the data only includes R-based questions\nquestion_tags: a tag ID for each question and the question’s id\ntags: a tag id and the tag’s name, which can be used to identify the subject of each question, such as ggplot2 or dplyr\n\nIn this exercise, we’ll be stitching together these datasets and replacing NAs in important fields.\nNote that we’ll be using left_joins in this exercise to ensure we keep all questions, even those without a corresponding tag. However, since we know the questions data is all R data, we’ll want to manually tag these as R questions with replace_na."
   },
   {
     "objectID": "_joining_data_with_dplyr_04.html#instructions-100-xp",
