@@ -66,31 +66,96 @@ questions %>%
 
 ## Comparing scores across tags
 
+The complete dataset you created in the last exercise is available to you as
+`questions_with_tags`. Let's do a quick bit of analysis on it! You'll use 
+familiar `dplyr` verbs like `group_by`, `summarize`, `arrange`, and `n` to find 
+out the average  score of the most asked questions.
+
+
 ## Instructions `100 XP` {.unnumbered}
 
-```{.r filename=ex_0.R}
+- Aggregate by the `tag_name`.
+- Summarize to get the mean `score` for each question, `score`, as well as the 
+total number of questions, `num_questions`.
+- Arrange `num_questions` in descending order to sort the answers by the most 
+asked questions.
 
+```{.r filename=ex_0.R}
+questions_with_tags %>% 
+  # Group by tag_name
+  group_by(tag_name) %>%
+  # Get mean score and num_questions
+  summarize(score = mean(score),
+        	num_questions = n()) %>%
+  # Sort num_questions in descending order
+  arrange(desc(num_questions))
 ```
 
 ## What tags never appear on R questions?
 
+The `tags` table includes all Stack Overflow tags, but some have nothing to do 
+with `R`. How could you filter for just the tags that never appear on an R 
+question? The `tags` and `question_tags` tables have been preloaded for you.
+
 ## Instructions `100 XP` {.unnumbered}
 
-```{.r filename=ex_0.R}
+- Use a join to determine which tags never appear on an R question.
 
+```{.r filename=ex_0.R}
+tags %>%
+  anti_join(question_tags, by = c("id" = "tag_id"))
 ```
 
 ## Finding gaps between questions and answers
 
+Now we'll join together `questions` with `answers` so we can measure the time 
+between questions and answers.
+
+Make sure to explore the tables and columns in the console before starting the
+exercise. Can you tell how are `questions` identified in the `questions` table? 
+How can you identify which `answer` corresponds to which question using the 
+`answers` table?
+
 ## Instructions `100 XP` {.unnumbered}
 
-```{.r filename=ex_0.R}
+- Use an inner join to combine the `questions` and `answers` tables using the 
+suffixes `"_question"` and `"_answer"`, respectively.
+  
+- Subtract `creation_date_question` from `creation_date_answer` within the 
+`as.integer()` function to create the `gap` column.
 
+```{.r filename=ex_0.R}
+questions %>%
+  # Inner join questions and answers with proper suffixes
+  inner_join(
+    answers,
+    by = c("id" = "question_id"),
+    suffix = c("_question", "_answer")
+  ) %>%
+  # Subtract creation_date_question from creation_date_answer to create gap
+  mutate(
+    gap = as.integer(
+      as.integer(
+        creation_date_answer - creation_date_question
+      )
+    )
+  )
 ```
 
 ## Joining questions, answers, and counts
 
+We can also determine how many questions actually yield answers. If we count the
+number of answers for each question, we can then join the answers counts with 
+the `questions` table.
+
+
 ## Instructions `100 XP` {.unnumbered}
+
+- Count and sort the `question_id` column in the `answers` table to create the 
+`answer_counts` table.
+- Join the questions table with the `answer_counts` table and include all 
+observations from the `questions` table.
+-Replace the NA values in the `n` column with 0s.
 
 ```{.r filename=ex_0.R}
 
