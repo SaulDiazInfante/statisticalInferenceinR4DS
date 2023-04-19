@@ -2,6 +2,359 @@
 
 Put together all the types of join you learned in this course to analyze a new
 dataset: Stack Overflow questions, answers, and tags. This includes calculating
-and visualizing trends for some notable tags like `dplyr` and `ggplot2`. You'll also
-master one more method for combining tables, the bind_rows verb, which stacks 
-tables on top of each other.
+and visualizing trends for some notable tags like `dplyr` and `ggplot2`. You'll 
+also master one more method for combining tables, the bind_rows verb, which 
+stacks tables on top of each other.
+
+## Left joining questions and tags
+
+Three of the Stack Overflow survey datasets are `questions`, 
+`question_tags`, and `tags`:
+
+- `questions`: an ID and the score, or how many times the question has been 
+upvoted; the data only includes R-based questions
+- `question_tags`: a tag ID for each question and the question's id
+- `tags`: a tag id and the tag's name, which can be used to identify the subject
+ of each question, such as `ggplot2` or `dplyr`
+
+In this exercise, we'll be stitching together these datasets and replacing 
+NAs in important fields.
+
+Note that we'll be using `left_joins` in this exercise to ensure we keep all 
+questions, even those without a corresponding tag. However, since we know the 
+`questions` data is all R data, we'll want to manually tag these as R questions
+with `replace_na`.
+
+## Instructions `100 XP` {.unnumbered}
+
+Join together `questions` and `question_tags` using the `id` and 
+`question_id` columns, respectively.
+
+```{.r filename=ex_025.R}
+# Join the questions and question_tags tables
+questions %>%
+  left_join(
+    question_tags,
+    by = c("id" = "question_id")
+  )
+# Join in the tags table
+questions %>%
+  left_join(
+    question_tags,
+    by = c("id" = "question_id")
+  ) %>%
+  left_join(
+    tags,
+    by = c("tag_id" = "id")
+  )
+
+  # Replace the NAs in the tag_name column
+questions %>%
+  left_join(
+    question_tags,
+    by = c("id" = "question_id")
+  ) %>%
+  left_join(
+    tags,
+    by = c("tag_id" = "id")
+  ) %>%
+  replace_na(
+    list(tag_name = "only-r")
+  )
+
+```
+
+## Comparing scores across tags
+
+The complete dataset you created in the last exercise is available to you as
+`questions_with_tags`. Let's do a quick bit of analysis on it! You'll use 
+familiar `dplyr` verbs like `group_by`, `summarize`, `arrange`, and `n` to find 
+out the average  score of the most asked questions.
+
+
+## Instructions `100 XP` {.unnumbered}
+
+- Aggregate by the `tag_name`.
+- Summarize to get the mean `score` for each question, `score`, as well as the 
+total number of questions, `num_questions`.
+- Arrange `num_questions` in descending order to sort the answers by the most 
+asked questions.
+
+```{.r filename=ex_026.R}
+questions_with_tags %>% 
+  # Group by tag_name
+  group_by(tag_name) %>%
+  # Get mean score and num_questions
+  summarize(score = mean(score),
+        	num_questions = n()) %>%
+  # Sort num_questions in descending order
+  arrange(desc(num_questions))
+```
+
+## What tags never appear on R questions?
+
+The `tags` table includes all Stack Overflow tags, but some have nothing to do 
+with `R`. How could you filter for just the tags that never appear on an R 
+question? The `tags` and `question_tags` tables have been preloaded for you.
+
+## Instructions `100 XP` {.unnumbered}
+
+- Use a join to determine which tags never appear on an R question.
+
+```{.r filename=ex_027.R}
+tags %>%
+  anti_join(question_tags, by = c("id" = "tag_id"))
+```
+
+## Finding gaps between questions and answers
+
+Now we'll join together `questions` with `answers` so we can measure the time 
+between questions and answers.
+
+Make sure to explore the tables and columns in the console before starting the
+exercise. Can you tell how are `questions` identified in the `questions` table? 
+How can you identify which `answer` corresponds to which question using the 
+`answers` table?
+
+## Instructions `100 XP` {.unnumbered}
+
+- Use an inner join to combine the `questions` and `answers` tables using the 
+suffixes `"_question"` and `"_answer"`, respectively.
+  
+- Subtract `creation_date_question` from `creation_date_answer` within the 
+`as.integer()` function to create the `gap` column.
+
+```{.r filename=ex_028.R}
+questions %>%
+  # Inner join questions and answers with proper suffixes
+  inner_join(
+    answers,
+    by = c("id" = "question_id"),
+    suffix = c("_question", "_answer")
+  ) %>%
+  # Subtract creation_date_question from creation_date_answer to create gap
+  mutate(
+    gap = as.integer(
+      as.integer(
+        creation_date_answer - creation_date_question
+      )
+    )
+  )
+```
+
+## Joining questions, answers, and counts
+
+We can also determine how many questions actually yield answers. If we count the
+number of answers for each question, we can then join the answers counts with 
+the `questions` table.
+
+
+## Instructions `100 XP` {.unnumbered}
+
+- Count and sort the `question_id` column in the `answers` table to create the 
+`answer_counts` table.
+- Join the questions table with the `answer_counts` table and include all 
+observations from the `questions` table.
+-Replace the NA values in the `n` column with 0s.
+
+```{.r filename=ex_029.R}
+# Count and sort the question id column in the answers table
+answer_counts <- answers %>%
+  count(question_id, sort = TRUE)
+
+# Combine the answer_counts and questions tables
+questions %>%
+  left_join(
+    answer_counts,
+    by = c("id" = "question_id")
+  ) %>%
+  # Replace the NAs in the n column
+  replace_na(list(n=0))
+```
+
+## Joining questions, answers, and tags
+
+Let's build on the last exercise by adding the `tags` table to our previous 
+joins. This will allow us to do a better job of identifying which R topics get 
+the most traction on Stack Overflow. The tables you created in the last exercise 
+have been preloaded for you as `answer_counts` and `question_answer_counts`.
+
+```{.r code-line-numbers="false"}
+answer_counts <- answers %>%
+    count(question_id, sort = TRUE)
+
+question_answer_counts <- questions %>%
+    left_join(answer_counts, by = c("id" = "question_id")) %>%
+    replace_na(list(n = 0))
+``` 
+
+## Instructions `100 XP` {.unnumbered}
+
+- Combine the `question_tags` table with `question_answer_counts` using an 
+`inner_join`. 
+- Now, use another `inner_join` to add the `tags` table.
+
+```{.r filename=ex_030.R}
+question_answer_counts %>%
+  # Join the question_tags tables
+  inner_join(
+    question_tags,
+    by = c("id" = "question_id")
+  ) %>%
+  # Join the tags table
+  inner_join(tags, by = c("tag_id" = "id"))
+```
+
+## Average answers by question
+
+The table you created in the last exercise has been preloaded for you as
+`tagged_answers`. You can use this table to determine, on average, how many
+answers each questions gets.
+```{.r code-line-numbers="true"}
+tagged_answers <- question_answer_counts %>%
+    inner_join(question_tags, by = c("id" = "question_id")) %>%
+    inner_join(tags, by = c("tag_id" = "id"))
+```
+Some of the important variables from this table include: `n`,
+the number of answers for each question, and `tag_name`, the name of each 
+tag associated with each question.
+
+Let's use some of our favorite `dplyr` 
+verbs to find out how many answers each question gets on average.
+
+## Instructions `100 XP` {.unnumbered}
+
+- Aggregate the `tagged_answers` table by `tag_name`.
+- Summarize `tagged_answers` to get the count of questions and the 
+`average_answers`.
+- Sort the resulting questions column in descending order.
+
+
+```{.r filename=ex_031.R}
+tagged_answers %>%
+  # Aggregate by tag_name
+  group_by(tag_name) %>%
+  # Summarize questions and average_answers
+  summarize(
+    questions = n(),
+    average_answers = mean(n)
+  ) %>%
+  # Sort the questions in descending order
+  arrange(desc(questions))
+
+```
+
+## Joining questions and answers with tags
+
+To learn more about the `questions` and `answers` tables, you'll want to use the 
+`question_tags` table to understand the tags associated with each question 
+that was asked, and each answer that was provided. You'll be able to combine
+these tables using two inner joins on both the `questions` table and the 
+`answers` table.
+
+
+## Instructions `100 XP` {.unnumbered}
+- Use two inner joins to combine the `question_tags` and tags tables with the 
+questions table.
+- Now, use two inner joins to combine the `question_tags` and `tags` tables 
+with the `answers` table.
+
+
+```{.r filename=ex_032.R}
+# Inner join the question_tags and tags tables with the questions table
+questions %>%
+  inner_join(
+    question_tags,
+    by = c("id" = "question_id")
+  ) %>%
+  inner_join(
+    tags,
+    by = c("tag_id" = "id")
+  )
+
+# Inner join the question_tags and tags tables with the answers table
+answers %>%
+  inner_join(question_tags, by = "question_id") %>%
+  inner_join(tags, by = c("tag_id" = "id"))
+
+  
+```
+
+## Binding and counting posts with tags
+
+The tables you created in the previous exercise have been preloaded as
+`questions_with_tags` and `answers_with_tags`. First, you'll want to
+combine these tables into a single table called `posts_with_tags`. Once
+the information is consolidated into a single table, you can add more
+information by creating a date variable using the lubridate package,
+which has been preloaded for you.
+
+```{.r code-line-numbers="false"}
+questions_with_tags <- questions %>%
+  inner_join(question_tags, by = c("id" = "question_id")) %>%
+  inner_join(tags, by = c("tag_id" = "id"))
+```
+
+```{.r code-line-numbers="false"}
+answers_with_tags <- answers %>%
+  inner_join(question_tags, by = "question_id") %>%
+  inner_join(tags, by = c("tag_id" = "id"))
+```
+
+## Instructions `100 XP` {.unnumbered}
+
+- Combine the `questions_with_tags` and `answers_with_tags` tables into
+`posts_with_tags`.
+- Add a year column to the `posts_with_tags` table, then count posts by
+type, year, and tag_name.
+
+```{.r filename=ex_033.R}
+# Combine the two tables into posts_with_tags
+posts_with_tags <- 
+  bind_rows(
+    questions_with_tags %>% 
+      mutate(type = "question"),
+    answers_with_tags %>%
+      mutate(type = "answer")
+  )
+
+# Add a year column, then count by type, year, and tag_name
+posts_with_tags %>%
+  mutate(year = year(creation_date)) %>%
+  count(type, year, tag_name)
+
+```
+
+## Visualizing questions and answers in tags
+In the last exercise, you modified the posts_with_tags table to add a year 
+column, and aggregated by `type`, `year`, and `tag_name`. The modified table 
+has been preloaded for you as `by_type_year_tag`, and has one observation for 
+each type (question/answer), year, and tag. Let's create a plot to examine the
+information that the table contains about questions and answers for the 
+`dplyr` and `ggplot2` tags. The `ggplot2` package has been preloaded for you.
+
+```{.r code-line-numbers="false"}
+by_type_year_tag <- posts_with_tags %>%
+  mutate(year = year(creation_date)) %>%
+  count(type, year, tag_name)
+```
+## Instructions `100 XP` {.unnumbered}
+
+- Filter the `by_type_year_tag` table for the dplyr and ggplot2 tags.
+- Create a line plot with that filtered table that plots the frequency (`n`)
+over time, colored by question/answer and faceted by tag.
+
+```{.r filename=ex_034.R}
+# Filter for the dplyr and ggplot2 tag names 
+by_type_year_tag_filtered <- by_type_year_tag %>%
+  filter(
+    tag_name %in% c("dplyr", "ggplot2")
+  )
+
+# Create a line plot faceted by the tag name 
+ggplot(
+  by_type_year_tag_filtered,
+  aes(year, n, color = type)) +
+  geom_line() +
+  facet_wrap(~ tag_name)
+```
