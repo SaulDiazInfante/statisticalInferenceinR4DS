@@ -1,0 +1,403 @@
+---
+title: "Case Study on Grain Yields"
+---
+
+## Converting areas to metric 1
+
+In this chapter, you'll be working with grain yield data from the United States Department of Agriculture, National Agricultural Statistics Service. Unfortunately, they report all areas in acres. So, the first thing you need to do is write some utility functions to convert areas in acres to areas in hectares.
+
+To solve this exercise, you need to know the following:
+
+There are 4840 square yards in an acre. There are 36 inches in a yard and one inch is 0.0254 meters. There are 10000 square meters in a hectare.
+
+## Instructions `100 XP`
+
+-   Write a function, acres_to_sq_yards(), to convert areas in acres to areas in square yards. This should take a single argument, acres.
+
+-   Write a function, yards_to_meters(), to convert distances in yards to distances in meters. This should take a single argument, yards.
+
+-   Write a function, sq_meters_to_hectares(), to convert areas in square meters to areas in hectares. This should take a single argument, sq_meters.
+
+``` {.r filename="E1.R"}
+# Write a function to convert acres to sq. yards
+acres_to_sq_yards <- function(x) {
+  x * 4840
+}
+
+
+# Write a function to convert yards to meters
+yards_to_meters <- function(x) {
+  x * 36*0.0254
+}
+
+# Write a function to convert sq. meters to hectares
+sq_meters_to_hectares <- function(sq_meters) {
+  (sq_meters)/10000
+}
+```
+
+## Converting areas to metric 2
+
+You're almost there with creating a function to convert acres to hectares. You need another utility function to deal with getting from square yards to square meters. Then, you can bring everything together to write the overall acres-to-hectares conversion function. Finally, in the next exercise you'll be calculating area conversions in the denominator of a ratio, so you'll need a harmonic acre-to-hectare conversion function.
+
+Free hints: magrittr's raise_to_power() will be useful here. The last step is similar to Chapter 2's Harmonic Mean.
+
+The three utility functions from the last exercise (acres_to_sq_yards(), yards_to_meters(), and sq_meters_to_hectares()) are available, as is your get_reciprocal() from Chapter 2. magrittr is loaded.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Write a function to convert distance in square yards to square meters. It should take the square root of the input, then convert yards to meters, then square the result.
+
+-   Write a function to convert areas in acres to hectares. The function should convert the input from acres to square yards, then to square meters, then to hectares.
+
+-   Write a function to harmonically convert areas in acres to hectares. The function should get the reciprocal of the input, then convert from acres to hectares, then get the reciprocal again.
+
+``` {.r filename="E2.R"}
+# Write a function to convert sq. yards to sq. meters
+sq_yards_to_sq_meters <- function(sq_yards) {
+  sq_yards %>%
+    # Take the square root
+    sqrt() %>%
+    # Convert yards to meters
+    yards_to_meters() %>%
+    # Square it
+    raise_to_power(2)
+     }
+     
+# Load the function from the previous step
+load_step2()
+
+# Write a function to convert acres to hectares
+acres_to_hectares <- function(acres) {
+  acres %>%
+    # Convert acres to sq yards
+    acres_to_sq_yards() %>%
+    # Convert sq yards to sq meters
+    sq_yards_to_sq_meters() %>%
+    # Convert sq meters to hectares
+    sq_meters_to_hectares()
+}
+
+# Load the functions from the previous steps
+load_step3()
+
+# Define a harmonic acres to hectares function
+harmonic_acres_to_hectares <- function(acres) {
+  acres %>% 
+    # Get the reciprocal
+    get_reciprocal() %>%
+    # Convert acres to hectares
+    acres_to_hectares() %>% 
+    # Get the reciprocal again
+    get_reciprocal()
+}
+```
+
+## Converting yields to metric
+
+The yields in the NASS corn data are also given in US units, namely bushels per acre. You'll need to write some more utility functions to convert this unit to the metric unit of kg per hectare.
+
+Bushels historically meant a volume of 8 gallons, but in the context of grain, they are now defined as masses. This mass differs for each grain! To solve this exercise, you need to know these facts.
+
+One pound (lb) is 0.45359237 kilograms (kg). One bushel is 48 lbs of barley, 56 lbs of corn, or 60 lbs of wheat. magrittr is loaded.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Write a function to convert masses in lb to kg. This should take a single argument, lbs.
+
+-   Write a function to convert masses in bushels to lbs. This should take two arguments, bushels and crop. It should define a lookup vector of scale factors for each crop (barley, corn, wheat), extract the scale factor for the crop, then multiply this by the number of bushels.
+
+-   Write a function to convert masses in bushels to kgs. This should take two arguments, bushels and crop. It should convert the mass in bushels to lbs then to kgs.
+
+-   Write a function to convert yields in bushels/acre to kg/ha. The arguments should be bushels_per_acre and crop. Three choices of crop should be allowed: "barley", "corn", and "wheat". It should match the crop argument, then convert bushels to kgs, then convert harmonic acres to hectares.
+
+``` {.r filename="E3.R"}
+# Write a function to convert lb to kg
+lbs_to_kgs <- function(lbs) {lbs * 0.45359237}
+
+# Write a function to convert bushels to lbs
+bushels_to_lbs <- function(bushels, crop) {
+  # Define a lookup table of scale factors
+  c(barley = 48, corn = 56, wheat = 60) %>%
+    # Extract the value for the crop
+    extract(crop) %>%
+    # Multiply by the no. of bushels
+    multiply_by(bushels)
+}
+
+# Load fns defined in previous steps
+load_step3()
+
+# Write a function to convert bushels to kg
+bushels_to_kgs <- function(bushels, crop) {
+  bushels %>%
+    # Convert bushels to lbs for this crop
+    bushels_to_lbs(crop) %>%
+    # Convert lbs to kgs
+    lbs_to_kgs()
+}
+
+# Load fns defined in previous steps
+load_step4()
+
+# Write a function to convert bushels/acre to kg/ha
+bushels_per_acre_to_kgs_per_hectare <- function(bushels_per_acre, 
+crop = c("barley", "corn", "wheat")) {
+  # Match the crop argument
+  crop <- match.arg(crop)
+  bushels_per_acre %>%
+    # Convert bushels to kgs for this crop
+    bushels_to_kgs(crop) %>%
+    # Convert harmonic acres to ha
+    harmonic_acres_to_hectares()
+}
+```
+
+## Applying the unit conversion
+
+Now that you've written some functions, it's time to apply them! The NASS corn dataset is available, and you can fortify it (jargon for "adding new columns") with metrics areas and yields.
+
+This fortification process can also be turned into a function, so you'll define a function for this, and test it on the NASS wheat dataset.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Look at the corn dataset. Add two columns: farmed_area_ha should be farmed_area_acres converted to hectares; yield_kg_per_ha should be yield_bushels_per_acre converted to kilograms per hectare.
+
+-   Wrap the mutation code into a function called fortify_with_metric_units that takes two arguments, data and crop with no defaults. (In the function body, swap corn for the data argument and pass the function's local crop variable to the crop argument.)
+
+-   Use fortify_with_metric_units() on the wheat dataset.
+
+``` {.r filename="E4.R"}
+# View the corn dataset
+glimpse(corn)
+
+corn %>%
+  # Add some columns
+  mutate(
+    # Convert farmed area from acres to ha
+    farmed_area_ha = acres_to_hectares(farmed_area_acres),
+    # Convert yield from bushels/acre to kg/ha
+    yield_kg_per_ha = bushels_per_acre_to_kgs_per_hectare(
+      yield_bushels_per_acre,
+      crop = "corn"
+    )
+  )
+  
+# Wrap this code into a function
+fortify_with_metric_units <- function(data, crop) {
+  data %>%
+    mutate(
+      farmed_area_ha = acres_to_hectares(farmed_area_acres),
+      yield_kg_per_ha = bushels_per_acre_to_kgs_per_hectare(
+        yield_bushels_per_acre, 
+        crop = crop
+      )
+    )
+}
+
+# Try it on the wheat dataset
+fortify_with_metric_units(wheat, crop = "wheat")
+```
+
+## Plotting yields over time
+
+Now that the units have been dealt with, it's time to explore the datasets. An obvious question to ask about each crop is, "how do the yields change over time in each US state?" Let's draw a line plot to find out!
+
+ggplot2 is loaded, and corn and wheat datasets are available with metric units.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Using the corn dataset, plot yield_kg_per_ha versus year. Add a line layer grouped by state and a smooth trend layer.
+
+-   Turn the plotting code into a function, plot_yield_vs_year(). This should accept a single argument, data.
+
+``` {.r filename="E5.R"}
+
+# Using corn, plot yield (kg/ha) vs. year
+ggplot(corn, aes(year, yield_kg_per_ha)) +
+  # Add a line layer, grouped by state
+  geom_line(aes(group = state)) +
+  # Add a smooth trend layer
+  geom_smooth()
+  
+# Wrap this plotting code into a function
+plot_yield_vs_year <- function(data) {
+  ggplot(data, aes(year, yield_kg_per_ha)) +
+    geom_line(aes(group = state)) +
+    geom_smooth()
+}
+
+# Test it on the wheat dataset
+plot_yield_vs_year(wheat)
+```
+
+## A nation divided
+
+The USA has a varied climate, so we might expect yields to differ between states. Rather than trying to reason about 50 states separately, we can use the USA Census Regions to get 9 groups.
+
+The "Corn Belt", where most US corn is grown is in the "West North Central" and "East North Central" regions. The "Wheat Belt" is in the "West South Central" region.
+
+dplyr is loaded, the corn and wheat datasets are available, as is usa_census_regions.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Inner join corn to usa_census_regions by "state".
+-   Turn the code into a function, fortify_with_census_region(). This should accept a single argument, data.
+
+``` {.r filename="E6.R"}
+# Inner join the corn dataset to usa_census_regions by state
+corn %>%
+  inner_join(usa_census_regions, by = "state")
+  
+# Wrap this code into a function
+fortify_with_census_region <- function(data){
+  data %>%
+    inner_join(usa_census_regions, by = "state")
+}
+
+# Try it on the wheat dataset
+fortify_with_census_region(wheat)
+```
+
+## Plotting yields over time by region
+
+So far, you have used a function to plot yields over time for each crop, and you've added a census_region column to the crop datasets. Now you are ready to look at how the yields change over time in each region of the USA.
+
+ggplot2 is loaded. corn and wheat have been fortified with census regions. plot_yield_vs_year() is available.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Use the function you wrote to plot yield versus year for the corn dataset, then facet the plot, wrapped by census_region.
+-   Turn the code into a function, plot_yield_vs_year_by_region(), that should take a single argument, data.
+
+``` {.r filename="E7.R"}
+# Plot yield vs. year for the corn dataset
+plot_yield_vs_year(corn) +
+  # Facet, wrapped by census region
+  facet_wrap(vars(census_region))
+  
+# Wrap this code into a function
+plot_yield_vs_year_by_region <- function(data) {
+
+  plot_yield_vs_year(data) +
+    facet_wrap(vars(census_region))
+}
+
+# Try it on the wheat dataset
+plot_yield_vs_year_by_region(wheat)
+```
+
+## Running a model
+
+The smooth trend line you saw in the plots of yield over time use a generalized additive model (GAM) to determine where the line should lie. This sort of model is ideal for fitting nonlinear curves. So we can make predictions about future yields, let's explicitly run the model. The syntax for running this GAM takes the following form.
+
+> gam(response \~ s(explanatory_var1) + explanatory_var2, data = dataset)
+
+Here, s() means "make the variable smooth", where smooth very roughly means nonlinear.
+
+mgcv and dplyr are loaded; the corn and wheat datasets are available.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Run a GAM of yield_kg_per_ha versus smoothed year and census region, using the corn dataset.
+-   Wrap the modeling code into a function, run_gam_yield_vs_year_by_region. This should take a single argument, data, with no default.
+
+``` {.r filename="E8.R"}
+# Run a generalized additive model of yield vs. smoothed year and census region
+
+gam(yield_kg_per_ha ~ s(year) + census_region, data = corn)
+
+# Wrap the model code into a function
+run_gam_yield_vs_year_by_region <- function(data){
+  gam(yield_kg_per_ha ~ s(year) + census_region, data = corn)
+}
+
+# Try it on the wheat dataset
+run_gam_yield_vs_year_by_region(wheat)
+```
+
+## Making yield predictions
+
+The fun part of modeling is using the models to make predictions. You can do this using a call to predict(), in the following form.
+
+predict(model, cases_to_predict, type = "response") mgcv and dplyr are loaded; GAMs of the corn and wheat datasets are available as corn_model and wheat_model. A character vector of census regions is stored as census_regions.
+
+## Instructions `100 XP`
+
+-   In predict_this, set the prediction year to 2050.
+-   Predict the yield using corn_model and the cases specified in predict_this.
+-   Mutate predict_this to add the prediction vector as a new column named pred_yield_kg_per_ha.
+-   Wrap the script into a function, predict_yields. It should take two arguments, model and year, with no defaults. Remember to update 2050 to the year argument. Try predict_yields() on wheat_model with year set to 2050.
+
+``` {.r filename="E9.R"}
+# Make predictions in 2050  
+predict_this <- data.frame(
+  year = 2050,
+  census_region = census_regions
+) 
+
+# Predict the yield
+pred_yield_kg_per_ha <- predict(corn_model, predict_this, type = "response")
+
+predict_this %>%
+  # Add the prediction as a column of predict_this 
+    mutate(pred_yield_kg_per_ha = pred_yield_kg_per_ha)
+
+# Wrap this prediction code into a function
+predict_yields <- function(model, year) {
+  predict_this <- data.frame(
+    year = 2050,
+    census_region = census_regions
+  ) 
+  pred_yield_kg_per_ha <- predict(model, predict_this, type = "response")
+  predict_this %>%
+    mutate(pred_yield_kg_per_ha = pred_yield_kg_per_ha)
+}
+
+# Try it on the wheat dataset
+predict_yields(wheat_model,2050)
+```
+
+## Do it all over again
+
+Hopefully, by now, you've realized that the real benefit to writing functions is that you can reuse your code easily. Now you are going to rerun the whole analysis from this chapter on a new crop, barley. Since all the infrastructure is in place, that's less effort than it sounds!
+
+Barley prefers a cooler climate compared to corn and wheat and is commonly grown in the US mountain states of Idaho and Montana.
+
+dplyr and ggplot2, and mgcv are loaded; fortify_with_metric_units(), fortify_with_census_region(), plot_yield_vs_year_by_region(), run_gam_yield_vs_year_by_region(), and predict_yields() are available.
+
+## Instructions `100 XP` {.unnumbered}
+
+-   Fortify the barley data with metric units, then with census regions.
+-   Using the fortified barley data, plot the yield versus year by census region.
+-   Using the fortified barley data, run a GAM of yield versus year by census region, then predict the yields in 2050.
+
+``` {.r filename="E10.R"}
+fortified_barley <- barley %>% 
+  # Fortify with metric units
+    fortify_with_metric_units() %>%
+  # Fortify with census regions
+  fortify_with_census_region()
+
+# See the result
+glimpse(fortified_barley)
+
+# From previous step
+fortified_barley <- barley %>% 
+  fortify_with_metric_units() %>%
+  fortify_with_census_region()
+
+# Plot yield vs. year by region
+plot_yield_vs_year_by_region(fortified_barley)
+
+# From previous step
+fortified_barley <- barley %>% 
+  fortify_with_metric_units() %>%
+  fortify_with_census_region()
+
+fortified_barley %>% 
+  # Run a GAM of yield vs. year by region
+  run_gam_yield_vs_year_by_region()  %>% 
+  # Make predictions of yields in 2050
+  predict_yields(2050)
+```
