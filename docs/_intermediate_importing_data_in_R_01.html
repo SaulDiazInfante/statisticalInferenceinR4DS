@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Inference For Data Science - 18&nbsp; Importing data from databases (Part 1)</title>
+<title>Statistical Inference For Data Science - 21&nbsp; Importing data from databases (Part 1)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="Statistical Inference For Data Science - 18&nbsp; Importing data from databases (Part 1)">
+<meta name="twitter:title" content="Statistical Inference For Data Science - 21&nbsp; Importing data from databases (Part 1)">
 <meta name="twitter:description" content="Many companies store their information in relational databases. The R community has also developed R packages to get data from these architectures.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -301,7 +301,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_writing_functions_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">_writing_functions_01.html</span></a>
+  <a href="./_writing_functions_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">How to Write a Function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">All About Arguments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Return Values and Scope</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Case Study on Grain Yields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,107 +336,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></a>
+  <a href="./_introduction_to_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></a>
+  <a href="./_introduction_to_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></a>
+  <a href="./_introduction_to_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
+  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
+  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Common Data Problems</span></a>
+  <a href="./_cleaning_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common Data Problems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Categorical and Text Data</span></a>
+  <a href="./_cleaning_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Categorical and Text Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Advanced Data Problems</span></a>
+  <a href="./_cleaning_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Advanced Data Problems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Record Linkage</span></a>
+  <a href="./_cleaning_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Record Linkage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Tidy Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Tidy Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></a>
+  <a href="./_reshaping_data_with_tidyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expanding Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Expanding Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Rectangling Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Rectangling Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
+  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Left and Right Joins</span></a>
+  <a href="./_joining_data_with_dplyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Left and Right Joins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Full, Semi, and Anti Joins</span></a>
+  <a href="./_joining_data_with_dplyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Full, Semi, and Anti Joins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Case Study: Joins on Stack Overflow Data</span></a>
+  <a href="./_joining_data_with_dplyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Case Study: Joins on Stack Overflow Data</span></a>
   </div>
 </li>
       </ul>
@@ -436,19 +451,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -465,19 +480,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#establish-a-connection" id="toc-establish-a-connection" class="nav-link active" data-scroll-target="#establish-a-connection"><span class="toc-section-number">18.1</span>  Establish a connection</a>
+  <li><a href="#establish-a-connection" id="toc-establish-a-connection" class="nav-link active" data-scroll-target="#establish-a-connection"><span class="toc-section-number">21.1</span>  Establish a connection</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#list-the-database-tables" id="toc-list-the-database-tables" class="nav-link" data-scroll-target="#list-the-database-tables"><span class="toc-section-number">18.2</span>  List the database tables</a>
+  <li><a href="#list-the-database-tables" id="toc-list-the-database-tables" class="nav-link" data-scroll-target="#list-the-database-tables"><span class="toc-section-number">21.2</span>  List the database tables</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#import-users" id="toc-import-users" class="nav-link" data-scroll-target="#import-users"><span class="toc-section-number">18.3</span>  Import users</a>
+  <li><a href="#import-users" id="toc-import-users" class="nav-link" data-scroll-target="#import-users"><span class="toc-section-number">21.3</span>  Import users</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="toc-section-number">18.4</span>  Import all tables</a></li>
+  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="toc-section-number">21.4</span>  Import all tables</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_intermediate_importing_data_in_R_01.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -486,7 +501,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -502,8 +517,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Many companies store their information in relational databases. The R community has also developed R packages to get data from these architectures. You’ll learn how to connect to a database and how to retrieve data from it.</p>
-<section id="establish-a-connection" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="establish-a-connection"><span class="header-section-number">18.1</span> Establish a connection</h2>
+<section id="establish-a-connection" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="establish-a-connection"><span class="header-section-number">21.1</span> Establish a connection</h2>
 <p>The first step to import data from a SQL database is creating a connection to it. As Filip explained, you need different packages depending on the database you want to connect to. All of these packages do this in a uniform way, as specified in the <code>DBI</code> package.</p>
 <p><code>dbConnect()</code> creates a connection between your R session and a SQL database. The first argument has to be a <code>DBIdriver</code> object, that specifies how connections are made and how data is mapped between R and the database. Specifically for MySQL databases, you can build such a driver with <code>RMySQL::MySQL()</code>.</p>
 <p>If the MySQL database is a remote database hosted on a server, you’ll also have to specify the following arguments in <code>dbConnect()</code>: <code>dbname</code>, <code>host</code>, <code>port</code>, <code>user</code> and <code>password</code>. Most of these details have already been provided.</p>
@@ -530,8 +545,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="list-the-database-tables" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="list-the-database-tables"><span class="header-section-number">18.2</span> List the database tables</h2>
+<section id="list-the-database-tables" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="list-the-database-tables"><span class="header-section-number">21.2</span> List the database tables</h2>
 <p>After you’ve successfully connected to a remote <code>MySQL</code> database, the next step is to see what tables the database contains. You can do this with the <code>dbListTables()</code> function. As you might remember from the video, this function requires the connection object as an input, and outputs a character vector with the table names.</p>
 <section id="instructions-100-xp-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-1">Instructions <code>100 XP</code></h3>
@@ -560,8 +575,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="import-users" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="import-users"><span class="header-section-number">18.3</span> Import users</h2>
+<section id="import-users" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="import-users"><span class="header-section-number">21.3</span> Import users</h2>
 <p>As you might have guessed by now, the database contains data on a more tasty version of Twitter, namely Tweater. Users can post tweats with short recipes for delicious snacks. People can comment on these tweats. There are three tables: <em>users, tweats</em>, and <em>comments</em> that have relations among them. Which ones, you ask? You’ll discover in a moment!</p>
 <p>Let’s start by importing the data on the users into your R session. You do this with the ‘dbReadTable()’ function. Simply pass it the connection object (‘con’), followed by the name of the table you want to import. The resulting object is a standard R data frame.</p>
 <section id="instructions-100-xp-2" class="level3 unnumbered">
@@ -593,8 +608,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="import-all-tables" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="import-all-tables"><span class="header-section-number">18.4</span> Import all tables</h2>
+<section id="import-all-tables" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="import-all-tables"><span class="header-section-number">21.4</span> Import all tables</h2>
 <p>Next to the users, we’re also interested in the <code>tweats</code> and <code>comments</code> tables. However, separate <code>dbReadTable()</code> calls for each and every one of the tables in your database would mean a lot of code duplication. Remember about the <code>lapply()</code> function? You can use it again here! A connection is already coded for you, as well as a vector <code>table_names</code>, containing the names of all the tables in the database. ### Instructions <code>100 XP</code> {.unnumbered}</p>
 <ul>
 <li>Finish the <code>lapply()</code> function to import the <code>users</code>, <code>tweats</code> and <code>comments</code> tables in a single call. The result, a list of data frames, will be stored in the variable <code>tables</code>.</li>
@@ -933,12 +948,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./_introduction_to_importing_data_in_R_04.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./_intermediate_importing_data_in_R_02.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

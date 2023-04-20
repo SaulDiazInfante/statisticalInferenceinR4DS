@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Inference For Data Science - 15&nbsp; readr &amp; data.table</title>
+<title>Statistical Inference For Data Science - 18&nbsp; readr &amp; data.table</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="Statistical Inference For Data Science - 15&nbsp; readr &amp; data.table">
+<meta name="twitter:title" content="Statistical Inference For Data Science - 18&nbsp; readr &amp; data.table">
 <meta name="twitter:description" content="In addition to base R, there are dedicated packages to easily and efficiently import flat file data. We’ll talk about two such packages: readr and data.table.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -301,7 +301,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_writing_functions_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">_writing_functions_01.html</span></a>
+  <a href="./_writing_functions_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">How to Write a Function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">All About Arguments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Return Values and Scope</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Case Study on Grain Yields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,107 +336,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></a>
+  <a href="./_introduction_to_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></a>
+  <a href="./_introduction_to_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></a>
+  <a href="./_introduction_to_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
+  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
+  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Common Data Problems</span></a>
+  <a href="./_cleaning_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common Data Problems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Categorical and Text Data</span></a>
+  <a href="./_cleaning_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Categorical and Text Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Advanced Data Problems</span></a>
+  <a href="./_cleaning_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Advanced Data Problems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Record Linkage</span></a>
+  <a href="./_cleaning_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Record Linkage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Tidy Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Tidy Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></a>
+  <a href="./_reshaping_data_with_tidyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expanding Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Expanding Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Rectangling Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Rectangling Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
+  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Left and Right Joins</span></a>
+  <a href="./_joining_data_with_dplyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Left and Right Joins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Full, Semi, and Anti Joins</span></a>
+  <a href="./_joining_data_with_dplyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Full, Semi, and Anti Joins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Case Study: Joins on Stack Overflow Data</span></a>
+  <a href="./_joining_data_with_dplyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Case Study: Joins on Stack Overflow Data</span></a>
   </div>
 </li>
       </ul>
@@ -436,19 +451,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -465,31 +480,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#read_csv" id="toc-read_csv" class="nav-link active" data-scroll-target="#read_csv"><span class="toc-section-number">15.1</span>  read_csv</a></li>
+  <li><a href="#read_csv" id="toc-read_csv" class="nav-link active" data-scroll-target="#read_csv"><span class="toc-section-number">18.1</span>  read_csv</a></li>
   <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
-  <li><a href="#read_tsv" id="toc-read_tsv" class="nav-link" data-scroll-target="#read_tsv"><span class="toc-section-number">15.2</span>  read_tsv</a></li>
+  <li><a href="#read_tsv" id="toc-read_tsv" class="nav-link" data-scroll-target="#read_tsv"><span class="toc-section-number">18.2</span>  read_tsv</a></li>
   <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
-  <li><a href="#read_delim" id="toc-read_delim" class="nav-link" data-scroll-target="#read_delim"><span class="toc-section-number">15.3</span>  read_delim</a>
+  <li><a href="#read_delim" id="toc-read_delim" class="nav-link" data-scroll-target="#read_delim"><span class="toc-section-number">18.3</span>  read_delim</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#skip-and-n_max" id="toc-skip-and-n_max" class="nav-link" data-scroll-target="#skip-and-n_max"><span class="toc-section-number">15.4</span>  skip and n_max</a>
+  <li><a href="#skip-and-n_max" id="toc-skip-and-n_max" class="nav-link" data-scroll-target="#skip-and-n_max"><span class="toc-section-number">18.4</span>  skip and n_max</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions 100 XP</a></li>
   </ul></li>
-  <li><a href="#col_types" id="toc-col_types" class="nav-link" data-scroll-target="#col_types"><span class="toc-section-number">15.5</span>  col_types</a>
+  <li><a href="#col_types" id="toc-col_types" class="nav-link" data-scroll-target="#col_types"><span class="toc-section-number">18.5</span>  col_types</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#col_types-with-collectors" id="toc-col_types-with-collectors" class="nav-link" data-scroll-target="#col_types-with-collectors"><span class="toc-section-number">15.6</span>  col_types with collectors</a>
+  <li><a href="#col_types-with-collectors" id="toc-col_types-with-collectors" class="nav-link" data-scroll-target="#col_types-with-collectors"><span class="toc-section-number">18.6</span>  col_types with collectors</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#fread" id="toc-fread" class="nav-link" data-scroll-target="#fread"><span class="toc-section-number">15.7</span>  fread</a>
+  <li><a href="#fread" id="toc-fread" class="nav-link" data-scroll-target="#fread"><span class="toc-section-number">18.7</span>  fread</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#fread-more-advance-use" id="toc-fread-more-advance-use" class="nav-link" data-scroll-target="#fread-more-advance-use"><span class="toc-section-number">15.8</span>  fread: more advance use</a>
+  <li><a href="#fread-more-advance-use" id="toc-fread-more-advance-use" class="nav-link" data-scroll-target="#fread-more-advance-use"><span class="toc-section-number">18.8</span>  fread: more advance use</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
   </ul></li>
@@ -501,7 +516,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -517,8 +532,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>In addition to base R, there are dedicated packages to easily and efficiently import flat file data. We’ll talk about two such packages: <code>readr</code> and <code>data.table</code>.</p>
-<section id="read_csv" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">15.1</span> read_csv</h2>
+<section id="read_csv" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">18.1</span> read_csv</h2>
 <p>CSV files can be imported with <code>read_csv()</code>. It’s a wrapper function around <code>read_delim()</code> that handles all the details for you. For example, it will assume that the first row contains the column names.</p>
 <p>The dataset you’ll be working with here is <code>potatoes.csv</code> (view in dataset folder). It gives information on the impact of storage period and cooking on potatoes’ flavor. It uses commas to delimit fields in a record, and contains column names in the first row. The file is available in your workspace.</p>
 </section>
@@ -537,8 +552,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>potatoes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"potatoes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="read_tsv" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="read_tsv"><span class="header-section-number">15.2</span> read_tsv</h2>
+<section id="read_tsv" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="read_tsv"><span class="header-section-number">18.2</span> read_tsv</h2>
 <p>Where you use <code>read_csv()</code> to easily read in CSV files, you use <code>read_tsv()</code> to easily read in TSV files. TSV is short for tab- separated values.</p>
 <p>This time, the potatoes data comes in the form of a tab-separated values file; <code>potatoes.txt</code>. In contrast to <code>potatoes.csv</code>, this file does not contain columns names in the first row, though.</p>
 <p>There’s a vector properties that you can use to specify these column names manually.</p>
@@ -577,8 +592,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(potatoes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="read_delim" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="read_delim"><span class="header-section-number">15.3</span> read_delim</h2>
+<section id="read_delim" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="read_delim"><span class="header-section-number">18.3</span> read_delim</h2>
 <p>Just as <code>read.table()</code> was the main utils function, <code>read_delim()</code> is the main readr function.</p>
 <p><code>read_delim()</code> takes two mandatory arguments:</p>
 <ul>
@@ -621,8 +636,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="skip-and-n_max" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="skip-and-n_max"><span class="header-section-number">15.4</span> skip and n_max</h2>
+<section id="skip-and-n_max" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="skip-and-n_max"><span class="header-section-number">18.4</span> skip and n_max</h2>
 <p>Through <code>skip</code> and <code>n_max</code> you can control which part of your flat file you’re actually importing into R.</p>
 <ul>
 <li>skip specifies the number of lines you’re ignoring in the flat file before actually starting to import data.</li>
@@ -663,8 +678,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="col_types" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="col_types"><span class="header-section-number">15.5</span> col_types</h2>
+<section id="col_types" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="col_types"><span class="header-section-number">18.5</span> col_types</h2>
 <p>You can also specify which types the columns in your imported data frame should have. You can do this with <code>col_types</code>. If set to <code>NULL</code>, the default, functions from the readr package will try to find the correct types themselves. You can manually set the types with a <code>string</code>, where each character denotes the class of the column: <code>character</code>, <code>double</code>, <code>integer</code> and <code>logical</code>. <code>_</code> skips the column as a whole.</p>
 <p><code>potatoes.txt</code>, a flat file with tab-delimited records and without column names, is again available in your workspace.</p>
 <section id="instructions-100-xp-4" class="level3 unnumbered">
@@ -700,8 +715,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="col_types-with-collectors" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="col_types-with-collectors"><span class="header-section-number">15.6</span> col_types with collectors</h2>
+<section id="col_types-with-collectors" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="col_types-with-collectors"><span class="header-section-number">18.6</span> col_types with collectors</h2>
 <p>Another way of setting the types of the imported columns is using collectors. Collector functions can be passed in a <code>list()</code> to the <code>col_types</code> argument of <code>read_</code> functions to tell them how to interpret values in a column.</p>
 <p>For a complete list of collector functions, you can take a look at the <code>collector</code> documentation. For this exercise you will need two collector functions:</p>
 <ul>
@@ -748,8 +763,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="fread" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="fread"><span class="header-section-number">15.7</span> fread</h2>
+<section id="fread" class="level2" data-number="18.7">
+<h2 data-number="18.7" class="anchored" data-anchor-id="fread"><span class="header-section-number">18.7</span> fread</h2>
 <p>You still remember how to use <code>read.table()</code>, right? Well, <code>fread()</code> is a function that does the same job with very similar arguments. It is extremely easy to use and blazingly fast! Often, simply specifying the path to the file is enough to successfully import your data.</p>
 <p>Don’t take our word for it, try it yourself! You’ll be working with the <code>potatoes.csv</code> file, that’s available the dataset folder. Fields are delimited by commas, and the first line contains the column names.</p>
 <section id="instructions-100-xp-6" class="level3 unnumbered">
@@ -772,8 +787,8 @@ need to install this package.</p>
 </div>
 </section>
 </section>
-<section id="fread-more-advance-use" class="level2" data-number="15.8">
-<h2 data-number="15.8" class="anchored" data-anchor-id="fread-more-advance-use"><span class="header-section-number">15.8</span> fread: more advance use</h2>
+<section id="fread-more-advance-use" class="level2" data-number="18.8">
+<h2 data-number="18.8" class="anchored" data-anchor-id="fread-more-advance-use"><span class="header-section-number">18.8</span> fread: more advance use</h2>
 <p>Now that you know the basics about <code>fread()</code>, you should know about two arguments of the function: <code>drop</code> and <code>select</code>, to drop or select variables of interest.</p>
 <p>Suppose you have a dataset that contains 5 variables and you want to keep the first and fifth variable, named “a” and “e”. The following options will all do the trick:</p>
 <div class="sourceCode" id="cb8" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fread</span>(<span class="st">"path/to/file.txt"</span>, <span class="at">drop =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
@@ -1108,12 +1123,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./_introduction_to_importing_data_in_R_01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./_introduction_to_importing_data_in_R_03.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

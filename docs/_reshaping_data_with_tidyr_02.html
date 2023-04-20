@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Inference For Data Science - 28&nbsp; From Wide to Long and Back</title>
+<title>Statistical Inference For Data Science - 31&nbsp; From Wide to Long and Back</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="Statistical Inference For Data Science - 28&nbsp; From Wide to Long and Back">
+<meta name="twitter:title" content="Statistical Inference For Data Science - 31&nbsp; From Wide to Long and Back">
 <meta name="twitter:description" content="This chapter is all about pivoting data from a wide to long format and back again using the pivot_longer() and pivot_wider() functions.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -301,7 +301,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_writing_functions_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">_writing_functions_01.html</span></a>
+  <a href="./_writing_functions_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">How to Write a Function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">All About Arguments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Return Values and Scope</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_writing_functions_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Case Study on Grain Yields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,107 +336,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></a>
+  <a href="./_introduction_to_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Importing data from flat files with utils</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></a>
+  <a href="./_introduction_to_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">readr &amp; data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></a>
+  <a href="./_introduction_to_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">List the sheets of an Excel file</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
+  <a href="./_introduction_to_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reproducible Excel work with XLConnect</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Importing data from databases (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
+  <a href="./_intermediate_importing_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
+  <a href="./_intermediate_importing_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Importing data from the web (Part 2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
+  <a href="./_intermediate_importing_data_in_R_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Importing data from statistical software packages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Common Data Problems</span></a>
+  <a href="./_cleaning_data_in_R_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common Data Problems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Categorical and Text Data</span></a>
+  <a href="./_cleaning_data_in_R_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Categorical and Text Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Advanced Data Problems</span></a>
+  <a href="./_cleaning_data_in_R_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Advanced Data Problems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_cleaning_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Record Linkage</span></a>
+  <a href="./_cleaning_data_in_R_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Record Linkage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Tidy Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Tidy Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></a>
+  <a href="./_reshaping_data_with_tidyr_02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expanding Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Expanding Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_reshaping_data_with_tidyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Rectangling Data</span></a>
+  <a href="./_reshaping_data_with_tidyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Rectangling Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
+  <a href="./_joining_data_with_dplyr_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Joining Tables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Left and Right Joins</span></a>
+  <a href="./_joining_data_with_dplyr_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Left and Right Joins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Full, Semi, and Anti Joins</span></a>
+  <a href="./_joining_data_with_dplyr_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Full, Semi, and Anti Joins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_joining_data_with_dplyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Case Study: Joins on Stack Overflow Data</span></a>
+  <a href="./_joining_data_with_dplyr_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Case Study: Joins on Stack Overflow Data</span></a>
   </div>
 </li>
       </ul>
@@ -436,19 +451,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
+  <a href="./statistical_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Statistical Inference with resampling: Bootstrap and Jacknife.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Lienar Regression</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -465,41 +480,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#nuclear-bombs-per-country" id="toc-nuclear-bombs-per-country" class="nav-link active" data-scroll-target="#nuclear-bombs-per-country"><span class="toc-section-number">28.1</span>  Nuclear bombs per country</a>
+  <li><a href="#nuclear-bombs-per-country" id="toc-nuclear-bombs-per-country" class="nav-link active" data-scroll-target="#nuclear-bombs-per-country"><span class="toc-section-number">31.1</span>  Nuclear bombs per country</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#who-obesity-per-country" id="toc-who-obesity-per-country" class="nav-link" data-scroll-target="#who-obesity-per-country"><span class="toc-section-number">28.2</span>  WHO obesity per country</a>
+  <li><a href="#who-obesity-per-country" id="toc-who-obesity-per-country" class="nav-link" data-scroll-target="#who-obesity-per-country"><span class="toc-section-number">31.2</span>  WHO obesity per country</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#bond-james-bond" id="toc-bond-james-bond" class="nav-link" data-scroll-target="#bond-james-bond"><span class="toc-section-number">28.3</span>  Bond… James Bond</a>
+  <li><a href="#bond-james-bond" id="toc-bond-james-bond" class="nav-link" data-scroll-target="#bond-james-bond"><span class="toc-section-number">31.3</span>  Bond… James Bond</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#new-zealands-bird-of-the-year" id="toc-new-zealands-bird-of-the-year" class="nav-link" data-scroll-target="#new-zealands-bird-of-the-year"><span class="toc-section-number">28.4</span>  New-Zealand’s bird of the year</a></li>
-  <li><a href="#big-tech-stock-prices" id="toc-big-tech-stock-prices" class="nav-link" data-scroll-target="#big-tech-stock-prices"><span class="toc-section-number">28.5</span>  Big tech stock prices</a></li>
-  <li><a href="#soviet-space-dogs-the-dogs-perspective" id="toc-soviet-space-dogs-the-dogs-perspective" class="nav-link" data-scroll-target="#soviet-space-dogs-the-dogs-perspective"><span class="toc-section-number">28.6</span>  Soviet space dogs, the dogs perspective</a>
+  <li><a href="#new-zealands-bird-of-the-year" id="toc-new-zealands-bird-of-the-year" class="nav-link" data-scroll-target="#new-zealands-bird-of-the-year"><span class="toc-section-number">31.4</span>  New-Zealand’s bird of the year</a></li>
+  <li><a href="#big-tech-stock-prices" id="toc-big-tech-stock-prices" class="nav-link" data-scroll-target="#big-tech-stock-prices"><span class="toc-section-number">31.5</span>  Big tech stock prices</a></li>
+  <li><a href="#soviet-space-dogs-the-dogs-perspective" id="toc-soviet-space-dogs-the-dogs-perspective" class="nav-link" data-scroll-target="#soviet-space-dogs-the-dogs-perspective"><span class="toc-section-number">31.6</span>  Soviet space dogs, the dogs perspective</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#who-obesity-vs.-life-expectancy" id="toc-who-obesity-vs.-life-expectancy" class="nav-link" data-scroll-target="#who-obesity-vs.-life-expectancy"><span class="toc-section-number">28.7</span>  WHO obesity vs.&nbsp;life expectancy</a>
+  <li><a href="#who-obesity-vs.-life-expectancy" id="toc-who-obesity-vs.-life-expectancy" class="nav-link" data-scroll-target="#who-obesity-vs.-life-expectancy"><span class="toc-section-number">31.7</span>  WHO obesity vs.&nbsp;life expectancy</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#unconting-ovservations" id="toc-unconting-ovservations" class="nav-link" data-scroll-target="#unconting-ovservations"><span class="toc-section-number">28.8</span>  Unconting ovservations</a>
+  <li><a href="#unconting-ovservations" id="toc-unconting-ovservations" class="nav-link" data-scroll-target="#unconting-ovservations"><span class="toc-section-number">31.8</span>  Unconting ovservations</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#soviet-space-dogs-the-flight-perspective" id="toc-soviet-space-dogs-the-flight-perspective" class="nav-link" data-scroll-target="#soviet-space-dogs-the-flight-perspective"><span class="toc-section-number">28.9</span>  Soviet space dogs, the flight perspective</a>
+  <li><a href="#soviet-space-dogs-the-flight-perspective" id="toc-soviet-space-dogs-the-flight-perspective" class="nav-link" data-scroll-target="#soviet-space-dogs-the-flight-perspective"><span class="toc-section-number">31.9</span>  Soviet space dogs, the flight perspective</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#planet-temperature-distance-to-the-sun" id="toc-planet-temperature-distance-to-the-sun" class="nav-link" data-scroll-target="#planet-temperature-distance-to-the-sun"><span class="toc-section-number">28.10</span>  Planet temperature &amp; distance to the Sun</a>
+  <li><a href="#planet-temperature-distance-to-the-sun" id="toc-planet-temperature-distance-to-the-sun" class="nav-link" data-scroll-target="#planet-temperature-distance-to-the-sun"><span class="toc-section-number">31.10</span>  Planet temperature &amp; distance to the Sun</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7">Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#transporting-plantet-data" id="toc-transporting-plantet-data" class="nav-link" data-scroll-target="#transporting-plantet-data"><span class="toc-section-number">28.11</span>  Transporting plantet data</a>
+  <li><a href="#transporting-plantet-data" id="toc-transporting-plantet-data" class="nav-link" data-scroll-target="#transporting-plantet-data"><span class="toc-section-number">31.11</span>  Transporting plantet data</a>
   <ul class="collapse">
   <li><a href="#instructions-100-xp-8" id="toc-instructions-100-xp-8" class="nav-link" data-scroll-target="#instructions-100-xp-8">Instructions <code>100 XP</code></a></li>
   </ul></li>
@@ -511,7 +526,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">From Wide to Long and Back</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -527,8 +542,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>This chapter is all about pivoting data from a wide to long format and back again using the <code>pivot_longer()</code> and <code>pivot_wider()</code> functions. You’ll need these functions when variables are hidden in messy column names or when variables are stored in rows instead of columns. You’ll learn about space dogs, nuclear bombs, and planet temperatures along the way.</p>
-<section id="nuclear-bombs-per-country" class="level2" data-number="28.1">
-<h2 data-number="28.1" class="anchored" data-anchor-id="nuclear-bombs-per-country"><span class="header-section-number">28.1</span> Nuclear bombs per country</h2>
+<section id="nuclear-bombs-per-country" class="level2" data-number="31.1">
+<h2 data-number="31.1" class="anchored" data-anchor-id="nuclear-bombs-per-country"><span class="header-section-number">31.1</span> Nuclear bombs per country</h2>
 <p>You’ve been given a version of the Nuclear Explosion DataBase (NEDB) where country names are specified in the column headers (nuke_df). You want to visualize how many nukes were detonated per year per country. You’ll need to pivot the data and replace NA values first.</p>
 <p>The ggplot2 package is needed.</p>
 <section id="instructions-100-xp" class="level3 unnumbered">
@@ -579,8 +594,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="who-obesity-per-country" class="level2" data-number="28.2">
-<h2 data-number="28.2" class="anchored" data-anchor-id="who-obesity-per-country"><span class="header-section-number">28.2</span> WHO obesity per country</h2>
+<section id="who-obesity-per-country" class="level2" data-number="31.2">
+<h2 data-number="31.2" class="anchored" data-anchor-id="who-obesity-per-country"><span class="header-section-number">31.2</span> WHO obesity per country</h2>
 <p>According to the World Health Organization (WHO), worldwide obesity has nearly tripled since 1975. You’re interested in the severity of this global health issue per country and whether males and females are affected differently. You’ll use the WHO’s obesity data (obesity_df) to investigate this issue. The data holds the percentage of females, males, and both sexes combined that are considered obese (BMI &gt; 30) per country.</p>
 <p>You want to create a scatterplot where, per nation, you can see the obesity data colored differently for females and males. This implies that sex should become a variable with its own column.</p>
 <p>Load the ggplot2 package.</p>
@@ -616,8 +631,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="bond-james-bond" class="level2" data-number="28.3">
-<h2 data-number="28.3" class="anchored" data-anchor-id="bond-james-bond"><span class="header-section-number">28.3</span> Bond… James Bond</h2>
+<section id="bond-james-bond" class="level2" data-number="31.3">
+<h2 data-number="31.3" class="anchored" data-anchor-id="bond-james-bond"><span class="header-section-number">31.3</span> Bond… James Bond</h2>
 <p>You’ve been given a James Bond movie dataset (<code>bond_df</code>) and want to visualize the number of movies that Bond actors have featured in per decade. However, the data is in an untidy format with the decade values captured in the column headers. You’ll tidy this dataset to give each variable its own column.</p>
 <p>The ggplot2 package is needed.</p>
 <section id="instructions-100-xp-2" class="level3 unnumbered">
@@ -668,8 +683,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="new-zealands-bird-of-the-year" class="level2" data-number="28.4">
-<h2 data-number="28.4" class="anchored" data-anchor-id="new-zealands-bird-of-the-year"><span class="header-section-number">28.4</span> New-Zealand’s bird of the year</h2>
+<section id="new-zealands-bird-of-the-year" class="level2" data-number="31.4">
+<h2 data-number="31.4" class="anchored" data-anchor-id="new-zealands-bird-of-the-year"><span class="header-section-number">31.4</span> New-Zealand’s bird of the year</h2>
 <p>Every year New Zealanders vote en masse to decide which species gets the bird of the year trophy. The contest is organized by the Forest &amp; Bird agency which allows each person to give points to up to five birds (first pick gets 5 points, second 4, …). Your job is to decide this year’s winner from the messy dataset that’s been pre-loaded for you as bird_df.</p>
 <p>The dplyr package is needed. ### Instructions <code>100 XP</code> {.unnumbered}</p>
 <div class="code-with-filename">
@@ -701,8 +716,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(total_points, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="big-tech-stock-prices" class="level2" data-number="28.5">
-<h2 data-number="28.5" class="anchored" data-anchor-id="big-tech-stock-prices"><span class="header-section-number">28.5</span> Big tech stock prices</h2>
+<section id="big-tech-stock-prices" class="level2" data-number="31.5">
+<h2 data-number="31.5" class="anchored" data-anchor-id="big-tech-stock-prices"><span class="header-section-number">31.5</span> Big tech stock prices</h2>
 <p>You’re an analyst at an investment firm and want to visualize the weekly closing prices of five big tech firms’ stocks. However, the dataset you’ve been handed (<code>stock_df</code>) is messy and has the year and week variables stored in the column headers. You’ll pivot this data into a tidy format, extract the variables from the headers, and create a line plot.</p>
 <p>Load the ggplot2 package. ### Instructions <code>100 XP</code> {.unnumbered} - Pivot stock_df so that the integer columns year and week are created from the column names and the original values are moved to the price column. Use the <code>names_sep</code> argument to separate the column names.</p>
 <div class="code-with-filename">
@@ -736,8 +751,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="soviet-space-dogs-the-dogs-perspective" class="level2" data-number="28.6">
-<h2 data-number="28.6" class="anchored" data-anchor-id="soviet-space-dogs-the-dogs-perspective"><span class="header-section-number">28.6</span> Soviet space dogs, the dogs perspective</h2>
+<section id="soviet-space-dogs-the-dogs-perspective" class="level2" data-number="31.6">
+<h2 data-number="31.6" class="anchored" data-anchor-id="soviet-space-dogs-the-dogs-perspective"><span class="header-section-number">31.6</span> Soviet space dogs, the dogs perspective</h2>
 <p>You’ll be working on an pre-processed sample of the USSR space dogs database compiled by Duncan Geere and pre-loaded for you as <code>space_dogs_df</code>. Each of the 42 rows in this dataset represents a test rocket launch which had one or two very brave dogs on board.</p>
 <p>Your goal is to reshape this dataset so that for each launch, each dog has a row.</p>
 <p>The challenge is that in the column headers (<code>name_1</code>, <code>name_2</code>, <code>gender_1</code>, and <code>gender_2</code>), the part before the <code>_</code> separator can point to two different variables (name and gender), while the second part always points to the dog ID (1st or 2nd dog).</p>
@@ -770,8 +785,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="who-obesity-vs.-life-expectancy" class="level2" data-number="28.7">
-<h2 data-number="28.7" class="anchored" data-anchor-id="who-obesity-vs.-life-expectancy"><span class="header-section-number">28.7</span> WHO obesity vs.&nbsp;life expectancy</h2>
+<section id="who-obesity-vs.-life-expectancy" class="level2" data-number="31.7">
+<h2 data-number="31.7" class="anchored" data-anchor-id="who-obesity-vs.-life-expectancy"><span class="header-section-number">31.7</span> WHO obesity vs.&nbsp;life expectancy</h2>
 <p>You’ve been given a sample of WHO data (<code>who_df</code>) with obesity percentages and life expectancy data per country, year, and sex. You want to visually inspect the correlation between obesity and life expectancy.</p>
 <p>However, the data is very messy with four variables hidden in the column names. Each column name is made up of three parts separated by underscores: Values for the year, followed by those for <code>sex</code>, and then values for either <code>pct.obese</code> or <code>life.exp</code>. Since the third part of the column name string holds two variables you’ll need to use the special “<code>.value</code>” value in the <code>names_to</code> argument.</p>
 <p>You’ll pivot the data into a tidy format and create the <code>scatterplot</code>.</p>
@@ -802,8 +817,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="unconting-ovservations" class="level2" data-number="28.8">
-<h2 data-number="28.8" class="anchored" data-anchor-id="unconting-ovservations"><span class="header-section-number">28.8</span> Unconting ovservations</h2>
+<section id="unconting-ovservations" class="level2" data-number="31.8">
+<h2 data-number="31.8" class="anchored" data-anchor-id="unconting-ovservations"><span class="header-section-number">31.8</span> Unconting ovservations</h2>
 <p>You’ve found the job of your dreams providing technical support for a dog breed beauty contest. The jury members want a spreadsheet with the breed and id of each participating dog so that they can add the scores later on. You’ve only been given the number of participants per dog breed (<code>dog_df</code>) so you decide to use your tidyr skills to create the desired result.</p>
 <section id="instructions-100-xp-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-5">Instructions <code>100 XP</code></h3>
@@ -821,8 +836,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="soviet-space-dogs-the-flight-perspective" class="level2" data-number="28.9">
-<h2 data-number="28.9" class="anchored" data-anchor-id="soviet-space-dogs-the-flight-perspective"><span class="header-section-number">28.9</span> Soviet space dogs, the flight perspective</h2>
+<section id="soviet-space-dogs-the-flight-perspective" class="level2" data-number="31.9">
+<h2 data-number="31.9" class="anchored" data-anchor-id="soviet-space-dogs-the-flight-perspective"><span class="header-section-number">31.9</span> Soviet space dogs, the flight perspective</h2>
 <p>Remember the USSR space dogs dataset<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>? You changed it to a long format so that for every dog in every rocket launch, there was a row. Suppose you’re given this tidy dataset and are asked to answer the question, “In what percentage of flights were both dogs of the same gender?”</p>
 <p>You’ll reshape and investigate space_dogs_df to find the answer.</p>
 <p>The dplyr package has been pre-loaded for you.</p>
@@ -852,8 +867,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="planet-temperature-distance-to-the-sun" class="level2" data-number="28.10">
-<h2 data-number="28.10" class="anchored" data-anchor-id="planet-temperature-distance-to-the-sun"><span class="header-section-number">28.10</span> Planet temperature &amp; distance to the Sun</h2>
+<section id="planet-temperature-distance-to-the-sun" class="level2" data-number="31.10">
+<h2 data-number="31.10" class="anchored" data-anchor-id="planet-temperature-distance-to-the-sun"><span class="header-section-number">31.10</span> Planet temperature &amp; distance to the Sun</h2>
 <p>The intensity of light radiated by a light source follows an inverse square relationship with the distance it has traveled. <a href="https://en.wikipedia.org/wiki/Inverse-square_law" class="uri">https://en.wikipedia.org/wiki/Inverse-square_law</a> You wonder if you could observe this trend in the temperature of the planets in our Solar System given their distance to the Sun. You’ll use the <code>planet_df</code> dataset from the <a href="https://devstronomy.com/#/datasets">devstronomy</a> project to investigate this.</p>
 <section id="instructions-100-xp-7" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-7">Instructions <code>100 XP</code></h3>
@@ -881,8 +896,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="transporting-plantet-data" class="level2" data-number="28.11">
-<h2 data-number="28.11" class="anchored" data-anchor-id="transporting-plantet-data"><span class="header-section-number">28.11</span> Transporting plantet data</h2>
+<section id="transporting-plantet-data" class="level2" data-number="31.11">
+<h2 data-number="31.11" class="anchored" data-anchor-id="transporting-plantet-data"><span class="header-section-number">31.11</span> Transporting plantet data</h2>
 <p>You’re again working on a planet dataset derived from the <a href="https://devstronomy.com/#/datasets">devstronomy</a> project. This time, you’re interested in the correlation between the diameter of a planet and the number of moons circling it.</p>
 <p>However, the dataset (<code>planet_df</code>) has a row for each variable and a column for each planet (<code>observation</code>). You’ll transpose this data in two steps and then create a plot to inspect the correlation.</p>
 <p>Load ggplot2 package.</p>
@@ -1234,12 +1249,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./_reshaping_data_with_tidyr_01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Tidy Data</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Tidy Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./_reshaping_data_with_tidyr_03.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expanding Data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Expanding Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
