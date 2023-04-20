@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 686ebc2f-136b-41e3-b5b9-7fec2ca1db35
+      url: 'https://quartopub.com/sites/sauldiazinfante/statistical-inference-for-data-science'
