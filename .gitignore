@@ -3,6 +3,8 @@
 .RData
 .Ruserdata
 /.quarto/
+/_site/
+/_book/
 # Compiled source #
 ###################
 *.com
