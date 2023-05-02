@@ -115,23 +115,49 @@ The `dplyr` package is loaded and `food_consumption` is available.
 
 ### Instructions `100 XP` {.unnumbered}
 
+- Calculate the quartiles of the co2_emission column of 
+`food_consumption`.
+
+- Calculate the six quantiles that split up the data into 5 pieces 
+(quintiles) of the `co2_emission` column of `food_consumption`.
+
+- Calculate the eleven quantiles of `co2_emission` that split up the 
+data into ten pieces (deciles).
+
+
 ```{.r filename="ex_003.R"}
-
-```
-## Quartiles, quantiles, and quintiles
-
-
-
-
-### Instructions `100 XP` {.unnumbered}
-
-```{.r filename="ex_004.R"}
-
+quantile(food_consumption$co2_emission)
+# Calculate the quintiles of co2_emission
+quantile(
+    food_consumption$co2_emission,
+    probs = c(0.0, 0.2, 0.4, 0.6, 0.8, 1))
+# Calculate the deciles of co2_emission
+quantile(
+    food_consumption$co2_emission,
+    probs = c(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1))
 ```
 
 ## Variance and standard deviation
 
+Variance and standard deviation are two of the most common ways to 
+measure the spread of a variable, and you'll practice calculating 
+these in this exercise. Spread is important since it can help inform 
+expectations. For example, if a salesperson sells a mean of 20 products
+a day, but has a standard deviation of 10 products, there will probably 
+be days where they sell 40 products, but also days where they only sell
+one or two. Information like this is important, especially when making 
+predictions.
+
+Both `dplyr` and `ggplot2` are loaded, and `food_consumption` is
+available.
+
 ### Instructions `100 XP` {.unnumbered}
+- Calculate the variance and standard deviation of `co2_emission` for 
+each `food_category` by grouping by and summarizing variance as 
+`var_co2` and standard deviation as `sd_co2`.
+
+- Create a histogram of `co2_emission` for each `food_category` using 
+`facet_wrap()`.
 
 ```{.r filename="ex_005.R"}
 

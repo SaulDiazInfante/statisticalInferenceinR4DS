@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistics Fundamentals With R",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_01.html#mean-and-median",
+    "href": "_introduction_to_statistics_in_r_01.html#mean-and-median",
+    "title": "1  Summary Statistics",
+    "section": "1.1 Mean and Median",
+    "text": "1.1 Mean and Median\nIn this chapter, you’ll be working with the 2018 Food Carbon Footprint Index from nu3. The food_consumption dataset contains information about the kilograms of food consumed per person per year in each country in each food category (consumption) as well as information about the carbon footprint of that food category (co2_emissions) measured in kilograms of carbon dioxide, or CO\\(_2\\), per person per year in each country.\nIn this exercise, you’ll compute measures of center to compare food consumption in the US and Belgium using your dplyr skills.\ndplyr is loaded for you and food_consumption is available. ### Instructions 100 XP {.unnumbered}\n\nCreate two data frames: one that holds the rows of food_consumption for “Belgium” and the another that holds rows for “USA”. Call these belgium_consumption and usa_consumption.\nCalculate the mean and median of kilograms of food consumed per person per year for both countries.\nFilter food_consumption for rows with data about Belgium and the USA.\nGroup the filtered data by country.\nCalculate the mean and median of the kilograms of food consumed per person per year in each country. Call these columns mean_consumption and median_consumption.\n\n\n\nex_001.R\n\n# Filter for Belgium\nbelgium_consumption <- food_consumption %>%\n  filter(country==\"Belgium\")\n\n# Filter for USA\nusa_consumption <- food_consumption %>%\n  filter(country==\"USA\")\n\n# Calculate mean and median consumption in Belgium\nmean(belgium_consumption$consumption)\nmedian(belgium_consumption$consumption)\n\n# Calculate mean and median consumption in USA\nmean(usa_consumption$consumption)\nmedian(usa_consumption$consumption)\n\nfood_consumption %>%\n  # Filter for Belgium and USA\n  filter(country %in% c(\"Belgium\", \"USA\")) %>%\n  # Group by country\n  group_by(country) %>%\n  # Get mean_consumption and median_consumption\n  sumarize(mean_consumption = mean(consumption),\n      median_consumption = median(consumption))"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_01.html#mean-vs.-median",
+    "href": "_introduction_to_statistics_in_r_01.html#mean-vs.-median",
+    "title": "1  Summary Statistics",
+    "section": "1.2 Mean vs. Median",
+    "text": "1.2 Mean vs. Median\nIn the video, you learned that the mean is the sum of all the data points divided by the total number of data points, and the median is the middle value of the dataset where 50% of the data is less than the median, and 50% of the data is greater than the median. In this exercise, you’ll compare these two measures of center.\ndplyr and ggplot2 are loaded and food_consumption is available.\n\nInstructions 100 XP\n\nFilter food_consumption to get the rows where food_category is “rice”.\nCreate a histogram using ggplot2 of co2_emission for rice.\nFilter food_consumption to get the rows where food_category is “rice”.\nSummarize the data to get the mean and median of co2_emission, calling them mean_co2 and median_co2.\n\n\n\nex_002.R\n\nfood_consumption %>%\n  # Filter for rice food category\n  filter(food_category == \"rice\") %>%\n  # Create histogram of co2_emission\n  ggplot(aes(co2_emission)) +\n    geom_histogram()\n\nfood_consumption %>%\n  # Filter for rice food category\n  filter(food_category==\"rice\") %>% \n  # Get mean_co2 and median_co2\n  summarize(\n    mean_co2 = mean(co2_emission),\n    median_co2 = median(co2_emission)\n  )"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_01.html#quartiles-quantiles-and-quintiles",
+    "href": "_introduction_to_statistics_in_r_01.html#quartiles-quantiles-and-quintiles",
+    "title": "1  Summary Statistics",
+    "section": "1.3 Quartiles, quantiles, and quintiles",
+    "text": "1.3 Quartiles, quantiles, and quintiles\nQuantiles are a great way of summarizing numerical data since they can be used to measure center and spread, as well as to get a sense of where a data point stands in relation to the rest of the dataset. For example, you might want to give a discount to the 10% most active users on a website.\nIn this exercise, you’ll calculate quartiles, quintiles, and deciles, which split up a dataset into 4, 5, and 10 pieces, respectively.\nThe dplyr package is loaded and food_consumption is available.\n\nInstructions 100 XP\n\nCalculate the quartiles of the co2_emission column of food_consumption.\nCalculate the six quantiles that split up the data into 5 pieces (quintiles) of the co2_emission column of food_consumption.\nCalculate the eleven quantiles of co2_emission that split up the data into ten pieces (deciles).\n\n\n\nex_003.R\n\nquantile(food_consumption$co2_emission)\n# Calculate the quintiles of co2_emission\nquantile(\n    food_consumption$co2_emission,\n    probs = c(0.0, 0.2, 0.4, 0.6, 0.8, 1))\n# Calculate the deciles of co2_emission\nquantile(\n    food_consumption$co2_emission,\n    probs = c(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1))"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_01.html#variance-and-standard-deviation",
+    "href": "_introduction_to_statistics_in_r_01.html#variance-and-standard-deviation",
+    "title": "1  Summary Statistics",
+    "section": "1.4 Variance and standard deviation",
+    "text": "1.4 Variance and standard deviation\nVariance and standard deviation are two of the most common ways to measure the spread of a variable, and you’ll practice calculating these in this exercise. Spread is important since it can help inform expectations. For example, if a salesperson sells a mean of 20 products a day, but has a standard deviation of 10 products, there will probably be days where they sell 40 products, but also days where they only sell one or two. Information like this is important, especially when making predictions.\nBoth dplyr and ggplot2 are loaded, and food_consumption is available.\n\nInstructions 100 XP\n\nCalculate the variance and standard deviation of co2_emission for each food_category by grouping by and summarizing variance as var_co2 and standard deviation as sd_co2.\nCreate a histogram of co2_emission for each food_category using facet_wrap().\n\n\n\nex_005.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_01.html#finding-outliers-using-iqr",
+    "href": "_introduction_to_statistics_in_r_01.html#finding-outliers-using-iqr",
+    "title": "1  Summary Statistics",
+    "section": "1.5 Finding outliers using IQR",
+    "text": "1.5 Finding outliers using IQR\n\nInstructions 100 XP\n\n\nex_006.R"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  }
+]

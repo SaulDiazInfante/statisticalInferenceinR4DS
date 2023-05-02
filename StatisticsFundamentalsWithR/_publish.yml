@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: a12914a6-d46f-4372-a9fc-3388473fc318
+      url: 'https://quartopub.com/sites/sauldiazinfante/statistics-fundamentals-with-r'
