@@ -1,0 +1,145 @@
+# Summary Statistics
+
+Summary statistics gives you the tools you need to boil down massive
+datasets to reveal the highlights. In this chapter, you'll explore 
+summary statistics including mean, median, and standard deviation, and
+learn how to accurately interpret them. You'll also develop your 
+critical thinking skills, allowing you to choose the best summary 
+statistics for your data.
+
+## Mean and Median
+
+
+In this chapter, you'll be working with the 
+**2018 Food Carbon Footprint Index** from nu3. The 
+`food_consumption` dataset contains information about the kilograms of 
+food consumed per person per year in each country in each food category
+(consumption) as well as information about the carbon footprint of that 
+food category (`co2_emissions`) measured in kilograms of carbon dioxide,
+or `CO\(_2\)`, per person per year in each country.
+
+In this exercise, you'll compute measures of center to compare food 
+consumption in the US and Belgium using your dplyr skills.
+
+`dplyr` is loaded for you and food_consumption is available.
+### Instructions `100 XP` {.unnumbered}
+
+- Create two data frames: one that holds the rows of `food_consumption`
+for "Belgium" and the another that holds rows for "USA". Call these 
+`belgium_consumption` and `usa_consumption`.
+
+- Calculate the mean and median of kilograms of food consumed per person
+per year for both countries.
+
+- Filter `food_consumption` for rows with data about Belgium and the USA.
+- Group the filtered data by country.
+- Calculate the mean and median of the kilograms of food consumed per
+person per year in each country. 
+Call these columns `mean_consumption` and `median_consumption`.
+
+
+
+```{.r filename="ex_001.R"}
+# Filter for Belgium
+belgium_consumption <- food_consumption %>%
+  filter(country=="Belgium")
+
+# Filter for USA
+usa_consumption <- food_consumption %>%
+  filter(country=="USA")
+
+# Calculate mean and median consumption in Belgium
+mean(belgium_consumption$consumption)
+median(belgium_consumption$consumption)
+
+# Calculate mean and median consumption in USA
+mean(usa_consumption$consumption)
+median(usa_consumption$consumption)
+
+food_consumption %>%
+  # Filter for Belgium and USA
+  filter(country %in% c("Belgium", "USA")) %>%
+  # Group by country
+  group_by(country) %>%
+  # Get mean_consumption and median_consumption
+  sumarize(mean_consumption = mean(consumption),
+      median_consumption = median(consumption))
+``` 
+
+## Mean vs. Median
+
+In the video, you learned that the mean is the sum of all the data points
+divided by the total number of data points, and the median is the middle
+value of the dataset where 50% of the data is less than the median,
+and 50% of the data is greater than the median. In this exercise, you'll
+compare these two measures of center.
+
+dplyr and ggplot2 are loaded and food_consumption is available.
+
+### Instructions `100 XP` {.unnumbered}
+
+- Filter `food_consumption` to get the rows where `food_category` is "rice".
+- Create a histogram using ggplot2 of `co2_emission` for rice.
+- Filter `food_consumption` to get the rows where `food_category` is "rice".
+- Summarize the data to get the mean and median of `co2_emission`, calling them
+`mean_co2` and `median_co2`.
+```{.r filename="ex_002.R"}
+food_consumption %>%
+  # Filter for rice food category
+  filter(food_category == "rice") %>%
+  # Create histogram of co2_emission
+  ggplot(aes(co2_emission)) +
+    geom_histogram()
+
+food_consumption %>%
+  # Filter for rice food category
+  filter(food_category=="rice") %>% 
+  # Get mean_co2 and median_co2
+  summarize(
+    mean_co2 = mean(co2_emission),
+    median_co2 = median(co2_emission)
+  )
+```
+
+## Quartiles, quantiles, and quintiles
+
+Quantiles are a great way of summarizing numerical data since they can 
+be used to measure center and spread, as well as to get a sense of where
+a data point stands in relation to the rest of the dataset. For example,
+you might want to give a discount to the 10% most active users on a website.
+
+In this exercise, you'll calculate quartiles, quintiles, and deciles,
+which split up a dataset into 4, 5, and 10 pieces, respectively.
+
+The `dplyr` package is loaded and `food_consumption` is available.
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_003.R"}
+
+```
+## Quartiles, quantiles, and quintiles
+
+
+
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_004.R"}
+
+```
+
+## Variance and standard deviation
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_005.R"}
+
+```
+## Finding outliers using IQR
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_006.R"}
+
+```

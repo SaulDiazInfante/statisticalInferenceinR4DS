@@ -1,0 +1,58 @@
+project:
+  type: book
+  output-dir: docs
+execute:
+  freeze: auto
+  echo: false
+
+book:
+  title: "Statistics Fundamentals With R"
+  author: "Saul Diaz Infante Velasco"
+  date: "4/20/2023"
+  cover-image: cover.png
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  repo-url: https://github.com/SaulDiazInfante/statisticalInferenceinR4DS   
+  repo-actions: [edit]
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 3
+    pinned: true
+  favicon: cover1.png
+  twitter-card: true
+# 
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: "Introduction to Statistics in R"
+      chapters:
+        - _introduction_to_statistics_in_r_01.qmd
+        - _introduction_to_statistics_in_r_02.qmd
+        - _introduction_to_statistics_in_r_03.qmd
+        - _introduction_to_statistics_in_r_04.qmd
+    - part: "Introdcution to Regression in R"
+    - part: "Intermediate Regression in R"
+    - part: "Sampling in R"
+    - part: "Hypothesis Testing in R"
+    - summary.qmd
+    - references.qmd
+bibliography: references.bib
+csl: elsevier-with-titles-alphabetical.csl
+format:
+  html:
+    theme:
+      dark: darkly
+      light: flatly
+    fig-width: 8
+    fig-height: 4
+    code-fold: true
+    code-tools: true
+    code-link: true
+
+pdf:
+  documentclass: scrreprt
+
+epub:
+  cover-image: cover.png
+jupyter: python3
