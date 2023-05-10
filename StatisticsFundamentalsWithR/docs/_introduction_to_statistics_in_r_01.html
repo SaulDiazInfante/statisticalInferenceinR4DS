@@ -425,19 +425,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="code-with-filename-file">
 <pre><strong>ex_005.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate variance and sd of co2_emission for each food_category</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>food_consumption <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(food_category) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">var_co2 =</span> <span class="fu">var</span>(co2_emission),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">sd_co2 =</span> <span class="fu">sd</span>(co2_emission))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot food_consumption with co2_emission on x-axis</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> food_consumption, <span class="fu">aes</span>(co2_emission)) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a histogram</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a separate sub-graph for each food_category</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> food_category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="finding-outliers-using-iqr" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="finding-outliers-using-iqr"><span class="header-section-number">1.5</span> Finding outliers using IQR</h2>
+<p>In this exercise, you’ll calculate IQR and use it to find some outliers. Both dplyr and ggplot2 are loaded and food_consumption is available. <img src="iterquartileRange.png" class="img-fluid" alt="Inter quartile range IQR"></p>
 <section id="instructions-100-xp-3" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="instructions-100-xp-3">Instructions <code>100 XP</code></h3>
+<ul>
+<li><p>Calculate the <code>total co2_emission</code> per country by grouping by country and taking the sum of <code>co2_emission</code>. Call the sum <code>total_emission</code> and store the resulting data frame as <code>emissions_by_country</code>.</p></li>
+<li><p>Compute the first and third quartiles of <code>total_emission</code> and store these as q1 and q3.</p></li>
+<li><p>Calculate the interquartile range of <code>total_emission</code> and store it as <code>iqr</code>.</p></li>
+<li><p>Calculate the lower and upper cutoffs for outliers of <code>total_emission</code>, and store these as lower and upper.</p></li>
+<li><p>Use filter() to get countries with a total_emission greater than the upper cutoff or a total_emission less than the lower cutoff.</p></li>
+</ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_006.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total co2_emission per country: emissions_by_country</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>emissions_by_country <span class="ot">&lt;-</span> food_consumption <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_emission =</span> <span class="fu">sum</span>(co2_emission))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total co2_emission per country: emissions_by_country</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>emissions_by_country <span class="ot">&lt;-</span> food_consumption <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_emission =</span> <span class="fu">sum</span>(co2_emission))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the first and third quartiles and IQR of total_emission</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(emissions_by_country<span class="sc">$</span>total_emission, <span class="fu">c</span>(<span class="fl">0.25</span>))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(emissions_by_country<span class="sc">$</span>total_emission, <span class="fu">c</span>(<span class="fl">0.75</span>))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>iqr <span class="ot">&lt;-</span> q3 <span class="sc">-</span> q1</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total co2_emission per country: emissions_by_country</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>emissions_by_country <span class="ot">&lt;-</span> food_consumption <span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_emission =</span> <span class="fu">sum</span>(co2_emission))</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the first and third quartiles and IQR of total_emission</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(emissions_by_country<span class="sc">$</span>total_emission, <span class="fl">0.25</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(emissions_by_country<span class="sc">$</span>total_emission, <span class="fl">0.75</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>iqr <span class="ot">&lt;-</span> q3 <span class="sc">-</span> q1</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the lower and upper cutoffs for outliers</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>lower <span class="ot">&lt;-</span> q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> iqr</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>upper <span class="ot">&lt;-</span> q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> iqr</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter emissions_by_country to find outliers</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>emissions_by_country <span class="sc">%&gt;%</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_emission <span class="sc">&gt;</span> upper <span class="sc">|</span> total_emission <span class="sc">&lt;</span> lower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -920,13 +970,76 @@ each `food_category` by grouping by and summarizing variance as
 `facet_wrap()`.
 
 ```{.r filename="ex_005.R"}
+# Calculate variance and sd of co2_emission for each food_category
+food_consumption %&gt;% 
+  group_by(food_category) %&gt;% 
+  summarize(var_co2 = var(co2_emission),
+     sd_co2 = sd(co2_emission))
 
+# Plot food_consumption with co2_emission on x-axis
+ggplot(data = food_consumption, aes(co2_emission)) +
+  # Create a histogram
+  geom_histogram() +
+  # Create a separate sub-graph for each food_category
+  facet_wrap(~ food_category)
 ```
 ## Finding outliers using IQR
+In this exercise, you'll calculate IQR and use 
+it to find some outliers. Both dplyr and ggplot2 
+are loaded and food_consumption is available.
+![Inter quartile range IQR](iterquartileRange.png)
 
 ### Instructions `100 XP` {.unnumbered}
+- Calculate the `total co2_emission` per country by grouping by 
+country and taking the sum of `co2_emission`. Call the sum 
+`total_emission` and store the resulting data frame as 
+`emissions_by_country`.
+
+- Compute the first and third quartiles of `total_emission` and 
+store these as q1 and q3.
+- Calculate the interquartile range of `total_emission` and store 
+  it as `iqr`.
+
+- Calculate the lower and upper cutoffs for outliers of 
+`total_emission`, and store these as lower and upper.
+
+- Use filter() to get countries with a total_emission greater than 
+the upper cutoff or a total_emission less than the lower 
+cutoff.
 
 ```{.r filename="ex_006.R"}
+# Calculate total co2_emission per country: emissions_by_country
+emissions_by_country &lt;- food_consumption %&gt;%
+  group_by(country) %&gt;%
+  summarize(total_emission = sum(co2_emission))
+
+# Calculate total co2_emission per country: emissions_by_country
+emissions_by_country &lt;- food_consumption %&gt;%
+  group_by(country) %&gt;%
+  summarize(total_emission = sum(co2_emission))
+
+# Compute the first and third quartiles and IQR of total_emission
+q1 &lt;- quantile(emissions_by_country$total_emission, c(0.25))
+q3 &lt;- quantile(emissions_by_country$total_emission, c(0.75))
+iqr &lt;- q3 - q1
+
+# Calculate total co2_emission per country: emissions_by_country
+emissions_by_country &lt;- food_consumption %&gt;%
+  group_by(country) %&gt;%
+  summarize(total_emission = sum(co2_emission))
+
+# Compute the first and third quartiles and IQR of total_emission
+q1 &lt;- quantile(emissions_by_country$total_emission, 0.25)
+q3 &lt;- quantile(emissions_by_country$total_emission, 0.75)
+iqr &lt;- q3 - q1
+
+# Calculate the lower and upper cutoffs for outliers
+lower &lt;- q1 - 1.5 * iqr
+upper &lt;- q3 + 1.5 * iqr
+
+# Filter emissions_by_country to find outliers
+emissions_by_country %&gt;%
+  filter(total_emission &gt; upper | total_emission &lt; lower)
 
 ```</code></pre>
 </div></div></div></div></div>
