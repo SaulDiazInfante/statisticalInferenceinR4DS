@@ -37,8 +37,6 @@ per year for both countries.
 person per year in each country. 
 Call these columns `mean_consumption` and `median_consumption`.
 
-
-
 ```{.r filename="ex_001.R"}
 # Filter for Belgium
 belgium_consumption <- food_consumption %>%

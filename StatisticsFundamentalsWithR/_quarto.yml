@@ -41,6 +41,7 @@ bibliography: references.bib
 csl: elsevier-with-titles-alphabetical.csl
 format:
   html:
+    html-math-method: mathjax
     theme:
       dark: darkly
       light: flatly
