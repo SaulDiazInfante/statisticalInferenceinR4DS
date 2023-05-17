@@ -145,5 +145,68 @@
     "title": "2  Random Numbers and Probability",
     "section": "2.8 How many sales will be won?",
     "text": "2.8 How many sales will be won?\nNow Amir wants to know how many deals he can expect to close each week if his win rate changes. Luckily, you can use your binomial distribution knowledge to help him calculate the expected value in different situations. Recall from the video that the expected value of a binomial distribution can be calculated by \\(n \\times p\\).\n\nInstuctions 100 xp\n\nCalculate the expected number of sales out of the 3 he works on that Amir will win each week if he maintains his 30% win rate.\nCalculate the expected number of sales out of the 3 he works on that he’ll win if his win rate drops to 25%.\nCalculate the expected number of sales out of the 3 he works on that he’ll win if his win rate rises to 35%.\n\n\n\nex_014.R\n\n# Expected number won with 30% win rate\nwon_30pct <- 3 * 0.3\nwon_30pct \n\n# Expected number won with 25% win rate\nwon_25pct <- 3 * 0.25\nwon_25pct\n\n# Expected number won with 35% win rate\nwon_35pct <- 3 * 0.35\nwon_35pct"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#section",
+    "href": "_introduction_to_statistics_in_r_03.html#section",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.2 ",
+    "text": "3.2 \n\n3.2.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#section-1",
+    "href": "_introduction_to_statistics_in_r_03.html#section-1",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.3 ",
+    "text": "3.3 \n\n3.3.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#section-2",
+    "href": "_introduction_to_statistics_in_r_03.html#section-2",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.4 ",
+    "text": "3.4 \n\n3.4.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n\n\n\n:::{#quarto-navigation-envelope .hidden}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-int-sidebar-title\"}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-int-navbar-title\"}\n[<span class='chapter-number'>4</span>  <span class='chapter-title'>_introduction_to_statistics_in_r_04.html</span>]{.hidden render-id=\"quarto-int-next\"}\n[<span class='chapter-number'>2</span>  <span class='chapter-title'>Random Numbers and Probability</span>]{.hidden render-id=\"quarto-int-prev\"}\n[Preface]{.hidden render-id=\"quarto-int-sidebar:/index.html\"}\n[Introduction]{.hidden render-id=\"quarto-int-sidebar:/intro.html\"}\n[Introduction to Statistics in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-1\"}\n[<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary Statistics</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_01.html\"}\n[<span class='chapter-number'>2</span>  <span class='chapter-title'>Random Numbers and Probability</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_02.html\"}\n[<span class='chapter-number'>3</span>  <span class='chapter-title'>More Distributions and the Central Limit Theorem</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_03.html\"}\n[<span class='chapter-number'>4</span>  <span class='chapter-title'>_introduction_to_statistics_in_r_04.html</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_04.html\"}\n[Introdcution to Regression in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-2\"}\n[Intermediate Regression in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-3\"}\n[Sampling in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-4\"}\n[Hypothesis Testing in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-5\"}\n[Summary]{.hidden render-id=\"quarto-int-sidebar:/summary.html\"}\n[References]{.hidden render-id=\"quarto-int-sidebar:/references.html\"}\n:::\n\n\n\n:::{#quarto-meta-markdown .hidden}\n[Statistics Fundamentals With R - [3]{.chapter-number}  [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id=\"quarto-metatitle\"}\n[Statistics Fundamentals With R - [3]{.chapter-number}  [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id=\"quarto-twittercardtitle\"}\n[Statistics Fundamentals With R - [3]{.chapter-number}  [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id=\"quarto-ogcardtitle\"}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-metasitename\"}\n:::\n\n\n\n\n<!-- -->\n\n::: {.quarto-embedded-source-code}\n```````````````````{.markdown shortcodes=\"false\"}\n## More Distributions and the Central Limit Theorem\nIt’s time to explore one of the most important probability distributions\nin statistics, normal distribution. You’ll create histograms to plot normal\ndistributions and gain an understanding of the central limit theorem, before\nexpanding your knowledge of statistical functions by adding the Poisson, \nexponential, and t-distributions to your repertoire.\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#section-3",
+    "href": "_introduction_to_statistics_in_r_03.html#section-3",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.6 ",
+    "text": "3.6 \n\n3.6.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#section-4",
+    "href": "_introduction_to_statistics_in_r_03.html#section-4",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.7 ",
+    "text": "3.7 \n\n3.7.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#probabilities-from-the-normal-distribution",
+    "href": "_introduction_to_statistics_in_r_03.html#probabilities-from-the-normal-distribution",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.1 Probabilities from the normal distribution",
+    "text": "3.1 Probabilities from the normal distribution\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals and follow a normal distribution with a mean of 5000 dollars and a standard deviation of 2000 dollars. As part of his performance metrics, you want to calculate the probability of Amir closing a deal worth various amounts.\n\n3.1.1 Instructions 100 XP\n\nWhat’s the probability of Amir closing a deal worth less than $7500?\n\n{.r filename= ex_0.R} # Probability of deal < 7500 pnorm(7500, 5000,  2000) # Probability of deal > 1000 1 - pnorm(1000, 5000, 2000) # Probability of deal between 3000 and 7000 pnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000) # Calculate amount that 75% of deals will be more than qnorm(0.75, 5000, 2000, lower.tail = FALSE) ##\n\n\n3.1.2 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
+    "href": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.5 Distribution of Amir’s sales",
+    "text": "3.5 Distribution of Amir’s sales\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals As part of Amir’s performance review, you want to be able to estimate the probability of him selling different amounts, but before you can do this, you’ll need to determine what kind of distribution the amount variable follows.\nBoth dplyr and ggplot2 are loaded and amir_deals is available.\n\n3.5.1 Instructions 100 XP\n\nCreate a histogram with 10 bins to visualize the distribution of the amount.\n\n```{.r filename= ex_0.R} # Histogram of amount with 10 bins amir_deals %>% ggplot(aes(x = amount)) + geom_histogram(bins=10)\n\n## Probabilities from the normal distribution\n\nSince each deal Amir worked on (both won and lost)\nwas different, each was worth a different amount \nof money. These values are stored in the amount\ncolumn of `amir_deals` and follow a normal \ndistribution with a mean of `5000` dollars and a \nstandard deviation of `2000` dollars. As part of \nhis performance metrics, you want to calculate the \nprobability of Amir closing a deal worth various \namounts.\n\n### Instructions `100 XP`\n- What's the probability of Amir closing a deal worth less than $7500?\n\n```{.r filename= ex_0.R}\n# Probability of deal < 7500\npnorm(7500, 5000,  2000)\n# Probability of deal > 1000\n1 - pnorm(1000, 5000, 2000)\n# Probability of deal between 3000 and 7000\npnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000)\n# Calculate amount that 75% of deals will be more than\nqnorm(0.75, 5000, 2000, lower.tail = FALSE)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#section-5",
+    "href": "_introduction_to_statistics_in_r_03.html#section-5",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.8 ",
+    "text": "3.8 \n\n3.8.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#section-6",
+    "href": "_introduction_to_statistics_in_r_03.html#section-6",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.9 ",
+    "text": "3.9 \n\n3.9.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n:::"
   }
 ]

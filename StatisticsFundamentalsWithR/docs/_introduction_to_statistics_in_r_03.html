@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics Fundamentals With R – introduction_to_statistics_in_r_03</title>
+<title>Statistics Fundamentals With R – 3&nbsp; More Distributions and the Central Limit Theorem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -127,15 +64,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
+<meta name="twitter:title" content="Statistics Fundamentals With R - [3]{.chapter-number}&nbsp; [More Distributions and the Central Limit Theorem]{.chapter-title}">
+<meta name="twitter:description" content="It’s time to explore one of the most important probability distributions in statistics, normal distribution.">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar docked fullcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Statistics Fundamentals With R</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Distributions and the Central Limit Theorem</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -148,7 +88,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Statistics Fundamentals With R</a> 
+      <a href="./">
+      Statistics Fundamentals With R
+      </a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
@@ -222,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_statistics_in_r_03.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">_introduction_to_statistics_in_r_03.html</span></a>
+  <a href="./_introduction_to_statistics_in_r_03.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Distributions and the Central Limit Theorem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,16 +200,284 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
 </nav>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#probabilities-from-the-normal-distribution" id="toc-probabilities-from-the-normal-distribution" class="nav-link active" data-scroll-target="#probabilities-from-the-normal-distribution"><span class="toc-section-number">3.1</span>  Probabilities from the normal distribution</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp"><span class="toc-section-number">3.1.1</span>  Instructions <code>100 XP</code></a></li>
+  <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1"><span class="toc-section-number">3.1.2</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">3.2</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2"><span class="toc-section-number">3.2.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="toc-section-number">3.3</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3"><span class="toc-section-number">3.3.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="toc-section-number">3.4</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4"><span class="toc-section-number">3.4.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#distribution-of-amirs-sales" id="toc-distribution-of-amirs-sales" class="nav-link" data-scroll-target="#distribution-of-amirs-sales"><span class="toc-section-number">3.5</span>  Distribution of Amir’s sales</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5"><span class="toc-section-number">3.5.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="toc-section-number">3.6</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6"><span class="toc-section-number">3.6.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"><span class="toc-section-number">3.7</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7"><span class="toc-section-number">3.7.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"><span class="toc-section-number">3.8</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-8" id="toc-instructions-100-xp-8" class="nav-link" data-scroll-target="#instructions-100-xp-8"><span class="toc-section-number">3.8.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"><span class="toc-section-number">3.9</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-9" id="toc-instructions-100-xp-9" class="nav-link" data-scroll-target="#instructions-100-xp-9"><span class="toc-section-number">3.9.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_introduction_to_statistics_in_r_03.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Distributions and the Central Limit Theorem</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>It’s time to explore one of the most important probability distributions in statistics, normal distribution. You’ll create histograms to plot normal distributions and gain an understanding of the central limit theorem, before expanding your knowledge of statistical functions by adding the Poisson, exponential, and t-distributions to your repertoire. ### Instructions <code>100 XP</code></p>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## Distribution of Amir's sales
+
+Since each deal Amir worked on (both won and lost) was different,
+each was worth a different amount of money. These values are stored in the 
+amount column of `amir_deals` As part of Amir's performance review, you want to
+be able to estimate the probability of him selling different amounts,
+but before you can do this, you'll need to determine what kind of distribution
+the amount variable follows.
+
+Both `dplyr` and `ggplot2` are loaded and `amir_deals` is available.
+
+### Instructions `100 XP`
+
+- Create a histogram with 10 bins to visualize the distribution of the amount.
+
+```{.r filename= ex_0.R}
+# Histogram of amount with 10 bins
+amir_deals %&gt;%
+    ggplot(aes(x = amount)) +
+        geom_histogram(bins=10)
+</code></pre>
+<section id="probabilities-from-the-normal-distribution" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="probabilities-from-the-normal-distribution"><span class="header-section-number">3.1</span> Probabilities from the normal distribution</h2>
+<p>Since each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of <code>amir_deals</code> and follow a normal distribution with a mean of <code>5000</code> dollars and a standard deviation of <code>2000</code> dollars. As part of his performance metrics, you want to calculate the probability of Amir closing a deal worth various amounts.</p>
+<section id="instructions-100-xp" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="instructions-100-xp"><span class="header-section-number">3.1.1</span> Instructions <code>100 XP</code></h3>
+<ul>
+<li>What’s the probability of Amir closing a deal worth less than $7500?</li>
+</ul>
+<p><code>{.r filename= ex_0.R} # Probability of deal &lt; 7500 pnorm(7500, 5000,  2000) # Probability of deal &gt; 1000 1 - pnorm(1000, 5000, 2000) # Probability of deal between 3000 and 7000 pnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000) # Calculate amount that 75% of deals will be more than qnorm(0.75, 5000, 2000, lower.tail = FALSE)</code> ##</p>
+</section>
+<section id="instructions-100-xp-1" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="instructions-100-xp-1"><span class="header-section-number">3.1.2</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## 
+
+### Instructions `100 XP`
+
+```{.r filename= ex_0.R}
+</code></pre>
+</section>
+</section>
+<section id="section" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="section"><span class="header-section-number">3.2</span> </h2>
+<section id="instructions-100-xp-2" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="instructions-100-xp-2"><span class="header-section-number">3.2.1</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## 
+
+### Instructions `100 XP`
+
+```{.r filename= ex_0.R}
+</code></pre>
+</section>
+</section>
+<section id="section-1" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="section-1"><span class="header-section-number">3.3</span> </h2>
+<section id="instructions-100-xp-3" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="instructions-100-xp-3"><span class="header-section-number">3.3.1</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## 
+
+### Instructions `100 XP`
+
+```{.r filename= ex_0.R}
+</code></pre>
+</section>
+</section>
+<section id="section-2" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="section-2"><span class="header-section-number">3.4</span> </h2>
+<section id="instructions-100-xp-4" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="instructions-100-xp-4"><span class="header-section-number">3.4.1</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## 
 
 
 
 
-<!-- -->
+:::{#quarto-navigation-envelope .hidden}
+[Statistics Fundamentals With R]{.hidden render-id="quarto-int-sidebar-title"}
+[Statistics Fundamentals With R]{.hidden render-id="quarto-int-navbar-title"}
+[&lt;span class='chapter-number'&gt;4&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;_introduction_to_statistics_in_r_04.html&lt;/span&gt;]{.hidden render-id="quarto-int-next"}
+[&lt;span class='chapter-number'&gt;2&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Random Numbers and Probability&lt;/span&gt;]{.hidden render-id="quarto-int-prev"}
+[Preface]{.hidden render-id="quarto-int-sidebar:/index.html"}
+[Introduction]{.hidden render-id="quarto-int-sidebar:/intro.html"}
+[Introduction to Statistics in R]{.hidden render-id="quarto-int-sidebar:quarto-sidebar-section-1"}
+[&lt;span class='chapter-number'&gt;1&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Summary Statistics&lt;/span&gt;]{.hidden render-id="quarto-int-sidebar:/_introduction_to_statistics_in_r_01.html"}
+[&lt;span class='chapter-number'&gt;2&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;Random Numbers and Probability&lt;/span&gt;]{.hidden render-id="quarto-int-sidebar:/_introduction_to_statistics_in_r_02.html"}
+[&lt;span class='chapter-number'&gt;3&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;More Distributions and the Central Limit Theorem&lt;/span&gt;]{.hidden render-id="quarto-int-sidebar:/_introduction_to_statistics_in_r_03.html"}
+[&lt;span class='chapter-number'&gt;4&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;_introduction_to_statistics_in_r_04.html&lt;/span&gt;]{.hidden render-id="quarto-int-sidebar:/_introduction_to_statistics_in_r_04.html"}
+[Introdcution to Regression in R]{.hidden render-id="quarto-int-sidebar:quarto-sidebar-section-2"}
+[Intermediate Regression in R]{.hidden render-id="quarto-int-sidebar:quarto-sidebar-section-3"}
+[Sampling in R]{.hidden render-id="quarto-int-sidebar:quarto-sidebar-section-4"}
+[Hypothesis Testing in R]{.hidden render-id="quarto-int-sidebar:quarto-sidebar-section-5"}
+[Summary]{.hidden render-id="quarto-int-sidebar:/summary.html"}
+[References]{.hidden render-id="quarto-int-sidebar:/references.html"}
+:::
 
+
+
+:::{#quarto-meta-markdown .hidden}
+[Statistics Fundamentals With R - [3]{.chapter-number}&nbsp; [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id="quarto-metatitle"}
+[Statistics Fundamentals With R - [3]{.chapter-number}&nbsp; [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id="quarto-twittercardtitle"}
+[Statistics Fundamentals With R - [3]{.chapter-number}&nbsp; [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id="quarto-ogcardtitle"}
+[Statistics Fundamentals With R]{.hidden render-id="quarto-metasitename"}
+:::
+
+
+
+
+&lt;!-- --&gt;
+
+::: {.quarto-embedded-source-code}
+```````````````````{.markdown shortcodes="false"}
+## More Distributions and the Central Limit Theorem
+It’s time to explore one of the most important probability distributions
+in statistics, normal distribution. You’ll create histograms to plot normal
+distributions and gain an understanding of the central limit theorem, before
+expanding your knowledge of statistical functions by adding the Poisson, 
+exponential, and t-distributions to your repertoire.
+### Instructions `100 XP`
+
+```{.r filename= ex_0.R}
+</code></pre>
+</section>
+</section>
+<section id="distribution-of-amirs-sales" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="distribution-of-amirs-sales"><span class="header-section-number">3.5</span> Distribution of Amir’s sales</h2>
+<p>Since each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of <code>amir_deals</code> As part of Amir’s performance review, you want to be able to estimate the probability of him selling different amounts, but before you can do this, you’ll need to determine what kind of distribution the amount variable follows.</p>
+<p>Both <code>dplyr</code> and <code>ggplot2</code> are loaded and <code>amir_deals</code> is available.</p>
+<section id="instructions-100-xp-5" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="instructions-100-xp-5"><span class="header-section-number">3.5.1</span> Instructions <code>100 XP</code></h3>
+<ul>
+<li>Create a histogram with 10 bins to visualize the distribution of the amount.</li>
+</ul>
+<p>```{.r filename= ex_0.R} # Histogram of amount with 10 bins amir_deals %&gt;% ggplot(aes(x = amount)) + geom_histogram(bins=10)</p>
+<pre><code>
+## Probabilities from the normal distribution
+
+Since each deal Amir worked on (both won and lost)
+was different, each was worth a different amount 
+of money. These values are stored in the amount
+column of `amir_deals` and follow a normal 
+distribution with a mean of `5000` dollars and a 
+standard deviation of `2000` dollars. As part of 
+his performance metrics, you want to calculate the 
+probability of Amir closing a deal worth various 
+amounts.
+
+### Instructions `100 XP`
+- What's the probability of Amir closing a deal worth less than $7500?
+
+```{.r filename= ex_0.R}
+# Probability of deal &lt; 7500
+pnorm(7500, 5000,  2000)
+# Probability of deal &gt; 1000
+1 - pnorm(1000, 5000, 2000)
+# Probability of deal between 3000 and 7000
+pnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000)
+# Calculate amount that 75% of deals will be more than
+qnorm(0.75, 5000, 2000, lower.tail = FALSE)</code></pre>
+</section>
+</section>
+<section id="section-3" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="section-3"><span class="header-section-number">3.6</span> </h2>
+<section id="instructions-100-xp-6" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="instructions-100-xp-6"><span class="header-section-number">3.6.1</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## 
+
+### Instructions `100 XP`
+
+```{.r filename= ex_0.R}
+</code></pre>
+</section>
+</section>
+<section id="section-4" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="section-4"><span class="header-section-number">3.7</span> </h2>
+<section id="instructions-100-xp-7" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="instructions-100-xp-7"><span class="header-section-number">3.7.1</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## 
+
+### Instructions `100 XP`
+
+```{.r filename= ex_0.R}
+</code></pre>
+</section>
+</section>
+<section id="section-5" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="section-5"><span class="header-section-number">3.8</span> </h2>
+<section id="instructions-100-xp-8" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="instructions-100-xp-8"><span class="header-section-number">3.8.1</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## 
+
+### Instructions `100 XP`
+
+```{.r filename= ex_0.R}
+</code></pre>
+</section>
+</section>
+<section id="section-6" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="section-6"><span class="header-section-number">3.9</span> </h2>
+<section id="instructions-100-xp-9" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="instructions-100-xp-9"><span class="header-section-number">3.9.1</span> Instructions <code>100 XP</code></h3>
+<p>```{.r filename= ex_0.R}</p>
+<pre><code>## </code></pre>
+<p>:::</p>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -580,9 +790,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">_introduction_to_statistics_in_r_04.html</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 
