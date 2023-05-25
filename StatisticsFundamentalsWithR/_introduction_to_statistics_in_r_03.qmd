@@ -160,7 +160,16 @@ sample(amir_deals$num_users, size = 20, replace = TRUE) %>%
   mean()
 
 # Repeat the above 100 times
-sample_means <- replicate(100, sample(amir_deals$num_users, size = 20, replace = TRUE) %>% mean())
+sample_means <- 
+  replicate(
+    100,
+    sample(
+      amir_deals$num_users,
+      size = 20,
+      replace = TRUE
+    ) %>% 
+      mean()
+  )
 
 # Create data frame for plotting
 samples <- data.frame(mean = sample_means)
@@ -170,39 +179,89 @@ samples %>%
   ggplot(aes(x = mean)) +
     geom_histogram(bins = 10)
 ```
-## 
+## The mean of means
+
+You want to know what the average number of users (`num_users`) is per deal, 
+but you want to know this number for the entire company so that you can see 
+if Amir's deals have more or fewer users than the company's average deal.
+The problem is that over the past year, the company has worked on more than
+ten thousand deals, so it's not realistic to compile all the data.
+Instead, you'll estimate the mean by taking several random samples of deals,
+since this is much easier than collecting data from everyone in the company.
+
+The user data for all the company's deals is available in `all_deals`.
 
 ### Instructions `100 XP`
+
+- Set the random seed to 321.
+- Take 30 samples of size 20 from `all_deals$num_users` and take the mean
+of each sample. Store the sample means in `sample_means`.
+- Take the mean of `sample_means`.
+- Take the mean of the num_users column of `amir_deals`.
+
 
 ```{.r filename=ex_020.R}
+# Set seed to 321
+set.seed(321)
+
+# Take 30 samples of 20 values of num_users, take mean of each sample
+sample_means <- 
+    replicate(
+        30,
+        sample(
+            all_deals$num_users,
+            20
+        ) %>% 
+            mean()
+    )
+
+# Calculate mean of sample_means
+mean(sample_means)
+
+# Calculate mean of num_users in amir_deals
+mean(amir_deals$num_users)
 
 ```
-## 
+## Tracking lead responses
+
+Your company uses sales software to keep track of new sales leads. 
+It organizes them into a queue so that anyone can follow up on one when they
+have a bit of free time. Since the number of lead responses is a countable
+outcome over a period of time, this scenario corresponds to a Poisson
+distribution. On average, Amir responds to 4 leads each day.
+In this exercise, you'll calculate probabilities of Amir responding
+to different numbers of leads.
 
 ### Instructions `100 XP`
+- What's the probability that Amir responds to 5 leads in a day, 
+  given that he responds to an average of 4?
+- Amir's coworker responds to an average of 5.5 leads per day. 
+  What is the probability that she answers 5 leads in a day?
+- What's the probability that Amir responds to 2 or fewer leads in a day?
+- What's the probability that Amir responds to more than 10 
+leads in a day?
 
 ```{.r filename=ex_21.R}
-
+dpois(5, lambda=4)
+dpois(5, lambda = 5.5)
+ppois(2, lambda = 4)
+1 - ppois(10, 4)
 ```
-## 
+## Modeling time between leads
+
+To further evaluate Amir's performance, you want to know how much time
+it takes him to respond to a lead after he opens it. On average,
+it takes 2.5 hours for him to respond. In this exercise, you'll calculate
+probabilities of different amounts of time passing between Amir receiving 
+a lead and sending a response.
 
 ### Instructions `100 XP`
+- What's the probability it takes Amir less than an hour to respond to a lead?
+- What's the probability it takes Amir more than 4 hours to respond to a lead?
+- What's the probability it takes Amir 3-4 hours to respond to a lead?
 
 ```{.r filename=ex_022.R}
-
+pexp(1, rate=1 / 2.5 )
+1 - pexp(4, rate = 1/2.5, lower.tail=FALSE)
+pexp(4, rate = 1 / 2.5) - pexp(3, rate = 1 / 2.5 )
 ```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename=ex_023.R}
-
-```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename=ex_024.R}
-
-```
-## 

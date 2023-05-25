@@ -1,0 +1,91 @@
+# Correlation and Experimental Design
+
+In this chapter, you'll learn how to quantify the strength of a linear
+relationship between two variables, and explore how confounding variables
+can affect the relationship between two other variables. You'll also see 
+how a study’s design can influence its results, change how the data should
+be analyzed, and potentially affect the reliability of your conclusions.
+
+## Relationships between variables
+
+
+In this chapter, you'll be working with a dataset `world_happiness` 
+containing results from the 2019 World Happiness Report.
+The report scores various countries based on how happy people in that country
+are. It also ranks each country on various societal aspects such as social
+support, freedom, corruption, and others. The dataset also includes the 
+GDP per capita and life expectancy for each country.
+
+In this exercise, you'll examine the relationship between a country's life 
+expectancy `(life_exp)` and happiness score `(happiness_score)` both visually
+and quantitatively. Both dplyr and `ggplot2` are loaded and `world_happiness`
+is available.
+
+### Instructions `100 XP`
+- Create a scatterplot of happiness_score vs. life_exp using ggplot2
+- Add a linear trendline to the scatterplot, setting se to FALSE.
+```{.r filename=ex_023.R}
+# Create a scatterplot of happiness_score vs. life_exp
+world_happiness %>%
+    ggplot(aes(x = life_exp, y = happiness_score )) + 
+        geom_point()
+# Add a linear trendline to scatterplot
+ggplot(world_happiness, aes(life_exp, happiness_score)) +
+  geom_point() +
+  geom_smooth(method ="lm", se =FALSE)
+cor(
+  world_happiness$life_exp,
+  world_happiness$happiness_score
+)
+```
+
+## What can't correlation measure?
+
+### Instructions `100 XP`
+
+```{.r filename=ex_024.R}
+
+```
+
+## Transforming variables
+
+### Instructions `100 XP`
+
+```{.r filename=ex_025.R}
+
+```
+## Does sugar improve happiness?
+
+### Instructions `100 XP`
+
+```{.r filename=ex_026.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_027.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_028.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_029.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_030.R}
+
+```
