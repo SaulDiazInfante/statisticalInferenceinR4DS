@@ -1,14 +1,10 @@
-## More Distributions and the Central Limit Theorem
+# More Distributions and the Central Limit Theorem
 It’s time to explore one of the most important probability distributions
 in statistics, normal distribution. You’ll create histograms to plot normal
 distributions and gain an understanding of the central limit theorem, before
 expanding your knowledge of statistical functions by adding the Poisson, 
 exponential, and t-distributions to your repertoire.
-### Instructions `100 XP`
 
-```{.r filename= ex_015.R}
-
-```
 ## Distribution of Amir's sales
 
 Since each deal Amir worked on (both won and lost) was different,
@@ -24,7 +20,7 @@ Both `dplyr` and `ggplot2` are loaded and `amir_deals` is available.
 
 - Create a histogram with 10 bins to visualize the distribution of the amount.
 
-```{.r filename= ex_016.R}
+```{.r filename=ex_016.R}
 # Histogram of amount with 10 bins
 amir_deals %>%
     ggplot(aes(x = amount)) +
@@ -47,7 +43,7 @@ amounts.
 ### Instructions `100 XP`
 - What's the probability of Amir closing a deal worth less than $7500?
 
-```{.r filename= ex_017.R}
+```{.r filename=ex_017.R}
 # Probability of deal < 7500
 pnorm(7500, 5000,  2000)
 # Probability of deal > 1000
@@ -88,7 +84,7 @@ and a standard deviation of `new_sd`.
 - Plot the distribution of the new_sales amounts 
 using a histogram with 10 bins.
 
-```{.r filename= ex_018.R}
+```{.r filename=ex_018.R}
 # Calculate new average amount
 new_mean <- 5000 * (1.2)
 
@@ -103,48 +99,110 @@ new_sales <- new_sales %>%
 new_sales %>%
   ggplot(aes(x = amount)) + 
     geom_histogram(bins = 10)
+```
+## The CLT in action
+
+The central limit theorem states that a sampling distribution of a 
+sample statistic approaches the normal distribution as you take more samples,
+no matter the original distribution being sampled from.
+
+In this exercise, you'll focus on the sample mean and see the central 
+limit theorem in action while examining the `num_users` column of 
+`amir_deals` more closely, which contains the number of people who intend
+to use the product Amir is selling.
+
+Both `dplyr` and `ggplot2` are loaded and `amir_deals` is available.
+
+### Instructions `100 XP`
+
+- Create a histogram of the `num_users` column of `amir_deals`. Use 10 bins.
+- Set the seed to 104.
+- Take a sample of size 20 with replacement from the `num_users` column 
+of `amir_deals`, and take the mean.
+
+```{.r filename=ex_019.R}
+# Create a histogram of num_users
+amir_deals %>%
+    ggplot(aes(x = num_users)) +
+        geom_histogram(bins = 10) 
+
+# Set seed to 104
+set.seed(104)
+
+# Sample 20 num_users with replacement from amir_deals
+sample(amir_deals$num_users, 20, replace = TRUE) %>%
+  # Take mean
+  mean()
+
+# Set seed to 104
+set.seed(104)
+
+# Sample 20 num_users from amir_deals and take mean
+sample(amir_deals$num_users, size = 20, replace = TRUE) %>%
+  mean()
+
+# Repeat the above 100 times
+sample_means <- 
+  replicate(
+    100,
+    sample(
+      amir_deals$num_users,
+      size = 20,
+      replace = TRUE
+    ) %>% mean()
+  )
+
+# Set seed to 104
+set.seed(104)
+
+# Sample 20 num_users from amir_deals and take mean
+sample(amir_deals$num_users, size = 20, replace = TRUE) %>%
+  mean()
+
+# Repeat the above 100 times
+sample_means <- replicate(100, sample(amir_deals$num_users, size = 20, replace = TRUE) %>% mean())
+
+# Create data frame for plotting
+samples <- data.frame(mean = sample_means)
+
+# Histogram of sample means
+samples %>%
+  ggplot(aes(x = mean)) +
+    geom_histogram(bins = 10)
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_020.R}
 
 ```
 ## 
 
 ### Instructions `100 XP`
 
-```{.r filename= ex_019.R}
+```{.r filename=ex_21.R}
 
 ```
 ## 
 
 ### Instructions `100 XP`
 
-```{.r filename= ex_020.R}
+```{.r filename=ex_022.R}
 
 ```
 ## 
 
 ### Instructions `100 XP`
 
-```{.r filename= ex_0.R}
+```{.r filename=ex_023.R}
 
 ```
 ## 
 
 ### Instructions `100 XP`
 
-```{.r filename= ex_0.R}
-
-```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename= ex_0.R}
-
-```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename= ex_0.R}
+```{.r filename=ex_024.R}
 
 ```
 ## 

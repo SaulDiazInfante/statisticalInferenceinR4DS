@@ -150,63 +150,77 @@
     "objectID": "_introduction_to_statistics_in_r_03.html#section",
     "href": "_introduction_to_statistics_in_r_03.html#section",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.2 ",
-    "text": "3.2 \n\n3.2.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+    "section": "3.4 ",
+    "text": "3.4 \n\n3.4.1 Instructions 100 XP\n\n\nex_019.R"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#section-1",
     "href": "_introduction_to_statistics_in_r_03.html#section-1",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.3 ",
-    "text": "3.3 \n\n3.3.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+    "section": "3.5 ",
+    "text": "3.5 \n\n3.5.1 Instructions 100 XP\n\n\nex_020.R"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#section-2",
     "href": "_introduction_to_statistics_in_r_03.html#section-2",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.4 ",
-    "text": "3.4 \n\n3.4.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n\n\n\n:::{#quarto-navigation-envelope .hidden}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-int-sidebar-title\"}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-int-navbar-title\"}\n[<span class='chapter-number'>4</span>  <span class='chapter-title'>_introduction_to_statistics_in_r_04.html</span>]{.hidden render-id=\"quarto-int-next\"}\n[<span class='chapter-number'>2</span>  <span class='chapter-title'>Random Numbers and Probability</span>]{.hidden render-id=\"quarto-int-prev\"}\n[Preface]{.hidden render-id=\"quarto-int-sidebar:/index.html\"}\n[Introduction]{.hidden render-id=\"quarto-int-sidebar:/intro.html\"}\n[Introduction to Statistics in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-1\"}\n[<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary Statistics</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_01.html\"}\n[<span class='chapter-number'>2</span>  <span class='chapter-title'>Random Numbers and Probability</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_02.html\"}\n[<span class='chapter-number'>3</span>  <span class='chapter-title'>More Distributions and the Central Limit Theorem</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_03.html\"}\n[<span class='chapter-number'>4</span>  <span class='chapter-title'>_introduction_to_statistics_in_r_04.html</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_04.html\"}\n[Introdcution to Regression in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-2\"}\n[Intermediate Regression in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-3\"}\n[Sampling in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-4\"}\n[Hypothesis Testing in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-5\"}\n[Summary]{.hidden render-id=\"quarto-int-sidebar:/summary.html\"}\n[References]{.hidden render-id=\"quarto-int-sidebar:/references.html\"}\n:::\n\n\n\n:::{#quarto-meta-markdown .hidden}\n[Statistics Fundamentals With R - [3]{.chapter-number}  [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id=\"quarto-metatitle\"}\n[Statistics Fundamentals With R - [3]{.chapter-number}  [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id=\"quarto-twittercardtitle\"}\n[Statistics Fundamentals With R - [3]{.chapter-number}  [More Distributions and the Central Limit Theorem]{.chapter-title}]{.hidden render-id=\"quarto-ogcardtitle\"}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-metasitename\"}\n:::\n\n\n\n\n<!-- -->\n\n::: {.quarto-embedded-source-code}\n```````````````````{.markdown shortcodes=\"false\"}\n## More Distributions and the Central Limit Theorem\nIt’s time to explore one of the most important probability distributions\nin statistics, normal distribution. You’ll create histograms to plot normal\ndistributions and gain an understanding of the central limit theorem, before\nexpanding your knowledge of statistical functions by adding the Poisson, \nexponential, and t-distributions to your repertoire.\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+    "section": "3.6 ",
+    "text": "3.6 \n\n3.6.1 Instructions 100 XP\n\n\nex_21.R"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#section-3",
     "href": "_introduction_to_statistics_in_r_03.html#section-3",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.6 ",
-    "text": "3.6 \n\n3.6.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+    "section": "3.7 ",
+    "text": "3.7 \n\n3.7.1 Instructions 100 XP\n\n\nex_022.R"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#section-4",
     "href": "_introduction_to_statistics_in_r_03.html#section-4",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.7 ",
-    "text": "3.7 \n\n3.7.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+    "section": "3.8 ",
+    "text": "3.8 \n\n3.8.1 Instructions 100 XP\n\n\nex_023.R"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#probabilities-from-the-normal-distribution",
     "href": "_introduction_to_statistics_in_r_03.html#probabilities-from-the-normal-distribution",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.1 Probabilities from the normal distribution",
-    "text": "3.1 Probabilities from the normal distribution\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals and follow a normal distribution with a mean of 5000 dollars and a standard deviation of 2000 dollars. As part of his performance metrics, you want to calculate the probability of Amir closing a deal worth various amounts.\n\n3.1.1 Instructions 100 XP\n\nWhat’s the probability of Amir closing a deal worth less than $7500?\n\n{.r filename= ex_0.R} # Probability of deal < 7500 pnorm(7500, 5000,  2000) # Probability of deal > 1000 1 - pnorm(1000, 5000, 2000) # Probability of deal between 3000 and 7000 pnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000) # Calculate amount that 75% of deals will be more than qnorm(0.75, 5000, 2000, lower.tail = FALSE) ##\n\n\n3.1.2 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+    "section": "3.2 Probabilities from the normal distribution",
+    "text": "3.2 Probabilities from the normal distribution\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals and follow a normal distribution with a mean of 5000 dollars and a standard deviation of 2000 dollars. As part of his performance metrics, you want to calculate the probability of Amir closing a deal worth various amounts.\n\n3.2.1 Instructions 100 XP\n\nWhat’s the probability of Amir closing a deal worth less than $7500?\n\n\n\nex_017.R\n\n# Probability of deal < 7500\npnorm(7500, 5000,  2000)\n# Probability of deal > 1000\n1 - pnorm(1000, 5000, 2000)\n# Probability of deal between 3000 and 7000\npnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000)\n# Calculate amount that 75% of deals will be more than\nqnorm(0.75, 5000, 2000, lower.tail = FALSE)"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
     "href": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.5 Distribution of Amir’s sales",
-    "text": "3.5 Distribution of Amir’s sales\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals As part of Amir’s performance review, you want to be able to estimate the probability of him selling different amounts, but before you can do this, you’ll need to determine what kind of distribution the amount variable follows.\nBoth dplyr and ggplot2 are loaded and amir_deals is available.\n\n3.5.1 Instructions 100 XP\n\nCreate a histogram with 10 bins to visualize the distribution of the amount.\n\n```{.r filename= ex_0.R} # Histogram of amount with 10 bins amir_deals %>% ggplot(aes(x = amount)) + geom_histogram(bins=10)\n\n## Probabilities from the normal distribution\n\nSince each deal Amir worked on (both won and lost)\nwas different, each was worth a different amount \nof money. These values are stored in the amount\ncolumn of `amir_deals` and follow a normal \ndistribution with a mean of `5000` dollars and a \nstandard deviation of `2000` dollars. As part of \nhis performance metrics, you want to calculate the \nprobability of Amir closing a deal worth various \namounts.\n\n### Instructions `100 XP`\n- What's the probability of Amir closing a deal worth less than $7500?\n\n```{.r filename= ex_0.R}\n# Probability of deal < 7500\npnorm(7500, 5000,  2000)\n# Probability of deal > 1000\n1 - pnorm(1000, 5000, 2000)\n# Probability of deal between 3000 and 7000\npnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000)\n# Calculate amount that 75% of deals will be more than\nqnorm(0.75, 5000, 2000, lower.tail = FALSE)"
+    "section": "3.1 Distribution of Amir’s sales",
+    "text": "3.1 Distribution of Amir’s sales\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals As part of Amir’s performance review, you want to be able to estimate the probability of him selling different amounts, but before you can do this, you’ll need to determine what kind of distribution the amount variable follows.\nBoth dplyr and ggplot2 are loaded and amir_deals is available.\n\n3.1.1 Instructions 100 XP\n\nCreate a histogram with 10 bins to visualize the distribution of the amount.\n\n\n\nex_016.R\n\n# Histogram of amount with 10 bins\namir_deals %>%\n    ggplot(aes(x = amount)) +\n        geom_histogram(bins=10)"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#section-5",
     "href": "_introduction_to_statistics_in_r_03.html#section-5",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.8 ",
-    "text": "3.8 \n\n3.8.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n\n### Instructions `100 XP`\n\n```{.r filename= ex_0.R}"
+    "section": "3.9 ",
+    "text": "3.9 \n\n3.9.1 Instructions 100 XP\n\n\nex_024.R"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#section-6",
     "href": "_introduction_to_statistics_in_r_03.html#section-6",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.9 ",
-    "text": "3.9 \n\n3.9.1 Instructions 100 XP\n```{.r filename= ex_0.R}\n## \n:::"
+    "section": "3.10 ",
+    "text": "3.10"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html",
+    "href": "_introduction_to_statistics_in_r_03.html",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "",
+    "text": "4 Calculate new standard deviation\nnew_sd <- 2000 * (1.3)\nnew_sales <- new_sales %>% mutate(amount = rnorm(36, new_mean, new_sd))\nnew_sales %>% ggplot(aes(x = amount)) + geom_histogram(bins = 10)\nnew_sd <- 2000 * (1.3)\nnew_sales <- new_sales %>% mutate(amount = rnorm(36, new_mean, new_sd))\nnew_sales %>% ggplot(aes(x = amount)) + geom_histogram(bins = 10)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#simulating-sales-under-new-market-conditions",
+    "href": "_introduction_to_statistics_in_r_03.html#simulating-sales-under-new-market-conditions",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.3 Simulating sales under new market conditions",
+    "text": "3.3 Simulating sales under new market conditions\nThe company’s financial analyst is predicting that next quarter, the worth of each sale will increase by 20% and the volatility, or standard deviation, of each sale’s worth will increase by 30%. To see what Amir’s sales might look like next quarter under these new market conditions, you’ll simulate new sales amounts using the normal distribution and store these in the new_sales data frame, which has already been created for you.\n\n3.3.1 Instructions 100 XP\n\nCurrently, Amir’s average sale amount is $5000.\nCalculate what his new average amount will be if it increases by 20% and store this in new_mean.\nAmir’s current standard deviation is $2000. Calculate what his new standard deviation will be if it increases by 30% and store this in new_sd.\nAdd a new column called amount to the data frame new_sales, which contains 36 simulated amounts from a normal distribution with a mean of new_mean and a standard deviation of new_sd.\nPlot the distribution of the new_sales amounts using a histogram with 10 bins.\n\n\n\nex_018.R\n\n# Calculate new average amount\nnew_mean <- 5000 * (1.2)\n\n# Calculate new standard deviation\nnew_sd <- 2000 * (1.3)\n\n# Simulate 36 sales\nnew_sales <- new_sales %>% \n  mutate(amount = rnorm(36, new_mean, new_sd))\n\n# Create histogram with 10 bins\nnew_sales %>%\n  ggplot(aes(x = amount)) + \n    geom_histogram(bins = 10)"
   }
 ]
