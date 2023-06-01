@@ -1,0 +1,9 @@
+# Predictions and model objects
+
+In this chapter, you’ll discover how to use linear 
+regression models to make predictions on Taiwanese 
+house prices and Facebook advert clicks. You’ll also 
+grow your regression skills as you get hands-on with 
+model objects, understand the concept of "regression 
+to the mean", and learn how to transform variables in 
+a dataset.

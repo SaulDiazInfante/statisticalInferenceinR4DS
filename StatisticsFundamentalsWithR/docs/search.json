@@ -235,21 +235,21 @@
     "href": "_introduction_to_statistics_in_r_04.html#what-cant-correlation-measure",
     "title": "4  Correlation and Experimental Design",
     "section": "4.2 What can’t correlation measure?",
-    "text": "4.2 What can’t correlation measure?\nWhile the correlation coefficient is a convenient way to quantify the strength of a relationship between two variables, it’s far from perfect. In this exercise, you’ll explore one of the caveats of the correlation coefficient by examining the relationship between a country’s GDP per capita (gdp_per_cap) and happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.2.1 Instructions 100 XP\nCreate a scatterplot showing the relationship between gdp_per_cap (on the x-axis) and life_exp (on the y-axis).\n\n\nex_024.R"
+    "text": "4.2 What can’t correlation measure?\nWhile the correlation coefficient is a convenient way to quantify the strength of a relationship between two variables, it’s far from perfect. In this exercise, you’ll explore one of the caveats of the correlation coefficient by examining the relationship between a country’s GDP per capita (gdp_per_cap) and happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.2.1 Instructions 100 XP\nCreate a scatterplot showing the relationship between gdp_per_cap (on the x-axis) and life_exp (on the y-axis).\n\n\nex_024.R\n\n# Scatterplot of gdp_per_cap and life_exp\nworld_happiness %>%\n    ggplot(aes(x = gdp_per_cap, y = life_exp)) +\n    geom_point()\ncor(world_happiness$gdp_per_cap,\n  world_happiness$life_exp\n)"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_04.html#transforming-variables",
     "href": "_introduction_to_statistics_in_r_04.html#transforming-variables",
     "title": "4  Correlation and Experimental Design",
     "section": "4.3 Transforming variables",
-    "text": "4.3 Transforming variables\n\n4.3.1 Instructions 100 XP\n\n\nex_025.R"
+    "text": "4.3 Transforming variables\nWhen variables have skewed distributions, they often require a transformation in order to form a linear relationship with another variable so that correlation can be computed. In this exercise, you’ll perform a transformation yourself.\nBoth dplyr and ggplot2 are loaded and world_happiness is available. ### Instructions 100 XP\n\n\nex_025.R\n\n# Scatterplot of happiness_score vs. gdp_per_cap\nworld_happiness %>%\n    ggplot(aes(x = gdp_per_cap, y = happiness_score)) + \n    geom_point()\n\n# Calculate correlation\ncor(world_happiness$happiness_score, \nworld_happiness$gdp_per_cap)\n# Create log_gdp_per_cap column\nworld_happiness <- world_happiness %>%\n  mutate(log_gdp_per_cap = log(gdp_per_cap))\n\n# Scatterplot of happiness_score vs. log_gdp_per_cap\nggplot(world_happiness,\n  aes(\n    x = log_gdp_per_cap,\n    y = happiness_score)\n  ) +\n  geom_point()\n\n# Calculate correlation\ncor(\n  world_happiness$log_gdp_per_cap,\n  world_happiness$happiness_score\n)"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
     "href": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
     "title": "4  Correlation and Experimental Design",
     "section": "4.4 Does sugar improve happiness?",
-    "text": "4.4 Does sugar improve happiness?\n\n4.4.1 Instructions 100 XP\n\n\nex_026.R"
+    "text": "4.4 Does sugar improve happiness?\nA new column has been added to world_happiness called grams_sugar_per_day, which contains the average amount of sugar eaten per person per day in each country. In this exercise, you’ll examine the effect of a country’s average sugar consumption on its happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available. ### Instructions 100 XP\n\n\nex_026.R\n\n# Scatterplot of grams_sugar_per_day and happiness_score\nworld_happiness %>%\n    ggplot(\n        aes(\n            x = grams_sugar_per_day,\n            y = happiness_score\n            \n        )\n    )+ \n        geom_point()\n\n# Correlation between grams_sugar_per_day and happiness_score\ncor(\n    world_happiness$happiness_score, \n    world_happiness$grams_sugar_per_day\n)"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_04.html#section",
@@ -306,5 +306,47 @@
     "title": "3  More Distributions and the Central Limit Theorem",
     "section": "3.7 Modeling time between leads",
     "text": "3.7 Modeling time between leads\nTo further evaluate Amir’s performance, you want to know how much time it takes him to respond to a lead after he opens it. On average, it takes 2.5 hours for him to respond. In this exercise, you’ll calculate probabilities of different amounts of time passing between Amir receiving a lead and sending a response.\n\n3.7.1 Instructions 100 XP\n\nWhat’s the probability it takes Amir less than an hour to respond to a lead?\nWhat’s the probability it takes Amir more than 4 hours to respond to a lead?\nWhat’s the probability it takes Amir 3-4 hours to respond to a lead?\n\n\n\nex_022.R\n\npexp(1, rate=1 / 2.5 )\n1 - pexp(4, rate = 1/2.5, lower.tail=FALSE)\npexp(4, rate = 1 / 2.5) - pexp(3, rate = 1 / 2.5 )"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html",
+    "href": "_introduction_to_regression_in_r_01.html",
+    "title": "5  Simple Linear Regression",
+    "section": "",
+    "text": "You’ll learn the basics of this popular statistical model, what regression is, and how linear and logistic regressions differ. You’ll then learn how to fit simple linear regression models with numeric and categorical explanatory variables, and how to describe the relationship between the response and explanatory variables using model coefficients."
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_00.html",
+    "href": "_introduction_to_regression_in_r_00.html",
+    "title": "Introduction to Regression in R: part description",
+    "section": "",
+    "text": "Linear regression and logistic regression are thetwo most widely used statistical models and act > like master keys, unlocking the secrets hidden in datasets. In this course, you’ll gain the skills you need to fit simple linear and logistic regressions. Through hands-on exercises, you’ll explore the relationships between variables in real- world datasets, including motor insurance claims, Taiwan house prices, fish sizes, and more. By the end of this course, you’ll know how to make predictions from your data, quantify model performance, and diagnose problems with model fit."
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_00.html",
+    "href": "_introduction_to_statistics_in_r_00.html",
+    "title": "Introduction to Statistics in R: part description",
+    "section": "",
+    "text": "Statistics is the study of how to collect, analyze, and draw conclusions from data. It’s a hugely valuable tool that you can use to bring the future into focus and infer the answer to tons of questions. For example, what is the likelihood of someone purchasing your product, how many calls will your support team receive, and how many jeans sizes should you manufacture to fit 95% of the population? In this course, you’ll use sales data to discover how to answer questions like these as you grow your statistical skills and learn how to calculate averages, use scatterplots to show the relationship between numeric values, and calculate correlation. You’ll also tackle probability, the backbone of statistical reasoning, and learn how to conduct a well-designed study to draw your own conclusions from data.\n\n\n\ncolab.r\n\n # run this in colab to start a notebook with R\n https://colab.research.google.com/#create=true&language=r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html",
+    "href": "_introduction_to_regression_in_r_02.html",
+    "title": "6  Predictions and model objects",
+    "section": "",
+    "text": "In this chapter, you’ll discover how to use linear regression models to make predictions on Taiwanese house prices and Facebook advert clicks. You’ll also grow your regression skills as you get hands-on with model objects, understand the concept of “regression to the mean”, and learn how to transform variables in a dataset."
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html",
+    "href": "_introduction_to_regression_in_r_03.html",
+    "title": "7  Assessing model fit",
+    "section": "",
+    "text": "In this chapter, you’ll learn how to ask questions of your model to assess fit. You’ll learn how to quantify how well a linear regression model fits, diagnose model problems using visualizations, and understand the leverage and influence of each observation used to create the model."
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html",
+    "href": "_introduction_to_regression_in_r_04.html",
+    "title": "8  Simple logistic regression",
+    "section": "",
+    "text": "Learn to fit logistic regression models. Using real- world data, you’ll predict the likelihood of a customer closing their bank account as probabilities of success and odds ratios, and quantify model performance using confusion matrices."
   }
 ]

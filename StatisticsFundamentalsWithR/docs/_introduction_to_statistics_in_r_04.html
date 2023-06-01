@@ -92,7 +92,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./_introduction_to_regression_in_r_01.html" rel="next">
 <link href="./_introduction_to_statistics_in_r_03.html" rel="prev">
 <link href="./cover1.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -236,7 +236,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">Introdcution to Regression in R</span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Introdcution to Regression in R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_regression_in_r_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_regression_in_r_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">_introduction_to_regression_in_r_02.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_regression_in_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">_introduction_to_regression_in_r_03.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_introduction_to_regression_in_r_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">_introduction_to_regression_in_r_04.html</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Intermediate Regression in R</span>
@@ -274,30 +301,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1"><span class="toc-section-number">4.2.1</span>  Instructions <code>100 XP</code></a></li>
   </ul></li>
-  <li><a href="#transforming-variables" id="toc-transforming-variables" class="nav-link" data-scroll-target="#transforming-variables"><span class="toc-section-number">4.3</span>  Transforming variables</a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2"><span class="toc-section-number">4.3.1</span>  Instructions <code>100 XP</code></a></li>
-  </ul></li>
-  <li><a href="#does-sugar-improve-happiness" id="toc-does-sugar-improve-happiness" class="nav-link" data-scroll-target="#does-sugar-improve-happiness"><span class="toc-section-number">4.4</span>  Does sugar improve happiness?</a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3"><span class="toc-section-number">4.4.1</span>  Instructions <code>100 XP</code></a></li>
-  </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">4.5</span>  </a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4"><span class="toc-section-number">4.5.1</span>  Instructions <code>100 XP</code></a></li>
-  </ul></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="toc-section-number">4.6</span>  </a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5"><span class="toc-section-number">4.6.1</span>  Instructions <code>100 XP</code></a></li>
-  </ul></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="toc-section-number">4.7</span>  </a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6"><span class="toc-section-number">4.7.1</span>  Instructions <code>100 XP</code></a></li>
-  </ul></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="toc-section-number">4.8</span>  </a>
-  <ul class="collapse">
-  <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7"><span class="toc-section-number">4.8.1</span>  Instructions <code>100 XP</code></a></li>
-  </ul></li>
+  <li><a href="#transforming-variables" id="toc-transforming-variables" class="nav-link" data-scroll-target="#transforming-variables"><span class="toc-section-number">4.3</span>  Transforming variables</a></li>
+  <li><a href="#does-sugar-improve-happiness" id="toc-does-sugar-improve-happiness" class="nav-link" data-scroll-target="#does-sugar-improve-happiness"><span class="toc-section-number">4.4</span>  Does sugar improve happiness?</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_introduction_to_statistics_in_r_04.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -362,85 +367,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="code-with-filename-file">
 <pre><strong>ex_024.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of gdp_per_cap and life_exp</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>world_happiness <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdp_per_cap, <span class="at">y =</span> life_exp)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>gdp_per_cap,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  world_happiness<span class="sc">$</span>life_exp</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="transforming-variables" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="transforming-variables"><span class="header-section-number">4.3</span> Transforming variables</h2>
-<section id="instructions-100-xp-2" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="instructions-100-xp-2"><span class="header-section-number">4.3.1</span> Instructions <code>100 XP</code></h3>
+<p>When variables have skewed distributions, they often require a transformation in order to form a linear relationship with another variable so that correlation can be computed. In this exercise, you’ll perform a transformation yourself.</p>
+<p>Both <code>dplyr</code> and <code>ggplot2</code> are loaded and <code>world_happiness</code> is available. ### Instructions <code>100 XP</code></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_025.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of happiness_score vs. gdp_per_cap</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>world_happiness <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdp_per_cap, <span class="at">y =</span> happiness_score)) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate correlation</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>happiness_score, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>world_happiness<span class="sc">$</span>gdp_per_cap)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create log_gdp_per_cap column</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>world_happiness <span class="ot">&lt;-</span> world_happiness <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_gdp_per_cap =</span> <span class="fu">log</span>(gdp_per_cap))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of happiness_score vs. log_gdp_per_cap</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(world_happiness,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> log_gdp_per_cap,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> happiness_score)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate correlation</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  world_happiness<span class="sc">$</span>log_gdp_per_cap,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  world_happiness<span class="sc">$</span>happiness_score</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 </section>
 <section id="does-sugar-improve-happiness" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="does-sugar-improve-happiness"><span class="header-section-number">4.4</span> Does sugar improve happiness?</h2>
-<section id="instructions-100-xp-3" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="instructions-100-xp-3"><span class="header-section-number">4.4.1</span> Instructions <code>100 XP</code></h3>
+<p>A new column has been added to <code>world_happiness</code> called <code>grams_sugar_per_day</code>, which contains the average amount of sugar eaten per person per day in each country. In this exercise, you’ll examine the effect of a country’s average sugar consumption on its happiness score.</p>
+<p>Both <code>dplyr</code> and <code>ggplot2</code> are loaded and <code>world_happiness</code> is available. ### Instructions <code>100 XP</code></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ex_026.R</strong></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="section" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="section"><span class="header-section-number">4.5</span> </h2>
-<section id="instructions-100-xp-4" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="instructions-100-xp-4"><span class="header-section-number">4.5.1</span> Instructions <code>100 XP</code></h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>ex_027.R</strong></pre>
-</div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="section-1" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="section-1"><span class="header-section-number">4.6</span> </h2>
-<section id="instructions-100-xp-5" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="instructions-100-xp-5"><span class="header-section-number">4.6.1</span> Instructions <code>100 XP</code></h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>ex_028.R</strong></pre>
-</div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="section-2" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="section-2"><span class="header-section-number">4.7</span> </h2>
-<section id="instructions-100-xp-6" class="level3" data-number="4.7.1">
-<h3 data-number="4.7.1" class="anchored" data-anchor-id="instructions-100-xp-6"><span class="header-section-number">4.7.1</span> Instructions <code>100 XP</code></h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>ex_029.R</strong></pre>
-</div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="section-3" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="section-3"><span class="header-section-number">4.8</span> </h2>
-<section id="instructions-100-xp-7" class="level3" data-number="4.8.1">
-<h3 data-number="4.8.1" class="anchored" data-anchor-id="instructions-100-xp-7"><span class="header-section-number">4.8.1</span> Instructions <code>100 XP</code></h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>ex_030.R</strong></pre>
-</div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of grams_sugar_per_day and happiness_score</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>world_happiness <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> grams_sugar_per_day,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> happiness_score</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">+</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation between grams_sugar_per_day and happiness_score</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    world_happiness<span class="sc">$</span>happiness_score, </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    world_happiness<span class="sc">$</span>grams_sugar_per_day</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -750,8 +750,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text">Summary</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./_introduction_to_regression_in_r_01.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -811,50 +811,79 @@ Create a scatterplot showing the relationship between
 gdp_per_cap (on the x-axis) and life_exp (on the y-axis).
 
 ```{.r filename=ex_024.R}
+# Scatterplot of gdp_per_cap and life_exp
+world_happiness %&gt;%
+    ggplot(aes(x = gdp_per_cap, y = life_exp)) +
+    geom_point()
+cor(world_happiness$gdp_per_cap,
+  world_happiness$life_exp
+)
 
 ```
 
 ## Transforming variables
+When variables have skewed distributions, they often require a transformation 
+in order to form a linear relationship with another variable so that 
+correlation can be computed. In this exercise, you'll perform a transformation 
+yourself.
 
+Both `dplyr` and `ggplot2` are loaded and `world_happiness` is available.
 ### Instructions `100 XP`
 
 ```{.r filename=ex_025.R}
+# Scatterplot of happiness_score vs. gdp_per_cap
+world_happiness %&gt;%
+    ggplot(aes(x = gdp_per_cap, y = happiness_score)) + 
+    geom_point()
 
+# Calculate correlation
+cor(world_happiness$happiness_score, 
+world_happiness$gdp_per_cap)
+# Create log_gdp_per_cap column
+world_happiness &lt;- world_happiness %&gt;%
+  mutate(log_gdp_per_cap = log(gdp_per_cap))
+
+# Scatterplot of happiness_score vs. log_gdp_per_cap
+ggplot(world_happiness,
+  aes(
+    x = log_gdp_per_cap,
+    y = happiness_score)
+  ) +
+  geom_point()
+
+# Calculate correlation
+cor(
+  world_happiness$log_gdp_per_cap,
+  world_happiness$happiness_score
+)
 ```
 ## Does sugar improve happiness?
 
-### Instructions `100 XP`
+A new column has been added to `world_happiness` called 
+`grams_sugar_per_day`, which contains the average amount of sugar 
+eaten per person per day in each country. In this exercise, you'll
+examine the effect of a country's average sugar consumption on its
+happiness score.
 
+Both `dplyr` and `ggplot2` are loaded and `world_happiness` is available.
+### Instructions `100 XP`
 ```{.r filename=ex_026.R}
+# Scatterplot of grams_sugar_per_day and happiness_score
+world_happiness %&gt;%
+    ggplot(
+        aes(
+            x = grams_sugar_per_day,
+            y = happiness_score
+            
+        )
+    )+ 
+        geom_point()
 
-```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename=ex_027.R}
-
-```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename=ex_028.R}
-
-```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename=ex_029.R}
-
-```
-## 
-
-### Instructions `100 XP`
-
-```{.r filename=ex_030.R}
-
+# Correlation between grams_sugar_per_day and happiness_score
+cor(
+    world_happiness$happiness_score, 
+    world_happiness$grams_sugar_per_day
+)
 ```</code></pre>
 </div></div></div></div></div>
 </div> <!-- /content -->

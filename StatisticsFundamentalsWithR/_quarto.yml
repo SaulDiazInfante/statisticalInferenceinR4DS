@@ -27,11 +27,18 @@ book:
     - intro.qmd
     - part: "Introduction to Statistics in R"
       chapters:
+        - _introduction_to_statistics_in_r_00.qmd
         - _introduction_to_statistics_in_r_01.qmd
         - _introduction_to_statistics_in_r_02.qmd
         - _introduction_to_statistics_in_r_03.qmd
         - _introduction_to_statistics_in_r_04.qmd
     - part: "Introdcution to Regression in R"
+      chapters:
+        - _introduction_to_regression_in_r_00.qmd
+        - _introduction_to_regression_in_r_01.qmd
+        - _introduction_to_regression_in_r_02.qmd
+        - _introduction_to_regression_in_r_03.qmd
+        - _introduction_to_regression_in_r_04.qmd
     - part: "Intermediate Regression in R"
     - part: "Sampling in R"
     - part: "Hypothesis Testing in R"
