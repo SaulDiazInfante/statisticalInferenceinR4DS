@@ -222,5 +222,89 @@
     "title": "3  More Distributions and the Central Limit Theorem",
     "section": "3.3 Simulating sales under new market conditions",
     "text": "3.3 Simulating sales under new market conditions\nThe company’s financial analyst is predicting that next quarter, the worth of each sale will increase by 20% and the volatility, or standard deviation, of each sale’s worth will increase by 30%. To see what Amir’s sales might look like next quarter under these new market conditions, you’ll simulate new sales amounts using the normal distribution and store these in the new_sales data frame, which has already been created for you.\n\n3.3.1 Instructions 100 XP\n\nCurrently, Amir’s average sale amount is $5000.\nCalculate what his new average amount will be if it increases by 20% and store this in new_mean.\nAmir’s current standard deviation is $2000. Calculate what his new standard deviation will be if it increases by 30% and store this in new_sd.\nAdd a new column called amount to the data frame new_sales, which contains 36 simulated amounts from a normal distribution with a mean of new_mean and a standard deviation of new_sd.\nPlot the distribution of the new_sales amounts using a histogram with 10 bins.\n\n\n\nex_018.R\n\n# Calculate new average amount\nnew_mean <- 5000 * (1.2)\n\n# Calculate new standard deviation\nnew_sd <- 2000 * (1.3)\n\n# Simulate 36 sales\nnew_sales <- new_sales %>% \n  mutate(amount = rnorm(36, new_mean, new_sd))\n\n# Create histogram with 10 bins\nnew_sales %>%\n  ggplot(aes(x = amount)) + \n    geom_histogram(bins = 10)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#relationships-between-variables",
+    "href": "_introduction_to_statistics_in_r_04.html#relationships-between-variables",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.1 Relationships between variables",
+    "text": "4.1 Relationships between variables\nIn this chapter, you’ll be working with a dataset world_happiness containing results from the 2019 World Happiness Report. The report scores various countries based on how happy people in that country are. It also ranks each country on various societal aspects such as social support, freedom, corruption, and others. The dataset also includes the GDP per capita and life expectancy for each country.\nIn this exercise, you’ll examine the relationship between a country’s life expectancy (life_exp) and happiness score (happiness_score) both visually and quantitatively. Both dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.1.1 Instructions 100 XP\n\nCreate a scatterplot of happiness_score vs. life_exp using ggplot2\nAdd a linear trendline to the scatterplot, setting se to FALSE.\n\n\n\nex_023.R\n\n# Create a scatterplot of happiness_score vs. life_exp\nworld_happiness %>%\n    ggplot(aes(x = life_exp, y = happiness_score )) + \n        geom_point()\n# Add a linear trendline to scatterplot\nggplot(world_happiness, aes(life_exp, happiness_score)) +\n  geom_point() +\n  geom_smooth(method =\"lm\", se =FALSE)\ncor(\n  world_happiness$life_exp,\n  world_happiness$happiness_score\n)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#what-cant-correlation-measure",
+    "href": "_introduction_to_statistics_in_r_04.html#what-cant-correlation-measure",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.2 What can’t correlation measure?",
+    "text": "4.2 What can’t correlation measure?\nWhile the correlation coefficient is a convenient way to quantify the strength of a relationship between two variables, it’s far from perfect. In this exercise, you’ll explore one of the caveats of the correlation coefficient by examining the relationship between a country’s GDP per capita (gdp_per_cap) and happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.2.1 Instructions 100 XP\nCreate a scatterplot showing the relationship between gdp_per_cap (on the x-axis) and life_exp (on the y-axis).\n\n\nex_024.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#transforming-variables",
+    "href": "_introduction_to_statistics_in_r_04.html#transforming-variables",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.3 Transforming variables",
+    "text": "4.3 Transforming variables\n\n4.3.1 Instructions 100 XP\n\n\nex_025.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
+    "href": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.4 Does sugar improve happiness?",
+    "text": "4.4 Does sugar improve happiness?\n\n4.4.1 Instructions 100 XP\n\n\nex_026.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#section",
+    "href": "_introduction_to_statistics_in_r_04.html#section",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.5 ",
+    "text": "4.5 \n\n4.5.1 Instructions 100 XP\n\n\nex_027.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#section-1",
+    "href": "_introduction_to_statistics_in_r_04.html#section-1",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.6 ",
+    "text": "4.6 \n\n4.6.1 Instructions 100 XP\n\n\nex_028.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#section-2",
+    "href": "_introduction_to_statistics_in_r_04.html#section-2",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.7 ",
+    "text": "4.7 \n\n4.7.1 Instructions 100 XP\n\n\nex_029.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#section-3",
+    "href": "_introduction_to_statistics_in_r_04.html#section-3",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.8 ",
+    "text": "4.8 \n\n4.8.1 Instructions 100 XP\n\n\nex_030.R"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#the-clt-in-action",
+    "href": "_introduction_to_statistics_in_r_03.html#the-clt-in-action",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.4 The CLT in action",
+    "text": "3.4 The CLT in action\nThe central limit theorem states that a sampling distribution of a sample statistic approaches the normal distribution as you take more samples, no matter the original distribution being sampled from.\nIn this exercise, you’ll focus on the sample mean and see the central limit theorem in action while examining the num_users column of amir_deals more closely, which contains the number of people who intend to use the product Amir is selling.\nBoth dplyr and ggplot2 are loaded and amir_deals is available.\n\n3.4.1 Instructions 100 XP\n\nCreate a histogram of the num_users column of amir_deals. Use 10 bins.\nSet the seed to 104.\nTake a sample of size 20 with replacement from the num_users column of amir_deals, and take the mean.\n\n\n\nex_019.R\n\n# Create a histogram of num_users\namir_deals %>%\n    ggplot(aes(x = num_users)) +\n        geom_histogram(bins = 10) \n\n# Set seed to 104\nset.seed(104)\n\n# Sample 20 num_users with replacement from amir_deals\nsample(amir_deals$num_users, 20, replace = TRUE) %>%\n  # Take mean\n  mean()\n\n# Set seed to 104\nset.seed(104)\n\n# Sample 20 num_users from amir_deals and take mean\nsample(amir_deals$num_users, size = 20, replace = TRUE) %>%\n  mean()\n\n# Repeat the above 100 times\nsample_means <- \n  replicate(\n    100,\n    sample(\n      amir_deals$num_users,\n      size = 20,\n      replace = TRUE\n    ) %>% mean()\n  )\n\n# Set seed to 104\nset.seed(104)\n\n# Sample 20 num_users from amir_deals and take mean\nsample(amir_deals$num_users, size = 20, replace = TRUE) %>%\n  mean()\n\n# Repeat the above 100 times\nsample_means <- \n  replicate(\n    100,\n    sample(\n      amir_deals$num_users,\n      size = 20,\n      replace = TRUE\n    ) %>% \n      mean()\n  )\n\n# Create data frame for plotting\nsamples <- data.frame(mean = sample_means)\n\n# Histogram of sample means\nsamples %>%\n  ggplot(aes(x = mean)) +\n    geom_histogram(bins = 10)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#the-mean-of-means",
+    "href": "_introduction_to_statistics_in_r_03.html#the-mean-of-means",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.5 The mean of means",
+    "text": "3.5 The mean of means\nYou want to know what the average number of users (num_users) is per deal, but you want to know this number for the entire company so that you can see if Amir’s deals have more or fewer users than the company’s average deal. The problem is that over the past year, the company has worked on more than ten thousand deals, so it’s not realistic to compile all the data. Instead, you’ll estimate the mean by taking several random samples of deals, since this is much easier than collecting data from everyone in the company.\nThe user data for all the company’s deals is available in all_deals.\n\n3.5.1 Instructions 100 XP\n\nSet the random seed to 321.\nTake 30 samples of size 20 from all_deals$num_users and take the mean of each sample. Store the sample means in sample_means.\nTake the mean of sample_means.\nTake the mean of the num_users column of amir_deals.\n\n\n\nex_020.R\n\n# Set seed to 321\nset.seed(321)\n\n# Take 30 samples of 20 values of num_users, take mean of each sample\nsample_means <- \n    replicate(\n        30,\n        sample(\n            all_deals$num_users,\n            20\n        ) %>% \n            mean()\n    )\n\n# Calculate mean of sample_means\nmean(sample_means)\n\n# Calculate mean of num_users in amir_deals\nmean(amir_deals$num_users)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#tracking-lead-responses",
+    "href": "_introduction_to_statistics_in_r_03.html#tracking-lead-responses",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.6 Tracking lead responses",
+    "text": "3.6 Tracking lead responses\nYour company uses sales software to keep track of new sales leads. It organizes them into a queue so that anyone can follow up on one when they have a bit of free time. Since the number of lead responses is a countable outcome over a period of time, this scenario corresponds to a Poisson distribution. On average, Amir responds to 4 leads each day. In this exercise, you’ll calculate probabilities of Amir responding to different numbers of leads.\n\n3.6.1 Instructions 100 XP\n\nWhat’s the probability that Amir responds to 5 leads in a day, given that he responds to an average of 4?\nAmir’s coworker responds to an average of 5.5 leads per day. What is the probability that she answers 5 leads in a day?\nWhat’s the probability that Amir responds to 2 or fewer leads in a day?\nWhat’s the probability that Amir responds to more than 10 leads in a day?\n\n\n\nex_21.R\n\ndpois(5, lambda=4)\ndpois(5, lambda = 5.5)\nppois(2, lambda = 4)\n1 - ppois(10, 4)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_03.html#modeling-time-between-leads",
+    "href": "_introduction_to_statistics_in_r_03.html#modeling-time-between-leads",
+    "title": "3  More Distributions and the Central Limit Theorem",
+    "section": "3.7 Modeling time between leads",
+    "text": "3.7 Modeling time between leads\nTo further evaluate Amir’s performance, you want to know how much time it takes him to respond to a lead after he opens it. On average, it takes 2.5 hours for him to respond. In this exercise, you’ll calculate probabilities of different amounts of time passing between Amir receiving a lead and sending a response.\n\n3.7.1 Instructions 100 XP\n\nWhat’s the probability it takes Amir less than an hour to respond to a lead?\nWhat’s the probability it takes Amir more than 4 hours to respond to a lead?\nWhat’s the probability it takes Amir 3-4 hours to respond to a lead?\n\n\n\nex_022.R\n\npexp(1, rate=1 / 2.5 )\n1 - pexp(4, rate = 1/2.5, lower.tail=FALSE)\npexp(4, rate = 1 / 2.5) - pexp(3, rate = 1 / 2.5 )"
   }
 ]

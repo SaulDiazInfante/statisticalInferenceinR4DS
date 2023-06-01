@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics Fundamentals With R – introduction_to_statistics_in_r_04</title>
+<title>Statistics Fundamentals With R - 4&nbsp; Correlation and Experimental Design</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,15 +127,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
+<meta name="twitter:title" content="Statistics Fundamentals With R - 4&nbsp; Correlation and Experimental Design">
+<meta name="twitter:description" content="In this chapter, you’ll learn how to quantify the strength of a linear relationship between two variables, and explore how confounding variables can affect the relationship between two other…">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar docked fullcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Statistics Fundamentals With R</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Experimental Design</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -222,12 +225,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_statistics_in_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">_introduction_to_statistics_in_r_03.html</span></a>
+  <a href="./_introduction_to_statistics_in_r_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Distributions and the Central Limit Theorem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./_introduction_to_statistics_in_r_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">_introduction_to_statistics_in_r_04.html</span></a>
+  <a href="./_introduction_to_statistics_in_r_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Experimental Design</span></a>
   </div>
 </li>
       </ul>
@@ -258,16 +261,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
 </nav>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#relationships-between-variables" id="toc-relationships-between-variables" class="nav-link active" data-scroll-target="#relationships-between-variables"><span class="toc-section-number">4.1</span>  Relationships between variables</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp" id="toc-instructions-100-xp" class="nav-link" data-scroll-target="#instructions-100-xp"><span class="toc-section-number">4.1.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#what-cant-correlation-measure" id="toc-what-cant-correlation-measure" class="nav-link" data-scroll-target="#what-cant-correlation-measure"><span class="toc-section-number">4.2</span>  What can’t correlation measure?</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-1" id="toc-instructions-100-xp-1" class="nav-link" data-scroll-target="#instructions-100-xp-1"><span class="toc-section-number">4.2.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#transforming-variables" id="toc-transforming-variables" class="nav-link" data-scroll-target="#transforming-variables"><span class="toc-section-number">4.3</span>  Transforming variables</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-2" id="toc-instructions-100-xp-2" class="nav-link" data-scroll-target="#instructions-100-xp-2"><span class="toc-section-number">4.3.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#does-sugar-improve-happiness" id="toc-does-sugar-improve-happiness" class="nav-link" data-scroll-target="#does-sugar-improve-happiness"><span class="toc-section-number">4.4</span>  Does sugar improve happiness?</a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-3" id="toc-instructions-100-xp-3" class="nav-link" data-scroll-target="#instructions-100-xp-3"><span class="toc-section-number">4.4.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">4.5</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-4" id="toc-instructions-100-xp-4" class="nav-link" data-scroll-target="#instructions-100-xp-4"><span class="toc-section-number">4.5.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="toc-section-number">4.6</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-5" id="toc-instructions-100-xp-5" class="nav-link" data-scroll-target="#instructions-100-xp-5"><span class="toc-section-number">4.6.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="toc-section-number">4.7</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-6" id="toc-instructions-100-xp-6" class="nav-link" data-scroll-target="#instructions-100-xp-6"><span class="toc-section-number">4.7.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="toc-section-number">4.8</span>  </a>
+  <ul class="collapse">
+  <li><a href="#instructions-100-xp-7" id="toc-instructions-100-xp-7" class="nav-link" data-scroll-target="#instructions-100-xp-7"><span class="toc-section-number">4.8.1</span>  Instructions <code>100 XP</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/SaulDiazInfante/statisticalInferenceinR4DS/edit/main/_introduction_to_statistics_in_r_04.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation and Experimental Design</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
 
 
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this chapter, you’ll learn how to quantify the strength of a linear relationship between two variables, and explore how confounding variables can affect the relationship between two other variables. You’ll also see how a study’s design can influence its results, change how the data should be analyzed, and potentially affect the reliability of your conclusions.</p>
+<section id="relationships-between-variables" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="relationships-between-variables"><span class="header-section-number">4.1</span> Relationships between variables</h2>
+<p>In this chapter, you’ll be working with a dataset <code>world_happiness</code> containing results from the 2019 World Happiness Report. The report scores various countries based on how happy people in that country are. It also ranks each country on various societal aspects such as social support, freedom, corruption, and others. The dataset also includes the GDP per capita and life expectancy for each country.</p>
+<p>In this exercise, you’ll examine the relationship between a country’s life expectancy <code>(life_exp)</code> and happiness score <code>(happiness_score)</code> both visually and quantitatively. Both dplyr and <code>ggplot2</code> are loaded and <code>world_happiness</code> is available.</p>
+<section id="instructions-100-xp" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="instructions-100-xp"><span class="header-section-number">4.1.1</span> Instructions <code>100 XP</code></h3>
+<ul>
+<li>Create a scatterplot of happiness_score vs.&nbsp;life_exp using ggplot2</li>
+<li>Add a linear trendline to the scatterplot, setting se to FALSE.</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_023.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatterplot of happiness_score vs. life_exp</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>world_happiness <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> life_exp, <span class="at">y =</span> happiness_score )) <span class="sc">+</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a linear trendline to scatterplot</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(world_happiness, <span class="fu">aes</span>(life_exp, happiness_score)) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span><span class="st">"lm"</span>, <span class="at">se =</span><span class="cn">FALSE</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  world_happiness<span class="sc">$</span>life_exp,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  world_happiness<span class="sc">$</span>happiness_score</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="what-cant-correlation-measure" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="what-cant-correlation-measure"><span class="header-section-number">4.2</span> What can’t correlation measure?</h2>
+<p>While the correlation coefficient is a convenient way to quantify the strength of a relationship between two variables, it’s far from perfect. In this exercise, you’ll explore one of the caveats of the correlation coefficient by examining the relationship between a country’s GDP per capita <code>(gdp_per_cap)</code> and happiness score.</p>
+<p>Both <code>dplyr</code> and <code>ggplot2</code> are loaded and <code>world_happiness</code> is available.</p>
+<section id="instructions-100-xp-1" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="instructions-100-xp-1"><span class="header-section-number">4.2.1</span> Instructions <code>100 XP</code></h3>
+<p>Create a scatterplot showing the relationship between gdp_per_cap (on the x-axis) and life_exp (on the y-axis).</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_024.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="transforming-variables" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="transforming-variables"><span class="header-section-number">4.3</span> Transforming variables</h2>
+<section id="instructions-100-xp-2" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="instructions-100-xp-2"><span class="header-section-number">4.3.1</span> Instructions <code>100 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_025.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="does-sugar-improve-happiness" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="does-sugar-improve-happiness"><span class="header-section-number">4.4</span> Does sugar improve happiness?</h2>
+<section id="instructions-100-xp-3" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="instructions-100-xp-3"><span class="header-section-number">4.4.1</span> Instructions <code>100 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_026.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="section"><span class="header-section-number">4.5</span> </h2>
+<section id="instructions-100-xp-4" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="instructions-100-xp-4"><span class="header-section-number">4.5.1</span> Instructions <code>100 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_027.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-1" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="section-1"><span class="header-section-number">4.6</span> </h2>
+<section id="instructions-100-xp-5" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="instructions-100-xp-5"><span class="header-section-number">4.6.1</span> Instructions <code>100 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_028.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-2" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="section-2"><span class="header-section-number">4.7</span> </h2>
+<section id="instructions-100-xp-6" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="instructions-100-xp-6"><span class="header-section-number">4.7.1</span> Instructions <code>100 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_029.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-3" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="section-3"><span class="header-section-number">4.8</span> </h2>
+<section id="instructions-100-xp-7" class="level3" data-number="4.8.1">
+<h3 data-number="4.8.1" class="anchored" data-anchor-id="instructions-100-xp-7"><span class="header-section-number">4.8.1</span> Instructions <code>100 XP</code></h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex_030.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <!-- -->
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -572,7 +746,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./_introduction_to_statistics_in_r_03.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">_introduction_to_statistics_in_r_03.html</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Distributions and the Central Limit Theorem</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -581,7 +755,107 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="markdown" data-shortcodes="false"><code># Correlation and Experimental Design
+
+In this chapter, you'll learn how to quantify the strength of a linear
+relationship between two variables, and explore how confounding variables
+can affect the relationship between two other variables. You'll also see 
+how a study’s design can influence its results, change how the data should
+be analyzed, and potentially affect the reliability of your conclusions.
+
+## Relationships between variables
+
+
+In this chapter, you'll be working with a dataset `world_happiness` 
+containing results from the 2019 World Happiness Report.
+The report scores various countries based on how happy people in that country
+are. It also ranks each country on various societal aspects such as social
+support, freedom, corruption, and others. The dataset also includes the 
+GDP per capita and life expectancy for each country.
+
+In this exercise, you'll examine the relationship between a country's life 
+expectancy `(life_exp)` and happiness score `(happiness_score)` both visually
+and quantitatively. Both dplyr and `ggplot2` are loaded and `world_happiness`
+is available.
+
+### Instructions `100 XP`
+- Create a scatterplot of happiness_score vs. life_exp using ggplot2
+- Add a linear trendline to the scatterplot, setting se to FALSE.
+```{.r filename=ex_023.R}
+# Create a scatterplot of happiness_score vs. life_exp
+world_happiness %&gt;%
+    ggplot(aes(x = life_exp, y = happiness_score )) + 
+        geom_point()
+# Add a linear trendline to scatterplot
+ggplot(world_happiness, aes(life_exp, happiness_score)) +
+  geom_point() +
+  geom_smooth(method ="lm", se =FALSE)
+cor(
+  world_happiness$life_exp,
+  world_happiness$happiness_score
+)
+```
+
+## What can't correlation measure?
+
+While the correlation coefficient is a convenient way to quantify the
+strength of a relationship between two variables, it's far from perfect. 
+In this exercise, you'll explore one of the caveats of the correlation
+coefficient by examining the relationship between a country's GDP per 
+capita `(gdp_per_cap)` and happiness score.
+
+Both `dplyr` and `ggplot2` are loaded and `world_happiness` is available.
+
+### Instructions `100 XP`
+Create a scatterplot showing the relationship between
+gdp_per_cap (on the x-axis) and life_exp (on the y-axis).
+
+```{.r filename=ex_024.R}
+
+```
+
+## Transforming variables
+
+### Instructions `100 XP`
+
+```{.r filename=ex_025.R}
+
+```
+## Does sugar improve happiness?
+
+### Instructions `100 XP`
+
+```{.r filename=ex_026.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_027.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_028.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_029.R}
+
+```
+## 
+
+### Instructions `100 XP`
+
+```{.r filename=ex_030.R}
+
+```</code></pre>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
