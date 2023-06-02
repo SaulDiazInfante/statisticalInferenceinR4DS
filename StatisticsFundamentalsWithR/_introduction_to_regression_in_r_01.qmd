@@ -10,3 +10,60 @@ explanatory variables using model coefficients.
 
 
 
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```

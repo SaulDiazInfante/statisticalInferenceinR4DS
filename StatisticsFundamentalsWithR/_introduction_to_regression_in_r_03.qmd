@@ -6,3 +6,61 @@ quantify how well a linear regression model fits,
 diagnose model problems using visualizations, and 
 understand the leverage and influence of each 
 observation used to create the model.
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```

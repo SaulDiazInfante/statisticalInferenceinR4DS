@@ -5,3 +5,61 @@ world data, you’ll predict the likelihood of a
 customer closing their bank account as probabilities 
 of success and odds ratios, and quantify model 
 performance using confusion matrices.
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```

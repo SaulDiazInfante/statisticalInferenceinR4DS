@@ -7,6 +7,13 @@
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
   },
   {
+    "objectID": "_introduction_to_statistics_in_r_00.html",
+    "href": "_introduction_to_statistics_in_r_00.html",
+    "title": "Introduction to Statistics in R: part description",
+    "section": "",
+    "text": "Statistics is the study of how to collect, analyze, and draw conclusions from data. It’s a hugely valuable tool that you can use to bring the future into focus and infer the answer to tons of questions. For example, what is the likelihood of someone purchasing your product, how many calls will your support team receive, and how many jeans sizes should you manufacture to fit 95% of the population? In this course, you’ll use sales data to discover how to answer questions like these as you grow your statistical skills and learn how to calculate averages, use scatterplots to show the relationship between numeric values, and calculate correlation. You’ll also tackle probability, the backbone of statistical reasoning, and learn how to conduct a well-designed study to draw your own conclusions from data.\n\n\n\ncolab.r\n\n # run this in colab to start a notebook with R\n https://colab.research.google.com/#create=true&language=r"
+  },
+  {
     "objectID": "_introduction_to_statistics_in_r_01.html#mean-and-median",
     "href": "_introduction_to_statistics_in_r_01.html#mean-and-median",
     "title": "1  Summary Statistics",
@@ -63,55 +70,6 @@
     "text": "2.3 Creatiing a probability distribution\nA new restaurant opened a few months ago, and the restaurant’s management wants to optimize its seating space based on the size of the groups that come most often. On one night, there are 10 groups of people waiting to be seated at the restaurant, but instead of being called in the order they arrived, they will be called randomly. In this exercise, you’ll investigate the probability of groups of different sizes getting picked first. Data on each of the ten groups is contained in the restaurant_groups data frame.\nRemember that expected value can be calculated by multiplying each possible outcome with its corresponding probability and taking the sum. The restaurant_groups data is available and dplyr and ggplot2 are loaded.\n\nInstuctions 100 xp\n\nCreate a histogram of group_size\nCount the number of each group_size in restaurant_groups, then add a column called probability that contains the probability of randomly selecting a group of each size. Store this in a new data frame called size_distribution.\nCalculate the expected value of the size_distribution, which represents the expected group size.\nCalculate the probability of randomly picking a group of 4 or more people by filtering and summarizing.\n\n\n\nex_009.R\n\n# Create a histogram of group_size\nggplot(data = restaurant_groups, aes(x=group_size)) +\n  geom_histogram(bins=5)\n\n# Create probability distribution\nsize_distribution <- restaurant_groups %>%\n  # Count number of each group size\n  count(group_size) %>%\n  # Calculate probability\n  mutate(probability = n / sum(n))\n\nsize_distribution\nexpected_val <- \n  sum(\n    size_distribution$group_size *\n    size_distribution$probability)\nexpected_val\n\n# Create probability distribution\nsize_distribution <- restaurant_groups %>%\n  count(group_size) %>%\n  mutate(probability = n / sum(n))\n\n# Calculate probability of picking group of 4 or more\nsize_distribution %>%\n  # Filter for groups of 4 or larger\n  filter(group_size >= 4) %>%\n  # Calculate prob_4_or_more by taking sum of probabilities\n  summarize(\n    prob_4_or_more = \n    sum(probability)\n  )"
   },
   {
-    "objectID": "_introduction_to_statistics_in_r_02.html#section",
-    "href": "_introduction_to_statistics_in_r_02.html#section",
-    "title": "2  Random Numbers and Probability",
-    "section": "2.9 ",
-    "text": "2.9 \n\nInstuctions 100 xp\n\n\nex_.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_02.html#section-1",
-    "href": "_introduction_to_statistics_in_r_02.html#section-1",
-    "title": "2  Random Numbers and Probability",
-    "section": "2.5 ",
-    "text": "2.5 \n\nInstuctions 100 xp\n\n\nex_010.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_02.html#section-2",
-    "href": "_introduction_to_statistics_in_r_02.html#section-2",
-    "title": "2  Random Numbers and Probability",
-    "section": "2.6 ",
-    "text": "2.6 \n\nInstuctions 100 xp\n\n\nex_.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_02.html#section-3",
-    "href": "_introduction_to_statistics_in_r_02.html#section-3",
-    "title": "2  Random Numbers and Probability",
-    "section": "2.7 ",
-    "text": "2.7 \n\nInstuctions 100 xp\n\n\nex_.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_02.html#section-4",
-    "href": "_introduction_to_statistics_in_r_02.html#section-4",
-    "title": "2  Random Numbers and Probability",
-    "section": "2.8 ",
-    "text": "2.8 \n\nInstuctions 100 xp\n\n\nex_.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_02.html#section-5",
-    "href": "_introduction_to_statistics_in_r_02.html#section-5",
-    "title": "2  Random Numbers and Probability",
-    "section": "2.9 ",
-    "text": "2.9 \n\nInstuctions 100 xp\n\n\nex_.R"
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever."
-  },
-  {
     "objectID": "_introduction_to_statistics_in_r_02.html#data-back-ups",
     "href": "_introduction_to_statistics_in_r_02.html#data-back-ups",
     "title": "2  Random Numbers and Probability",
@@ -147,39 +105,11 @@
     "text": "2.8 How many sales will be won?\nNow Amir wants to know how many deals he can expect to close each week if his win rate changes. Luckily, you can use your binomial distribution knowledge to help him calculate the expected value in different situations. Recall from the video that the expected value of a binomial distribution can be calculated by \\(n \\times p\\).\n\nInstuctions 100 xp\n\nCalculate the expected number of sales out of the 3 he works on that Amir will win each week if he maintains his 30% win rate.\nCalculate the expected number of sales out of the 3 he works on that he’ll win if his win rate drops to 25%.\nCalculate the expected number of sales out of the 3 he works on that he’ll win if his win rate rises to 35%.\n\n\n\nex_014.R\n\n# Expected number won with 30% win rate\nwon_30pct <- 3 * 0.3\nwon_30pct \n\n# Expected number won with 25% win rate\nwon_25pct <- 3 * 0.25\nwon_25pct\n\n# Expected number won with 35% win rate\nwon_35pct <- 3 * 0.35\nwon_35pct"
   },
   {
-    "objectID": "_introduction_to_statistics_in_r_03.html#section",
-    "href": "_introduction_to_statistics_in_r_03.html#section",
+    "objectID": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
+    "href": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
     "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.4 ",
-    "text": "3.4 \n\n3.4.1 Instructions 100 XP\n\n\nex_019.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_03.html#section-1",
-    "href": "_introduction_to_statistics_in_r_03.html#section-1",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.5 ",
-    "text": "3.5 \n\n3.5.1 Instructions 100 XP\n\n\nex_020.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_03.html#section-2",
-    "href": "_introduction_to_statistics_in_r_03.html#section-2",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.6 ",
-    "text": "3.6 \n\n3.6.1 Instructions 100 XP\n\n\nex_21.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_03.html#section-3",
-    "href": "_introduction_to_statistics_in_r_03.html#section-3",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.7 ",
-    "text": "3.7 \n\n3.7.1 Instructions 100 XP\n\n\nex_022.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_03.html#section-4",
-    "href": "_introduction_to_statistics_in_r_03.html#section-4",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.8 ",
-    "text": "3.8 \n\n3.8.1 Instructions 100 XP\n\n\nex_023.R"
+    "section": "3.1 Distribution of Amir’s sales",
+    "text": "3.1 Distribution of Amir’s sales\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals As part of Amir’s performance review, you want to be able to estimate the probability of him selling different amounts, but before you can do this, you’ll need to determine what kind of distribution the amount variable follows.\nBoth dplyr and ggplot2 are loaded and amir_deals is available.\n\n3.1.1 Instructions 100 XP\n\nCreate a histogram with 10 bins to visualize the distribution of the amount.\n\n\n\nex_016.R\n\n# Histogram of amount with 10 bins\namir_deals %>%\n    ggplot(aes(x = amount)) +\n        geom_histogram(bins=10)"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#probabilities-from-the-normal-distribution",
@@ -189,95 +119,11 @@
     "text": "3.2 Probabilities from the normal distribution\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals and follow a normal distribution with a mean of 5000 dollars and a standard deviation of 2000 dollars. As part of his performance metrics, you want to calculate the probability of Amir closing a deal worth various amounts.\n\n3.2.1 Instructions 100 XP\n\nWhat’s the probability of Amir closing a deal worth less than $7500?\n\n\n\nex_017.R\n\n# Probability of deal < 7500\npnorm(7500, 5000,  2000)\n# Probability of deal > 1000\n1 - pnorm(1000, 5000, 2000)\n# Probability of deal between 3000 and 7000\npnorm(7000, 5000, 2000) - pnorm(3000, 5000, 2000)\n# Calculate amount that 75% of deals will be more than\nqnorm(0.75, 5000, 2000, lower.tail = FALSE)"
   },
   {
-    "objectID": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
-    "href": "_introduction_to_statistics_in_r_03.html#distribution-of-amirs-sales",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.1 Distribution of Amir’s sales",
-    "text": "3.1 Distribution of Amir’s sales\nSince each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the amount column of amir_deals As part of Amir’s performance review, you want to be able to estimate the probability of him selling different amounts, but before you can do this, you’ll need to determine what kind of distribution the amount variable follows.\nBoth dplyr and ggplot2 are loaded and amir_deals is available.\n\n3.1.1 Instructions 100 XP\n\nCreate a histogram with 10 bins to visualize the distribution of the amount.\n\n\n\nex_016.R\n\n# Histogram of amount with 10 bins\namir_deals %>%\n    ggplot(aes(x = amount)) +\n        geom_histogram(bins=10)"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_03.html#section-5",
-    "href": "_introduction_to_statistics_in_r_03.html#section-5",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.9 ",
-    "text": "3.9 \n\n3.9.1 Instructions 100 XP\n\n\nex_024.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_03.html#section-6",
-    "href": "_introduction_to_statistics_in_r_03.html#section-6",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "3.10 ",
-    "text": "3.10"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_03.html",
-    "href": "_introduction_to_statistics_in_r_03.html",
-    "title": "3  More Distributions and the Central Limit Theorem",
-    "section": "",
-    "text": "4 Calculate new standard deviation\nnew_sd <- 2000 * (1.3)\nnew_sales <- new_sales %>% mutate(amount = rnorm(36, new_mean, new_sd))\nnew_sales %>% ggplot(aes(x = amount)) + geom_histogram(bins = 10)\nnew_sd <- 2000 * (1.3)\nnew_sales <- new_sales %>% mutate(amount = rnorm(36, new_mean, new_sd))\nnew_sales %>% ggplot(aes(x = amount)) + geom_histogram(bins = 10)"
-  },
-  {
     "objectID": "_introduction_to_statistics_in_r_03.html#simulating-sales-under-new-market-conditions",
     "href": "_introduction_to_statistics_in_r_03.html#simulating-sales-under-new-market-conditions",
     "title": "3  More Distributions and the Central Limit Theorem",
     "section": "3.3 Simulating sales under new market conditions",
     "text": "3.3 Simulating sales under new market conditions\nThe company’s financial analyst is predicting that next quarter, the worth of each sale will increase by 20% and the volatility, or standard deviation, of each sale’s worth will increase by 30%. To see what Amir’s sales might look like next quarter under these new market conditions, you’ll simulate new sales amounts using the normal distribution and store these in the new_sales data frame, which has already been created for you.\n\n3.3.1 Instructions 100 XP\n\nCurrently, Amir’s average sale amount is $5000.\nCalculate what his new average amount will be if it increases by 20% and store this in new_mean.\nAmir’s current standard deviation is $2000. Calculate what his new standard deviation will be if it increases by 30% and store this in new_sd.\nAdd a new column called amount to the data frame new_sales, which contains 36 simulated amounts from a normal distribution with a mean of new_mean and a standard deviation of new_sd.\nPlot the distribution of the new_sales amounts using a histogram with 10 bins.\n\n\n\nex_018.R\n\n# Calculate new average amount\nnew_mean <- 5000 * (1.2)\n\n# Calculate new standard deviation\nnew_sd <- 2000 * (1.3)\n\n# Simulate 36 sales\nnew_sales <- new_sales %>% \n  mutate(amount = rnorm(36, new_mean, new_sd))\n\n# Create histogram with 10 bins\nnew_sales %>%\n  ggplot(aes(x = amount)) + \n    geom_histogram(bins = 10)"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#relationships-between-variables",
-    "href": "_introduction_to_statistics_in_r_04.html#relationships-between-variables",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.1 Relationships between variables",
-    "text": "4.1 Relationships between variables\nIn this chapter, you’ll be working with a dataset world_happiness containing results from the 2019 World Happiness Report. The report scores various countries based on how happy people in that country are. It also ranks each country on various societal aspects such as social support, freedom, corruption, and others. The dataset also includes the GDP per capita and life expectancy for each country.\nIn this exercise, you’ll examine the relationship between a country’s life expectancy (life_exp) and happiness score (happiness_score) both visually and quantitatively. Both dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.1.1 Instructions 100 XP\n\nCreate a scatterplot of happiness_score vs. life_exp using ggplot2\nAdd a linear trendline to the scatterplot, setting se to FALSE.\n\n\n\nex_023.R\n\n# Create a scatterplot of happiness_score vs. life_exp\nworld_happiness %>%\n    ggplot(aes(x = life_exp, y = happiness_score )) + \n        geom_point()\n# Add a linear trendline to scatterplot\nggplot(world_happiness, aes(life_exp, happiness_score)) +\n  geom_point() +\n  geom_smooth(method =\"lm\", se =FALSE)\ncor(\n  world_happiness$life_exp,\n  world_happiness$happiness_score\n)"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#what-cant-correlation-measure",
-    "href": "_introduction_to_statistics_in_r_04.html#what-cant-correlation-measure",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.2 What can’t correlation measure?",
-    "text": "4.2 What can’t correlation measure?\nWhile the correlation coefficient is a convenient way to quantify the strength of a relationship between two variables, it’s far from perfect. In this exercise, you’ll explore one of the caveats of the correlation coefficient by examining the relationship between a country’s GDP per capita (gdp_per_cap) and happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.2.1 Instructions 100 XP\nCreate a scatterplot showing the relationship between gdp_per_cap (on the x-axis) and life_exp (on the y-axis).\n\n\nex_024.R\n\n# Scatterplot of gdp_per_cap and life_exp\nworld_happiness %>%\n    ggplot(aes(x = gdp_per_cap, y = life_exp)) +\n    geom_point()\ncor(world_happiness$gdp_per_cap,\n  world_happiness$life_exp\n)"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#transforming-variables",
-    "href": "_introduction_to_statistics_in_r_04.html#transforming-variables",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.3 Transforming variables",
-    "text": "4.3 Transforming variables\nWhen variables have skewed distributions, they often require a transformation in order to form a linear relationship with another variable so that correlation can be computed. In this exercise, you’ll perform a transformation yourself.\nBoth dplyr and ggplot2 are loaded and world_happiness is available. ### Instructions 100 XP\n\n\nex_025.R\n\n# Scatterplot of happiness_score vs. gdp_per_cap\nworld_happiness %>%\n    ggplot(aes(x = gdp_per_cap, y = happiness_score)) + \n    geom_point()\n\n# Calculate correlation\ncor(world_happiness$happiness_score, \nworld_happiness$gdp_per_cap)\n# Create log_gdp_per_cap column\nworld_happiness <- world_happiness %>%\n  mutate(log_gdp_per_cap = log(gdp_per_cap))\n\n# Scatterplot of happiness_score vs. log_gdp_per_cap\nggplot(world_happiness,\n  aes(\n    x = log_gdp_per_cap,\n    y = happiness_score)\n  ) +\n  geom_point()\n\n# Calculate correlation\ncor(\n  world_happiness$log_gdp_per_cap,\n  world_happiness$happiness_score\n)"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
-    "href": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.4 Does sugar improve happiness?",
-    "text": "4.4 Does sugar improve happiness?\nA new column has been added to world_happiness called grams_sugar_per_day, which contains the average amount of sugar eaten per person per day in each country. In this exercise, you’ll examine the effect of a country’s average sugar consumption on its happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available. ### Instructions 100 XP\n\n\nex_026.R\n\n# Scatterplot of grams_sugar_per_day and happiness_score\nworld_happiness %>%\n    ggplot(\n        aes(\n            x = grams_sugar_per_day,\n            y = happiness_score\n            \n        )\n    )+ \n        geom_point()\n\n# Correlation between grams_sugar_per_day and happiness_score\ncor(\n    world_happiness$happiness_score, \n    world_happiness$grams_sugar_per_day\n)"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#section",
-    "href": "_introduction_to_statistics_in_r_04.html#section",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.5 ",
-    "text": "4.5 \n\n4.5.1 Instructions 100 XP\n\n\nex_027.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#section-1",
-    "href": "_introduction_to_statistics_in_r_04.html#section-1",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.6 ",
-    "text": "4.6 \n\n4.6.1 Instructions 100 XP\n\n\nex_028.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#section-2",
-    "href": "_introduction_to_statistics_in_r_04.html#section-2",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.7 ",
-    "text": "4.7 \n\n4.7.1 Instructions 100 XP\n\n\nex_029.R"
-  },
-  {
-    "objectID": "_introduction_to_statistics_in_r_04.html#section-3",
-    "href": "_introduction_to_statistics_in_r_04.html#section-3",
-    "title": "4  Correlation and Experimental Design",
-    "section": "4.8 ",
-    "text": "4.8 \n\n4.8.1 Instructions 100 XP\n\n\nex_030.R"
   },
   {
     "objectID": "_introduction_to_statistics_in_r_03.html#the-clt-in-action",
@@ -308,11 +154,32 @@
     "text": "3.7 Modeling time between leads\nTo further evaluate Amir’s performance, you want to know how much time it takes him to respond to a lead after he opens it. On average, it takes 2.5 hours for him to respond. In this exercise, you’ll calculate probabilities of different amounts of time passing between Amir receiving a lead and sending a response.\n\n3.7.1 Instructions 100 XP\n\nWhat’s the probability it takes Amir less than an hour to respond to a lead?\nWhat’s the probability it takes Amir more than 4 hours to respond to a lead?\nWhat’s the probability it takes Amir 3-4 hours to respond to a lead?\n\n\n\nex_022.R\n\npexp(1, rate=1 / 2.5 )\n1 - pexp(4, rate = 1/2.5, lower.tail=FALSE)\npexp(4, rate = 1 / 2.5) - pexp(3, rate = 1 / 2.5 )"
   },
   {
-    "objectID": "_introduction_to_regression_in_r_01.html",
-    "href": "_introduction_to_regression_in_r_01.html",
-    "title": "5  Simple Linear Regression",
-    "section": "",
-    "text": "You’ll learn the basics of this popular statistical model, what regression is, and how linear and logistic regressions differ. You’ll then learn how to fit simple linear regression models with numeric and categorical explanatory variables, and how to describe the relationship between the response and explanatory variables using model coefficients."
+    "objectID": "_introduction_to_statistics_in_r_04.html#relationships-between-variables",
+    "href": "_introduction_to_statistics_in_r_04.html#relationships-between-variables",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.1 Relationships between variables",
+    "text": "4.1 Relationships between variables\nIn this chapter, you’ll be working with a dataset world_happiness containing results from the 2019 World Happiness Report. The report scores various countries based on how happy people in that country are. It also ranks each country on various societal aspects such as social support, freedom, corruption, and others. The dataset also includes the GDP per capita and life expectancy for each country.\nIn this exercise, you’ll examine the relationship between a country’s life expectancy (life_exp) and happiness score (happiness_score) both visually and quantitatively. Both dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.1.1 Instructions 100 XP\n\nCreate a scatterplot of happiness_score vs. life_exp using ggplot2\nAdd a linear trendline to the scatterplot, setting se to FALSE.\n\n\n\nex_023.R\n\n# Create a scatterplot of happiness_score vs. life_exp\nworld_happiness %>%\n    ggplot(aes(x = life_exp, y = happiness_score )) + \n        geom_point()\n# Add a linear trendline to scatterplot\nggplot(world_happiness, aes(life_exp, happiness_score)) +\n  geom_point() +\n  geom_smooth(method =\"lm\", se =FALSE)\ncor(\n  world_happiness$life_exp,\n  world_happiness$happiness_score\n)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#what-cant-correlation-measure",
+    "href": "_introduction_to_statistics_in_r_04.html#what-cant-correlation-measure",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.2 What can’t correlation measure?",
+    "text": "4.2 What can’t correlation measure?\nWhile the correlation coefficient is a convenient way to quantify the strength of a relationship between two variables, it’s far from perfect. In this exercise, you’ll explore one of the caveats of the correlation coefficient by examining the relationship between a country’s GDP per capita (gdp_per_cap) and happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available.\n\n4.2.1 Instructions 100 XP\nCreate a scatterplot showing the relationship between gdp_per_cap (on the x-axis) and life_exp (on the y-axis).\n\n\nex_024.R\n\n# Scatterplot of gdp_per_cap and life_exp\nworld_happiness %>%\n    ggplot(aes(x = gdp_per_cap, y = life_exp)) +\n    geom_point()\ncor(world_happiness$gdp_per_cap,\n  world_happiness$life_exp\n)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#transforming-variables",
+    "href": "_introduction_to_statistics_in_r_04.html#transforming-variables",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.3 Transforming variables",
+    "text": "4.3 Transforming variables\nWhen variables have skewed distributions, they often require a transformation in order to form a linear relationship with another variable so that correlation can be computed. In this exercise, you’ll perform a transformation yourself.\nBoth dplyr and ggplot2 are loaded and world_happiness is available. ### Instructions 100 XP\n\n\nex_025.R\n\n# Scatterplot of happiness_score vs. gdp_per_cap\nworld_happiness %>%\n    ggplot(aes(x = gdp_per_cap, y = happiness_score)) + \n    geom_point()\n\n# Calculate correlation\ncor(world_happiness$happiness_score, \nworld_happiness$gdp_per_cap)\n# Create log_gdp_per_cap column\nworld_happiness <- world_happiness %>%\n  mutate(log_gdp_per_cap = log(gdp_per_cap))\n\n# Scatterplot of happiness_score vs. log_gdp_per_cap\nggplot(world_happiness,\n  aes(\n    x = log_gdp_per_cap,\n    y = happiness_score)\n  ) +\n  geom_point()\n\n# Calculate correlation\ncor(\n  world_happiness$log_gdp_per_cap,\n  world_happiness$happiness_score\n)"
+  },
+  {
+    "objectID": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
+    "href": "_introduction_to_statistics_in_r_04.html#does-sugar-improve-happiness",
+    "title": "4  Correlation and Experimental Design",
+    "section": "4.4 Does sugar improve happiness?",
+    "text": "4.4 Does sugar improve happiness?\nA new column has been added to world_happiness called grams_sugar_per_day, which contains the average amount of sugar eaten per person per day in each country. In this exercise, you’ll examine the effect of a country’s average sugar consumption on its happiness score.\nBoth dplyr and ggplot2 are loaded and world_happiness is available. ### Instructions 100 XP\n\n\nex_026.R\n\n# Scatterplot of grams_sugar_per_day and happiness_score\nworld_happiness %>%\n    ggplot(\n        aes(\n            x = grams_sugar_per_day,\n            y = happiness_score\n            \n        )\n    )+ \n        geom_point()\n\n# Correlation between grams_sugar_per_day and happiness_score\ncor(\n    world_happiness$happiness_score, \n    world_happiness$grams_sugar_per_day\n)"
   },
   {
     "objectID": "_introduction_to_regression_in_r_00.html",
@@ -322,31 +189,283 @@
     "text": "Linear regression and logistic regression are thetwo most widely used statistical models and act > like master keys, unlocking the secrets hidden in datasets. In this course, you’ll gain the skills you need to fit simple linear and logistic regressions. Through hands-on exercises, you’ll explore the relationships between variables in real- world datasets, including motor insurance claims, Taiwan house prices, fish sizes, and more. By the end of this course, you’ll know how to make predictions from your data, quantify model performance, and diagnose problems with model fit."
   },
   {
-    "objectID": "_introduction_to_statistics_in_r_00.html",
-    "href": "_introduction_to_statistics_in_r_00.html",
-    "title": "Introduction to Statistics in R: part description",
-    "section": "",
-    "text": "Statistics is the study of how to collect, analyze, and draw conclusions from data. It’s a hugely valuable tool that you can use to bring the future into focus and infer the answer to tons of questions. For example, what is the likelihood of someone purchasing your product, how many calls will your support team receive, and how many jeans sizes should you manufacture to fit 95% of the population? In this course, you’ll use sales data to discover how to answer questions like these as you grow your statistical skills and learn how to calculate averages, use scatterplots to show the relationship between numeric values, and calculate correlation. You’ll also tackle probability, the backbone of statistical reasoning, and learn how to conduct a well-designed study to draw your own conclusions from data.\n\n\n\ncolab.r\n\n # run this in colab to start a notebook with R\n https://colab.research.google.com/#create=true&language=r"
+    "objectID": "_introduction_to_regression_in_r_01.html#section",
+    "href": "_introduction_to_regression_in_r_01.html#section",
+    "title": "5  Simple Linear Regression",
+    "section": "5.1 ",
+    "text": "5.1 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
-    "objectID": "_introduction_to_regression_in_r_02.html",
-    "href": "_introduction_to_regression_in_r_02.html",
+    "objectID": "_introduction_to_regression_in_r_01.html#section-1",
+    "href": "_introduction_to_regression_in_r_01.html#section-1",
+    "title": "5  Simple Linear Regression",
+    "section": "5.2 ",
+    "text": "5.2 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#section-2",
+    "href": "_introduction_to_regression_in_r_01.html#section-2",
+    "title": "5  Simple Linear Regression",
+    "section": "5.3 ",
+    "text": "5.3 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#section-3",
+    "href": "_introduction_to_regression_in_r_01.html#section-3",
+    "title": "5  Simple Linear Regression",
+    "section": "5.4 ",
+    "text": "5.4 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#section-4",
+    "href": "_introduction_to_regression_in_r_01.html#section-4",
+    "title": "5  Simple Linear Regression",
+    "section": "5.5 ",
+    "text": "5.5 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#section-5",
+    "href": "_introduction_to_regression_in_r_01.html#section-5",
+    "title": "5  Simple Linear Regression",
+    "section": "5.6 ",
+    "text": "5.6 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#section-6",
+    "href": "_introduction_to_regression_in_r_01.html#section-6",
+    "title": "5  Simple Linear Regression",
+    "section": "5.7 ",
+    "text": "5.7 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#section-7",
+    "href": "_introduction_to_regression_in_r_01.html#section-7",
+    "title": "5  Simple Linear Regression",
+    "section": "5.8 ",
+    "text": "5.8 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section",
+    "href": "_introduction_to_regression_in_r_02.html#section",
     "title": "6  Predictions and model objects",
-    "section": "",
-    "text": "In this chapter, you’ll discover how to use linear regression models to make predictions on Taiwanese house prices and Facebook advert clicks. You’ll also grow your regression skills as you get hands-on with model objects, understand the concept of “regression to the mean”, and learn how to transform variables in a dataset."
+    "section": "6.1 ",
+    "text": "6.1 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
-    "objectID": "_introduction_to_regression_in_r_03.html",
-    "href": "_introduction_to_regression_in_r_03.html",
+    "objectID": "_introduction_to_regression_in_r_02.html#section-1",
+    "href": "_introduction_to_regression_in_r_02.html#section-1",
+    "title": "6  Predictions and model objects",
+    "section": "6.2 ",
+    "text": "6.2 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-2",
+    "href": "_introduction_to_regression_in_r_02.html#section-2",
+    "title": "6  Predictions and model objects",
+    "section": "6.3 ",
+    "text": "6.3 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-3",
+    "href": "_introduction_to_regression_in_r_02.html#section-3",
+    "title": "6  Predictions and model objects",
+    "section": "6.4 ",
+    "text": "6.4 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-4",
+    "href": "_introduction_to_regression_in_r_02.html#section-4",
+    "title": "6  Predictions and model objects",
+    "section": "6.5 ",
+    "text": "6.5 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-5",
+    "href": "_introduction_to_regression_in_r_02.html#section-5",
+    "title": "6  Predictions and model objects",
+    "section": "6.6 ",
+    "text": "6.6 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-6",
+    "href": "_introduction_to_regression_in_r_02.html#section-6",
+    "title": "6  Predictions and model objects",
+    "section": "6.7 ",
+    "text": "6.7 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-7",
+    "href": "_introduction_to_regression_in_r_02.html#section-7",
+    "title": "6  Predictions and model objects",
+    "section": "6.8 ",
+    "text": "6.8 \n\nInstructions 100 XP\n\n\nex_0.r\n\n\n```****\n\n\n\n:::{#quarto-navigation-envelope .hidden}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-int-sidebar-title\"}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-int-navbar-title\"}\n[<span class='chapter-number'>7</span>  <span class='chapter-title'>Assessing model fit</span>]{.hidden render-id=\"quarto-int-next\"}\n[<span class='chapter-number'>5</span>  <span class='chapter-title'>Simple Linear Regression</span>]{.hidden render-id=\"quarto-int-prev\"}\n[Preface]{.hidden render-id=\"quarto-int-sidebar:/index.html\"}\n[Introduction]{.hidden render-id=\"quarto-int-sidebar:/intro.html\"}\n[Introduction to Statistics in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-1\"}\n[Introduction to Statistics in R: part description]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_00.html\"}\n[<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary Statistics</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_01.html\"}\n[<span class='chapter-number'>2</span>  <span class='chapter-title'>Random Numbers and Probability</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_02.html\"}\n[<span class='chapter-number'>3</span>  <span class='chapter-title'>More Distributions and the Central Limit Theorem</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_03.html\"}\n[<span class='chapter-number'>4</span>  <span class='chapter-title'>Correlation and Experimental Design</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_statistics_in_r_04.html\"}\n[Introdcution to Regression in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-2\"}\n[Introduction to Regression in R: part description]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_regression_in_r_00.html\"}\n[<span class='chapter-number'>5</span>  <span class='chapter-title'>Simple Linear Regression</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_regression_in_r_01.html\"}\n[<span class='chapter-number'>6</span>  <span class='chapter-title'>Predictions and model objects</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_regression_in_r_02.html\"}\n[<span class='chapter-number'>7</span>  <span class='chapter-title'>Assessing model fit</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_regression_in_r_03.html\"}\n[<span class='chapter-number'>8</span>  <span class='chapter-title'>Simple logistic regression</span>]{.hidden render-id=\"quarto-int-sidebar:/_introduction_to_regression_in_r_04.html\"}\n[Intermediate Regression in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-3\"}\n[Sampling in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-4\"}\n[Hypothesis Testing in R]{.hidden render-id=\"quarto-int-sidebar:quarto-sidebar-section-5\"}\n[Summary]{.hidden render-id=\"quarto-int-sidebar:/summary.html\"}\n[References]{.hidden render-id=\"quarto-int-sidebar:/references.html\"}\n:::\n\n\n\n:::{#quarto-meta-markdown .hidden}\n[Statistics Fundamentals With R - [6]{.chapter-number}  [Predictions and model objects]{.chapter-title}]{.hidden render-id=\"quarto-metatitle\"}\n[Statistics Fundamentals With R - [6]{.chapter-number}  [Predictions and model objects]{.chapter-title}]{.hidden render-id=\"quarto-twittercardtitle\"}\n[Statistics Fundamentals With R - [6]{.chapter-number}  [Predictions and model objects]{.chapter-title}]{.hidden render-id=\"quarto-ogcardtitle\"}\n[Statistics Fundamentals With R]{.hidden render-id=\"quarto-metasitename\"}\n:::\n\n\n\n\n<!-- -->\n\n::: {.quarto-embedded-source-code}\n```````````````````{.markdown shortcodes=\"false\"}\n# Predictions and model objects\n\nIn this chapter, you’ll discover how to use linear \nregression models to make predictions on Taiwanese \nhouse prices and Facebook advert clicks. You’ll also \ngrow your regression skills as you get hands-on with \nmodel objects, understand the concept of \"regression \nto the mean\", and learn how to transform variables in \na dataset.\n\n##\n\n### Instructions `100 XP` {.unnumbered}\n\n```{.r filename=\"ex_0.r\"}"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-8",
+    "href": "_introduction_to_regression_in_r_02.html#section-8",
+    "title": "6  Predictions and model objects",
+    "section": "6.9 ",
+    "text": "6.9 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-9",
+    "href": "_introduction_to_regression_in_r_02.html#section-9",
+    "title": "6  Predictions and model objects",
+    "section": "6.10 ",
+    "text": "6.10 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-10",
+    "href": "_introduction_to_regression_in_r_02.html#section-10",
+    "title": "6  Predictions and model objects",
+    "section": "6.11 ",
+    "text": "6.11 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-11",
+    "href": "_introduction_to_regression_in_r_02.html#section-11",
+    "title": "6  Predictions and model objects",
+    "section": "6.12 ",
+    "text": "6.12 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-12",
+    "href": "_introduction_to_regression_in_r_02.html#section-12",
+    "title": "6  Predictions and model objects",
+    "section": "6.13 ",
+    "text": "6.13 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-13",
+    "href": "_introduction_to_regression_in_r_02.html#section-13",
+    "title": "6  Predictions and model objects",
+    "section": "6.14 ",
+    "text": "6.14 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_02.html#section-14",
+    "href": "_introduction_to_regression_in_r_02.html#section-14",
+    "title": "6  Predictions and model objects",
+    "section": "6.15 ",
+    "text": "6.15 \n\nInstructions 100 XP\n\n\nex_0.r\n\n\n```****\n\n:::"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html#section",
+    "href": "_introduction_to_regression_in_r_03.html#section",
     "title": "7  Assessing model fit",
-    "section": "",
-    "text": "In this chapter, you’ll learn how to ask questions of your model to assess fit. You’ll learn how to quantify how well a linear regression model fits, diagnose model problems using visualizations, and understand the leverage and influence of each observation used to create the model."
+    "section": "7.1 ",
+    "text": "7.1 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
-    "objectID": "_introduction_to_regression_in_r_04.html",
-    "href": "_introduction_to_regression_in_r_04.html",
+    "objectID": "_introduction_to_regression_in_r_03.html#section-1",
+    "href": "_introduction_to_regression_in_r_03.html#section-1",
+    "title": "7  Assessing model fit",
+    "section": "7.2 ",
+    "text": "7.2 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html#section-2",
+    "href": "_introduction_to_regression_in_r_03.html#section-2",
+    "title": "7  Assessing model fit",
+    "section": "7.3 ",
+    "text": "7.3 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html#section-3",
+    "href": "_introduction_to_regression_in_r_03.html#section-3",
+    "title": "7  Assessing model fit",
+    "section": "7.4 ",
+    "text": "7.4 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html#section-4",
+    "href": "_introduction_to_regression_in_r_03.html#section-4",
+    "title": "7  Assessing model fit",
+    "section": "7.5 ",
+    "text": "7.5 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html#section-5",
+    "href": "_introduction_to_regression_in_r_03.html#section-5",
+    "title": "7  Assessing model fit",
+    "section": "7.6 ",
+    "text": "7.6 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html#section-6",
+    "href": "_introduction_to_regression_in_r_03.html#section-6",
+    "title": "7  Assessing model fit",
+    "section": "7.7 ",
+    "text": "7.7 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_03.html#section-7",
+    "href": "_introduction_to_regression_in_r_03.html#section-7",
+    "title": "7  Assessing model fit",
+    "section": "7.8 ",
+    "text": "7.8 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section",
+    "href": "_introduction_to_regression_in_r_04.html#section",
     "title": "8  Simple logistic regression",
+    "section": "8.1 ",
+    "text": "8.1 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section-1",
+    "href": "_introduction_to_regression_in_r_04.html#section-1",
+    "title": "8  Simple logistic regression",
+    "section": "8.2 ",
+    "text": "8.2 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section-2",
+    "href": "_introduction_to_regression_in_r_04.html#section-2",
+    "title": "8  Simple logistic regression",
+    "section": "8.3 ",
+    "text": "8.3 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section-3",
+    "href": "_introduction_to_regression_in_r_04.html#section-3",
+    "title": "8  Simple logistic regression",
+    "section": "8.4 ",
+    "text": "8.4 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section-4",
+    "href": "_introduction_to_regression_in_r_04.html#section-4",
+    "title": "8  Simple logistic regression",
+    "section": "8.5 ",
+    "text": "8.5 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section-5",
+    "href": "_introduction_to_regression_in_r_04.html#section-5",
+    "title": "8  Simple logistic regression",
+    "section": "8.6 ",
+    "text": "8.6 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section-6",
+    "href": "_introduction_to_regression_in_r_04.html#section-6",
+    "title": "8  Simple logistic regression",
+    "section": "8.7 ",
+    "text": "8.7 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_04.html#section-7",
+    "href": "_introduction_to_regression_in_r_04.html#section-7",
+    "title": "8  Simple logistic regression",
+    "section": "8.8 ",
+    "text": "8.8 \n\nInstructions 100 XP\n\n\nex_0.r"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
     "section": "",
-    "text": "Learn to fit logistic regression models. Using real- world data, you’ll predict the likelihood of a customer closing their bank account as probabilities of success and odds ratios, and quantify model performance using confusion matrices."
+    "text": "In summary, this book has no content whatsoever."
   }
 ]

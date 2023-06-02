@@ -7,3 +7,61 @@ grow your regression skills as you get hands-on with
 model objects, understand the concept of "regression 
 to the mean", and learn how to transform variables in 
 a dataset.
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```
+##
+
+### Instructions `100 XP` {.unnumbered}
+
+```{.r filename="ex_0.r"}
+
+```****
