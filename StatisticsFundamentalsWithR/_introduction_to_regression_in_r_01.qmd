@@ -10,12 +10,35 @@ explanatory variables using model coefficients.
 
 
 
-##
+## Visualizing two variables
+
+Before you can run any statistical models,
+it's usually a good idea to visualize your dataset. Here, we'll look at
+the relationship between house price per area and the number of nearby
+convenience stores, using the Taiwan real estate dataset.
+
+One challenge in this dataset is that the number of convenience stores contains
+integer data, causing points to overlap. To solve this, you will make the
+points transparent.
+
+`taiwan_real_estate` is available, `ggplot2` is loaded, and its black and 
+white theme has been set.
 
 ### Instructions `100 XP` {.unnumbered}
+- Using `taiwan_real_estate`, draw a scatter plot of `price_twd_msq` (y-axis) 
+versus `n_convenience` (x-axis).
+- Update the plot to make the points 50% transparent by setting alpha to 0.5.
+- Update the plot by adding a trend line, calculated using a linear 
+regression. You can omit the confidence ribbon.
+
 
 ```{.r filename="ex_0.r"}
-
+ggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(
+    method = 'lm',
+    se = FALSE 
+   )
 ```
 
 ##
