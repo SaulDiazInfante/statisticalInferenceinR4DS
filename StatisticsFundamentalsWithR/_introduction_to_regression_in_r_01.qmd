@@ -32,7 +32,7 @@ versus `n_convenience` (x-axis).
 regression. You can omit the confidence ribbon.
 
 
-```{.r filename="ex_0.r"}
+```{.r filename="ex_001.r"}
 ggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq)) +
   geom_point(alpha = 0.5) +
   geom_smooth(
@@ -41,18 +41,57 @@ ggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq)) +
    )
 ```
 
-##
+## Linear regression with 'lm()'
+
+While 'ggplot' can display a linear regression trend line using 
+'geom_smooth()', it doesn't give you access to the intercept and slope 
+as variables, or allow you to work with the model results as variables.
+That means that sometimes you'll need to run a linear regression yourself.
+
+Time to run your first model!
+
+'taiwan_real_estate' is available. 
+'TWD' is an abbreviation for Taiwan dollars.
 
 ### Instructions `100 XP` {.unnumbered}
 
-```{.r filename="ex_0.r"}
+Run a linear regression with 'price_twd_msq' as the response variable,
+'n_convenience' as the explanatory variable, and 
+'taiwan_real_estate' as the dataset.
+```{.r filename="ex_002.r"}
+# Run a linear regression of price_twd_msq vs. n_convenience
+lm(
+    formula = price_twd_msq ~ n_convenience,
+    data = taiwan_real_estate
+)
 
 ```
-##
+
+## Visualizing numeric vs. categorical
+
+If the explanatory variable is categorical, the scatter plot that you 
+used before to visualize the data doesn't make sense. 
+Instead, a good option is to draw a histogram for each category.
+
+The Taiwan real estate dataset has a categorical variable in the form of the 
+age of each house. The ages have been split into 3 groups: 
+0 to 15 years, 15 to 30 years, and 30 to 45 years.
+
+'taiwan_real_estate' is available and 'ggplot2' is loaded.
 
 ### Instructions `100 XP` {.unnumbered}
+- Using taiwan_real_estate, plot a histogram of 'price_twd_msq' 
+with 10 bins.
+- Facet the plot by house_age_years to give 3 panels.
 
-```{.r filename="ex_0.r"}
+```{.r filename="ex_003.r"}
+# Using taiwan_real_estate, plot price_twd_msq
+taiwan_real_estate %>%
+  ggplot(aes(x = price_twd_msq)) +
+  # Make it a histogram with 10 bins
+    geom_histogram(bins = 10) +
+  # Facet the plot so each house age group gets its own panel
+  facet_wrap(vars(house_age_years))
 
 ```
 ##

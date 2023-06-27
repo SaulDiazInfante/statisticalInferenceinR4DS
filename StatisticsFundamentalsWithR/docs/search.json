@@ -192,43 +192,43 @@
     "objectID": "_introduction_to_regression_in_r_01.html#section",
     "href": "_introduction_to_regression_in_r_01.html#section",
     "title": "5  Simple Linear Regression",
-    "section": "5.1 ",
-    "text": "5.1 \n\nInstructions 100 XP\n\n\nex_0.r"
+    "section": "5.3 ",
+    "text": "5.3 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
     "objectID": "_introduction_to_regression_in_r_01.html#section-1",
     "href": "_introduction_to_regression_in_r_01.html#section-1",
     "title": "5  Simple Linear Regression",
-    "section": "5.2 ",
-    "text": "5.2 \n\nInstructions 100 XP\n\n\nex_0.r"
+    "section": "5.4 ",
+    "text": "5.4 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
     "objectID": "_introduction_to_regression_in_r_01.html#section-2",
     "href": "_introduction_to_regression_in_r_01.html#section-2",
     "title": "5  Simple Linear Regression",
-    "section": "5.3 ",
-    "text": "5.3 \n\nInstructions 100 XP\n\n\nex_0.r"
+    "section": "5.5 ",
+    "text": "5.5 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
     "objectID": "_introduction_to_regression_in_r_01.html#section-3",
     "href": "_introduction_to_regression_in_r_01.html#section-3",
     "title": "5  Simple Linear Regression",
-    "section": "5.4 ",
-    "text": "5.4 \n\nInstructions 100 XP\n\n\nex_0.r"
+    "section": "5.6 ",
+    "text": "5.6 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
     "objectID": "_introduction_to_regression_in_r_01.html#section-4",
     "href": "_introduction_to_regression_in_r_01.html#section-4",
     "title": "5  Simple Linear Regression",
-    "section": "5.5 ",
-    "text": "5.5 \n\nInstructions 100 XP\n\n\nex_0.r"
+    "section": "5.7 ",
+    "text": "5.7 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
     "objectID": "_introduction_to_regression_in_r_01.html#section-5",
     "href": "_introduction_to_regression_in_r_01.html#section-5",
     "title": "5  Simple Linear Regression",
-    "section": "5.6 ",
-    "text": "5.6 \n\nInstructions 100 XP\n\n\nex_0.r"
+    "section": "5.8 ",
+    "text": "5.8 \n\nInstructions 100 XP\n\n\nex_0.r"
   },
   {
     "objectID": "_introduction_to_regression_in_r_01.html#section-6",
@@ -467,5 +467,19 @@
     "title": "Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#visualizing-two-variables",
+    "href": "_introduction_to_regression_in_r_01.html#visualizing-two-variables",
+    "title": "5  Simple Linear Regression",
+    "section": "5.1 Visualizing two variables",
+    "text": "5.1 Visualizing two variables\nBefore you can run any statistical models, it’s usually a good idea to visualize your dataset. Here, we’ll look at the relationship between house price per area and the number of nearby convenience stores, using the Taiwan real estate dataset.\nOne challenge in this dataset is that the number of convenience stores contains integer data, causing points to overlap. To solve this, you will make the points transparent.\ntaiwan_real_estate is available, ggplot2 is loaded, and its black and white theme has been set.\n\nInstructions 100 XP\n\nUsing taiwan_real_estate, draw a scatter plot of price_twd_msq (y-axis) versus n_convenience (x-axis).\nUpdate the plot to make the points 50% transparent by setting alpha to 0.5.\nUpdate the plot by adding a trend line, calculated using a linear regression. You can omit the confidence ribbon.\n\n\n\nex_001.r\n\nggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(\n    method = 'lm',\n    se = FALSE \n   )"
+  },
+  {
+    "objectID": "_introduction_to_regression_in_r_01.html#linear-regression-with-lm",
+    "href": "_introduction_to_regression_in_r_01.html#linear-regression-with-lm",
+    "title": "5  Simple Linear Regression",
+    "section": "5.2 Linear regression with ‘lm()’",
+    "text": "5.2 Linear regression with ‘lm()’\nWhile ‘ggplot’ can display a linear regression trend line using ‘geom_smooth()’, it doesn’t give you access to the intercept and slope as variables, or allow you to work with the model results as variables. That means that sometimes you’ll need to run a linear regression yourself.\nTime to run your first model!\n‘taiwan_real_estate’ is available. ‘TWD’ is an abbreviation for Taiwan dollars.\n\nInstructions 100 XP\nRun a linear regression with ‘price_twd_msq’ as the response variable, ‘n_convenience’ as the explanatory variable, and ‘taiwan_real_estate’ as the dataset.\n\n\nex_002.r\n\n# Run a linear regression of price_twd_msq vs. n_convenience\nlm(\n    formula = price_twd_msq ~ n_convenience,\n    data = taiwan_real_estate\n)"
   }
 ]
